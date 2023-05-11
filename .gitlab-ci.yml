@@ -1,6 +1,0 @@
-build:
-  image: ubuntu:latest
-  tags:
-    - linux-amd64
-  script:
-    - ls -la
