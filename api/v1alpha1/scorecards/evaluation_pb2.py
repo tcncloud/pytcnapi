@@ -12,9 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 from api.commons import scorecards_pb2 as api_dot_commons_dot_scorecards__pb2
+from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(api/v1alpha1/scorecards/evaluation.proto\x12\x17\x61pi.v1alpha1.scorecards\x1a\x1c\x61pi/commons/scorecards.proto\"R\n\x17\x43reateEvaluationRequest\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"S\n\x18\x43reateEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\">\n\x17\x44\x65leteEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"S\n\x18\x44\x65leteEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\";\n\x14GetEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"P\n\x15GetEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"=\n\x16ScoreEvaluationRequest\x12#\n\revaluation_id\x18\x03 \x01(\x03R\x0c\x65valuationId\"R\n\x17ScoreEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\xdf\x01\n\x16ListEvaluationsRequest\x12\x1b\n\tscorer_id\x18\x02 \x03(\tR\x08scorerId\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\"T\n\x17ListEvaluationsResponse\x12\x39\n\x0b\x65valuations\x18\x01 \x03(\x0b\x32\x17.api.commons.EvaluationR\x0b\x65valuationsB\xac\x01\n\x1b\x63om.api.v1alpha1.scorecardsB\x0f\x45valuationProtoP\x01\xa2\x02\x03\x41VS\xaa\x02\x17\x41pi.V1alpha1.Scorecards\xca\x02\x17\x41pi\\V1alpha1\\Scorecards\xe2\x02#Api\\V1alpha1\\Scorecards\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Scorecardsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(api/v1alpha1/scorecards/evaluation.proto\x12\x17\x61pi.v1alpha1.scorecards\x1a\x1c\x61pi/commons/scorecards.proto\x1a google/protobuf/field_mask.proto\"R\n\x17\x43reateEvaluationRequest\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"S\n\x18\x43reateEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\x8f\x01\n\x17UpdateEvaluationRequest\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\x12;\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMask\"S\n\x18UpdateEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\">\n\x17\x44\x65leteEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"S\n\x18\x44\x65leteEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\";\n\x14GetEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"P\n\x15GetEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"=\n\x16ScoreEvaluationRequest\x12#\n\revaluation_id\x18\x03 \x01(\x03R\x0c\x65valuationId\"R\n\x17ScoreEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\xdf\x01\n\x16ListEvaluationsRequest\x12\x1b\n\tscorer_id\x18\x02 \x03(\tR\x08scorerId\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\"T\n\x17ListEvaluationsResponse\x12\x39\n\x0b\x65valuations\x18\x01 \x03(\x0b\x32\x17.api.commons.EvaluationR\x0b\x65valuationsB\xac\x01\n\x1b\x63om.api.v1alpha1.scorecardsB\x0f\x45valuationProtoP\x01\xa2\x02\x03\x41VS\xaa\x02\x17\x41pi.V1alpha1.Scorecards\xca\x02\x17\x41pi\\V1alpha1\\Scorecards\xe2\x02#Api\\V1alpha1\\Scorecards\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Scorecardsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,24 +24,28 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.scorecardsB\017EvaluationProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Scorecards\312\002\027Api\\V1alpha1\\Scorecards\342\002#Api\\V1alpha1\\Scorecards\\GPBMetadata\352\002\031Api::V1alpha1::Scorecards'
-  _globals['_CREATEEVALUATIONREQUEST']._serialized_start=99
-  _globals['_CREATEEVALUATIONREQUEST']._serialized_end=181
-  _globals['_CREATEEVALUATIONRESPONSE']._serialized_start=183
-  _globals['_CREATEEVALUATIONRESPONSE']._serialized_end=266
-  _globals['_DELETEEVALUATIONREQUEST']._serialized_start=268
-  _globals['_DELETEEVALUATIONREQUEST']._serialized_end=330
-  _globals['_DELETEEVALUATIONRESPONSE']._serialized_start=332
-  _globals['_DELETEEVALUATIONRESPONSE']._serialized_end=415
-  _globals['_GETEVALUATIONREQUEST']._serialized_start=417
-  _globals['_GETEVALUATIONREQUEST']._serialized_end=476
-  _globals['_GETEVALUATIONRESPONSE']._serialized_start=478
-  _globals['_GETEVALUATIONRESPONSE']._serialized_end=558
-  _globals['_SCOREEVALUATIONREQUEST']._serialized_start=560
-  _globals['_SCOREEVALUATIONREQUEST']._serialized_end=621
-  _globals['_SCOREEVALUATIONRESPONSE']._serialized_start=623
-  _globals['_SCOREEVALUATIONRESPONSE']._serialized_end=705
-  _globals['_LISTEVALUATIONSREQUEST']._serialized_start=708
-  _globals['_LISTEVALUATIONSREQUEST']._serialized_end=931
-  _globals['_LISTEVALUATIONSRESPONSE']._serialized_start=933
-  _globals['_LISTEVALUATIONSRESPONSE']._serialized_end=1017
+  _globals['_CREATEEVALUATIONREQUEST']._serialized_start=133
+  _globals['_CREATEEVALUATIONREQUEST']._serialized_end=215
+  _globals['_CREATEEVALUATIONRESPONSE']._serialized_start=217
+  _globals['_CREATEEVALUATIONRESPONSE']._serialized_end=300
+  _globals['_UPDATEEVALUATIONREQUEST']._serialized_start=303
+  _globals['_UPDATEEVALUATIONREQUEST']._serialized_end=446
+  _globals['_UPDATEEVALUATIONRESPONSE']._serialized_start=448
+  _globals['_UPDATEEVALUATIONRESPONSE']._serialized_end=531
+  _globals['_DELETEEVALUATIONREQUEST']._serialized_start=533
+  _globals['_DELETEEVALUATIONREQUEST']._serialized_end=595
+  _globals['_DELETEEVALUATIONRESPONSE']._serialized_start=597
+  _globals['_DELETEEVALUATIONRESPONSE']._serialized_end=680
+  _globals['_GETEVALUATIONREQUEST']._serialized_start=682
+  _globals['_GETEVALUATIONREQUEST']._serialized_end=741
+  _globals['_GETEVALUATIONRESPONSE']._serialized_start=743
+  _globals['_GETEVALUATIONRESPONSE']._serialized_end=823
+  _globals['_SCOREEVALUATIONREQUEST']._serialized_start=825
+  _globals['_SCOREEVALUATIONREQUEST']._serialized_end=886
+  _globals['_SCOREEVALUATIONRESPONSE']._serialized_start=888
+  _globals['_SCOREEVALUATIONRESPONSE']._serialized_end=970
+  _globals['_LISTEVALUATIONSREQUEST']._serialized_start=973
+  _globals['_LISTEVALUATIONSREQUEST']._serialized_end=1196
+  _globals['_LISTEVALUATIONSRESPONSE']._serialized_start=1198
+  _globals['_LISTEVALUATIONSRESPONSE']._serialized_end=1282
 # @@protoc_insertion_point(module_scope)

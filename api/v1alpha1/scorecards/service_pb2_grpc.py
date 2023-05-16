@@ -172,6 +172,11 @@ class ScorecardsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ScoreEvaluationRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ScoreEvaluationResponse.FromString,
                 )
+        self.UpdateEvaluation = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/UpdateEvaluation',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.UpdateEvaluationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.UpdateEvaluationResponse.FromString,
+                )
         self.GetEvaluation = channel.unary_unary(
                 '/api.v1alpha1.scorecards.Scorecards/GetEvaluation',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.GetEvaluationRequest.SerializeToString,
@@ -452,6 +457,13 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateEvaluation(self, request, context):
+        """UpdateEvaluation updates an evaluation
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetEvaluation(self, request, context):
         """GetEvaluation gets an evaluation
         """
@@ -695,6 +707,11 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.ScoreEvaluation,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ScoreEvaluationRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ScoreEvaluationResponse.SerializeToString,
+            ),
+            'UpdateEvaluation': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateEvaluation,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.UpdateEvaluationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.UpdateEvaluationResponse.SerializeToString,
             ),
             'GetEvaluation': grpc.unary_unary_rpc_method_handler(
                     servicer.GetEvaluation,
@@ -1278,6 +1295,23 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/ScoreEvaluation',
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ScoreEvaluationRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ScoreEvaluationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateEvaluation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/UpdateEvaluation',
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.UpdateEvaluationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.UpdateEvaluationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
