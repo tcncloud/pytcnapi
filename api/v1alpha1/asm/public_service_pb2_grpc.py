@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from api.commons import acd_pb2 as api_dot_commons_dot_acd__pb2
 from api.commons import asm_pb2 as api_dot_commons_dot_asm__pb2
 from api.commons import omnichannel_pb2 as api_dot_commons_dot_omnichannel__pb2
 from api.v1alpha1.asm import service_pb2 as api_dot_v1alpha1_dot_asm_dot_service__pb2
@@ -25,7 +24,7 @@ class AsmStub(object):
         self.ManagerStreamAgentState = channel.unary_stream(
                 '/api.v1alpha1.asm.Asm/ManagerStreamAgentState',
                 request_serializer=api_dot_v1alpha1_dot_asm_dot_service__pb2.ManagerStreamAgentStateReq.SerializeToString,
-                response_deserializer=api_dot_commons_dot_acd__pb2.AgentState.FromString,
+                response_deserializer=api_dot_commons_dot_asm__pb2.ManagerStreamAgentStateRes.FromString,
                 )
         self.PushEvents = channel.unary_unary(
                 '/api.v1alpha1.asm.Asm/PushEvents',
@@ -188,7 +187,7 @@ def add_AsmServicer_to_server(servicer, server):
             'ManagerStreamAgentState': grpc.unary_stream_rpc_method_handler(
                     servicer.ManagerStreamAgentState,
                     request_deserializer=api_dot_v1alpha1_dot_asm_dot_service__pb2.ManagerStreamAgentStateReq.FromString,
-                    response_serializer=api_dot_commons_dot_acd__pb2.AgentState.SerializeToString,
+                    response_serializer=api_dot_commons_dot_asm__pb2.ManagerStreamAgentStateRes.SerializeToString,
             ),
             'PushEvents': grpc.unary_unary_rpc_method_handler(
                     servicer.PushEvents,
@@ -285,7 +284,7 @@ class Asm(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.asm.Asm/ManagerStreamAgentState',
             api_dot_v1alpha1_dot_asm_dot_service__pb2.ManagerStreamAgentStateReq.SerializeToString,
-            api_dot_commons_dot_acd__pb2.AgentState.FromString,
+            api_dot_commons_dot_asm__pb2.ManagerStreamAgentStateRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
