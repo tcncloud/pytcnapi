@@ -205,6 +205,7 @@ class AnaServicer(object):
 
     def SetDefaultTimeFilter(self, request, context):
         """set default time filter for given ana account
+        org.Permission_EDIT_CLIENT_PREFERENCES
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -212,6 +213,7 @@ class AnaServicer(object):
 
     def SetDefaultDashboard(self, request, context):
         """sets the dashboard that is shown by default for neo
+        org.Permission_EDIT_CLIENT_PREFERENCES
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -219,6 +221,7 @@ class AnaServicer(object):
 
     def GetAccount(self, request, context):
         """gets account details for the client
+        org.Permission_VIEW_REPORTS
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -240,6 +243,7 @@ class AnaServicer(object):
 
     def GenerateMonthlyBilling(self, request, context):
         """creates and returns a url to download billing for the month provided or the previous month if none is provided
+        org.Permission_VIEW_BILLING
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -247,6 +251,7 @@ class AnaServicer(object):
 
     def GetTimeZone(self, request, context):
         """gets the ana_account timezone for the client
+        org.Permission_VIEW_REPORTS
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -254,6 +259,7 @@ class AnaServicer(object):
 
     def SetTimeZone(self, request, context):
         """updates the timezone for the account
+        org.Permission_VIEW_REPORTS
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -284,6 +290,7 @@ class AnaServicer(object):
 
     def EnableCustomReports(self, request, context):
         """enable custom report usage for the client
+        org.Permission_EDIT_CLIENT_PREFERENCES
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -291,6 +298,7 @@ class AnaServicer(object):
 
     def DisableCustomReports(self, request, context):
         """disable custom report usage for the client
+        org.Permission_EDIT_CLIENT_PREFERENCES
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -298,6 +306,7 @@ class AnaServicer(object):
 
     def MakeAdoptable(self, request, context):
         """allow the client to be adopted by another account
+        org.Permission_EDIT_CLIENT_PREFERENCES
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -305,6 +314,7 @@ class AnaServicer(object):
 
     def MakeUnadoptable(self, request, context):
         """disallow other accounts from adopting the client
+        org.Permission_EDIT_CLIENT_PREFERENCES
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
