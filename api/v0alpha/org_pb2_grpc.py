@@ -2001,6 +2001,7 @@ class OrgServicer(object):
         on the pause_code message.
         Required Permissions:
         AGENT_MANAGEMENT
+        Actual permission checked is ORG_EDIT??
         Errors:
         - grpc.InvalidArgument: The pause_code field was not set or the pause_code.codes field was an empty list.
         - grpc.Internal: an error occurred while marshalling the pause_code into an xml string.
