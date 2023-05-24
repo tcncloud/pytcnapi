@@ -11,10 +11,11 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from annotations import authz_pb2 as annotations_dot_authz__pb2
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15\x61pi/v0alpha/fts.proto\x12\x0b\x61pi.v0alpha\x1a\x1cgoogle/api/annotations.proto\"-\n\x13GetUploadFileUrlReq\x12\x16\n\x06prefix\x18\x05 \x01(\tR\x06prefix\"7\n\x13GetUploadFileUrlRes\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\x12\x0e\n\x02id\x18\x03 \x01(\tR\x02id2\x85\x01\n\x03\x46TS\x12~\n\x10GetUploadFileUrl\x12 .api.v0alpha.GetUploadFileUrlReq\x1a .api.v0alpha.GetUploadFileUrlRes\"&\x82\xd3\xe4\x93\x02 \"\x1b/api/v0alpha/fts/upload_url:\x01*Bh\n\x0f\x63om.api.v0alphaB\x08\x46tsProtoP\x01\xa2\x02\x03\x41VX\xaa\x02\x0b\x41pi.V0alpha\xca\x02\x0b\x41pi\\V0alpha\xe2\x02\x17\x41pi\\V0alpha\\GPBMetadata\xea\x02\x0c\x41pi::V0alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x15\x61pi/v0alpha/fts.proto\x12\x0b\x61pi.v0alpha\x1a\x17\x61nnotations/authz.proto\x1a\x1cgoogle/api/annotations.proto\"-\n\x13GetUploadFileUrlReq\x12\x16\n\x06prefix\x18\x05 \x01(\tR\x06prefix\"7\n\x13GetUploadFileUrlRes\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\x12\x0e\n\x02id\x18\x03 \x01(\tR\x02id2\x8d\x01\n\x03\x46TS\x12\x85\x01\n\x10GetUploadFileUrl\x12 .api.v0alpha.GetUploadFileUrlReq\x1a .api.v0alpha.GetUploadFileUrlRes\"-\xba\xb8\x91\x02\x02\x18\x01\x82\xd3\xe4\x93\x02 \"\x1b/api/v0alpha/fts/upload_url:\x01*Bh\n\x0f\x63om.api.v0alphaB\x08\x46tsProtoP\x01\xa2\x02\x03\x41VX\xaa\x02\x0b\x41pi.V0alpha\xca\x02\x0b\x41pi\\V0alpha\xe2\x02\x17\x41pi\\V0alpha\\GPBMetadata\xea\x02\x0c\x41pi::V0alphab\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,11 +25,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\017com.api.v0alphaB\010FtsProtoP\001\242\002\003AVX\252\002\013Api.V0alpha\312\002\013Api\\V0alpha\342\002\027Api\\V0alpha\\GPBMetadata\352\002\014Api::V0alpha'
   _FTS.methods_by_name['GetUploadFileUrl']._options = None
-  _FTS.methods_by_name['GetUploadFileUrl']._serialized_options = b'\202\323\344\223\002 \"\033/api/v0alpha/fts/upload_url:\001*'
-  _globals['_GETUPLOADFILEURLREQ']._serialized_start=68
-  _globals['_GETUPLOADFILEURLREQ']._serialized_end=113
-  _globals['_GETUPLOADFILEURLRES']._serialized_start=115
-  _globals['_GETUPLOADFILEURLRES']._serialized_end=170
-  _globals['_FTS']._serialized_start=173
-  _globals['_FTS']._serialized_end=306
+  _FTS.methods_by_name['GetUploadFileUrl']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002 \"\033/api/v0alpha/fts/upload_url:\001*'
+  _globals['_GETUPLOADFILEURLREQ']._serialized_start=93
+  _globals['_GETUPLOADFILEURLREQ']._serialized_end=138
+  _globals['_GETUPLOADFILEURLRES']._serialized_start=140
+  _globals['_GETUPLOADFILEURLRES']._serialized_end=195
+  _globals['_FTS']._serialized_start=198
+  _globals['_FTS']._serialized_end=339
 # @@protoc_insertion_point(module_scope)

@@ -34,11 +34,6 @@ class OmniApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetCampaignByIdReq.SerializeToString,
                 response_deserializer=api_dot_commons_dot_omnichannel__pb2.OmniCampaign.FromString,
                 )
-        self.ListCampaigns = channel.unary_unary(
-                '/api.v0alpha.OmniApi/ListCampaigns',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsRes.FromString,
-                )
         self.PauseCampaign = channel.unary_unary(
                 '/api.v0alpha.OmniApi/PauseCampaign',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.PauseCampaignReq.SerializeToString,
@@ -59,21 +54,6 @@ class OmniApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateCampaignPacingSpeedReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateCampaignPacingSpeedRes.FromString,
                 )
-        self.GetOffLoadedTextMessage = channel.unary_unary(
-                '/api.v0alpha.OmniApi/GetOffLoadedTextMessage',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetOffLoadedTextMessageReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetOffLoadedTextMessageRes.FromString,
-                )
-        self.ManagerListMessages = channel.unary_stream(
-                '/api.v0alpha.OmniApi/ManagerListMessages',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ManagerListMessagesReq.SerializeToString,
-                response_deserializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
-                )
-        self.ListMessages = channel.unary_stream(
-                '/api.v0alpha.OmniApi/ListMessages',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListMessagesReq.SerializeToString,
-                response_deserializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
-                )
         self.SendOmniMessage = channel.unary_unary(
                 '/api.v0alpha.OmniApi/SendOmniMessage',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.SendOmniMessageReq.SerializeToString,
@@ -83,16 +63,6 @@ class OmniApiStub(object):
                 '/api.v0alpha.OmniApi/ManagerSendOmniMessage',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.SendOmniMessageReq.SerializeToString,
                 response_deserializer=api_dot_commons_dot_types__pb2.Empty.FromString,
-                )
-        self.ManagerListConversations = channel.unary_unary(
-                '/api.v0alpha.OmniApi/ManagerListConversations',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsRes.FromString,
-                )
-        self.SuggestResponse = channel.unary_unary(
-                '/api.v0alpha.OmniApi/SuggestResponse',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseRes.FromString,
                 )
         self.CreateDisposition = channel.unary_unary(
                 '/api.v0alpha.OmniApi/CreateDisposition',
@@ -133,6 +103,26 @@ class OmniApiStub(object):
                 '/api.v0alpha.OmniApi/DeleteCustomUnsubscribeLink',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.DeleteCustomUnsubscribeLinkReq.SerializeToString,
                 response_deserializer=api_dot_commons_dot_types__pb2.Empty.FromString,
+                )
+        self.ListCampaigns = channel.unary_unary(
+                '/api.v0alpha.OmniApi/ListCampaigns',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsRes.FromString,
+                )
+        self.ManagerListMessages = channel.unary_stream(
+                '/api.v0alpha.OmniApi/ManagerListMessages',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ManagerListMessagesReq.SerializeToString,
+                response_deserializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
+                )
+        self.ListMessages = channel.unary_stream(
+                '/api.v0alpha.OmniApi/ListMessages',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListMessagesReq.SerializeToString,
+                response_deserializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
+                )
+        self.ManagerListConversations = channel.unary_unary(
+                '/api.v0alpha.OmniApi/ManagerListConversations',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsRes.FromString,
                 )
         self.ListContactLists = channel.unary_unary(
                 '/api.v0alpha.OmniApi/ListContactLists',
@@ -194,11 +184,6 @@ class OmniApiStub(object):
                 request_serializer=api_dot_commons_dot_omnichannel__pb2.VerifiedEmail.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.CreateVerifiedEmailRes.FromString,
                 )
-        self.SendEmailNotification = channel.unary_unary(
-                '/api.v0alpha.OmniApi/SendEmailNotification',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationRes.FromString,
-                )
         self.DeleteVerifiedEmail = channel.unary_unary(
                 '/api.v0alpha.OmniApi/DeleteVerifiedEmail',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.DeleteVerifiedEmailReq.SerializeToString,
@@ -228,6 +213,11 @@ class OmniApiStub(object):
                 '/api.v0alpha.OmniApi/GetPendingGoogleXOAuth2Data',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetPendingGoogleXOAuth2DataReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetPendingGoogleXOAuth2DataRes.FromString,
+                )
+        self.SendEmailNotification = channel.unary_unary(
+                '/api.v0alpha.OmniApi/SendEmailNotification',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationRes.FromString,
                 )
         self.SendFeedbackEmail = channel.unary_unary(
                 '/api.v0alpha.OmniApi/SendFeedbackEmail',
@@ -263,6 +253,11 @@ class OmniApiStub(object):
                 '/api.v0alpha.OmniApi/UpdateSignature',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateSignatureReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateSignatureRes.FromString,
+                )
+        self.SuggestResponse = channel.unary_unary(
+                '/api.v0alpha.OmniApi/SuggestResponse',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseRes.FromString,
                 )
         self.CreateProject = channel.unary_unary(
                 '/api.v0alpha.OmniApi/CreateProject',
@@ -377,15 +372,6 @@ class OmniApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListCampaigns(self, request, context):
-        """List campaigns defined by ListCampaignsReq.
-        The method will return a ListCampaignsReq entity that will contain
-        all the campaigns within the specified filter.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def PauseCampaign(self, request, context):
         """pause a campaign
         """
@@ -416,30 +402,6 @@ class OmniApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetOffLoadedTextMessage(self, request, context):
-        """Get the text message for an off-loaded text message payload. Used
-        only for managers/agents/users. It is not for customers.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ManagerListMessages(self, request, context):
-        """Get a stream of new conversation message for a given conversation. Used
-        only for managers. It is not for customers.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListMessages(self, request, context):
-        """Get a stream of conversation message for a given conversation. Used
-        only for agents/users. It is not for customers.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def SendOmniMessage(self, request, context):
         """Send a chat message
         """
@@ -449,22 +411,6 @@ class OmniApiServicer(object):
 
     def ManagerSendOmniMessage(self, request, context):
         """Send a chat message
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ManagerListConversations(self, request, context):
-        """lists all conversation and assigned users for a given date range.
-        Required permissions:
-        OMNI_BOSS
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SuggestResponse(self, request, context):
-        """Experimental API
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -521,6 +467,40 @@ class OmniApiServicer(object):
 
     def DeleteCustomUnsubscribeLink(self, request, context):
         """DeleteCustomUnsubscribeLink - deletes custom unsubscribe link details
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListCampaigns(self, request, context):
+        """List campaigns defined by ListCampaignsReq.
+        The method will return a ListCampaignsReq entity that will contain
+        all the campaigns within the specified filter.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ManagerListMessages(self, request, context):
+        """Get a stream of new conversation message for a given conversation. Used
+        only for managers. It is not for customers.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListMessages(self, request, context):
+        """Get a stream of conversation message for a given conversation. Used
+        only for agents/users. It is not for customers.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ManagerListConversations(self, request, context):
+        """lists all conversation and assigned users for a given date range.
+        Required permissions:
+        OMNI_BOSS
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -635,18 +615,6 @@ class OmniApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SendEmailNotification(self, request, context):
-        """Send email notification defined by SendEmailNotificationReq message for the specified
-        subject, message and array of to email addresses.
-        The method will return a stream of SendEmailNotificationRes messages
-        containing result true/false after notified by email for the client_sid.
-        Required permissions:
-        OMNI_BOSS
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def DeleteVerifiedEmail(self, request, context):
         """Delete verify email record based on verified email id defined by
         DeleteVerifiedEmailReq for the specified client.
@@ -708,6 +676,18 @@ class OmniApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SendEmailNotification(self, request, context):
+        """Send email notification defined by SendEmailNotificationReq message for the specified
+        subject, message and array of to email addresses.
+        The method will return a stream of SendEmailNotificationRes messages
+        containing result true/false after notified by email for the client_sid.
+        Required permissions:
+        OMNI_BOSS
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SendFeedbackEmail(self, request, context):
         """Send an email to our feedback system. The users email will be populated as the from address to open an email thread with our support.
         """
@@ -762,6 +742,13 @@ class OmniApiServicer(object):
         """UpdateSignature - updates a message signature
         Required permissions:
         OMNI_BOSS
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SuggestResponse(self, request, context):
+        """SuggestResponse
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -959,11 +946,6 @@ def add_OmniApiServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetCampaignByIdReq.FromString,
                     response_serializer=api_dot_commons_dot_omnichannel__pb2.OmniCampaign.SerializeToString,
             ),
-            'ListCampaigns': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListCampaigns,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsRes.SerializeToString,
-            ),
             'PauseCampaign': grpc.unary_unary_rpc_method_handler(
                     servicer.PauseCampaign,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.PauseCampaignReq.FromString,
@@ -984,21 +966,6 @@ def add_OmniApiServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateCampaignPacingSpeedReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateCampaignPacingSpeedRes.SerializeToString,
             ),
-            'GetOffLoadedTextMessage': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOffLoadedTextMessage,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetOffLoadedTextMessageReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetOffLoadedTextMessageRes.SerializeToString,
-            ),
-            'ManagerListMessages': grpc.unary_stream_rpc_method_handler(
-                    servicer.ManagerListMessages,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ManagerListMessagesReq.FromString,
-                    response_serializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.SerializeToString,
-            ),
-            'ListMessages': grpc.unary_stream_rpc_method_handler(
-                    servicer.ListMessages,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListMessagesReq.FromString,
-                    response_serializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.SerializeToString,
-            ),
             'SendOmniMessage': grpc.unary_unary_rpc_method_handler(
                     servicer.SendOmniMessage,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SendOmniMessageReq.FromString,
@@ -1008,16 +975,6 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.ManagerSendOmniMessage,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SendOmniMessageReq.FromString,
                     response_serializer=api_dot_commons_dot_types__pb2.Empty.SerializeToString,
-            ),
-            'ManagerListConversations': grpc.unary_unary_rpc_method_handler(
-                    servicer.ManagerListConversations,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsRes.SerializeToString,
-            ),
-            'SuggestResponse': grpc.unary_unary_rpc_method_handler(
-                    servicer.SuggestResponse,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseRes.SerializeToString,
             ),
             'CreateDisposition': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateDisposition,
@@ -1058,6 +1015,26 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.DeleteCustomUnsubscribeLink,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.DeleteCustomUnsubscribeLinkReq.FromString,
                     response_serializer=api_dot_commons_dot_types__pb2.Empty.SerializeToString,
+            ),
+            'ListCampaigns': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListCampaigns,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsRes.SerializeToString,
+            ),
+            'ManagerListMessages': grpc.unary_stream_rpc_method_handler(
+                    servicer.ManagerListMessages,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ManagerListMessagesReq.FromString,
+                    response_serializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.SerializeToString,
+            ),
+            'ListMessages': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListMessages,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListMessagesReq.FromString,
+                    response_serializer=api_dot_commons_dot_omnichannel__pb2.OmniMessage.SerializeToString,
+            ),
+            'ManagerListConversations': grpc.unary_unary_rpc_method_handler(
+                    servicer.ManagerListConversations,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListConversationsRes.SerializeToString,
             ),
             'ListContactLists': grpc.unary_unary_rpc_method_handler(
                     servicer.ListContactLists,
@@ -1119,11 +1096,6 @@ def add_OmniApiServicer_to_server(servicer, server):
                     request_deserializer=api_dot_commons_dot_omnichannel__pb2.VerifiedEmail.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.CreateVerifiedEmailRes.SerializeToString,
             ),
-            'SendEmailNotification': grpc.unary_unary_rpc_method_handler(
-                    servicer.SendEmailNotification,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationRes.SerializeToString,
-            ),
             'DeleteVerifiedEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteVerifiedEmail,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.DeleteVerifiedEmailReq.FromString,
@@ -1153,6 +1125,11 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.GetPendingGoogleXOAuth2Data,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetPendingGoogleXOAuth2DataReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetPendingGoogleXOAuth2DataRes.SerializeToString,
+            ),
+            'SendEmailNotification': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendEmailNotification,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationRes.SerializeToString,
             ),
             'SendFeedbackEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.SendFeedbackEmail,
@@ -1188,6 +1165,11 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.UpdateSignature,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateSignatureReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateSignatureRes.SerializeToString,
+            ),
+            'SuggestResponse': grpc.unary_unary_rpc_method_handler(
+                    servicer.SuggestResponse,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseRes.SerializeToString,
             ),
             'CreateProject': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateProject,
@@ -1334,23 +1316,6 @@ class OmniApi(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListCampaigns(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ListCampaigns',
-            api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsReq.SerializeToString,
-            api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def PauseCampaign(request,
             target,
             options=(),
@@ -1419,57 +1384,6 @@ class OmniApi(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetOffLoadedTextMessage(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/GetOffLoadedTextMessage',
-            api_dot_v0alpha_dot_omniapi__pb2.GetOffLoadedTextMessageReq.SerializeToString,
-            api_dot_v0alpha_dot_omniapi__pb2.GetOffLoadedTextMessageRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ManagerListMessages(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.OmniApi/ManagerListMessages',
-            api_dot_v0alpha_dot_omniapi__pb2.ManagerListMessagesReq.SerializeToString,
-            api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListMessages(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.OmniApi/ListMessages',
-            api_dot_v0alpha_dot_omniapi__pb2.ListMessagesReq.SerializeToString,
-            api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def SendOmniMessage(request,
             target,
             options=(),
@@ -1500,40 +1414,6 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ManagerSendOmniMessage',
             api_dot_v0alpha_dot_omniapi__pb2.SendOmniMessageReq.SerializeToString,
             api_dot_commons_dot_types__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ManagerListConversations(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ManagerListConversations',
-            api_dot_v0alpha_dot_omniapi__pb2.ListConversationsReq.SerializeToString,
-            api_dot_v0alpha_dot_omniapi__pb2.ListConversationsRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SuggestResponse(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/SuggestResponse',
-            api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseReq.SerializeToString,
-            api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1670,6 +1550,74 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/DeleteCustomUnsubscribeLink',
             api_dot_v0alpha_dot_omniapi__pb2.DeleteCustomUnsubscribeLinkReq.SerializeToString,
             api_dot_commons_dot_types__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListCampaigns(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ListCampaigns',
+            api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsReq.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.ListCampaignsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ManagerListMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.OmniApi/ManagerListMessages',
+            api_dot_v0alpha_dot_omniapi__pb2.ManagerListMessagesReq.SerializeToString,
+            api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.OmniApi/ListMessages',
+            api_dot_v0alpha_dot_omniapi__pb2.ListMessagesReq.SerializeToString,
+            api_dot_commons_dot_omnichannel__pb2.OmniMessage.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ManagerListConversations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ManagerListConversations',
+            api_dot_v0alpha_dot_omniapi__pb2.ListConversationsReq.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.ListConversationsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -1878,23 +1826,6 @@ class OmniApi(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SendEmailNotification(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/SendEmailNotification',
-            api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationReq.SerializeToString,
-            api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def DeleteVerifiedEmail(request,
             target,
             options=(),
@@ -1993,6 +1924,23 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/GetPendingGoogleXOAuth2Data',
             api_dot_v0alpha_dot_omniapi__pb2.GetPendingGoogleXOAuth2DataReq.SerializeToString,
             api_dot_v0alpha_dot_omniapi__pb2.GetPendingGoogleXOAuth2DataRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendEmailNotification(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/SendEmailNotification',
+            api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationReq.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.SendEmailNotificationRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2112,6 +2060,23 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/UpdateSignature',
             api_dot_v0alpha_dot_omniapi__pb2.UpdateSignatureReq.SerializeToString,
             api_dot_v0alpha_dot_omniapi__pb2.UpdateSignatureRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SuggestResponse(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/SuggestResponse',
+            api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseReq.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.SuggestResponseRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

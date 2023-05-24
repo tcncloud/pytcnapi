@@ -517,13 +517,7 @@ class P3ApiServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetAgentSkills(self, request, context):
-        """removing to use asm create session
-        rpc CreateAgentSession(CreateAgentSessionReq) returns (AgentSession) {
-        option (google.api.http).post = "/api/v0alpha/p3api/createagentsession";
-        option (google.api.http).body = "*";
-        }
-
-        Gets the skills of the requesting agent. This includes agent skills, hunt group skills, and extension skills(PBX).
+        """Gets the skills of the requesting agent. This includes agent skills, hunt group skills, and extension skills(PBX).
         Skills will be returned as a value pair (name, level).
         For agent skills, the name of each skill will be the agent_skill_sid.
         All other skills' names (hunt group and PBX) will be given special formats.
@@ -959,13 +953,7 @@ class P3ApiServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListCallbackRoutingAgents(self, request, context):
-        """removed and done by asm end session
-        rpc UpdateWebLogoutTime(UpdateWebLogoutTimeReq) returns (Nil) {
-        option (google.api.http).post = "/api/v0alpha/p3api/saveweblogouttime";
-        option (google.api.http).body = "*";
-        }
-
-        ListCallbackRoutingAgents returns a list of agents that are allowed to make a callback.
+        """ListCallbackRoutingAgents returns a list of agents that are allowed to make a callback.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
