@@ -959,6 +959,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionResponse.FromString,
                 )
+        self.AddMyUserSubscription = channel.unary_unary(
+                '/api.v0alpha.Org/AddMyUserSubscription',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionResponse.FromString,
+                )
         self.RemoveUserSubscription = channel.unary_unary(
                 '/api.v0alpha.Org/RemoveUserSubscription',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.RemoveUserSubscriptionRequest.SerializeToString,
@@ -2637,6 +2642,13 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddMyUserSubscription(self, request, context):
+        """Adds a user subscription to user's list of subscriptions
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def RemoveUserSubscription(self, request, context):
         """Removes a user subscription from a specified user's list of subscriptions
         """
@@ -3682,6 +3694,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.AddUserSubscription,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionResponse.SerializeToString,
+            ),
+            'AddMyUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddMyUserSubscription,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionResponse.SerializeToString,
             ),
             'RemoveUserSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveUserSubscription,
@@ -6953,6 +6970,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/AddUserSubscription',
             api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddMyUserSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/AddMyUserSubscription',
+            api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
