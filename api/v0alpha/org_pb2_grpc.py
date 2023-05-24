@@ -189,10 +189,10 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordResponse.FromString,
                 )
-        self.UpdateUserPasswordByUserId = channel.unary_unary(
-                '/api.v0alpha.Org/UpdateUserPasswordByUserId',
-                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByUserIdRequest.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByUserIdResponse.FromString,
+        self.UpdateMyUserPassword = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateMyUserPassword',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordResponse.FromString,
                 )
         self.UpdateUserPasswordByOrgId = channel.unary_unary(
                 '/api.v0alpha.Org/UpdateUserPasswordByOrgId',
@@ -204,15 +204,15 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ResetUserRequirePasswordResetRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.ResetUserRequirePasswordResetResponse.FromString,
                 )
-        self.GetMyUserPasswordResetLink = channel.unary_unary(
-                '/api.v0alpha.Org/GetMyUserPasswordResetLink',
-                request_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.FromString,
-                )
         self.GetUserPasswordResetLink = channel.unary_unary(
                 '/api.v0alpha.Org/GetUserPasswordResetLink',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkResponse.FromString,
+                )
+        self.GetMyUserPasswordResetLink = channel.unary_unary(
+                '/api.v0alpha.Org/GetMyUserPasswordResetLink',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.FromString,
                 )
         self.GetUserPasswordResetLinkByOrgId = channel.unary_unary(
                 '/api.v0alpha.Org/GetUserPasswordResetLinkByOrgId',
@@ -1271,18 +1271,18 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserPassword(self, request, context):
-        """UpdateUserPassword updates the current user's password to the
-        password given on the request message.
-        Required Permissions: USER_EDIT_PASSWORD (Update your own password)
+        """UpdateUserPassword updates a user's password (in the same org as the current user)
+        to the password given on the request message.
+        Required Permissions: USER_EDIT (Update another user's password in the same org)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateUserPasswordByUserId(self, request, context):
-        """UpdateUserPassword updates a user's password (in the same org as the current user)
-        to the password given on the request message.
-        Required Permissions: USER_EDIT (Update another user's password in the same org)
+    def UpdateMyUserPassword(self, request, context):
+        """UpdateMyUserPassword updates the current user's password to the
+        password given on the request message.
+        Required Permissions: USER_EDIT_PASSWORD (Update your own password)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1305,19 +1305,19 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetMyUserPasswordResetLink(self, request, context):
-        """GetMyUserPasswordResetLink generate a password reset link for the current user.
-        Required Permissions: USER_EDIT_PASSWORD
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetUserPasswordResetLink(self, request, context):
         """GetUserPasswordResetLink generates a password reset link for a user
         in the same org as the current user.
         Required Permissions: USER_EDIT
         USER_EDIT if user_id given on the request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMyUserPasswordResetLink(self, request, context):
+        """GetMyUserPasswordResetLink generate a password reset link for the current user.
+        Required Permissions: USER_EDIT_PASSWORD
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2913,10 +2913,10 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordResponse.SerializeToString,
             ),
-            'UpdateUserPasswordByUserId': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateUserPasswordByUserId,
-                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByUserIdRequest.FromString,
-                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByUserIdResponse.SerializeToString,
+            'UpdateMyUserPassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateMyUserPassword,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordResponse.SerializeToString,
             ),
             'UpdateUserPasswordByOrgId': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateUserPasswordByOrgId,
@@ -2928,15 +2928,15 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ResetUserRequirePasswordResetRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.ResetUserRequirePasswordResetResponse.SerializeToString,
             ),
-            'GetMyUserPasswordResetLink': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetMyUserPasswordResetLink,
-                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.FromString,
-                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.SerializeToString,
-            ),
             'GetUserPasswordResetLink': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserPasswordResetLink,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkResponse.SerializeToString,
+            ),
+            'GetMyUserPasswordResetLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMyUserPasswordResetLink,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.SerializeToString,
             ),
             'GetUserPasswordResetLinkByOrgId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserPasswordResetLinkByOrgId,
@@ -4339,7 +4339,7 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateUserPasswordByUserId(request,
+    def UpdateMyUserPassword(request,
             target,
             options=(),
             channel_credentials=None,
@@ -4349,9 +4349,9 @@ class Org(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateUserPasswordByUserId',
-            api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByUserIdRequest.SerializeToString,
-            api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByUserIdResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateMyUserPassword',
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -4390,23 +4390,6 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetMyUserPasswordResetLink(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetMyUserPasswordResetLink',
-            api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.SerializeToString,
-            api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetUserPasswordResetLink(request,
             target,
             options=(),
@@ -4420,6 +4403,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetUserPasswordResetLink',
             api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMyUserPasswordResetLink(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetMyUserPasswordResetLink',
+            api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
