@@ -79,6 +79,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ListOrganizationUserDescriptionsRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.ListOrganizationUserDescriptionsResponse.FromString,
                 )
+        self.AdminListUserDescriptions = channel.unary_stream(
+                '/api.v0alpha.Org/AdminListUserDescriptions',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.AdminListUserDescriptionsRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.AdminListUserDescriptionsResponse.FromString,
+                )
         self.ListUserDescriptions = channel.unary_stream(
                 '/api.v0alpha.Org/ListUserDescriptions',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ListUserDescriptionsRequest.SerializeToString,
@@ -93,6 +98,11 @@ class OrgStub(object):
                 '/api.v0alpha.Org/GetRegions',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetRegionsRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetRegionsResponse.FromString,
+                )
+        self.GetMyUserDetails = channel.unary_unary(
+                '/api.v0alpha.Org/GetMyUserDetails',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserDetailsRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UserDetails.FromString,
                 )
         self.GetUserDetails = channel.unary_unary(
                 '/api.v0alpha.Org/GetUserDetails',
@@ -149,10 +159,25 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserResponse.FromString,
                 )
+        self.UpdateMyUser = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateMyUser',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserResponse.FromString,
+                )
+        self.UpdateUserCallerId = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateUserCallerId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdResponse.FromString,
+                )
         self.CreateUser = channel.unary_unary(
                 '/api.v0alpha.Org/CreateUser',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.CreateUserRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.CreateUserResponse.FromString,
+                )
+        self.CreateUserByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/CreateUserByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.CreateUserByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.CreateUserByOrgIdResponse.FromString,
                 )
         self.CreateDelegatedUser = channel.unary_unary(
                 '/api.v0alpha.Org/CreateDelegatedUser',
@@ -164,6 +189,16 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordResponse.FromString,
                 )
+        self.UpdateMyUserPassword = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateMyUserPassword',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordResponse.FromString,
+                )
+        self.UpdateUserPasswordByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateUserPasswordByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByOrgIdResponse.FromString,
+                )
         self.ResetUserRequirePasswordReset = channel.unary_unary(
                 '/api.v0alpha.Org/ResetUserRequirePasswordReset',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ResetUserRequirePasswordResetRequest.SerializeToString,
@@ -174,15 +209,40 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkResponse.FromString,
                 )
+        self.GetMyUserPasswordResetLink = channel.unary_unary(
+                '/api.v0alpha.Org/GetMyUserPasswordResetLink',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.FromString,
+                )
+        self.GetUserPasswordResetLinkByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/GetUserPasswordResetLinkByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkByOrgIdResponse.FromString,
+                )
         self.GetUserEmailVerified = channel.unary_unary(
                 '/api.v0alpha.Org/GetUserEmailVerified',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedResponse.FromString,
                 )
+        self.GetUserEmailVerifiedByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/GetUserEmailVerifiedByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedByOrgIdResponse.FromString,
+                )
+        self.SendUserVerificationEmailByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/SendUserVerificationEmailByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailByOrgIdResponse.FromString,
+                )
         self.SendUserVerificationEmail = channel.unary_unary(
                 '/api.v0alpha.Org/SendUserVerificationEmail',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailResponse.FromString,
+                )
+        self.ManualUserEmailVerificationByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/ManualUserEmailVerificationByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.ManualUserEmailVerificationByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.ManualUserEmailVerificationByOrgIdResponse.FromString,
                 )
         self.ManualUserEmailVerification = channel.unary_unary(
                 '/api.v0alpha.Org/ManualUserEmailVerification',
@@ -193,6 +253,11 @@ class OrgStub(object):
                 '/api.v0alpha.Org/GetTempUserToken',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenRes.FromString,
+                )
+        self.GetTempUserTokenByUserId = channel.unary_unary(
+                '/api.v0alpha.Org/GetTempUserTokenByUserId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenByUserIdReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenByUserIdRes.FromString,
                 )
         self.GetCountriesList = channel.unary_unary(
                 '/api.v0alpha.Org/GetCountriesList',
@@ -224,10 +289,20 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledResponse.FromString,
                 )
+        self.UpdateUserDisabledByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateUserDisabledByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledByOrgIdResponse.FromString,
+                )
         self.UpdateBulkUsersDisabled = channel.unary_unary(
                 '/api.v0alpha.Org/UpdateBulkUsersDisabled',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateBulkUsersDisabledRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateBulkUsersDisabledResponse.FromString,
+                )
+        self.GetOrgBillingSettingsByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/GetOrgBillingSettingsByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetOrgBillingSettingsByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetOrgBillingSettingsByOrgIdResponse.FromString,
                 )
         self.GetOrgBillingSettings = channel.unary_unary(
                 '/api.v0alpha.Org/GetOrgBillingSettings',
@@ -253,6 +328,11 @@ class OrgStub(object):
                 '/api.v0alpha.Org/GetSystemDefaultBillingRates',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetSystemDefaultBillingRatesRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetSystemDefaultBillingRatesResponse.FromString,
+                )
+        self.ListPermissionGroupsByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/ListPermissionGroupsByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.ListPermissionGroupsByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.ListPermissionGroupsByOrgIdResponse.FromString,
                 )
         self.ListPermissionGroups = channel.unary_unary(
                 '/api.v0alpha.Org/ListPermissionGroups',
@@ -334,6 +414,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetOrgDefaultSuperUserGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetOrgDefaultSuperUserGroupResponse.FromString,
                 )
+        self.ListP3PermissionGroupsByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/ListP3PermissionGroupsByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsByOrgIdResponse.FromString,
+                )
         self.ListP3PermissionGroups = channel.unary_unary(
                 '/api.v0alpha.Org/ListP3PermissionGroups',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsRequest.SerializeToString,
@@ -353,6 +438,11 @@ class OrgStub(object):
                 '/api.v0alpha.Org/CreateP3PermissionGroup',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.CreateP3PermissionGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.CreateP3PermissionGroupResponse.FromString,
+                )
+        self.UpdateP3PermissionGroupByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateP3PermissionGroupByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateP3PermissionGroupByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateP3PermissionGroupByOrgIdResponse.FromString,
                 )
         self.UpdateP3PermissionGroup = channel.unary_unary(
                 '/api.v0alpha.Org/UpdateP3PermissionGroup',
@@ -543,6 +633,11 @@ class OrgStub(object):
                 '/api.v0alpha.Org/UpdateVoiceAnalyticsPreferences',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesResponse.FromString,
+                )
+        self.UpdateVoiceAnalyticsPreferencesEnabled = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateVoiceAnalyticsPreferencesEnabled',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesEnabledRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesEnabledResponse.FromString,
                 )
         self.GetScorecardsPreferences = channel.unary_unary(
                 '/api.v0alpha.Org/GetScorecardsPreferences',
@@ -804,6 +899,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ListOwnedUsersRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.ListOwnedUsersResponse.FromString,
                 )
+        self.ListOwnedOrgsByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/ListOwnedOrgsByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsByOrgIdResponse.FromString,
+                )
         self.ListOwnedOrgs = channel.unary_unary(
                 '/api.v0alpha.Org/ListOwnedOrgs',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsRequest.SerializeToString,
@@ -863,6 +963,11 @@ class OrgStub(object):
                 '/api.v0alpha.Org/RemoveUserSubscription',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.RemoveUserSubscriptionRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.RemoveUserSubscriptionResponse.FromString,
+                )
+        self.RemoveMyUserSubscription = channel.unary_unary(
+                '/api.v0alpha.Org/RemoveMyUserSubscription',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.RemoveMyUserSubscriptionRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.RemoveMyUserSubscriptionResponse.FromString,
                 )
         self.UpdateUserSubscription = channel.unary_unary(
                 '/api.v0alpha.Org/UpdateUserSubscription',
@@ -1000,6 +1105,12 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AdminListUserDescriptions(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListUserDescriptions(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1015,6 +1126,12 @@ class OrgServicer(object):
     def GetRegions(self, request, context):
         """GetRegions takes nothing in the request and returns a list of all region names
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMyUserDetails(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -1103,10 +1220,15 @@ class OrgServicer(object):
 
     def UpdateUser(self, request, context):
         """UpdateUser updates a user as defined by the UpdateUserRequest.
-        Required Permissions:
-        USER_EDIT if the user_id is given on the request.
-        NONE (TODO: create & use new perm) if the user_id is NOT given.
-        This will only the currently logged in user.
+        Required Permissions: USER_EDIT (default)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateMyUser(self, request, context):
+        """UpdateMyUser updates the currently logged in user as defined by the UpdateMyUserRequest.
+        Required Permissions: USER_EDIT_OPTIONS
         Only some of the fields on the request message can be updated
         for the currently logged in user: time_zone, linkback_numbers,
         caller_ids, and default_app.
@@ -1115,11 +1237,27 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateUserCallerId(self, request, context):
+        """UpdateUserCallerId updates a user's caller id as defined by the UpdateUserCallerIdRequest.
+        Required Permissions: USER_EDIT_AGENT_CALLER_ID
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateUser(self, request, context):
         """CreateUser creates a new user as defined by the CreateUserRequest
         request message.
-        Required Permissions:
-        USER_CREATE, CUSTOMER_SUPPORT if adding to an org other than your own
+        Required Permissions: USER_CREATE
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateUserByOrgId(self, request, context):
+        """CreateUserByOrgId creates a new user as defined by the CreateUserByOrgIdRequest
+        request message to a specific org.
+        Required Permissions: CUSTOMER_SUPPORT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1133,11 +1271,27 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateUserPassword(self, request, context):
-        """UpdateUserPassword updates a users password to the
+        """UpdateUserPassword updates a user's password (in the same org as the current user)
+        to the password given on the request message.
+        Required Permissions: USER_EDIT (Update another user's password in the same org)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateMyUserPassword(self, request, context):
+        """UpdateMyUserPassword updates the current user's password to the
         password given on the request message.
-        Required Permissions:
-        USER_EDIT if user_id was given on the request (Update another user's password)
-        USER_EDIT_PASSWORD if user_id is retrieved from token (Update your own password)
+        Required Permissions: USER_EDIT_PASSWORD (Update your own password)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateUserPasswordByOrgId(self, request, context):
+        """UpdateUserPasswordByOrgId updates a specific user's password
+        from a specific org to the password given on the request message.
+        Required Permissions: CUSTOMER_SUPPORT (Update a user's password from an org)
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1152,11 +1306,27 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetUserPasswordResetLink(self, request, context):
-        """Generate a password reset link for a user.
-        Required Permissions:
-        USER_EDIT_PASSWORD if user_id not given on request.
+        """GetUserPasswordResetLink generates a password reset link for a user
+        in the same org as the current user.
+        Required Permissions: USER_EDIT
         USER_EDIT if user_id given on the request.
-        CUSTOMER_SUPPORT if user_id & org_id given on request. User_id must be given if org_id is.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMyUserPasswordResetLink(self, request, context):
+        """GetMyUserPasswordResetLink generate a password reset link for the current user.
+        Required Permissions: USER_EDIT_PASSWORD
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUserPasswordResetLinkByOrgId(self, request, context):
+        """GetUserPasswordResetLinkByOrgId generates a password reset link
+        for a specific user in a specific org.
+        Required Permissions: CUSTOMER_SUPPORT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1164,9 +1334,23 @@ class OrgServicer(object):
 
     def GetUserEmailVerified(self, request, context):
         """Returns whether or not the given user's email is verified.
-        Required Permissions:
-        USER_EDIT if org_id not given on request.
-        CUSTOMER_SUPPORT if org_id given on request.
+        Required Permissions: USER_EDIT
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetUserEmailVerifiedByOrgId(self, request, context):
+        """GetUserEmailVerifiedByOrgId returns whether or not the given user's email
+        from a specific org is verified.
+        Required Permissions: CUSTOMER_SUPPORT
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SendUserVerificationEmailByOrgId(self, request, context):
+        """Sends a verfication email to the given users email.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1174,9 +1358,13 @@ class OrgServicer(object):
 
     def SendUserVerificationEmail(self, request, context):
         """Sends a verfication email to the given users email.
-        Required Permissions:
-        USER_EDIT if org_id not given on request.
-        CUSTOMER_SUPPORT if org_id given on request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ManualUserEmailVerificationByOrgId(self, request, context):
+        """Sets the given user's to verified without needing to send a verification email.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1184,18 +1372,24 @@ class OrgServicer(object):
 
     def ManualUserEmailVerification(self, request, context):
         """Sets the given user's to verified without needing to send a verification email.
-        Required Permissions:
-        USER_EDIT if org_id not given on request.
-        CUSTOMER_SUPPORT if org_id given on request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTempUserToken(self, request, context):
-        """Authenticates impersonation and generates token to be used.
-        Required Permissions:
-        CUSTOMER_SUPPORT
+        """GetTempUserToken authenticates impersonation and generates token
+        to be used for the current user.
+        Required Permissions: None, anyone authorized can use this
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTempUserTokenByUserId(self, request, context):
+        """GetTempUserTokenByUserId authenticates impersonation and generates token
+        to be used for the user with the given user_id.
+        Required Permissions: CUSTOMER_SUPPORT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1235,8 +1429,13 @@ class OrgServicer(object):
 
     def UpdateUserDisabled(self, request, context):
         """UpdateUserDisabled updates a specified user to disabled or enabled. A disabled user cannot log in.
-        Required Permissions:
-        - USER_EDIT
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateUserDisabledByOrgId(self, request, context):
+        """UpdateUserDisabledByOrgId updates a specified user in a specific organization to disabled or enabled.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1251,14 +1450,25 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetOrgBillingSettings(self, request, context):
+    def GetOrgBillingSettingsByOrgId(self, request, context):
         """Customer Support Billing
 
         Returns the billing data for the given org. Billing data
         will only be included for countries present on the org's
         allowed countries preference.
-        Required Permissions:
-        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.InvalidArgument: The org_id on the request was invalid.
+        - grpc.NotFound: The given org_id did not exist.
+        - grpc.Internal: An unexpected error occurred while getting the orgs billing settings.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrgBillingSettings(self, request, context):
+        """Returns the billing data for the current org. Billing data
+        will only be included for countries present on the org's
+        allowed countries preference.
         Errors:
         - grpc.InvalidArgument: The org_id on the request was invalid.
         - grpc.NotFound: The given org_id did not exist.
@@ -1320,10 +1530,17 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPermissionGroups(self, request, context):
+    def ListPermissionGroupsByOrgId(self, request, context):
         """neo permissions
 
-        ListPermissionGroups returns the list of an org's permission groups.
+        ListPermissionGroupsByOrgId returns the list of an org's permission groups.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPermissionGroups(self, request, context):
+        """ListPermissionGroups returns the list of an org's permission groups.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1451,6 +1668,13 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListP3PermissionGroupsByOrgId(self, request, context):
+        """ListP3PermissionGroupsByOrgId returns the list of an org's P3 permission groups.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListP3PermissionGroups(self, request, context):
         """ListP3PermissionGroups returns the list of an org's P3 permission groups.
         """
@@ -1474,6 +1698,13 @@ class OrgServicer(object):
 
     def CreateP3PermissionGroup(self, request, context):
         """Creates new p3 permission group
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateP3PermissionGroupByOrgId(self, request, context):
+        """Update p3 permission group
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1743,7 +1974,14 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateVoiceAnalyticsPreferences(self, request, context):
-        """GetVoiceAnalyticsPreferences updates the all preferences for voice analytics
+        """UpdateVoiceAnalyticsPreferences updates the all preferences except for enabled for voice analytics
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateVoiceAnalyticsPreferencesEnabled(self, request, context):
+        """UpdateVoiceAnalyticsPreferencesEnabled updates the enabled preferences for voice analytics
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2300,10 +2538,15 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListOwnedOrgsByOrgId(self, request, context):
+        """Gets all orgs under the p3 hierarchy
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListOwnedOrgs(self, request, context):
         """Gets all orgs under the p3 hierarchy
-        Required Permissions:
-        PERMISSION_ORG_VIEW
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2388,20 +2631,21 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def AddUserSubscription(self, request, context):
-        """Adds a user subscription to users list of subscriptions
-        Required Permissions:
-        USER_EDIT if user id IS provided
-        EDIT_USER_OPTIONS if user id NOT provided
+        """Adds a user subscription to user's list of subscriptions
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RemoveUserSubscription(self, request, context):
-        """Removes a user subscription from a users list of subscription
-        Required Permissions:
-        USER_EDIT if user id IS provided
-        EDIT_USER_OPTIONS if user id NOT provided
+        """Removes a user subscription from a specified user's list of subscriptions
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveMyUserSubscription(self, request, context):
+        """Removes a user subscription from a user's list of subscriptions
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2559,6 +2803,11 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ListOrganizationUserDescriptionsRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.ListOrganizationUserDescriptionsResponse.SerializeToString,
             ),
+            'AdminListUserDescriptions': grpc.unary_stream_rpc_method_handler(
+                    servicer.AdminListUserDescriptions,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.AdminListUserDescriptionsRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.AdminListUserDescriptionsResponse.SerializeToString,
+            ),
             'ListUserDescriptions': grpc.unary_stream_rpc_method_handler(
                     servicer.ListUserDescriptions,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ListUserDescriptionsRequest.FromString,
@@ -2573,6 +2822,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.GetRegions,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetRegionsRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetRegionsResponse.SerializeToString,
+            ),
+            'GetMyUserDetails': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMyUserDetails,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserDetailsRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UserDetails.SerializeToString,
             ),
             'GetUserDetails': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserDetails,
@@ -2629,10 +2883,25 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserResponse.SerializeToString,
             ),
+            'UpdateMyUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateMyUser,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserResponse.SerializeToString,
+            ),
+            'UpdateUserCallerId': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserCallerId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdResponse.SerializeToString,
+            ),
             'CreateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUser,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.CreateUserRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.CreateUserResponse.SerializeToString,
+            ),
+            'CreateUserByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUserByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.CreateUserByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.CreateUserByOrgIdResponse.SerializeToString,
             ),
             'CreateDelegatedUser': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateDelegatedUser,
@@ -2644,6 +2913,16 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordResponse.SerializeToString,
             ),
+            'UpdateMyUserPassword': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateMyUserPassword,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordResponse.SerializeToString,
+            ),
+            'UpdateUserPasswordByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserPasswordByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByOrgIdResponse.SerializeToString,
+            ),
             'ResetUserRequirePasswordReset': grpc.unary_unary_rpc_method_handler(
                     servicer.ResetUserRequirePasswordReset,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ResetUserRequirePasswordResetRequest.FromString,
@@ -2654,15 +2933,40 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkResponse.SerializeToString,
             ),
+            'GetMyUserPasswordResetLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMyUserPasswordResetLink,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.SerializeToString,
+            ),
+            'GetUserPasswordResetLinkByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserPasswordResetLinkByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkByOrgIdResponse.SerializeToString,
+            ),
             'GetUserEmailVerified': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserEmailVerified,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedResponse.SerializeToString,
             ),
+            'GetUserEmailVerifiedByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetUserEmailVerifiedByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedByOrgIdResponse.SerializeToString,
+            ),
+            'SendUserVerificationEmailByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendUserVerificationEmailByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailByOrgIdResponse.SerializeToString,
+            ),
             'SendUserVerificationEmail': grpc.unary_unary_rpc_method_handler(
                     servicer.SendUserVerificationEmail,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailResponse.SerializeToString,
+            ),
+            'ManualUserEmailVerificationByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ManualUserEmailVerificationByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.ManualUserEmailVerificationByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.ManualUserEmailVerificationByOrgIdResponse.SerializeToString,
             ),
             'ManualUserEmailVerification': grpc.unary_unary_rpc_method_handler(
                     servicer.ManualUserEmailVerification,
@@ -2673,6 +2977,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.GetTempUserToken,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenRes.SerializeToString,
+            ),
+            'GetTempUserTokenByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTempUserTokenByUserId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenByUserIdReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetTempUserTokenByUserIdRes.SerializeToString,
             ),
             'GetCountriesList': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCountriesList,
@@ -2704,10 +3013,20 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledResponse.SerializeToString,
             ),
+            'UpdateUserDisabledByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserDisabledByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledByOrgIdResponse.SerializeToString,
+            ),
             'UpdateBulkUsersDisabled': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateBulkUsersDisabled,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateBulkUsersDisabledRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateBulkUsersDisabledResponse.SerializeToString,
+            ),
+            'GetOrgBillingSettingsByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrgBillingSettingsByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetOrgBillingSettingsByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetOrgBillingSettingsByOrgIdResponse.SerializeToString,
             ),
             'GetOrgBillingSettings': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrgBillingSettings,
@@ -2733,6 +3052,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.GetSystemDefaultBillingRates,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetSystemDefaultBillingRatesRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetSystemDefaultBillingRatesResponse.SerializeToString,
+            ),
+            'ListPermissionGroupsByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPermissionGroupsByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.ListPermissionGroupsByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.ListPermissionGroupsByOrgIdResponse.SerializeToString,
             ),
             'ListPermissionGroups': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPermissionGroups,
@@ -2814,6 +3138,11 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetOrgDefaultSuperUserGroupRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetOrgDefaultSuperUserGroupResponse.SerializeToString,
             ),
+            'ListP3PermissionGroupsByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListP3PermissionGroupsByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsByOrgIdResponse.SerializeToString,
+            ),
             'ListP3PermissionGroups': grpc.unary_unary_rpc_method_handler(
                     servicer.ListP3PermissionGroups,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsRequest.FromString,
@@ -2833,6 +3162,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.CreateP3PermissionGroup,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.CreateP3PermissionGroupRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.CreateP3PermissionGroupResponse.SerializeToString,
+            ),
+            'UpdateP3PermissionGroupByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateP3PermissionGroupByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateP3PermissionGroupByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateP3PermissionGroupByOrgIdResponse.SerializeToString,
             ),
             'UpdateP3PermissionGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateP3PermissionGroup,
@@ -3023,6 +3357,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.UpdateVoiceAnalyticsPreferences,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesResponse.SerializeToString,
+            ),
+            'UpdateVoiceAnalyticsPreferencesEnabled': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateVoiceAnalyticsPreferencesEnabled,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesEnabledRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesEnabledResponse.SerializeToString,
             ),
             'GetScorecardsPreferences': grpc.unary_unary_rpc_method_handler(
                     servicer.GetScorecardsPreferences,
@@ -3284,6 +3623,11 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ListOwnedUsersRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.ListOwnedUsersResponse.SerializeToString,
             ),
+            'ListOwnedOrgsByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOwnedOrgsByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsByOrgIdResponse.SerializeToString,
+            ),
             'ListOwnedOrgs': grpc.unary_unary_rpc_method_handler(
                     servicer.ListOwnedOrgs,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsRequest.FromString,
@@ -3343,6 +3687,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.RemoveUserSubscription,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.RemoveUserSubscriptionRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.RemoveUserSubscriptionResponse.SerializeToString,
+            ),
+            'RemoveMyUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveMyUserSubscription,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.RemoveMyUserSubscriptionRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.RemoveMyUserSubscriptionResponse.SerializeToString,
             ),
             'UpdateUserSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateUserSubscription,
@@ -3616,6 +3965,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def AdminListUserDescriptions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Org/AdminListUserDescriptions',
+            api_dot_v0alpha_dot_org__pb2.AdminListUserDescriptionsRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.AdminListUserDescriptionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListUserDescriptions(request,
             target,
             options=(),
@@ -3663,6 +4029,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetRegions',
             api_dot_v0alpha_dot_org__pb2.GetRegionsRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.GetRegionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMyUserDetails(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetMyUserDetails',
+            api_dot_v0alpha_dot_org__pb2.GetMyUserDetailsRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UserDetails.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -3854,6 +4237,40 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpdateMyUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateMyUser',
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateUserCallerId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateUserCallerId',
+            api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateUser(request,
             target,
             options=(),
@@ -3867,6 +4284,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/CreateUser',
             api_dot_v0alpha_dot_org__pb2.CreateUserRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.CreateUserResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateUserByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/CreateUserByOrgId',
+            api_dot_v0alpha_dot_org__pb2.CreateUserByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.CreateUserByOrgIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -3905,6 +4339,40 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpdateMyUserPassword(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateMyUserPassword',
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserPasswordResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateUserPasswordByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateUserPasswordByOrgId',
+            api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateUserPasswordByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ResetUserRequirePasswordReset(request,
             target,
             options=(),
@@ -3939,6 +4407,40 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMyUserPasswordResetLink(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetMyUserPasswordResetLink',
+            api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.GetMyUserPasswordResetLinkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetUserPasswordResetLinkByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetUserPasswordResetLinkByOrgId',
+            api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.GetUserPasswordResetLinkByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetUserEmailVerified(request,
             target,
             options=(),
@@ -3956,6 +4458,40 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetUserEmailVerifiedByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetUserEmailVerifiedByOrgId',
+            api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.GetUserEmailVerifiedByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendUserVerificationEmailByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/SendUserVerificationEmailByOrgId',
+            api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def SendUserVerificationEmail(request,
             target,
             options=(),
@@ -3969,6 +4505,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/SendUserVerificationEmail',
             api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.SendUserVerificationEmailResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ManualUserEmailVerificationByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/ManualUserEmailVerificationByOrgId',
+            api_dot_v0alpha_dot_org__pb2.ManualUserEmailVerificationByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.ManualUserEmailVerificationByOrgIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -4003,6 +4556,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetTempUserToken',
             api_dot_v0alpha_dot_org__pb2.GetTempUserTokenReq.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.GetTempUserTokenRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTempUserTokenByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetTempUserTokenByUserId',
+            api_dot_v0alpha_dot_org__pb2.GetTempUserTokenByUserIdReq.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.GetTempUserTokenByUserIdRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -4109,6 +4679,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpdateUserDisabledByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateUserDisabledByOrgId',
+            api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateUserDisabledByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def UpdateBulkUsersDisabled(request,
             target,
             options=(),
@@ -4122,6 +4709,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateBulkUsersDisabled',
             api_dot_v0alpha_dot_org__pb2.UpdateBulkUsersDisabledRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.UpdateBulkUsersDisabledResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrgBillingSettingsByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetOrgBillingSettingsByOrgId',
+            api_dot_v0alpha_dot_org__pb2.GetOrgBillingSettingsByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.GetOrgBillingSettingsByOrgIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -4207,6 +4811,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetSystemDefaultBillingRates',
             api_dot_v0alpha_dot_org__pb2.GetSystemDefaultBillingRatesRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.GetSystemDefaultBillingRatesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPermissionGroupsByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/ListPermissionGroupsByOrgId',
+            api_dot_v0alpha_dot_org__pb2.ListPermissionGroupsByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.ListPermissionGroupsByOrgIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -4483,6 +5104,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListP3PermissionGroupsByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/ListP3PermissionGroupsByOrgId',
+            api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.ListP3PermissionGroupsByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListP3PermissionGroups(request,
             target,
             options=(),
@@ -4547,6 +5185,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/CreateP3PermissionGroup',
             api_dot_v0alpha_dot_org__pb2.CreateP3PermissionGroupRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.CreateP3PermissionGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateP3PermissionGroupByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateP3PermissionGroupByOrgId',
+            api_dot_v0alpha_dot_org__pb2.UpdateP3PermissionGroupByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateP3PermissionGroupByOrgIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -5193,6 +5848,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateVoiceAnalyticsPreferences',
             api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateVoiceAnalyticsPreferencesEnabled(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateVoiceAnalyticsPreferencesEnabled',
+            api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesEnabledRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateVoiceAnalyticsPreferencesEnabledResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -6081,6 +6753,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListOwnedOrgsByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/ListOwnedOrgsByOrgId',
+            api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsByOrgIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.ListOwnedOrgsByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListOwnedOrgs(request,
             target,
             options=(),
@@ -6281,6 +6970,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/RemoveUserSubscription',
             api_dot_v0alpha_dot_org__pb2.RemoveUserSubscriptionRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.RemoveUserSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveMyUserSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/RemoveMyUserSubscription',
+            api_dot_v0alpha_dot_org__pb2.RemoveMyUserSubscriptionRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.RemoveMyUserSubscriptionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
