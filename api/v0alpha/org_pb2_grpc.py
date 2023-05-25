@@ -1981,7 +1981,7 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateVoiceAnalyticsPreferencesEnabled(self, request, context):
-        """UpdateVoiceAnalyticsPreferencesEnabled updates the enabled prefernece for voice analytics
+        """UpdateVoiceAnalyticsPreferencesEnabled updates the enabled preferences for voice analytics
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
