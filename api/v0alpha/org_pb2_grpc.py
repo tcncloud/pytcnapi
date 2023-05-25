@@ -164,10 +164,10 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserResponse.FromString,
                 )
-        self.UpdateUserByCallerId = channel.unary_unary(
-                '/api.v0alpha.Org/UpdateUserByCallerId',
-                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserByCallerIdRequest.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserByCallerIdResponse.FromString,
+        self.UpdateUserCallerId = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateUserCallerId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdResponse.FromString,
                 )
         self.CreateUser = channel.unary_unary(
                 '/api.v0alpha.Org/CreateUser',
@@ -1237,8 +1237,8 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateUserByCallerId(self, request, context):
-        """UpdateUserByCallerId updates a user's caller id as defined by the UpdateUserByCallerIdRequest.
+    def UpdateUserCallerId(self, request, context):
+        """UpdateUserCallerId updates a user's caller id as defined by the UpdateUserCallerIdRequest.
         Required Permissions: USER_EDIT_AGENT_CALLER_ID
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2888,10 +2888,10 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserResponse.SerializeToString,
             ),
-            'UpdateUserByCallerId': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateUserByCallerId,
-                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserByCallerIdRequest.FromString,
-                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserByCallerIdResponse.SerializeToString,
+            'UpdateUserCallerId': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateUserCallerId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdResponse.SerializeToString,
             ),
             'CreateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUser,
@@ -4254,7 +4254,7 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateUserByCallerId(request,
+    def UpdateUserCallerId(request,
             target,
             options=(),
             channel_credentials=None,
@@ -4264,9 +4264,9 @@ class Org(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateUserByCallerId',
-            api_dot_v0alpha_dot_org__pb2.UpdateUserByCallerIdRequest.SerializeToString,
-            api_dot_v0alpha_dot_org__pb2.UpdateUserByCallerIdResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateUserCallerId',
+            api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateUserCallerIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
