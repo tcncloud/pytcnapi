@@ -824,6 +824,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsRes.FromString,
                 )
+        self.ListQueueConfigsByOrgId = channel.unary_unary(
+                '/api.v0alpha.Org/ListQueueConfigsByOrgId',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsByOrgIdReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsByOrgIdRes.FromString,
+                )
         self.DeleteQueueConfig = channel.unary_unary(
                 '/api.v0alpha.Org/DeleteQueueConfig',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.DeleteQueueConfigReq.SerializeToString,
@@ -954,10 +959,20 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.GetUserSubscriptionRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserSubscriptionResponse.FromString,
                 )
+        self.GetMyUserSubscription = channel.unary_unary(
+                '/api.v0alpha.Org/GetMyUserSubscription',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserSubscriptionRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserSubscriptionResponse.FromString,
+                )
         self.AddUserSubscription = channel.unary_unary(
                 '/api.v0alpha.Org/AddUserSubscription',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionResponse.FromString,
+                )
+        self.AddMyUserSubscription = channel.unary_unary(
+                '/api.v0alpha.Org/AddMyUserSubscription',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionResponse.FromString,
                 )
         self.RemoveUserSubscription = channel.unary_unary(
                 '/api.v0alpha.Org/RemoveUserSubscription',
@@ -974,10 +989,20 @@ class OrgStub(object):
                 request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserSubscriptionRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserSubscriptionResponse.FromString,
                 )
+        self.UpdateMyUserSubscription = channel.unary_unary(
+                '/api.v0alpha.Org/UpdateMyUserSubscription',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserSubscriptionRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserSubscriptionResponse.FromString,
+                )
         self.ListUserSubscriptions = channel.unary_unary(
                 '/api.v0alpha.Org/ListUserSubscriptions',
                 request_serializer=api_dot_v0alpha_dot_org__pb2.ListUserSubscriptionsRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_org__pb2.ListUserSubscriptionsResponse.FromString,
+                )
+        self.ListMyUserSubscriptions = channel.unary_unary(
+                '/api.v0alpha.Org/ListMyUserSubscriptions',
+                request_serializer=api_dot_v0alpha_dot_org__pb2.ListMyUserSubscriptionsRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_org__pb2.ListMyUserSubscriptionsResponse.FromString,
                 )
         self.ListOrgSubscriptions = channel.unary_unary(
                 '/api.v0alpha.Org/ListOrgSubscriptions',
@@ -2330,9 +2355,16 @@ class OrgServicer(object):
 
     def ListQueueConfigs(self, request, context):
         """Lists the names of the custom queue configs.
-        Required Permissions:
-        ORG_VIEW (If @org_id is empty)
-        CUSTOMER_SUPPORT (If @org_id is NOT empty)
+        Errors:
+        - grpc.Internal: An error occurred while getting the config names.
+        - grpc.NotFound: The given @org_id was not found (if @org_id is NOT empty).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListQueueConfigsByOrgId(self, request, context):
+        """Lists the names of the custom queue configs.
         Errors:
         - grpc.Internal: An error occurred while getting the config names.
         - grpc.NotFound: The given @org_id was not found (if @org_id is NOT empty).
@@ -2622,15 +2654,26 @@ class OrgServicer(object):
         """USER SUBSCTRIPTIONS
 
         Gets a user subscription by id
-        Required Permissions:
-        ORG_VIEW if user id IS provided
-        none if user id NOT provided
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetMyUserSubscription(self, request, context):
+        """Gets a user subscription by id
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AddUserSubscription(self, request, context):
+        """Adds a user subscription to user's list of subscriptions
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddMyUserSubscription(self, request, context):
         """Adds a user subscription to user's list of subscriptions
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2653,9 +2696,13 @@ class OrgServicer(object):
 
     def UpdateUserSubscription(self, request, context):
         """Updates a user subscription
-        Required Permissions:
-        USER_EDIT if user id IS provided
-        EDIT_USER_OPTIONS if user id NOT provided
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateMyUserSubscription(self, request, context):
+        """Updates a user subscription
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2663,9 +2710,13 @@ class OrgServicer(object):
 
     def ListUserSubscriptions(self, request, context):
         """Lists all of a users subscriptions
-        Required Permissions:
-        ORG_VIEW if user id IS provided
-        none if user id NOT provided
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListMyUserSubscriptions(self, request, context):
+        """Lists all of a users subscriptions
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3548,6 +3599,11 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsRes.SerializeToString,
             ),
+            'ListQueueConfigsByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListQueueConfigsByOrgId,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsByOrgIdReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.ListQueueConfigsByOrgIdRes.SerializeToString,
+            ),
             'DeleteQueueConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteQueueConfig,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.DeleteQueueConfigReq.FromString,
@@ -3678,10 +3734,20 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.GetUserSubscriptionRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.GetUserSubscriptionResponse.SerializeToString,
             ),
+            'GetMyUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMyUserSubscription,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.GetMyUserSubscriptionRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.GetMyUserSubscriptionResponse.SerializeToString,
+            ),
             'AddUserSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.AddUserSubscription,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionResponse.SerializeToString,
+            ),
+            'AddMyUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddMyUserSubscription,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionResponse.SerializeToString,
             ),
             'RemoveUserSubscription': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveUserSubscription,
@@ -3698,10 +3764,20 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateUserSubscriptionRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateUserSubscriptionResponse.SerializeToString,
             ),
+            'UpdateMyUserSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateMyUserSubscription,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserSubscriptionRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.UpdateMyUserSubscriptionResponse.SerializeToString,
+            ),
             'ListUserSubscriptions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUserSubscriptions,
                     request_deserializer=api_dot_v0alpha_dot_org__pb2.ListUserSubscriptionsRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_org__pb2.ListUserSubscriptionsResponse.SerializeToString,
+            ),
+            'ListMyUserSubscriptions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListMyUserSubscriptions,
+                    request_deserializer=api_dot_v0alpha_dot_org__pb2.ListMyUserSubscriptionsRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_org__pb2.ListMyUserSubscriptionsResponse.SerializeToString,
             ),
             'ListOrgSubscriptions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListOrgSubscriptions,
@@ -6498,6 +6574,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListQueueConfigsByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/ListQueueConfigsByOrgId',
+            api_dot_v0alpha_dot_org__pb2.ListQueueConfigsByOrgIdReq.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.ListQueueConfigsByOrgIdRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteQueueConfig(request,
             target,
             options=(),
@@ -6940,6 +7033,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetMyUserSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/GetMyUserSubscription',
+            api_dot_v0alpha_dot_org__pb2.GetMyUserSubscriptionRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.GetMyUserSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def AddUserSubscription(request,
             target,
             options=(),
@@ -6953,6 +7063,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/AddUserSubscription',
             api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.AddUserSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddMyUserSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/AddMyUserSubscription',
+            api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.AddMyUserSubscriptionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -7008,6 +7135,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpdateMyUserSubscription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/UpdateMyUserSubscription',
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserSubscriptionRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.UpdateMyUserSubscriptionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListUserSubscriptions(request,
             target,
             options=(),
@@ -7021,6 +7165,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/ListUserSubscriptions',
             api_dot_v0alpha_dot_org__pb2.ListUserSubscriptionsRequest.SerializeToString,
             api_dot_v0alpha_dot_org__pb2.ListUserSubscriptionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListMyUserSubscriptions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Org/ListMyUserSubscriptions',
+            api_dot_v0alpha_dot_org__pb2.ListMyUserSubscriptionsRequest.SerializeToString,
+            api_dot_v0alpha_dot_org__pb2.ListMyUserSubscriptionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
