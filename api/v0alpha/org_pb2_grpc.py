@@ -2355,9 +2355,6 @@ class OrgServicer(object):
 
     def ListQueueConfigs(self, request, context):
         """Lists the names of the custom queue configs.
-        Required Permissions:
-        ORG_VIEW (If @org_id is empty)
-        CUSTOMER_SUPPORT (If @org_id is NOT empty)
         Errors:
         - grpc.Internal: An error occurred while getting the config names.
         - grpc.NotFound: The given @org_id was not found (if @org_id is NOT empty).
@@ -2368,9 +2365,6 @@ class OrgServicer(object):
 
     def ListQueueConfigsByOrgId(self, request, context):
         """Lists the names of the custom queue configs.
-        Required Permissions:
-        ORG_VIEW (If @org_id is empty)
-        CUSTOMER_SUPPORT (If @org_id is NOT empty)
         Errors:
         - grpc.Internal: An error occurred while getting the config names.
         - grpc.NotFound: The given @org_id was not found (if @org_id is NOT empty).
