@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from api.v1alpha1.org.soundboard import entities_pb2 as api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2
+from api.v1alpha1.soundboard import entities_pb2 as api_dot_v1alpha1_dot_soundboard_dot_entities__pb2
 
 
 class SoundboardStub(object):
@@ -16,28 +16,28 @@ class SoundboardStub(object):
         """
         self.GetSoundboardFile = channel.unary_stream(
                 '/api.v1alpha1.soundboard.Soundboard/GetSoundboardFile',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.GetSoundboardFileReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.GetSoundboardFileRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.GetSoundboardFileReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.GetSoundboardFileRes.FromString,
                 )
         self.CreateSoundboard = channel.unary_unary(
                 '/api.v1alpha1.soundboard.Soundboard/CreateSoundboard',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.CreateSoundboardReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.CreateSoundboardRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.CreateSoundboardReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.CreateSoundboardRes.FromString,
                 )
         self.ListSoundboards = channel.unary_unary(
                 '/api.v1alpha1.soundboard.Soundboard/ListSoundboards',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.ListSoundboardsReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.ListSoundboardsRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.ListSoundboardsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.ListSoundboardsRes.FromString,
                 )
         self.UpdateSoundboard = channel.unary_unary(
                 '/api.v1alpha1.soundboard.Soundboard/UpdateSoundboard',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.UpdateSoundboardReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.UpdateSoundboardRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.UpdateSoundboardReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.UpdateSoundboardRes.FromString,
                 )
         self.DeleteSoundboard = channel.unary_unary(
                 '/api.v1alpha1.soundboard.Soundboard/DeleteSoundboard',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.DeleteSoundboardReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.DeleteSoundboardRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.DeleteSoundboardReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.DeleteSoundboardRes.FromString,
                 )
 
 
@@ -89,28 +89,28 @@ def add_SoundboardServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetSoundboardFile': grpc.unary_stream_rpc_method_handler(
                     servicer.GetSoundboardFile,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.GetSoundboardFileReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.GetSoundboardFileRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.GetSoundboardFileReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.GetSoundboardFileRes.SerializeToString,
             ),
             'CreateSoundboard': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateSoundboard,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.CreateSoundboardReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.CreateSoundboardRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.CreateSoundboardReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.CreateSoundboardRes.SerializeToString,
             ),
             'ListSoundboards': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSoundboards,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.ListSoundboardsReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.ListSoundboardsRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.ListSoundboardsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.ListSoundboardsRes.SerializeToString,
             ),
             'UpdateSoundboard': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateSoundboard,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.UpdateSoundboardReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.UpdateSoundboardRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.UpdateSoundboardReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.UpdateSoundboardRes.SerializeToString,
             ),
             'DeleteSoundboard': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteSoundboard,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.DeleteSoundboardReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.DeleteSoundboardRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.DeleteSoundboardReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.DeleteSoundboardRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -134,8 +134,8 @@ class Soundboard(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.soundboard.Soundboard/GetSoundboardFile',
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.GetSoundboardFileReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.GetSoundboardFileRes.FromString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.GetSoundboardFileReq.SerializeToString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.GetSoundboardFileRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -151,8 +151,8 @@ class Soundboard(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.soundboard.Soundboard/CreateSoundboard',
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.CreateSoundboardReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.CreateSoundboardRes.FromString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.CreateSoundboardReq.SerializeToString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.CreateSoundboardRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -168,8 +168,8 @@ class Soundboard(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.soundboard.Soundboard/ListSoundboards',
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.ListSoundboardsReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.ListSoundboardsRes.FromString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.ListSoundboardsReq.SerializeToString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.ListSoundboardsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -185,8 +185,8 @@ class Soundboard(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.soundboard.Soundboard/UpdateSoundboard',
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.UpdateSoundboardReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.UpdateSoundboardRes.FromString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.UpdateSoundboardReq.SerializeToString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.UpdateSoundboardRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -202,7 +202,7 @@ class Soundboard(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.soundboard.Soundboard/DeleteSoundboard',
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.DeleteSoundboardReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_soundboard_dot_entities__pb2.DeleteSoundboardRes.FromString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.DeleteSoundboardReq.SerializeToString,
+            api_dot_v1alpha1_dot_soundboard_dot_entities__pb2.DeleteSoundboardRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
