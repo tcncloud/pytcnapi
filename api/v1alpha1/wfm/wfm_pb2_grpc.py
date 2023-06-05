@@ -480,6 +480,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateDraftScheduleReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateDraftScheduleRes.FromString,
                 )
+        self.UpdateDraftSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateDraftSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateDraftScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateDraftScheduleRes.FromString,
+                )
         self.BuildDraftSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/BuildDraftSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildDraftScheduleReq.SerializeToString,
@@ -1936,6 +1941,21 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateDraftSchedule(self, request, context):
+        """Updates the @name, @description, and @datetime_range of the given @draft_schedule_sid for the org sending the request.
+        The @name, @description, and @datetime_range fields must all be set with their desired values.
+        If @delete_shifts_not_in_range if true, then any instances outside of the @datetime_range will be permenantly deleted with no recovery option.
+        If @delete_shifts_not_in_range is false, instances outside of the new @datetime_range will be retained, for use if the datetime range is expanded to cover the instances in the future.
+        If @copy_shifts_into_new_range time is true, then new the portion of an expanded @datetime_range which has no instances will copy the instances from the published schedule. If false, no instances will be created for an expanded @scheduling_range.
+        If @get_updated_shifts is true, then the returned draft schedule will also contain the shift instances and segments in the given @datetime_range.
+        Errors:
+        - grpc.Invalid: the @name, @description or @datetime_range are invalid.
+        - grpc.Internal: error occurs when updating the schedule or its instances.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def BuildDraftSchedule(self, request, context):
         """Builds a draft schedule for the given @node_selector in @schedule_scenario_sid over @schedule_scenario_scheduling_range for @draft_schedule_sid and the org making the request.
         The @schedule_scenario_scheduling_range field is optional. If not set, the draft schedule will be obtained with it's default range from it's start to end time.
@@ -2597,6 +2617,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.CreateDraftSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateDraftScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateDraftScheduleRes.SerializeToString,
+            ),
+            'UpdateDraftSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateDraftSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateDraftScheduleReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateDraftScheduleRes.SerializeToString,
             ),
             'BuildDraftSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.BuildDraftSchedule,
@@ -4257,6 +4282,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateDraftSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateDraftScheduleReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateDraftScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateDraftSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateDraftSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateDraftScheduleReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateDraftScheduleRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
