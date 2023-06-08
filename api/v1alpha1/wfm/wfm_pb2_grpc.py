@@ -1821,7 +1821,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListConfigEntities(self, request, context):
-        """Gets config entities that match the org sending the request and given @entity_type and that belong to the @belongs_to_entity parameter.
+        """Gets config entities that match the org sending the request and given @entity_type and that belong to the @belongs_to_entity and @schedule_scenario_sid parameters.
         If @include_member_lists is set to true the member lists of the entities retrieved will be included.
         Any nodes in the returned set of entities will have inherited nonskill associations applied to the node's member_nonskill_activity fields.
         Prior to listing the entities it will Resync TCN Agents and skill proficiencies.
