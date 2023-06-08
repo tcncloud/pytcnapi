@@ -32,6 +32,11 @@ class AcdStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.AgentGetStatusStream = channel.unary_stream(
+                '/api.v0alpha.Acd/AgentGetStatusStream',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.AgentGetStatusRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentGetStatusReply.FromString,
+                )
         self.AgentGetStatus = channel.unary_unary(
                 '/api.v0alpha.Acd/AgentGetStatus',
                 request_serializer=api_dot_v0alpha_dot_acd__pb2.AgentGetStatusRequest.SerializeToString,
@@ -304,6 +309,12 @@ class AcdServicer(object):
     check the associated error message for extra information
     - grpc.NotFound:
     """
+
+    def AgentGetStatusStream(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def AgentGetStatus(self, request, context):
         """Missing associated documentation comment in .proto file."""
@@ -619,6 +630,11 @@ class AcdServicer(object):
 
 def add_AcdServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'AgentGetStatusStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.AgentGetStatusStream,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentGetStatusRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.AgentGetStatusReply.SerializeToString,
+            ),
             'AgentGetStatus': grpc.unary_unary_rpc_method_handler(
                     servicer.AgentGetStatus,
                     request_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentGetStatusRequest.FromString,
@@ -896,6 +912,23 @@ class Acd(object):
     check the associated error message for extra information
     - grpc.NotFound:
     """
+
+    @staticmethod
+    def AgentGetStatusStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Acd/AgentGetStatusStream',
+            api_dot_v0alpha_dot_acd__pb2.AgentGetStatusRequest.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.AgentGetStatusReply.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def AgentGetStatus(request,
