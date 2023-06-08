@@ -60,6 +60,11 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.StandaloneReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.StandaloneRes.FromString,
                 )
+        self.DeleteStandalone = channel.unary_unary(
+                '/api.v0alpha.Learn/DeleteStandalone',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneRes.FromString,
+                )
 
 
 class LearnServicer(object):
@@ -125,6 +130,13 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteStandalone(self, request, context):
+        """delete standalone articles from learning pages
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -172,6 +184,11 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.Standalone,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.StandaloneReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.StandaloneRes.SerializeToString,
+            ),
+            'DeleteStandalone': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteStandalone,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -334,5 +351,22 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/Standalone',
             api_dot_v0alpha_dot_learn__pb2.StandaloneReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.StandaloneRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteStandalone(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/DeleteStandalone',
+            api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
