@@ -25,6 +25,21 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.ContentReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.ContentRes.FromString,
                 )
+        self.ExportMany = channel.unary_unary(
+                '/api.v0alpha.Learn/ExportMany',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.FromString,
+                )
+        self.SearchContent = channel.unary_unary(
+                '/api.v0alpha.Learn/SearchContent',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
+                )
+        self.Standalone = channel.unary_unary(
+                '/api.v0alpha.Learn/Standalone',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.StandaloneReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.StandaloneRes.FromString,
+                )
         self.ContentEditorData = channel.unary_unary(
                 '/api.v0alpha.Learn/ContentEditorData',
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.ContentEditorDataReq.SerializeToString,
@@ -35,30 +50,20 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.UpdateReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.UpdateRes.FromString,
                 )
-        self.ExportMany = channel.unary_unary(
-                '/api.v0alpha.Learn/ExportMany',
-                request_serializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.FromString,
-                )
         self.StoreStaticImage = channel.unary_unary(
                 '/api.v0alpha.Learn/StoreStaticImage',
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.StoreStaticImageReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.StoreStaticImageRes.FromString,
-                )
-        self.SearchContent = channel.unary_unary(
-                '/api.v0alpha.Learn/SearchContent',
-                request_serializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
                 )
         self.UploadDynamicScreenshot = channel.unary_unary(
                 '/api.v0alpha.Learn/UploadDynamicScreenshot',
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.UploadDynamicScreenshotReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.UploadDynamicScreenshotRes.FromString,
                 )
-        self.Standalone = channel.unary_unary(
-                '/api.v0alpha.Learn/Standalone',
-                request_serializer=api_dot_v0alpha_dot_learn__pb2.StandaloneReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_learn__pb2.StandaloneRes.FromString,
+        self.DeleteStandalone = channel.unary_unary(
+                '/api.v0alpha.Learn/DeleteStandalone',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneRes.FromString,
                 )
 
 
@@ -67,38 +72,21 @@ class LearnServicer(object):
     """
 
     def Exist(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """check if learning page already exists
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Content(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ContentEditorData(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def Update(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """retreive content from learning pages
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ExportMany(self, request, context):
         """exports multiple pages of the learning center markdown as PDF
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def StoreStaticImage(self, request, context):
-        """upload url for static images
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -111,6 +99,34 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Standalone(self, request, context):
+        """get standalone articles from learning pages
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ContentEditorData(self, request, context):
+        """retrieve user who edited the content last
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def Update(self, request, context):
+        """update contents for learning pages
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def StoreStaticImage(self, request, context):
+        """upload url for static images
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def UploadDynamicScreenshot(self, request, context):
         """upload dynamic learning image screenshot
         """
@@ -118,8 +134,8 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Standalone(self, request, context):
-        """get standalone articles from learning pages
+    def DeleteStandalone(self, request, context):
+        """delete standalone articles from learning pages
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -138,6 +154,21 @@ def add_LearnServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.ContentReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.ContentRes.SerializeToString,
             ),
+            'ExportMany': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExportMany,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.SerializeToString,
+            ),
+            'SearchContent': grpc.unary_unary_rpc_method_handler(
+                    servicer.SearchContent,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.SerializeToString,
+            ),
+            'Standalone': grpc.unary_unary_rpc_method_handler(
+                    servicer.Standalone,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.StandaloneReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.StandaloneRes.SerializeToString,
+            ),
             'ContentEditorData': grpc.unary_unary_rpc_method_handler(
                     servicer.ContentEditorData,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.ContentEditorDataReq.FromString,
@@ -148,30 +179,20 @@ def add_LearnServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.UpdateReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.UpdateRes.SerializeToString,
             ),
-            'ExportMany': grpc.unary_unary_rpc_method_handler(
-                    servicer.ExportMany,
-                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.SerializeToString,
-            ),
             'StoreStaticImage': grpc.unary_unary_rpc_method_handler(
                     servicer.StoreStaticImage,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.StoreStaticImageReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.StoreStaticImageRes.SerializeToString,
-            ),
-            'SearchContent': grpc.unary_unary_rpc_method_handler(
-                    servicer.SearchContent,
-                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.SerializeToString,
             ),
             'UploadDynamicScreenshot': grpc.unary_unary_rpc_method_handler(
                     servicer.UploadDynamicScreenshot,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.UploadDynamicScreenshotReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.UploadDynamicScreenshotRes.SerializeToString,
             ),
-            'Standalone': grpc.unary_unary_rpc_method_handler(
-                    servicer.Standalone,
-                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.StandaloneReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_learn__pb2.StandaloneRes.SerializeToString,
+            'DeleteStandalone': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteStandalone,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -219,6 +240,57 @@ class Learn(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ExportMany(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ExportMany',
+            api_dot_v0alpha_dot_learn__pb2.ExportManyReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.ExportRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchContent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/SearchContent',
+            api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def Standalone(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/Standalone',
+            api_dot_v0alpha_dot_learn__pb2.StandaloneReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.StandaloneRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ContentEditorData(request,
             target,
             options=(),
@@ -253,23 +325,6 @@ class Learn(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ExportMany(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ExportMany',
-            api_dot_v0alpha_dot_learn__pb2.ExportManyReq.SerializeToString,
-            api_dot_v0alpha_dot_learn__pb2.ExportRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def StoreStaticImage(request,
             target,
             options=(),
@@ -283,23 +338,6 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/StoreStaticImage',
             api_dot_v0alpha_dot_learn__pb2.StoreStaticImageReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.StoreStaticImageRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SearchContent(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/SearchContent',
-            api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
-            api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -321,7 +359,7 @@ class Learn(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Standalone(request,
+    def DeleteStandalone(request,
             target,
             options=(),
             channel_credentials=None,
@@ -331,8 +369,8 @@ class Learn(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/Standalone',
-            api_dot_v0alpha_dot_learn__pb2.StandaloneReq.SerializeToString,
-            api_dot_v0alpha_dot_learn__pb2.StandaloneRes.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/DeleteStandalone',
+            api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.DeleteStandaloneRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
