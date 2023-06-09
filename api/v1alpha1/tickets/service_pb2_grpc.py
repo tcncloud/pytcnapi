@@ -91,6 +91,11 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_project__pb2.ListTicketAuditLogReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_project__pb2.ListTicketAuditLogRes.FromString,
                 )
+        self.AssignSelf = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/AssignSelf',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignRes.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -210,6 +215,13 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AssignSelf(self, request, context):
+        """Public method to assign a ticket
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -287,6 +299,11 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.ListTicketAuditLog,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_project__pb2.ListTicketAuditLogReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_project__pb2.ListTicketAuditLogRes.SerializeToString,
+            ),
+            'AssignSelf': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignSelf,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -551,5 +568,22 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListTicketAuditLog',
             api_dot_v1alpha1_dot_tickets_dot_project__pb2.ListTicketAuditLogReq.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_project__pb2.ListTicketAuditLogRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignSelf(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/AssignSelf',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignReq.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
