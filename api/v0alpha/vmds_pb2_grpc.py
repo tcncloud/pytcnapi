@@ -49,6 +49,11 @@ class VmdsStub(object):
                 request_serializer=api_dot_v0alpha_dot_vmds__pb2.DownloadMessageReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_vmds__pb2.DownloadMessageRes.FromString,
                 )
+        self.DownloadSpecifiedMessages = channel.unary_unary(
+                '/api.v0alpha.Vmds/DownloadSpecifiedMessages',
+                request_serializer=api_dot_v0alpha_dot_vmds__pb2.DownloadSpecifiedMessagesReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_vmds__pb2.DownloadSpecifiedMessagesRes.FromString,
+                )
         self.DownloadMessages = channel.unary_unary(
                 '/api.v0alpha.Vmds/DownloadMessages',
                 request_serializer=api_dot_v0alpha_dot_vmds__pb2.DownloadMessagesReq.SerializeToString,
@@ -126,6 +131,12 @@ class VmdsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DownloadMessage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DownloadSpecifiedMessages(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -210,6 +221,11 @@ def add_VmdsServicer_to_server(servicer, server):
                     servicer.DownloadMessage,
                     request_deserializer=api_dot_v0alpha_dot_vmds__pb2.DownloadMessageReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_vmds__pb2.DownloadMessageRes.SerializeToString,
+            ),
+            'DownloadSpecifiedMessages': grpc.unary_unary_rpc_method_handler(
+                    servicer.DownloadSpecifiedMessages,
+                    request_deserializer=api_dot_v0alpha_dot_vmds__pb2.DownloadSpecifiedMessagesReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_vmds__pb2.DownloadSpecifiedMessagesRes.SerializeToString,
             ),
             'DownloadMessages': grpc.unary_unary_rpc_method_handler(
                     servicer.DownloadMessages,
@@ -372,6 +388,23 @@ class Vmds(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Vmds/DownloadMessage',
             api_dot_v0alpha_dot_vmds__pb2.DownloadMessageReq.SerializeToString,
             api_dot_v0alpha_dot_vmds__pb2.DownloadMessageRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DownloadSpecifiedMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Vmds/DownloadSpecifiedMessages',
+            api_dot_v0alpha_dot_vmds__pb2.DownloadSpecifiedMessagesReq.SerializeToString,
+            api_dot_v0alpha_dot_vmds__pb2.DownloadSpecifiedMessagesRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
