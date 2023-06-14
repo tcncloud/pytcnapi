@@ -15,11 +15,6 @@ class BillingStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.CreateBillingPlan = channel.unary_unary(
-                '/api.v1alpha1.billing.Billing/CreateBillingPlan',
-                request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.CreateBillingPlanReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.CreateBillingPlanRes.FromString,
-                )
         self.GetBillingPlan = channel.unary_unary(
                 '/api.v1alpha1.billing.Billing/GetBillingPlan',
                 request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetBillingPlanReq.SerializeToString,
@@ -29,11 +24,6 @@ class BillingStub(object):
                 '/api.v1alpha1.billing.Billing/UpdateBillingPlan',
                 request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.UpdateBillingPlanReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.UpdateBillingPlanRes.FromString,
-                )
-        self.DeleteBillingDetails = channel.unary_unary(
-                '/api.v1alpha1.billing.Billing/DeleteBillingDetails',
-                request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.DeleteBillingDetailsReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.DeleteBillingDetailsRes.FromString,
                 )
         self.GetInvoice = channel.unary_unary(
                 '/api.v1alpha1.billing.Billing/GetInvoice',
@@ -45,15 +35,6 @@ class BillingStub(object):
 class BillingServicer(object):
     """Billing service for handling billing requests.
     """
-
-    def CreateBillingPlan(self, request, context):
-        """CreateBillingPlan - saves the provided billing plan, and returns the saved
-        plan. However, in an organization's Billing Plan there can only ever be
-        one billing detail with a specific config type and event type.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
 
     def GetBillingPlan(self, request, context):
         """GetBillingPlan - returns the billing plan for the provided organization.
@@ -75,14 +56,6 @@ class BillingServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteBillingDetails(self, request, context):
-        """DeleteBillingDetails - deletes the provided billing details. If the billing
-        details do not exist, this won't do anything.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetInvoice(self, request, context):
         """GetInvoice - returns the invoice for the organization. If a date is
         provided, this will return the invoice for the organization that
@@ -97,11 +70,6 @@ class BillingServicer(object):
 
 def add_BillingServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'CreateBillingPlan': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateBillingPlan,
-                    request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.CreateBillingPlanReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.CreateBillingPlanRes.SerializeToString,
-            ),
             'GetBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBillingPlan,
                     request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetBillingPlanReq.FromString,
@@ -111,11 +79,6 @@ def add_BillingServicer_to_server(servicer, server):
                     servicer.UpdateBillingPlan,
                     request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.UpdateBillingPlanReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.UpdateBillingPlanRes.SerializeToString,
-            ),
-            'DeleteBillingDetails': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteBillingDetails,
-                    request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.DeleteBillingDetailsReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.DeleteBillingDetailsRes.SerializeToString,
             ),
             'GetInvoice': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInvoice,
@@ -132,23 +95,6 @@ def add_BillingServicer_to_server(servicer, server):
 class Billing(object):
     """Billing service for handling billing requests.
     """
-
-    @staticmethod
-    def CreateBillingPlan(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.billing.Billing/CreateBillingPlan',
-            api_dot_v1alpha1_dot_billing_dot_entities__pb2.CreateBillingPlanReq.SerializeToString,
-            api_dot_v1alpha1_dot_billing_dot_entities__pb2.CreateBillingPlanRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def GetBillingPlan(request,
@@ -181,23 +127,6 @@ class Billing(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.billing.Billing/UpdateBillingPlan',
             api_dot_v1alpha1_dot_billing_dot_entities__pb2.UpdateBillingPlanReq.SerializeToString,
             api_dot_v1alpha1_dot_billing_dot_entities__pb2.UpdateBillingPlanRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteBillingDetails(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.billing.Billing/DeleteBillingDetails',
-            api_dot_v1alpha1_dot_billing_dot_entities__pb2.DeleteBillingDetailsReq.SerializeToString,
-            api_dot_v1alpha1_dot_billing_dot_entities__pb2.DeleteBillingDetailsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
