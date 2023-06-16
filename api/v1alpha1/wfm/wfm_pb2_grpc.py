@@ -2039,6 +2039,7 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when creating the shift instance.
+        - grpc.NotFound: the @draft_schedule_sid, @shift_template_sid, or @wfm_agent_sids do not exist for the org sending the request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
