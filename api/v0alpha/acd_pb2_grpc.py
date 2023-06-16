@@ -47,6 +47,11 @@ class AcdStub(object):
                 request_serializer=api_dot_v0alpha_dot_acd__pb2.AgentGetConnectedPartyRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentGetConnectedPartyReply.FromString,
                 )
+        self.ManagerAgentGetConnectedParty = channel.unary_unary(
+                '/api.v0alpha.Acd/ManagerAgentGetConnectedParty',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.ManagerAgentGetConnectedPartyRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.ManagerAgentGetConnectedPartyReply.FromString,
+                )
         self.AgentIntercom = channel.unary_unary(
                 '/api.v0alpha.Acd/AgentIntercom',
                 request_serializer=api_dot_v0alpha_dot_acd__pb2.AgentIntercomRequest.SerializeToString,
@@ -323,6 +328,12 @@ class AcdServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def AgentGetConnectedParty(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ManagerAgentGetConnectedParty(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -645,6 +656,11 @@ def add_AcdServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentGetConnectedPartyRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_acd__pb2.AgentGetConnectedPartyReply.SerializeToString,
             ),
+            'ManagerAgentGetConnectedParty': grpc.unary_unary_rpc_method_handler(
+                    servicer.ManagerAgentGetConnectedParty,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.ManagerAgentGetConnectedPartyRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.ManagerAgentGetConnectedPartyReply.SerializeToString,
+            ),
             'AgentIntercom': grpc.unary_unary_rpc_method_handler(
                     servicer.AgentIntercom,
                     request_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentIntercomRequest.FromString,
@@ -961,6 +977,23 @@ class Acd(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/AgentGetConnectedParty',
             api_dot_v0alpha_dot_acd__pb2.AgentGetConnectedPartyRequest.SerializeToString,
             api_dot_v0alpha_dot_acd__pb2.AgentGetConnectedPartyReply.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ManagerAgentGetConnectedParty(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/ManagerAgentGetConnectedParty',
+            api_dot_v0alpha_dot_acd__pb2.ManagerAgentGetConnectedPartyRequest.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.ManagerAgentGetConnectedPartyReply.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

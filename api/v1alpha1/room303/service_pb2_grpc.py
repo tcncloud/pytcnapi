@@ -117,6 +117,11 @@ class Room303APIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ArchiveRoomRequest.SerializeToString,
                 response_deserializer=api_dot_commons_dot_room303__pb2.Room.FromString,
                 )
+        self.ListUsersByOrgId = channel.unary_stream(
+                '/api.v1alpha1.room303.Room303API/ListUsersByOrgId',
+                request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersByOrgIdResponse.FromString,
+                )
 
 
 class Room303APIServicer(object):
@@ -261,6 +266,12 @@ class Room303APIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListUsersByOrgId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_Room303APIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -363,6 +374,11 @@ def add_Room303APIServicer_to_server(servicer, server):
                     servicer.ArchiveRoom,
                     request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ArchiveRoomRequest.FromString,
                     response_serializer=api_dot_commons_dot_room303__pb2.Room.SerializeToString,
+            ),
+            'ListUsersByOrgId': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListUsersByOrgId,
+                    request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersByOrgIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -711,5 +727,22 @@ class Room303API(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/ArchiveRoom',
             api_dot_v1alpha1_dot_room303_dot_room__pb2.ArchiveRoomRequest.SerializeToString,
             api_dot_commons_dot_room303__pb2.Room.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUsersByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.room303.Room303API/ListUsersByOrgId',
+            api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersByOrgIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersByOrgIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
