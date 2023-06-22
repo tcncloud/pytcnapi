@@ -110,7 +110,7 @@ class TicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def EditTicket(self, request, context):
-        """Public Method to edit a ticket.
+        """Public Method to create a ticket.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -131,7 +131,7 @@ class TicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CloseTicket(self, request, context):
-        """Public Method to Close a ticket
+        """Closes the ticket
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
