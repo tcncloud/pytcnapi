@@ -325,6 +325,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsRes.FromString,
                 )
+        self.DeleteWFMAgentsMemberships = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteWFMAgentsMemberships',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
+                )
         self.BuildAgentDiagnostics = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/BuildAgentDiagnostics',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildAgentDiagnosticsReq.SerializeToString,
@@ -1456,13 +1461,25 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteWFMAgentMemberships(self, request, context):
-        """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid.
+        """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid for the org sending the request.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sid are invalid.
         - grpc.NotFound: any of the given memberships to delete do not exist.
         - grpc.Internal: error occurs when deleting the association.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteWFMAgentsMemberships(self, request, context):
+        """Deletes all membership associations for the given @wfm_agent_sids with the given @agent_group_sids.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sids are invalid.
+        - grpc.Internal: error occurs when deleting the associations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2462,6 +2479,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteWFMAgentMemberships,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsRes.SerializeToString,
+            ),
+            'DeleteWFMAgentsMemberships': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteWFMAgentsMemberships,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.SerializeToString,
             ),
             'BuildAgentDiagnostics': grpc.unary_unary_rpc_method_handler(
                     servicer.BuildAgentDiagnostics,
@@ -3755,6 +3777,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteWFMAgentMemberships',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteWFMAgentsMemberships(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteWFMAgentsMemberships',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
