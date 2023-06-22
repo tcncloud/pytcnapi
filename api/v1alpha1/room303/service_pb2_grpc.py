@@ -267,7 +267,8 @@ class Room303APIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListUsersNames(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """ListUsersNames returns a list of users with names and ids
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
