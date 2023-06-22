@@ -1461,7 +1461,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteWFMAgentMemberships(self, request, context):
-        """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid.
+        """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid for the org sending the request.
         Required permissions:
         NONE
         Errors:
