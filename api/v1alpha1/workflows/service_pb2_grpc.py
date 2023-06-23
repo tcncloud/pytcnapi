@@ -29,10 +29,10 @@ class WorkflowsDefinitionsServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.FromString,
                 )
-        self.DeleteFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionsService/DeleteFlowDefinition',
-                request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
+        self.DeleteFlowDefinitionById = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowsDefinitionsService/DeleteFlowDefinitionById',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.FromString,
                 )
 
 
@@ -60,7 +60,7 @@ class WorkflowsDefinitionsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteFlowDefinition(self, request, context):
+    def DeleteFlowDefinitionById(self, request, context):
         """DeleteFlowDefinition deletes a flow definition
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -85,10 +85,10 @@ def add_WorkflowsDefinitionsServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.SerializeToString,
             ),
-            'DeleteFlowDefinition': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteFlowDefinition,
-                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.SerializeToString,
+            'DeleteFlowDefinitionById': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFlowDefinitionById,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -152,7 +152,7 @@ class WorkflowsDefinitionsService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteFlowDefinition(request,
+    def DeleteFlowDefinitionById(request,
             target,
             options=(),
             channel_credentials=None,
@@ -162,8 +162,8 @@ class WorkflowsDefinitionsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionsService/DeleteFlowDefinition',
-            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionsService/DeleteFlowDefinitionById',
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

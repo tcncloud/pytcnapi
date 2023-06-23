@@ -15,7 +15,7 @@ from api.commons.workflows import entities_pb2 as api_dot_commons_dot_workflows_
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%api/v1alpha1/workflows/entities.proto\x12\x16\x61pi.v1alpha1.workflows\x1a$api/commons/workflows/entities.proto\x1a google/protobuf/field_mask.proto\"4\n\x1aListFlowDefinitionsRequest\x12\x16\n\x06\x66ilter\x18\x01 \x01(\tR\x06\x66ilter\"o\n\x1bListFlowDefinitionsResponse\x12P\n\x10\x66low_definitions\x18\x01 \x03(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0f\x66lowDefinitions\"\xa8\x01\n\x19SaveFlowDefinitionRequest\x12N\n\x0f\x66low_definition\x18\x01 \x01(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0e\x66lowDefinition\x12;\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMask\"\x9a\x01\n\x1aSaveFlowDefinitionResponse\x12,\n\x12\x66low_definition_id\x18\x01 \x01(\tR\x10\x66lowDefinitionId\x12N\n\x0f\x66low_definition\x18\x02 \x01(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0e\x66lowDefinition\"H\n\x18GetFlowDefinitionRequest\x12,\n\x12\x66low_definition_id\x18\x01 \x01(\tR\x10\x66lowDefinitionId\"k\n\x19GetFlowDefinitionResponse\x12N\n\x0f\x66low_definition\x18\x01 \x01(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0e\x66lowDefinition\"K\n\x1b\x44\x65leteFlowDefinitionRequest\x12,\n\x12\x66low_definition_id\x18\x01 \x01(\tR\x10\x66lowDefinitionId\"L\n\x1c\x44\x65leteFlowDefinitionResponse\x12,\n\x12\x66low_definition_id\x18\x01 \x01(\tR\x10\x66lowDefinitionIdB\xa5\x01\n\x1a\x63om.api.v1alpha1.workflowsB\rEntitiesProtoP\x01\xa2\x02\x03\x41VW\xaa\x02\x16\x41pi.V1alpha1.Workflows\xca\x02\x16\x41pi\\V1alpha1\\Workflows\xe2\x02\"Api\\V1alpha1\\Workflows\\GPBMetadata\xea\x02\x18\x41pi::V1alpha1::Workflowsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%api/v1alpha1/workflows/entities.proto\x12\x16\x61pi.v1alpha1.workflows\x1a$api/commons/workflows/entities.proto\x1a google/protobuf/field_mask.proto\"4\n\x1aListFlowDefinitionsRequest\x12\x16\n\x06\x66ilter\x18\x01 \x01(\tR\x06\x66ilter\"o\n\x1bListFlowDefinitionsResponse\x12P\n\x10\x66low_definitions\x18\x01 \x03(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0f\x66lowDefinitions\"\xa8\x01\n\x19SaveFlowDefinitionRequest\x12N\n\x0f\x66low_definition\x18\x01 \x01(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0e\x66lowDefinition\x12;\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMask\"\x9a\x01\n\x1aSaveFlowDefinitionResponse\x12,\n\x12\x66low_definition_id\x18\x01 \x01(\tR\x10\x66lowDefinitionId\x12N\n\x0f\x66low_definition\x18\x02 \x01(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0e\x66lowDefinition\"H\n\x18GetFlowDefinitionRequest\x12,\n\x12\x66low_definition_id\x18\x01 \x01(\tR\x10\x66lowDefinitionId\"k\n\x19GetFlowDefinitionResponse\x12N\n\x0f\x66low_definition\x18\x01 \x01(\x0b\x32%.api.commons.workflows.FlowDefinitionR\x0e\x66lowDefinition\"O\n\x1f\x44\x65leteFlowDefinitionByIdRequest\x12,\n\x12\x66low_definition_id\x18\x01 \x01(\tR\x10\x66lowDefinitionId\":\n DeleteFlowDefinitionByIdResponse\x12\x16\n\x06result\x18\x01 \x01(\x08R\x06resultB\xa5\x01\n\x1a\x63om.api.v1alpha1.workflowsB\rEntitiesProtoP\x01\xa2\x02\x03\x41VW\xaa\x02\x16\x41pi.V1alpha1.Workflows\xca\x02\x16\x41pi\\V1alpha1\\Workflows\xe2\x02\"Api\\V1alpha1\\Workflows\\GPBMetadata\xea\x02\x18\x41pi::V1alpha1::Workflowsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -36,8 +36,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_GETFLOWDEFINITIONREQUEST']._serialized_end=704
   _globals['_GETFLOWDEFINITIONRESPONSE']._serialized_start=706
   _globals['_GETFLOWDEFINITIONRESPONSE']._serialized_end=813
-  _globals['_DELETEFLOWDEFINITIONREQUEST']._serialized_start=815
-  _globals['_DELETEFLOWDEFINITIONREQUEST']._serialized_end=890
-  _globals['_DELETEFLOWDEFINITIONRESPONSE']._serialized_start=892
-  _globals['_DELETEFLOWDEFINITIONRESPONSE']._serialized_end=968
+  _globals['_DELETEFLOWDEFINITIONBYIDREQUEST']._serialized_start=815
+  _globals['_DELETEFLOWDEFINITIONBYIDREQUEST']._serialized_end=894
+  _globals['_DELETEFLOWDEFINITIONBYIDRESPONSE']._serialized_start=896
+  _globals['_DELETEFLOWDEFINITIONBYIDRESPONSE']._serialized_end=954
 # @@protoc_insertion_point(module_scope)
