@@ -167,3 +167,99 @@ class WorkflowsDefinitionsService(object):
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+
+class WorkflowsStateServiceStub(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetFlowState = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowsStateService/GetFlowState',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowStateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowStateResponse.FromString,
+                )
+        self.SaveFlowState = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowsStateService/SaveFlowState',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowStateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowStateResponse.FromString,
+                )
+
+
+class WorkflowsStateServiceServicer(object):
+    """Missing associated documentation comment in .proto file."""
+
+    def GetFlowState(self, request, context):
+        """GetFlowState lists flow state
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SaveFlowState(self, request, context):
+        """SaveFlowState saves flow state
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_WorkflowsStateServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetFlowState': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFlowState,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowStateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowStateResponse.SerializeToString,
+            ),
+            'SaveFlowState': grpc.unary_unary_rpc_method_handler(
+                    servicer.SaveFlowState,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowStateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowStateResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'api.v1alpha1.workflows.WorkflowsStateService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+ # This class is part of an EXPERIMENTAL API.
+class WorkflowsStateService(object):
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def GetFlowState(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsStateService/GetFlowState',
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowStateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowStateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SaveFlowState(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsStateService/SaveFlowState',
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowStateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowStateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
