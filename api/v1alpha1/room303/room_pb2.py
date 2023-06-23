@@ -11,18 +11,11 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-from api.commons import org_pb2 as api_dot_commons_dot_org__pb2
-from api.commons.org import agent_profile_group_pb2 as api_dot_commons_dot_org_dot_agent__profile__group__pb2
-from api.commons.org import labels_pb2 as api_dot_commons_dot_org_dot_labels__pb2
-from api.commons.org import permissions_pb2 as api_dot_commons_dot_org_dot_permissions__pb2
-from api.commons.org import trusts_pb2 as api_dot_commons_dot_org_dot_trusts__pb2
-from api.commons.org import user_pb2 as api_dot_commons_dot_org_dot_user__pb2
 from api.commons import room303_pb2 as api_dot_commons_dot_room303__pb2
 from api.commons import user_pb2 as api_dot_commons_dot_user__pb2
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/room303/room.proto\x12\x14\x61pi.v1alpha1.room303\x1a\x15\x61pi/commons/org.proto\x1a)api/commons/org/agent_profile_group.proto\x1a\x1c\x61pi/commons/org/labels.proto\x1a!api/commons/org/permissions.proto\x1a\x1c\x61pi/commons/org/trusts.proto\x1a\x1a\x61pi/commons/org/user.proto\x1a\x19\x61pi/commons/room303.proto\x1a\x16\x61pi/commons/user.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"l\n\x11\x43reateRoomRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12)\n\x04type\x18\x02 \x01(\x0e\x32\x15.api.commons.RoomTypeR\x04type\x12\x18\n\x07members\x18\x03 \x03(\tR\x07members\")\n\x0eGetRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x15\n\x13ListAllRoomsRequest\"\x1b\n\x19ListRoomsForMemberRequest\"<\n\x11ListRoomsResponse\x12\'\n\x05rooms\x18\x01 \x03(\x0b\x32\x11.api.commons.RoomR\x05rooms\"-\n\x12\x41rchiveRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x95\x01\n\x17ListUsersByOrgIdRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x14\n\x05\x61gent\x18\x02 \x01(\x08R\x05\x61gent\x12M\n\x0f\x61rchived_filter\x18\x03 \x01(\x0e\x32$.api.commons.UserArchivedStateFilterR\x0e\x61rchivedFilter\"`\n\x18ListUsersByOrgIdResponse\x12\x44\n\x0cuser_details\x18\x01 \x03(\x0b\x32!.api.v1alpha1.room303.UserDetailsR\x0buserDetails\"\xbf\t\n\x0bUserDetails\x12)\n\x04user\x18\x01 \x01(\x0b\x32\x15.api.commons.org.UserR\x04user\x12\x19\n\x08org_name\x18\x02 \x01(\tR\x07orgName\x12J\n\nhunt_group\x18\x03 \x01(\x0b\x32+.api.v1alpha1.room303.UserDetails.HuntGroupR\thuntGroup\x12\x63\n\x13\x61gent_profile_group\x18\x04 \x01(\x0b\x32\x33.api.v1alpha1.room303.UserDetails.AgentProfileGroupR\x11\x61gentProfileGroup\x12.\n\x06skills\x18\x05 \x03(\x0b\x32\x16.api.commons.org.SkillR\x06skills\x12M\n\x11permission_groups\x18\x06 \x03(\x0b\x32 .api.commons.org.PermissionGroupR\x10permissionGroups\x12R\n\x13p3_permission_group\x18\x07 \x01(\x0b\x32\".api.commons.org.P3PermissionGroupR\x11p3PermissionGroup\x12\x1c\n\tdelegated\x18\x08 \x01(\x08R\tdelegated\x12.\n\x06labels\x18\t \x03(\x0b\x32\x16.api.commons.org.LabelR\x06labels\x12J\n\nlogin_info\x18\n \x01(\x0b\x32+.api.v1alpha1.room303.UserDetails.LoginInfoR\tloginInfo\x12\x1d\n\nbilling_id\x18\x0b \x01(\tR\tbillingId\x12.\n\x06trusts\x18\x0c \x03(\x0b\x32\x16.api.commons.org.TrustR\x06trusts\x1aY\n\tHuntGroup\x12$\n\x0ehunt_group_sid\x18\x01 \x01(\x03R\x0chuntGroupSid\x12&\n\x0fhunt_group_name\x18\x02 \x01(\tR\rhuntGroupName\x1a\x81\x01\n\x11\x41gentProfileGroup\x12\x33\n\x16\x61gent_profile_group_id\x18\x01 \x01(\tR\x13\x61gentProfileGroupId\x12\x37\n\x18\x61gent_profile_group_name\x18\x02 \x01(\tR\x15\x61gentProfileGroupName\x1a\x9d\x02\n\tLoginInfo\x12\x17\n\x07last_ip\x18\x01 \x01(\tR\x06lastIp\x12\x39\n\nlast_login\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tlastLogin\x12J\n\x13last_password_reset\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x11lastPasswordReset\x12!\n\x0clogins_count\x18\x04 \x01(\x03R\x0bloginsCount\x12&\n\x0fhas_blocked_ips\x18\x05 \x01(\x08R\rhasBlockedIps\x12%\n\x0e\x65mail_verified\x18\x06 \x01(\x08R\remailVerifiedB\x97\x01\n\x18\x63om.api.v1alpha1.room303B\tRoomProtoP\x01\xa2\x02\x03\x41VR\xaa\x02\x14\x41pi.V1alpha1.Room303\xca\x02\x14\x41pi\\V1alpha1\\Room303\xe2\x02 Api\\V1alpha1\\Room303\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Room303b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/room303/room.proto\x12\x14\x61pi.v1alpha1.room303\x1a\x19\x61pi/commons/room303.proto\x1a\x16\x61pi/commons/user.proto\"l\n\x11\x43reateRoomRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12)\n\x04type\x18\x02 \x01(\x0e\x32\x15.api.commons.RoomTypeR\x04type\x12\x18\n\x07members\x18\x03 \x03(\tR\x07members\")\n\x0eGetRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x15\n\x13ListAllRoomsRequest\"\x1b\n\x19ListRoomsForMemberRequest\"<\n\x11ListRoomsResponse\x12\'\n\x05rooms\x18\x01 \x03(\x0b\x32\x11.api.commons.RoomR\x05rooms\"-\n\x12\x41rchiveRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x93\x01\n\x15ListUsersNamesRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x14\n\x05\x61gent\x18\x02 \x01(\x08R\x05\x61gent\x12M\n\x0f\x61rchived_filter\x18\x03 \x01(\x0e\x32$.api.commons.UserArchivedStateFilterR\x0e\x61rchivedFilter\"^\n\x16ListUsersNamesResponse\x12\x44\n\x0cuser_details\x18\x01 \x03(\x0b\x32!.api.v1alpha1.room303.UserDetailsR\x0buserDetails\"\x7f\n\x0bUserDetails\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x1b\n\tuser_name\x18\x02 \x01(\tR\x08userName\x12\x1d\n\nfirst_name\x18\x03 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x04 \x01(\tR\x08lastNameB\x97\x01\n\x18\x63om.api.v1alpha1.room303B\tRoomProtoP\x01\xa2\x02\x03\x41VR\xaa\x02\x14\x41pi.V1alpha1.Room303\xca\x02\x14\x41pi\\V1alpha1\\Room303\xe2\x02 Api\\V1alpha1\\Room303\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Room303b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -31,28 +24,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\030com.api.v1alpha1.room303B\tRoomProtoP\001\242\002\003AVR\252\002\024Api.V1alpha1.Room303\312\002\024Api\\V1alpha1\\Room303\342\002 Api\\V1alpha1\\Room303\\GPBMetadata\352\002\026Api::V1alpha1::Room303'
-  _globals['_CREATEROOMREQUEST']._serialized_start=330
-  _globals['_CREATEROOMREQUEST']._serialized_end=438
-  _globals['_GETROOMREQUEST']._serialized_start=440
-  _globals['_GETROOMREQUEST']._serialized_end=481
-  _globals['_LISTALLROOMSREQUEST']._serialized_start=483
-  _globals['_LISTALLROOMSREQUEST']._serialized_end=504
-  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_start=506
-  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_end=533
-  _globals['_LISTROOMSRESPONSE']._serialized_start=535
-  _globals['_LISTROOMSRESPONSE']._serialized_end=595
-  _globals['_ARCHIVEROOMREQUEST']._serialized_start=597
-  _globals['_ARCHIVEROOMREQUEST']._serialized_end=642
-  _globals['_LISTUSERSBYORGIDREQUEST']._serialized_start=645
-  _globals['_LISTUSERSBYORGIDREQUEST']._serialized_end=794
-  _globals['_LISTUSERSBYORGIDRESPONSE']._serialized_start=796
-  _globals['_LISTUSERSBYORGIDRESPONSE']._serialized_end=892
-  _globals['_USERDETAILS']._serialized_start=895
-  _globals['_USERDETAILS']._serialized_end=2110
-  _globals['_USERDETAILS_HUNTGROUP']._serialized_start=1601
-  _globals['_USERDETAILS_HUNTGROUP']._serialized_end=1690
-  _globals['_USERDETAILS_AGENTPROFILEGROUP']._serialized_start=1693
-  _globals['_USERDETAILS_AGENTPROFILEGROUP']._serialized_end=1822
-  _globals['_USERDETAILS_LOGININFO']._serialized_start=1825
-  _globals['_USERDETAILS_LOGININFO']._serialized_end=2110
+  _globals['_CREATEROOMREQUEST']._serialized_start=108
+  _globals['_CREATEROOMREQUEST']._serialized_end=216
+  _globals['_GETROOMREQUEST']._serialized_start=218
+  _globals['_GETROOMREQUEST']._serialized_end=259
+  _globals['_LISTALLROOMSREQUEST']._serialized_start=261
+  _globals['_LISTALLROOMSREQUEST']._serialized_end=282
+  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_start=284
+  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_end=311
+  _globals['_LISTROOMSRESPONSE']._serialized_start=313
+  _globals['_LISTROOMSRESPONSE']._serialized_end=373
+  _globals['_ARCHIVEROOMREQUEST']._serialized_start=375
+  _globals['_ARCHIVEROOMREQUEST']._serialized_end=420
+  _globals['_LISTUSERSNAMESREQUEST']._serialized_start=423
+  _globals['_LISTUSERSNAMESREQUEST']._serialized_end=570
+  _globals['_LISTUSERSNAMESRESPONSE']._serialized_start=572
+  _globals['_LISTUSERSNAMESRESPONSE']._serialized_end=666
+  _globals['_USERDETAILS']._serialized_start=668
+  _globals['_USERDETAILS']._serialized_end=795
 # @@protoc_insertion_point(module_scope)
