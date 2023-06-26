@@ -3,7 +3,6 @@
 import grpc
 
 from api.v1alpha1.org import agent_profile_group_pb2 as api_dot_v1alpha1_dot_org_dot_agent__profile__group__pb2
-from api.v1alpha1.org import auth_connections_pb2 as api_dot_v1alpha1_dot_org_dot_auth__connections__pb2
 from api.v1alpha1.org import huntgroup_pb2 as api_dot_v1alpha1_dot_org_dot_huntgroup__pb2
 from api.v1alpha1.org import labels_pb2 as api_dot_v1alpha1_dot_org_dot_labels__pb2
 from api.v1alpha1.org import notifications_pb2 as api_dot_v1alpha1_dot_org_dot_notifications__pb2
@@ -769,31 +768,6 @@ class OrgStub(object):
                 '/api.v1alpha1.org.Org/RevokeUsersP3PermissionGroup',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.FromString,
-                )
-        self.CreateAuthConnection = channel.unary_unary(
-                '/api.v1alpha1.org.Org/CreateAuthConnection',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.CreateAuthConnectionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.CreateAuthConnectionResponse.FromString,
-                )
-        self.GetAuthConnectionSettings = channel.unary_unary(
-                '/api.v1alpha1.org.Org/GetAuthConnectionSettings',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.GetAuthConnectionSettingsRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.GetAuthConnectionSettingsResponse.FromString,
-                )
-        self.DeleteAuthConnection = channel.unary_unary(
-                '/api.v1alpha1.org.Org/DeleteAuthConnection',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.DeleteAuthConnectionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.DeleteAuthConnectionResponse.FromString,
-                )
-        self.UpdateAuthConnectionSecret = channel.unary_unary(
-                '/api.v1alpha1.org.Org/UpdateAuthConnectionSecret',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionSecretRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionSecretResponse.FromString,
-                )
-        self.UpdateAuthConnectionGroups = channel.unary_unary(
-                '/api.v1alpha1.org.Org/UpdateAuthConnectionGroups',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionGroupsRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionGroupsResponse.FromString,
                 )
 
 
@@ -1912,43 +1886,6 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateAuthConnection(self, request, context):
-        """AUTH0 CONNECTIONS
-
-        CreateAuthConnection creates a new auth0 connection.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetAuthConnectionSettings(self, request, context):
-        """GetAuthConnectionSettings gets auth0 connection settings.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteAuthConnection(self, request, context):
-        """DeleteAuthConnection removes the current orgs auth settings.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateAuthConnectionSecret(self, request, context):
-        """UpdateAuthConnectionSecret updates a connections secret.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateAuthConnectionGroups(self, request, context):
-        """UpdateAuthConnectionGroups updates a connections groups.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_OrgServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -2696,31 +2633,6 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.RevokeUsersP3PermissionGroup,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.SerializeToString,
-            ),
-            'CreateAuthConnection': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateAuthConnection,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.CreateAuthConnectionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.CreateAuthConnectionResponse.SerializeToString,
-            ),
-            'GetAuthConnectionSettings': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetAuthConnectionSettings,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.GetAuthConnectionSettingsRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.GetAuthConnectionSettingsResponse.SerializeToString,
-            ),
-            'DeleteAuthConnection': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteAuthConnection,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.DeleteAuthConnectionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.DeleteAuthConnectionResponse.SerializeToString,
-            ),
-            'UpdateAuthConnectionSecret': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateAuthConnectionSecret,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionSecretRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionSecretResponse.SerializeToString,
-            ),
-            'UpdateAuthConnectionGroups': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateAuthConnectionGroups,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionGroupsRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionGroupsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -5263,90 +5175,5 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RevokeUsersP3PermissionGroup',
             api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateAuthConnection(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateAuthConnection',
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.CreateAuthConnectionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.CreateAuthConnectionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetAuthConnectionSettings(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetAuthConnectionSettings',
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.GetAuthConnectionSettingsRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.GetAuthConnectionSettingsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteAuthConnection(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteAuthConnection',
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.DeleteAuthConnectionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.DeleteAuthConnectionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateAuthConnectionSecret(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateAuthConnectionSecret',
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionSecretRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionSecretResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateAuthConnectionGroups(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateAuthConnectionGroups',
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionGroupsRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_auth__connections__pb2.UpdateAuthConnectionGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
