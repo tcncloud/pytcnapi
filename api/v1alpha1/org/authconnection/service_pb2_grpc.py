@@ -5,7 +5,7 @@ import grpc
 from api.v1alpha1.org.authconnection import entities_pb2 as api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2
 
 
-class AuthConnectionStub(object):
+class AuthConnectionServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,33 +15,33 @@ class AuthConnectionStub(object):
             channel: A grpc.Channel.
         """
         self.CreateAuthConnection = channel.unary_unary(
-                '/api.v1alpha1.org.authconnection.AuthConnection/CreateAuthConnection',
+                '/api.v1alpha1.org.authconnection.AuthConnectionService/CreateAuthConnection',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionResponse.FromString,
                 )
         self.GetAuthConnectionSettings = channel.unary_unary(
-                '/api.v1alpha1.org.authconnection.AuthConnection/GetAuthConnectionSettings',
+                '/api.v1alpha1.org.authconnection.AuthConnectionService/GetAuthConnectionSettings',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.GetAuthConnectionSettingsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.GetAuthConnectionSettingsResponse.FromString,
                 )
         self.DeleteAuthConnection = channel.unary_unary(
-                '/api.v1alpha1.org.authconnection.AuthConnection/DeleteAuthConnection',
+                '/api.v1alpha1.org.authconnection.AuthConnectionService/DeleteAuthConnection',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.DeleteAuthConnectionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.DeleteAuthConnectionResponse.FromString,
                 )
         self.UpdateAuthConnectionSecret = channel.unary_unary(
-                '/api.v1alpha1.org.authconnection.AuthConnection/UpdateAuthConnectionSecret',
+                '/api.v1alpha1.org.authconnection.AuthConnectionService/UpdateAuthConnectionSecret',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionSecretRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionSecretResponse.FromString,
                 )
         self.UpdateAuthConnectionGroups = channel.unary_unary(
-                '/api.v1alpha1.org.authconnection.AuthConnection/UpdateAuthConnectionGroups',
+                '/api.v1alpha1.org.authconnection.AuthConnectionService/UpdateAuthConnectionGroups',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionGroupsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionGroupsResponse.FromString,
                 )
 
 
-class AuthConnectionServicer(object):
+class AuthConnectionServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateAuthConnection(self, request, context):
@@ -80,7 +80,7 @@ class AuthConnectionServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_AuthConnectionServicer_to_server(servicer, server):
+def add_AuthConnectionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateAuthConnection': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAuthConnection,
@@ -109,12 +109,12 @@ def add_AuthConnectionServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.v1alpha1.org.authconnection.AuthConnection', rpc_method_handlers)
+            'api.v1alpha1.org.authconnection.AuthConnectionService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class AuthConnection(object):
+class AuthConnectionService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -128,7 +128,7 @@ class AuthConnection(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnection/CreateAuthConnection',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnectionService/CreateAuthConnection',
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionResponse.FromString,
             options, channel_credentials,
@@ -145,7 +145,7 @@ class AuthConnection(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnection/GetAuthConnectionSettings',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnectionService/GetAuthConnectionSettings',
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.GetAuthConnectionSettingsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.GetAuthConnectionSettingsResponse.FromString,
             options, channel_credentials,
@@ -162,7 +162,7 @@ class AuthConnection(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnection/DeleteAuthConnection',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnectionService/DeleteAuthConnection',
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.DeleteAuthConnectionRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.DeleteAuthConnectionResponse.FromString,
             options, channel_credentials,
@@ -179,7 +179,7 @@ class AuthConnection(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnection/UpdateAuthConnectionSecret',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnectionService/UpdateAuthConnectionSecret',
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionSecretRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionSecretResponse.FromString,
             options, channel_credentials,
@@ -196,7 +196,7 @@ class AuthConnection(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnection/UpdateAuthConnectionGroups',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnectionService/UpdateAuthConnectionGroups',
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionGroupsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.UpdateAuthConnectionGroupsResponse.FromString,
             options, channel_credentials,
