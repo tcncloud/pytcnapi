@@ -5,7 +5,7 @@ import grpc
 from api.v1alpha1.workflows import entities_pb2 as api_dot_v1alpha1_dot_workflows_dot_entities__pb2
 
 
-class WorkflowsDefinitionsServiceStub(object):
+class WorkflowsDefinitionServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,28 +15,28 @@ class WorkflowsDefinitionsServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListFlowDefinitions = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionsService/ListFlowDefinitions',
+                '/api.v1alpha1.workflows.WorkflowsDefinitionService/ListFlowDefinitions',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsResponse.FromString,
                 )
         self.SaveFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionsService/SaveFlowDefinition',
+                '/api.v1alpha1.workflows.WorkflowsDefinitionService/SaveFlowDefinition',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionResponse.FromString,
                 )
         self.GetFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionsService/GetFlowDefinition',
+                '/api.v1alpha1.workflows.WorkflowsDefinitionService/GetFlowDefinition',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.FromString,
                 )
         self.DeleteFlowDefinitionById = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionsService/DeleteFlowDefinitionById',
+                '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinitionById',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.FromString,
                 )
 
 
-class WorkflowsDefinitionsServiceServicer(object):
+class WorkflowsDefinitionServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def ListFlowDefinitions(self, request, context):
@@ -68,7 +68,7 @@ class WorkflowsDefinitionsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_WorkflowsDefinitionsServiceServicer_to_server(servicer, server):
+def add_WorkflowsDefinitionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'ListFlowDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListFlowDefinitions,
@@ -92,12 +92,12 @@ def add_WorkflowsDefinitionsServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.v1alpha1.workflows.WorkflowsDefinitionsService', rpc_method_handlers)
+            'api.v1alpha1.workflows.WorkflowsDefinitionService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkflowsDefinitionsService(object):
+class WorkflowsDefinitionService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -111,7 +111,7 @@ class WorkflowsDefinitionsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionsService/ListFlowDefinitions',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/ListFlowDefinitions',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsResponse.FromString,
             options, channel_credentials,
@@ -128,7 +128,7 @@ class WorkflowsDefinitionsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionsService/SaveFlowDefinition',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/SaveFlowDefinition',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionResponse.FromString,
             options, channel_credentials,
@@ -145,7 +145,7 @@ class WorkflowsDefinitionsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionsService/GetFlowDefinition',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/GetFlowDefinition',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.FromString,
             options, channel_credentials,
@@ -162,7 +162,7 @@ class WorkflowsDefinitionsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionsService/DeleteFlowDefinitionById',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinitionById',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.FromString,
             options, channel_credentials,
