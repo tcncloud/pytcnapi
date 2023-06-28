@@ -5,7 +5,7 @@ import grpc
 from api.commons.workflows import service_pb2 as api_dot_commons_dot_workflows_dot_service__pb2
 
 
-class WorkflowsDefinitionsServiceStub(object):
+class WorkflowsDefinitionServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,18 +15,18 @@ class WorkflowsDefinitionsServiceStub(object):
             channel: A grpc.Channel.
         """
         self.SaveFlowDefinition = channel.unary_unary(
-                '/api.commons.workflows.WorkflowsDefinitionsService/SaveFlowDefinition',
+                '/api.commons.workflows.WorkflowsDefinitionService/SaveFlowDefinition',
                 request_serializer=api_dot_commons_dot_workflows_dot_service__pb2.SaveFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_commons_dot_workflows_dot_service__pb2.SaveFlowDefinitionResponse.FromString,
                 )
         self.GetFlowDefinition = channel.unary_unary(
-                '/api.commons.workflows.WorkflowsDefinitionsService/GetFlowDefinition',
+                '/api.commons.workflows.WorkflowsDefinitionService/GetFlowDefinition',
                 request_serializer=api_dot_commons_dot_workflows_dot_service__pb2.GetFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_commons_dot_workflows_dot_service__pb2.GetFlowDefinitionResponse.FromString,
                 )
 
 
-class WorkflowsDefinitionsServiceServicer(object):
+class WorkflowsDefinitionServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def SaveFlowDefinition(self, request, context):
@@ -42,7 +42,7 @@ class WorkflowsDefinitionsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_WorkflowsDefinitionsServiceServicer_to_server(servicer, server):
+def add_WorkflowsDefinitionServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SaveFlowDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.SaveFlowDefinition,
@@ -56,12 +56,12 @@ def add_WorkflowsDefinitionsServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.commons.workflows.WorkflowsDefinitionsService', rpc_method_handlers)
+            'api.commons.workflows.WorkflowsDefinitionService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkflowsDefinitionsService(object):
+class WorkflowsDefinitionService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -75,7 +75,7 @@ class WorkflowsDefinitionsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.commons.workflows.WorkflowsDefinitionsService/SaveFlowDefinition',
+        return grpc.experimental.unary_unary(request, target, '/api.commons.workflows.WorkflowsDefinitionService/SaveFlowDefinition',
             api_dot_commons_dot_workflows_dot_service__pb2.SaveFlowDefinitionRequest.SerializeToString,
             api_dot_commons_dot_workflows_dot_service__pb2.SaveFlowDefinitionResponse.FromString,
             options, channel_credentials,
@@ -92,7 +92,7 @@ class WorkflowsDefinitionsService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.commons.workflows.WorkflowsDefinitionsService/GetFlowDefinition',
+        return grpc.experimental.unary_unary(request, target, '/api.commons.workflows.WorkflowsDefinitionService/GetFlowDefinition',
             api_dot_commons_dot_workflows_dot_service__pb2.GetFlowDefinitionRequest.SerializeToString,
             api_dot_commons_dot_workflows_dot_service__pb2.GetFlowDefinitionResponse.FromString,
             options, channel_credentials,
