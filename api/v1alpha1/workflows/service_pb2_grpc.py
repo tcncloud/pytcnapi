@@ -29,8 +29,8 @@ class WorkflowsDefinitionServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.FromString,
                 )
-        self.DeleteFlowDefinitionById = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinitionById',
+        self.DeleteFlowDefinition = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinition',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
                 )
@@ -60,7 +60,7 @@ class WorkflowsDefinitionServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteFlowDefinitionById(self, request, context):
+    def DeleteFlowDefinition(self, request, context):
         """DeleteFlowDefinition deletes a flow definition
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -85,8 +85,8 @@ def add_WorkflowsDefinitionServiceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.SerializeToString,
             ),
-            'DeleteFlowDefinitionById': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteFlowDefinitionById,
+            'DeleteFlowDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFlowDefinition,
                     request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.SerializeToString,
             ),
@@ -152,7 +152,7 @@ class WorkflowsDefinitionService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteFlowDefinitionById(request,
+    def DeleteFlowDefinition(request,
             target,
             options=(),
             channel_credentials=None,
@@ -162,7 +162,7 @@ class WorkflowsDefinitionService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinitionById',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinition',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
             options, channel_credentials,
