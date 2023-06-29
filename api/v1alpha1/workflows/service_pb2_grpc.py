@@ -31,8 +31,8 @@ class WorkflowsDefinitionServiceStub(object):
                 )
         self.DeleteFlowDefinitionById = channel.unary_unary(
                 '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinitionById',
-                request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.FromString,
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
                 )
 
 
@@ -87,8 +87,8 @@ def add_WorkflowsDefinitionServiceServicer_to_server(servicer, server):
             ),
             'DeleteFlowDefinitionById': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteFlowDefinitionById,
-                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -163,7 +163,7 @@ class WorkflowsDefinitionService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinitionById',
-            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionByIdResponse.FromString,
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
