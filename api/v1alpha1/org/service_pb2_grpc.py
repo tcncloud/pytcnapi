@@ -769,6 +769,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.FromString,
                 )
+        self.ListOrgSkills = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListOrgSkills',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_organization__pb2.ListOrgSkillsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_organization__pb2.ListOrgSkillsRes.FromString,
+                )
 
 
 class OrgServicer(object):
@@ -1886,6 +1891,15 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListOrgSkills(self, request, context):
+        """Returns a list of skills filtered by types given on
+        the request message field type_filter. Leaving the type_filter
+        field empty will return all types of skills.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrgServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -2633,6 +2647,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.RevokeUsersP3PermissionGroup,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.SerializeToString,
+            ),
+            'ListOrgSkills': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOrgSkills,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_organization__pb2.ListOrgSkillsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_organization__pb2.ListOrgSkillsRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -5175,5 +5194,22 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RevokeUsersP3PermissionGroup',
             api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOrgSkills(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListOrgSkills',
+            api_dot_v1alpha1_dot_org_dot_organization__pb2.ListOrgSkillsReq.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_organization__pb2.ListOrgSkillsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
