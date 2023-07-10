@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x61pi/commons/vanalytics.proto\x12\x0b\x61pi.commons*\xbe\x01\n\x08Interval\x12\t\n\x05TODAY\x10\x00\x12\r\n\tYESTERDAY\x10\x01\x12\r\n\tTHIS_WEEK\x10\x02\x12\x0f\n\x0bLAST_7_DAYS\x10\x03\x12\r\n\tLAST_WEEK\x10\x04\x12\x10\n\x0cLAST_14_DAYS\x10\x05\x12\x0e\n\nTHIS_MONTH\x10\x06\x12\x10\n\x0cLAST_30_DAYS\x10\x07\x12\x10\n\x0cLAST_60_DAYS\x10\x08\x12\x10\n\x0cLAST_90_DAYS\x10\t\x12\x11\n\rLAST_180_DAYS\x10\n*g\n\x08Language\x12\x14\n\x10LANGUAGE_ENGLISH\x10\x00\x12\x18\n\x14LANGUAGE_AUTO_DETECT\x10\x01\x12\x14\n\x10LANGUAGE_SPANISH\x10\x02\x12\x15\n\x11LANGUAGE_ROMANIAN\x10\x03\x42o\n\x0f\x63om.api.commonsB\x0fVanalyticsProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x61pi/commons/vanalytics.proto\x12\x0b\x61pi.commons*\xbe\x01\n\x08Interval\x12\t\n\x05TODAY\x10\x00\x12\r\n\tYESTERDAY\x10\x01\x12\r\n\tTHIS_WEEK\x10\x02\x12\x0f\n\x0bLAST_7_DAYS\x10\x03\x12\r\n\tLAST_WEEK\x10\x04\x12\x10\n\x0cLAST_14_DAYS\x10\x05\x12\x0e\n\nTHIS_MONTH\x10\x06\x12\x10\n\x0cLAST_30_DAYS\x10\x07\x12\x10\n\x0cLAST_60_DAYS\x10\x08\x12\x10\n\x0cLAST_90_DAYS\x10\t\x12\x11\n\rLAST_180_DAYS\x10\n*M\n\x08Language\x12\x14\n\x10LANGUAGE_ENGLISH\x10\x00\x12\x14\n\x10LANGUAGE_SPANISH\x10\x01\x12\x15\n\x11LANGUAGE_ROMANIAN\x10\x02\x42o\n\x0f\x63om.api.commonsB\x0fVanalyticsProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,5 +25,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_INTERVAL']._serialized_start=46
   _globals['_INTERVAL']._serialized_end=236
   _globals['_LANGUAGE']._serialized_start=238
-  _globals['_LANGUAGE']._serialized_end=341
+  _globals['_LANGUAGE']._serialized_end=315
 # @@protoc_insertion_point(module_scope)
