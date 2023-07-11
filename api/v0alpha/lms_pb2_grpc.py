@@ -75,6 +75,16 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ListAvailableFieldsByElementIdReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_lms__pb2.ProcessFields.FromString,
                 )
+        self.ListFieldsForElement = channel.unary_unary(
+                '/api.v0alpha.LMS/ListFieldsForElement',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementRes.FromString,
+                )
+        self.ListAutocompleteFields = channel.unary_unary(
+                '/api.v0alpha.LMS/ListAutocompleteFields',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsRes.FromString,
+                )
         self.ListCampaignLinks = channel.unary_unary(
                 '/api.v0alpha.LMS/ListCampaignLinks',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -337,6 +347,18 @@ class LMSServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListAvailableFieldsByElementId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFieldsForElement(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAutocompleteFields(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -652,6 +674,16 @@ def add_LMSServicer_to_server(servicer, server):
                     servicer.ListAvailableFieldsByElementId,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListAvailableFieldsByElementIdReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_lms__pb2.ProcessFields.SerializeToString,
+            ),
+            'ListFieldsForElement': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFieldsForElement,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementRes.SerializeToString,
+            ),
+            'ListAutocompleteFields': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAutocompleteFields,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsRes.SerializeToString,
             ),
             'ListCampaignLinks': grpc.unary_unary_rpc_method_handler(
                     servicer.ListCampaignLinks,
@@ -1054,6 +1086,40 @@ class LMS(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListAvailableFieldsByElementId',
             api_dot_v0alpha_dot_lms__pb2.ListAvailableFieldsByElementIdReq.SerializeToString,
             api_dot_v0alpha_dot_lms__pb2.ProcessFields.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFieldsForElement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListFieldsForElement',
+            api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAutocompleteFields(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListAutocompleteFields',
+            api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
