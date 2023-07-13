@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#api/commons/workflows/example.proto\x12\x15\x61pi.commons.workflows\"%\n\tNodePrint\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\"U\n\nNodeRandom\x12\x10\n\x03min\x18\x01 \x01(\x05R\x03min\x12\x10\n\x03max\x18\x02 \x01(\x05R\x03max\x12#\n\rsingle_output\x18\x03 \x01(\x08R\x0csingleOutput\"*\n\x10NodeConsoleInput\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\"+\n\x0eNodeStoreInput\x12\x19\n\x08store_to\x18\x01 \x01(\tR\x07storeTo\"T\n\x0eNodeComparator\x12\x1f\n\x0b\x66irst_field\x18\x01 \x01(\tR\nfirstField\x12!\n\x0csecond_field\x18\x02 \x01(\tR\x0bsecondField\"\'\n\x0bNodeChatbot\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\"\xbd\x02\n\x0c\x44iceDocument\x12\x1c\n\tdiceValue\x18\x01 \x01(\x05R\tdiceValue\x12\"\n\x0c\x64iceValueMax\x18\x02 \x01(\x05R\x0c\x64iceValueMax\x12\"\n\x0c\x64iceValueMin\x18\x03 \x01(\x05R\x0c\x64iceValueMin\x12!\n\x0clast_message\x18\x04 \x01(\tR\x0blastMessage\x12P\n\tvariables\x18\x05 \x03(\x0b\x32\x32.api.commons.workflows.DiceDocument.VariablesEntryR\tvariables\x12\x14\n\x05\x65rror\x18\x64 \x01(\tR\x05\x65rror\x1a<\n\x0eVariablesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"g\n\x0f\x43hatbotDocument\x12\x1d\n\nin_message\x18\x01 \x01(\tR\tinMessage\x12\x1f\n\x0bout_message\x18\x02 \x01(\tR\noutMessage\x12\x14\n\x05\x65rror\x18\x64 \x01(\tR\x05\x65rrorB\x9f\x01\n\x19\x63om.api.commons.workflowsB\x0c\x45xampleProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#api/commons/workflows/example.proto\x12\x15\x61pi.commons.workflows\"%\n\tNodePrint\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\"U\n\nNodeRandom\x12\x10\n\x03min\x18\x01 \x01(\x05R\x03min\x12\x10\n\x03max\x18\x02 \x01(\x05R\x03max\x12#\n\rsingle_output\x18\x03 \x01(\x08R\x0csingleOutput\"*\n\x10NodeConsoleInput\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\"+\n\x0eNodeStoreInput\x12\x19\n\x08store_to\x18\x01 \x01(\tR\x07storeTo\"T\n\x0eNodeComparator\x12\x1f\n\x0b\x66irst_field\x18\x01 \x01(\tR\nfirstField\x12!\n\x0csecond_field\x18\x02 \x01(\tR\x0bsecondField\"\'\n\x0bNodeChatbot\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\"\xc2\x02\n\x0c\x44iceDocument\x12\x1d\n\ndice_value\x18\x01 \x01(\x05R\tdiceValue\x12$\n\x0e\x64ice_value_max\x18\x02 \x01(\x05R\x0c\x64iceValueMax\x12$\n\x0e\x64ice_value_min\x18\x03 \x01(\x05R\x0c\x64iceValueMin\x12!\n\x0clast_message\x18\x04 \x01(\tR\x0blastMessage\x12P\n\tvariables\x18\x05 \x03(\x0b\x32\x32.api.commons.workflows.DiceDocument.VariablesEntryR\tvariables\x12\x14\n\x05\x65rror\x18\x64 \x01(\tR\x05\x65rror\x1a<\n\x0eVariablesEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"g\n\x0f\x43hatbotDocument\x12\x1d\n\nin_message\x18\x01 \x01(\tR\tinMessage\x12\x1f\n\x0bout_message\x18\x02 \x01(\tR\noutMessage\x12\x14\n\x05\x65rror\x18\x64 \x01(\tR\x05\x65rrorB\x9f\x01\n\x19\x63om.api.commons.workflowsB\x0c\x45xampleProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,9 +37,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_NODECHATBOT']._serialized_start=363
   _globals['_NODECHATBOT']._serialized_end=402
   _globals['_DICEDOCUMENT']._serialized_start=405
-  _globals['_DICEDOCUMENT']._serialized_end=722
-  _globals['_DICEDOCUMENT_VARIABLESENTRY']._serialized_start=662
-  _globals['_DICEDOCUMENT_VARIABLESENTRY']._serialized_end=722
-  _globals['_CHATBOTDOCUMENT']._serialized_start=724
-  _globals['_CHATBOTDOCUMENT']._serialized_end=827
+  _globals['_DICEDOCUMENT']._serialized_end=727
+  _globals['_DICEDOCUMENT_VARIABLESENTRY']._serialized_start=667
+  _globals['_DICEDOCUMENT_VARIABLESENTRY']._serialized_end=727
+  _globals['_CHATBOTDOCUMENT']._serialized_start=729
+  _globals['_CHATBOTDOCUMENT']._serialized_end=832
 # @@protoc_insertion_point(module_scope)

@@ -325,6 +325,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsRes.FromString,
                 )
+        self.DeleteWFMAgentsMemberships = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteWFMAgentsMemberships',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
+                )
         self.BuildAgentDiagnostics = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/BuildAgentDiagnostics',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildAgentDiagnosticsReq.SerializeToString,
@@ -1456,13 +1461,25 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteWFMAgentMemberships(self, request, context):
-        """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid.
+        """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid for the org sending the request.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sid are invalid.
         - grpc.NotFound: any of the given memberships to delete do not exist.
         - grpc.Internal: error occurs when deleting the association.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteWFMAgentsMemberships(self, request, context):
+        """Deletes all membership associations for the given @wfm_agent_sids with the given @agent_group_sids.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sids are invalid.
+        - grpc.Internal: error occurs when deleting the associations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1519,6 +1536,7 @@ class WFMServicer(object):
 
     def ListShiftTemplatesBySids(self, request, context):
         """Lists the shift templates matching the specified @shift_template_sids for the org sending the request.
+        If @include_placement_rules is set to true, the @shift_templates will be returned with their member placement rules.
         Required permissions:
         NONE
         Errors:
@@ -1987,7 +2005,8 @@ class WFMServicer(object):
         """Gets the draft schedule with @draft_schedule_sid for the corresponding @datetime_range for the org sending the request.
         The @datetime_range field is optional. If not set, the draft schedule will be obtained with it's default range from it's start to end time.
         if @include_shift_instances is true, the shift instances associated within @datetime_range for the draft schedule will be returned in the draft schedules shift_instances field.
-        if @node_selector is set then only instances belonging to the origin of @node_selector and its children node will be returned, otherwise all matching shift instances will be included
+        if @node_selector is set then only instances belonging to the origin of @node_selector and its children node will be returned, otherwise all matching shift instances will be included.
+        @node_selector must be for a node that belongs to the same schedule scenario as @draft_schedule_sid.
         if @include_shift_template is true, any returned shift instances will have their orginating shift template returned in their origin_shift_template field.
         if @include_shift_segments is true, any returned shift instances will have their shift_segments field set, otherwise the field will be left nil.
         if @include_scheduling_activity is true, any returned shift segments will have their scheduling_activity field set, otherwise the field will be left nil.
@@ -2465,6 +2484,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteWFMAgentMemberships,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsRes.SerializeToString,
+            ),
+            'DeleteWFMAgentsMemberships': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteWFMAgentsMemberships,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.SerializeToString,
             ),
             'BuildAgentDiagnostics': grpc.unary_unary_rpc_method_handler(
                     servicer.BuildAgentDiagnostics,
@@ -3758,6 +3782,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteWFMAgentMemberships',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteWFMAgentsMemberships(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteWFMAgentsMemberships',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
