@@ -96,6 +96,16 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignRes.FromString,
                 )
+        self.EditMaskTicket = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/EditMaskTicket',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditMaskTicketReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditMaskTicketRes.FromString,
+                )
+        self.ListAllocatedTickets = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/ListAllocatedTickets',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAllocatedTicketReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAllocatedTicketRes.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -222,6 +232,20 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def EditMaskTicket(self, request, context):
+        """Public Method to edit a ticket.
+        EditTicket would be deprecated
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAllocatedTickets(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -304,6 +328,16 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.AssignSelf,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignRes.SerializeToString,
+            ),
+            'EditMaskTicket': grpc.unary_unary_rpc_method_handler(
+                    servicer.EditMaskTicket,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditMaskTicketReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditMaskTicketRes.SerializeToString,
+            ),
+            'ListAllocatedTickets': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAllocatedTickets,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAllocatedTicketReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAllocatedTicketRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -585,5 +619,39 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/AssignSelf',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignReq.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateSelfAssignRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EditMaskTicket(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/EditMaskTicket',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditMaskTicketReq.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditMaskTicketRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAllocatedTickets(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListAllocatedTickets',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAllocatedTicketReq.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAllocatedTicketRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
