@@ -520,6 +520,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceRes.FromString,
                 )
+        self.CreateShiftInstanceV2 = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateShiftInstanceV2',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.FromString,
+                )
         self.SwapShiftInstances = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/SwapShiftInstances',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapShiftInstancesReq.SerializeToString,
@@ -1088,7 +1093,7 @@ class WFMServicer(object):
 
     def UpdateSkillProfileAveragesUsingHistoricalData(self, request, context):
         """Calculates the averages for call characteristics using the historical data of the given @skill_profile_sids and org sending the request.
-        If no @skill_profile_sids are given, it will calculate the averages for all skill profiles for the given @org_id.
+        If no @skill_profile_sids are given, it will calculate the averages for all skill profiles for the org sending the request.
         Averages will be weighted by the number of calls that each historical data interval has.
         Once the averages are calculated, they will be updated in the db for those skill profiles.
 
@@ -1701,7 +1706,7 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @agent_availability_pattern_sid or @org_id have invalid values.
+        - grpc.Invalid: the @agent_availability_pattern_sid has an invalid value.
         - grpc.NotFound: the @agent_availability_pattern with the given sid doesn't exist.
         - grpc.Internal: error occurs when removing the agent availability pattern.
         """
@@ -1851,7 +1856,7 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @org_id, @entity_type, or @belongs_to_entity have invalid values.
+        - grpc.Invalid: the @entity_type, or @belongs_to_entity have invalid values.
         - grpc.Internal: error occurs when getting the config entities.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2051,11 +2056,27 @@ class WFMServicer(object):
 
     def CreateShiftInstance(self, request, context):
         """Creates a shift instance for the org sending the request with the provided parameters.
+        This method is not implemented. Do not use.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when creating the shift instance.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateShiftInstanceV2(self, request, context):
+        """Creates a shift instance for the org sending the request with the provided parameters.
+        If @wfm_agent_sids is empty, then the shift instance will be created for a newly created unassigned agent.
+        A shift instance will be created for each wfm agent sid provided.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.Internal: error occurs when creating the shift instance.
+        - grpc.NotFound: the @draft_schedule_sid, @shift_template_sid, or @wfm_agent_sids do not exist for the org sending the request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2676,6 +2697,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.CreateShiftInstance,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceRes.SerializeToString,
+            ),
+            'CreateShiftInstanceV2': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateShiftInstanceV2,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.SerializeToString,
             ),
             'SwapShiftInstances': grpc.unary_unary_rpc_method_handler(
                     servicer.SwapShiftInstances,
@@ -4442,6 +4468,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateShiftInstance',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateShiftInstanceV2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateShiftInstanceV2',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
