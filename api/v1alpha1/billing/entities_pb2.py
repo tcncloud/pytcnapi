@@ -18,7 +18,7 @@ from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#api/v1alpha1/billing/entities.proto\x12\x14\x61pi.v1alpha1.billing\x1a\x17\x61nnotations/authz.proto\x1a api/commons/billing/detail.proto\x1a!api/commons/billing/invoice.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"*\n\x11GetBillingPlanReq\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\"Q\n\x11GetBillingPlanRes\x12<\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32\x19.api.commons.billing.PlanR\x0b\x62illingPlan\"s\n\x14UpdateBillingPlanReq\x12\x44\n\x0f\x62illing_details\x18\x01 \x03(\x0b\x32\x1b.api.commons.billing.DetailR\x0e\x62illingDetails\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\"T\n\x14UpdateBillingPlanRes\x12<\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32\x19.api.commons.billing.PlanR\x0b\x62illingPlan\"e\n\rGetInvoiceReq\x12=\n\x0cinvoice_date\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0binvoiceDate\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\"g\n\rGetInvoiceRes\x12\x38\n\x07invoice\x18\x01 \x01(\x0b\x32\x1c.api.commons.billing.InvoiceH\x00R\x07invoice\x12\x12\n\x03\x63sv\x18\x02 \x01(\tH\x00R\x03\x63svB\x08\n\x06\x66ormat\"r\n\x1a\x45xportGeneratedInvoicesReq\x12=\n\x0cinvoice_date\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0binvoiceDate\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\"t\n\x1a\x45xportGeneratedInvoicesRes\x12\x38\n\x07invoice\x18\x01 \x01(\x0b\x32\x1c.api.commons.billing.InvoiceH\x00R\x07invoice\x12\x12\n\x03\x63sv\x18\x02 \x01(\tH\x00R\x03\x63svB\x08\n\x06\x66ormat*a\n\rInvoiceFormat\x12\x1e\n\x1aINVOICE_FORMAT_UNSPECIFIED\x10\x00\x12\x18\n\x14INVOICE_FORMAT_PROTO\x10\x01\x12\x16\n\x12INVOICE_FORMAT_CSV\x10\x02\x42\x9b\x01\n\x18\x63om.api.v1alpha1.billingB\rEntitiesProtoP\x01\xa2\x02\x03\x41VB\xaa\x02\x14\x41pi.V1alpha1.Billing\xca\x02\x14\x41pi\\V1alpha1\\Billing\xe2\x02 Api\\V1alpha1\\Billing\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Billingb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#api/v1alpha1/billing/entities.proto\x12\x14\x61pi.v1alpha1.billing\x1a\x17\x61nnotations/authz.proto\x1a api/commons/billing/detail.proto\x1a!api/commons/billing/invoice.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"*\n\x11GetBillingPlanReq\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\"Q\n\x11GetBillingPlanRes\x12<\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32\x19.api.commons.billing.PlanR\x0b\x62illingPlan\"s\n\x14UpdateBillingPlanReq\x12\x44\n\x0f\x62illing_details\x18\x01 \x03(\x0b\x32\x1b.api.commons.billing.DetailR\x0e\x62illingDetails\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\"T\n\x14UpdateBillingPlanRes\x12<\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32\x19.api.commons.billing.PlanR\x0b\x62illingPlan\"\xbd\x01\n\rGetInvoiceReq\x12=\n\x0cinvoice_date\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0binvoiceDate\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12\x38\n\x07invoice\x18\x03 \x01(\x0b\x32\x1c.api.commons.billing.InvoiceH\x00R\x07invoice\x12\x12\n\x03\x63sv\x18\x04 \x01(\tH\x00R\x03\x63svB\x08\n\x06\x66ormat\"\xac\x01\n\rGetInvoiceRes\x12\x36\n\x07invoice\x18\x01 \x01(\x0b\x32\x1c.api.commons.billing.InvoiceR\x07invoice\x12\x45\n\x0einvoice_format\x18\x02 \x01(\x0b\x32\x1c.api.commons.billing.InvoiceH\x00R\rinvoiceFormat\x12\x12\n\x03\x63sv\x18\x03 \x01(\tH\x00R\x03\x63svB\x08\n\x06\x66ormat\"q\n\x19\x45xportGeneratedInvoiceReq\x12=\n\x0cinvoice_date\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0binvoiceDate\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\"s\n\x19\x45xportGeneratedInvoiceRes\x12\x38\n\x07invoice\x18\x01 \x01(\x0b\x32\x1c.api.commons.billing.InvoiceH\x00R\x07invoice\x12\x12\n\x03\x63sv\x18\x02 \x01(\tH\x00R\x03\x63svB\x08\n\x06\x66ormat*a\n\rInvoiceFormat\x12\x1e\n\x1aINVOICE_FORMAT_UNSPECIFIED\x10\x00\x12\x18\n\x14INVOICE_FORMAT_PROTO\x10\x01\x12\x16\n\x12INVOICE_FORMAT_CSV\x10\x02\x42\x9b\x01\n\x18\x63om.api.v1alpha1.billingB\rEntitiesProtoP\x01\xa2\x02\x03\x41VB\xaa\x02\x14\x41pi.V1alpha1.Billing\xca\x02\x14\x41pi\\V1alpha1\\Billing\xe2\x02 Api\\V1alpha1\\Billing\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Billingb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -27,8 +27,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\030com.api.v1alpha1.billingB\rEntitiesProtoP\001\242\002\003AVB\252\002\024Api.V1alpha1.Billing\312\002\024Api\\V1alpha1\\Billing\342\002 Api\\V1alpha1\\Billing\\GPBMetadata\352\002\026Api::V1alpha1::Billing'
-  _globals['_INVOICEFORMAT']._serialized_start=990
-  _globals['_INVOICEFORMAT']._serialized_end=1087
+  _globals['_INVOICEFORMAT']._serialized_start=1147
+  _globals['_INVOICEFORMAT']._serialized_end=1244
   _globals['_GETBILLINGPLANREQ']._serialized_start=218
   _globals['_GETBILLINGPLANREQ']._serialized_end=260
   _globals['_GETBILLINGPLANRES']._serialized_start=262
@@ -37,12 +37,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_UPDATEBILLINGPLANREQ']._serialized_end=460
   _globals['_UPDATEBILLINGPLANRES']._serialized_start=462
   _globals['_UPDATEBILLINGPLANRES']._serialized_end=546
-  _globals['_GETINVOICEREQ']._serialized_start=548
-  _globals['_GETINVOICEREQ']._serialized_end=649
-  _globals['_GETINVOICERES']._serialized_start=651
-  _globals['_GETINVOICERES']._serialized_end=754
-  _globals['_EXPORTGENERATEDINVOICESREQ']._serialized_start=756
-  _globals['_EXPORTGENERATEDINVOICESREQ']._serialized_end=870
-  _globals['_EXPORTGENERATEDINVOICESRES']._serialized_start=872
-  _globals['_EXPORTGENERATEDINVOICESRES']._serialized_end=988
+  _globals['_GETINVOICEREQ']._serialized_start=549
+  _globals['_GETINVOICEREQ']._serialized_end=738
+  _globals['_GETINVOICERES']._serialized_start=741
+  _globals['_GETINVOICERES']._serialized_end=913
+  _globals['_EXPORTGENERATEDINVOICEREQ']._serialized_start=915
+  _globals['_EXPORTGENERATEDINVOICEREQ']._serialized_end=1028
+  _globals['_EXPORTGENERATEDINVOICERES']._serialized_start=1030
+  _globals['_EXPORTGENERATEDINVOICERES']._serialized_end=1145
 # @@protoc_insertion_point(module_scope)

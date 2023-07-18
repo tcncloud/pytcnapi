@@ -32,8 +32,8 @@ class BillingStub(object):
                 )
         self.ExportGeneratedInvoice = channel.unary_unary(
                 '/api.v1alpha1.billing.Billing/ExportGeneratedInvoice',
-                request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoicesReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoicesRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceRes.FromString,
                 )
 
 
@@ -98,8 +98,8 @@ def add_BillingServicer_to_server(servicer, server):
             ),
             'ExportGeneratedInvoice': grpc.unary_unary_rpc_method_handler(
                     servicer.ExportGeneratedInvoice,
-                    request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoicesReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoicesRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -175,7 +175,7 @@ class Billing(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.billing.Billing/ExportGeneratedInvoice',
-            api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoicesReq.SerializeToString,
-            api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoicesRes.FromString,
+            api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceReq.SerializeToString,
+            api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
