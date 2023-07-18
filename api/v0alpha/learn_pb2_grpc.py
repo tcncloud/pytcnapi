@@ -152,7 +152,8 @@ class LearnServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def Snippet(self, request, context):
-        """get snippet from learning pages
+        """get snippet content from learning pages
+        we allow all the logged in agents/admins to view snippet content
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
