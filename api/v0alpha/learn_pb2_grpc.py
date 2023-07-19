@@ -35,6 +35,11 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
                 )
+        self.ListSearchResults = channel.unary_stream(
+                '/api.v0alpha.Learn/ListSearchResults',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
+                )
         self.Standalone = channel.unary_unary(
                 '/api.v0alpha.Learn/Standalone',
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.StandaloneReq.SerializeToString,
@@ -104,6 +109,15 @@ class LearnServicer(object):
 
     def SearchContent(self, request, context):
         """search content in learning pages
+        we allow all the logged in agents/admins to view search content
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSearchResults(self, request, context):
+        """stream search content results in learning pages
+        we allow all the logged in agents/admins to view search content
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -186,6 +200,11 @@ def add_LearnServicer_to_server(servicer, server):
             ),
             'SearchContent': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchContent,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.SerializeToString,
+            ),
+            'ListSearchResults': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListSearchResults,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.SerializeToString,
             ),
@@ -303,6 +322,23 @@ class Learn(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/SearchContent',
+            api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSearchResults(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Learn/ListSearchResults',
             api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
             options, channel_credentials,
