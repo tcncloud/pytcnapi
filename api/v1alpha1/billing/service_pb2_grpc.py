@@ -30,6 +30,11 @@ class BillingStub(object):
                 request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetInvoiceReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetInvoiceRes.FromString,
                 )
+        self.ExportGeneratedInvoice = channel.unary_unary(
+                '/api.v1alpha1.billing.Billing/ExportGeneratedInvoice',
+                request_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceRes.FromString,
+                )
 
 
 class BillingServicer(object):
@@ -67,6 +72,12 @@ class BillingServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ExportGeneratedInvoice(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_BillingServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_BillingServicer_to_server(servicer, server):
                     servicer.GetInvoice,
                     request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetInvoiceReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetInvoiceRes.SerializeToString,
+            ),
+            'ExportGeneratedInvoice': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExportGeneratedInvoice,
+                    request_deserializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -144,5 +160,22 @@ class Billing(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.billing.Billing/GetInvoice',
             api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetInvoiceReq.SerializeToString,
             api_dot_v1alpha1_dot_billing_dot_entities__pb2.GetInvoiceRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ExportGeneratedInvoice(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.billing.Billing/ExportGeneratedInvoice',
+            api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceReq.SerializeToString,
+            api_dot_v1alpha1_dot_billing_dot_entities__pb2.ExportGeneratedInvoiceRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
