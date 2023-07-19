@@ -30,7 +30,7 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.FromString,
                 )
-        self.SearchContent = channel.unary_unary(
+        self.SearchContent = channel.unary_stream(
                 '/api.v0alpha.Learn/SearchContent',
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
@@ -104,6 +104,7 @@ class LearnServicer(object):
 
     def SearchContent(self, request, context):
         """search content in learning pages
+        we allow all the logged in agents/admins to view snippet content
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -184,7 +185,7 @@ def add_LearnServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.SerializeToString,
             ),
-            'SearchContent': grpc.unary_unary_rpc_method_handler(
+            'SearchContent': grpc.unary_stream_rpc_method_handler(
                     servicer.SearchContent,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchContentReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.SerializeToString,
@@ -302,7 +303,7 @@ class Learn(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/SearchContent',
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Learn/SearchContent',
             api_dot_v0alpha_dot_learn__pb2.SearchContentReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
             options, channel_credentials,
