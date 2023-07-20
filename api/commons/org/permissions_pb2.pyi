@@ -1,0 +1,65 @@
+from annotations.perms import license_pb2 as _license_pb2
+from api.commons.auth import perms_pb2 as _perms_pb2
+from api.commons import perms_pb2 as _perms_pb2_1
+from google.protobuf.internal import containers as _containers
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class PermissionGroup(_message.Message):
+    __slots__ = ["permission_group_id", "org_id", "name", "description", "permissions", "read_only"]
+    PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+    READ_ONLY_FIELD_NUMBER: _ClassVar[int]
+    permission_group_id: str
+    org_id: str
+    name: str
+    description: str
+    permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
+    read_only: bool
+    def __init__(self, permission_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., read_only: bool = ...) -> None: ...
+
+class P3PermissionGroup(_message.Message):
+    __slots__ = ["p3_permission_group_id", "org_id", "region_id", "name", "description", "permissions"]
+    P3_PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    REGION_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+    p3_permission_group_id: str
+    org_id: str
+    region_id: str
+    name: str
+    description: str
+    permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2_1.Permission]
+    def __init__(self, p3_permission_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2_1.Permission, str]]] = ...) -> None: ...
+
+class License(_message.Message):
+    __slots__ = ["app", "cards"]
+    class Card(_message.Message):
+        __slots__ = ["type", "permissions"]
+        TYPE_FIELD_NUMBER: _ClassVar[int]
+        PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+        type: _license_pb2.Card
+        permissions: _containers.RepeatedCompositeFieldContainer[License.Permission]
+        def __init__(self, type: _Optional[_Union[_license_pb2.Card, str]] = ..., permissions: _Optional[_Iterable[_Union[License.Permission, _Mapping]]] = ...) -> None: ...
+    class Permission(_message.Message):
+        __slots__ = ["permission", "enabled", "features"]
+        PERMISSION_FIELD_NUMBER: _ClassVar[int]
+        ENABLED_FIELD_NUMBER: _ClassVar[int]
+        FEATURES_FIELD_NUMBER: _ClassVar[int]
+        permission: _perms_pb2.Permission
+        enabled: bool
+        features: _containers.RepeatedScalarFieldContainer[str]
+        def __init__(self, permission: _Optional[_Union[_perms_pb2.Permission, str]] = ..., enabled: bool = ..., features: _Optional[_Iterable[str]] = ...) -> None: ...
+    APP_FIELD_NUMBER: _ClassVar[int]
+    CARDS_FIELD_NUMBER: _ClassVar[int]
+    app: _license_pb2.Application
+    cards: _containers.RepeatedCompositeFieldContainer[License.Card]
+    def __init__(self, app: _Optional[_Union[_license_pb2.Application, str]] = ..., cards: _Optional[_Iterable[_Union[License.Card, _Mapping]]] = ...) -> None: ...
