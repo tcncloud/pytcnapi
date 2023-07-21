@@ -75,6 +75,16 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ListAvailableFieldsByElementIdReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_lms__pb2.ProcessFields.FromString,
                 )
+        self.ListFieldsForElement = channel.unary_unary(
+                '/api.v0alpha.LMS/ListFieldsForElement',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementRes.FromString,
+                )
+        self.ListAutocompleteFields = channel.unary_unary(
+                '/api.v0alpha.LMS/ListAutocompleteFields',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsRes.FromString,
+                )
         self.ListCampaignLinks = channel.unary_unary(
                 '/api.v0alpha.LMS/ListCampaignLinks',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -98,6 +108,11 @@ class LMSStub(object):
         self.ListElements = channel.unary_stream(
                 '/api.v0alpha.LMS/ListElements',
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ListElementsReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.Element.FromString,
+                )
+        self.GetElement = channel.unary_unary(
+                '/api.v0alpha.LMS/GetElement',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_lms__pb2.Element.FromString,
                 )
         self.UpdateElement = channel.unary_unary(
@@ -342,6 +357,18 @@ class LMSServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListFieldsForElement(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAutocompleteFields(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListCampaignLinks(self, request, context):
         """list campaign links and descriptions
         """
@@ -368,6 +395,12 @@ class LMSServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListElements(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetElement(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -653,6 +686,16 @@ def add_LMSServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListAvailableFieldsByElementIdReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_lms__pb2.ProcessFields.SerializeToString,
             ),
+            'ListFieldsForElement': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFieldsForElement,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementRes.SerializeToString,
+            ),
+            'ListAutocompleteFields': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAutocompleteFields,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsRes.SerializeToString,
+            ),
             'ListCampaignLinks': grpc.unary_unary_rpc_method_handler(
                     servicer.ListCampaignLinks,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
@@ -676,6 +719,11 @@ def add_LMSServicer_to_server(servicer, server):
             'ListElements': grpc.unary_stream_rpc_method_handler(
                     servicer.ListElements,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListElementsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.Element.SerializeToString,
+            ),
+            'GetElement': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetElement,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.FromString,
                     response_serializer=api_dot_v0alpha_dot_lms__pb2.Element.SerializeToString,
             ),
             'UpdateElement': grpc.unary_unary_rpc_method_handler(
@@ -1058,6 +1106,40 @@ class LMS(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListFieldsForElement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListFieldsForElement',
+            api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.ListFieldsForElementRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAutocompleteFields(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListAutocompleteFields',
+            api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.ListAutocompleteFieldsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListCampaignLinks(request,
             target,
             options=(),
@@ -1138,6 +1220,23 @@ class LMS(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/api.v0alpha.LMS/ListElements',
             api_dot_v0alpha_dot_lms__pb2.ListElementsReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.Element.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetElement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/GetElement',
+            api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
             api_dot_v0alpha_dot_lms__pb2.Element.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
