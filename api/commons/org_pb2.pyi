@@ -1,0 +1,1420 @@
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
+from google.protobuf import descriptor as _descriptor
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
+
+DESCRIPTOR: _descriptor.FileDescriptor
+
+class TimeZone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    TIME_ZONE_AMERICA_PUERTO_RICO: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_NEW_YORK: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_INDIANAPOLIS: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_CHICAGO: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_PHOENIX: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_DENVER: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_LOS_ANGELES: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_ANCHORAGE: _ClassVar[TimeZone]
+    TIME_ZONE_ASIA_MANILA: _ClassVar[TimeZone]
+    TIME_ZONE_ASIA_CALCUTTA: _ClassVar[TimeZone]
+    TIME_ZONE_ASIA_COLOMBO: _ClassVar[TimeZone]
+    TIME_ZONE_PACIFIC_HONOLULU: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_NEWFOUNDLAND: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_ATLANTIC: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_CENTRAL: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_EAST_SASKATCHEWAN: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_EASTERN: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_MOUNTAIN: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_PACIFIC: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_SASKATCHEWAN: _ClassVar[TimeZone]
+    TIME_ZONE_CANADA_YUKON: _ClassVar[TimeZone]
+    TIME_ZONE_ETC_GREENWICH: _ClassVar[TimeZone]
+    TIME_ZONE_ETC_UNIVERSAL: _ClassVar[TimeZone]
+    TIME_ZONE_EUROPE_LONDON: _ClassVar[TimeZone]
+    TIME_ZONE_EUROPE_MADRID: _ClassVar[TimeZone]
+    TIME_ZONE_EUROPE_BERLIN: _ClassVar[TimeZone]
+    TIME_ZONE_EUROPE_BUCHAREST: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_MEXICO_CITY: _ClassVar[TimeZone]
+    TIME_ZONE_MEXICO_BAJASUR: _ClassVar[TimeZone]
+    TIME_ZONE_MEXICO_BAJANORTE: _ClassVar[TimeZone]
+    TIME_ZONE_BRAZIL_ACRE: _ClassVar[TimeZone]
+    TIME_ZONE_BRAZIL_WEST: _ClassVar[TimeZone]
+    TIME_ZONE_BRAZIL_EAST: _ClassVar[TimeZone]
+    TIME_ZONE_BRAZIL_DENORONHA: _ClassVar[TimeZone]
+    TIME_ZONE_AUSTRALIA_DARWIN: _ClassVar[TimeZone]
+    TIME_ZONE_AUSTRALIA_ADELAIDE: _ClassVar[TimeZone]
+    TIME_ZONE_AUSTRALIA_SYDNEY: _ClassVar[TimeZone]
+    TIME_ZONE_AUSTRALIA_BRISBANE: _ClassVar[TimeZone]
+    TIME_ZONE_AUSTRALIA_MELBOURNE: _ClassVar[TimeZone]
+    TIME_ZONE_AUSTRALIA_PERTH: _ClassVar[TimeZone]
+    TIME_ZONE_PACIFIC_AUCKLAND: _ClassVar[TimeZone]
+    TIME_ZONE_PACIFIC_CHATHAM: _ClassVar[TimeZone]
+    TIME_ZONE_ASIA_SINGAPORE: _ClassVar[TimeZone]
+    TIME_ZONE_ASIA_JAPAN: _ClassVar[TimeZone]
+
+class DisplayLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DISPLAY_LANGUAGE_SPANISH: _ClassVar[DisplayLanguage]
+    DISPLAY_LANGUAGE_FRENCH_CANADA: _ClassVar[DisplayLanguage]
+    DISPLAY_LANGUAGE_PORTUGUESE: _ClassVar[DisplayLanguage]
+    DISPLAY_LANGUAGE_ENGLISH: _ClassVar[DisplayLanguage]
+
+class DefaultDuplicateHandling(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DEFAULT_DUPLICATE_HANDLING_KEEP_RECORD_AND_DISCARD_NUMBER: _ClassVar[DefaultDuplicateHandling]
+    DEFAULT_DUPLICATE_HANDLING_DISCARD_RECORD: _ClassVar[DefaultDuplicateHandling]
+    DEFAULT_DUPLICATE_HANDLING_ALLOW_DUPLICATES: _ClassVar[DefaultDuplicateHandling]
+    DEFAULT_DUPLICATE_HANDLING_CREATE_DUPLICATES_LIST: _ClassVar[DefaultDuplicateHandling]
+
+class StandardImportFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    STANDARD_IMPORT_FORMAT_TAB_DELIMITED: _ClassVar[StandardImportFormat]
+    STANDARD_IMPORT_FORMAT_EXCEL_COMMA_SEPARATED: _ClassVar[StandardImportFormat]
+    STANDARD_IMPORT_FORMAT_COMMA_SEPARATED: _ClassVar[StandardImportFormat]
+
+class AgentInfoSortBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    AGENT_INFO_SORT_BY_NONE: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_AGENT: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_AGENT_LAST_NAME: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_AGENT_STATUS_SIMPLIFIER: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_CALL_COUNT: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_SECONDS_SINCE_STATUS_CHANGE: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_HUNT_GROUP_NAME: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_HUNT_GROUP_SID: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_SESSION_LOGIN_TIME: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_MULTI_HOLD_COUNT: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_SIMPLE_HOLD_COUNT: _ClassVar[AgentInfoSortBy]
+    AGENT_INFO_SORT_BY_HOLD_COUNT: _ClassVar[AgentInfoSortBy]
+
+class QueueInfoSortBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    QUEUE_INFO_SORT_BY_NONE: _ClassVar[QueueInfoSortBy]
+    QUEUE_INFO_SORT_BY_AVERAGE_LENGTH: _ClassVar[QueueInfoSortBy]
+    QUEUE_INFO_SORT_BY_CALL_COUNT: _ClassVar[QueueInfoSortBy]
+    QUEUE_INFO_SORT_BY_CALL_SKILLS: _ClassVar[QueueInfoSortBy]
+    QUEUE_INFO_SORT_BY_CALL_TYPE: _ClassVar[QueueInfoSortBy]
+    QUEUE_INFO_SORT_BY_MAXIMUM_LENGTH: _ClassVar[QueueInfoSortBy]
+    QUEUE_INFO_SORT_BY_QUEUED_NOTIFICATION_TYPE: _ClassVar[QueueInfoSortBy]
+
+class ClientSkin(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    CLIENT_SKIN_DEFAULT: _ClassVar[ClientSkin]
+    CLIENT_SKIN_TCN_BLUE: _ClassVar[ClientSkin]
+    CLIENT_SKIN_TCN_SEA_GREEN: _ClassVar[ClientSkin]
+    CLIENT_SKIN_RDS_ADVANTAGE: _ClassVar[ClientSkin]
+    CLIENT_SKIN_RSI: _ClassVar[ClientSkin]
+    CLIENT_SKIN_QUICK_CONNECT_SOLUTIONS: _ClassVar[ClientSkin]
+    CLIENT_SKIN_BRAND_BUILDER_SOLUTIONS: _ClassVar[ClientSkin]
+    CLIENT_SKIN_DEALER_SPIKE: _ClassVar[ClientSkin]
+    CLIENT_SKIN_ONTARIO_SYSTEMS: _ClassVar[ClientSkin]
+    CLIENT_SKIN_PEARSON: _ClassVar[ClientSkin]
+    CLIENT_SKIN_THE_DEBT_CORPORATION: _ClassVar[ClientSkin]
+    CLIENT_SKIN_TCN_CANADA: _ClassVar[ClientSkin]
+    CLIENT_SKIN_QUAD_CORP: _ClassVar[ClientSkin]
+    CLIENT_SKIN_BROADBAND_DYNAMICS: _ClassVar[ClientSkin]
+    CLIENT_SKIN_AKTIV_KAPITAL: _ClassVar[ClientSkin]
+    CLIENT_SKIN_COMMERCIAL_CREDIT_ADJUSTERS: _ClassVar[ClientSkin]
+    CLIENT_SKIN_NEPTUNE_INNOVATIONS: _ClassVar[ClientSkin]
+    CLIENT_SKIN_NEPTUNE_BILL_GOSLING: _ClassVar[ClientSkin]
+    CLIENT_SKIN_SOPRA: _ClassVar[ClientSkin]
+    CLIENT_SKIN_TCN_USA: _ClassVar[ClientSkin]
+    CLIENT_SKIN_TELSOLUTIONS: _ClassVar[ClientSkin]
+    CLIENT_SKIN_CREDIT_SOFT: _ClassVar[ClientSkin]
+    CLIENT_SKIN_VOICEMED: _ClassVar[ClientSkin]
+    CLIENT_SKIN_EXPERIAN: _ClassVar[ClientSkin]
+
+class AutomaticSystemCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    AUTOMATIC_SYSTEM_CODE_ADVANCE_STATUS: _ClassVar[AutomaticSystemCode]
+    AUTOMATIC_SYSTEM_CODE_CHANGE_PASSWORD: _ClassVar[AutomaticSystemCode]
+    AUTOMATIC_SYSTEM_CODE_CHECK_VOICE_MAIL: _ClassVar[AutomaticSystemCode]
+    AUTOMATIC_SYSTEM_CODE_MANUALLY_APPROVE_CALLS: _ClassVar[AutomaticSystemCode]
+
+class AdvanceStatusType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    ADVANCE_STATUS_TYPE_PAUSED: _ClassVar[AdvanceStatusType]
+    ADVANCE_STATUS_TYPE_WAITING: _ClassVar[AdvanceStatusType]
+    ADVANCE_STATUS_TYPE_WRAP_UP: _ClassVar[AdvanceStatusType]
+    ADVANCE_STATUS_TYPE_ON_CALL: _ClassVar[AdvanceStatusType]
+
+class AgentFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    AGENT_FIELD_OPTION_AGENT_FIRST_NAME: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_AGENT_ID: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_AGENT_LAST_NAME: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_AGENT_USERNAME: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_CALL_ID: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_CALLER_ID: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_CONSUMER_PHONE_NUMBER: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_GROUP_ID: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_HUNT_GROUP_ID: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_HUNT_GROUP_NAME: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_HUNT_GROUP_TYPE: _ClassVar[AgentFieldOption]
+    AGENT_FIELD_OPTION_PARTNER_AGENT_ID: _ClassVar[AgentFieldOption]
+
+class PostalFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    POSTAL_FIELD_OPTION_ADMIN_CODE_1: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_ADMIN_CODE_2: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_ADMIN_CODE_3: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_ADMIN_NAME_1: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_ADMIN_NAME_2: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_ADMIN_NAME_3: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_AREA_CODE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_CITY_NAME: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_CITY_TYPE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_COUNRTY_CODE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_COUNTRY_ISO_2_CODE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_COUNTY_NAME: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_COUNTY_FIPS_CODE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_LATITUDE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_LATITUDE_LONGITUDE_ACCURACY: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_LONGITUDE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_METROPOLITAN_STATISTICAL_AREA: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_OBSERVES_DAYLIGHT_SAVINGS: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_PLACE_NAME: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_POSTAL_CODE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_POSTAL_CODE_ALPHANUMERIC: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_POSTAL_TYPE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_STATE_PROVINCE_ABBREVIATION: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_STATE_PROVINCE_NAME: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_STATE_FIPS_CODE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_TIME_ZONE: _ClassVar[PostalFieldOption]
+    POSTAL_FIELD_OPTION_UTC_OFFSET: _ClassVar[PostalFieldOption]
+
+class PhoneFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    PHONE_FIELD_OPTION_AREA_CODE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_CARRIER: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_CENTRAL_OFFICE_CODE_TYPE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_CITY: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_COUNTRY_CODE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_COUNRTY_CODE_SUBSCRIBER_NUMBER: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_COUNTRY_ISO_2_CODE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_INTERNATIONAL_PREFIX: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_LANGUAGE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_LATITUDE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_LONGITUDE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_MAXIMUM_BLOCK_NUMBER: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_MINIMUM_BLOCK_NUMBER: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_NATIONAL_DESTINATION_CODE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_NATIONAL_PREFIX: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_NUMBER_BLOCK_ID: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_NUMBER_TYPE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_NUMBER_USES_NDC: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_OBSERVES_DAYLIGHT_SAVINGS: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_PREFIX: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_REGION_STATE_PROVINCE_CODE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_REGION_STATE_PROVINCE_NAME: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_1: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_2: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_3: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_4: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_TIME_ZONE: _ClassVar[PhoneFieldOption]
+    PHONE_FIELD_OPTION_UTC_OFFSET: _ClassVar[PhoneFieldOption]
+
+class PhonePostalDisplayOptions(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DISPLAY_OPTION_ADMIN_CODE_1: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_ADMIN_CODE_2: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_ADMIN_CODE_3: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_ADMIN_NAME_1: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_ADMIN_NAME_2: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_ADMIN_NAME_3: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_AREA_CODE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_CARRIER: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_CENTRAL_OFFICE_CODE_TYPE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_CITY: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_CITY_NAME: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_CITY_TYPE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_COUNTRY_CODE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_COUNTRY_CODE_SUBSCRIBER_NUMBER: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_ISO_2: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_COUNTY_NAME: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_COUNTY_FIPS: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_INTERNATIONAL_PREFIX: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_LANGUAGE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_LATITUDE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_LONGITUDE_LATITUDE_ACCURACY: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_LONGITUDE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_MAXIMUM_BLOCK_NUMBER: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_METROPOLITAN_STATISTICAL_AREA: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_MINIMUM_BLOCK_NUMBER: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_NATIONAL_DESTINATION_CODE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_NATIONAL_PREFIX: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_NUMBER_PREFIX: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_NUMBER_TYPE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_NUMBER_USES_NDC: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_OBSERVES_DAYLIGHT_SAVINGS_TIME: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_PLACE_NAME: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_POSTAL_CODE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_POSTAL_CODE_ALPHANUMERIC: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_POSTAL_TYPE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_PROVINCE_ABBREVIATION: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_PROVINCE_NAME: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_SPECIAL_SERVICE_CODE_1: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_SPECIAL_SERVICE_CODE_2: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_SPECIAL_SERVICE_CODE_3: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_SPECIAL_SERVICE_CODE_4: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_PROVINCE_STATE_NAME: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_STATE_FIPS_CODE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_TIME_ZONE: _ClassVar[PhonePostalDisplayOptions]
+    DISPLAY_OPTION_UTC_OFFSET: _ClassVar[PhonePostalDisplayOptions]
+
+class OperatorApplications(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    AGENT_APP: _ClassVar[OperatorApplications]
+    ORGANIZATION_MANAGEMENT_APP: _ClassVar[OperatorApplications]
+    CUSTOMER_JOURNEY_SERVICES_APP: _ClassVar[OperatorApplications]
+    LIST_MANAGEMENT_SERVICES_APP: _ClassVar[OperatorApplications]
+    AGENT_MANAGER_APP: _ClassVar[OperatorApplications]
+    NATURAL_LANGUAGE_COMPLIANCE_APP: _ClassVar[OperatorApplications]
+    VOICE_ANALYTICS_APP: _ClassVar[OperatorApplications]
+    SCRIPTS_APP: _ClassVar[OperatorApplications]
+    ROOM303_APP: _ClassVar[OperatorApplications]
+    OMNI_BOSS_APP: _ClassVar[OperatorApplications]
+    WFM_APP: _ClassVar[OperatorApplications]
+    PAYMENTS_APP: _ClassVar[OperatorApplications]
+    SUPPORT_APP: _ClassVar[OperatorApplications]
+    BUSINESS_INTELLIGENCE_APP: _ClassVar[OperatorApplications]
+    BACKOFFICE_APP: _ClassVar[OperatorApplications]
+    SCORECARDS_APP: _ClassVar[OperatorApplications]
+    DEV_TOOLS_APP: _ClassVar[OperatorApplications]
+    LEARNING_CENTER_APP: _ClassVar[OperatorApplications]
+    DELIVERY_SERVICE_APP: _ClassVar[OperatorApplications]
+    PERFORMANCE_MANAGEMENT_APP: _ClassVar[OperatorApplications]
+    TICKETS_APP: _ClassVar[OperatorApplications]
+    AGENT_BETA_APP: _ClassVar[OperatorApplications]
+
+class AnnouncementMixingOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    ANNOUNCEMENT_MIXING_OPTION_MUTE_HOLD_MUSIC: _ClassVar[AnnouncementMixingOption]
+    ANNOUNCEMENT_MIXING_OPTION_PLAY_OVER_HOLD_MUSIC: _ClassVar[AnnouncementMixingOption]
+
+class InboundOverrideOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    INBOUND_OVERRIDE_OPTION_DO_NOTHING: _ClassVar[InboundOverrideOption]
+    INBOUND_OVERRIDE_OPTION_OVERRIDE: _ClassVar[InboundOverrideOption]
+    INBOUND_OVERRIDE_OPTION_HANG_UP: _ClassVar[InboundOverrideOption]
+
+class Digit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DIGIT_ZERO: _ClassVar[Digit]
+    DIGIT_ONE: _ClassVar[Digit]
+    DIGIT_TWO: _ClassVar[Digit]
+    DIGIT_THREE: _ClassVar[Digit]
+    DIGIT_FOUR: _ClassVar[Digit]
+    DIGIT_FIVE: _ClassVar[Digit]
+    DIGIT_SIX: _ClassVar[Digit]
+    DIGIT_SEVEN: _ClassVar[Digit]
+    DIGIT_EIGHT: _ClassVar[Digit]
+    DIGIT_NINE: _ClassVar[Digit]
+
+class IntercomConnection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    INTERCOM_CONNECTION_AUTOMATIC: _ClassVar[IntercomConnection]
+    INTERCOM_CONNECTION_REQUIRE_ACCEPTANCE: _ClassVar[IntercomConnection]
+
+class ConfigSound(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    CONFIG_SOUND_ONE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_1: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_2: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_3: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_4: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_5: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_6: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_7: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_8: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_9: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_10: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_11: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_12: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_13: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_14: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_15: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_16: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_17: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_18: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_19: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_20: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_21: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_22: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_23: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_24: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_25: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_26: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_27: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_28: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_29: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_30: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_31: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_32: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_33: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_34: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_35: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_36: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_37: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_38: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_39: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_40: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_41: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_42: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_43: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_44: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_45: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_46: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_47: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_48: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_49: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_50: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_51: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_52: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_53: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_54: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_55: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_56: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_57: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_58: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_59: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_60: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_61: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_62: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_63: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_64: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_65: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_66: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_67: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_68: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_69: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_70: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_71: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_72: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_73: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_74: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_75: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_76: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_77: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_78: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_79: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_80: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_81: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_82: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_83: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_84: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_85: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_86: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_87: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_88: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_89: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_90: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_91: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_92: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_93: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_94: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_95: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_96: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_97: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_98: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_99: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NUMBER_100: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_1: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_2: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_3: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_4: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_5: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_6: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_7: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_8: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_9: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_10: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_11: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_12: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_13: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_14: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_15: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_16: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_17: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_18: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_19: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_20: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_21: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_22: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_23: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_24: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_25: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_26: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_27: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_28: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_29: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_30: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_31: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_32: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_33: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_34: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_35: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_36: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_37: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_38: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_39: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_40: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_41: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_42: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_43: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_44: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_45: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_46: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_47: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_48: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_49: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_50: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_51: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_52: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_53: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_54: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_55: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_56: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_57: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_58: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_59: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_60: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_61: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_62: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_63: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_64: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_65: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_66: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_67: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_68: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_69: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_70: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_71: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_72: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_73: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_74: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_75: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_76: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_77: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_78: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_79: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_80: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_81: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_82: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_83: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_84: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_85: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_86: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_87: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_88: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_89: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_90: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_91: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_92: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_93: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_94: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_95: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_96: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_97: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_98: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_99: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ORDINAL_100: _ClassVar[ConfigSound]
+    CONFIG_SOUND_AGENTLOGIN_CALL_ENDED: _ClassVar[ConfigSound]
+    CONFIG_SOUND_AGENTLOGIN_TRUMPET: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ANNOUNCE_POSITION_END: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ANNOUNCE_POSITION_SHORTLY: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ANNOUNCE_POSITION_START: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ANNOUNCE_TIME_END: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ANNOUNCE_TIME_SHORTLY: _ClassVar[ConfigSound]
+    CONFIG_SOUND_ANNOUNCE_TIME_START: _ClassVar[ConfigSound]
+    CONFIG_SOUND_BEEP: _ClassVar[ConfigSound]
+    CONFIG_SOUND_FPM_CALM_RIVER: _ClassVar[ConfigSound]
+    CONFIG_SOUND_NBDY_AVAIL_TO_TAKE_CALL: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PBX_AGENT_RING: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_AGENT_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_AGENT_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_CALLER_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_CALLER_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_MOH: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_NOBODY_AVAILABLE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_QUEUE_CALLBACK: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_AGENT_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_AGENT_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_CALLER_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_CALLER_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_MOH: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_NOBODY_AVAILABLE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_QUEUE_CALLBACK: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_AGENT_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_AGENT_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_AGENT_PREPARE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_CALLER_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_CALLER_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_MOH: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_NOBODY_AVAILABLE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_QUEUE_CALLBACK: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_AGENT_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_AGENT_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_AGENT_PREPARE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_CALLER_JOIN: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_CALLER_LEAVE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_MOH: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_NOBODY_AVAILABLE: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_QUEUE_CALLBACK: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_MOH_HOLD: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_MOH_MULTIACCEPT: _ClassVar[ConfigSound]
+    CONFIG_SOUND_OUTBOUND_MOH_TRANSFER: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_MOH_HOLD: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_MOH_MULTIACCEPT: _ClassVar[ConfigSound]
+    CONFIG_SOUND_INBOUND_MOH_TRANSFER: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_MOH_HOLD: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_MOH_MULTIACCEPT: _ClassVar[ConfigSound]
+    CONFIG_SOUND_PREVIEW_MOH_TRANSFER: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_MOH_HOLD: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_MOH_MULTIACCEPT: _ClassVar[ConfigSound]
+    CONFIG_SOUND_MANUAL_MOH_TRANSFER: _ClassVar[ConfigSound]
+    CONFIG_SOUND_CALLBACK_QUEUED_ALREADY: _ClassVar[ConfigSound]
+
+class SoundLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    SOUND_LANGUAGE_ENGLISH: _ClassVar[SoundLanguage]
+    SOUND_LANGUAGE_FRENCH: _ClassVar[SoundLanguage]
+    SOUND_LANGUAGE_PORTUGUESE: _ClassVar[SoundLanguage]
+    SOUND_LANGUAGE_SPANISH: _ClassVar[SoundLanguage]
+    SOUND_LANGUAGE_AU_ENGLISH: _ClassVar[SoundLanguage]
+
+class SoundGender(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    SOUND_GENDER_MALE: _ClassVar[SoundGender]
+    SOUND_GENDER_FEMALE: _ClassVar[SoundGender]
+
+class IdentityProvider(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    CONNECTION_TYPE_NONE: _ClassVar[IdentityProvider]
+    CONNECTION_TYPE_OKTA: _ClassVar[IdentityProvider]
+    CONNECTION_TYPE_AZURE: _ClassVar[IdentityProvider]
+    CONNECTION_TYPE_ADFS: _ClassVar[IdentityProvider]
+    CONNECTION_TYPE_OIDC: _ClassVar[IdentityProvider]
+
+class RecordingFileType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    RECORDING_FILE_TYPE_WAV: _ClassVar[RecordingFileType]
+    RECORDING_FILE_TYPE_MP3: _ClassVar[RecordingFileType]
+
+class InitialAgentStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    INITIAL_AGENT_STATUS_READY: _ClassVar[InitialAgentStatus]
+    INITIAL_AGENT_STATUS_PAUSED: _ClassVar[InitialAgentStatus]
+
+class AgentRouting(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    AGENT_ROUTING_ANY_AGENT: _ClassVar[AgentRouting]
+    AGENT_ROUTING_ORIGINAL_AGENT_PREFERRED: _ClassVar[AgentRouting]
+    AGENT_ROUTING_ORIGINAL_AGENT_REQUIRED: _ClassVar[AgentRouting]
+
+class AlphanumericKeypadDelimiter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    ALPHANUMERIC_KEYPAD_DELIMITER_ASTERISK: _ClassVar[AlphanumericKeypadDelimiter]
+    ALPHANUMERIC_KEYPAD_DELIMITER_POUND: _ClassVar[AlphanumericKeypadDelimiter]
+    ALPHANUMERIC_KEYPAD_DELIMITER_SPACE: _ClassVar[AlphanumericKeypadDelimiter]
+
+class AgentCallHistoryScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    AGENT_CALL_HISTORY_SCOPE_NONE: _ClassVar[AgentCallHistoryScope]
+    AGENT_CALL_HISTORY_SCOPE_AGENT_SESSION_STATISTICS: _ClassVar[AgentCallHistoryScope]
+    AGENT_CALL_HISTORY_SCOPE_TODAYS_STATISTICS: _ClassVar[AgentCallHistoryScope]
+
+class CommunicationExpiration(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    COMMUNICATION_EXPIRATION_NEVER: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_ONE_HOUR: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TWO_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_THREE_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_FOUR_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_FIVE_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_SIX_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_SEVEN_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_EIGHT_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_NINE_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TEN_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_ELEVEN_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TWELVE_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_THIRTEEN_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_SIXTEEN_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TWENTY_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TWENTY_FOUR_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_THIRTY_SIX_HOURS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TWO_DAYS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_THREE_DAYS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_FOUR_DAYS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_FIVE_DAYS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_SIX_DAYS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_ONE_WEEK: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TWO_WEEKS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_THREE_WEEKS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_FOUR_WEEKS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_ONE_MONTH: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_TWO_MONTHS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_THREE_MONTHS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_SIX_MONTHS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_NINE_MONTHS: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_ONE_YEAR: _ClassVar[CommunicationExpiration]
+    COMMUNICATION_EXPIRATION_THIRTEEN_MONTHS: _ClassVar[CommunicationExpiration]
+
+class DefaultCallbackRouting(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DEFAULT_CALLBACK_ROUTING_NONE: _ClassVar[DefaultCallbackRouting]
+    DEFAULT_CALLBACK_ROUTING_TO_AGENT: _ClassVar[DefaultCallbackRouting]
+    DEFAULT_CALLBACK_ROUTING_AGENT_SKILLSET: _ClassVar[DefaultCallbackRouting]
+
+class XMLPropertyKey(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    XML_PROPERTY_KEY_NONE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_AGENT_DISPOSITION_CONDITIONAL_DNCL: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_AGENT_LOGIN_GUI_STATISTICS_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_AGENT_PAUSE_CODES: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_AGENT_SKILLS_FILTER: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_AGENT_STATUS_DASHBOARD_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_AGENT_STATUS_DISPLAY_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_CALLER_ID_BUCKET: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_CAMPAIGN_LINK: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_CONTACTS_SORTORDER_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_CRITERIA_DATA: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_CUSTOMER_CALL_CODES: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_CUSTOM_REPORT_FILTER: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_DATA_DIP_CONFIG: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_EXTENDED_CONDITIONAL_DIALING: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_GENERIC_STATISTICS_TABLE_FORMATTING_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_HG_CLIENT_INFO_DISPLAY_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_HUNT_GROUP_SCRIPT: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_OPERATIONAL_RESPONSE_STATS_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_QUEUE_HOLD_INFO_DASHBOARD_TEMPLATE: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_REPORT_RESULT_MAPPING: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_RESPONSE_EVALUATOR: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_STOP_TRIGGER: _ClassVar[XMLPropertyKey]
+    XML_PROPERTY_KEY_TASK_GROUP_REPORT_FILTER: _ClassVar[XMLPropertyKey]
+
+class DefaultManualCallRecording(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DEFAULT_MANUAL_CALL_RECORDING_ORG_DEFAULT: _ClassVar[DefaultManualCallRecording]
+    DEFAULT_MANUAL_CALL_RECORDING_ENABLED: _ClassVar[DefaultManualCallRecording]
+    DEFAULT_MANUAL_CALL_RECORDING_DISABLED: _ClassVar[DefaultManualCallRecording]
+
+class HuntGroupOrgDefaultCustom(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    HUNT_GROUP_USE_ORG_DEFAULT: _ClassVar[HuntGroupOrgDefaultCustom]
+    HUNT_GROUP_CUSTOM_ENABLED: _ClassVar[HuntGroupOrgDefaultCustom]
+    HUNT_GROUP_CUSTOM_DISABLED: _ClassVar[HuntGroupOrgDefaultCustom]
+
+class ManualDialTimeZoneValidation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    MANUAL_DIAL_TIME_ZONE_VALIDATION_DISABLED: _ClassVar[ManualDialTimeZoneValidation]
+    MANUAL_DIAL_TIME_ZONE_VALIDATION_OPTIONAL: _ClassVar[ManualDialTimeZoneValidation]
+    MANUAL_DIAL_TIME_ZONE_VALIDATION_REQUIRED: _ClassVar[ManualDialTimeZoneValidation]
+
+class TransferRecordingStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    TRANSFER_RECORDING_STATUS_KEEP_STATUS: _ClassVar[TransferRecordingStatus]
+    TRANSFER_RECORDING_STATUS_START_RECORDING: _ClassVar[TransferRecordingStatus]
+    TRANSFER_RECORDING_STATUS_STOP_RECORDING: _ClassVar[TransferRecordingStatus]
+
+class RequeueTransferQueueConfig(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    REQUEUE_TRANSFER_QUEUE_CONFIG_CURRENT: _ClassVar[RequeueTransferQueueConfig]
+    REQUEUE_TRANSFER_QUEUE_CONFIG_DEFAULT: _ClassVar[RequeueTransferQueueConfig]
+    REQUEUE_TRANSFER_QUEUE_CONFIG_CUSTOM: _ClassVar[RequeueTransferQueueConfig]
+
+class DefaultTransferCallerId(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DEFAULT_CALLER_ID_NONE: _ClassVar[DefaultTransferCallerId]
+    DEFAULT_CALLER_ID_CUSTOM: _ClassVar[DefaultTransferCallerId]
+    DEFAULT_CALLER_ID_3RD_PARTY_NUMBER: _ClassVar[DefaultTransferCallerId]
+
+class DefaultManualDialCallerId(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DEFAULT_MANUAL_DIAL_CALLER_ID_NONE: _ClassVar[DefaultManualDialCallerId]
+    DEFAULT_MANUAL_DIAL_CALLER_ID_CUSTOM: _ClassVar[DefaultManualDialCallerId]
+    DEFAULT_MANUAL_DIAL_CALLER_ID_AGENT_CALLER_ID: _ClassVar[DefaultManualDialCallerId]
+
+class ManualDialDataDipScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    MANUAL_DIAL_DATA_DIP_SCOPE_DISABLED: _ClassVar[ManualDialDataDipScope]
+    MANUAL_DIAL_DATA_DIP_SCOPE_STANDARD_CALLS: _ClassVar[ManualDialDataDipScope]
+    MANUAL_DIAL_DATA_DIP_SCOPE_SCHEDULED_CALLBACKS: _ClassVar[ManualDialDataDipScope]
+    MANUAL_DIAL_DATA_DIP_SCOPE_ALL: _ClassVar[ManualDialDataDipScope]
+
+class ManualDialDataDipHandling(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    MANUAL_DIAL_DATA_DIP_HANDLING_CANCEL: _ClassVar[ManualDialDataDipHandling]
+    MANUAL_DIAL_DATA_DIP_HANDLING_NOTIFY_AND_CANCEL: _ClassVar[ManualDialDataDipHandling]
+    MANUAL_DIAL_DATA_DIP_HANDLING_NOTIFY_AND_CALL: _ClassVar[ManualDialDataDipHandling]
+    MANUAL_DIAL_DATA_DIP_HANDLING_CALL_WITH_ORIGINAL_VALUES: _ClassVar[ManualDialDataDipHandling]
+
+class ManualDialDataDipIntegration(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    MANUAL_DIAL_DATA_DIP_INTEGRATION_UNSPECIFIED: _ClassVar[ManualDialDataDipIntegration]
+    MANUAL_DIAL_DATA_DIP_INTEGRATION_NUMBER: _ClassVar[ManualDialDataDipIntegration]
+    MANUAL_DIAL_DATA_DIP_INTEGRATION_CALLER_ID: _ClassVar[ManualDialDataDipIntegration]
+    MANUAL_DIAL_DATA_DIP_INTEGRATION_CONTACT_FIELD_DESCRIPTION: _ClassVar[ManualDialDataDipIntegration]
+
+class DataDipTemplateFilterType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    DATA_DIP_TEMPLATE_FILTER_TYPE_NONE: _ClassVar[DataDipTemplateFilterType]
+    DATA_DIP_TEMPLATE_FILTER_TYPE_BROADCAST: _ClassVar[DataDipTemplateFilterType]
+    DATA_DIP_TEMPLATE_FILTER_TYPE_MANUAL_DIAL: _ClassVar[DataDipTemplateFilterType]
+
+class OrganizationArchivedStateFilter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    ORGANIZATION_ARCHIVED_STATE_FILTER_UNARCHIVED: _ClassVar[OrganizationArchivedStateFilter]
+    ORGANIZATION_ARCHIVED_STATE_FILTER_ARCHIVED: _ClassVar[OrganizationArchivedStateFilter]
+    ORGANIZATION_ARCHIVED_STATE_FILTER_ALL: _ClassVar[OrganizationArchivedStateFilter]
+TIME_ZONE_AMERICA_PUERTO_RICO: TimeZone
+TIME_ZONE_AMERICA_NEW_YORK: TimeZone
+TIME_ZONE_AMERICA_INDIANAPOLIS: TimeZone
+TIME_ZONE_AMERICA_CHICAGO: TimeZone
+TIME_ZONE_AMERICA_PHOENIX: TimeZone
+TIME_ZONE_AMERICA_DENVER: TimeZone
+TIME_ZONE_AMERICA_LOS_ANGELES: TimeZone
+TIME_ZONE_AMERICA_ANCHORAGE: TimeZone
+TIME_ZONE_ASIA_MANILA: TimeZone
+TIME_ZONE_ASIA_CALCUTTA: TimeZone
+TIME_ZONE_ASIA_COLOMBO: TimeZone
+TIME_ZONE_PACIFIC_HONOLULU: TimeZone
+TIME_ZONE_CANADA_NEWFOUNDLAND: TimeZone
+TIME_ZONE_CANADA_ATLANTIC: TimeZone
+TIME_ZONE_CANADA_CENTRAL: TimeZone
+TIME_ZONE_CANADA_EAST_SASKATCHEWAN: TimeZone
+TIME_ZONE_CANADA_EASTERN: TimeZone
+TIME_ZONE_CANADA_MOUNTAIN: TimeZone
+TIME_ZONE_CANADA_PACIFIC: TimeZone
+TIME_ZONE_CANADA_SASKATCHEWAN: TimeZone
+TIME_ZONE_CANADA_YUKON: TimeZone
+TIME_ZONE_ETC_GREENWICH: TimeZone
+TIME_ZONE_ETC_UNIVERSAL: TimeZone
+TIME_ZONE_EUROPE_LONDON: TimeZone
+TIME_ZONE_EUROPE_MADRID: TimeZone
+TIME_ZONE_EUROPE_BERLIN: TimeZone
+TIME_ZONE_EUROPE_BUCHAREST: TimeZone
+TIME_ZONE_AMERICA_MEXICO_CITY: TimeZone
+TIME_ZONE_MEXICO_BAJASUR: TimeZone
+TIME_ZONE_MEXICO_BAJANORTE: TimeZone
+TIME_ZONE_BRAZIL_ACRE: TimeZone
+TIME_ZONE_BRAZIL_WEST: TimeZone
+TIME_ZONE_BRAZIL_EAST: TimeZone
+TIME_ZONE_BRAZIL_DENORONHA: TimeZone
+TIME_ZONE_AUSTRALIA_DARWIN: TimeZone
+TIME_ZONE_AUSTRALIA_ADELAIDE: TimeZone
+TIME_ZONE_AUSTRALIA_SYDNEY: TimeZone
+TIME_ZONE_AUSTRALIA_BRISBANE: TimeZone
+TIME_ZONE_AUSTRALIA_MELBOURNE: TimeZone
+TIME_ZONE_AUSTRALIA_PERTH: TimeZone
+TIME_ZONE_PACIFIC_AUCKLAND: TimeZone
+TIME_ZONE_PACIFIC_CHATHAM: TimeZone
+TIME_ZONE_ASIA_SINGAPORE: TimeZone
+TIME_ZONE_ASIA_JAPAN: TimeZone
+DISPLAY_LANGUAGE_SPANISH: DisplayLanguage
+DISPLAY_LANGUAGE_FRENCH_CANADA: DisplayLanguage
+DISPLAY_LANGUAGE_PORTUGUESE: DisplayLanguage
+DISPLAY_LANGUAGE_ENGLISH: DisplayLanguage
+DEFAULT_DUPLICATE_HANDLING_KEEP_RECORD_AND_DISCARD_NUMBER: DefaultDuplicateHandling
+DEFAULT_DUPLICATE_HANDLING_DISCARD_RECORD: DefaultDuplicateHandling
+DEFAULT_DUPLICATE_HANDLING_ALLOW_DUPLICATES: DefaultDuplicateHandling
+DEFAULT_DUPLICATE_HANDLING_CREATE_DUPLICATES_LIST: DefaultDuplicateHandling
+STANDARD_IMPORT_FORMAT_TAB_DELIMITED: StandardImportFormat
+STANDARD_IMPORT_FORMAT_EXCEL_COMMA_SEPARATED: StandardImportFormat
+STANDARD_IMPORT_FORMAT_COMMA_SEPARATED: StandardImportFormat
+AGENT_INFO_SORT_BY_NONE: AgentInfoSortBy
+AGENT_INFO_SORT_BY_AGENT: AgentInfoSortBy
+AGENT_INFO_SORT_BY_AGENT_LAST_NAME: AgentInfoSortBy
+AGENT_INFO_SORT_BY_AGENT_STATUS_SIMPLIFIER: AgentInfoSortBy
+AGENT_INFO_SORT_BY_CALL_COUNT: AgentInfoSortBy
+AGENT_INFO_SORT_BY_SECONDS_SINCE_STATUS_CHANGE: AgentInfoSortBy
+AGENT_INFO_SORT_BY_HUNT_GROUP_NAME: AgentInfoSortBy
+AGENT_INFO_SORT_BY_HUNT_GROUP_SID: AgentInfoSortBy
+AGENT_INFO_SORT_BY_SESSION_LOGIN_TIME: AgentInfoSortBy
+AGENT_INFO_SORT_BY_MULTI_HOLD_COUNT: AgentInfoSortBy
+AGENT_INFO_SORT_BY_SIMPLE_HOLD_COUNT: AgentInfoSortBy
+AGENT_INFO_SORT_BY_HOLD_COUNT: AgentInfoSortBy
+QUEUE_INFO_SORT_BY_NONE: QueueInfoSortBy
+QUEUE_INFO_SORT_BY_AVERAGE_LENGTH: QueueInfoSortBy
+QUEUE_INFO_SORT_BY_CALL_COUNT: QueueInfoSortBy
+QUEUE_INFO_SORT_BY_CALL_SKILLS: QueueInfoSortBy
+QUEUE_INFO_SORT_BY_CALL_TYPE: QueueInfoSortBy
+QUEUE_INFO_SORT_BY_MAXIMUM_LENGTH: QueueInfoSortBy
+QUEUE_INFO_SORT_BY_QUEUED_NOTIFICATION_TYPE: QueueInfoSortBy
+CLIENT_SKIN_DEFAULT: ClientSkin
+CLIENT_SKIN_TCN_BLUE: ClientSkin
+CLIENT_SKIN_TCN_SEA_GREEN: ClientSkin
+CLIENT_SKIN_RDS_ADVANTAGE: ClientSkin
+CLIENT_SKIN_RSI: ClientSkin
+CLIENT_SKIN_QUICK_CONNECT_SOLUTIONS: ClientSkin
+CLIENT_SKIN_BRAND_BUILDER_SOLUTIONS: ClientSkin
+CLIENT_SKIN_DEALER_SPIKE: ClientSkin
+CLIENT_SKIN_ONTARIO_SYSTEMS: ClientSkin
+CLIENT_SKIN_PEARSON: ClientSkin
+CLIENT_SKIN_THE_DEBT_CORPORATION: ClientSkin
+CLIENT_SKIN_TCN_CANADA: ClientSkin
+CLIENT_SKIN_QUAD_CORP: ClientSkin
+CLIENT_SKIN_BROADBAND_DYNAMICS: ClientSkin
+CLIENT_SKIN_AKTIV_KAPITAL: ClientSkin
+CLIENT_SKIN_COMMERCIAL_CREDIT_ADJUSTERS: ClientSkin
+CLIENT_SKIN_NEPTUNE_INNOVATIONS: ClientSkin
+CLIENT_SKIN_NEPTUNE_BILL_GOSLING: ClientSkin
+CLIENT_SKIN_SOPRA: ClientSkin
+CLIENT_SKIN_TCN_USA: ClientSkin
+CLIENT_SKIN_TELSOLUTIONS: ClientSkin
+CLIENT_SKIN_CREDIT_SOFT: ClientSkin
+CLIENT_SKIN_VOICEMED: ClientSkin
+CLIENT_SKIN_EXPERIAN: ClientSkin
+AUTOMATIC_SYSTEM_CODE_ADVANCE_STATUS: AutomaticSystemCode
+AUTOMATIC_SYSTEM_CODE_CHANGE_PASSWORD: AutomaticSystemCode
+AUTOMATIC_SYSTEM_CODE_CHECK_VOICE_MAIL: AutomaticSystemCode
+AUTOMATIC_SYSTEM_CODE_MANUALLY_APPROVE_CALLS: AutomaticSystemCode
+ADVANCE_STATUS_TYPE_PAUSED: AdvanceStatusType
+ADVANCE_STATUS_TYPE_WAITING: AdvanceStatusType
+ADVANCE_STATUS_TYPE_WRAP_UP: AdvanceStatusType
+ADVANCE_STATUS_TYPE_ON_CALL: AdvanceStatusType
+AGENT_FIELD_OPTION_AGENT_FIRST_NAME: AgentFieldOption
+AGENT_FIELD_OPTION_AGENT_ID: AgentFieldOption
+AGENT_FIELD_OPTION_AGENT_LAST_NAME: AgentFieldOption
+AGENT_FIELD_OPTION_AGENT_USERNAME: AgentFieldOption
+AGENT_FIELD_OPTION_CALL_ID: AgentFieldOption
+AGENT_FIELD_OPTION_CALLER_ID: AgentFieldOption
+AGENT_FIELD_OPTION_CONSUMER_PHONE_NUMBER: AgentFieldOption
+AGENT_FIELD_OPTION_GROUP_ID: AgentFieldOption
+AGENT_FIELD_OPTION_HUNT_GROUP_ID: AgentFieldOption
+AGENT_FIELD_OPTION_HUNT_GROUP_NAME: AgentFieldOption
+AGENT_FIELD_OPTION_HUNT_GROUP_TYPE: AgentFieldOption
+AGENT_FIELD_OPTION_PARTNER_AGENT_ID: AgentFieldOption
+POSTAL_FIELD_OPTION_ADMIN_CODE_1: PostalFieldOption
+POSTAL_FIELD_OPTION_ADMIN_CODE_2: PostalFieldOption
+POSTAL_FIELD_OPTION_ADMIN_CODE_3: PostalFieldOption
+POSTAL_FIELD_OPTION_ADMIN_NAME_1: PostalFieldOption
+POSTAL_FIELD_OPTION_ADMIN_NAME_2: PostalFieldOption
+POSTAL_FIELD_OPTION_ADMIN_NAME_3: PostalFieldOption
+POSTAL_FIELD_OPTION_AREA_CODE: PostalFieldOption
+POSTAL_FIELD_OPTION_CITY_NAME: PostalFieldOption
+POSTAL_FIELD_OPTION_CITY_TYPE: PostalFieldOption
+POSTAL_FIELD_OPTION_COUNRTY_CODE: PostalFieldOption
+POSTAL_FIELD_OPTION_COUNTRY_ISO_2_CODE: PostalFieldOption
+POSTAL_FIELD_OPTION_COUNTY_NAME: PostalFieldOption
+POSTAL_FIELD_OPTION_COUNTY_FIPS_CODE: PostalFieldOption
+POSTAL_FIELD_OPTION_LATITUDE: PostalFieldOption
+POSTAL_FIELD_OPTION_LATITUDE_LONGITUDE_ACCURACY: PostalFieldOption
+POSTAL_FIELD_OPTION_LONGITUDE: PostalFieldOption
+POSTAL_FIELD_OPTION_METROPOLITAN_STATISTICAL_AREA: PostalFieldOption
+POSTAL_FIELD_OPTION_OBSERVES_DAYLIGHT_SAVINGS: PostalFieldOption
+POSTAL_FIELD_OPTION_PLACE_NAME: PostalFieldOption
+POSTAL_FIELD_OPTION_POSTAL_CODE: PostalFieldOption
+POSTAL_FIELD_OPTION_POSTAL_CODE_ALPHANUMERIC: PostalFieldOption
+POSTAL_FIELD_OPTION_POSTAL_TYPE: PostalFieldOption
+POSTAL_FIELD_OPTION_STATE_PROVINCE_ABBREVIATION: PostalFieldOption
+POSTAL_FIELD_OPTION_STATE_PROVINCE_NAME: PostalFieldOption
+POSTAL_FIELD_OPTION_STATE_FIPS_CODE: PostalFieldOption
+POSTAL_FIELD_OPTION_TIME_ZONE: PostalFieldOption
+POSTAL_FIELD_OPTION_UTC_OFFSET: PostalFieldOption
+PHONE_FIELD_OPTION_AREA_CODE: PhoneFieldOption
+PHONE_FIELD_OPTION_CARRIER: PhoneFieldOption
+PHONE_FIELD_OPTION_CENTRAL_OFFICE_CODE_TYPE: PhoneFieldOption
+PHONE_FIELD_OPTION_CITY: PhoneFieldOption
+PHONE_FIELD_OPTION_COUNTRY_CODE: PhoneFieldOption
+PHONE_FIELD_OPTION_COUNRTY_CODE_SUBSCRIBER_NUMBER: PhoneFieldOption
+PHONE_FIELD_OPTION_COUNTRY_ISO_2_CODE: PhoneFieldOption
+PHONE_FIELD_OPTION_INTERNATIONAL_PREFIX: PhoneFieldOption
+PHONE_FIELD_OPTION_LANGUAGE: PhoneFieldOption
+PHONE_FIELD_OPTION_LATITUDE: PhoneFieldOption
+PHONE_FIELD_OPTION_LONGITUDE: PhoneFieldOption
+PHONE_FIELD_OPTION_MAXIMUM_BLOCK_NUMBER: PhoneFieldOption
+PHONE_FIELD_OPTION_MINIMUM_BLOCK_NUMBER: PhoneFieldOption
+PHONE_FIELD_OPTION_NATIONAL_DESTINATION_CODE: PhoneFieldOption
+PHONE_FIELD_OPTION_NATIONAL_PREFIX: PhoneFieldOption
+PHONE_FIELD_OPTION_NUMBER_BLOCK_ID: PhoneFieldOption
+PHONE_FIELD_OPTION_NUMBER_TYPE: PhoneFieldOption
+PHONE_FIELD_OPTION_NUMBER_USES_NDC: PhoneFieldOption
+PHONE_FIELD_OPTION_OBSERVES_DAYLIGHT_SAVINGS: PhoneFieldOption
+PHONE_FIELD_OPTION_PREFIX: PhoneFieldOption
+PHONE_FIELD_OPTION_REGION_STATE_PROVINCE_CODE: PhoneFieldOption
+PHONE_FIELD_OPTION_REGION_STATE_PROVINCE_NAME: PhoneFieldOption
+PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_1: PhoneFieldOption
+PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_2: PhoneFieldOption
+PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_3: PhoneFieldOption
+PHONE_FIELD_OPTION_SPECIAL_SERVICE_CODE_4: PhoneFieldOption
+PHONE_FIELD_OPTION_TIME_ZONE: PhoneFieldOption
+PHONE_FIELD_OPTION_UTC_OFFSET: PhoneFieldOption
+DISPLAY_OPTION_ADMIN_CODE_1: PhonePostalDisplayOptions
+DISPLAY_OPTION_ADMIN_CODE_2: PhonePostalDisplayOptions
+DISPLAY_OPTION_ADMIN_CODE_3: PhonePostalDisplayOptions
+DISPLAY_OPTION_ADMIN_NAME_1: PhonePostalDisplayOptions
+DISPLAY_OPTION_ADMIN_NAME_2: PhonePostalDisplayOptions
+DISPLAY_OPTION_ADMIN_NAME_3: PhonePostalDisplayOptions
+DISPLAY_OPTION_AREA_CODE: PhonePostalDisplayOptions
+DISPLAY_OPTION_CARRIER: PhonePostalDisplayOptions
+DISPLAY_OPTION_CENTRAL_OFFICE_CODE_TYPE: PhonePostalDisplayOptions
+DISPLAY_OPTION_CITY: PhonePostalDisplayOptions
+DISPLAY_OPTION_CITY_NAME: PhonePostalDisplayOptions
+DISPLAY_OPTION_CITY_TYPE: PhonePostalDisplayOptions
+DISPLAY_OPTION_COUNTRY_CODE: PhonePostalDisplayOptions
+DISPLAY_OPTION_COUNTRY_CODE_SUBSCRIBER_NUMBER: PhonePostalDisplayOptions
+DISPLAY_OPTION_ISO_2: PhonePostalDisplayOptions
+DISPLAY_OPTION_COUNTY_NAME: PhonePostalDisplayOptions
+DISPLAY_OPTION_COUNTY_FIPS: PhonePostalDisplayOptions
+DISPLAY_OPTION_INTERNATIONAL_PREFIX: PhonePostalDisplayOptions
+DISPLAY_OPTION_LANGUAGE: PhonePostalDisplayOptions
+DISPLAY_OPTION_LATITUDE: PhonePostalDisplayOptions
+DISPLAY_OPTION_LONGITUDE_LATITUDE_ACCURACY: PhonePostalDisplayOptions
+DISPLAY_OPTION_LONGITUDE: PhonePostalDisplayOptions
+DISPLAY_OPTION_MAXIMUM_BLOCK_NUMBER: PhonePostalDisplayOptions
+DISPLAY_OPTION_METROPOLITAN_STATISTICAL_AREA: PhonePostalDisplayOptions
+DISPLAY_OPTION_MINIMUM_BLOCK_NUMBER: PhonePostalDisplayOptions
+DISPLAY_OPTION_NATIONAL_DESTINATION_CODE: PhonePostalDisplayOptions
+DISPLAY_OPTION_NATIONAL_PREFIX: PhonePostalDisplayOptions
+DISPLAY_OPTION_NUMBER_PREFIX: PhonePostalDisplayOptions
+DISPLAY_OPTION_NUMBER_TYPE: PhonePostalDisplayOptions
+DISPLAY_OPTION_NUMBER_USES_NDC: PhonePostalDisplayOptions
+DISPLAY_OPTION_OBSERVES_DAYLIGHT_SAVINGS_TIME: PhonePostalDisplayOptions
+DISPLAY_OPTION_PLACE_NAME: PhonePostalDisplayOptions
+DISPLAY_OPTION_POSTAL_CODE: PhonePostalDisplayOptions
+DISPLAY_OPTION_POSTAL_CODE_ALPHANUMERIC: PhonePostalDisplayOptions
+DISPLAY_OPTION_POSTAL_TYPE: PhonePostalDisplayOptions
+DISPLAY_OPTION_PROVINCE_ABBREVIATION: PhonePostalDisplayOptions
+DISPLAY_OPTION_PROVINCE_NAME: PhonePostalDisplayOptions
+DISPLAY_OPTION_SPECIAL_SERVICE_CODE_1: PhonePostalDisplayOptions
+DISPLAY_OPTION_SPECIAL_SERVICE_CODE_2: PhonePostalDisplayOptions
+DISPLAY_OPTION_SPECIAL_SERVICE_CODE_3: PhonePostalDisplayOptions
+DISPLAY_OPTION_SPECIAL_SERVICE_CODE_4: PhonePostalDisplayOptions
+DISPLAY_OPTION_PROVINCE_STATE_NAME: PhonePostalDisplayOptions
+DISPLAY_OPTION_STATE_FIPS_CODE: PhonePostalDisplayOptions
+DISPLAY_OPTION_TIME_ZONE: PhonePostalDisplayOptions
+DISPLAY_OPTION_UTC_OFFSET: PhonePostalDisplayOptions
+AGENT_APP: OperatorApplications
+ORGANIZATION_MANAGEMENT_APP: OperatorApplications
+CUSTOMER_JOURNEY_SERVICES_APP: OperatorApplications
+LIST_MANAGEMENT_SERVICES_APP: OperatorApplications
+AGENT_MANAGER_APP: OperatorApplications
+NATURAL_LANGUAGE_COMPLIANCE_APP: OperatorApplications
+VOICE_ANALYTICS_APP: OperatorApplications
+SCRIPTS_APP: OperatorApplications
+ROOM303_APP: OperatorApplications
+OMNI_BOSS_APP: OperatorApplications
+WFM_APP: OperatorApplications
+PAYMENTS_APP: OperatorApplications
+SUPPORT_APP: OperatorApplications
+BUSINESS_INTELLIGENCE_APP: OperatorApplications
+BACKOFFICE_APP: OperatorApplications
+SCORECARDS_APP: OperatorApplications
+DEV_TOOLS_APP: OperatorApplications
+LEARNING_CENTER_APP: OperatorApplications
+DELIVERY_SERVICE_APP: OperatorApplications
+PERFORMANCE_MANAGEMENT_APP: OperatorApplications
+TICKETS_APP: OperatorApplications
+AGENT_BETA_APP: OperatorApplications
+ANNOUNCEMENT_MIXING_OPTION_MUTE_HOLD_MUSIC: AnnouncementMixingOption
+ANNOUNCEMENT_MIXING_OPTION_PLAY_OVER_HOLD_MUSIC: AnnouncementMixingOption
+INBOUND_OVERRIDE_OPTION_DO_NOTHING: InboundOverrideOption
+INBOUND_OVERRIDE_OPTION_OVERRIDE: InboundOverrideOption
+INBOUND_OVERRIDE_OPTION_HANG_UP: InboundOverrideOption
+DIGIT_ZERO: Digit
+DIGIT_ONE: Digit
+DIGIT_TWO: Digit
+DIGIT_THREE: Digit
+DIGIT_FOUR: Digit
+DIGIT_FIVE: Digit
+DIGIT_SIX: Digit
+DIGIT_SEVEN: Digit
+DIGIT_EIGHT: Digit
+DIGIT_NINE: Digit
+INTERCOM_CONNECTION_AUTOMATIC: IntercomConnection
+INTERCOM_CONNECTION_REQUIRE_ACCEPTANCE: IntercomConnection
+CONFIG_SOUND_ONE: ConfigSound
+CONFIG_SOUND_NUMBER_1: ConfigSound
+CONFIG_SOUND_NUMBER_2: ConfigSound
+CONFIG_SOUND_NUMBER_3: ConfigSound
+CONFIG_SOUND_NUMBER_4: ConfigSound
+CONFIG_SOUND_NUMBER_5: ConfigSound
+CONFIG_SOUND_NUMBER_6: ConfigSound
+CONFIG_SOUND_NUMBER_7: ConfigSound
+CONFIG_SOUND_NUMBER_8: ConfigSound
+CONFIG_SOUND_NUMBER_9: ConfigSound
+CONFIG_SOUND_NUMBER_10: ConfigSound
+CONFIG_SOUND_NUMBER_11: ConfigSound
+CONFIG_SOUND_NUMBER_12: ConfigSound
+CONFIG_SOUND_NUMBER_13: ConfigSound
+CONFIG_SOUND_NUMBER_14: ConfigSound
+CONFIG_SOUND_NUMBER_15: ConfigSound
+CONFIG_SOUND_NUMBER_16: ConfigSound
+CONFIG_SOUND_NUMBER_17: ConfigSound
+CONFIG_SOUND_NUMBER_18: ConfigSound
+CONFIG_SOUND_NUMBER_19: ConfigSound
+CONFIG_SOUND_NUMBER_20: ConfigSound
+CONFIG_SOUND_NUMBER_21: ConfigSound
+CONFIG_SOUND_NUMBER_22: ConfigSound
+CONFIG_SOUND_NUMBER_23: ConfigSound
+CONFIG_SOUND_NUMBER_24: ConfigSound
+CONFIG_SOUND_NUMBER_25: ConfigSound
+CONFIG_SOUND_NUMBER_26: ConfigSound
+CONFIG_SOUND_NUMBER_27: ConfigSound
+CONFIG_SOUND_NUMBER_28: ConfigSound
+CONFIG_SOUND_NUMBER_29: ConfigSound
+CONFIG_SOUND_NUMBER_30: ConfigSound
+CONFIG_SOUND_NUMBER_31: ConfigSound
+CONFIG_SOUND_NUMBER_32: ConfigSound
+CONFIG_SOUND_NUMBER_33: ConfigSound
+CONFIG_SOUND_NUMBER_34: ConfigSound
+CONFIG_SOUND_NUMBER_35: ConfigSound
+CONFIG_SOUND_NUMBER_36: ConfigSound
+CONFIG_SOUND_NUMBER_37: ConfigSound
+CONFIG_SOUND_NUMBER_38: ConfigSound
+CONFIG_SOUND_NUMBER_39: ConfigSound
+CONFIG_SOUND_NUMBER_40: ConfigSound
+CONFIG_SOUND_NUMBER_41: ConfigSound
+CONFIG_SOUND_NUMBER_42: ConfigSound
+CONFIG_SOUND_NUMBER_43: ConfigSound
+CONFIG_SOUND_NUMBER_44: ConfigSound
+CONFIG_SOUND_NUMBER_45: ConfigSound
+CONFIG_SOUND_NUMBER_46: ConfigSound
+CONFIG_SOUND_NUMBER_47: ConfigSound
+CONFIG_SOUND_NUMBER_48: ConfigSound
+CONFIG_SOUND_NUMBER_49: ConfigSound
+CONFIG_SOUND_NUMBER_50: ConfigSound
+CONFIG_SOUND_NUMBER_51: ConfigSound
+CONFIG_SOUND_NUMBER_52: ConfigSound
+CONFIG_SOUND_NUMBER_53: ConfigSound
+CONFIG_SOUND_NUMBER_54: ConfigSound
+CONFIG_SOUND_NUMBER_55: ConfigSound
+CONFIG_SOUND_NUMBER_56: ConfigSound
+CONFIG_SOUND_NUMBER_57: ConfigSound
+CONFIG_SOUND_NUMBER_58: ConfigSound
+CONFIG_SOUND_NUMBER_59: ConfigSound
+CONFIG_SOUND_NUMBER_60: ConfigSound
+CONFIG_SOUND_NUMBER_61: ConfigSound
+CONFIG_SOUND_NUMBER_62: ConfigSound
+CONFIG_SOUND_NUMBER_63: ConfigSound
+CONFIG_SOUND_NUMBER_64: ConfigSound
+CONFIG_SOUND_NUMBER_65: ConfigSound
+CONFIG_SOUND_NUMBER_66: ConfigSound
+CONFIG_SOUND_NUMBER_67: ConfigSound
+CONFIG_SOUND_NUMBER_68: ConfigSound
+CONFIG_SOUND_NUMBER_69: ConfigSound
+CONFIG_SOUND_NUMBER_70: ConfigSound
+CONFIG_SOUND_NUMBER_71: ConfigSound
+CONFIG_SOUND_NUMBER_72: ConfigSound
+CONFIG_SOUND_NUMBER_73: ConfigSound
+CONFIG_SOUND_NUMBER_74: ConfigSound
+CONFIG_SOUND_NUMBER_75: ConfigSound
+CONFIG_SOUND_NUMBER_76: ConfigSound
+CONFIG_SOUND_NUMBER_77: ConfigSound
+CONFIG_SOUND_NUMBER_78: ConfigSound
+CONFIG_SOUND_NUMBER_79: ConfigSound
+CONFIG_SOUND_NUMBER_80: ConfigSound
+CONFIG_SOUND_NUMBER_81: ConfigSound
+CONFIG_SOUND_NUMBER_82: ConfigSound
+CONFIG_SOUND_NUMBER_83: ConfigSound
+CONFIG_SOUND_NUMBER_84: ConfigSound
+CONFIG_SOUND_NUMBER_85: ConfigSound
+CONFIG_SOUND_NUMBER_86: ConfigSound
+CONFIG_SOUND_NUMBER_87: ConfigSound
+CONFIG_SOUND_NUMBER_88: ConfigSound
+CONFIG_SOUND_NUMBER_89: ConfigSound
+CONFIG_SOUND_NUMBER_90: ConfigSound
+CONFIG_SOUND_NUMBER_91: ConfigSound
+CONFIG_SOUND_NUMBER_92: ConfigSound
+CONFIG_SOUND_NUMBER_93: ConfigSound
+CONFIG_SOUND_NUMBER_94: ConfigSound
+CONFIG_SOUND_NUMBER_95: ConfigSound
+CONFIG_SOUND_NUMBER_96: ConfigSound
+CONFIG_SOUND_NUMBER_97: ConfigSound
+CONFIG_SOUND_NUMBER_98: ConfigSound
+CONFIG_SOUND_NUMBER_99: ConfigSound
+CONFIG_SOUND_NUMBER_100: ConfigSound
+CONFIG_SOUND_ORDINAL_1: ConfigSound
+CONFIG_SOUND_ORDINAL_2: ConfigSound
+CONFIG_SOUND_ORDINAL_3: ConfigSound
+CONFIG_SOUND_ORDINAL_4: ConfigSound
+CONFIG_SOUND_ORDINAL_5: ConfigSound
+CONFIG_SOUND_ORDINAL_6: ConfigSound
+CONFIG_SOUND_ORDINAL_7: ConfigSound
+CONFIG_SOUND_ORDINAL_8: ConfigSound
+CONFIG_SOUND_ORDINAL_9: ConfigSound
+CONFIG_SOUND_ORDINAL_10: ConfigSound
+CONFIG_SOUND_ORDINAL_11: ConfigSound
+CONFIG_SOUND_ORDINAL_12: ConfigSound
+CONFIG_SOUND_ORDINAL_13: ConfigSound
+CONFIG_SOUND_ORDINAL_14: ConfigSound
+CONFIG_SOUND_ORDINAL_15: ConfigSound
+CONFIG_SOUND_ORDINAL_16: ConfigSound
+CONFIG_SOUND_ORDINAL_17: ConfigSound
+CONFIG_SOUND_ORDINAL_18: ConfigSound
+CONFIG_SOUND_ORDINAL_19: ConfigSound
+CONFIG_SOUND_ORDINAL_20: ConfigSound
+CONFIG_SOUND_ORDINAL_21: ConfigSound
+CONFIG_SOUND_ORDINAL_22: ConfigSound
+CONFIG_SOUND_ORDINAL_23: ConfigSound
+CONFIG_SOUND_ORDINAL_24: ConfigSound
+CONFIG_SOUND_ORDINAL_25: ConfigSound
+CONFIG_SOUND_ORDINAL_26: ConfigSound
+CONFIG_SOUND_ORDINAL_27: ConfigSound
+CONFIG_SOUND_ORDINAL_28: ConfigSound
+CONFIG_SOUND_ORDINAL_29: ConfigSound
+CONFIG_SOUND_ORDINAL_30: ConfigSound
+CONFIG_SOUND_ORDINAL_31: ConfigSound
+CONFIG_SOUND_ORDINAL_32: ConfigSound
+CONFIG_SOUND_ORDINAL_33: ConfigSound
+CONFIG_SOUND_ORDINAL_34: ConfigSound
+CONFIG_SOUND_ORDINAL_35: ConfigSound
+CONFIG_SOUND_ORDINAL_36: ConfigSound
+CONFIG_SOUND_ORDINAL_37: ConfigSound
+CONFIG_SOUND_ORDINAL_38: ConfigSound
+CONFIG_SOUND_ORDINAL_39: ConfigSound
+CONFIG_SOUND_ORDINAL_40: ConfigSound
+CONFIG_SOUND_ORDINAL_41: ConfigSound
+CONFIG_SOUND_ORDINAL_42: ConfigSound
+CONFIG_SOUND_ORDINAL_43: ConfigSound
+CONFIG_SOUND_ORDINAL_44: ConfigSound
+CONFIG_SOUND_ORDINAL_45: ConfigSound
+CONFIG_SOUND_ORDINAL_46: ConfigSound
+CONFIG_SOUND_ORDINAL_47: ConfigSound
+CONFIG_SOUND_ORDINAL_48: ConfigSound
+CONFIG_SOUND_ORDINAL_49: ConfigSound
+CONFIG_SOUND_ORDINAL_50: ConfigSound
+CONFIG_SOUND_ORDINAL_51: ConfigSound
+CONFIG_SOUND_ORDINAL_52: ConfigSound
+CONFIG_SOUND_ORDINAL_53: ConfigSound
+CONFIG_SOUND_ORDINAL_54: ConfigSound
+CONFIG_SOUND_ORDINAL_55: ConfigSound
+CONFIG_SOUND_ORDINAL_56: ConfigSound
+CONFIG_SOUND_ORDINAL_57: ConfigSound
+CONFIG_SOUND_ORDINAL_58: ConfigSound
+CONFIG_SOUND_ORDINAL_59: ConfigSound
+CONFIG_SOUND_ORDINAL_60: ConfigSound
+CONFIG_SOUND_ORDINAL_61: ConfigSound
+CONFIG_SOUND_ORDINAL_62: ConfigSound
+CONFIG_SOUND_ORDINAL_63: ConfigSound
+CONFIG_SOUND_ORDINAL_64: ConfigSound
+CONFIG_SOUND_ORDINAL_65: ConfigSound
+CONFIG_SOUND_ORDINAL_66: ConfigSound
+CONFIG_SOUND_ORDINAL_67: ConfigSound
+CONFIG_SOUND_ORDINAL_68: ConfigSound
+CONFIG_SOUND_ORDINAL_69: ConfigSound
+CONFIG_SOUND_ORDINAL_70: ConfigSound
+CONFIG_SOUND_ORDINAL_71: ConfigSound
+CONFIG_SOUND_ORDINAL_72: ConfigSound
+CONFIG_SOUND_ORDINAL_73: ConfigSound
+CONFIG_SOUND_ORDINAL_74: ConfigSound
+CONFIG_SOUND_ORDINAL_75: ConfigSound
+CONFIG_SOUND_ORDINAL_76: ConfigSound
+CONFIG_SOUND_ORDINAL_77: ConfigSound
+CONFIG_SOUND_ORDINAL_78: ConfigSound
+CONFIG_SOUND_ORDINAL_79: ConfigSound
+CONFIG_SOUND_ORDINAL_80: ConfigSound
+CONFIG_SOUND_ORDINAL_81: ConfigSound
+CONFIG_SOUND_ORDINAL_82: ConfigSound
+CONFIG_SOUND_ORDINAL_83: ConfigSound
+CONFIG_SOUND_ORDINAL_84: ConfigSound
+CONFIG_SOUND_ORDINAL_85: ConfigSound
+CONFIG_SOUND_ORDINAL_86: ConfigSound
+CONFIG_SOUND_ORDINAL_87: ConfigSound
+CONFIG_SOUND_ORDINAL_88: ConfigSound
+CONFIG_SOUND_ORDINAL_89: ConfigSound
+CONFIG_SOUND_ORDINAL_90: ConfigSound
+CONFIG_SOUND_ORDINAL_91: ConfigSound
+CONFIG_SOUND_ORDINAL_92: ConfigSound
+CONFIG_SOUND_ORDINAL_93: ConfigSound
+CONFIG_SOUND_ORDINAL_94: ConfigSound
+CONFIG_SOUND_ORDINAL_95: ConfigSound
+CONFIG_SOUND_ORDINAL_96: ConfigSound
+CONFIG_SOUND_ORDINAL_97: ConfigSound
+CONFIG_SOUND_ORDINAL_98: ConfigSound
+CONFIG_SOUND_ORDINAL_99: ConfigSound
+CONFIG_SOUND_ORDINAL_100: ConfigSound
+CONFIG_SOUND_AGENTLOGIN_CALL_ENDED: ConfigSound
+CONFIG_SOUND_AGENTLOGIN_TRUMPET: ConfigSound
+CONFIG_SOUND_ANNOUNCE_POSITION_END: ConfigSound
+CONFIG_SOUND_ANNOUNCE_POSITION_SHORTLY: ConfigSound
+CONFIG_SOUND_ANNOUNCE_POSITION_START: ConfigSound
+CONFIG_SOUND_ANNOUNCE_TIME_END: ConfigSound
+CONFIG_SOUND_ANNOUNCE_TIME_SHORTLY: ConfigSound
+CONFIG_SOUND_ANNOUNCE_TIME_START: ConfigSound
+CONFIG_SOUND_BEEP: ConfigSound
+CONFIG_SOUND_FPM_CALM_RIVER: ConfigSound
+CONFIG_SOUND_NBDY_AVAIL_TO_TAKE_CALL: ConfigSound
+CONFIG_SOUND_PBX_AGENT_RING: ConfigSound
+CONFIG_SOUND_INBOUND_AGENT_JOIN: ConfigSound
+CONFIG_SOUND_INBOUND_AGENT_LEAVE: ConfigSound
+CONFIG_SOUND_INBOUND_CALLER_JOIN: ConfigSound
+CONFIG_SOUND_INBOUND_CALLER_LEAVE: ConfigSound
+CONFIG_SOUND_INBOUND_MOH: ConfigSound
+CONFIG_SOUND_INBOUND_NOBODY_AVAILABLE: ConfigSound
+CONFIG_SOUND_INBOUND_QUEUE_CALLBACK: ConfigSound
+CONFIG_SOUND_OUTBOUND_AGENT_JOIN: ConfigSound
+CONFIG_SOUND_OUTBOUND_AGENT_LEAVE: ConfigSound
+CONFIG_SOUND_OUTBOUND_CALLER_JOIN: ConfigSound
+CONFIG_SOUND_OUTBOUND_CALLER_LEAVE: ConfigSound
+CONFIG_SOUND_OUTBOUND_MOH: ConfigSound
+CONFIG_SOUND_OUTBOUND_NOBODY_AVAILABLE: ConfigSound
+CONFIG_SOUND_OUTBOUND_QUEUE_CALLBACK: ConfigSound
+CONFIG_SOUND_PREVIEW_AGENT_JOIN: ConfigSound
+CONFIG_SOUND_PREVIEW_AGENT_LEAVE: ConfigSound
+CONFIG_SOUND_PREVIEW_AGENT_PREPARE: ConfigSound
+CONFIG_SOUND_PREVIEW_CALLER_JOIN: ConfigSound
+CONFIG_SOUND_PREVIEW_CALLER_LEAVE: ConfigSound
+CONFIG_SOUND_PREVIEW_MOH: ConfigSound
+CONFIG_SOUND_PREVIEW_NOBODY_AVAILABLE: ConfigSound
+CONFIG_SOUND_PREVIEW_QUEUE_CALLBACK: ConfigSound
+CONFIG_SOUND_MANUAL_AGENT_JOIN: ConfigSound
+CONFIG_SOUND_MANUAL_AGENT_LEAVE: ConfigSound
+CONFIG_SOUND_MANUAL_AGENT_PREPARE: ConfigSound
+CONFIG_SOUND_MANUAL_CALLER_JOIN: ConfigSound
+CONFIG_SOUND_MANUAL_CALLER_LEAVE: ConfigSound
+CONFIG_SOUND_MANUAL_MOH: ConfigSound
+CONFIG_SOUND_MANUAL_NOBODY_AVAILABLE: ConfigSound
+CONFIG_SOUND_MANUAL_QUEUE_CALLBACK: ConfigSound
+CONFIG_SOUND_OUTBOUND_MOH_HOLD: ConfigSound
+CONFIG_SOUND_OUTBOUND_MOH_MULTIACCEPT: ConfigSound
+CONFIG_SOUND_OUTBOUND_MOH_TRANSFER: ConfigSound
+CONFIG_SOUND_INBOUND_MOH_HOLD: ConfigSound
+CONFIG_SOUND_INBOUND_MOH_MULTIACCEPT: ConfigSound
+CONFIG_SOUND_INBOUND_MOH_TRANSFER: ConfigSound
+CONFIG_SOUND_PREVIEW_MOH_HOLD: ConfigSound
+CONFIG_SOUND_PREVIEW_MOH_MULTIACCEPT: ConfigSound
+CONFIG_SOUND_PREVIEW_MOH_TRANSFER: ConfigSound
+CONFIG_SOUND_MANUAL_MOH_HOLD: ConfigSound
+CONFIG_SOUND_MANUAL_MOH_MULTIACCEPT: ConfigSound
+CONFIG_SOUND_MANUAL_MOH_TRANSFER: ConfigSound
+CONFIG_SOUND_CALLBACK_QUEUED_ALREADY: ConfigSound
+SOUND_LANGUAGE_ENGLISH: SoundLanguage
+SOUND_LANGUAGE_FRENCH: SoundLanguage
+SOUND_LANGUAGE_PORTUGUESE: SoundLanguage
+SOUND_LANGUAGE_SPANISH: SoundLanguage
+SOUND_LANGUAGE_AU_ENGLISH: SoundLanguage
+SOUND_GENDER_MALE: SoundGender
+SOUND_GENDER_FEMALE: SoundGender
+CONNECTION_TYPE_NONE: IdentityProvider
+CONNECTION_TYPE_OKTA: IdentityProvider
+CONNECTION_TYPE_AZURE: IdentityProvider
+CONNECTION_TYPE_ADFS: IdentityProvider
+CONNECTION_TYPE_OIDC: IdentityProvider
+RECORDING_FILE_TYPE_WAV: RecordingFileType
+RECORDING_FILE_TYPE_MP3: RecordingFileType
+INITIAL_AGENT_STATUS_READY: InitialAgentStatus
+INITIAL_AGENT_STATUS_PAUSED: InitialAgentStatus
+AGENT_ROUTING_ANY_AGENT: AgentRouting
+AGENT_ROUTING_ORIGINAL_AGENT_PREFERRED: AgentRouting
+AGENT_ROUTING_ORIGINAL_AGENT_REQUIRED: AgentRouting
+ALPHANUMERIC_KEYPAD_DELIMITER_ASTERISK: AlphanumericKeypadDelimiter
+ALPHANUMERIC_KEYPAD_DELIMITER_POUND: AlphanumericKeypadDelimiter
+ALPHANUMERIC_KEYPAD_DELIMITER_SPACE: AlphanumericKeypadDelimiter
+AGENT_CALL_HISTORY_SCOPE_NONE: AgentCallHistoryScope
+AGENT_CALL_HISTORY_SCOPE_AGENT_SESSION_STATISTICS: AgentCallHistoryScope
+AGENT_CALL_HISTORY_SCOPE_TODAYS_STATISTICS: AgentCallHistoryScope
+COMMUNICATION_EXPIRATION_NEVER: CommunicationExpiration
+COMMUNICATION_EXPIRATION_ONE_HOUR: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TWO_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_THREE_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_FOUR_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_FIVE_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_SIX_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_SEVEN_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_EIGHT_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_NINE_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TEN_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_ELEVEN_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TWELVE_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_THIRTEEN_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_SIXTEEN_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TWENTY_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TWENTY_FOUR_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_THIRTY_SIX_HOURS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TWO_DAYS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_THREE_DAYS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_FOUR_DAYS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_FIVE_DAYS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_SIX_DAYS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_ONE_WEEK: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TWO_WEEKS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_THREE_WEEKS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_FOUR_WEEKS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_ONE_MONTH: CommunicationExpiration
+COMMUNICATION_EXPIRATION_TWO_MONTHS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_THREE_MONTHS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_SIX_MONTHS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_NINE_MONTHS: CommunicationExpiration
+COMMUNICATION_EXPIRATION_ONE_YEAR: CommunicationExpiration
+COMMUNICATION_EXPIRATION_THIRTEEN_MONTHS: CommunicationExpiration
+DEFAULT_CALLBACK_ROUTING_NONE: DefaultCallbackRouting
+DEFAULT_CALLBACK_ROUTING_TO_AGENT: DefaultCallbackRouting
+DEFAULT_CALLBACK_ROUTING_AGENT_SKILLSET: DefaultCallbackRouting
+XML_PROPERTY_KEY_NONE: XMLPropertyKey
+XML_PROPERTY_KEY_AGENT_DISPOSITION_CONDITIONAL_DNCL: XMLPropertyKey
+XML_PROPERTY_KEY_AGENT_LOGIN_GUI_STATISTICS_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_AGENT_PAUSE_CODES: XMLPropertyKey
+XML_PROPERTY_KEY_AGENT_SKILLS_FILTER: XMLPropertyKey
+XML_PROPERTY_KEY_AGENT_STATUS_DASHBOARD_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_AGENT_STATUS_DISPLAY_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_CALLER_ID_BUCKET: XMLPropertyKey
+XML_PROPERTY_KEY_CAMPAIGN_LINK: XMLPropertyKey
+XML_PROPERTY_KEY_CONTACTS_SORTORDER_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_CRITERIA_DATA: XMLPropertyKey
+XML_PROPERTY_KEY_CUSTOMER_CALL_CODES: XMLPropertyKey
+XML_PROPERTY_KEY_CUSTOM_REPORT_FILTER: XMLPropertyKey
+XML_PROPERTY_KEY_DATA_DIP_CONFIG: XMLPropertyKey
+XML_PROPERTY_KEY_EXTENDED_CONDITIONAL_DIALING: XMLPropertyKey
+XML_PROPERTY_KEY_GENERIC_STATISTICS_TABLE_FORMATTING_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_HG_CLIENT_INFO_DISPLAY_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_HUNT_GROUP_SCRIPT: XMLPropertyKey
+XML_PROPERTY_KEY_OPERATIONAL_RESPONSE_STATS_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_QUEUE_HOLD_INFO_DASHBOARD_TEMPLATE: XMLPropertyKey
+XML_PROPERTY_KEY_REPORT_RESULT_MAPPING: XMLPropertyKey
+XML_PROPERTY_KEY_RESPONSE_EVALUATOR: XMLPropertyKey
+XML_PROPERTY_KEY_STOP_TRIGGER: XMLPropertyKey
+XML_PROPERTY_KEY_TASK_GROUP_REPORT_FILTER: XMLPropertyKey
+DEFAULT_MANUAL_CALL_RECORDING_ORG_DEFAULT: DefaultManualCallRecording
+DEFAULT_MANUAL_CALL_RECORDING_ENABLED: DefaultManualCallRecording
+DEFAULT_MANUAL_CALL_RECORDING_DISABLED: DefaultManualCallRecording
+HUNT_GROUP_USE_ORG_DEFAULT: HuntGroupOrgDefaultCustom
+HUNT_GROUP_CUSTOM_ENABLED: HuntGroupOrgDefaultCustom
+HUNT_GROUP_CUSTOM_DISABLED: HuntGroupOrgDefaultCustom
+MANUAL_DIAL_TIME_ZONE_VALIDATION_DISABLED: ManualDialTimeZoneValidation
+MANUAL_DIAL_TIME_ZONE_VALIDATION_OPTIONAL: ManualDialTimeZoneValidation
+MANUAL_DIAL_TIME_ZONE_VALIDATION_REQUIRED: ManualDialTimeZoneValidation
+TRANSFER_RECORDING_STATUS_KEEP_STATUS: TransferRecordingStatus
+TRANSFER_RECORDING_STATUS_START_RECORDING: TransferRecordingStatus
+TRANSFER_RECORDING_STATUS_STOP_RECORDING: TransferRecordingStatus
+REQUEUE_TRANSFER_QUEUE_CONFIG_CURRENT: RequeueTransferQueueConfig
+REQUEUE_TRANSFER_QUEUE_CONFIG_DEFAULT: RequeueTransferQueueConfig
+REQUEUE_TRANSFER_QUEUE_CONFIG_CUSTOM: RequeueTransferQueueConfig
+DEFAULT_CALLER_ID_NONE: DefaultTransferCallerId
+DEFAULT_CALLER_ID_CUSTOM: DefaultTransferCallerId
+DEFAULT_CALLER_ID_3RD_PARTY_NUMBER: DefaultTransferCallerId
+DEFAULT_MANUAL_DIAL_CALLER_ID_NONE: DefaultManualDialCallerId
+DEFAULT_MANUAL_DIAL_CALLER_ID_CUSTOM: DefaultManualDialCallerId
+DEFAULT_MANUAL_DIAL_CALLER_ID_AGENT_CALLER_ID: DefaultManualDialCallerId
+MANUAL_DIAL_DATA_DIP_SCOPE_DISABLED: ManualDialDataDipScope
+MANUAL_DIAL_DATA_DIP_SCOPE_STANDARD_CALLS: ManualDialDataDipScope
+MANUAL_DIAL_DATA_DIP_SCOPE_SCHEDULED_CALLBACKS: ManualDialDataDipScope
+MANUAL_DIAL_DATA_DIP_SCOPE_ALL: ManualDialDataDipScope
+MANUAL_DIAL_DATA_DIP_HANDLING_CANCEL: ManualDialDataDipHandling
+MANUAL_DIAL_DATA_DIP_HANDLING_NOTIFY_AND_CANCEL: ManualDialDataDipHandling
+MANUAL_DIAL_DATA_DIP_HANDLING_NOTIFY_AND_CALL: ManualDialDataDipHandling
+MANUAL_DIAL_DATA_DIP_HANDLING_CALL_WITH_ORIGINAL_VALUES: ManualDialDataDipHandling
+MANUAL_DIAL_DATA_DIP_INTEGRATION_UNSPECIFIED: ManualDialDataDipIntegration
+MANUAL_DIAL_DATA_DIP_INTEGRATION_NUMBER: ManualDialDataDipIntegration
+MANUAL_DIAL_DATA_DIP_INTEGRATION_CALLER_ID: ManualDialDataDipIntegration
+MANUAL_DIAL_DATA_DIP_INTEGRATION_CONTACT_FIELD_DESCRIPTION: ManualDialDataDipIntegration
+DATA_DIP_TEMPLATE_FILTER_TYPE_NONE: DataDipTemplateFilterType
+DATA_DIP_TEMPLATE_FILTER_TYPE_BROADCAST: DataDipTemplateFilterType
+DATA_DIP_TEMPLATE_FILTER_TYPE_MANUAL_DIAL: DataDipTemplateFilterType
+ORGANIZATION_ARCHIVED_STATE_FILTER_UNARCHIVED: OrganizationArchivedStateFilter
+ORGANIZATION_ARCHIVED_STATE_FILTER_ARCHIVED: OrganizationArchivedStateFilter
+ORGANIZATION_ARCHIVED_STATE_FILTER_ALL: OrganizationArchivedStateFilter
+
+class TimeZoneWrapper(_message.Message):
+    __slots__ = ["value"]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    value: TimeZone
+    def __init__(self, value: _Optional[_Union[TimeZone, str]] = ...) -> None: ...
+
+class DigitWrapper(_message.Message):
+    __slots__ = ["value"]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    value: Digit
+    def __init__(self, value: _Optional[_Union[Digit, str]] = ...) -> None: ...
