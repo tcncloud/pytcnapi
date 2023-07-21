@@ -110,6 +110,11 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ListElementsReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_lms__pb2.Element.FromString,
                 )
+        self.GetElement = channel.unary_unary(
+                '/api.v0alpha.LMS/GetElement',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.Element.FromString,
+                )
         self.UpdateElement = channel.unary_unary(
                 '/api.v0alpha.LMS/UpdateElement',
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.Element.SerializeToString,
@@ -390,6 +395,12 @@ class LMSServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListElements(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetElement(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -708,6 +719,11 @@ def add_LMSServicer_to_server(servicer, server):
             'ListElements': grpc.unary_stream_rpc_method_handler(
                     servicer.ListElements,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListElementsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.Element.SerializeToString,
+            ),
+            'GetElement': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetElement,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.FromString,
                     response_serializer=api_dot_v0alpha_dot_lms__pb2.Element.SerializeToString,
             ),
             'UpdateElement': grpc.unary_unary_rpc_method_handler(
@@ -1204,6 +1220,23 @@ class LMS(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/api.v0alpha.LMS/ListElements',
             api_dot_v0alpha_dot_lms__pb2.ListElementsReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.Element.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetElement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/GetElement',
+            api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
             api_dot_v0alpha_dot_lms__pb2.Element.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
