@@ -168,10 +168,14 @@ class StandaloneRes(_message.Message):
     def __init__(self, standalone_details: _Optional[_Iterable[_Union[LearnStandaloneDetails, _Mapping]]] = ...) -> None: ...
 
 class LearnStandaloneDetails(_message.Message):
-    __slots__ = ["name"]
+    __slots__ = ["name", "content", "last_edited_timestamp"]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     name: str
-    def __init__(self, name: _Optional[str] = ...) -> None: ...
+    content: str
+    last_edited_timestamp: _timestamp_pb2.Timestamp
+    def __init__(self, name: _Optional[str] = ..., content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class DeleteStandaloneReq(_message.Message):
     __slots__ = ["locale", "article_names"]
