@@ -73,7 +73,7 @@ class BillingServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ExportGeneratedInvoice(self, request, context):
-        """GetInvoice - returns the invoice for the organization.
+        """ExportGeneratedInvoice - returns the invoice for the organization.
         If a date is provided, this will return the invoice for the
         organization that corresponds to the billing cycle that contains
         the provided date. If no date is provided, this will return the
