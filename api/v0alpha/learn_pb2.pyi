@@ -56,16 +56,18 @@ class ContentEditorDataRes(_message.Message):
     def __init__(self, last_edited_user: _Optional[str] = ...) -> None: ...
 
 class UpdateReq(_message.Message):
-    __slots__ = ["url", "locale", "content", "message"]
+    __slots__ = ["url", "locale", "content", "message", "previous_name"]
     URL_FIELD_NUMBER: _ClassVar[int]
     LOCALE_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    PREVIOUS_NAME_FIELD_NUMBER: _ClassVar[int]
     url: str
     locale: str
     content: str
     message: str
-    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., content: _Optional[str] = ..., message: _Optional[str] = ...) -> None: ...
+    previous_name: str
+    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., content: _Optional[str] = ..., message: _Optional[str] = ..., previous_name: _Optional[str] = ...) -> None: ...
 
 class UpdateRes(_message.Message):
     __slots__ = []
