@@ -535,6 +535,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceRes.FromString,
                 )
+        self.UpdateShiftInstanceV2 = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceV2',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
+                )
         self.ListShiftSegmentsByShiftInstanceSids = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListShiftSegmentsByShiftInstanceSids',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftSegmentsByShiftInstanceSidsReq.SerializeToString,
@@ -2096,6 +2101,19 @@ class WFMServicer(object):
 
     def UpdateShiftInstance(self, request, context):
         """Updates a shift instance for the org sending the request with the provided parameters.
+        This method is not implemented. Do not use.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.Internal: error occurs when updating the shift instance.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateShiftInstanceV2(self, request, context):
+        """Updates a shift instance for the org sending the request with the provided parameters.
         Required permissions:
         NONE
         Errors:
@@ -2712,6 +2730,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.UpdateShiftInstance,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceRes.SerializeToString,
+            ),
+            'UpdateShiftInstanceV2': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateShiftInstanceV2,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.SerializeToString,
             ),
             'ListShiftSegmentsByShiftInstanceSids': grpc.unary_unary_rpc_method_handler(
                     servicer.ListShiftSegmentsByShiftInstanceSids,
@@ -4519,6 +4542,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateShiftInstance',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateShiftInstanceV2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceV2',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
