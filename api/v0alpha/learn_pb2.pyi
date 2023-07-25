@@ -32,14 +32,16 @@ class ContentReq(_message.Message):
     def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
 
 class ContentRes(_message.Message):
-    __slots__ = ["content", "last_edited_timestamp", "images"]
+    __slots__ = ["content", "last_edited_timestamp", "images", "title"]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     IMAGES_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
     content: str
     last_edited_timestamp: _timestamp_pb2.Timestamp
     images: _containers.RepeatedCompositeFieldContainer[LearnImage]
-    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ...) -> None: ...
+    title: str
+    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., title: _Optional[str] = ...) -> None: ...
 
 class ContentEditorDataReq(_message.Message):
     __slots__ = ["url", "locale"]
@@ -56,18 +58,18 @@ class ContentEditorDataRes(_message.Message):
     def __init__(self, last_edited_user: _Optional[str] = ...) -> None: ...
 
 class UpdateReq(_message.Message):
-    __slots__ = ["url", "locale", "content", "message", "previous_name"]
+    __slots__ = ["url", "locale", "content", "message", "title"]
     URL_FIELD_NUMBER: _ClassVar[int]
     LOCALE_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
-    PREVIOUS_NAME_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
     url: str
     locale: str
     content: str
     message: str
-    previous_name: str
-    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., content: _Optional[str] = ..., message: _Optional[str] = ..., previous_name: _Optional[str] = ...) -> None: ...
+    title: str
+    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., content: _Optional[str] = ..., message: _Optional[str] = ..., title: _Optional[str] = ...) -> None: ...
 
 class UpdateRes(_message.Message):
     __slots__ = []
