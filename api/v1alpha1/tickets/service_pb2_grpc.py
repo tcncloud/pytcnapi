@@ -108,13 +108,13 @@ class TicketsStub(object):
                 )
         self.ListSkills = channel.unary_unary(
                 '/api.v1alpha1.tickets.Tickets/ListSkills',
-                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsResponse.FromString,
                 )
         self.ListUsers = channel.unary_unary(
                 '/api.v1alpha1.tickets.Tickets/ListUsers',
-                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersResponse.FromString,
                 )
 
 
@@ -365,13 +365,13 @@ def add_TicketsServicer_to_server(servicer, server):
             ),
             'ListSkills': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSkills,
-                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsResponse.SerializeToString,
             ),
             'ListUsers': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUsers,
-                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -702,8 +702,8 @@ class Tickets(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListSkills',
-            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsReq.SerializeToString,
-            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsRes.FromString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -719,7 +719,7 @@ class Tickets(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListUsers',
-            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersReq.SerializeToString,
-            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRes.FromString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
