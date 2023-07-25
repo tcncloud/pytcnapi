@@ -80,6 +80,16 @@ class ListAllocatedTicketReq(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListAvailableAgentTicketsResponse(_message.Message):
+    __slots__ = ["ticket_sid"]
+    TICKET_SID_FIELD_NUMBER: _ClassVar[int]
+    ticket_sid: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, ticket_sid: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListAvailableAgentTicketsRequest(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class EditTicketRes(_message.Message):
     __slots__ = ["is_edited"]
     IS_EDITED_FIELD_NUMBER: _ClassVar[int]
@@ -243,3 +253,41 @@ class CreateSelfAssignRes(_message.Message):
     IS_ASSIGNED_FIELD_NUMBER: _ClassVar[int]
     is_assigned: bool
     def __init__(self, is_assigned: bool = ...) -> None: ...
+
+class ListSkillsRequest(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListSkillsResponse(_message.Message):
+    __slots__ = ["skills"]
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
+    skills: _containers.RepeatedCompositeFieldContainer[Skill]
+    def __init__(self, skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ...) -> None: ...
+
+class Skill(_message.Message):
+    __slots__ = ["skill_id", "name"]
+    SKILL_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    skill_id: str
+    name: str
+    def __init__(self, skill_id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
+
+class ListUsersRequest(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListUsersResponse(_message.Message):
+    __slots__ = ["users"]
+    USERS_FIELD_NUMBER: _ClassVar[int]
+    users: _containers.RepeatedCompositeFieldContainer[User]
+    def __init__(self, users: _Optional[_Iterable[_Union[User, _Mapping]]] = ...) -> None: ...
+
+class User(_message.Message):
+    __slots__ = ["user_id", "first_name", "last_name"]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+    LAST_NAME_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    first_name: str
+    last_name: str
+    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
