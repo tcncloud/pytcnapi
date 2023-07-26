@@ -547,7 +547,7 @@ class ListAgentResponseValuesResponse(_message.Message):
     def __init__(self, values: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Transcript(_message.Message):
-    __slots__ = ["transcript_sid", "call_sid", "call_type", "results", "silence", "talk_time", "create_time", "call_start_time", "talk_over", "caller_id", "phone_number", "audio_time", "audio_bytes", "group_name", "agent_call_log", "flag_summary", "delete_time", "number_format", "agent_response", "phone"]
+    __slots__ = ["transcript_sid", "call_sid", "call_type", "results", "silence", "talk_time", "create_time", "call_start_time", "talk_over", "caller_id", "phone_number", "audio_time", "audio_bytes", "group_name", "agent_call_log", "flag_summary", "delete_time", "number_format", "agent_response"]
     class AgentResponseEntry(_message.Message):
         __slots__ = ["key", "value"]
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -555,38 +555,6 @@ class Transcript(_message.Message):
         key: str
         value: AgentResponse
         def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[AgentResponse, _Mapping]] = ...) -> None: ...
-    class Phone(_message.Message):
-        __slots__ = ["cc", "ndc", "prefix", "city", "iso2", "region_code", "region_name", "time_zone", "type", "utc", "location"]
-        class Location(_message.Message):
-            __slots__ = ["lon", "lat"]
-            LON_FIELD_NUMBER: _ClassVar[int]
-            LAT_FIELD_NUMBER: _ClassVar[int]
-            lon: float
-            lat: float
-            def __init__(self, lon: _Optional[float] = ..., lat: _Optional[float] = ...) -> None: ...
-        CC_FIELD_NUMBER: _ClassVar[int]
-        NDC_FIELD_NUMBER: _ClassVar[int]
-        PREFIX_FIELD_NUMBER: _ClassVar[int]
-        CITY_FIELD_NUMBER: _ClassVar[int]
-        ISO2_FIELD_NUMBER: _ClassVar[int]
-        REGION_CODE_FIELD_NUMBER: _ClassVar[int]
-        REGION_NAME_FIELD_NUMBER: _ClassVar[int]
-        TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
-        TYPE_FIELD_NUMBER: _ClassVar[int]
-        UTC_FIELD_NUMBER: _ClassVar[int]
-        LOCATION_FIELD_NUMBER: _ClassVar[int]
-        cc: _containers.RepeatedScalarFieldContainer[str]
-        ndc: _containers.RepeatedScalarFieldContainer[str]
-        prefix: _containers.RepeatedScalarFieldContainer[str]
-        city: _containers.RepeatedScalarFieldContainer[str]
-        iso2: _containers.RepeatedScalarFieldContainer[str]
-        region_code: _containers.RepeatedScalarFieldContainer[str]
-        region_name: _containers.RepeatedScalarFieldContainer[str]
-        time_zone: _containers.RepeatedScalarFieldContainer[str]
-        type: _containers.RepeatedScalarFieldContainer[str]
-        utc: _containers.RepeatedScalarFieldContainer[float]
-        location: _containers.RepeatedCompositeFieldContainer[Transcript.Phone.Location]
-        def __init__(self, cc: _Optional[_Iterable[str]] = ..., ndc: _Optional[_Iterable[str]] = ..., prefix: _Optional[_Iterable[str]] = ..., city: _Optional[_Iterable[str]] = ..., iso2: _Optional[_Iterable[str]] = ..., region_code: _Optional[_Iterable[str]] = ..., region_name: _Optional[_Iterable[str]] = ..., time_zone: _Optional[_Iterable[str]] = ..., type: _Optional[_Iterable[str]] = ..., utc: _Optional[_Iterable[float]] = ..., location: _Optional[_Iterable[_Union[Transcript.Phone.Location, _Mapping]]] = ...) -> None: ...
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -606,7 +574,6 @@ class Transcript(_message.Message):
     DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
     NUMBER_FORMAT_FIELD_NUMBER: _ClassVar[int]
     AGENT_RESPONSE_FIELD_NUMBER: _ClassVar[int]
-    PHONE_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: int
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
@@ -626,8 +593,7 @@ class Transcript(_message.Message):
     delete_time: _timestamp_pb2.Timestamp
     number_format: str
     agent_response: _containers.MessageMap[str, AgentResponse]
-    phone: Transcript.Phone
-    def __init__(self, transcript_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., results: _Optional[_Iterable[_Union[Result, _Mapping]]] = ..., silence: _Optional[_Union[Silence, _Mapping]] = ..., talk_time: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., talk_over: _Optional[_Union[TalkOver, _Mapping]] = ..., caller_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., audio_time: _Optional[int] = ..., audio_bytes: _Optional[int] = ..., group_name: _Optional[str] = ..., agent_call_log: _Optional[_Union[_aclpb_pb2.AgentCallLog, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., number_format: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, AgentResponse]] = ..., phone: _Optional[_Union[Transcript.Phone, _Mapping]] = ...) -> None: ...
+    def __init__(self, transcript_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., results: _Optional[_Iterable[_Union[Result, _Mapping]]] = ..., silence: _Optional[_Union[Silence, _Mapping]] = ..., talk_time: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., talk_over: _Optional[_Union[TalkOver, _Mapping]] = ..., caller_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., audio_time: _Optional[int] = ..., audio_bytes: _Optional[int] = ..., group_name: _Optional[str] = ..., agent_call_log: _Optional[_Union[_aclpb_pb2.AgentCallLog, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., number_format: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, AgentResponse]] = ...) -> None: ...
 
 class Result(_message.Message):
     __slots__ = ["channel", "segments", "agent_first_name", "agent_last_name", "agent_user_name", "begin_time", "duration", "text", "hunt_group_sid"]
