@@ -62,18 +62,26 @@ class BillingServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetInvoice(self, request, context):
-        """GetInvoice - returns the invoice for the organization. If a date is
-        provided, this will return the invoice for the organization that
-        corresponds to the billing cycle that contains the provided date. If
-        no date is provided, this will return the invoice as it currently
-        stands for the current billing cycle.
+        """GetInvoice - returns the invoice for the organization.
+        If a date is provided, this will return the invoice for the
+        organization that corresponds to the billing cycle that contains
+        the provided date. If no date is provided, this will return the
+        invoice as it currently stands for the current billing cycle.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ExportGeneratedInvoice(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """ExportGeneratedInvoice - returns the invoice for the organization.
+        If a date is provided, this will return the invoice for the
+        organization that corresponds to the billing cycle that contains
+        the provided date. If no date is provided, this will return the
+        invoice, as it has been last generated, for the current billing cycle.
+        This differs from GetInvoice in that it returns the invoice as
+        it was last generated. It will not take into account new billing
+        events since the last generation.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

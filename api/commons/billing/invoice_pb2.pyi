@@ -21,6 +21,12 @@ class Product(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PRODUCT_OMNI: _ClassVar[Product]
     PRODUCT_VANA: _ClassVar[Product]
     PRODUCT_COMPLIANCE: _ClassVar[Product]
+
+class InvoiceFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    INVOICE_FORMAT_UNSPECIFIED: _ClassVar[InvoiceFormat]
+    INVOICE_FORMAT_PROTO: _ClassVar[InvoiceFormat]
+    INVOICE_FORMAT_CSV: _ClassVar[InvoiceFormat]
 PRODUCT_UNSPECIFIED: Product
 PRODUCT_OTHER: Product
 PRODUCT_AGENT_SEATS: Product
@@ -33,6 +39,9 @@ PRODUCT_CHAT_RECEIVED: Product
 PRODUCT_OMNI: Product
 PRODUCT_VANA: Product
 PRODUCT_COMPLIANCE: Product
+INVOICE_FORMAT_UNSPECIFIED: InvoiceFormat
+INVOICE_FORMAT_PROTO: InvoiceFormat
+INVOICE_FORMAT_CSV: InvoiceFormat
 
 class Invoice(_message.Message):
     __slots__ = ["items"]

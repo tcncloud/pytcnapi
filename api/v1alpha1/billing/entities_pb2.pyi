@@ -47,39 +47,55 @@ class UpdateBillingPlanRes(_message.Message):
     def __init__(self, billing_plan: _Optional[_Union[_detail_pb2.Plan, _Mapping]] = ...) -> None: ...
 
 class GetInvoiceReq(_message.Message):
-    __slots__ = ["invoice_date", "org_id", "format"]
+    __slots__ = ["invoice_date", "org_id", "format", "invoice_format"]
     INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_FORMAT_FIELD_NUMBER: _ClassVar[int]
     invoice_date: _timestamp_pb2.Timestamp
     org_id: str
     format: InvoiceFormat
-    def __init__(self, invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ...) -> None: ...
+    invoice_format: _invoice_pb2.InvoiceFormat
+    def __init__(self, invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_format: _Optional[_Union[_invoice_pb2.InvoiceFormat, str]] = ...) -> None: ...
 
 class GetInvoiceRes(_message.Message):
-    __slots__ = ["invoice", "proto", "csv_url"]
+    __slots__ = ["invoice", "proto", "csv_url", "invoice_proto", "invoice_csv_url", "billing_cycle"]
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     PROTO_FIELD_NUMBER: _ClassVar[int]
     CSV_URL_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_PROTO_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_CSV_URL_FIELD_NUMBER: _ClassVar[int]
+    BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
     invoice: _invoice_pb2.Invoice
     proto: _invoice_pb2.Invoice
     csv_url: str
-    def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., csv_url: _Optional[str] = ...) -> None: ...
+    invoice_proto: _invoice_pb2.Invoice
+    invoice_csv_url: str
+    billing_cycle: str
+    def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., csv_url: _Optional[str] = ..., invoice_proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., invoice_csv_url: _Optional[str] = ..., billing_cycle: _Optional[str] = ...) -> None: ...
 
 class ExportGeneratedInvoiceReq(_message.Message):
-    __slots__ = ["invoice_date", "org_id", "format"]
+    __slots__ = ["invoice_date", "org_id", "format", "invoice_format"]
     INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_FORMAT_FIELD_NUMBER: _ClassVar[int]
     invoice_date: _timestamp_pb2.Timestamp
     org_id: str
     format: InvoiceFormat
-    def __init__(self, invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ...) -> None: ...
+    invoice_format: _invoice_pb2.InvoiceFormat
+    def __init__(self, invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_format: _Optional[_Union[_invoice_pb2.InvoiceFormat, str]] = ...) -> None: ...
 
 class ExportGeneratedInvoiceRes(_message.Message):
-    __slots__ = ["proto", "csv_url"]
+    __slots__ = ["proto", "csv_url", "invoice_proto", "invoice_csv_url", "billing_cycle"]
     PROTO_FIELD_NUMBER: _ClassVar[int]
     CSV_URL_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_PROTO_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_CSV_URL_FIELD_NUMBER: _ClassVar[int]
+    BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
     proto: _invoice_pb2.Invoice
     csv_url: str
-    def __init__(self, proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., csv_url: _Optional[str] = ...) -> None: ...
+    invoice_proto: _invoice_pb2.Invoice
+    invoice_csv_url: str
+    billing_cycle: str
+    def __init__(self, proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., csv_url: _Optional[str] = ..., invoice_proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., invoice_csv_url: _Optional[str] = ..., billing_cycle: _Optional[str] = ...) -> None: ...
