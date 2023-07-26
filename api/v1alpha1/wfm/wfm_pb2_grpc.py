@@ -540,6 +540,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
                 )
+        self.ListShiftInstanceSidsForAgent = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListShiftInstanceSidsForAgent',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentRes.FromString,
+                )
         self.ListShiftSegmentsByShiftInstanceSids = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListShiftSegmentsByShiftInstanceSids',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftSegmentsByShiftInstanceSidsReq.SerializeToString,
@@ -2088,11 +2093,15 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SwapShiftInstances(self, request, context):
-        """Swaps a list of shift instances to have a different @wfm_agent_sid.
+        """Swaps shift instances with the given @shift_instance_sids that belong to @wfm_agent_sid1 to belong to @wfm_agent_sid2 (and viceversa).
+        Returns the swapped @shift_instances after they are succesfully updated.
+        If there are other shifts for the given @wfm_agent_sids with an overlap conflict, diagnostics will be returned instead.
+        All @shift_instance_sids must belong to the same schedule, and be from a draft schedule.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.NotFound: wfm_agent_sid_1, wfm_agent_sid_2, or shift_instance_sids do not exist for org_id.
         - grpc.Internal: error occurs when swapping the shift instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2119,6 +2128,18 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when updating the shift instance.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListShiftInstanceSidsForAgent(self, request, context):
+        """Lists the shift_instance_sids for the Shift Instances associated with @wfm_agent_sid over the given @datetime_range and @schedule_selector.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when getting the data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2735,6 +2756,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.UpdateShiftInstanceV2,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.SerializeToString,
+            ),
+            'ListShiftInstanceSidsForAgent': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListShiftInstanceSidsForAgent,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentRes.SerializeToString,
             ),
             'ListShiftSegmentsByShiftInstanceSids': grpc.unary_unary_rpc_method_handler(
                     servicer.ListShiftSegmentsByShiftInstanceSids,
@@ -4559,6 +4585,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceV2',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListShiftInstanceSidsForAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListShiftInstanceSidsForAgent',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
