@@ -210,7 +210,7 @@ class ListReq(_message.Message):
     def __init__(self, before_sid: _Optional[int] = ..., limit: _Optional[int] = ...) -> None: ...
 
 class History(_message.Message):
-    __slots__ = ["sid", "transfer_config_name", "transfer_config_sid", "delivery_type", "error", "success", "created_on", "transfer_start", "transfer_complete", "origin"]
+    __slots__ = ["sid", "transfer_config_name", "transfer_config_sid", "delivery_type", "error", "success", "created_on", "transfer_start", "transfer_complete", "origin", "org_id", "message_payload", "message_payload_len", "status", "is_inbound", "transaction_sid"]
     SID_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_CONFIG_NAME_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
@@ -221,6 +221,12 @@ class History(_message.Message):
     TRANSFER_START_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_COMPLETE_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_PAYLOAD_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_PAYLOAD_LEN_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    IS_INBOUND_FIELD_NUMBER: _ClassVar[int]
+    TRANSACTION_SID_FIELD_NUMBER: _ClassVar[int]
     sid: int
     transfer_config_name: str
     transfer_config_sid: int
@@ -231,7 +237,13 @@ class History(_message.Message):
     transfer_start: _timestamp_pb2.Timestamp
     transfer_complete: _timestamp_pb2.Timestamp
     origin: _org_pb2.OperatorApplications
-    def __init__(self, sid: _Optional[int] = ..., transfer_config_name: _Optional[str] = ..., transfer_config_sid: _Optional[int] = ..., delivery_type: _Optional[str] = ..., error: _Optional[str] = ..., success: bool = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., transfer_start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., transfer_complete: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., origin: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ...) -> None: ...
+    org_id: str
+    message_payload: str
+    message_payload_len: int
+    status: _delivery_pb2.TransferStatus
+    is_inbound: bool
+    transaction_sid: int
+    def __init__(self, sid: _Optional[int] = ..., transfer_config_name: _Optional[str] = ..., transfer_config_sid: _Optional[int] = ..., delivery_type: _Optional[str] = ..., error: _Optional[str] = ..., success: bool = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., transfer_start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., transfer_complete: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., origin: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., org_id: _Optional[str] = ..., message_payload: _Optional[str] = ..., message_payload_len: _Optional[int] = ..., status: _Optional[_Union[_delivery_pb2.TransferStatus, str]] = ..., is_inbound: bool = ..., transaction_sid: _Optional[int] = ...) -> None: ...
 
 class ListByIDReq(_message.Message):
     __slots__ = ["before_sid", "limit", "other_sid"]
