@@ -122,10 +122,12 @@ class GetComplianceScrubListsRes(_message.Message):
     def __init__(self, scrub_lists: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ProcessElementReq(_message.Message):
-    __slots__ = ["element_id"]
+    __slots__ = ["element_id", "process_message"]
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    PROCESS_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     element_id: str
-    def __init__(self, element_id: _Optional[str] = ...) -> None: ...
+    process_message: str
+    def __init__(self, element_id: _Optional[str] = ..., process_message: _Optional[str] = ...) -> None: ...
 
 class ListAvailableFieldsByElementIdReq(_message.Message):
     __slots__ = ["element_id"]
