@@ -540,6 +540,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
                 )
+        self.CopyShiftInstancesToSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CopyShiftInstancesToSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleRes.FromString,
+                )
         self.ListShiftInstanceSidsForAgent = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListShiftInstanceSidsForAgent',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.SerializeToString,
@@ -2133,6 +2138,22 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CopyShiftInstancesToSchedule(self, request, context):
+        """Copies the given @shift_instance_sids to @destination_schedule for the org sending the request.
+        If there are any overlap conflicts on @destination_schedule and @overlap_as_warning is set to false,
+        then @shift_instance_sids will not be copied, and a list of diagnostics detailing the overlaps will be returned.
+        If @overlap_as_warning is set to true, overlap conflicts will not prevent the shifts from being copied, and the overlap diagnostics will be returned after as warning messages instead.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.NotFound: the @shift_instance_sids or @destination_schedule does not exist for the org sending the request.
+        - grpc.Internal: error occurs when copying the shift instances.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListShiftInstanceSidsForAgent(self, request, context):
         """Lists the shift_instance_sids for the Shift Instances associated with @wfm_agent_sid over the given @datetime_range and @schedule_selector.
         Required permissions:
@@ -2756,6 +2777,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.UpdateShiftInstanceV2,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.SerializeToString,
+            ),
+            'CopyShiftInstancesToSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyShiftInstancesToSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleRes.SerializeToString,
             ),
             'ListShiftInstanceSidsForAgent': grpc.unary_unary_rpc_method_handler(
                     servicer.ListShiftInstanceSidsForAgent,
@@ -4585,6 +4611,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceV2',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyShiftInstancesToSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CopyShiftInstancesToSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
