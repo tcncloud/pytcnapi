@@ -81,10 +81,10 @@ class ListAllocatedTicketReq(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAvailableAgentTicketsResponse(_message.Message):
-    __slots__ = ["ticket_sid"]
-    TICKET_SID_FIELD_NUMBER: _ClassVar[int]
-    ticket_sid: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, ticket_sid: _Optional[_Iterable[int]] = ...) -> None: ...
+    __slots__ = ["ticket"]
+    TICKET_FIELD_NUMBER: _ClassVar[int]
+    ticket: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.Ticket]
+    def __init__(self, ticket: _Optional[_Iterable[_Union[_tickets_pb2.Ticket, _Mapping]]] = ...) -> None: ...
 
 class ListAvailableAgentTicketsRequest(_message.Message):
     __slots__ = []
