@@ -2372,10 +2372,12 @@ class SwapShiftInstancesReq(_message.Message):
     def __init__(self, wfm_agent_sid1: _Optional[int] = ..., wfm_agent_sid2: _Optional[int] = ..., shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class SwapShiftInstancesRes(_message.Message):
-    __slots__ = ["shift_instances"]
+    __slots__ = ["shift_instances", "diagnostics"]
     SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
     shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
-    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class UpdateShiftInstanceReq(_message.Message):
     __slots__ = ["shift_instance_sid", "start_datetime", "is_locked", "width_in_minutes", "wfm_agent_sid", "metric_types"]
@@ -2422,6 +2424,22 @@ class UpdateShiftInstanceV2Res(_message.Message):
     shift_instance: ShiftInstance
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class ListShiftInstanceSidsForAgentReq(_message.Message):
+    __slots__ = ["schedule_selector", "datetime_range", "wfm_agent_sid"]
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    datetime_range: _wfm_pb2.DatetimeRange
+    wfm_agent_sid: int
+    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., wfm_agent_sid: _Optional[int] = ...) -> None: ...
+
+class ListShiftInstanceSidsForAgentRes(_message.Message):
+    __slots__ = ["shift_instance_sids"]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ListShiftSegmentsByShiftInstanceSidsReq(_message.Message):
     __slots__ = ["shift_instance_sids", "include_scheduling_activity", "include_activity"]
