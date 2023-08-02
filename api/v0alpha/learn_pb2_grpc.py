@@ -125,6 +125,7 @@ class LearnServicer(object):
 
     def Standalone(self, request, context):
         """get standalone articles from learning pages
+        we allow all the logged in agents/admins to view standalone articles
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
