@@ -36,6 +36,7 @@ class Card(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CARD_HUNT_GROUPS: _ClassVar[Card]
     CARD_SOUNDBOARD: _ClassVar[Card]
     CARD_SUBSCRIPTIONS: _ClassVar[Card]
+    CARD_PBX_MANAGER: _ClassVar[Card]
 APPLICATION_UNSPECIFIED: Application
 APPLICATION_AGENT: Application
 APPLICATION_BUSINESS_INTELLIGENCE: Application
@@ -63,3 +64,4 @@ CARD_TRUSTS: Card
 CARD_HUNT_GROUPS: Card
 CARD_SOUNDBOARD: Card
 CARD_SUBSCRIPTIONS: Card
+CARD_PBX_MANAGER: Card

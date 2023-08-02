@@ -206,7 +206,7 @@ class EvaluationQuestion(_message.Message):
     def __init__(self, evaluation_question_id: _Optional[int] = ..., evaluation_id: _Optional[int] = ..., scorecard_question_id: _Optional[int] = ..., skipped: bool = ..., points: _Optional[int] = ..., answers: _Optional[_Iterable[_Union[EvaluationQuestion.Answer, _Mapping]]] = ..., evaluation_section_id: _Optional[int] = ..., comment: _Optional[str] = ..., sort_order: _Optional[int] = ...) -> None: ...
 
 class AutoEvaluation(_message.Message):
-    __slots__ = ["auto_evaluation_id", "scorecard_id", "call_sid", "agent_user_id", "auto_evaluation_sections", "completed_at", "deleted_at", "call_type", "transcript_sid", "expression_matched", "risk_level"]
+    __slots__ = ["auto_evaluation_id", "scorecard_id", "call_sid", "agent_user_id", "auto_evaluation_sections", "completed_at", "deleted_at", "call_type", "transcript_sid", "expression_matched", "risk_level", "call_length"]
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
@@ -218,6 +218,7 @@ class AutoEvaluation(_message.Message):
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     EXPRESSION_MATCHED_FIELD_NUMBER: _ClassVar[int]
     RISK_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    CALL_LENGTH_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation_id: int
     scorecard_id: int
     call_sid: int
@@ -229,7 +230,8 @@ class AutoEvaluation(_message.Message):
     transcript_sid: int
     expression_matched: bool
     risk_level: RiskLevel
-    def __init__(self, auto_evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., call_sid: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., auto_evaluation_sections: _Optional[_Iterable[_Union[AutoEvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., expression_matched: bool = ..., risk_level: _Optional[_Union[RiskLevel, str]] = ...) -> None: ...
+    call_length: int
+    def __init__(self, auto_evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., call_sid: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., auto_evaluation_sections: _Optional[_Iterable[_Union[AutoEvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., expression_matched: bool = ..., risk_level: _Optional[_Union[RiskLevel, str]] = ..., call_length: _Optional[int] = ...) -> None: ...
 
 class AutoEvaluationQuestion(_message.Message):
     __slots__ = ["auto_evaluation_question_id", "auto_evaluation_id", "auto_evaluation_section_id", "auto_question_id", "flagged", "passed", "sort_order", "risk_level", "expression_matched"]
