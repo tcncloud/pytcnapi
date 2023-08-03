@@ -5,7 +5,7 @@ import grpc
 from api.v1alpha1.workflows import entities_pb2 as api_dot_v1alpha1_dot_workflows_dot_entities__pb2
 
 
-class WorkflowsDefinitionServiceStub(object):
+class WorkflowsStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -15,28 +15,28 @@ class WorkflowsDefinitionServiceStub(object):
             channel: A grpc.Channel.
         """
         self.ListFlowDefinitions = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionService/ListFlowDefinitions',
+                '/api.v1alpha1.workflows.Workflows/ListFlowDefinitions',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsResponse.FromString,
                 )
         self.SaveFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionService/SaveFlowDefinition',
+                '/api.v1alpha1.workflows.Workflows/SaveFlowDefinition',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionResponse.FromString,
                 )
         self.GetFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionService/GetFlowDefinition',
+                '/api.v1alpha1.workflows.Workflows/GetFlowDefinition',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.FromString,
                 )
         self.DeleteFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinition',
+                '/api.v1alpha1.workflows.Workflows/DeleteFlowDefinition',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
                 )
 
 
-class WorkflowsDefinitionServiceServicer(object):
+class WorkflowsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def ListFlowDefinitions(self, request, context):
@@ -68,7 +68,7 @@ class WorkflowsDefinitionServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
 
-def add_WorkflowsDefinitionServiceServicer_to_server(servicer, server):
+def add_WorkflowsServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'ListFlowDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListFlowDefinitions,
@@ -92,12 +92,12 @@ def add_WorkflowsDefinitionServiceServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.v1alpha1.workflows.WorkflowsDefinitionService', rpc_method_handlers)
+            'api.v1alpha1.workflows.Workflows', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class WorkflowsDefinitionService(object):
+class Workflows(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
@@ -111,7 +111,7 @@ class WorkflowsDefinitionService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/ListFlowDefinitions',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.Workflows/ListFlowDefinitions',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.ListFlowDefinitionsResponse.FromString,
             options, channel_credentials,
@@ -128,7 +128,7 @@ class WorkflowsDefinitionService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/SaveFlowDefinition',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.Workflows/SaveFlowDefinition',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.SaveFlowDefinitionResponse.FromString,
             options, channel_credentials,
@@ -145,7 +145,7 @@ class WorkflowsDefinitionService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/GetFlowDefinition',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.Workflows/GetFlowDefinition',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.GetFlowDefinitionResponse.FromString,
             options, channel_credentials,
@@ -162,7 +162,7 @@ class WorkflowsDefinitionService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowsDefinitionService/DeleteFlowDefinition',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.Workflows/DeleteFlowDefinition',
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_entities__pb2.DeleteFlowDefinitionResponse.FromString,
             options, channel_credentials,

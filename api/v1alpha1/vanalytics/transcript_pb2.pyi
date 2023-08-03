@@ -184,7 +184,86 @@ class SearchRequest(_message.Message):
     def __init__(self, silence: _Optional[_Union[SearchRequest.Silence, _Mapping]] = ..., talk_time: _Optional[_Union[_expr_pb2.Uint32Expr, _Mapping]] = ..., agent: _Optional[_Union[SearchRequest.Agent, _Mapping]] = ..., page_size: _Optional[int] = ..., sort: _Optional[_Union[Sort, _Mapping]] = ..., create_time: _Optional[_Union[_expr_pb2.TimestampExpr, _Mapping]] = ..., talk_over: _Optional[_Union[SearchRequest.TalkOver, _Mapping]] = ..., terms: _Optional[_Union[SearchRequest.Terms, _Mapping]] = ..., channel: _Optional[int] = ..., phrase: _Optional[_Union[SearchRequest.Phrase, _Mapping]] = ..., transcript_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., transcript_sid: _Optional[int] = ..., phone_number: _Optional[str] = ..., caller_id: _Optional[str] = ..., transcript_sids: _Optional[_Iterable[int]] = ..., call_start_time: _Optional[_Union[_expr_pb2.TimestampExpr, _Mapping]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., call_sids: _Optional[_Iterable[int]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., group_names: _Optional[_Iterable[str]] = ..., agent_call_log: _Optional[_Union[AgentCallLogQuery, _Mapping]] = ..., where: _Optional[_Union[SearchQuery, _Mapping]] = ..., time_frame: _Optional[_Union[_expr_pb2.Uint32Range, _Mapping]] = ...) -> None: ...
 
 class SearchQuery(_message.Message):
-    __slots__ = ["transcript_sid", "flag_summary", "audio_time", "delete_time", "results", "agent_response", "agent_call_log"]
+    __slots__ = ["transcript_sid", "flag_summary", "audio_time", "delete_time", "results", "agent_response", "agent_call_log", "phone"]
+    class Phone(_message.Message):
+        __slots__ = ["cc", "ndc", "prefix", "city", "iso2", "region_code", "region_name", "time_zone", "type", "utc", "location"]
+        CC_FIELD_NUMBER: _ClassVar[int]
+        NDC_FIELD_NUMBER: _ClassVar[int]
+        PREFIX_FIELD_NUMBER: _ClassVar[int]
+        CITY_FIELD_NUMBER: _ClassVar[int]
+        ISO2_FIELD_NUMBER: _ClassVar[int]
+        REGION_CODE_FIELD_NUMBER: _ClassVar[int]
+        REGION_NAME_FIELD_NUMBER: _ClassVar[int]
+        TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
+        TYPE_FIELD_NUMBER: _ClassVar[int]
+        UTC_FIELD_NUMBER: _ClassVar[int]
+        LOCATION_FIELD_NUMBER: _ClassVar[int]
+        cc: SearchQuery.Cc
+        ndc: SearchQuery.Ndc
+        prefix: SearchQuery.Prefix
+        city: SearchQuery.City
+        iso2: SearchQuery.Iso2
+        region_code: SearchQuery.RegionCode
+        region_name: SearchQuery.RegionName
+        time_zone: SearchQuery.TimeZone
+        type: SearchQuery.Type
+        utc: SearchQuery.Utc
+        location: SearchQuery.Location
+        def __init__(self, cc: _Optional[_Union[SearchQuery.Cc, _Mapping]] = ..., ndc: _Optional[_Union[SearchQuery.Ndc, _Mapping]] = ..., prefix: _Optional[_Union[SearchQuery.Prefix, _Mapping]] = ..., city: _Optional[_Union[SearchQuery.City, _Mapping]] = ..., iso2: _Optional[_Union[SearchQuery.Iso2, _Mapping]] = ..., region_code: _Optional[_Union[SearchQuery.RegionCode, _Mapping]] = ..., region_name: _Optional[_Union[SearchQuery.RegionName, _Mapping]] = ..., time_zone: _Optional[_Union[SearchQuery.TimeZone, _Mapping]] = ..., type: _Optional[_Union[SearchQuery.Type, _Mapping]] = ..., utc: _Optional[_Union[SearchQuery.Utc, _Mapping]] = ..., location: _Optional[_Union[SearchQuery.Location, _Mapping]] = ...) -> None: ...
+    class Cc(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class Ndc(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class Prefix(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class City(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class Iso2(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class RegionCode(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class RegionName(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class TimeZone(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class Type(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class Utc(_message.Message):
+        __slots__ = []
+        IN_FIELD_NUMBER: _ClassVar[int]
+        def __init__(self, **kwargs) -> None: ...
+    class Location(_message.Message):
+        __slots__ = ["zip_code_proximity"]
+        class ZipCodeProximity(_message.Message):
+            __slots__ = ["country_code", "zip_code", "distance"]
+            COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+            ZIP_CODE_FIELD_NUMBER: _ClassVar[int]
+            DISTANCE_FIELD_NUMBER: _ClassVar[int]
+            country_code: str
+            zip_code: str
+            distance: str
+            def __init__(self, country_code: _Optional[str] = ..., zip_code: _Optional[str] = ..., distance: _Optional[str] = ...) -> None: ...
+        ZIP_CODE_PROXIMITY_FIELD_NUMBER: _ClassVar[int]
+        zip_code_proximity: SearchQuery.Location.ZipCodeProximity
+        def __init__(self, zip_code_proximity: _Optional[_Union[SearchQuery.Location.ZipCodeProximity, _Mapping]] = ...) -> None: ...
     class AgentCallLog(_message.Message):
         __slots__ = ["call_skills_initial", "call_ended"]
         CALL_SKILLS_INITIAL_FIELD_NUMBER: _ClassVar[int]
@@ -374,6 +453,7 @@ class SearchQuery(_message.Message):
     RESULTS_FIELD_NUMBER: _ClassVar[int]
     AGENT_RESPONSE_FIELD_NUMBER: _ClassVar[int]
     AGENT_CALL_LOG_FIELD_NUMBER: _ClassVar[int]
+    PHONE_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: SearchQuery.TranscriptSid
     flag_summary: SearchQuery.FlagSummary
     audio_time: SearchQuery.AudioTime
@@ -381,7 +461,8 @@ class SearchQuery(_message.Message):
     results: SearchQuery.Results
     agent_response: SearchQuery.AgentResponse
     agent_call_log: SearchQuery.AgentCallLog
-    def __init__(self, transcript_sid: _Optional[_Union[SearchQuery.TranscriptSid, _Mapping]] = ..., flag_summary: _Optional[_Union[SearchQuery.FlagSummary, _Mapping]] = ..., audio_time: _Optional[_Union[SearchQuery.AudioTime, _Mapping]] = ..., delete_time: _Optional[_Union[SearchQuery.DeleteTime, _Mapping]] = ..., results: _Optional[_Union[SearchQuery.Results, _Mapping]] = ..., agent_response: _Optional[_Union[SearchQuery.AgentResponse, _Mapping]] = ..., agent_call_log: _Optional[_Union[SearchQuery.AgentCallLog, _Mapping]] = ..., **kwargs) -> None: ...
+    phone: SearchQuery.Phone
+    def __init__(self, transcript_sid: _Optional[_Union[SearchQuery.TranscriptSid, _Mapping]] = ..., flag_summary: _Optional[_Union[SearchQuery.FlagSummary, _Mapping]] = ..., audio_time: _Optional[_Union[SearchQuery.AudioTime, _Mapping]] = ..., delete_time: _Optional[_Union[SearchQuery.DeleteTime, _Mapping]] = ..., results: _Optional[_Union[SearchQuery.Results, _Mapping]] = ..., agent_response: _Optional[_Union[SearchQuery.AgentResponse, _Mapping]] = ..., agent_call_log: _Optional[_Union[SearchQuery.AgentCallLog, _Mapping]] = ..., phone: _Optional[_Union[SearchQuery.Phone, _Mapping]] = ..., **kwargs) -> None: ...
 
 class SearchResponse(_message.Message):
     __slots__ = ["total", "hits", "sort"]
