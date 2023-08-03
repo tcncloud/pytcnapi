@@ -2425,6 +2425,22 @@ class UpdateShiftInstanceV2Res(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
+class CopyShiftInstancesToScheduleReq(_message.Message):
+    __slots__ = ["destination_schedule", "shift_instance_sids", "overlap_as_warning"]
+    DESTINATION_SCHEDULE_FIELD_NUMBER: _ClassVar[int]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    OVERLAP_AS_WARNING_FIELD_NUMBER: _ClassVar[int]
+    destination_schedule: _wfm_pb2.ScheduleSelector
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    overlap_as_warning: bool
+    def __init__(self, destination_schedule: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., shift_instance_sids: _Optional[_Iterable[int]] = ..., overlap_as_warning: bool = ...) -> None: ...
+
+class CopyShiftInstancesToScheduleRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class ListShiftInstanceSidsForAgentReq(_message.Message):
     __slots__ = ["schedule_selector", "datetime_range", "wfm_agent_sid"]
     SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
