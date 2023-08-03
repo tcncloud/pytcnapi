@@ -88,3 +88,17 @@ class ListEvaluationsResponse(_message.Message):
     EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
     evaluations: _containers.RepeatedCompositeFieldContainer[_scorecards_pb2.Evaluation]
     def __init__(self, evaluations: _Optional[_Iterable[_Union[_scorecards_pb2.Evaluation, _Mapping]]] = ...) -> None: ...
+
+class PreviewEvaluationScoreRequest(_message.Message):
+    __slots__ = ["evaluation", "scorecard"]
+    EVALUATION_FIELD_NUMBER: _ClassVar[int]
+    SCORECARD_FIELD_NUMBER: _ClassVar[int]
+    evaluation: _scorecards_pb2.Evaluation
+    scorecard: _scorecards_pb2.Scorecard
+    def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ..., scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
+
+class PreviewEvaluationScoreResponse(_message.Message):
+    __slots__ = ["evaluation"]
+    EVALUATION_FIELD_NUMBER: _ClassVar[int]
+    evaluation: _scorecards_pb2.Evaluation
+    def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
