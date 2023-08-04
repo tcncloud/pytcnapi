@@ -14,12 +14,10 @@ class ListFlowDefinitionsRequest(_message.Message):
     def __init__(self, filter: _Optional[str] = ...) -> None: ...
 
 class ListFlowDefinitionsResponse(_message.Message):
-    __slots__ = ["flow_definitions", "filter_mask"]
+    __slots__ = ["flow_definitions"]
     FLOW_DEFINITIONS_FIELD_NUMBER: _ClassVar[int]
-    FILTER_MASK_FIELD_NUMBER: _ClassVar[int]
     flow_definitions: _containers.RepeatedCompositeFieldContainer[_entities_pb2.FlowDefinition]
-    filter_mask: _field_mask_pb2.FieldMask
-    def __init__(self, flow_definitions: _Optional[_Iterable[_Union[_entities_pb2.FlowDefinition, _Mapping]]] = ..., filter_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    def __init__(self, flow_definitions: _Optional[_Iterable[_Union[_entities_pb2.FlowDefinition, _Mapping]]] = ...) -> None: ...
 
 class SaveFlowDefinitionRequest(_message.Message):
     __slots__ = ["flow_definition", "update_mask"]
