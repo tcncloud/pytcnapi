@@ -62,6 +62,7 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_LMS_VIEW: _ClassVar[Permission]
     PERMISSION_LMS_EDIT: _ClassVar[Permission]
     PERMISSION_OMNI_BOSS: _ClassVar[Permission]
+    PERMISSION_OMNI_PORTALS_VIEW: _ClassVar[Permission]
     PERMISSION_INTEGRATIONS_VIEW: _ClassVar[Permission]
     PERMISSION_INTEGRATIONS_PAYMENT: _ClassVar[Permission]
     PERMISSION_INTEGRATIONS_JOURNEY: _ClassVar[Permission]
@@ -132,6 +133,7 @@ PERMISSION_COMPLIANCE_CONSENT: Permission
 PERMISSION_LMS_VIEW: Permission
 PERMISSION_LMS_EDIT: Permission
 PERMISSION_OMNI_BOSS: Permission
+PERMISSION_OMNI_PORTALS_VIEW: Permission
 PERMISSION_INTEGRATIONS_VIEW: Permission
 PERMISSION_INTEGRATIONS_PAYMENT: Permission
 PERMISSION_INTEGRATIONS_JOURNEY: Permission
