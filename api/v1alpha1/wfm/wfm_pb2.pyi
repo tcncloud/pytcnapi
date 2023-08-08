@@ -1536,16 +1536,20 @@ class DeleteOpenTimesPatternRes(_message.Message):
     def __init__(self) -> None: ...
 
 class GetOpenTimesBitmapsReq(_message.Message):
-    __slots__ = ["node_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range"]
+    __slots__ = ["node_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range", "only_weekmaps", "only_calendar_items"]
     NODE_TO_CHECK_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    ONLY_WEEKMAPS_FIELD_NUMBER: _ClassVar[int]
+    ONLY_CALENDAR_ITEMS_FIELD_NUMBER: _ClassVar[int]
     node_to_check: ParentEntity
     schedule_scenario_sid: int
     include_inactive: bool
     datetime_range: _wfm_pb2.DatetimeRange
-    def __init__(self, node_to_check: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ...) -> None: ...
+    only_weekmaps: bool
+    only_calendar_items: bool
+    def __init__(self, node_to_check: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., only_weekmaps: bool = ..., only_calendar_items: bool = ...) -> None: ...
 
 class GetOpenTimesBitmapsRes(_message.Message):
     __slots__ = ["inherited_bitmap", "own_bitmap", "resulting_bitmap"]
@@ -1614,16 +1618,20 @@ class AvailabilityBitmapSet(_message.Message):
     def __init__(self, own_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.AvailabilityOption, str]]] = ..., inherited_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.AvailabilityOption, str]]] = ..., resulting_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.AvailabilityOption, str]]] = ..., parent_entity: _Optional[_Union[ParentEntity, _Mapping]] = ...) -> None: ...
 
 class GetAvailabilityBitmapsReq(_message.Message):
-    __slots__ = ["entities_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range"]
+    __slots__ = ["entities_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range", "only_weekmaps", "only_calendar_items"]
     ENTITIES_TO_CHECK_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    ONLY_WEEKMAPS_FIELD_NUMBER: _ClassVar[int]
+    ONLY_CALENDAR_ITEMS_FIELD_NUMBER: _ClassVar[int]
     entities_to_check: _containers.RepeatedCompositeFieldContainer[ParentEntity]
     schedule_scenario_sid: int
     include_inactive: bool
     datetime_range: _wfm_pb2.DatetimeRange
-    def __init__(self, entities_to_check: _Optional[_Iterable[_Union[ParentEntity, _Mapping]]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ...) -> None: ...
+    only_weekmaps: bool
+    only_calendar_items: bool
+    def __init__(self, entities_to_check: _Optional[_Iterable[_Union[ParentEntity, _Mapping]]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., only_weekmaps: bool = ..., only_calendar_items: bool = ...) -> None: ...
 
 class GetAvailabilityBitmapsRes(_message.Message):
     __slots__ = ["bitmaps"]
