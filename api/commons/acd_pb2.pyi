@@ -846,3 +846,11 @@ class AgentState(_message.Message):
     asm_session_sid: int
     agent_is_muted: bool
     def __init__(self, status: _Optional[int] = ..., status_desc: _Optional[_Union[AgentStatus.Enum, str]] = ..., paused: bool = ..., queue: _Optional[str] = ..., current_session_id: _Optional[int] = ..., last_status_change: _Optional[int] = ..., monitoring: bool = ..., calls_count: _Optional[int] = ..., last_sip_code: _Optional[int] = ..., agent_peer_is_lost_call: bool = ..., disabled: bool = ..., caller_was_suspended: bool = ..., transfer_members: _Optional[_Iterable[_Union[TransferMember, _Mapping]]] = ..., agent_peer_is_direct_to_agent: bool = ..., user_id: _Optional[str] = ..., agent_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., agent_is_muted: bool = ...) -> None: ...
+
+class AudioSenderPacket(_message.Message):
+    __slots__ = ["direction", "frame"]
+    DIRECTION_FIELD_NUMBER: _ClassVar[int]
+    FRAME_FIELD_NUMBER: _ClassVar[int]
+    direction: int
+    frame: bytes
+    def __init__(self, direction: _Optional[int] = ..., frame: _Optional[bytes] = ...) -> None: ...
