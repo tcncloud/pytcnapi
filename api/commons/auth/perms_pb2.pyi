@@ -79,6 +79,8 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_WORKFLOWS: _ClassVar[Permission]
     PERMISSION_PBX_MANAGER_VIEW: _ClassVar[Permission]
     PERMISSION_PBX_MANAGER_EDIT: _ClassVar[Permission]
+    PERMISSION_NEWSROOM_EDIT: _ClassVar[Permission]
+    PERMISSION_NEWSROOM_PUBLISH: _ClassVar[Permission]
 PERMISSION_UNSPECIFIED: Permission
 PERMISSION_DEV: Permission
 PERMISSION_LEARN_EDIT: Permission
@@ -151,3 +153,5 @@ PERMISSION_TICKETS_ADMIN: Permission
 PERMISSION_WORKFLOWS: Permission
 PERMISSION_PBX_MANAGER_VIEW: Permission
 PERMISSION_PBX_MANAGER_EDIT: Permission
+PERMISSION_NEWSROOM_EDIT: Permission
+PERMISSION_NEWSROOM_PUBLISH: Permission
