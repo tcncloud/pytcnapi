@@ -62,6 +62,7 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_LMS_VIEW: _ClassVar[Permission]
     PERMISSION_LMS_EDIT: _ClassVar[Permission]
     PERMISSION_OMNI_BOSS: _ClassVar[Permission]
+    PERMISSION_OMNI_PORTALS_VIEW: _ClassVar[Permission]
     PERMISSION_INTEGRATIONS_VIEW: _ClassVar[Permission]
     PERMISSION_INTEGRATIONS_PAYMENT: _ClassVar[Permission]
     PERMISSION_INTEGRATIONS_JOURNEY: _ClassVar[Permission]
@@ -76,6 +77,8 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_TICKETS_APP: _ClassVar[Permission]
     PERMISSION_TICKETS_ADMIN: _ClassVar[Permission]
     PERMISSION_WORKFLOWS: _ClassVar[Permission]
+    PERMISSION_PBX_MANAGER_VIEW: _ClassVar[Permission]
+    PERMISSION_PBX_MANAGER_EDIT: _ClassVar[Permission]
 PERMISSION_UNSPECIFIED: Permission
 PERMISSION_DEV: Permission
 PERMISSION_LEARN_EDIT: Permission
@@ -131,6 +134,7 @@ PERMISSION_COMPLIANCE_CONSENT: Permission
 PERMISSION_LMS_VIEW: Permission
 PERMISSION_LMS_EDIT: Permission
 PERMISSION_OMNI_BOSS: Permission
+PERMISSION_OMNI_PORTALS_VIEW: Permission
 PERMISSION_INTEGRATIONS_VIEW: Permission
 PERMISSION_INTEGRATIONS_PAYMENT: Permission
 PERMISSION_INTEGRATIONS_JOURNEY: Permission
@@ -145,3 +149,5 @@ PERMISSION_DELIVERY_NOTIFICATIONS_EDIT: Permission
 PERMISSION_TICKETS_APP: Permission
 PERMISSION_TICKETS_ADMIN: Permission
 PERMISSION_WORKFLOWS: Permission
+PERMISSION_PBX_MANAGER_VIEW: Permission
+PERMISSION_PBX_MANAGER_EDIT: Permission

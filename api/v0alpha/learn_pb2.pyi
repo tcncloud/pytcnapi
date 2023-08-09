@@ -158,10 +158,12 @@ class UploadDynamicScreenshotRes(_message.Message):
     def __init__(self, data_learn_id: _Optional[str] = ..., download_url: _Optional[str] = ...) -> None: ...
 
 class StandaloneReq(_message.Message):
-    __slots__ = ["locale"]
+    __slots__ = ["locale", "category"]
     LOCALE_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_FIELD_NUMBER: _ClassVar[int]
     locale: str
-    def __init__(self, locale: _Optional[str] = ...) -> None: ...
+    category: str
+    def __init__(self, locale: _Optional[str] = ..., category: _Optional[str] = ...) -> None: ...
 
 class StandaloneRes(_message.Message):
     __slots__ = ["standalone_details"]

@@ -1712,10 +1712,14 @@ class ReshapeAction(_message.Message):
         other_field: FieldIndex
         def __init__(self, other_field: _Optional[_Union[FieldIndex, _Mapping]] = ...) -> None: ...
     class Convert(_message.Message):
-        __slots__ = ["newType"]
+        __slots__ = ["newType", "new_field", "default_value"]
         NEWTYPE_FIELD_NUMBER: _ClassVar[int]
+        NEW_FIELD_FIELD_NUMBER: _ClassVar[int]
+        DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
         newType: _lms_pb2.RecordType
-        def __init__(self, newType: _Optional[_Union[_lms_pb2.RecordType, str]] = ...) -> None: ...
+        new_field: Field
+        default_value: RecordFieldProto
+        def __init__(self, newType: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., new_field: _Optional[_Union[Field, _Mapping]] = ..., default_value: _Optional[_Union[RecordFieldProto, _Mapping]] = ...) -> None: ...
     class RemoveField(_message.Message):
         __slots__ = []
         def __init__(self) -> None: ...
