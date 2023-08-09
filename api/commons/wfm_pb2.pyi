@@ -158,6 +158,12 @@ class SchedulingTargetType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
     COVERAGE: _ClassVar[SchedulingTargetType]
     SERVICE_LEVEL: _ClassVar[SchedulingTargetType]
+
+class BitmapType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    COMPLETE: _ClassVar[BitmapType]
+    ONLY_WEEKMAPS: _ClassVar[BitmapType]
+    ONLY_CALENDAR_ITEMS: _ClassVar[BitmapType]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -262,6 +268,9 @@ DRAFT: ScheduleType
 PUBLISHED: ScheduleType
 COVERAGE: SchedulingTargetType
 SERVICE_LEVEL: SchedulingTargetType
+COMPLETE: BitmapType
+ONLY_WEEKMAPS: BitmapType
+ONLY_CALENDAR_ITEMS: BitmapType
 
 class SkillType(_message.Message):
     __slots__ = []
