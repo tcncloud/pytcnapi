@@ -158,6 +158,12 @@ class SchedulingTargetType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
     COVERAGE: _ClassVar[SchedulingTargetType]
     SERVICE_LEVEL: _ClassVar[SchedulingTargetType]
+
+class BitmapType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    COMPLETE: _ClassVar[BitmapType]
+    ONLY_WEEKMAPS: _ClassVar[BitmapType]
+    ONLY_CALENDAR_ITEMS: _ClassVar[BitmapType]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -262,6 +268,9 @@ DRAFT: ScheduleType
 PUBLISHED: ScheduleType
 COVERAGE: SchedulingTargetType
 SERVICE_LEVEL: SchedulingTargetType
+COMPLETE: BitmapType
+ONLY_WEEKMAPS: BitmapType
+ONLY_CALENDAR_ITEMS: BitmapType
 
 class SkillType(_message.Message):
     __slots__ = []
@@ -448,3 +457,17 @@ class ScheduleSelector(_message.Message):
     schedule_sid: int
     schedule_type: ScheduleType
     def __init__(self, schedule_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[ScheduleType, str]] = ...) -> None: ...
+
+class SkillProfileCategory(_message.Message):
+    __slots__ = ["skill_profile_category_sid", "skill_profile_category_type"]
+    class CategoryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = []
+        SINGLE_SKILL_PROFILE: _ClassVar[SkillProfileCategory.CategoryType]
+        SKILL_PROFILE_GROUP: _ClassVar[SkillProfileCategory.CategoryType]
+    SINGLE_SKILL_PROFILE: SkillProfileCategory.CategoryType
+    SKILL_PROFILE_GROUP: SkillProfileCategory.CategoryType
+    SKILL_PROFILE_CATEGORY_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_category_sid: int
+    skill_profile_category_type: SkillProfileCategory.CategoryType
+    def __init__(self, skill_profile_category_sid: _Optional[int] = ..., skill_profile_category_type: _Optional[_Union[SkillProfileCategory.CategoryType, str]] = ...) -> None: ...

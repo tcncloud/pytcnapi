@@ -1536,16 +1536,18 @@ class DeleteOpenTimesPatternRes(_message.Message):
     def __init__(self) -> None: ...
 
 class GetOpenTimesBitmapsReq(_message.Message):
-    __slots__ = ["node_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range"]
+    __slots__ = ["node_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range", "bitmap_type"]
     NODE_TO_CHECK_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    BITMAP_TYPE_FIELD_NUMBER: _ClassVar[int]
     node_to_check: ParentEntity
     schedule_scenario_sid: int
     include_inactive: bool
     datetime_range: _wfm_pb2.DatetimeRange
-    def __init__(self, node_to_check: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ...) -> None: ...
+    bitmap_type: _wfm_pb2.BitmapType
+    def __init__(self, node_to_check: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., bitmap_type: _Optional[_Union[_wfm_pb2.BitmapType, str]] = ...) -> None: ...
 
 class GetOpenTimesBitmapsRes(_message.Message):
     __slots__ = ["inherited_bitmap", "own_bitmap", "resulting_bitmap"]
@@ -1614,16 +1616,18 @@ class AvailabilityBitmapSet(_message.Message):
     def __init__(self, own_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.AvailabilityOption, str]]] = ..., inherited_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.AvailabilityOption, str]]] = ..., resulting_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.AvailabilityOption, str]]] = ..., parent_entity: _Optional[_Union[ParentEntity, _Mapping]] = ...) -> None: ...
 
 class GetAvailabilityBitmapsReq(_message.Message):
-    __slots__ = ["entities_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range"]
+    __slots__ = ["entities_to_check", "schedule_scenario_sid", "include_inactive", "datetime_range", "bitmap_type"]
     ENTITIES_TO_CHECK_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    BITMAP_TYPE_FIELD_NUMBER: _ClassVar[int]
     entities_to_check: _containers.RepeatedCompositeFieldContainer[ParentEntity]
     schedule_scenario_sid: int
     include_inactive: bool
     datetime_range: _wfm_pb2.DatetimeRange
-    def __init__(self, entities_to_check: _Optional[_Iterable[_Union[ParentEntity, _Mapping]]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ...) -> None: ...
+    bitmap_type: _wfm_pb2.BitmapType
+    def __init__(self, entities_to_check: _Optional[_Iterable[_Union[ParentEntity, _Mapping]]] = ..., schedule_scenario_sid: _Optional[int] = ..., include_inactive: bool = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., bitmap_type: _Optional[_Union[_wfm_pb2.BitmapType, str]] = ...) -> None: ...
 
 class GetAvailabilityBitmapsRes(_message.Message):
     __slots__ = ["bitmaps"]
@@ -2424,6 +2428,22 @@ class UpdateShiftInstanceV2Res(_message.Message):
     shift_instance: ShiftInstance
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class CopyShiftInstancesToScheduleReq(_message.Message):
+    __slots__ = ["destination_schedule", "shift_instance_sids", "overlap_as_warning"]
+    DESTINATION_SCHEDULE_FIELD_NUMBER: _ClassVar[int]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    OVERLAP_AS_WARNING_FIELD_NUMBER: _ClassVar[int]
+    destination_schedule: _wfm_pb2.ScheduleSelector
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    overlap_as_warning: bool
+    def __init__(self, destination_schedule: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., shift_instance_sids: _Optional[_Iterable[int]] = ..., overlap_as_warning: bool = ...) -> None: ...
+
+class CopyShiftInstancesToScheduleRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class ListShiftInstanceSidsForAgentReq(_message.Message):
     __slots__ = ["schedule_selector", "datetime_range", "wfm_agent_sid"]

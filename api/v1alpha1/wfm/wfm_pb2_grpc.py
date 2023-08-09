@@ -540,6 +540,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
                 )
+        self.CopyShiftInstancesToSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CopyShiftInstancesToSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleRes.FromString,
+                )
         self.ListShiftInstanceSidsForAgent = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListShiftInstanceSidsForAgent',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.SerializeToString,
@@ -1668,6 +1673,9 @@ class WFMServicer(object):
     def GetOpenTimesBitmaps(self, request, context):
         """Gets the inherited, own, and resulting bitmaps for the open times patterns of @node_to_check for @schedule_scenario_sid and the org sending the request.
         The @schedule_scenario_sid must match the scenario of the @node_to_check.
+        If @bitmap_type is COMPLETE, the bitmaps will be generated using all relevant pattern data.
+        If @bitmap_type is ONLY_WEEKMAPS, the bitmaps will be generated using only the weekmap data from the open times patterns.
+        If @bitmap_type is ONLY_CALENDAR_ITEMS, the bitmaps will be generated using only the calendar item data from the open times patterns.
         The bitmaps will be generated for the span of @datetime_range.
         Required permissions:
         NONE
@@ -1730,6 +1738,9 @@ class WFMServicer(object):
         @entities_to_check must have the entity_type field set with a wfm agent, agent group or a type of node.
         If an availability bitmap is requested for an agent group, the bitmaps for all of it's member agents will be returned instead.
         The bitmaps will be generated for the span of @datetime_range.
+        If @bitmap_type is COMPLETE, the bitmaps will be generated using all relevant pattern data.
+        If @bitmap_type is ONLY_WEEKMAPS, the bitmaps will be generated using only the weekmap data from the availability patterns.
+        If @bitmap_type is ONLY_CALENDAR_ITEMS, the bitmaps will be generated using only the calendar item data from the availability patterns.
         Required permissions:
         NONE
         Errors:
@@ -2128,6 +2139,22 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when updating the shift instance.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyShiftInstancesToSchedule(self, request, context):
+        """Copies the given @shift_instance_sids to @destination_schedule for the org sending the request.
+        If there are any overlap conflicts on @destination_schedule and @overlap_as_warning is set to false,
+        then @shift_instance_sids will not be copied, and a list of diagnostics detailing the overlaps will be returned.
+        If @overlap_as_warning is set to true, overlap conflicts will not prevent the shifts from being copied, and the overlap diagnostics will be returned after as warning messages instead.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.NotFound: the @shift_instance_sids or @destination_schedule does not exist for the org sending the request.
+        - grpc.Internal: error occurs when copying the shift instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2756,6 +2783,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.UpdateShiftInstanceV2,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.SerializeToString,
+            ),
+            'CopyShiftInstancesToSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyShiftInstancesToSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleRes.SerializeToString,
             ),
             'ListShiftInstanceSidsForAgent': grpc.unary_unary_rpc_method_handler(
                     servicer.ListShiftInstanceSidsForAgent,
@@ -4585,6 +4617,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceV2',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyShiftInstancesToSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CopyShiftInstancesToSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftInstancesToScheduleRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
