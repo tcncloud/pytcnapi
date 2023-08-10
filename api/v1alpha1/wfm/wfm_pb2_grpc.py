@@ -2081,7 +2081,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CopyScheduleToSchedule(self, request, context):
-        """Copies the shifts from @source_schedule_selector to @destination_schedule_selector, constrained by the given parameters for @org_id.
+        """Copies the shifts from @source_schedule_selector to @destination_schedule_selector, constrained by the given parameters for the org sending the request.
         If @datetime_range is set, all shifts within the datetime range will be copied.
         If @datetime_range is not set, all shifts in the @source_schedule_selector within the schedule range of the @destination_schedule_selector will be copied. However if one of them is a published schedule, it will use the schedule range of the draft schedule.
         If @start_datetimes_only is set to false, then shifts are considered to be within the @datetime range if any portion of them is within the range.
@@ -2092,7 +2092,7 @@ class WFMServicer(object):
         NONE
         Errors:
         -grpc.Invalid: one or more fields in the request have invalid values.
-        -grpc.NotFound: the @source_schedule_selector or @destination_schedule_selector don't exist for @org_id.
+        -grpc.NotFound: the @source_schedule_selector or @destination_schedule_selector don't exist for the org sending the request.
         -grpc.Internal: error occurs when creating the copied shift instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
