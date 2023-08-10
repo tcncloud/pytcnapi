@@ -286,6 +286,7 @@ class OperatorApplications(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERFORMANCE_MANAGEMENT_APP: _ClassVar[OperatorApplications]
     TICKETS_APP: _ClassVar[OperatorApplications]
     AGENT_BETA_APP: _ClassVar[OperatorApplications]
+    NEWSROOM_APP: _ClassVar[OperatorApplications]
 
 class AnnouncementMixingOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -1008,6 +1009,7 @@ DELIVERY_SERVICE_APP: OperatorApplications
 PERFORMANCE_MANAGEMENT_APP: OperatorApplications
 TICKETS_APP: OperatorApplications
 AGENT_BETA_APP: OperatorApplications
+NEWSROOM_APP: OperatorApplications
 ANNOUNCEMENT_MIXING_OPTION_MUTE_HOLD_MUSIC: AnnouncementMixingOption
 ANNOUNCEMENT_MIXING_OPTION_PLAY_OVER_HOLD_MUSIC: AnnouncementMixingOption
 INBOUND_OVERRIDE_OPTION_DO_NOTHING: InboundOverrideOption

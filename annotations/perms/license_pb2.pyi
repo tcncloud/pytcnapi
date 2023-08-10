@@ -23,6 +23,7 @@ class Application(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     APPLICATION_VOICE_ANALYTICS: _ClassVar[Application]
     APPLICATION_WORK_FORCE_MANAGEMENT: _ClassVar[Application]
     APPLICATION_WORKFLOWS: _ClassVar[Application]
+    APPLICATION_NEWSROOM: _ClassVar[Application]
 
 class Card(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -54,6 +55,7 @@ APPLICATION_TICKETS: Application
 APPLICATION_VOICE_ANALYTICS: Application
 APPLICATION_WORK_FORCE_MANAGEMENT: Application
 APPLICATION_WORKFLOWS: Application
+APPLICATION_NEWSROOM: Application
 CARD_UNSPECIFIED: Card
 CARD_ORGANIZATION: Card
 CARD_USERS: Card
