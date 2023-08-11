@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/workflows/omni.proto\x12\x15\x61pi.commons.workflows\"]\n\x0eOmniNodePrompt\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x19\n\x08store_to\x18\x02 \x01(\tR\x07storeTo\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\"M\n\x0eOmniNodeInject\x12\x19\n\x08store_to\x18\x01 \x01(\tR\x07storeTo\x12\x17\n\x04\x64\x61ta\x18\x02 \x01(\tH\x00R\x04\x64\x61ta\x88\x01\x01\x42\x07\n\x05_data\"c\n\x13OmniNodeSendMessage\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12$\n\x0boptions_key\x18\x03 \x01(\tH\x00R\noptionsKey\x88\x01\x01\x42\x0e\n\x0c_options_key\"*\n\rOmniNodeStore\x12\x19\n\x08store_to\x18\x01 \x01(\tR\x07storeTo\"]\n\x0fOmniNodeCompare\x12\x14\n\x05input\x18\x01 \x01(\tR\x05input\x12$\n\x0boptions_key\x18\x02 \x01(\tH\x00R\noptionsKey\x88\x01\x01\x42\x0e\n\x0c_options_key\"(\n\x10OmniNodeSetSkill\x12\x14\n\x05skill\x18\x01 \x01(\tR\x05skill\"\x11\n\x0fOmniNodeToAgent\"%\n\rOmniNodeError\x12\x14\n\x05\x65rror\x18\x01 \x01(\tR\x05\x65rrorB\x9c\x01\n\x19\x63om.api.commons.workflowsB\tOmniProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/workflows/omni.proto\x12\x15\x61pi.commons.workflows\"]\n\x0eOmniNodePrompt\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x19\n\x08store_to\x18\x02 \x01(\tR\x07storeTo\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\"?\n\x0eOmniNodeInject\x12\x19\n\x08store_to\x18\x01 \x01(\tR\x07storeTo\x12\x12\n\x04\x64\x61ta\x18\x02 \x01(\tR\x04\x64\x61ta\"N\n\x13OmniNodeSendMessage\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x1f\n\x0boptions_key\x18\x03 \x01(\tR\noptionsKey\"*\n\rOmniNodeStore\x12\x19\n\x08store_to\x18\x01 \x01(\tR\x07storeTo\"H\n\x0fOmniNodeCompare\x12\x14\n\x05input\x18\x01 \x01(\tR\x05input\x12\x1f\n\x0boptions_key\x18\x02 \x01(\tR\noptionsKey\"(\n\x10OmniNodeSetSkill\x12\x14\n\x05skill\x18\x01 \x01(\tR\x05skill\"\x11\n\x0fOmniNodeToAgent\"%\n\rOmniNodeError\x12\x14\n\x05\x65rror\x18\x01 \x01(\tR\x05\x65rrorB\x9c\x01\n\x19\x63om.api.commons.workflowsB\tOmniProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,17 +25,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_OMNINODEPROMPT']._serialized_start=59
   _globals['_OMNINODEPROMPT']._serialized_end=152
   _globals['_OMNINODEINJECT']._serialized_start=154
-  _globals['_OMNINODEINJECT']._serialized_end=231
-  _globals['_OMNINODESENDMESSAGE']._serialized_start=233
-  _globals['_OMNINODESENDMESSAGE']._serialized_end=332
-  _globals['_OMNINODESTORE']._serialized_start=334
-  _globals['_OMNINODESTORE']._serialized_end=376
-  _globals['_OMNINODECOMPARE']._serialized_start=378
-  _globals['_OMNINODECOMPARE']._serialized_end=471
-  _globals['_OMNINODESETSKILL']._serialized_start=473
-  _globals['_OMNINODESETSKILL']._serialized_end=513
-  _globals['_OMNINODETOAGENT']._serialized_start=515
-  _globals['_OMNINODETOAGENT']._serialized_end=532
-  _globals['_OMNINODEERROR']._serialized_start=534
-  _globals['_OMNINODEERROR']._serialized_end=571
+  _globals['_OMNINODEINJECT']._serialized_end=217
+  _globals['_OMNINODESENDMESSAGE']._serialized_start=219
+  _globals['_OMNINODESENDMESSAGE']._serialized_end=297
+  _globals['_OMNINODESTORE']._serialized_start=299
+  _globals['_OMNINODESTORE']._serialized_end=341
+  _globals['_OMNINODECOMPARE']._serialized_start=343
+  _globals['_OMNINODECOMPARE']._serialized_end=415
+  _globals['_OMNINODESETSKILL']._serialized_start=417
+  _globals['_OMNINODESETSKILL']._serialized_end=457
+  _globals['_OMNINODETOAGENT']._serialized_start=459
+  _globals['_OMNINODETOAGENT']._serialized_end=476
+  _globals['_OMNINODEERROR']._serialized_start=478
+  _globals['_OMNINODEERROR']._serialized_end=515
 # @@protoc_insertion_point(module_scope)
