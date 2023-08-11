@@ -1680,7 +1680,7 @@ class ReshapeProcess(_message.Message):
     def __init__(self, actions: _Optional[_Iterable[_Union[ReshapeAction, _Mapping]]] = ...) -> None: ...
 
 class ReshapeAction(_message.Message):
-    __slots__ = ["field", "matching_type", "predicate", "rename", "add_value", "add_field", "add_date", "subtract_value", "subtract_field", "convert", "remove_field", "add_new_field", "change_currency_type", "merge", "set_field_value", "add_new_field_from_field", "set_field_from_field", "pad", "trim", "extract"]
+    __slots__ = ["field", "matching_type", "predicate", "rename", "add_value", "add_field", "add_date", "subtract_value", "subtract_field", "convert", "remove_field", "add_new_field", "change_currency_type", "divide", "multiply", "modulo", "merge", "set_field_value", "add_new_field_from_field", "set_field_from_field", "pad", "trim", "extract"]
     class Rename(_message.Message):
         __slots__ = ["new_name"]
         NEW_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -1720,6 +1720,27 @@ class ReshapeAction(_message.Message):
         new_field: Field
         default_value: RecordFieldProto
         def __init__(self, newType: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., new_field: _Optional[_Union[Field, _Mapping]] = ..., default_value: _Optional[_Union[RecordFieldProto, _Mapping]] = ...) -> None: ...
+    class Divide(_message.Message):
+        __slots__ = ["default_value", "divisor"]
+        DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
+        DIVISOR_FIELD_NUMBER: _ClassVar[int]
+        default_value: float
+        divisor: float
+        def __init__(self, default_value: _Optional[float] = ..., divisor: _Optional[float] = ...) -> None: ...
+    class Multiply(_message.Message):
+        __slots__ = ["default_value", "multiplier"]
+        DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
+        MULTIPLIER_FIELD_NUMBER: _ClassVar[int]
+        default_value: float
+        multiplier: float
+        def __init__(self, default_value: _Optional[float] = ..., multiplier: _Optional[float] = ...) -> None: ...
+    class Modulo(_message.Message):
+        __slots__ = ["default_value", "modulus"]
+        DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
+        MODULUS_FIELD_NUMBER: _ClassVar[int]
+        default_value: int
+        modulus: int
+        def __init__(self, default_value: _Optional[int] = ..., modulus: _Optional[int] = ...) -> None: ...
     class RemoveField(_message.Message):
         __slots__ = []
         def __init__(self) -> None: ...
@@ -1818,6 +1839,9 @@ class ReshapeAction(_message.Message):
     REMOVE_FIELD_FIELD_NUMBER: _ClassVar[int]
     ADD_NEW_FIELD_FIELD_NUMBER: _ClassVar[int]
     CHANGE_CURRENCY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DIVIDE_FIELD_NUMBER: _ClassVar[int]
+    MULTIPLY_FIELD_NUMBER: _ClassVar[int]
+    MODULO_FIELD_NUMBER: _ClassVar[int]
     MERGE_FIELD_NUMBER: _ClassVar[int]
     SET_FIELD_VALUE_FIELD_NUMBER: _ClassVar[int]
     ADD_NEW_FIELD_FROM_FIELD_FIELD_NUMBER: _ClassVar[int]
@@ -1838,6 +1862,9 @@ class ReshapeAction(_message.Message):
     remove_field: ReshapeAction.RemoveField
     add_new_field: ReshapeAction.AddNewField
     change_currency_type: ReshapeAction.ChangeCurrencyType
+    divide: ReshapeAction.Divide
+    multiply: ReshapeAction.Multiply
+    modulo: ReshapeAction.Modulo
     merge: ReshapeAction.Merge
     set_field_value: ReshapeAction.SetFieldValue
     add_new_field_from_field: ReshapeAction.AddNewFieldFromField
@@ -1845,7 +1872,7 @@ class ReshapeAction(_message.Message):
     pad: ReshapeAction.Pad
     trim: ReshapeAction.Trim
     extract: ReshapeAction.Extract
-    def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
+    def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., divide: _Optional[_Union[ReshapeAction.Divide, _Mapping]] = ..., multiply: _Optional[_Union[ReshapeAction.Multiply, _Mapping]] = ..., modulo: _Optional[_Union[ReshapeAction.Modulo, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
 
 class ListMetrics(_message.Message):
     __slots__ = ["input_record_count", "output_record_count", "field_names", "field_types", "ftypes", "field_counts", "run_type", "success_message", "max_record_width", "min_record_width", "max_record_index", "min_record_index", "files", "groups", "missing_fields", "seconds_to_start", "seconds_to_process"]

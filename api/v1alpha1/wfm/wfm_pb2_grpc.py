@@ -515,6 +515,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
                 )
+        self.CopyScheduleToSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CopyScheduleToSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleRes.FromString,
+                )
         self.CreateShiftInstance = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateShiftInstance',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceReq.SerializeToString,
@@ -1673,6 +1678,9 @@ class WFMServicer(object):
     def GetOpenTimesBitmaps(self, request, context):
         """Gets the inherited, own, and resulting bitmaps for the open times patterns of @node_to_check for @schedule_scenario_sid and the org sending the request.
         The @schedule_scenario_sid must match the scenario of the @node_to_check.
+        If @bitmap_type is COMPLETE, the bitmaps will be generated using all relevant pattern data.
+        If @bitmap_type is ONLY_WEEKMAPS, the bitmaps will be generated using only the weekmap data from the open times patterns.
+        If @bitmap_type is ONLY_CALENDAR_ITEMS, the bitmaps will be generated using only the calendar item data from the open times patterns.
         The bitmaps will be generated for the span of @datetime_range.
         Required permissions:
         NONE
@@ -1735,6 +1743,9 @@ class WFMServicer(object):
         @entities_to_check must have the entity_type field set with a wfm agent, agent group or a type of node.
         If an availability bitmap is requested for an agent group, the bitmaps for all of it's member agents will be returned instead.
         The bitmaps will be generated for the span of @datetime_range.
+        If @bitmap_type is COMPLETE, the bitmaps will be generated using all relevant pattern data.
+        If @bitmap_type is ONLY_WEEKMAPS, the bitmaps will be generated using only the weekmap data from the availability patterns.
+        If @bitmap_type is ONLY_CALENDAR_ITEMS, the bitmaps will be generated using only the calendar item data from the availability patterns.
         Required permissions:
         NONE
         Errors:
@@ -2064,6 +2075,25 @@ class WFMServicer(object):
         - grpc.Invalid: the @draft_schedule_sid is invalid for the org making the request.
         - grpc.NotFound: the draft schedule with the given @draft_schedule_sid doesn't exist.
         - grpc.Internal: error occurs when removing the draft schedule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyScheduleToSchedule(self, request, context):
+        """Copies the shifts from @source_schedule_selector to @destination_schedule_selector, constrained by the given parameters for the org sending the request.
+        If @datetime_range is set, all shifts within the datetime range will be copied.
+        If @datetime_range is not set, all shifts in the @source_schedule_selector within the schedule range of the @destination_schedule_selector will be copied. However if one of them is a published schedule, it will use the schedule range of the draft schedule.
+        If @start_datetimes_only is set to false, then shifts are considered to be within the @datetime range if any portion of them is within the range.
+        If @start_datetimes_only is set to true, then only shifts with start times within the @datetime range will be copied.
+        If @overlap_as_warning is set to false, any overlapping shifts for a given agent will return a diagnostic error, and prevent any shifts from being copied.
+        If @overlap_as_warning is set to true, the shifts will be copied regardless of overlap conflicts, and any conflicts will cause a diagnostic warning to be returned after.
+        Required permissions:
+        NONE
+        Errors:
+        -grpc.Invalid: one or more fields in the request have invalid values.
+        -grpc.NotFound: the @source_schedule_selector or @destination_schedule_selector don't exist for the org sending the request.
+        -grpc.Internal: error occurs when creating the copied shift instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2752,6 +2782,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteDraftSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.SerializeToString,
+            ),
+            'CopyScheduleToSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyScheduleToSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleRes.SerializeToString,
             ),
             'CreateShiftInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateShiftInstance,
@@ -4526,6 +4561,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteDraftSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyScheduleToSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CopyScheduleToSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
