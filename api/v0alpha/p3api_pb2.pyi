@@ -797,7 +797,7 @@ class ComplianceMetadata(_message.Message):
     def __init__(self, name: _Optional[str] = ..., required: bool = ...) -> None: ...
 
 class ManualDialSettings(_message.Message):
-    __slots__ = ["enabled", "show_outbound_phone_book", "show_caller_id_phone_book", "has_custom_caller_id", "default_caller_id", "default_country_sid", "show_country_selector", "timezone_restrictions", "scrub_cell_phones", "call_recording", "agent_override_cell", "agent_override_ccr", "agent_override_dncl", "agent_override_timezone", "use_white_list", "use_random_caller_id", "random_caller_id_bucket", "default_caller_id_country_sid", "display_caller_id_country_select", "use_caller_id_bucket", "agent_override_natural_compliance", "natural_compliance_rule_set_name", "compliance_metadata", "enable_metadata", "use_timezone_validation_zip", "enable_sip_address", "mask_manual_dial_caller_id", "enable_manual_dial_data_dip", "manual_dial_data_dip_config", "manual_dial_data_dip_result_handling", "data_dip_manual_dial_integration", "data_dip_manual_dial_integration_handling"]
+    __slots__ = ["enabled", "show_outbound_phone_book", "show_caller_id_phone_book", "has_custom_caller_id", "default_caller_id", "default_country_sid", "show_country_selector", "timezone_restrictions", "scrub_cell_phones", "call_recording", "agent_override_cell", "agent_override_ccr", "agent_override_dncl", "agent_override_timezone", "use_white_list", "use_random_caller_id", "random_caller_id_bucket", "default_caller_id_country_sid", "display_caller_id_country_select", "use_caller_id_bucket", "agent_override_natural_compliance", "natural_compliance_rule_set_name", "compliance_metadata", "enable_metadata", "use_timezone_validation_zip", "enable_reject_option_for_approvers", "enable_sip_address", "mask_manual_dial_caller_id", "enable_manual_dial_data_dip", "manual_dial_data_dip_config", "manual_dial_data_dip_result_handling", "data_dip_manual_dial_integration", "data_dip_manual_dial_integration_handling"]
     class ZipCodeValidation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = []
         FALSE: _ClassVar[ManualDialSettings.ZipCodeValidation]
@@ -838,6 +838,7 @@ class ManualDialSettings(_message.Message):
     COMPLIANCE_METADATA_FIELD_NUMBER: _ClassVar[int]
     ENABLE_METADATA_FIELD_NUMBER: _ClassVar[int]
     USE_TIMEZONE_VALIDATION_ZIP_FIELD_NUMBER: _ClassVar[int]
+    ENABLE_REJECT_OPTION_FOR_APPROVERS_FIELD_NUMBER: _ClassVar[int]
     ENABLE_SIP_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     MASK_MANUAL_DIAL_CALLER_ID_FIELD_NUMBER: _ClassVar[int]
     ENABLE_MANUAL_DIAL_DATA_DIP_FIELD_NUMBER: _ClassVar[int]
@@ -870,6 +871,7 @@ class ManualDialSettings(_message.Message):
     compliance_metadata: _containers.RepeatedCompositeFieldContainer[ComplianceMetadata]
     enable_metadata: bool
     use_timezone_validation_zip: ManualDialSettings.ZipCodeValidation
+    enable_reject_option_for_approvers: bool
     enable_sip_address: bool
     mask_manual_dial_caller_id: bool
     enable_manual_dial_data_dip: str
@@ -877,7 +879,7 @@ class ManualDialSettings(_message.Message):
     manual_dial_data_dip_result_handling: ManualDialDataDipHandling.Enum
     data_dip_manual_dial_integration: _containers.ScalarMap[str, str]
     data_dip_manual_dial_integration_handling: ManualDialDataDipHandling.Enum
-    def __init__(self, enabled: bool = ..., show_outbound_phone_book: bool = ..., show_caller_id_phone_book: bool = ..., has_custom_caller_id: bool = ..., default_caller_id: _Optional[str] = ..., default_country_sid: _Optional[int] = ..., show_country_selector: bool = ..., timezone_restrictions: bool = ..., scrub_cell_phones: bool = ..., call_recording: bool = ..., agent_override_cell: bool = ..., agent_override_ccr: bool = ..., agent_override_dncl: bool = ..., agent_override_timezone: bool = ..., use_white_list: bool = ..., use_random_caller_id: bool = ..., random_caller_id_bucket: _Optional[int] = ..., default_caller_id_country_sid: _Optional[int] = ..., display_caller_id_country_select: bool = ..., use_caller_id_bucket: bool = ..., agent_override_natural_compliance: bool = ..., natural_compliance_rule_set_name: _Optional[str] = ..., compliance_metadata: _Optional[_Iterable[_Union[ComplianceMetadata, _Mapping]]] = ..., enable_metadata: bool = ..., use_timezone_validation_zip: _Optional[_Union[ManualDialSettings.ZipCodeValidation, str]] = ..., enable_sip_address: bool = ..., mask_manual_dial_caller_id: bool = ..., enable_manual_dial_data_dip: _Optional[str] = ..., manual_dial_data_dip_config: _Optional[int] = ..., manual_dial_data_dip_result_handling: _Optional[_Union[ManualDialDataDipHandling.Enum, str]] = ..., data_dip_manual_dial_integration: _Optional[_Mapping[str, str]] = ..., data_dip_manual_dial_integration_handling: _Optional[_Union[ManualDialDataDipHandling.Enum, str]] = ...) -> None: ...
+    def __init__(self, enabled: bool = ..., show_outbound_phone_book: bool = ..., show_caller_id_phone_book: bool = ..., has_custom_caller_id: bool = ..., default_caller_id: _Optional[str] = ..., default_country_sid: _Optional[int] = ..., show_country_selector: bool = ..., timezone_restrictions: bool = ..., scrub_cell_phones: bool = ..., call_recording: bool = ..., agent_override_cell: bool = ..., agent_override_ccr: bool = ..., agent_override_dncl: bool = ..., agent_override_timezone: bool = ..., use_white_list: bool = ..., use_random_caller_id: bool = ..., random_caller_id_bucket: _Optional[int] = ..., default_caller_id_country_sid: _Optional[int] = ..., display_caller_id_country_select: bool = ..., use_caller_id_bucket: bool = ..., agent_override_natural_compliance: bool = ..., natural_compliance_rule_set_name: _Optional[str] = ..., compliance_metadata: _Optional[_Iterable[_Union[ComplianceMetadata, _Mapping]]] = ..., enable_metadata: bool = ..., use_timezone_validation_zip: _Optional[_Union[ManualDialSettings.ZipCodeValidation, str]] = ..., enable_reject_option_for_approvers: bool = ..., enable_sip_address: bool = ..., mask_manual_dial_caller_id: bool = ..., enable_manual_dial_data_dip: _Optional[str] = ..., manual_dial_data_dip_config: _Optional[int] = ..., manual_dial_data_dip_result_handling: _Optional[_Union[ManualDialDataDipHandling.Enum, str]] = ..., data_dip_manual_dial_integration: _Optional[_Mapping[str, str]] = ..., data_dip_manual_dial_integration_handling: _Optional[_Union[ManualDialDataDipHandling.Enum, str]] = ...) -> None: ...
 
 class ManualDialDataDipHandling(_message.Message):
     __slots__ = []
