@@ -2,9 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from api.v1alpha1.idp import entities_pb2 as api_dot_v1alpha1_dot_idp_dot_entities__pb2
 
 
-class IdentityProviderStub(object):
+class IdentityProviderServiceStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -13,20 +14,225 @@ class IdentityProviderStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.CreateAuthConnection = channel.unary_unary(
+                '/api.v1alpha1.idp.IdentityProviderService/CreateAuthConnection',
+                request_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.CreateAuthConnectionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.CreateAuthConnectionResponse.FromString,
+                )
+        self.GetAuthConnectionSettings = channel.unary_unary(
+                '/api.v1alpha1.idp.IdentityProviderService/GetAuthConnectionSettings',
+                request_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionSettingsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionSettingsResponse.FromString,
+                )
+        self.GetAuthConnection = channel.unary_unary(
+                '/api.v1alpha1.idp.IdentityProviderService/GetAuthConnection',
+                request_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionResponse.FromString,
+                )
+        self.DeleteAuthConnection = channel.unary_unary(
+                '/api.v1alpha1.idp.IdentityProviderService/DeleteAuthConnection',
+                request_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.DeleteAuthConnectionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.DeleteAuthConnectionResponse.FromString,
+                )
+        self.UpdateAuthConnectionSecret = channel.unary_unary(
+                '/api.v1alpha1.idp.IdentityProviderService/UpdateAuthConnectionSecret',
+                request_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionSecretRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionSecretResponse.FromString,
+                )
+        self.UpdateAuthConnectionGroups = channel.unary_unary(
+                '/api.v1alpha1.idp.IdentityProviderService/UpdateAuthConnectionGroups',
+                request_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionGroupsResponse.FromString,
+                )
 
 
-class IdentityProviderServicer(object):
+class IdentityProviderServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
+    def CreateAuthConnection(self, request, context):
+        """CreateAuthConnection creates a new auth0 connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-def add_IdentityProviderServicer_to_server(servicer, server):
+    def GetAuthConnectionSettings(self, request, context):
+        """GetAuthConnectionSettings gets auth connection settings.
+        DEPRECATED: use GetAuthConnection
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAuthConnection(self, request, context):
+        """GetAuthConnection gets an existing auth connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAuthConnection(self, request, context):
+        """DeleteAuthConnection removes the current orgs auth settings.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateAuthConnectionSecret(self, request, context):
+        """UpdateAuthConnectionSecret updates a connections secret.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateAuthConnectionGroups(self, request, context):
+        """UpdateAuthConnectionGroups updates a connections groups.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_IdentityProviderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'CreateAuthConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAuthConnection,
+                    request_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.CreateAuthConnectionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.CreateAuthConnectionResponse.SerializeToString,
+            ),
+            'GetAuthConnectionSettings': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAuthConnectionSettings,
+                    request_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionSettingsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionSettingsResponse.SerializeToString,
+            ),
+            'GetAuthConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAuthConnection,
+                    request_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionResponse.SerializeToString,
+            ),
+            'DeleteAuthConnection': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAuthConnection,
+                    request_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.DeleteAuthConnectionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.DeleteAuthConnectionResponse.SerializeToString,
+            ),
+            'UpdateAuthConnectionSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateAuthConnectionSecret,
+                    request_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionSecretRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionSecretResponse.SerializeToString,
+            ),
+            'UpdateAuthConnectionGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateAuthConnectionGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionGroupsResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.v1alpha1.idp.IdentityProvider', rpc_method_handlers)
+            'api.v1alpha1.idp.IdentityProviderService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class IdentityProvider(object):
+class IdentityProviderService(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def CreateAuthConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.idp.IdentityProviderService/CreateAuthConnection',
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.CreateAuthConnectionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.CreateAuthConnectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAuthConnectionSettings(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.idp.IdentityProviderService/GetAuthConnectionSettings',
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionSettingsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionSettingsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAuthConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.idp.IdentityProviderService/GetAuthConnection',
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.GetAuthConnectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAuthConnection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.idp.IdentityProviderService/DeleteAuthConnection',
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.DeleteAuthConnectionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.DeleteAuthConnectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateAuthConnectionSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.idp.IdentityProviderService/UpdateAuthConnectionSecret',
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionSecretRequest.SerializeToString,
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionSecretResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateAuthConnectionGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.idp.IdentityProviderService/UpdateAuthConnectionGroups',
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_idp_dot_entities__pb2.UpdateAuthConnectionGroupsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

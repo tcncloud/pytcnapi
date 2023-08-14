@@ -11,9 +11,11 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from api.commons.org import auth_connections_pb2 as api_dot_commons_dot_org_dot_auth__connections__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/idp/entities.proto\x12\x10\x61pi.v1alpha1.idpB\x87\x01\n\x14\x63om.api.v1alpha1.idpB\rEntitiesProtoP\x01\xa2\x02\x03\x41VI\xaa\x02\x10\x41pi.V1alpha1.Idp\xca\x02\x10\x41pi\\V1alpha1\\Idp\xe2\x02\x1c\x41pi\\V1alpha1\\Idp\\GPBMetadata\xea\x02\x12\x41pi::V1alpha1::Idpb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/idp/entities.proto\x12\x10\x61pi.v1alpha1.idp\x1a&api/commons/org/auth_connections.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x87\x01\n\x1b\x43reateAuthConnectionRequest\x12\x43\n\x08settings\x18\x01 \x01(\x0b\x32\'.api.commons.org.AuthConnectionSettingsR\x08settings\x12#\n\rclient_secret\x18\x02 \x01(\tR\x0c\x63lientSecret\"C\n\x1c\x43reateAuthConnectionResponse\x12#\n\rconnection_id\x18\x01 \x01(\tR\x0c\x63onnectionId\"\"\n GetAuthConnectionSettingsRequest\"h\n!GetAuthConnectionSettingsResponse\x12\x43\n\x08settings\x18\x01 \x01(\x0b\x32\'.api.commons.org.AuthConnectionSettingsR\x08settings\"?\n\x18GetAuthConnectionRequest\x12#\n\rconnection_id\x18\x01 \x01(\tR\x0c\x63onnectionId\"`\n\x19GetAuthConnectionResponse\x12\x43\n\x08settings\x18\x01 \x01(\x0b\x32\'.api.commons.org.AuthConnectionSettingsR\x08settings\"B\n\x1b\x44\x65leteAuthConnectionRequest\x12#\n\rconnection_id\x18\x01 \x01(\tR\x0c\x63onnectionId\"\x1e\n\x1c\x44\x65leteAuthConnectionResponse\"\xa4\x02\n!UpdateAuthConnectionSecretRequest\x12#\n\rconnection_id\x18\x01 \x01(\tR\x0c\x63onnectionId\x12#\n\rclient_secret\x18\x02 \x01(\tR\x0c\x63lientSecret\x12q\n\x11secret_expiration\x18\x03 \x01(\x0b\x32\x44.api.v1alpha1.idp.UpdateAuthConnectionSecretRequest.SecretExpirationR\x10secretExpiration\x1a\x42\n\x10SecretExpiration\x12.\n\x04\x64\x61te\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x04\x64\x61te\"$\n\"UpdateAuthConnectionSecretResponse\"\xca\x01\n!UpdateAuthConnectionGroupsRequest\x12?\n\rdefault_group\x18\x01 \x01(\x0b\x32\x1a.api.commons.org.GroupItemR\x0c\x64\x65\x66\x61ultGroup\x12?\n\rcustom_groups\x18\x02 \x03(\x0b\x32\x1a.api.commons.org.GroupItemR\x0c\x63ustomGroups\x12#\n\rconnection_id\x18\x03 \x01(\tR\x0c\x63onnectionId\"$\n\"UpdateAuthConnectionGroupsResponseB\x87\x01\n\x14\x63om.api.v1alpha1.idpB\rEntitiesProtoP\x01\xa2\x02\x03\x41VI\xaa\x02\x10\x41pi.V1alpha1.Idp\xca\x02\x10\x41pi\\V1alpha1\\Idp\xe2\x02\x1c\x41pi\\V1alpha1\\Idp\\GPBMetadata\xea\x02\x12\x41pi::V1alpha1::Idpb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,4 +24,30 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.api.v1alpha1.idpB\rEntitiesProtoP\001\242\002\003AVI\252\002\020Api.V1alpha1.Idp\312\002\020Api\\V1alpha1\\Idp\342\002\034Api\\V1alpha1\\Idp\\GPBMetadata\352\002\022Api::V1alpha1::Idp'
+  _globals['_CREATEAUTHCONNECTIONREQUEST']._serialized_start=127
+  _globals['_CREATEAUTHCONNECTIONREQUEST']._serialized_end=262
+  _globals['_CREATEAUTHCONNECTIONRESPONSE']._serialized_start=264
+  _globals['_CREATEAUTHCONNECTIONRESPONSE']._serialized_end=331
+  _globals['_GETAUTHCONNECTIONSETTINGSREQUEST']._serialized_start=333
+  _globals['_GETAUTHCONNECTIONSETTINGSREQUEST']._serialized_end=367
+  _globals['_GETAUTHCONNECTIONSETTINGSRESPONSE']._serialized_start=369
+  _globals['_GETAUTHCONNECTIONSETTINGSRESPONSE']._serialized_end=473
+  _globals['_GETAUTHCONNECTIONREQUEST']._serialized_start=475
+  _globals['_GETAUTHCONNECTIONREQUEST']._serialized_end=538
+  _globals['_GETAUTHCONNECTIONRESPONSE']._serialized_start=540
+  _globals['_GETAUTHCONNECTIONRESPONSE']._serialized_end=636
+  _globals['_DELETEAUTHCONNECTIONREQUEST']._serialized_start=638
+  _globals['_DELETEAUTHCONNECTIONREQUEST']._serialized_end=704
+  _globals['_DELETEAUTHCONNECTIONRESPONSE']._serialized_start=706
+  _globals['_DELETEAUTHCONNECTIONRESPONSE']._serialized_end=736
+  _globals['_UPDATEAUTHCONNECTIONSECRETREQUEST']._serialized_start=739
+  _globals['_UPDATEAUTHCONNECTIONSECRETREQUEST']._serialized_end=1031
+  _globals['_UPDATEAUTHCONNECTIONSECRETREQUEST_SECRETEXPIRATION']._serialized_start=965
+  _globals['_UPDATEAUTHCONNECTIONSECRETREQUEST_SECRETEXPIRATION']._serialized_end=1031
+  _globals['_UPDATEAUTHCONNECTIONSECRETRESPONSE']._serialized_start=1033
+  _globals['_UPDATEAUTHCONNECTIONSECRETRESPONSE']._serialized_end=1069
+  _globals['_UPDATEAUTHCONNECTIONGROUPSREQUEST']._serialized_start=1072
+  _globals['_UPDATEAUTHCONNECTIONGROUPSREQUEST']._serialized_end=1274
+  _globals['_UPDATEAUTHCONNECTIONGROUPSRESPONSE']._serialized_start=1276
+  _globals['_UPDATEAUTHCONNECTIONGROUPSRESPONSE']._serialized_end=1312
 # @@protoc_insertion_point(module_scope)

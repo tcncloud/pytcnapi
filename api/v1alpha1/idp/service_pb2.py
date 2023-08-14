@@ -11,9 +11,12 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
+from annotations import authz_pb2 as annotations_dot_authz__pb2
+from api.v1alpha1.idp import entities_pb2 as api_dot_v1alpha1_dot_idp_dot_entities__pb2
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x61pi/v1alpha1/idp/service.proto\x12\x10\x61pi.v1alpha1.idp2\x12\n\x10IdentityProviderB\x86\x01\n\x14\x63om.api.v1alpha1.idpB\x0cServiceProtoP\x01\xa2\x02\x03\x41VI\xaa\x02\x10\x41pi.V1alpha1.Idp\xca\x02\x10\x41pi\\V1alpha1\\Idp\xe2\x02\x1c\x41pi\\V1alpha1\\Idp\\GPBMetadata\xea\x02\x12\x41pi::V1alpha1::Idpb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1e\x61pi/v1alpha1/idp/service.proto\x12\x10\x61pi.v1alpha1.idp\x1a\x17\x61nnotations/authz.proto\x1a\x1f\x61pi/v1alpha1/idp/entities.proto\x1a\x1cgoogle/api/annotations.proto2\xff\x08\n\x17IdentityProviderService\x12\xaf\x01\n\x14\x43reateAuthConnection\x12-.api.v1alpha1.idp.CreateAuthConnectionRequest\x1a..api.v1alpha1.idp.CreateAuthConnectionResponse\"8\xba\xb8\x91\x02\x05\n\x03\x08\x84\x02\x82\xd3\xe4\x93\x02(\"#/api/v1alpha1/idp/connection/create:\x01*\x12\xc3\x01\n\x19GetAuthConnectionSettings\x12\x32.api.v1alpha1.idp.GetAuthConnectionSettingsRequest\x1a\x33.api.v1alpha1.idp.GetAuthConnectionSettingsResponse\"=\xba\xb8\x91\x02\x05\n\x03\x08\x84\x02\x82\xd3\xe4\x93\x02-\"(/api/v1alpha1/idp/connection/getsettings:\x01*\x12\xa3\x01\n\x11GetAuthConnection\x12*.api.v1alpha1.idp.GetAuthConnectionRequest\x1a+.api.v1alpha1.idp.GetAuthConnectionResponse\"5\xba\xb8\x91\x02\x05\n\x03\x08\x84\x02\x82\xd3\xe4\x93\x02%\" /api/v1alpha1/idp/connection/get:\x01*\x12\xaf\x01\n\x14\x44\x65leteAuthConnection\x12-.api.v1alpha1.idp.DeleteAuthConnectionRequest\x1a..api.v1alpha1.idp.DeleteAuthConnectionResponse\"8\xba\xb8\x91\x02\x05\n\x03\x08\x84\x02\x82\xd3\xe4\x93\x02(\"#/api/v1alpha1/idp/connection/delete:\x01*\x12\xc8\x01\n\x1aUpdateAuthConnectionSecret\x12\x33.api.v1alpha1.idp.UpdateAuthConnectionSecretRequest\x1a\x34.api.v1alpha1.idp.UpdateAuthConnectionSecretResponse\"?\xba\xb8\x91\x02\x05\n\x03\x08\x84\x02\x82\xd3\xe4\x93\x02/\"*/api/v1alpha1/idp/connection/update/secret:\x01*\x12\xc8\x01\n\x1aUpdateAuthConnectionGroups\x12\x33.api.v1alpha1.idp.UpdateAuthConnectionGroupsRequest\x1a\x34.api.v1alpha1.idp.UpdateAuthConnectionGroupsResponse\"?\xba\xb8\x91\x02\x05\n\x03\x08\x84\x02\x82\xd3\xe4\x93\x02/\"*/api/v1alpha1/idp/connection/update/groups:\x01*B\x86\x01\n\x14\x63om.api.v1alpha1.idpB\x0cServiceProtoP\x01\xa2\x02\x03\x41VI\xaa\x02\x10\x41pi.V1alpha1.Idp\xca\x02\x10\x41pi\\V1alpha1\\Idp\xe2\x02\x1c\x41pi\\V1alpha1\\Idp\\GPBMetadata\xea\x02\x12\x41pi::V1alpha1::Idpb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,6 +25,18 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.api.v1alpha1.idpB\014ServiceProtoP\001\242\002\003AVI\252\002\020Api.V1alpha1.Idp\312\002\020Api\\V1alpha1\\Idp\342\002\034Api\\V1alpha1\\Idp\\GPBMetadata\352\002\022Api::V1alpha1::Idp'
-  _globals['_IDENTITYPROVIDER']._serialized_start=52
-  _globals['_IDENTITYPROVIDER']._serialized_end=70
+  _IDENTITYPROVIDERSERVICE.methods_by_name['CreateAuthConnection']._options = None
+  _IDENTITYPROVIDERSERVICE.methods_by_name['CreateAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002(\"#/api/v1alpha1/idp/connection/create:\001*'
+  _IDENTITYPROVIDERSERVICE.methods_by_name['GetAuthConnectionSettings']._options = None
+  _IDENTITYPROVIDERSERVICE.methods_by_name['GetAuthConnectionSettings']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002-\"(/api/v1alpha1/idp/connection/getsettings:\001*'
+  _IDENTITYPROVIDERSERVICE.methods_by_name['GetAuthConnection']._options = None
+  _IDENTITYPROVIDERSERVICE.methods_by_name['GetAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002%\" /api/v1alpha1/idp/connection/get:\001*'
+  _IDENTITYPROVIDERSERVICE.methods_by_name['DeleteAuthConnection']._options = None
+  _IDENTITYPROVIDERSERVICE.methods_by_name['DeleteAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002(\"#/api/v1alpha1/idp/connection/delete:\001*'
+  _IDENTITYPROVIDERSERVICE.methods_by_name['UpdateAuthConnectionSecret']._options = None
+  _IDENTITYPROVIDERSERVICE.methods_by_name['UpdateAuthConnectionSecret']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002/\"*/api/v1alpha1/idp/connection/update/secret:\001*'
+  _IDENTITYPROVIDERSERVICE.methods_by_name['UpdateAuthConnectionGroups']._options = None
+  _IDENTITYPROVIDERSERVICE.methods_by_name['UpdateAuthConnectionGroups']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002/\"*/api/v1alpha1/idp/connection/update/groups:\001*'
+  _globals['_IDENTITYPROVIDERSERVICE']._serialized_start=141
+  _globals['_IDENTITYPROVIDERSERVICE']._serialized_end=1292
 # @@protoc_insertion_point(module_scope)
