@@ -19,12 +19,10 @@ class GetAutoEvaluationResponse(_message.Message):
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
 
 class ListAutoEvaluationsRequest(_message.Message):
-    __slots__ = ["scorecard_ids", "completed_at"]
+    __slots__ = ["scorecard_ids"]
     SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
-    COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
-    completed_at: _scorecards_pb2.TimeFilter
-    def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
+    def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ListAutoEvaluationsResponse(_message.Message):
     __slots__ = ["auto_evaluations"]
