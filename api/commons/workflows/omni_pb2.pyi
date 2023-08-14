@@ -15,21 +15,19 @@ class OmniNodePrompt(_message.Message):
     options: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, prompt: _Optional[str] = ..., store_to: _Optional[str] = ..., options: _Optional[_Iterable[str]] = ...) -> None: ...
 
-class OmniNodeInject(_message.Message):
-    __slots__ = ["store_to", "data"]
-    STORE_TO_FIELD_NUMBER: _ClassVar[int]
-    DATA_FIELD_NUMBER: _ClassVar[int]
-    store_to: str
-    data: str
-    def __init__(self, store_to: _Optional[str] = ..., data: _Optional[str] = ...) -> None: ...
+class OmniNodeOptions(_message.Message):
+    __slots__ = ["options"]
+    OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    options: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, options: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class OmniNodeSendMessage(_message.Message):
-    __slots__ = ["prompt", "options_key"]
+    __slots__ = ["prompt", "options"]
     PROMPT_FIELD_NUMBER: _ClassVar[int]
-    OPTIONS_KEY_FIELD_NUMBER: _ClassVar[int]
+    OPTIONS_FIELD_NUMBER: _ClassVar[int]
     prompt: str
-    options_key: str
-    def __init__(self, prompt: _Optional[str] = ..., options_key: _Optional[str] = ...) -> None: ...
+    options: str
+    def __init__(self, prompt: _Optional[str] = ..., options: _Optional[str] = ...) -> None: ...
 
 class OmniNodeStore(_message.Message):
     __slots__ = ["store_to"]
@@ -37,13 +35,13 @@ class OmniNodeStore(_message.Message):
     store_to: str
     def __init__(self, store_to: _Optional[str] = ...) -> None: ...
 
-class OmniNodeCompare(_message.Message):
-    __slots__ = ["input", "options_key"]
+class OmniNodeDecision(_message.Message):
+    __slots__ = ["options", "input"]
+    OPTIONS_FIELD_NUMBER: _ClassVar[int]
     INPUT_FIELD_NUMBER: _ClassVar[int]
-    OPTIONS_KEY_FIELD_NUMBER: _ClassVar[int]
+    options: str
     input: str
-    options_key: str
-    def __init__(self, input: _Optional[str] = ..., options_key: _Optional[str] = ...) -> None: ...
+    def __init__(self, options: _Optional[str] = ..., input: _Optional[str] = ...) -> None: ...
 
 class OmniNodeSetSkill(_message.Message):
     __slots__ = ["skill"]

@@ -286,6 +286,7 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DELETE_INTEGRATION_MESSAGES: _ClassVar[Permission]
     EDIT_INTEGRATION_MESSAGES: _ClassVar[Permission]
     EXECUTE_INTEGRATION_MESSAGES: _ClassVar[Permission]
+    SCHEDULE_RESEND_CAMPAIGN: _ClassVar[Permission]
     APP_AGENT: _ClassVar[Permission]
     APP_BACKOFFICE: _ClassVar[Permission]
 NO_PERMISSION: Permission
@@ -568,5 +569,6 @@ CREATE_INTEGRATION_MESSAGES: Permission
 DELETE_INTEGRATION_MESSAGES: Permission
 EDIT_INTEGRATION_MESSAGES: Permission
 EXECUTE_INTEGRATION_MESSAGES: Permission
+SCHEDULE_RESEND_CAMPAIGN: Permission
 APP_AGENT: Permission
 APP_BACKOFFICE: Permission
