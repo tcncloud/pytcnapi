@@ -23,6 +23,14 @@ class OmniNodeInject(_message.Message):
     data: str
     def __init__(self, store_to: _Optional[str] = ..., data: _Optional[str] = ...) -> None: ...
 
+class OmniNodeInjectMessage(_message.Message):
+    __slots__ = ["store_to", "message_key"]
+    STORE_TO_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_KEY_FIELD_NUMBER: _ClassVar[int]
+    store_to: str
+    message_key: str
+    def __init__(self, store_to: _Optional[str] = ..., message_key: _Optional[str] = ...) -> None: ...
+
 class OmniNodeSendMessage(_message.Message):
     __slots__ = ["prompt", "options_key"]
     PROMPT_FIELD_NUMBER: _ClassVar[int]
