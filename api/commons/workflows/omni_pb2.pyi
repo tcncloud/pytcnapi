@@ -24,26 +24,26 @@ class OmniNodeOptions(_message.Message):
     def __init__(self, options_id: _Optional[str] = ..., options: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class OmniNodeSendMessage(_message.Message):
-    __slots__ = ["prompt", "options"]
+    __slots__ = ["prompt", "options_id"]
     PROMPT_FIELD_NUMBER: _ClassVar[int]
-    OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    OPTIONS_ID_FIELD_NUMBER: _ClassVar[int]
     prompt: str
-    options: str
-    def __init__(self, prompt: _Optional[str] = ..., options: _Optional[str] = ...) -> None: ...
+    options_id: str
+    def __init__(self, prompt: _Optional[str] = ..., options_id: _Optional[str] = ...) -> None: ...
 
 class OmniNodeStore(_message.Message):
-    __slots__ = ["store_to"]
-    STORE_TO_FIELD_NUMBER: _ClassVar[int]
-    store_to: str
-    def __init__(self, store_to: _Optional[str] = ...) -> None: ...
+    __slots__ = ["store_id"]
+    STORE_ID_FIELD_NUMBER: _ClassVar[int]
+    store_id: str
+    def __init__(self, store_id: _Optional[str] = ...) -> None: ...
 
 class OmniNodeDecision(_message.Message):
-    __slots__ = ["options", "input"]
-    OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["options_id", "input"]
+    OPTIONS_ID_FIELD_NUMBER: _ClassVar[int]
     INPUT_FIELD_NUMBER: _ClassVar[int]
-    options: str
+    options_id: str
     input: str
-    def __init__(self, options: _Optional[str] = ..., input: _Optional[str] = ...) -> None: ...
+    def __init__(self, options_id: _Optional[str] = ..., input: _Optional[str] = ...) -> None: ...
 
 class OmniNodeSetSkill(_message.Message):
     __slots__ = ["skill"]
