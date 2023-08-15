@@ -25,7 +25,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.delivery.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.api.v1alpha1.deliveryB\014ServiceProtoP\001\242\002\003AVD\252\002\025Api.V1alpha1.Delivery\312\002\025Api\\V1alpha1\\Delivery\342\002!Api\\V1alpha1\\Delivery\\GPBMetadata\352\002\027Api::V1alpha1::Delivery'
   _TRANSFERCONFIG.fields_by_name['sid']._options = None

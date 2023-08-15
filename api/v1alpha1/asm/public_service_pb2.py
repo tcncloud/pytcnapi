@@ -25,7 +25,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.asm.public_service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.api.v1alpha1.asmB\022PublicServiceProtoP\001\242\002\003AVA\252\002\020Api.V1alpha1.Asm\312\002\020Api\\V1alpha1\\Asm\342\002\034Api\\V1alpha1\\Asm\\GPBMetadata\352\002\022Api::V1alpha1::Asm'
   _ASM.methods_by_name['StreamAgentState']._options = None

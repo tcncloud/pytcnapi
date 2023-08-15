@@ -21,7 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.org.authconnection.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n#com.api.v1alpha1.org.authconnectionB\rEntitiesProtoP\001\242\002\004AVOA\252\002\037Api.V1alpha1.Org.Authconnection\312\002\037Api\\V1alpha1\\Org\\Authconnection\342\002+Api\\V1alpha1\\Org\\Authconnection\\GPBMetadata\352\002\"Api::V1alpha1::Org::Authconnection'
   _globals['_CREATEAUTHCONNECTIONREQUEST']._serialized_start=157
