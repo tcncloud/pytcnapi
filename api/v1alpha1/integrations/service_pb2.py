@@ -25,7 +25,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.integrations.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\035com.api.v1alpha1.integrationsB\014ServiceProtoP\001\242\002\003AVI\252\002\031Api.V1alpha1.Integrations\312\002\031Api\\V1alpha1\\Integrations\342\002%Api\\V1alpha1\\Integrations\\GPBMetadata\352\002\033Api::V1alpha1::Integrations'
   _PROCESSREQ_PARAMSENTRY._options = None

@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.auth.perms_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.api.commons.authB\nPermsProtoP\001\242\002\003ACA\252\002\020Api.Commons.Auth\312\002\020Api\\Commons\\Auth\342\002\034Api\\Commons\\Auth\\GPBMetadata\352\002\022Api::Commons::Auth'
   _PERMISSION.values_by_name["PERMISSION_ORG_EDIT"]._options = None

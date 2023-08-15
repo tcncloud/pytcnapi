@@ -19,7 +19,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'compliance.v1.compliance_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\021com.compliance.v1B\017ComplianceProtoP\001\242\002\003CXX\252\002\rCompliance.V1\312\002\rCompliance\\V1\342\002\031Compliance\\V1\\GPBMetadata\352\002\016Compliance::V1'
 # @@protoc_insertion_point(module_scope)

@@ -20,7 +20,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.workflows.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.api.commons.workflowsB\rEntitiesProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
   _globals['_FLOWDEFINITION']._serialized_start=99

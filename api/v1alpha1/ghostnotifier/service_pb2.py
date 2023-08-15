@@ -22,7 +22,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.ghostnotifier.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\036com.api.v1alpha1.ghostnotifierB\014ServiceProtoP\001\242\002\003AVG\252\002\032Api.V1alpha1.Ghostnotifier\312\002\032Api\\V1alpha1\\Ghostnotifier\342\002&Api\\V1alpha1\\Ghostnotifier\\GPBMetadata\352\002\034Api::V1alpha1::Ghostnotifier'
   _GHOSTNOTIFIERAPI.methods_by_name['ListNotifications']._options = None

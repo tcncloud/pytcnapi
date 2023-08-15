@@ -19,7 +19,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.idp.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.api.v1alpha1.idpB\rEntitiesProtoP\001\242\002\003AVI\252\002\020Api.V1alpha1.Idp\312\002\020Api\\V1alpha1\\Idp\342\002\034Api\\V1alpha1\\Idp\\GPBMetadata\352\002\022Api::V1alpha1::Idp'
 # @@protoc_insertion_point(module_scope)

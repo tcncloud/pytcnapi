@@ -21,7 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.fts.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\024com.api.v1alpha1.ftsB\014ServiceProtoP\001\242\002\003AVF\252\002\020Api.V1alpha1.Fts\312\002\020Api\\V1alpha1\\Fts\342\002\034Api\\V1alpha1\\Fts\\GPBMetadata\352\002\022Api::V1alpha1::Fts'
   _FTSAPI.methods_by_name['GetUploadFileUrl']._options = None

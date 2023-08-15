@@ -24,7 +24,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.callqueue.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032com.api.v1alpha1.callqueueB\014ServiceProtoP\001\242\002\003AVC\252\002\026Api.V1alpha1.Callqueue\312\002\026Api\\V1alpha1\\Callqueue\342\002\"Api\\V1alpha1\\Callqueue\\GPBMetadata\352\002\030Api::V1alpha1::Callqueue'
   _CALLQUEUE.methods_by_name['DequeuePreviewRecordOrCall']._options = None

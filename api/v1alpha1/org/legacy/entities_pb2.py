@@ -35,7 +35,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.org.legacy.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.org.legacyB\rEntitiesProtoP\001\242\002\004AVOL\252\002\027Api.V1alpha1.Org.Legacy\312\002\027Api\\V1alpha1\\Org\\Legacy\342\002#Api\\V1alpha1\\Org\\Legacy\\GPBMetadata\352\002\032Api::V1alpha1::Org::Legacy'
   _GETORGANIZATIONPROFILERESPONSE_ALLOWEDREGIONSENTRY._options = None

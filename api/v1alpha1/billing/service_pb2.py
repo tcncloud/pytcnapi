@@ -22,7 +22,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.billing.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\030com.api.v1alpha1.billingB\014ServiceProtoP\001\242\002\003AVB\252\002\024Api.V1alpha1.Billing\312\002\024Api\\V1alpha1\\Billing\342\002 Api\\V1alpha1\\Billing\\GPBMetadata\352\002\026Api::V1alpha1::Billing'
   _BILLING.methods_by_name['GetBillingPlan']._options = None

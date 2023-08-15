@@ -22,7 +22,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.agentsmith.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.agentsmithB\014ServiceProtoP\001\242\002\003AVA\252\002\027Api.V1alpha1.Agentsmith\312\002\027Api\\V1alpha1\\Agentsmith\342\002#Api\\V1alpha1\\Agentsmith\\GPBMetadata\352\002\031Api::V1alpha1::Agentsmith'
   _AGENTSMITH.methods_by_name['FollowAgent']._options = None
