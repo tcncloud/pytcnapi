@@ -16,12 +16,12 @@ class OmniNodePrompt(_message.Message):
     def __init__(self, prompt: _Optional[str] = ..., store_to: _Optional[str] = ..., options: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class OmniNodeOptions(_message.Message):
-    __slots__ = ["store_to", "options"]
-    STORE_TO_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["options_id", "options"]
+    OPTIONS_ID_FIELD_NUMBER: _ClassVar[int]
     OPTIONS_FIELD_NUMBER: _ClassVar[int]
-    store_to: str
+    options_id: str
     options: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, store_to: _Optional[str] = ..., options: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, options_id: _Optional[str] = ..., options: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class OmniNodeSendMessage(_message.Message):
     __slots__ = ["prompt", "options"]
