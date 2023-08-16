@@ -31,19 +31,19 @@ class OmniNodeSendMessage(_message.Message):
     options_id: str
     def __init__(self, prompt: _Optional[str] = ..., options_id: _Optional[str] = ...) -> None: ...
 
-class OmniNodeStore(_message.Message):
+class OmniNodeUserInput(_message.Message):
     __slots__ = ["store_id"]
     STORE_ID_FIELD_NUMBER: _ClassVar[int]
     store_id: str
     def __init__(self, store_id: _Optional[str] = ...) -> None: ...
 
-class OmniNodeDecision(_message.Message):
-    __slots__ = ["options_id", "input"]
+class OmniNodeBranching(_message.Message):
+    __slots__ = ["options_id", "store_id"]
     OPTIONS_ID_FIELD_NUMBER: _ClassVar[int]
-    INPUT_FIELD_NUMBER: _ClassVar[int]
+    STORE_ID_FIELD_NUMBER: _ClassVar[int]
     options_id: str
-    input: str
-    def __init__(self, options_id: _Optional[str] = ..., input: _Optional[str] = ...) -> None: ...
+    store_id: str
+    def __init__(self, options_id: _Optional[str] = ..., store_id: _Optional[str] = ...) -> None: ...
 
 class OmniNodeSetSkill(_message.Message):
     __slots__ = ["skill"]
