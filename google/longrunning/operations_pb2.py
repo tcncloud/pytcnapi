@@ -26,8 +26,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.longrunning.operations_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  google_dot_protobuf_dot_descriptor__pb2.MethodOptions.RegisterExtension(operation_info)
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\026com.google.longrunningB\017OperationsProtoP\001ZCcloud.google.com/go/longrunning/autogen/longrunningpb;longrunningpb\370\001\001\242\002\003GLX\252\002\022Google.Longrunning\312\002\022Google\\Longrunning\342\002\036Google\\Longrunning\\GPBMetadata\352\002\023Google::Longrunning'
   _OPERATIONS._options = None
