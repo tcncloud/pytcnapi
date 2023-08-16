@@ -46,10 +46,18 @@ class OmniNodeBranching(_message.Message):
     def __init__(self, options_id: _Optional[str] = ..., store_id: _Optional[str] = ...) -> None: ...
 
 class OmniNodeSetSkill(_message.Message):
-    __slots__ = ["skill"]
+    __slots__ = ["skill", "skills"]
     SKILL_FIELD_NUMBER: _ClassVar[int]
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
     skill: str
-    def __init__(self, skill: _Optional[str] = ...) -> None: ...
+    skills: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, skill: _Optional[str] = ..., skills: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class OmniNodeSetSkills(_message.Message):
+    __slots__ = ["skills"]
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
+    skills: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, skills: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class OmniNodeToAgent(_message.Message):
     __slots__ = []
