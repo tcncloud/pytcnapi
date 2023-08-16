@@ -63,6 +63,10 @@ class OmniNodeToAgent(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class OmniNodeToMatcher(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class OmniNodeError(_message.Message):
     __slots__ = ["error"]
     ERROR_FIELD_NUMBER: _ClassVar[int]
