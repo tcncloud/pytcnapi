@@ -324,20 +324,18 @@ class EmailDestination(_message.Message):
     def __init__(self, to_addr: _Optional[str] = ..., cc_addrs: _Optional[_Iterable[str]] = ..., from_addr: _Optional[str] = ...) -> None: ...
 
 class CredentialData(_message.Message):
-    __slots__ = ["user_password", "password", "ssh_key_pair", "pgp_key_pair", "aes_password", "user_default_ssh"]
+    __slots__ = ["user_password", "password", "ssh_key_pair", "pgp_key_pair", "aes_password"]
     USER_PASSWORD_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     SSH_KEY_PAIR_FIELD_NUMBER: _ClassVar[int]
     PGP_KEY_PAIR_FIELD_NUMBER: _ClassVar[int]
     AES_PASSWORD_FIELD_NUMBER: _ClassVar[int]
-    USER_DEFAULT_SSH_FIELD_NUMBER: _ClassVar[int]
     user_password: UserPassword
     password: Password
     ssh_key_pair: SSHKeyPair
     pgp_key_pair: PGPKeyPair
     aes_password: AESPassword
-    user_default_ssh: UserDefaultSSH
-    def __init__(self, user_password: _Optional[_Union[UserPassword, _Mapping]] = ..., password: _Optional[_Union[Password, _Mapping]] = ..., ssh_key_pair: _Optional[_Union[SSHKeyPair, _Mapping]] = ..., pgp_key_pair: _Optional[_Union[PGPKeyPair, _Mapping]] = ..., aes_password: _Optional[_Union[AESPassword, _Mapping]] = ..., user_default_ssh: _Optional[_Union[UserDefaultSSH, _Mapping]] = ...) -> None: ...
+    def __init__(self, user_password: _Optional[_Union[UserPassword, _Mapping]] = ..., password: _Optional[_Union[Password, _Mapping]] = ..., ssh_key_pair: _Optional[_Union[SSHKeyPair, _Mapping]] = ..., pgp_key_pair: _Optional[_Union[PGPKeyPair, _Mapping]] = ..., aes_password: _Optional[_Union[AESPassword, _Mapping]] = ...) -> None: ...
 
 class UserPassword(_message.Message):
     __slots__ = ["username", "password"]
@@ -374,12 +372,6 @@ class AESPassword(_message.Message):
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     password: str
     def __init__(self, password: _Optional[str] = ...) -> None: ...
-
-class UserDefaultSSH(_message.Message):
-    __slots__ = ["username"]
-    USERNAME_FIELD_NUMBER: _ClassVar[int]
-    username: str
-    def __init__(self, username: _Optional[str] = ...) -> None: ...
 
 class Source(_message.Message):
     __slots__ = ["encryption", "sftp"]

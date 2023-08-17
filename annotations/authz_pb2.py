@@ -21,8 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'annotations.authz_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  google_dot_protobuf_dot_descriptor__pb2.MethodOptions.RegisterExtension(authz)
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\017com.annotationsB\nAuthzProtoP\001\242\002\003AXX\252\002\013Annotations\312\002\013Annotations\342\002\027Annotations\\GPBMetadata\352\002\013Annotations'
   _PERMISSIONS.fields_by_name['wip']._options = None

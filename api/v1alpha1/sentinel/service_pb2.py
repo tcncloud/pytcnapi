@@ -22,7 +22,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.sentinel.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.api.v1alpha1.sentinelB\014ServiceProtoP\001\242\002\003AVS\252\002\025Api.V1alpha1.Sentinel\312\002\025Api\\V1alpha1\\Sentinel\342\002!Api\\V1alpha1\\Sentinel\\GPBMetadata\352\002\027Api::V1alpha1::Sentinel'
   _SENTINEL.methods_by_name['SendEvents']._options = None

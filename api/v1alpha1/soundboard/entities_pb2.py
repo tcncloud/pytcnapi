@@ -21,7 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.soundboard.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.soundboardB\rEntitiesProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Soundboard\312\002\027Api\\V1alpha1\\Soundboard\342\002#Api\\V1alpha1\\Soundboard\\GPBMetadata\352\002\031Api::V1alpha1::Soundboard'
   _SOUNDBOARDDETAILS.fields_by_name['soundboard_id']._options = None

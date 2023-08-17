@@ -19,7 +19,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.vanalytics.aclpb.aclpb_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n!com.api.v1alpha1.vanalytics.aclpbB\nAclpbProtoP\001\242\002\004AVVA\252\002\035Api.V1alpha1.Vanalytics.Aclpb\312\002\035Api\\V1alpha1\\Vanalytics\\Aclpb\342\002)Api\\V1alpha1\\Vanalytics\\Aclpb\\GPBMetadata\352\002 Api::V1alpha1::Vanalytics::Aclpb'
   _globals['_AGENTCALLLOG']._serialized_start=76
