@@ -22,7 +22,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.p3api.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\026com.api.v1alpha1.p3apiB\014ServiceProtoP\001\242\002\003AVP\252\002\022Api.V1alpha1.P3api\312\002\022Api\\V1alpha1\\P3api\342\002\036Api\\V1alpha1\\P3api\\GPBMetadata\352\002\024Api::V1alpha1::P3api'
   _P3API.methods_by_name['GetAgentHuntGroup']._options = None
