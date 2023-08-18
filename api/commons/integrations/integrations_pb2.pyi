@@ -744,14 +744,13 @@ class Flow(_message.Message):
     def __init__(self, invoice_flow: _Optional[_Union[InvoiceFlow, _Mapping]] = ..., payment_flow: _Optional[_Union[PaymentFlow, _Mapping]] = ..., verification_flow: _Optional[_Union[VerificationFlow, _Mapping]] = ..., execute_flow: _Optional[_Union[ExecuteFlow, _Mapping]] = ...) -> None: ...
 
 class InvoiceFlow(_message.Message):
-    __slots__ = ["plugin_instance_id", "experian_query_balance", "authorize_net_link_data", "authorize_net_custom_http", "journey", "dynamic_journey", "newzware_lookup_phone", "newzware_account_inquiry", "invoice_template"]
+    __slots__ = ["plugin_instance_id", "experian_query_balance", "authorize_net_link_data", "authorize_net_custom_http", "journey", "dynamic_journey", "newzware_account_inquiry", "invoice_template"]
     PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_QUERY_BALANCE_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZE_NET_LINK_DATA_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZE_NET_CUSTOM_HTTP_FIELD_NUMBER: _ClassVar[int]
     JOURNEY_FIELD_NUMBER: _ClassVar[int]
     DYNAMIC_JOURNEY_FIELD_NUMBER: _ClassVar[int]
-    NEWZWARE_LOOKUP_PHONE_FIELD_NUMBER: _ClassVar[int]
     NEWZWARE_ACCOUNT_INQUIRY_FIELD_NUMBER: _ClassVar[int]
     INVOICE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     plugin_instance_id: str
@@ -760,10 +759,9 @@ class InvoiceFlow(_message.Message):
     authorize_net_custom_http: InvoiceAuthorizeNetCustomHttp
     journey: InvoiceJourney
     dynamic_journey: InvoiceDynamicJourney
-    newzware_lookup_phone: InvoiceNewzwareLookupPhone
     newzware_account_inquiry: InvoiceNewzwareAccountInquiry
     invoice_template: InvoiceTemplate
-    def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[InvoiceExperianQueryBalance, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[InvoiceAuthorizeNetLinkData, _Mapping]] = ..., authorize_net_custom_http: _Optional[_Union[InvoiceAuthorizeNetCustomHttp, _Mapping]] = ..., journey: _Optional[_Union[InvoiceJourney, _Mapping]] = ..., dynamic_journey: _Optional[_Union[InvoiceDynamicJourney, _Mapping]] = ..., newzware_lookup_phone: _Optional[_Union[InvoiceNewzwareLookupPhone, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[InvoiceNewzwareAccountInquiry, _Mapping]] = ..., invoice_template: _Optional[_Union[InvoiceTemplate, _Mapping]] = ...) -> None: ...
+    def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[InvoiceExperianQueryBalance, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[InvoiceAuthorizeNetLinkData, _Mapping]] = ..., authorize_net_custom_http: _Optional[_Union[InvoiceAuthorizeNetCustomHttp, _Mapping]] = ..., journey: _Optional[_Union[InvoiceJourney, _Mapping]] = ..., dynamic_journey: _Optional[_Union[InvoiceDynamicJourney, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[InvoiceNewzwareAccountInquiry, _Mapping]] = ..., invoice_template: _Optional[_Union[InvoiceTemplate, _Mapping]] = ...) -> None: ...
 
 class PaymentFlow(_message.Message):
     __slots__ = ["plugin_instance_id", "experian_cc", "experian_ach", "authorize_net_cc", "authorize_net_ach", "authorize_net_paypal", "authorize_net_apple_pay", "authorize_net_google_pay", "payway_submit_card_sale_request", "payway_submit_ach_alert_request", "newzware_cc", "newzware_ach", "payment_fields"]
@@ -1253,10 +1251,6 @@ class InvoiceDynamicJourney(_message.Message):
     total_field: str
     journey_fields: _containers.MessageMap[str, ListOfStrings]
     def __init__(self, match_fields: _Optional[_Iterable[str]] = ..., total_field: _Optional[str] = ..., journey_fields: _Optional[_Mapping[str, ListOfStrings]] = ...) -> None: ...
-
-class InvoiceNewzwareLookupPhone(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
 
 class InvoiceNewzwareAccountInquiry(_message.Message):
     __slots__ = []
