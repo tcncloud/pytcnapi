@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from api.services.pbx.v1 import service_pb2 as api_dot_services_dot_pbx_dot_v1_dot_service__pb2
+from services.pbx.v1 import service_pb2 as services_dot_pbx_dot_v1_dot_service__pb2
 
 
 class PBXServiceStub(object):
@@ -15,39 +15,39 @@ class PBXServiceStub(object):
             channel: A grpc.Channel.
         """
         self.QueryPbxUsers = channel.unary_unary(
-                '/api.services.pbx.v1.PBXService/QueryPbxUsers',
-                request_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersResponse.FromString,
+                '/services.pbx.v1.PBXService/QueryPbxUsers',
+                request_serializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersResponse.FromString,
                 )
         self.QueryRingGroups = channel.unary_unary(
-                '/api.services.pbx.v1.PBXService/QueryRingGroups',
-                request_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsResponse.FromString,
+                '/services.pbx.v1.PBXService/QueryRingGroups',
+                request_serializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsResponse.FromString,
                 )
         self.UpdatePbxUser = channel.unary_unary(
-                '/api.services.pbx.v1.PBXService/UpdatePbxUser',
-                request_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserResponse.FromString,
+                '/services.pbx.v1.PBXService/UpdatePbxUser',
+                request_serializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserResponse.FromString,
                 )
         self.UpdateRingGroup = channel.unary_unary(
-                '/api.services.pbx.v1.PBXService/UpdateRingGroup',
-                request_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupResponse.FromString,
+                '/services.pbx.v1.PBXService/UpdateRingGroup',
+                request_serializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupResponse.FromString,
                 )
         self.CreateRingGroup = channel.unary_unary(
-                '/api.services.pbx.v1.PBXService/CreateRingGroup',
-                request_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupResponse.FromString,
+                '/services.pbx.v1.PBXService/CreateRingGroup',
+                request_serializer=services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupResponse.FromString,
                 )
         self.DeleteRingGroup = channel.unary_unary(
-                '/api.services.pbx.v1.PBXService/DeleteRingGroup',
-                request_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupResponse.FromString,
+                '/services.pbx.v1.PBXService/DeleteRingGroup',
+                request_serializer=services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupResponse.FromString,
                 )
         self.AssignRandomExtension = channel.unary_unary(
-                '/api.services.pbx.v1.PBXService/AssignRandomExtension',
-                request_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionRequest.SerializeToString,
-                response_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionResponse.FromString,
+                '/services.pbx.v1.PBXService/AssignRandomExtension',
+                request_serializer=services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionResponse.FromString,
                 )
 
 
@@ -158,42 +158,42 @@ def add_PBXServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'QueryPbxUsers': grpc.unary_unary_rpc_method_handler(
                     servicer.QueryPbxUsers,
-                    request_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersRequest.FromString,
-                    response_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersResponse.SerializeToString,
+                    request_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersResponse.SerializeToString,
             ),
             'QueryRingGroups': grpc.unary_unary_rpc_method_handler(
                     servicer.QueryRingGroups,
-                    request_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsRequest.FromString,
-                    response_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsResponse.SerializeToString,
+                    request_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsResponse.SerializeToString,
             ),
             'UpdatePbxUser': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdatePbxUser,
-                    request_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserRequest.FromString,
-                    response_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserResponse.SerializeToString,
+                    request_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserResponse.SerializeToString,
             ),
             'UpdateRingGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateRingGroup,
-                    request_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupRequest.FromString,
-                    response_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupResponse.SerializeToString,
+                    request_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupResponse.SerializeToString,
             ),
             'CreateRingGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateRingGroup,
-                    request_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupRequest.FromString,
-                    response_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupResponse.SerializeToString,
+                    request_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupResponse.SerializeToString,
             ),
             'DeleteRingGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteRingGroup,
-                    request_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupRequest.FromString,
-                    response_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupResponse.SerializeToString,
+                    request_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupResponse.SerializeToString,
             ),
             'AssignRandomExtension': grpc.unary_unary_rpc_method_handler(
                     servicer.AssignRandomExtension,
-                    request_deserializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionRequest.FromString,
-                    response_serializer=api_dot_services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionResponse.SerializeToString,
+                    request_deserializer=services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.services.pbx.v1.PBXService', rpc_method_handlers)
+            'services.pbx.v1.PBXService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -212,9 +212,9 @@ class PBXService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.pbx.v1.PBXService/QueryPbxUsers',
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersRequest.SerializeToString,
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v1.PBXService/QueryPbxUsers',
+            services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersRequest.SerializeToString,
+            services_dot_pbx_dot_v1_dot_service__pb2.QueryPbxUsersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -229,9 +229,9 @@ class PBXService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.pbx.v1.PBXService/QueryRingGroups',
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsRequest.SerializeToString,
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v1.PBXService/QueryRingGroups',
+            services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsRequest.SerializeToString,
+            services_dot_pbx_dot_v1_dot_service__pb2.QueryRingGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -246,9 +246,9 @@ class PBXService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.pbx.v1.PBXService/UpdatePbxUser',
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserRequest.SerializeToString,
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v1.PBXService/UpdatePbxUser',
+            services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserRequest.SerializeToString,
+            services_dot_pbx_dot_v1_dot_service__pb2.UpdatePbxUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -263,9 +263,9 @@ class PBXService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.pbx.v1.PBXService/UpdateRingGroup',
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupRequest.SerializeToString,
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v1.PBXService/UpdateRingGroup',
+            services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupRequest.SerializeToString,
+            services_dot_pbx_dot_v1_dot_service__pb2.UpdateRingGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -280,9 +280,9 @@ class PBXService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.pbx.v1.PBXService/CreateRingGroup',
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupRequest.SerializeToString,
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v1.PBXService/CreateRingGroup',
+            services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupRequest.SerializeToString,
+            services_dot_pbx_dot_v1_dot_service__pb2.CreateRingGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -297,9 +297,9 @@ class PBXService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.pbx.v1.PBXService/DeleteRingGroup',
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupRequest.SerializeToString,
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v1.PBXService/DeleteRingGroup',
+            services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupRequest.SerializeToString,
+            services_dot_pbx_dot_v1_dot_service__pb2.DeleteRingGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -314,8 +314,8 @@ class PBXService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.services.pbx.v1.PBXService/AssignRandomExtension',
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionRequest.SerializeToString,
-            api_dot_services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v1.PBXService/AssignRandomExtension',
+            services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionRequest.SerializeToString,
+            services_dot_pbx_dot_v1_dot_service__pb2.AssignRandomExtensionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
