@@ -6,11 +6,7 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AgentTrainingCreateLearningOpportunityEvent(_message.Message):
-    __slots__ = ["agent_user_id", "description", "learning_opportunity"]
-    AGENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
-    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["learning_opportunity"]
     LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
-    agent_user_id: str
-    description: str
     learning_opportunity: _agent_training_pb2.LearningOpportunity
-    def __init__(self, agent_user_id: _Optional[str] = ..., description: _Optional[str] = ..., learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
+    def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
