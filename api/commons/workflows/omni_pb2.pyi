@@ -45,12 +45,6 @@ class OmniNodeSetSkill(_message.Message):
     skills: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, skill: _Optional[str] = ..., skills: _Optional[_Iterable[str]] = ...) -> None: ...
 
-class OmniNodeSetSkills(_message.Message):
-    __slots__ = ["skills"]
-    SKILLS_FIELD_NUMBER: _ClassVar[int]
-    skills: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, skills: _Optional[_Iterable[str]] = ...) -> None: ...
-
 class OmniNodeToAgent(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
