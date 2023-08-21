@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/workflows/omni.proto\x12\x15\x61pi.commons.workflows\"]\n\x0eOmniNodePrompt\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x19\n\x08store_to\x18\x02 \x01(\tR\x07storeTo\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\"(\n\x10OmniNodeSetSkill\x12\x14\n\x05skill\x18\x01 \x01(\tR\x05skill\"\x11\n\x0fOmniNodeToAgent\"%\n\rOmniNodeError\x12\x14\n\x05\x65rror\x18\x01 \x01(\tR\x05\x65rrorB\x9c\x01\n\x19\x63om.api.commons.workflowsB\tOmniProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/workflows/omni.proto\x12\x15\x61pi.commons.workflows\"]\n\x0eOmniNodePrompt\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x19\n\x08store_to\x18\x02 \x01(\tR\x07storeTo\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\"(\n\x10OmniNodeSetSkill\x12\x14\n\x05skill\x18\x01 \x01(\tR\x05skill\"\x11\n\x0fOmniNodeToAgent\"%\n\rOmniNodeError\x12\x14\n\x05\x65rror\x18\x01 \x01(\tR\x05\x65rror\"\xda\x01\n\x0fOmniNodeWebhook\x12\x10\n\x03url\x18\x01 \x01(\tR\x03url\x12\x16\n\x06method\x18\x02 \x01(\tR\x06method\x12\x12\n\x04\x62ody\x18\x03 \x01(\tR\x04\x62ody\x12M\n\x07headers\x18\x04 \x03(\x0b\x32\x33.api.commons.workflows.OmniNodeWebhook.HeadersEntryR\x07headers\x1a:\n\x0cHeadersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"S\n\x11OmniNodeScrublist\x12>\n\x06\x61\x63tion\x18\x01 \x01(\x0e\x32&.api.commons.workflows.ScrublistActionR\x06\x61\x63tion\"\x19\n\x17OmniNodeEndConversation*&\n\x0fScrublistAction\x12\x07\n\x03\x41\x44\x44\x10\x00\x12\n\n\x06REMOVE\x10\x01\x42\x9c\x01\n\x19\x63om.api.commons.workflowsB\tOmniProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -21,6 +21,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.workflows.omni_
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.api.commons.workflowsB\tOmniProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
+  _OMNINODEWEBHOOK_HEADERSENTRY._options = None
+  _OMNINODEWEBHOOK_HEADERSENTRY._serialized_options = b'8\001'
+  _globals['_SCRUBLISTACTION']._serialized_start=587
+  _globals['_SCRUBLISTACTION']._serialized_end=625
   _globals['_OMNINODEPROMPT']._serialized_start=59
   _globals['_OMNINODEPROMPT']._serialized_end=152
   _globals['_OMNINODESETSKILL']._serialized_start=154
@@ -29,4 +33,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_OMNINODETOAGENT']._serialized_end=213
   _globals['_OMNINODEERROR']._serialized_start=215
   _globals['_OMNINODEERROR']._serialized_end=252
+  _globals['_OMNINODEWEBHOOK']._serialized_start=255
+  _globals['_OMNINODEWEBHOOK']._serialized_end=473
+  _globals['_OMNINODEWEBHOOK_HEADERSENTRY']._serialized_start=415
+  _globals['_OMNINODEWEBHOOK_HEADERSENTRY']._serialized_end=473
+  _globals['_OMNINODESCRUBLIST']._serialized_start=475
+  _globals['_OMNINODESCRUBLIST']._serialized_end=558
+  _globals['_OMNINODEENDCONVERSATION']._serialized_start=560
+  _globals['_OMNINODEENDCONVERSATION']._serialized_end=585
 # @@protoc_insertion_point(module_scope)
