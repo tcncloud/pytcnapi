@@ -500,6 +500,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PublishDraftScheduleReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PublishDraftScheduleRes.FromString,
                 )
+        self.ResetDraftSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ResetDraftSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResetDraftScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResetDraftScheduleRes.FromString,
+                )
         self.GetDraftSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/GetDraftSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDraftScheduleReq.SerializeToString,
@@ -514,6 +519,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/DeleteDraftSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
+                )
+        self.CopyScheduleToSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CopyScheduleToSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleRes.FromString,
                 )
         self.CreateShiftInstance = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateShiftInstance',
@@ -2027,6 +2037,23 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ResetDraftSchedule(self, request, context):
+        """Resets the shifts on the @draft_schedule_sid for the org sending the request.
+        Shifts overlapping the @datetime_range will be deleted, then that @datetime_range will be populated with shifts from the published schedule.
+        If no @datetime_range is provided, all shifts will be removed from the @draft_schedule_sid, and published shifts will be copied across the draft's datetime range.
+        If @unlocked_only is set to true, only unlocked shifts will be deleted, and the locked shift instances will remain.
+        The published schedule will still be copied, so any newly overlapping shifts will result in an overlap warning.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @datetime_range or @draft_schedule_sid are invalid for the org sending the request.
+        - grpc.NotFound: the @draft_schedule_sid doesn't exist.
+        - grpc.Internal: error occurs when resetting the schedule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetDraftSchedule(self, request, context):
         """Gets the draft schedule with @draft_schedule_sid for the corresponding @datetime_range for the org sending the request.
         The @datetime_range field is optional. If not set, the draft schedule will be obtained with it's default range from it's start to end time.
@@ -2070,6 +2097,25 @@ class WFMServicer(object):
         - grpc.Invalid: the @draft_schedule_sid is invalid for the org making the request.
         - grpc.NotFound: the draft schedule with the given @draft_schedule_sid doesn't exist.
         - grpc.Internal: error occurs when removing the draft schedule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyScheduleToSchedule(self, request, context):
+        """Copies the shifts from @source_schedule_selector to @destination_schedule_selector, constrained by the given parameters for the org sending the request.
+        If @datetime_range is set, all shifts within the datetime range will be copied.
+        If @datetime_range is not set, all shifts in the @source_schedule_selector within the schedule range of the @destination_schedule_selector will be copied. However if one of them is a published schedule, it will use the schedule range of the draft schedule.
+        If @start_datetimes_only is set to false, then shifts are considered to be within the @datetime range if any portion of them is within the range.
+        If @start_datetimes_only is set to true, then only shifts with start times within the @datetime range will be copied.
+        If @overlap_as_warning is set to false, any overlapping shifts for a given agent will return a diagnostic error, and prevent any shifts from being copied.
+        If @overlap_as_warning is set to true, the shifts will be copied regardless of overlap conflicts, and any conflicts will cause a diagnostic warning to be returned after.
+        Required permissions:
+        NONE
+        Errors:
+        -grpc.Invalid: one or more fields in the request have invalid values.
+        -grpc.NotFound: the @source_schedule_selector or @destination_schedule_selector don't exist for the org sending the request.
+        -grpc.Internal: error occurs when creating the copied shift instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2744,6 +2790,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PublishDraftScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PublishDraftScheduleRes.SerializeToString,
             ),
+            'ResetDraftSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResetDraftSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResetDraftScheduleReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResetDraftScheduleRes.SerializeToString,
+            ),
             'GetDraftSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.GetDraftSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDraftScheduleReq.FromString,
@@ -2758,6 +2809,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteDraftSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.SerializeToString,
+            ),
+            'CopyScheduleToSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyScheduleToSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleRes.SerializeToString,
             ),
             'CreateShiftInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateShiftInstance,
@@ -4485,6 +4541,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ResetDraftSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ResetDraftSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResetDraftScheduleReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResetDraftScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetDraftSchedule(request,
             target,
             options=(),
@@ -4532,6 +4605,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteDraftSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyScheduleToSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CopyScheduleToSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

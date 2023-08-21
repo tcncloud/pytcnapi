@@ -2269,6 +2269,22 @@ class PublishDraftScheduleRes(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, published_schedule: _Optional[_Union[PublishedSchedule, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
+class ResetDraftScheduleReq(_message.Message):
+    __slots__ = ["draft_schedule_sid", "datetime_range", "unlocked_only"]
+    DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    UNLOCKED_ONLY_FIELD_NUMBER: _ClassVar[int]
+    draft_schedule_sid: int
+    datetime_range: _wfm_pb2.DatetimeRange
+    unlocked_only: bool
+    def __init__(self, draft_schedule_sid: _Optional[int] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., unlocked_only: bool = ...) -> None: ...
+
+class ResetDraftScheduleRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class GetDraftScheduleReq(_message.Message):
     __slots__ = ["draft_schedule_sid", "datetime_range", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "node_selector"]
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -2316,6 +2332,28 @@ class DeleteDraftScheduleReq(_message.Message):
 class DeleteDraftScheduleRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class CopyScheduleToScheduleReq(_message.Message):
+    __slots__ = ["source_schedule_selector", "destination_schedule_selector", "node_selector", "datetime_range", "start_datetimes_only", "overlap_as_warning"]
+    SOURCE_SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    DESTINATION_SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIMES_ONLY_FIELD_NUMBER: _ClassVar[int]
+    OVERLAP_AS_WARNING_FIELD_NUMBER: _ClassVar[int]
+    source_schedule_selector: _wfm_pb2.ScheduleSelector
+    destination_schedule_selector: _wfm_pb2.ScheduleSelector
+    node_selector: ParentEntity
+    datetime_range: _wfm_pb2.DatetimeRange
+    start_datetimes_only: bool
+    overlap_as_warning: bool
+    def __init__(self, source_schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., destination_schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., start_datetimes_only: bool = ..., overlap_as_warning: bool = ...) -> None: ...
+
+class CopyScheduleToScheduleRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class CreateShiftInstanceReq(_message.Message):
     __slots__ = ["draft_schedule_sid", "shift_template_sid", "start_datetime", "width_in_minutes", "is_locked", "wfm_agent_sid", "metric_types"]
