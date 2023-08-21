@@ -1,4 +1,5 @@
 from api.commons import agent_training_pb2 as _agent_training_pb2
+from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -27,3 +28,41 @@ class ListLearningOpportunitiesResponse(_message.Message):
     LEARNING_OPPORTUNITIES_FIELD_NUMBER: _ClassVar[int]
     learning_opportunities: _containers.RepeatedCompositeFieldContainer[_agent_training_pb2.LearningOpportunity]
     def __init__(self, learning_opportunities: _Optional[_Iterable[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]]] = ...) -> None: ...
+
+class UpdateLearningOpportunityRequest(_message.Message):
+    __slots__ = ["learning_opportunity", "update_mask"]
+    LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity: _agent_training_pb2.LearningOpportunity
+    update_mask: _field_mask_pb2.FieldMask
+    def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateLearningOpportunityResponse(_message.Message):
+    __slots__ = ["learning_opportunity"]
+    LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity: _agent_training_pb2.LearningOpportunity
+    def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
+
+class DeleteLearningOpportunityRequest(_message.Message):
+    __slots__ = ["learning_opportunity_id"]
+    LEARNING_OPPORTUNITY_ID_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity_id: int
+    def __init__(self, learning_opportunity_id: _Optional[int] = ...) -> None: ...
+
+class DeleteLearningOpportunityResponse(_message.Message):
+    __slots__ = ["learning_opportunity"]
+    LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity: _agent_training_pb2.LearningOpportunity
+    def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
+
+class GetLearningOpportunityRequest(_message.Message):
+    __slots__ = ["learning_opportunity"]
+    LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity: int
+    def __init__(self, learning_opportunity: _Optional[int] = ...) -> None: ...
+
+class GetLearningOpportunityResponse(_message.Message):
+    __slots__ = ["learning_opportunity"]
+    LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity: _agent_training_pb2.LearningOpportunity
+    def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...

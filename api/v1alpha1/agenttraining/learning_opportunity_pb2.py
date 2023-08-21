@@ -12,9 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 from api.commons import agent_training_pb2 as api_dot_commons_dot_agent__training__pb2
+from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5api/v1alpha1/agenttraining/learning_opportunity.proto\x12\x1a\x61pi.v1alpha1.agenttraining\x1a api/commons/agent_training.proto\"w\n CreateLearningOpportunityRequest\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunity\"x\n!CreateLearningOpportunityResponse\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunity\"\"\n ListLearningOpportunitiesRequest\"|\n!ListLearningOpportunitiesResponse\x12W\n\x16learning_opportunities\x18\x01 \x03(\x0b\x32 .api.commons.LearningOpportunityR\x15learningOpportunitiesB\xc4\x01\n\x1e\x63om.api.v1alpha1.agenttrainingB\x18LearningOpportunityProtoP\x01\xa2\x02\x03\x41VA\xaa\x02\x1a\x41pi.V1alpha1.Agenttraining\xca\x02\x1a\x41pi\\V1alpha1\\Agenttraining\xe2\x02&Api\\V1alpha1\\Agenttraining\\GPBMetadata\xea\x02\x1c\x41pi::V1alpha1::Agenttrainingb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n5api/v1alpha1/agenttraining/learning_opportunity.proto\x12\x1a\x61pi.v1alpha1.agenttraining\x1a api/commons/agent_training.proto\x1a google/protobuf/field_mask.proto\"w\n CreateLearningOpportunityRequest\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunity\"x\n!CreateLearningOpportunityResponse\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunity\"\"\n ListLearningOpportunitiesRequest\"|\n!ListLearningOpportunitiesResponse\x12W\n\x16learning_opportunities\x18\x01 \x03(\x0b\x32 .api.commons.LearningOpportunityR\x15learningOpportunities\"\xb4\x01\n UpdateLearningOpportunityRequest\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunity\x12;\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMask\"x\n!UpdateLearningOpportunityResponse\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunity\"Z\n DeleteLearningOpportunityRequest\x12\x36\n\x17learning_opportunity_id\x18\x01 \x01(\x03R\x15learningOpportunityId\"x\n!DeleteLearningOpportunityResponse\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunity\"R\n\x1dGetLearningOpportunityRequest\x12\x31\n\x14learning_opportunity\x18\x01 \x01(\x03R\x13learningOpportunity\"u\n\x1eGetLearningOpportunityResponse\x12S\n\x14learning_opportunity\x18\x01 \x01(\x0b\x32 .api.commons.LearningOpportunityR\x13learningOpportunityB\xc4\x01\n\x1e\x63om.api.v1alpha1.agenttrainingB\x18LearningOpportunityProtoP\x01\xa2\x02\x03\x41VA\xaa\x02\x1a\x41pi.V1alpha1.Agenttraining\xca\x02\x1a\x41pi\\V1alpha1\\Agenttraining\xe2\x02&Api\\V1alpha1\\Agenttraining\\GPBMetadata\xea\x02\x1c\x41pi::V1alpha1::Agenttrainingb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,12 +23,24 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.agenttraining.
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\036com.api.v1alpha1.agenttrainingB\030LearningOpportunityProtoP\001\242\002\003AVA\252\002\032Api.V1alpha1.Agenttraining\312\002\032Api\\V1alpha1\\Agenttraining\342\002&Api\\V1alpha1\\Agenttraining\\GPBMetadata\352\002\034Api::V1alpha1::Agenttraining'
-  _globals['_CREATELEARNINGOPPORTUNITYREQUEST']._serialized_start=119
-  _globals['_CREATELEARNINGOPPORTUNITYREQUEST']._serialized_end=238
-  _globals['_CREATELEARNINGOPPORTUNITYRESPONSE']._serialized_start=240
-  _globals['_CREATELEARNINGOPPORTUNITYRESPONSE']._serialized_end=360
-  _globals['_LISTLEARNINGOPPORTUNITIESREQUEST']._serialized_start=362
-  _globals['_LISTLEARNINGOPPORTUNITIESREQUEST']._serialized_end=396
-  _globals['_LISTLEARNINGOPPORTUNITIESRESPONSE']._serialized_start=398
-  _globals['_LISTLEARNINGOPPORTUNITIESRESPONSE']._serialized_end=522
+  _globals['_CREATELEARNINGOPPORTUNITYREQUEST']._serialized_start=153
+  _globals['_CREATELEARNINGOPPORTUNITYREQUEST']._serialized_end=272
+  _globals['_CREATELEARNINGOPPORTUNITYRESPONSE']._serialized_start=274
+  _globals['_CREATELEARNINGOPPORTUNITYRESPONSE']._serialized_end=394
+  _globals['_LISTLEARNINGOPPORTUNITIESREQUEST']._serialized_start=396
+  _globals['_LISTLEARNINGOPPORTUNITIESREQUEST']._serialized_end=430
+  _globals['_LISTLEARNINGOPPORTUNITIESRESPONSE']._serialized_start=432
+  _globals['_LISTLEARNINGOPPORTUNITIESRESPONSE']._serialized_end=556
+  _globals['_UPDATELEARNINGOPPORTUNITYREQUEST']._serialized_start=559
+  _globals['_UPDATELEARNINGOPPORTUNITYREQUEST']._serialized_end=739
+  _globals['_UPDATELEARNINGOPPORTUNITYRESPONSE']._serialized_start=741
+  _globals['_UPDATELEARNINGOPPORTUNITYRESPONSE']._serialized_end=861
+  _globals['_DELETELEARNINGOPPORTUNITYREQUEST']._serialized_start=863
+  _globals['_DELETELEARNINGOPPORTUNITYREQUEST']._serialized_end=953
+  _globals['_DELETELEARNINGOPPORTUNITYRESPONSE']._serialized_start=955
+  _globals['_DELETELEARNINGOPPORTUNITYRESPONSE']._serialized_end=1075
+  _globals['_GETLEARNINGOPPORTUNITYREQUEST']._serialized_start=1077
+  _globals['_GETLEARNINGOPPORTUNITYREQUEST']._serialized_end=1159
+  _globals['_GETLEARNINGOPPORTUNITYRESPONSE']._serialized_start=1161
+  _globals['_GETLEARNINGOPPORTUNITYRESPONSE']._serialized_end=1278
 # @@protoc_insertion_point(module_scope)
