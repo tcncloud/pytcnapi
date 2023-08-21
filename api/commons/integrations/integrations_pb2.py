@@ -19,7 +19,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.integrations.integrations_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\034com.api.commons.integrationsB\021IntegrationsProtoP\001\242\002\003ACI\252\002\030Api.Commons.Integrations\312\002\030Api\\Commons\\Integrations\342\002$Api\\Commons\\Integrations\\GPBMetadata\352\002\032Api::Commons::Integrations'
   _INVOICEDYNAMICJOURNEY_JOURNEYFIELDSENTRY._options = None

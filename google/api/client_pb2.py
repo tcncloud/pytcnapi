@@ -22,10 +22,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.api.client_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  google_dot_protobuf_dot_descriptor__pb2.MethodOptions.RegisterExtension(method_signature)
-  google_dot_protobuf_dot_descriptor__pb2.ServiceOptions.RegisterExtension(default_host)
-  google_dot_protobuf_dot_descriptor__pb2.ServiceOptions.RegisterExtension(oauth_scopes)
-
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\016com.google.apiB\013ClientProtoP\001ZAgoogle.golang.org/genproto/googleapis/api/annotations;annotations\242\002\003GAX\252\002\nGoogle.Api\312\002\nGoogle\\Api\342\002\026Google\\Api\\GPBMetadata\352\002\013Google::Api'
   _COMMONLANGUAGESETTINGS.fields_by_name['reference_docs_uri']._options = None
