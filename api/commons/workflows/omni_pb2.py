@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/workflows/omni.proto\x12\x15\x61pi.commons.workflows\"]\n\x0eOmniNodePrompt\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x19\n\x08store_to\x18\x02 \x01(\tR\x07storeTo\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\"J\n\x0fOmniNodeOptions\x12\x1d\n\noptions_id\x18\x01 \x01(\tR\toptionsId\x12\x18\n\x07options\x18\x02 \x03(\tR\x07options\"f\n\x13OmniNodeSendMessage\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x1d\n\noptions_id\x18\x02 \x01(\tR\toptionsId\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\".\n\x11OmniNodeUserInput\x12\x19\n\x08store_id\x18\x01 \x01(\tR\x07storeId\"g\n\x11OmniNodeBranching\x12\x1d\n\noptions_id\x18\x01 \x01(\tR\toptionsId\x12\x19\n\x08store_id\x18\x02 \x01(\tR\x07storeId\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\"D\n\x10OmniNodeSetSkill\x12\x18\n\x05skill\x18\x01 \x01(\tB\x02\x18\x01R\x05skill\x12\x16\n\x06skills\x18\x02 \x03(\tR\x06skills\"+\n\x11OmniNodeSetSkills\x12\x16\n\x06skills\x18\x01 \x03(\tR\x06skills\"\x11\n\x0fOmniNodeToAgent\"\x13\n\x11OmniNodeToMatcher\"%\n\rOmniNodeError\x12\x14\n\x05\x65rror\x18\x01 \x01(\tR\x05\x65rrorB\x9c\x01\n\x19\x63om.api.commons.workflowsB\tOmniProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/workflows/omni.proto\x12\x15\x61pi.commons.workflows\"]\n\x0eOmniNodePrompt\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x19\n\x08store_to\x18\x02 \x01(\tR\x07storeTo\x12\x18\n\x07options\x18\x03 \x03(\tR\x07options\"G\n\x13OmniNodeSendMessage\x12\x16\n\x06prompt\x18\x01 \x01(\tR\x06prompt\x12\x18\n\x07options\x18\x02 \x03(\tR\x07options\".\n\x11OmniNodeUserInput\x12\x19\n\x08store_id\x18\x01 \x01(\tR\x07storeId\"H\n\x11OmniNodeBranching\x12\x19\n\x08store_id\x18\x01 \x01(\tR\x07storeId\x12\x18\n\x07options\x18\x02 \x03(\tR\x07options\"D\n\x10OmniNodeSetSkill\x12\x18\n\x05skill\x18\x01 \x01(\tB\x02\x18\x01R\x05skill\x12\x16\n\x06skills\x18\x02 \x03(\tR\x06skills\"+\n\x11OmniNodeSetSkills\x12\x16\n\x06skills\x18\x01 \x03(\tR\x06skills\"\x11\n\x0fOmniNodeToAgent\"\x13\n\x11OmniNodeToMatcher\"%\n\rOmniNodeError\x12\x14\n\x05\x65rror\x18\x01 \x01(\tR\x05\x65rrorB\x9c\x01\n\x19\x63om.api.commons.workflowsB\tOmniProtoP\x01\xa2\x02\x03\x41\x43W\xaa\x02\x15\x41pi.Commons.Workflows\xca\x02\x15\x41pi\\Commons\\Workflows\xe2\x02!Api\\Commons\\Workflows\\GPBMetadata\xea\x02\x17\x41pi::Commons::Workflowsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,22 +25,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OMNINODESETSKILL.fields_by_name['skill']._serialized_options = b'\030\001'
   _globals['_OMNINODEPROMPT']._serialized_start=59
   _globals['_OMNINODEPROMPT']._serialized_end=152
-  _globals['_OMNINODEOPTIONS']._serialized_start=154
-  _globals['_OMNINODEOPTIONS']._serialized_end=228
-  _globals['_OMNINODESENDMESSAGE']._serialized_start=230
-  _globals['_OMNINODESENDMESSAGE']._serialized_end=332
-  _globals['_OMNINODEUSERINPUT']._serialized_start=334
-  _globals['_OMNINODEUSERINPUT']._serialized_end=380
-  _globals['_OMNINODEBRANCHING']._serialized_start=382
-  _globals['_OMNINODEBRANCHING']._serialized_end=485
-  _globals['_OMNINODESETSKILL']._serialized_start=487
-  _globals['_OMNINODESETSKILL']._serialized_end=555
-  _globals['_OMNINODESETSKILLS']._serialized_start=557
-  _globals['_OMNINODESETSKILLS']._serialized_end=600
-  _globals['_OMNINODETOAGENT']._serialized_start=602
-  _globals['_OMNINODETOAGENT']._serialized_end=619
-  _globals['_OMNINODETOMATCHER']._serialized_start=621
-  _globals['_OMNINODETOMATCHER']._serialized_end=640
-  _globals['_OMNINODEERROR']._serialized_start=642
-  _globals['_OMNINODEERROR']._serialized_end=679
+  _globals['_OMNINODESENDMESSAGE']._serialized_start=154
+  _globals['_OMNINODESENDMESSAGE']._serialized_end=225
+  _globals['_OMNINODEUSERINPUT']._serialized_start=227
+  _globals['_OMNINODEUSERINPUT']._serialized_end=273
+  _globals['_OMNINODEBRANCHING']._serialized_start=275
+  _globals['_OMNINODEBRANCHING']._serialized_end=347
+  _globals['_OMNINODESETSKILL']._serialized_start=349
+  _globals['_OMNINODESETSKILL']._serialized_end=417
+  _globals['_OMNINODESETSKILLS']._serialized_start=419
+  _globals['_OMNINODESETSKILLS']._serialized_end=462
+  _globals['_OMNINODETOAGENT']._serialized_start=464
+  _globals['_OMNINODETOAGENT']._serialized_end=481
+  _globals['_OMNINODETOMATCHER']._serialized_start=483
+  _globals['_OMNINODETOMATCHER']._serialized_end=502
+  _globals['_OMNINODEERROR']._serialized_start=504
+  _globals['_OMNINODEERROR']._serialized_end=541
 # @@protoc_insertion_point(module_scope)
