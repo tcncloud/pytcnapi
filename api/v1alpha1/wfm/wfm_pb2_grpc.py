@@ -520,6 +520,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
                 )
+        self.ListShiftInstancesBySid = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListShiftInstancesBySid',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidRes.FromString,
+                )
         self.CopyScheduleToSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CopyScheduleToSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyScheduleToScheduleReq.SerializeToString,
@@ -2102,6 +2107,20 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListShiftInstancesBySid(self, request, context):
+        """Lists the shift instances with the corresponding @shift_instance_sids for the org sending the request.
+        If @include_shift_segments is set to true, the returned shifts will have their shift segments returned as well.
+        If @include_shift_segments is set to false, the shift instances will be returned without their shift segments.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @org_id or @shift_instance_sids in the request are invalid.
+        - grpc.Internal: error occurs when listing the shift instances or their shift segments.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CopyScheduleToSchedule(self, request, context):
         """Copies the shifts from @source_schedule_selector to @destination_schedule_selector, constrained by the given parameters for the org sending the request.
         If @datetime_range is set, all shifts within the datetime range will be copied.
@@ -2809,6 +2828,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteDraftSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.SerializeToString,
+            ),
+            'ListShiftInstancesBySid': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListShiftInstancesBySid,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidRes.SerializeToString,
             ),
             'CopyScheduleToSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.CopyScheduleToSchedule,
@@ -4605,6 +4629,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteDraftSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListShiftInstancesBySid(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListShiftInstancesBySid',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -2333,6 +2333,20 @@ class DeleteDraftScheduleRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListShiftInstancesBySidReq(_message.Message):
+    __slots__ = ["shift_instance_sids", "include_shift_segments"]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    include_shift_segments: bool
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ...) -> None: ...
+
+class ListShiftInstancesBySidRes(_message.Message):
+    __slots__ = ["shift_instances"]
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
+
 class CopyScheduleToScheduleReq(_message.Message):
     __slots__ = ["source_schedule_selector", "destination_schedule_selector", "node_selector", "datetime_range", "start_datetimes_only", "overlap_as_warning"]
     SOURCE_SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
