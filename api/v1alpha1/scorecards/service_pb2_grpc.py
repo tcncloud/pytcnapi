@@ -237,7 +237,7 @@ class ScorecardsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.FromString,
                 )
-        self.StreamAutoEvaluations = channel.unary_unary(
+        self.StreamAutoEvaluations = channel.unary_stream(
                 '/api.v1alpha1.scorecards.Scorecards/StreamAutoEvaluations',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsResponse.FromString,
@@ -797,7 +797,7 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.SerializeToString,
             ),
-            'StreamAutoEvaluations': grpc.unary_unary_rpc_method_handler(
+            'StreamAutoEvaluations': grpc.unary_stream_rpc_method_handler(
                     servicer.StreamAutoEvaluations,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsResponse.SerializeToString,
@@ -1564,7 +1564,7 @@ class Scorecards(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/StreamAutoEvaluations',
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.scorecards.Scorecards/StreamAutoEvaluations',
             api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsResponse.FromString,
             options, channel_credentials,
