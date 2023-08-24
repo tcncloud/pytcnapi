@@ -247,22 +247,20 @@ class OmnichannelUpdateCampaignEvent(_message.Message):
     def __init__(self, campaign_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., omni_campaign: _Optional[_Union[_omnichannel_pb2.OmniCampaign, _Mapping]] = ...) -> None: ...
 
 class OmnichannelSetConversationCollectedDataEvent(_message.Message):
-    __slots__ = ["conversation_sid", "user_id", "channel_type", "campaign_direction", "collected_data", "conversation", "asm_session_sid"]
+    __slots__ = ["conversation_sid", "user_id", "channel_type", "campaign_direction", "collected_data", "asm_session_sid"]
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
     CAMPAIGN_DIRECTION_FIELD_NUMBER: _ClassVar[int]
     COLLECTED_DATA_FIELD_NUMBER: _ClassVar[int]
-    CONVERSATION_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     user_id: str
     channel_type: _omnichannel_pb2.ChannelType
     campaign_direction: _omnichannel_pb2.CampaignDirection
     collected_data: _omnichannel_pb2.ConversationCollectedData
-    conversation: _omnichannel_pb2.OmniConversation
     asm_session_sid: _wrappers_pb2.Int64Value
-    def __init__(self, conversation_sid: _Optional[int] = ..., user_id: _Optional[str] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., campaign_direction: _Optional[_Union[_omnichannel_pb2.CampaignDirection, str]] = ..., collected_data: _Optional[_Union[_omnichannel_pb2.ConversationCollectedData, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    def __init__(self, conversation_sid: _Optional[int] = ..., user_id: _Optional[str] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., campaign_direction: _Optional[_Union[_omnichannel_pb2.CampaignDirection, str]] = ..., collected_data: _Optional[_Union[_omnichannel_pb2.ConversationCollectedData, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class OmnichannelCompleteCampaignEvent(_message.Message):
     __slots__ = ["campaign_sid", "name", "description", "channel_type", "omni_campaign"]
