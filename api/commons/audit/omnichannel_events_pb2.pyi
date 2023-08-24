@@ -143,16 +143,18 @@ class OmnichannelAgentTextMessageEvent(_message.Message):
     def __init__(self, conversation_sid: _Optional[int] = ..., message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class OmnichannelManagerTextMessageEvent(_message.Message):
-    __slots__ = ["conversation_sid", "message", "conversation", "asm_session_sid"]
+    __slots__ = ["conversation_sid", "message", "conversation", "asm_session_sid", "user_id"]
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     CONVERSATION_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     message: _omnichannel_pb2.OmniMessage
     conversation: _omnichannel_pb2.OmniConversation
     asm_session_sid: _wrappers_pb2.Int64Value
-    def __init__(self, conversation_sid: _Optional[int] = ..., message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    user_id: str
+    def __init__(self, conversation_sid: _Optional[int] = ..., message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class OmnichannelFinishWrapUpEvent(_message.Message):
     __slots__ = ["conversation_sid", "campaign_sid", "channel_type", "conversation", "message", "asm_session_sid"]
