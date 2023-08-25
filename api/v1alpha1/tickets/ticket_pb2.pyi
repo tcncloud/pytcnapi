@@ -335,3 +335,17 @@ class AssignTicketActionResponse(_message.Message):
     IS_ASSIGNED_FIELD_NUMBER: _ClassVar[int]
     is_assigned: bool
     def __init__(self, is_assigned: bool = ...) -> None: ...
+
+class ChangeTicketStatusRequest(_message.Message):
+    __slots__ = ["ticket_id", "status_id"]
+    TICKET_ID_FIELD_NUMBER: _ClassVar[int]
+    STATUS_ID_FIELD_NUMBER: _ClassVar[int]
+    ticket_id: int
+    status_id: int
+    def __init__(self, ticket_id: _Optional[int] = ..., status_id: _Optional[int] = ...) -> None: ...
+
+class ChangeTicketStatusResponse(_message.Message):
+    __slots__ = ["is_status_edited"]
+    IS_STATUS_EDITED_FIELD_NUMBER: _ClassVar[int]
+    is_status_edited: bool
+    def __init__(self, is_status_edited: bool = ...) -> None: ...
