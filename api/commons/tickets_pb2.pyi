@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Ticket(_message.Message):
-    __slots__ = ["ticket_sid", "project_sid", "project_title", "ticket_code", "title", "description", "org_id", "created_by_id", "created_by_name", "created_by_date", "due_date", "assignee_list", "metadata", "ticket_skills", "status", "ticket_sla", "assignee"]
+    __slots__ = ["ticket_sid", "project_sid", "project_title", "ticket_code", "title", "description", "org_id", "created_by_id", "created_by_name", "created_by_date", "due_date", "assignee_list", "metadata", "ticket_skills", "status", "ticket_sla", "assignee", "ticket_action"]
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -25,6 +25,7 @@ class Ticket(_message.Message):
     STATUS_FIELD_NUMBER: _ClassVar[int]
     TICKET_SLA_FIELD_NUMBER: _ClassVar[int]
     ASSIGNEE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_ACTION_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     project_sid: int
     project_title: str
@@ -42,7 +43,30 @@ class Ticket(_message.Message):
     status: int
     ticket_sla: _containers.RepeatedCompositeFieldContainer[Sla]
     assignee: str
-    def __init__(self, ticket_sid: _Optional[int] = ..., project_sid: _Optional[int] = ..., project_title: _Optional[str] = ..., ticket_code: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., org_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee_list: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., assignee: _Optional[str] = ...) -> None: ...
+    ticket_action: _containers.RepeatedCompositeFieldContainer[TicketAction]
+    def __init__(self, ticket_sid: _Optional[int] = ..., project_sid: _Optional[int] = ..., project_title: _Optional[str] = ..., ticket_code: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., org_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee_list: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., assignee: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[TicketAction, _Mapping]]] = ...) -> None: ...
+
+class TicketAction(_message.Message):
+    __slots__ = ["ticket_action_id", "action_id", "ticket_context", "ticket_id", "start_date", "expiry_date", "assignee", "status", "action_skills"]
+    TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTION_ID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    TICKET_ID_FIELD_NUMBER: _ClassVar[int]
+    START_DATE_FIELD_NUMBER: _ClassVar[int]
+    EXPIRY_DATE_FIELD_NUMBER: _ClassVar[int]
+    ASSIGNEE_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    ACTION_SKILLS_FIELD_NUMBER: _ClassVar[int]
+    ticket_action_id: int
+    action_id: int
+    ticket_context: str
+    ticket_id: int
+    start_date: _timestamp_pb2.Timestamp
+    expiry_date: _timestamp_pb2.Timestamp
+    assignee: str
+    status: int
+    action_skills: _containers.RepeatedCompositeFieldContainer[Skills]
+    def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., ticket_context: _Optional[str] = ..., ticket_id: _Optional[int] = ..., start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee: _Optional[str] = ..., status: _Optional[int] = ..., action_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ...) -> None: ...
 
 class Metadata(_message.Message):
     __slots__ = ["name", "value"]
