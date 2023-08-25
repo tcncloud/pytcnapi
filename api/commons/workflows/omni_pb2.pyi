@@ -6,12 +6,12 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class ScrublistAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+class OmniNodeScrublistAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
-    ADD: _ClassVar[ScrublistAction]
-    REMOVE: _ClassVar[ScrublistAction]
-ADD: ScrublistAction
-REMOVE: ScrublistAction
+    ADD: _ClassVar[OmniNodeScrublistAction]
+    REMOVE: _ClassVar[OmniNodeScrublistAction]
+ADD: OmniNodeScrublistAction
+REMOVE: OmniNodeScrublistAction
 
 class OmniNodePrompt(_message.Message):
     __slots__ = ["prompt", "store_to", "options"]
@@ -61,8 +61,8 @@ class OmniNodeWebhook(_message.Message):
 class OmniNodeScrublist(_message.Message):
     __slots__ = ["action"]
     ACTION_FIELD_NUMBER: _ClassVar[int]
-    action: ScrublistAction
-    def __init__(self, action: _Optional[_Union[ScrublistAction, str]] = ...) -> None: ...
+    action: OmniNodeScrublistAction
+    def __init__(self, action: _Optional[_Union[OmniNodeScrublistAction, str]] = ...) -> None: ...
 
 class OmniNodeEndConversation(_message.Message):
     __slots__ = []
