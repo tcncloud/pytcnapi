@@ -23,10 +23,25 @@ class TimeUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TIME_WEEKS: _ClassVar[TimeUnit]
     TIME_DAYS: _ClassVar[TimeUnit]
     TIME_HOURS: _ClassVar[TimeUnit]
+
+class EpicEntityType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    EPIC_UNKNOWN_TYPE: _ClassVar[EpicEntityType]
+    EPIC_ENTITY_TYPE_PATIENT: _ClassVar[EpicEntityType]
+    EPIC_ENTITY_TYPE_APPOINTMENT: _ClassVar[EpicEntityType]
+    EPIC_ENTITY_TYPE_MEDICATION: _ClassVar[EpicEntityType]
+    EPIC_ENTITY_TYPE_MEDICATION_REQUEST: _ClassVar[EpicEntityType]
+    EPIC_ENTITY_TYPE_ACCOUNT: _ClassVar[EpicEntityType]
 DEFAULT: TimeUnit
 TIME_WEEKS: TimeUnit
 TIME_DAYS: TimeUnit
 TIME_HOURS: TimeUnit
+EPIC_UNKNOWN_TYPE: EpicEntityType
+EPIC_ENTITY_TYPE_PATIENT: EpicEntityType
+EPIC_ENTITY_TYPE_APPOINTMENT: EpicEntityType
+EPIC_ENTITY_TYPE_MEDICATION: EpicEntityType
+EPIC_ENTITY_TYPE_MEDICATION_REQUEST: EpicEntityType
+EPIC_ENTITY_TYPE_ACCOUNT: EpicEntityType
 
 class GetPublicKeyReq(_message.Message):
     __slots__ = []
@@ -528,7 +543,7 @@ class ReRunRes(_message.Message):
     def __init__(self) -> None: ...
 
 class Process(_message.Message):
-    __slots__ = ["expression", "append", "sort", "filter", "gs_export", "p3_export", "compl", "dedup", "cfs_export", "sftp_export", "reshape", "lookup", "entrypoint", "compliance_export", "api_entrypoint", "sftp_import", "scrub", "frequency", "cjs_import", "cjs_export", "cjs_enrich", "web_entrypoint", "delete_scrub_entries", "wfm_export", "link_enrich", "rnd", "consent_enrich", "consent_export", "compliance_processor", "consent_entrypoint", "portal_link_enrich", "bulk_web_entrypoint", "omni_exchange_process", "web_exchange_process", "split"]
+    __slots__ = ["expression", "append", "sort", "filter", "gs_export", "p3_export", "compl", "dedup", "cfs_export", "sftp_export", "reshape", "lookup", "entrypoint", "compliance_export", "api_entrypoint", "sftp_import", "scrub", "frequency", "cjs_import", "cjs_export", "cjs_enrich", "web_entrypoint", "delete_scrub_entries", "wfm_export", "link_enrich", "rnd", "consent_enrich", "consent_export", "compliance_processor", "consent_entrypoint", "portal_link_enrich", "bulk_web_entrypoint", "omni_exchange_process", "web_exchange_process", "split", "epic_entry_point"]
     EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     APPEND_FIELD_NUMBER: _ClassVar[int]
     SORT_FIELD_NUMBER: _ClassVar[int]
@@ -564,6 +579,7 @@ class Process(_message.Message):
     OMNI_EXCHANGE_PROCESS_FIELD_NUMBER: _ClassVar[int]
     WEB_EXCHANGE_PROCESS_FIELD_NUMBER: _ClassVar[int]
     SPLIT_FIELD_NUMBER: _ClassVar[int]
+    EPIC_ENTRY_POINT_FIELD_NUMBER: _ClassVar[int]
     expression: str
     append: AppendProcess
     sort: SortCriteria
@@ -599,7 +615,8 @@ class Process(_message.Message):
     omni_exchange_process: OmniExchangeProcess
     web_exchange_process: WebExchangeProcess
     split: SplitCriteria
-    def __init__(self, expression: _Optional[str] = ..., append: _Optional[_Union[AppendProcess, _Mapping]] = ..., sort: _Optional[_Union[SortCriteria, _Mapping]] = ..., filter: _Optional[_Union[FilterProcess, _Mapping]] = ..., gs_export: _Optional[_Union[GSExportProcess, _Mapping]] = ..., p3_export: _Optional[_Union[P3ExportProcess, _Mapping]] = ..., compl: _Optional[_Union[ComplProcess, _Mapping]] = ..., dedup: _Optional[_Union[DeDupCriteria, _Mapping]] = ..., cfs_export: _Optional[_Union[CFSExportProcess, _Mapping]] = ..., sftp_export: _Optional[_Union[SftpExportProcess, _Mapping]] = ..., reshape: _Optional[_Union[ReshapeProcess, _Mapping]] = ..., lookup: _Optional[_Union[LookupProcess, _Mapping]] = ..., entrypoint: _Optional[_Union[EntrypointProcess, _Mapping]] = ..., compliance_export: _Optional[_Union[ComplianceExportProcess, _Mapping]] = ..., api_entrypoint: _Optional[_Union[ApiEntrypoint, _Mapping]] = ..., sftp_import: _Optional[_Union[SftpImport, _Mapping]] = ..., scrub: _Optional[_Union[ScrubProcess, _Mapping]] = ..., frequency: _Optional[_Union[FrequencyProcess, _Mapping]] = ..., cjs_import: _Optional[_Union[CjsImportProcess, _Mapping]] = ..., cjs_export: _Optional[_Union[CjsExportProcess, _Mapping]] = ..., cjs_enrich: _Optional[_Union[CjsEnrichmentProcess, _Mapping]] = ..., web_entrypoint: _Optional[_Union[WebEntrypointProcess, _Mapping]] = ..., delete_scrub_entries: _Optional[_Union[DeleteScrubEntriesProcess, _Mapping]] = ..., wfm_export: _Optional[_Union[WfmExportProcess, _Mapping]] = ..., link_enrich: _Optional[_Union[PaymentLinkEnrichment, _Mapping]] = ..., rnd: _Optional[_Union[RndEnrichmentProcess, _Mapping]] = ..., consent_enrich: _Optional[_Union[ConsentEnrichmentProcess, _Mapping]] = ..., consent_export: _Optional[_Union[ConsentExportProcess, _Mapping]] = ..., compliance_processor: _Optional[_Union[ComplianceProcessor, _Mapping]] = ..., consent_entrypoint: _Optional[_Union[ConsentEntrypointProcess, _Mapping]] = ..., portal_link_enrich: _Optional[_Union[PortalLinkEnrichment, _Mapping]] = ..., bulk_web_entrypoint: _Optional[_Union[BulkWebEntrypointProcess, _Mapping]] = ..., omni_exchange_process: _Optional[_Union[OmniExchangeProcess, _Mapping]] = ..., web_exchange_process: _Optional[_Union[WebExchangeProcess, _Mapping]] = ..., split: _Optional[_Union[SplitCriteria, _Mapping]] = ...) -> None: ...
+    epic_entry_point: EpicEntrypoint
+    def __init__(self, expression: _Optional[str] = ..., append: _Optional[_Union[AppendProcess, _Mapping]] = ..., sort: _Optional[_Union[SortCriteria, _Mapping]] = ..., filter: _Optional[_Union[FilterProcess, _Mapping]] = ..., gs_export: _Optional[_Union[GSExportProcess, _Mapping]] = ..., p3_export: _Optional[_Union[P3ExportProcess, _Mapping]] = ..., compl: _Optional[_Union[ComplProcess, _Mapping]] = ..., dedup: _Optional[_Union[DeDupCriteria, _Mapping]] = ..., cfs_export: _Optional[_Union[CFSExportProcess, _Mapping]] = ..., sftp_export: _Optional[_Union[SftpExportProcess, _Mapping]] = ..., reshape: _Optional[_Union[ReshapeProcess, _Mapping]] = ..., lookup: _Optional[_Union[LookupProcess, _Mapping]] = ..., entrypoint: _Optional[_Union[EntrypointProcess, _Mapping]] = ..., compliance_export: _Optional[_Union[ComplianceExportProcess, _Mapping]] = ..., api_entrypoint: _Optional[_Union[ApiEntrypoint, _Mapping]] = ..., sftp_import: _Optional[_Union[SftpImport, _Mapping]] = ..., scrub: _Optional[_Union[ScrubProcess, _Mapping]] = ..., frequency: _Optional[_Union[FrequencyProcess, _Mapping]] = ..., cjs_import: _Optional[_Union[CjsImportProcess, _Mapping]] = ..., cjs_export: _Optional[_Union[CjsExportProcess, _Mapping]] = ..., cjs_enrich: _Optional[_Union[CjsEnrichmentProcess, _Mapping]] = ..., web_entrypoint: _Optional[_Union[WebEntrypointProcess, _Mapping]] = ..., delete_scrub_entries: _Optional[_Union[DeleteScrubEntriesProcess, _Mapping]] = ..., wfm_export: _Optional[_Union[WfmExportProcess, _Mapping]] = ..., link_enrich: _Optional[_Union[PaymentLinkEnrichment, _Mapping]] = ..., rnd: _Optional[_Union[RndEnrichmentProcess, _Mapping]] = ..., consent_enrich: _Optional[_Union[ConsentEnrichmentProcess, _Mapping]] = ..., consent_export: _Optional[_Union[ConsentExportProcess, _Mapping]] = ..., compliance_processor: _Optional[_Union[ComplianceProcessor, _Mapping]] = ..., consent_entrypoint: _Optional[_Union[ConsentEntrypointProcess, _Mapping]] = ..., portal_link_enrich: _Optional[_Union[PortalLinkEnrichment, _Mapping]] = ..., bulk_web_entrypoint: _Optional[_Union[BulkWebEntrypointProcess, _Mapping]] = ..., omni_exchange_process: _Optional[_Union[OmniExchangeProcess, _Mapping]] = ..., web_exchange_process: _Optional[_Union[WebExchangeProcess, _Mapping]] = ..., split: _Optional[_Union[SplitCriteria, _Mapping]] = ..., epic_entry_point: _Optional[_Union[EpicEntrypoint, _Mapping]] = ...) -> None: ...
 
 class ComplianceProcessor(_message.Message):
     __slots__ = ["rule_set_id", "comm_type", "call_type", "phone_number_field", "email_field", "zip_code_field", "call_metadata", "country_code"]
@@ -2345,3 +2362,77 @@ class SplitByEqualParts(_message.Message):
     PART_SIZE_FIELD_NUMBER: _ClassVar[int]
     part_size: int
     def __init__(self, part_size: _Optional[int] = ...) -> None: ...
+
+class EpicEntrypoint(_message.Message):
+    __slots__ = ["cron", "max_wait_time", "entity_types", "group_base_url", "group_fhir_id", "runtime_values", "flush_page_count", "flush_minute_count", "flush_during_check"]
+    CRON_FIELD_NUMBER: _ClassVar[int]
+    MAX_WAIT_TIME_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_TYPES_FIELD_NUMBER: _ClassVar[int]
+    GROUP_BASE_URL_FIELD_NUMBER: _ClassVar[int]
+    GROUP_FHIR_ID_FIELD_NUMBER: _ClassVar[int]
+    RUNTIME_VALUES_FIELD_NUMBER: _ClassVar[int]
+    FLUSH_PAGE_COUNT_FIELD_NUMBER: _ClassVar[int]
+    FLUSH_MINUTE_COUNT_FIELD_NUMBER: _ClassVar[int]
+    FLUSH_DURING_CHECK_FIELD_NUMBER: _ClassVar[int]
+    cron: str
+    max_wait_time: float
+    entity_types: _containers.RepeatedScalarFieldContainer[EpicEntityType]
+    group_base_url: str
+    group_fhir_id: str
+    runtime_values: RuntimeValues
+    flush_page_count: int
+    flush_minute_count: int
+    flush_during_check: bool
+    def __init__(self, cron: _Optional[str] = ..., max_wait_time: _Optional[float] = ..., entity_types: _Optional[_Iterable[_Union[EpicEntityType, str]]] = ..., group_base_url: _Optional[str] = ..., group_fhir_id: _Optional[str] = ..., runtime_values: _Optional[_Union[RuntimeValues, _Mapping]] = ..., flush_page_count: _Optional[int] = ..., flush_minute_count: _Optional[int] = ..., flush_during_check: bool = ...) -> None: ...
+
+class RuntimeValues(_message.Message):
+    __slots__ = ["state", "access_token", "check_url", "data_urls", "current_iteration", "total_seconds_spent", "errors", "total_not_ready_count", "file_ids", "preliminary_vars", "parent_event_ids", "no_more_pages", "total_fts_ids"]
+    class FileIdsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: int
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    class PreliminaryVarsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    CHECK_URL_FIELD_NUMBER: _ClassVar[int]
+    DATA_URLS_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_ITERATION_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_SECONDS_SPENT_FIELD_NUMBER: _ClassVar[int]
+    ERRORS_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_NOT_READY_COUNT_FIELD_NUMBER: _ClassVar[int]
+    FILE_IDS_FIELD_NUMBER: _ClassVar[int]
+    PRELIMINARY_VARS_FIELD_NUMBER: _ClassVar[int]
+    PARENT_EVENT_IDS_FIELD_NUMBER: _ClassVar[int]
+    NO_MORE_PAGES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FTS_IDS_FIELD_NUMBER: _ClassVar[int]
+    state: _lms_pb2.EventState
+    access_token: str
+    check_url: str
+    data_urls: _containers.RepeatedCompositeFieldContainer[EntityURL]
+    current_iteration: int
+    total_seconds_spent: int
+    errors: _containers.RepeatedScalarFieldContainer[str]
+    total_not_ready_count: int
+    file_ids: _containers.ScalarMap[str, int]
+    preliminary_vars: _containers.ScalarMap[str, str]
+    parent_event_ids: _containers.RepeatedScalarFieldContainer[int]
+    no_more_pages: bool
+    total_fts_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, state: _Optional[_Union[_lms_pb2.EventState, str]] = ..., access_token: _Optional[str] = ..., check_url: _Optional[str] = ..., data_urls: _Optional[_Iterable[_Union[EntityURL, _Mapping]]] = ..., current_iteration: _Optional[int] = ..., total_seconds_spent: _Optional[int] = ..., errors: _Optional[_Iterable[str]] = ..., total_not_ready_count: _Optional[int] = ..., file_ids: _Optional[_Mapping[str, int]] = ..., preliminary_vars: _Optional[_Mapping[str, str]] = ..., parent_event_ids: _Optional[_Iterable[int]] = ..., no_more_pages: bool = ..., total_fts_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class EntityURL(_message.Message):
+    __slots__ = ["entity_type", "url"]
+    ENTITY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    URL_FIELD_NUMBER: _ClassVar[int]
+    entity_type: EpicEntityType
+    url: str
+    def __init__(self, entity_type: _Optional[_Union[EpicEntityType, str]] = ..., url: _Optional[str] = ...) -> None: ...
