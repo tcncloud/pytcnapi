@@ -1069,6 +1069,16 @@ class UpdateNonSkillActivityRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListNonSkillActivitiesReq(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListNonSkillActivitiesRes(_message.Message):
+    __slots__ = ["non_skill_activities"]
+    NON_SKILL_ACTIVITIES_FIELD_NUMBER: _ClassVar[int]
+    non_skill_activities: _containers.RepeatedCompositeFieldContainer[NonSkillActivity]
+    def __init__(self, non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ...) -> None: ...
+
 class ListNonSkillActivityAssociationsReq(_message.Message):
     __slots__ = ["associated_entity", "relationship_type"]
     ASSOCIATED_ENTITY_FIELD_NUMBER: _ClassVar[int]

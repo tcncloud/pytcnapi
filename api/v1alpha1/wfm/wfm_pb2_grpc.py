@@ -270,6 +270,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityRes.FromString,
                 )
+        self.ListNonSkillActivities = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListNonSkillActivities',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesRes.FromString,
+                )
         self.ListNonSkillActivityAssociations = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListNonSkillActivityAssociations',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivityAssociationsReq.SerializeToString,
@@ -1342,6 +1347,17 @@ class WFMServicer(object):
         - grpc.Invalid: @non_skill_activity fields have invalid values.
         - grpc.NotFound: non skill activity for the given @non_skill_activity_sid doesn't exist.
         - grpc.Internal: error occurs when updating the non skill activity.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListNonSkillActivities(self, request, context):
+        """Lists the non skill activities that belong to the org sending the request.
+        Required permissions:
+        NONE
+        Errors:.
+        - grpc.Internal: error occurs when listing the activites.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2583,6 +2599,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityRes.SerializeToString,
             ),
+            'ListNonSkillActivities': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNonSkillActivities,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesRes.SerializeToString,
+            ),
             'ListNonSkillActivityAssociations': grpc.unary_unary_rpc_method_handler(
                     servicer.ListNonSkillActivityAssociations,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivityAssociationsReq.FromString,
@@ -3783,6 +3804,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateNonSkillActivity',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListNonSkillActivities(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListNonSkillActivities',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
