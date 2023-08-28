@@ -2333,6 +2333,28 @@ class ListDraftSchedulesRes(_message.Message):
     draft_schedules: _containers.RepeatedCompositeFieldContainer[DraftSchedule]
     def __init__(self, draft_schedules: _Optional[_Iterable[_Union[DraftSchedule, _Mapping]]] = ...) -> None: ...
 
+class ClearScheduleReq(_message.Message):
+    __slots__ = ["schedule_selector", "node_selector", "datetime_range", "invert_datetime_range", "start_datetimes_only", "delete_locked"]
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    INVERT_DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIMES_ONLY_FIELD_NUMBER: _ClassVar[int]
+    DELETE_LOCKED_FIELD_NUMBER: _ClassVar[int]
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    node_selector: ParentEntity
+    datetime_range: _wfm_pb2.DatetimeRange
+    invert_datetime_range: bool
+    start_datetimes_only: bool
+    delete_locked: bool
+    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., invert_datetime_range: bool = ..., start_datetimes_only: bool = ..., delete_locked: bool = ...) -> None: ...
+
+class ClearScheduleRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class DeleteDraftScheduleReq(_message.Message):
     __slots__ = ["draft_schedule_sid"]
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
