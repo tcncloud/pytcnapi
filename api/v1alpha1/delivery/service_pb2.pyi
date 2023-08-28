@@ -296,12 +296,14 @@ class SftpDestination(_message.Message):
     def __init__(self, base_directory: _Optional[str] = ..., address: _Optional[str] = ..., port: _Optional[int] = ...) -> None: ...
 
 class Room303Destination(_message.Message):
-    __slots__ = ["room", "username"]
+    __slots__ = ["room", "username", "user_id"]
     ROOM_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
     room: str
     username: str
-    def __init__(self, room: _Optional[str] = ..., username: _Optional[str] = ...) -> None: ...
+    user_id: str
+    def __init__(self, room: _Optional[str] = ..., username: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class SmsDestination(_message.Message):
     __slots__ = ["destination_phone", "source_phone"]
