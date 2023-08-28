@@ -43,3 +43,17 @@ class DeleteAutoEvaluationResponse(_message.Message):
     AUTO_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation: _scorecards_pb2.AutoEvaluation
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
+
+class StreamAutoEvaluationsRequest(_message.Message):
+    __slots__ = ["scorecard_ids", "completed_at"]
+    SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
+    scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
+    completed_at: _scorecards_pb2.TimeFilter
+    def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
+
+class StreamAutoEvaluationsResponse(_message.Message):
+    __slots__ = ["auto_evaluation"]
+    AUTO_EVALUATION_FIELD_NUMBER: _ClassVar[int]
+    auto_evaluation: _scorecards_pb2.AutoEvaluation
+    def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...

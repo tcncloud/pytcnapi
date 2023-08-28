@@ -237,6 +237,11 @@ class ScorecardsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.FromString,
                 )
+        self.StreamAutoEvaluations = channel.unary_stream(
+                '/api.v1alpha1.scorecards.Scorecards/StreamAutoEvaluations',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsResponse.FromString,
+                )
         self.DeleteAutoEvaluation = channel.unary_unary(
                 '/api.v1alpha1.scorecards.Scorecards/DeleteAutoEvaluation',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.DeleteAutoEvaluationRequest.SerializeToString,
@@ -553,6 +558,13 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def StreamAutoEvaluations(self, request, context):
+        """StreamAutoEvaluations streams a list of auto evaluations
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteAutoEvaluation(self, request, context):
         """DeleteAutoEvaluation deletes an auto evaluations
         """
@@ -784,6 +796,11 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.ListAutoEvaluations,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.SerializeToString,
+            ),
+            'StreamAutoEvaluations': grpc.unary_stream_rpc_method_handler(
+                    servicer.StreamAutoEvaluations,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsResponse.SerializeToString,
             ),
             'DeleteAutoEvaluation': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteAutoEvaluation,
@@ -1533,6 +1550,23 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/ListAutoEvaluations',
             api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StreamAutoEvaluations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.scorecards.Scorecards/StreamAutoEvaluations',
+            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.StreamAutoEvaluationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
