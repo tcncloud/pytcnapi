@@ -273,7 +273,7 @@ class ListAgentsRequest(_message.Message):
 class ListAgentsResponse(_message.Message):
     __slots__ = ["agents"]
     class AgentDetails(_message.Message):
-        __slots__ = ["user_id", "org_id", "first_name", "last_name", "username", "skills", "login_disabled", "hunt_group", "delegated", "trust_ids", "permission_groups", "agent_sid", "name", "partner_agent_id", "user_caller_id", "created", "last_updated", "agent_profile_group", "agent", "time_zone_override", "email"]
+        __slots__ = ["user_id", "org_id", "first_name", "last_name", "username", "skills", "login_disabled", "hunt_group", "labels", "delegated", "trust_ids", "permission_groups", "agent_sid", "name", "partner_agent_id", "user_caller_id", "created", "last_updated", "agent_profile_group", "agent", "time_zone_override", "email"]
         class HuntGroup(_message.Message):
             __slots__ = ["hunt_group_sid", "hunt_group_name"]
             HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -296,6 +296,7 @@ class ListAgentsResponse(_message.Message):
         SKILLS_FIELD_NUMBER: _ClassVar[int]
         LOGIN_DISABLED_FIELD_NUMBER: _ClassVar[int]
         HUNT_GROUP_FIELD_NUMBER: _ClassVar[int]
+        LABELS_FIELD_NUMBER: _ClassVar[int]
         DELEGATED_FIELD_NUMBER: _ClassVar[int]
         TRUST_IDS_FIELD_NUMBER: _ClassVar[int]
         PERMISSION_GROUPS_FIELD_NUMBER: _ClassVar[int]
@@ -317,6 +318,7 @@ class ListAgentsResponse(_message.Message):
         skills: _containers.RepeatedCompositeFieldContainer[_user_pb2.Skill]
         login_disabled: bool
         hunt_group: ListAgentsResponse.AgentDetails.HuntGroup
+        labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
         delegated: bool
         trust_ids: _containers.RepeatedScalarFieldContainer[str]
         permission_groups: _containers.RepeatedCompositeFieldContainer[_permissions_pb2.PermissionGroup]
@@ -330,7 +332,7 @@ class ListAgentsResponse(_message.Message):
         agent: bool
         time_zone_override: _org_pb2.TimeZoneWrapper
         email: str
-        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., login_disabled: bool = ..., hunt_group: _Optional[_Union[ListAgentsResponse.AgentDetails.HuntGroup, _Mapping]] = ..., delegated: bool = ..., trust_ids: _Optional[_Iterable[str]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., agent_sid: _Optional[int] = ..., name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., user_caller_id: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_profile_group: _Optional[_Union[ListAgentsResponse.AgentDetails.AgentProfileGroup, _Mapping]] = ..., agent: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ...) -> None: ...
+        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., login_disabled: bool = ..., hunt_group: _Optional[_Union[ListAgentsResponse.AgentDetails.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., delegated: bool = ..., trust_ids: _Optional[_Iterable[str]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., agent_sid: _Optional[int] = ..., name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., user_caller_id: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_profile_group: _Optional[_Union[ListAgentsResponse.AgentDetails.AgentProfileGroup, _Mapping]] = ..., agent: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ...) -> None: ...
     AGENTS_FIELD_NUMBER: _ClassVar[int]
     agents: _containers.RepeatedCompositeFieldContainer[ListAgentsResponse.AgentDetails]
     def __init__(self, agents: _Optional[_Iterable[_Union[ListAgentsResponse.AgentDetails, _Mapping]]] = ...) -> None: ...
@@ -342,7 +344,7 @@ class ListUsersRequest(_message.Message):
 class ListUsersResponse(_message.Message):
     __slots__ = ["users"]
     class UserDetails(_message.Message):
-        __slots__ = ["user_id", "org_id", "first_name", "last_name", "username", "login_disabled", "permission_group_ids", "account_owner", "agent", "trust_ids"]
+        __slots__ = ["user_id", "org_id", "first_name", "last_name", "username", "login_disabled", "permission_group_ids", "labels", "account_owner", "agent", "trust_ids"]
         USER_ID_FIELD_NUMBER: _ClassVar[int]
         ORG_ID_FIELD_NUMBER: _ClassVar[int]
         FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -350,6 +352,7 @@ class ListUsersResponse(_message.Message):
         USERNAME_FIELD_NUMBER: _ClassVar[int]
         LOGIN_DISABLED_FIELD_NUMBER: _ClassVar[int]
         PERMISSION_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+        LABELS_FIELD_NUMBER: _ClassVar[int]
         ACCOUNT_OWNER_FIELD_NUMBER: _ClassVar[int]
         AGENT_FIELD_NUMBER: _ClassVar[int]
         TRUST_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -360,10 +363,11 @@ class ListUsersResponse(_message.Message):
         username: str
         login_disabled: bool
         permission_group_ids: _containers.RepeatedScalarFieldContainer[str]
+        labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
         account_owner: bool
         agent: bool
         trust_ids: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., login_disabled: bool = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., account_owner: bool = ..., agent: bool = ..., trust_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., login_disabled: bool = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., account_owner: bool = ..., agent: bool = ..., trust_ids: _Optional[_Iterable[str]] = ...) -> None: ...
     USERS_FIELD_NUMBER: _ClassVar[int]
     users: _containers.RepeatedCompositeFieldContainer[ListUsersResponse.UserDetails]
     def __init__(self, users: _Optional[_Iterable[_Union[ListUsersResponse.UserDetails, _Mapping]]] = ...) -> None: ...
@@ -379,7 +383,7 @@ class ListUsersByOrgIdRequest(_message.Message):
 class ListUsersByOrgIdResponse(_message.Message):
     __slots__ = ["users"]
     class UserDetails(_message.Message):
-        __slots__ = ["user_id", "org_id", "org_name", "first_name", "last_name", "username", "login_disabled", "permission_group_ids", "account_owner", "agent", "trust_ids"]
+        __slots__ = ["user_id", "org_id", "org_name", "first_name", "last_name", "username", "login_disabled", "permission_group_ids", "labels", "account_owner", "agent", "trust_ids"]
         USER_ID_FIELD_NUMBER: _ClassVar[int]
         ORG_ID_FIELD_NUMBER: _ClassVar[int]
         ORG_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -388,6 +392,7 @@ class ListUsersByOrgIdResponse(_message.Message):
         USERNAME_FIELD_NUMBER: _ClassVar[int]
         LOGIN_DISABLED_FIELD_NUMBER: _ClassVar[int]
         PERMISSION_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+        LABELS_FIELD_NUMBER: _ClassVar[int]
         ACCOUNT_OWNER_FIELD_NUMBER: _ClassVar[int]
         AGENT_FIELD_NUMBER: _ClassVar[int]
         TRUST_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -399,10 +404,11 @@ class ListUsersByOrgIdResponse(_message.Message):
         username: str
         login_disabled: bool
         permission_group_ids: _containers.RepeatedScalarFieldContainer[str]
+        labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
         account_owner: bool
         agent: bool
         trust_ids: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., org_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., login_disabled: bool = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., account_owner: bool = ..., agent: bool = ..., trust_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., org_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., login_disabled: bool = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., account_owner: bool = ..., agent: bool = ..., trust_ids: _Optional[_Iterable[str]] = ...) -> None: ...
     USERS_FIELD_NUMBER: _ClassVar[int]
     users: _containers.RepeatedCompositeFieldContainer[ListUsersByOrgIdResponse.UserDetails]
     def __init__(self, users: _Optional[_Iterable[_Union[ListUsersByOrgIdResponse.UserDetails, _Mapping]]] = ...) -> None: ...
@@ -420,7 +426,7 @@ class ListUsersByRegionRequest(_message.Message):
 class ListUsersByRegionResponse(_message.Message):
     __slots__ = ["users"]
     class UserDetails(_message.Message):
-        __slots__ = ["user_id", "org_id", "first_name", "last_name", "username", "login_disabled", "permission_group_ids", "account_owner", "agent", "trust_ids"]
+        __slots__ = ["user_id", "org_id", "first_name", "last_name", "username", "login_disabled", "permission_group_ids", "labels", "account_owner", "agent", "trust_ids"]
         USER_ID_FIELD_NUMBER: _ClassVar[int]
         ORG_ID_FIELD_NUMBER: _ClassVar[int]
         FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -428,6 +434,7 @@ class ListUsersByRegionResponse(_message.Message):
         USERNAME_FIELD_NUMBER: _ClassVar[int]
         LOGIN_DISABLED_FIELD_NUMBER: _ClassVar[int]
         PERMISSION_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+        LABELS_FIELD_NUMBER: _ClassVar[int]
         ACCOUNT_OWNER_FIELD_NUMBER: _ClassVar[int]
         AGENT_FIELD_NUMBER: _ClassVar[int]
         TRUST_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -438,10 +445,11 @@ class ListUsersByRegionResponse(_message.Message):
         username: str
         login_disabled: bool
         permission_group_ids: _containers.RepeatedScalarFieldContainer[str]
+        labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
         account_owner: bool
         agent: bool
         trust_ids: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., login_disabled: bool = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., account_owner: bool = ..., agent: bool = ..., trust_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., login_disabled: bool = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., account_owner: bool = ..., agent: bool = ..., trust_ids: _Optional[_Iterable[str]] = ...) -> None: ...
     USERS_FIELD_NUMBER: _ClassVar[int]
     users: _containers.RepeatedCompositeFieldContainer[ListUsersByRegionResponse.UserDetails]
     def __init__(self, users: _Optional[_Iterable[_Union[ListUsersByRegionResponse.UserDetails, _Mapping]]] = ...) -> None: ...
