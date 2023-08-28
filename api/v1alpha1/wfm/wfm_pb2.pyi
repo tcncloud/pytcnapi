@@ -1069,6 +1069,16 @@ class UpdateNonSkillActivityRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListNonSkillActivitiesReq(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListNonSkillActivitiesRes(_message.Message):
+    __slots__ = ["non_skill_activities"]
+    NON_SKILL_ACTIVITIES_FIELD_NUMBER: _ClassVar[int]
+    non_skill_activities: _containers.RepeatedCompositeFieldContainer[NonSkillActivity]
+    def __init__(self, non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ...) -> None: ...
+
 class ListNonSkillActivityAssociationsReq(_message.Message):
     __slots__ = ["associated_entity", "relationship_type"]
     ASSOCIATED_ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -2332,6 +2342,26 @@ class DeleteDraftScheduleReq(_message.Message):
 class DeleteDraftScheduleRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class ListShiftInstancesBySidReq(_message.Message):
+    __slots__ = ["shift_instance_sids", "include_shift_segments", "include_shift_template", "include_scheduling_activity", "include_activity"]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SHIFT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    include_shift_segments: bool
+    include_shift_template: bool
+    include_scheduling_activity: bool
+    include_activity: bool
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ..., include_shift_template: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ...) -> None: ...
+
+class ListShiftInstancesBySidRes(_message.Message):
+    __slots__ = ["shift_instances"]
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
 
 class CopyScheduleToScheduleReq(_message.Message):
     __slots__ = ["source_schedule_selector", "destination_schedule_selector", "node_selector", "datetime_range", "start_datetimes_only", "overlap_as_warning"]
