@@ -51,22 +51,24 @@ class Invoice(_message.Message):
     CRETAE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     items: _containers.RepeatedCompositeFieldContainer[InvoiceItem]
-    invoice_id: str
+    invoice_id: int
     billing_cycle: str
     cretae_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
-    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., cretae_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[int] = ..., billing_cycle: _Optional[str] = ..., cretae_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ["invoice_item_sid", "product", "amount", "date_created", "date_modified"]
+    __slots__ = ["invoice_item_sid", "product", "amount", "date_created", "date_modified", "invoice_id"]
     INVOICE_ITEM_SID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     AMOUNT_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     invoice_item_sid: int
     product: Product
     amount: float
     date_created: _timestamp_pb2.Timestamp
     date_modified: _timestamp_pb2.Timestamp
-    def __init__(self, invoice_item_sid: _Optional[int] = ..., product: _Optional[_Union[Product, str]] = ..., amount: _Optional[float] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    invoice_id: int
+    def __init__(self, invoice_item_sid: _Optional[int] = ..., product: _Optional[_Union[Product, str]] = ..., amount: _Optional[float] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., invoice_id: _Optional[int] = ...) -> None: ...
