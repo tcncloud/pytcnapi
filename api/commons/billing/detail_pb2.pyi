@@ -94,29 +94,23 @@ DETAIL_CONFIG_TYPE_SYSTEM_SMS_MESSAGE_UNITS: DetailConfigType
 BillingDetailConfigType_COMPLIANCE_RND_QUERY: DetailConfigType
 BillingDetailConfigType_COMPLIANCE_RND_QUERY_CACHED: DetailConfigType
 
-class BillingPlan(_message.Message):
-    __slots__ = ["org_id", "plans", "billing_plan_id", "create_time", "update_time", "start_time", "end_time"]
+class Plan(_message.Message):
+    __slots__ = ["details", "org_id", "billing_plan_id", "create_time", "update_time", "start_time", "end_time"]
+    DETAILS_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
-    PLANS_FIELD_NUMBER: _ClassVar[int]
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     END_TIME_FIELD_NUMBER: _ClassVar[int]
+    details: _containers.RepeatedCompositeFieldContainer[Detail]
     org_id: str
-    plans: _containers.RepeatedCompositeFieldContainer[Plan]
     billing_plan_id: str
     create_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
     start_time: _timestamp_pb2.Timestamp
     end_time: _timestamp_pb2.Timestamp
-    def __init__(self, org_id: _Optional[str] = ..., plans: _Optional[_Iterable[_Union[Plan, _Mapping]]] = ..., billing_plan_id: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
-
-class Plan(_message.Message):
-    __slots__ = ["details"]
-    DETAILS_FIELD_NUMBER: _ClassVar[int]
-    details: _containers.RepeatedCompositeFieldContainer[Detail]
-    def __init__(self, details: _Optional[_Iterable[_Union[Detail, _Mapping]]] = ...) -> None: ...
+    def __init__(self, details: _Optional[_Iterable[_Union[Detail, _Mapping]]] = ..., org_id: _Optional[str] = ..., billing_plan_id: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Detail(_message.Message):
     __slots__ = ["billing_detail_sid", "event_type", "config_type", "config", "date_created", "date_modified", "deleted_on", "billing_plan_id"]
