@@ -92,12 +92,16 @@ class ContactAreaCode(_message.Message):
     def __init__(self, cfd: _Optional[_Union[ContactFieldDescription, _Mapping]] = ..., custom: _Optional[int] = ...) -> None: ...
 
 class ContactFieldDescription(_message.Message):
-    __slots__ = ["id", "field_name"]
+    __slots__ = ["id", "field_name", "is_phone", "display_format_string"]
     ID_FIELD_NUMBER: _ClassVar[int]
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    IS_PHONE_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_FORMAT_STRING_FIELD_NUMBER: _ClassVar[int]
     id: int
     field_name: str
-    def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ...) -> None: ...
+    is_phone: bool
+    display_format_string: str
+    def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[str] = ...) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
     __slots__ = ["org_id", "authorization_via_ip", "allowed_ips", "agent_api_key"]
