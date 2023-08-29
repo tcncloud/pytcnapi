@@ -19,6 +19,16 @@ class DeliveryApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateTransferConfigReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateTransferConfigRes.FromString,
                 )
+        self.CreateDeliveryDefinition = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/CreateDeliveryDefinition',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionRes.FromString,
+                )
+        self.CreateEncryption = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/CreateEncryption',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionRes.FromString,
+                )
         self.ListTransferConfigs = channel.unary_unary(
                 '/api.v1alpha1.delivery.DeliveryApi/ListTransferConfigs',
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListTransferConfigsReq.SerializeToString,
@@ -90,6 +100,18 @@ class DeliveryApiServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateTransferConfig(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateDeliveryDefinition(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateEncryption(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -181,6 +203,16 @@ def add_DeliveryApiServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateTransferConfigReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateTransferConfigRes.SerializeToString,
             ),
+            'CreateDeliveryDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateDeliveryDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionRes.SerializeToString,
+            ),
+            'CreateEncryption': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateEncryption,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionRes.SerializeToString,
+            ),
             'ListTransferConfigs': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTransferConfigs,
                     request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListTransferConfigsReq.FromString,
@@ -270,6 +302,40 @@ class DeliveryApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/CreateTransferConfig',
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateTransferConfigReq.SerializeToString,
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateTransferConfigRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateDeliveryDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/CreateDeliveryDefinition',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateEncryption(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/CreateEncryption',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
