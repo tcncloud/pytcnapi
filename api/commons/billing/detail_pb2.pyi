@@ -95,22 +95,22 @@ BillingDetailConfigType_COMPLIANCE_RND_QUERY: DetailConfigType
 BillingDetailConfigType_COMPLIANCE_RND_QUERY_CACHED: DetailConfigType
 
 class BillingPlan(_message.Message):
-    __slots__ = ["org_id", "plans", "billing_plan_id", "date_created", "date_modified", "start_time", "end_time"]
+    __slots__ = ["org_id", "plans", "billing_plan_id", "create_time", "update_time", "start_time", "end_time"]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PLANS_FIELD_NUMBER: _ClassVar[int]
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
-    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
-    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     END_TIME_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     plans: _containers.RepeatedCompositeFieldContainer[Plan]
     billing_plan_id: str
-    date_created: _timestamp_pb2.Timestamp
-    date_modified: _timestamp_pb2.Timestamp
+    create_time: _timestamp_pb2.Timestamp
+    update_time: _timestamp_pb2.Timestamp
     start_time: _timestamp_pb2.Timestamp
     end_time: _timestamp_pb2.Timestamp
-    def __init__(self, org_id: _Optional[str] = ..., plans: _Optional[_Iterable[_Union[Plan, _Mapping]]] = ..., billing_plan_id: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., plans: _Optional[_Iterable[_Union[Plan, _Mapping]]] = ..., billing_plan_id: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Plan(_message.Message):
     __slots__ = ["details"]

@@ -44,18 +44,18 @@ INVOICE_FORMAT_PROTO: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class Invoice(_message.Message):
-    __slots__ = ["items", "invoice_id", "billing_cycle", "date_created", "date_modified"]
+    __slots__ = ["items", "invoice_id", "billing_cycle", "cretae_time", "update_time"]
     ITEMS_FIELD_NUMBER: _ClassVar[int]
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
-    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
-    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    CRETAE_TIME_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     items: _containers.RepeatedCompositeFieldContainer[InvoiceItem]
     invoice_id: str
     billing_cycle: str
-    date_created: _timestamp_pb2.Timestamp
-    date_modified: _timestamp_pb2.Timestamp
-    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    cretae_time: _timestamp_pb2.Timestamp
+    update_time: _timestamp_pb2.Timestamp
+    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., cretae_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
     __slots__ = ["invoice_item_sid", "product", "amount", "date_created", "date_modified"]
