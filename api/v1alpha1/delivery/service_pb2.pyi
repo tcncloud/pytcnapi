@@ -584,7 +584,8 @@ class CreateDeliveryDefinitionRes(_message.Message):
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class Encryption(_message.Message):
-    __slots__ = ["org_id", "name", "description", "pgp_key_pair", "aes_password", "created_on", "last_edited"]
+    __slots__ = ["encryption_sid", "org_id", "name", "description", "pgp_key_pair", "aes_password", "created_on", "last_edited"]
+    ENCRYPTION_SID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -592,6 +593,7 @@ class Encryption(_message.Message):
     AES_PASSWORD_FIELD_NUMBER: _ClassVar[int]
     CREATED_ON_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    encryption_sid: int
     org_id: str
     name: str
     description: str
@@ -599,4 +601,4 @@ class Encryption(_message.Message):
     aes_password: AESPassword
     created_on: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
-    def __init__(self, org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., pgp_key_pair: _Optional[_Union[PGPKeyPair, _Mapping]] = ..., aes_password: _Optional[_Union[AESPassword, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, encryption_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., pgp_key_pair: _Optional[_Union[PGPKeyPair, _Mapping]] = ..., aes_password: _Optional[_Union[AESPassword, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
