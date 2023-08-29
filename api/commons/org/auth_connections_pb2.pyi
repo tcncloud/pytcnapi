@@ -11,8 +11,10 @@ class ConnectionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
     CONNECTION_TYPE_NONE: _ClassVar[ConnectionType]
     CONNECTION_TYPE_OIDC: _ClassVar[ConnectionType]
+    CONNECTION_TYPE_AZURE: _ClassVar[ConnectionType]
 CONNECTION_TYPE_NONE: ConnectionType
 CONNECTION_TYPE_OIDC: ConnectionType
+CONNECTION_TYPE_AZURE: ConnectionType
 
 class AuthConnectionSettings(_message.Message):
     __slots__ = ["issuer_url", "tenant_url", "client_id", "connection_id", "secret_expiration", "default_group", "custom_groups", "org_id", "name", "type"]
