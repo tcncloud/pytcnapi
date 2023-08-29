@@ -94,6 +94,14 @@ DETAIL_CONFIG_TYPE_SYSTEM_SMS_MESSAGE_UNITS: DetailConfigType
 BillingDetailConfigType_COMPLIANCE_RND_QUERY: DetailConfigType
 BillingDetailConfigType_COMPLIANCE_RND_QUERY_CACHED: DetailConfigType
 
+class BillingPlan(_message.Message):
+    __slots__ = ["org_id", "plans"]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    PLANS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    plans: _containers.RepeatedCompositeFieldContainer[Plan]
+    def __init__(self, org_id: _Optional[str] = ..., plans: _Optional[_Iterable[_Union[Plan, _Mapping]]] = ...) -> None: ...
+
 class Plan(_message.Message):
     __slots__ = ["details"]
     DETAILS_FIELD_NUMBER: _ClassVar[int]
