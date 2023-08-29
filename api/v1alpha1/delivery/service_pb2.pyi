@@ -173,6 +173,18 @@ class GetHistoryRes(_message.Message):
     entity: History
     def __init__(self, entity: _Optional[_Union[History, _Mapping]] = ...) -> None: ...
 
+class CreateDeliveryDefinitionReq(_message.Message):
+    __slots__ = ["definition"]
+    DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    definition: DeliveryDefinition
+    def __init__(self, definition: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+
+class CreateDeliveryDefinitionRes(_message.Message):
+    __slots__ = ["entity"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: ID
+    def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
+
 class CreateEncryptionReq(_message.Message):
     __slots__ = ["encryption"]
     ENCRYPTION_FIELD_NUMBER: _ClassVar[int]
@@ -570,18 +582,6 @@ class SSHKeyRef(_message.Message):
     SSH_KEY_SID_FIELD_NUMBER: _ClassVar[int]
     ssh_key_sid: int
     def __init__(self, ssh_key_sid: _Optional[int] = ...) -> None: ...
-
-class CreateDeliveryDefinitionReq(_message.Message):
-    __slots__ = ["definition"]
-    DEFINITION_FIELD_NUMBER: _ClassVar[int]
-    definition: DeliveryDefinition
-    def __init__(self, definition: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
-
-class CreateDeliveryDefinitionRes(_message.Message):
-    __slots__ = ["entity"]
-    ENTITY_FIELD_NUMBER: _ClassVar[int]
-    entity: ID
-    def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class Encryption(_message.Message):
     __slots__ = ["encryption_sid", "org_id", "name", "description", "pgp_key_pair", "aes_password", "created_on", "last_edited"]
