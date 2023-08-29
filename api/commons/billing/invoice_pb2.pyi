@@ -44,10 +44,18 @@ INVOICE_FORMAT_PROTO: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class Invoice(_message.Message):
-    __slots__ = ["items"]
+    __slots__ = ["items", "invoice_id", "billing_cycle", "date_created", "date_modified"]
     ITEMS_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
+    BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
     items: _containers.RepeatedCompositeFieldContainer[InvoiceItem]
-    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ...) -> None: ...
+    invoice_id: str
+    billing_cycle: str
+    date_created: _timestamp_pb2.Timestamp
+    date_modified: _timestamp_pb2.Timestamp
+    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
     __slots__ = ["invoice_item_sid", "product", "amount", "date_created", "date_modified"]

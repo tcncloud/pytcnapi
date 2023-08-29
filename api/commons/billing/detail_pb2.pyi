@@ -95,12 +95,22 @@ BillingDetailConfigType_COMPLIANCE_RND_QUERY: DetailConfigType
 BillingDetailConfigType_COMPLIANCE_RND_QUERY_CACHED: DetailConfigType
 
 class BillingPlan(_message.Message):
-    __slots__ = ["org_id", "plans"]
+    __slots__ = ["org_id", "plans", "billing_plan_id", "date_created", "date_modified", "start_time", "end_time"]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PLANS_FIELD_NUMBER: _ClassVar[int]
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    START_TIME_FIELD_NUMBER: _ClassVar[int]
+    END_TIME_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     plans: _containers.RepeatedCompositeFieldContainer[Plan]
-    def __init__(self, org_id: _Optional[str] = ..., plans: _Optional[_Iterable[_Union[Plan, _Mapping]]] = ...) -> None: ...
+    billing_plan_id: str
+    date_created: _timestamp_pb2.Timestamp
+    date_modified: _timestamp_pb2.Timestamp
+    start_time: _timestamp_pb2.Timestamp
+    end_time: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., plans: _Optional[_Iterable[_Union[Plan, _Mapping]]] = ..., billing_plan_id: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Plan(_message.Message):
     __slots__ = ["details"]
@@ -109,7 +119,7 @@ class Plan(_message.Message):
     def __init__(self, details: _Optional[_Iterable[_Union[Detail, _Mapping]]] = ...) -> None: ...
 
 class Detail(_message.Message):
-    __slots__ = ["billing_detail_sid", "event_type", "config_type", "config", "date_created", "date_modified", "deleted_on"]
+    __slots__ = ["billing_detail_sid", "event_type", "config_type", "config", "date_created", "date_modified", "deleted_on", "billing_plan_id"]
     BILLING_DETAIL_SID_FIELD_NUMBER: _ClassVar[int]
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     CONFIG_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -117,6 +127,7 @@ class Detail(_message.Message):
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
     DELETED_ON_FIELD_NUMBER: _ClassVar[int]
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     billing_detail_sid: int
     event_type: _event_types_pb2.EventType
     config_type: DetailConfigType
@@ -124,7 +135,8 @@ class Detail(_message.Message):
     date_created: _timestamp_pb2.Timestamp
     date_modified: _timestamp_pb2.Timestamp
     deleted_on: _timestamp_pb2.Timestamp
-    def __init__(self, billing_detail_sid: _Optional[int] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., config_type: _Optional[_Union[DetailConfigType, str]] = ..., config: _Optional[_Union[DetailConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    billing_plan_id: str
+    def __init__(self, billing_detail_sid: _Optional[int] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., config_type: _Optional[_Union[DetailConfigType, str]] = ..., config: _Optional[_Union[DetailConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., billing_plan_id: _Optional[str] = ...) -> None: ...
 
 class DetailConfig(_message.Message):
     __slots__ = ["agent_seats_config", "agent_text_message_chat_config", "agent_text_message_email_message_config", "agent_text_message_email_size_config", "agent_text_message_sms_config", "task_message_sent_email_message_config", "task_message_sent_email_size_config", "task_message_sent_sms_config", "connected_inbox_poll_config", "manager_text_message_chat_config", "manager_text_message_email_message_config", "manager_text_message_email_size_config", "manager_text_message_sms_config", "customer_text_message_chat_config", "customer_text_message_email_message_config", "customer_text_message_email_size_config", "customer_text_message_sms_config", "agent_text_message_chat_size_config", "manager_text_message_chat_size_config", "customer_text_message_chat_size_config", "connected_inbox_created_config", "agent_text_message_sms_size_config", "manager_text_message_sms_size_config", "customer_text_message_sms_size_config", "task_message_sent_sms_size_config", "agent_chat_message_units_config", "agent_email_message_units_config", "agent_sms_message_units_config", "manager_chat_message_units_config", "manager_email_message_units_config", "manager_sms_message_units_config", "customer_chat_message_units_config", "customer_email_message_units_config", "customer_sms_message_units_config", "system_chat_message_units_config", "system_email_message_units_config", "system_sms_message_units_config", "compliance_rnd_query_config", "compliance_rnd_query_cached_config"]
