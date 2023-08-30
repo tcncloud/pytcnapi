@@ -1260,6 +1260,18 @@ class ListWFMAgentsAssociatedWithAgentGroupRes(_message.Message):
     wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
     def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
+class GetWFMAgentSidReq(_message.Message):
+    __slots__ = ["tcn_agent_sid"]
+    TCN_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    tcn_agent_sid: int
+    def __init__(self, tcn_agent_sid: _Optional[int] = ...) -> None: ...
+
+class GetWFMAgentSidRes(_message.Message):
+    __slots__ = ["wfm_agent_sid"]
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid: int
+    def __init__(self, wfm_agent_sid: _Optional[int] = ...) -> None: ...
+
 class BuildAgentDiagnosticsReq(_message.Message):
     __slots__ = ["wfm_agent_sid", "schedule_scenario_sid", "agent_group_sid"]
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]

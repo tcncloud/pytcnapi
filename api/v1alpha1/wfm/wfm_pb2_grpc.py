@@ -320,6 +320,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupRes.FromString,
                 )
+        self.GetWFMAgentSid = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetWFMAgentSid',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetWFMAgentSidReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetWFMAgentSidRes.FromString,
+                )
         self.CreateWFMAgentMemberships = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateWFMAgentMemberships',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsReq.SerializeToString,
@@ -1502,6 +1507,19 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetWFMAgentSid(self, request, context):
+        """Gets the @wfm_agent_sid for the agent corresponding to the given @tcn_agent_sid for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @tcn_agent_sid is invalid.
+        - grpc.NotFound: WFM agent with the given @tcn_agent_sid doesn't exist for the org sending the request.
+        - grpc.Internal: error occurs when getting @wfm_agent_sid.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateWFMAgentMemberships(self, request, context):
         """Creates a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid.
         The @schedule_scenario_sid must match the scenario of the agent group and wfm agents.
@@ -2676,6 +2694,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListWFMAgentsAssociatedWithAgentGroup,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupRes.SerializeToString,
+            ),
+            'GetWFMAgentSid': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetWFMAgentSid,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetWFMAgentSidReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetWFMAgentSidRes.SerializeToString,
             ),
             'CreateWFMAgentMemberships': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateWFMAgentMemberships,
@@ -4007,6 +4030,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListWFMAgentsAssociatedWithAgentGroup',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetWFMAgentSid(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetWFMAgentSid',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetWFMAgentSidReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetWFMAgentSidRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
