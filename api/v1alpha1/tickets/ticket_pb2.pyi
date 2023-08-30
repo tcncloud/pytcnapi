@@ -17,7 +17,7 @@ class PingRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateTicketReq(_message.Message):
-    __slots__ = ["title", "description", "project_sid", "due_date", "metadata", "ticket_skills", "status", "ticket_sla", "assign_self", "assign_other"]
+    __slots__ = ["title", "description", "project_sid", "due_date", "metadata", "ticket_skills", "status", "ticket_sla", "assign_self", "assign_other", "ticket_action"]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -28,6 +28,7 @@ class CreateTicketReq(_message.Message):
     TICKET_SLA_FIELD_NUMBER: _ClassVar[int]
     ASSIGN_SELF_FIELD_NUMBER: _ClassVar[int]
     ASSIGN_OTHER_FIELD_NUMBER: _ClassVar[int]
+    TICKET_ACTION_FIELD_NUMBER: _ClassVar[int]
     title: str
     description: str
     project_sid: int
@@ -38,7 +39,8 @@ class CreateTicketReq(_message.Message):
     ticket_sla: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.Sla]
     assign_self: bool
     assign_other: str
-    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., project_sid: _Optional[int] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_tickets_pb2.Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[_tickets_pb2.Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[_tickets_pb2.Sla, _Mapping]]] = ..., assign_self: bool = ..., assign_other: _Optional[str] = ...) -> None: ...
+    ticket_action: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.TicketAction]
+    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., project_sid: _Optional[int] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_tickets_pb2.Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[_tickets_pb2.Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[_tickets_pb2.Sla, _Mapping]]] = ..., assign_self: bool = ..., assign_other: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[_tickets_pb2.TicketAction, _Mapping]]] = ...) -> None: ...
 
 class CreateTicketRes(_message.Message):
     __slots__ = ["ticket"]
@@ -293,3 +295,57 @@ class User(_message.Message):
     first_name: str
     last_name: str
     def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
+
+class CreateTicketActionRequest(_message.Message):
+    __slots__ = ["ticket_action"]
+    TICKET_ACTION_FIELD_NUMBER: _ClassVar[int]
+    ticket_action: _tickets_pb2.TicketAction
+    def __init__(self, ticket_action: _Optional[_Union[_tickets_pb2.TicketAction, _Mapping]] = ...) -> None: ...
+
+class CreateTicketActionResponse(_message.Message):
+    __slots__ = ["ticket_action"]
+    TICKET_ACTION_FIELD_NUMBER: _ClassVar[int]
+    ticket_action: _tickets_pb2.TicketAction
+    def __init__(self, ticket_action: _Optional[_Union[_tickets_pb2.TicketAction, _Mapping]] = ...) -> None: ...
+
+class CloseTicketActionRequest(_message.Message):
+    __slots__ = ["ticket_action_id", "ticket_id", "comment"]
+    TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_ID_FIELD_NUMBER: _ClassVar[int]
+    COMMENT_FIELD_NUMBER: _ClassVar[int]
+    ticket_action_id: int
+    ticket_id: int
+    comment: str
+    def __init__(self, ticket_action_id: _Optional[int] = ..., ticket_id: _Optional[int] = ..., comment: _Optional[str] = ...) -> None: ...
+
+class CloseTicketActionResponse(_message.Message):
+    __slots__ = ["is_closed"]
+    IS_CLOSED_FIELD_NUMBER: _ClassVar[int]
+    is_closed: bool
+    def __init__(self, is_closed: bool = ...) -> None: ...
+
+class AssignTicketActionRequest(_message.Message):
+    __slots__ = ["ticket_action_id"]
+    TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
+    ticket_action_id: int
+    def __init__(self, ticket_action_id: _Optional[int] = ...) -> None: ...
+
+class AssignTicketActionResponse(_message.Message):
+    __slots__ = ["is_assigned"]
+    IS_ASSIGNED_FIELD_NUMBER: _ClassVar[int]
+    is_assigned: bool
+    def __init__(self, is_assigned: bool = ...) -> None: ...
+
+class ChangeTicketStatusRequest(_message.Message):
+    __slots__ = ["ticket_id", "status_id"]
+    TICKET_ID_FIELD_NUMBER: _ClassVar[int]
+    STATUS_ID_FIELD_NUMBER: _ClassVar[int]
+    ticket_id: int
+    status_id: int
+    def __init__(self, ticket_id: _Optional[int] = ..., status_id: _Optional[int] = ...) -> None: ...
+
+class ChangeTicketStatusResponse(_message.Message):
+    __slots__ = ["is_status_edited"]
+    IS_STATUS_EDITED_FIELD_NUMBER: _ClassVar[int]
+    is_status_edited: bool
+    def __init__(self, is_status_edited: bool = ...) -> None: ...

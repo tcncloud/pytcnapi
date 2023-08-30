@@ -270,6 +270,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityRes.FromString,
                 )
+        self.ListNonSkillActivities = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListNonSkillActivities',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesRes.FromString,
+                )
         self.ListNonSkillActivityAssociations = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListNonSkillActivityAssociations',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivityAssociationsReq.SerializeToString,
@@ -515,10 +520,20 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListDraftSchedulesReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListDraftSchedulesRes.FromString,
                 )
+        self.ClearSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ClearSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ClearScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ClearScheduleRes.FromString,
+                )
         self.DeleteDraftSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteDraftSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
+                )
+        self.ListShiftInstancesBySid = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListShiftInstancesBySid',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidRes.FromString,
                 )
         self.CopyScheduleToSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CopyScheduleToSchedule',
@@ -1342,6 +1357,17 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListNonSkillActivities(self, request, context):
+        """Lists the non skill activities that belong to the org sending the request.
+        Required permissions:
+        NONE
+        Errors:.
+        - grpc.Internal: error occurs when listing the activites.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListNonSkillActivityAssociations(self, request, context):
         """Lists the IDs of non skill activities that belong to the org sending the request which have the given @relationship_type with the @associated_entity.
         Required permissions:
@@ -2088,6 +2114,29 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ClearSchedule(self, request, context):
+        """Clears shift instances from the @schedule_selector for the org sending the request.
+        If @node_selector is set, only shifts related to the given @node_selector will be cleared.
+        If @node_selector is not set, all shifts on the @schedule_selector may be cleared, regardless of the shift template they are associated with.
+        If @datetime_range is set, only the shifts overlapping the @datetime_range will be cleared.
+        If @datetime_range is not set, all shifts on the schedule will be considered in range to be deleted and @invert_datetime_range and @start_datetimes_only must be set to false.
+        If @invert_datetime_range is set to true, the shifts overlapping the range before and after the provided @datetime_range will be deleted.
+        If @invert_datetime_range is set to false, the provided @datetime_range will be used.
+        If @start_datetimes_only is set to true, deletes the shifts that start within the @datetime range, or start before or after @datetime_range if @invert_datetime_range is true.
+        If @start_datetimes_only is set to false, deletes the shifts that overlap with the @datetime range, or overlap the range before or after @datetime_range if @invert_datetime_range is true.
+        If @delete_locked is set to true, both locked and unlocked shifts will be cleared.
+        If @delete_locked is set to false, only shifts with @is_locked set to false may be cleared.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @node_selector, @schedule_selector, or @datetime_range in the request are invalid.
+        - grpc.NotFound: the draft schedule with the given @schedule_selector doesn't exist.
+        - grpc.Internal: error occurs when removing the shifts from the schedule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteDraftSchedule(self, request, context):
         """Deletes a draft schedule with the corresponding @draft_schedule_sid for the org sending the request.
         It also deletes all of its shift instances and segments.
@@ -2097,6 +2146,24 @@ class WFMServicer(object):
         - grpc.Invalid: the @draft_schedule_sid is invalid for the org making the request.
         - grpc.NotFound: the draft schedule with the given @draft_schedule_sid doesn't exist.
         - grpc.Internal: error occurs when removing the draft schedule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListShiftInstancesBySid(self, request, context):
+        """Lists the shift instances with the corresponding @shift_instance_sids for the org sending the request.
+        If @include_shift_template is set to true then the related shift template for the shift instances will be returned in the shift template field.
+        If @include_shift_segments is set to true then the related shift segments for the shift instances will be returned in the shift segments field.
+        If @include_scheduling_activity is set to true then the related scheduling activity for the shift segment will be returned in the scheduling activity field.
+        @include_shift_segments must be true to take effect.
+        If @include_activity is set to true then the related non skill activity for the scheduling activity will be returned in the scheduling
+        activities member non skill activity field. @include_scheduling_activity must be true to take effect.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @org_id or @shift_instance_sids in the request are invalid.
+        - grpc.Internal: error occurs when listing the shift instances or their shift segments.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2158,7 +2225,7 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
-        - grpc.NotFound: wfm_agent_sid_1, wfm_agent_sid_2, or shift_instance_sids do not exist for org_id.
+        - grpc.NotFound: wfm_agent_sid_1, wfm_agent_sid_2, or shift_instance_sids do not exist for the org sending the request.
         - grpc.Internal: error occurs when swapping the shift instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2560,6 +2627,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateNonSkillActivityRes.SerializeToString,
             ),
+            'ListNonSkillActivities': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNonSkillActivities,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesRes.SerializeToString,
+            ),
             'ListNonSkillActivityAssociations': grpc.unary_unary_rpc_method_handler(
                     servicer.ListNonSkillActivityAssociations,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivityAssociationsReq.FromString,
@@ -2805,10 +2877,20 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListDraftSchedulesReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListDraftSchedulesRes.SerializeToString,
             ),
+            'ClearSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.ClearSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ClearScheduleReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ClearScheduleRes.SerializeToString,
+            ),
             'DeleteDraftSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteDraftSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.SerializeToString,
+            ),
+            'ListShiftInstancesBySid': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListShiftInstancesBySid,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidRes.SerializeToString,
             ),
             'CopyScheduleToSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.CopyScheduleToSchedule,
@@ -3759,6 +3841,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListNonSkillActivities(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListNonSkillActivities',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListNonSkillActivitiesRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListNonSkillActivityAssociations(request,
             target,
             options=(),
@@ -4592,6 +4691,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ClearSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ClearSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ClearScheduleReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ClearScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteDraftSchedule(request,
             target,
             options=(),
@@ -4605,6 +4721,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteDraftSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteDraftScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListShiftInstancesBySid(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListShiftInstancesBySid',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstancesBySidRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

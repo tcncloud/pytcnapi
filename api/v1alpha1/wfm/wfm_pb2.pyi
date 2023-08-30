@@ -1069,6 +1069,16 @@ class UpdateNonSkillActivityRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListNonSkillActivitiesReq(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListNonSkillActivitiesRes(_message.Message):
+    __slots__ = ["non_skill_activities"]
+    NON_SKILL_ACTIVITIES_FIELD_NUMBER: _ClassVar[int]
+    non_skill_activities: _containers.RepeatedCompositeFieldContainer[NonSkillActivity]
+    def __init__(self, non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ...) -> None: ...
+
 class ListNonSkillActivityAssociationsReq(_message.Message):
     __slots__ = ["associated_entity", "relationship_type"]
     ASSOCIATED_ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -2323,6 +2333,28 @@ class ListDraftSchedulesRes(_message.Message):
     draft_schedules: _containers.RepeatedCompositeFieldContainer[DraftSchedule]
     def __init__(self, draft_schedules: _Optional[_Iterable[_Union[DraftSchedule, _Mapping]]] = ...) -> None: ...
 
+class ClearScheduleReq(_message.Message):
+    __slots__ = ["schedule_selector", "node_selector", "datetime_range", "invert_datetime_range", "start_datetimes_only", "delete_locked"]
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    INVERT_DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIMES_ONLY_FIELD_NUMBER: _ClassVar[int]
+    DELETE_LOCKED_FIELD_NUMBER: _ClassVar[int]
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    node_selector: ParentEntity
+    datetime_range: _wfm_pb2.DatetimeRange
+    invert_datetime_range: bool
+    start_datetimes_only: bool
+    delete_locked: bool
+    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., invert_datetime_range: bool = ..., start_datetimes_only: bool = ..., delete_locked: bool = ...) -> None: ...
+
+class ClearScheduleRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class DeleteDraftScheduleReq(_message.Message):
     __slots__ = ["draft_schedule_sid"]
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -2332,6 +2364,26 @@ class DeleteDraftScheduleReq(_message.Message):
 class DeleteDraftScheduleRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class ListShiftInstancesBySidReq(_message.Message):
+    __slots__ = ["shift_instance_sids", "include_shift_segments", "include_shift_template", "include_scheduling_activity", "include_activity"]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SHIFT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    include_shift_segments: bool
+    include_shift_template: bool
+    include_scheduling_activity: bool
+    include_activity: bool
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ..., include_shift_template: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ...) -> None: ...
+
+class ListShiftInstancesBySidRes(_message.Message):
+    __slots__ = ["shift_instances"]
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
 
 class CopyScheduleToScheduleReq(_message.Message):
     __slots__ = ["source_schedule_selector", "destination_schedule_selector", "node_selector", "datetime_range", "start_datetimes_only", "overlap_as_warning"]

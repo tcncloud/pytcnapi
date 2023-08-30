@@ -316,7 +316,7 @@ class ListAgentsRes(_message.Message):
     def __init__(self, agents: _Optional[_Iterable[_Union[_asm_pb2.DashboardAgentInfo, _Mapping]]] = ...) -> None: ...
 
 class SetConversationCollectedDataReq(_message.Message):
-    __slots__ = ["conversation_sid", "channel_type", "collected_data"]
+    __slots__ = ["conversation_sid", "channel_type", "collected_data", "asm_session_sid"]
     class CollectedDataEntry(_message.Message):
         __slots__ = ["key", "value"]
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -327,10 +327,12 @@ class SetConversationCollectedDataReq(_message.Message):
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
     COLLECTED_DATA_FIELD_NUMBER: _ClassVar[int]
+    ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     channel_type: _omnichannel_pb2.ChannelType
     collected_data: _containers.ScalarMap[str, str]
-    def __init__(self, conversation_sid: _Optional[int] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., collected_data: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    asm_session_sid: int
+    def __init__(self, conversation_sid: _Optional[int] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., collected_data: _Optional[_Mapping[str, str]] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
 
 class SetConversationCollectedDataRes(_message.Message):
     __slots__ = []

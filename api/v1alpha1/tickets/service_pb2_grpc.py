@@ -121,6 +121,26 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersResponse.FromString,
                 )
+        self.CloseTicketAction = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/CloseTicketAction',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CloseTicketActionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CloseTicketActionResponse.FromString,
+                )
+        self.AssignTicketAction = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/AssignTicketAction',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignTicketActionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignTicketActionResponse.FromString,
+                )
+        self.CreateTicketAction = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/CreateTicketAction',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketActionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketActionResponse.FromString,
+                )
+        self.ChangeTicketStatus = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/ChangeTicketStatus',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ChangeTicketStatusRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ChangeTicketStatusResponse.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -150,6 +170,7 @@ class TicketsServicer(object):
 
     def AssignTicket(self, request, context):
         """Public method to assign ticket
+        Would be deprecated
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -157,6 +178,7 @@ class TicketsServicer(object):
 
     def CloseTicket(self, request, context):
         """Public Method to Close a ticket
+        Any agent can close the ticket. No BE validation required
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -184,15 +206,7 @@ class TicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListEnabledProjects(self, request, context):
-        """rpc EditComment (EditCommentReq) returns(EditCommentRes) {
-        option (google.api.http).post = "/api/v1alpha1/tickets/tickets/editcomment";
-        option (google.api.http).body = "*";
-        option (annotations.authz) = {
-        sets: [{permissions: [PERMISSION_TICKETS_APP]}];
-        };
-        }
-
-        Public method to List projects enabled for Ticketing system
+        """Public method to List projects enabled for Ticketing system
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -277,6 +291,34 @@ class TicketsServicer(object):
 
     def ListUsers(self, request, context):
         """public method to fetch list of users for a tickets user
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CloseTicketAction(self, request, context):
+        """Any agent can close the ticket. No BE validation required
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AssignTicketAction(self, request, context):
+        """Public method to assign a ticket action
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateTicketAction(self, request, context):
+        """Public method to assign a ticket
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ChangeTicketStatus(self, request, context):
+        """Public method to change the Status of a ticket
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -389,6 +431,26 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.ListUsers,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersResponse.SerializeToString,
+            ),
+            'CloseTicketAction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloseTicketAction,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CloseTicketActionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CloseTicketActionResponse.SerializeToString,
+            ),
+            'AssignTicketAction': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignTicketAction,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignTicketActionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignTicketActionResponse.SerializeToString,
+            ),
+            'CreateTicketAction': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateTicketAction,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketActionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketActionResponse.SerializeToString,
+            ),
+            'ChangeTicketStatus': grpc.unary_unary_rpc_method_handler(
+                    servicer.ChangeTicketStatus,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ChangeTicketStatusRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ChangeTicketStatusResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -755,5 +817,73 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListUsers',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListUsersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CloseTicketAction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/CloseTicketAction',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CloseTicketActionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CloseTicketActionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignTicketAction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/AssignTicketAction',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignTicketActionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignTicketActionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateTicketAction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/CreateTicketAction',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketActionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketActionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ChangeTicketStatus(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ChangeTicketStatus',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ChangeTicketStatusRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ChangeTicketStatusResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
