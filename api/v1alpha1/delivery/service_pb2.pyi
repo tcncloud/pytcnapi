@@ -173,6 +173,30 @@ class GetHistoryRes(_message.Message):
     entity: History
     def __init__(self, entity: _Optional[_Union[History, _Mapping]] = ...) -> None: ...
 
+class CreateDeliveryDefinitionReq(_message.Message):
+    __slots__ = ["definition"]
+    DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    definition: DeliveryDefinition
+    def __init__(self, definition: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+
+class CreateDeliveryDefinitionRes(_message.Message):
+    __slots__ = ["entity"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: ID
+    def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
+
+class CreateEncryptionReq(_message.Message):
+    __slots__ = ["encryption"]
+    ENCRYPTION_FIELD_NUMBER: _ClassVar[int]
+    encryption: Encryption
+    def __init__(self, encryption: _Optional[_Union[Encryption, _Mapping]] = ...) -> None: ...
+
+class CreateEncryptionRes(_message.Message):
+    __slots__ = ["entity"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: ID
+    def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
+
 class TransferConfig(_message.Message):
     __slots__ = ["sid", "name", "description", "ttl", "credential", "destination", "source", "created_on", "last_edited"]
     SID_FIELD_NUMBER: _ClassVar[int]
@@ -460,3 +484,121 @@ class Credentials(_message.Message):
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[Credential]
     def __init__(self, entities: _Optional[_Iterable[_Union[Credential, _Mapping]]] = ...) -> None: ...
+
+class DeliveryDefinition(_message.Message):
+    __slots__ = ["delivery_definition_sid", "org_id", "name", "description", "ttl", "sftp", "email", "room303", "sms", "aes", "pgp", "created_on", "last_edited"]
+    DELIVERY_DEFINITION_SID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TTL_FIELD_NUMBER: _ClassVar[int]
+    SFTP_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    ROOM303_FIELD_NUMBER: _ClassVar[int]
+    SMS_FIELD_NUMBER: _ClassVar[int]
+    AES_FIELD_NUMBER: _ClassVar[int]
+    PGP_FIELD_NUMBER: _ClassVar[int]
+    CREATED_ON_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    delivery_definition_sid: int
+    org_id: str
+    name: str
+    description: str
+    ttl: int
+    sftp: SFTPTransport
+    email: EmailTransport
+    room303: Room303Transport
+    sms: SMSTransport
+    aes: AESEncryptionRef
+    pgp: PGPEncryptionRef
+    created_on: _timestamp_pb2.Timestamp
+    last_edited: _timestamp_pb2.Timestamp
+    def __init__(self, delivery_definition_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ttl: _Optional[int] = ..., sftp: _Optional[_Union[SFTPTransport, _Mapping]] = ..., email: _Optional[_Union[EmailTransport, _Mapping]] = ..., room303: _Optional[_Union[Room303Transport, _Mapping]] = ..., sms: _Optional[_Union[SMSTransport, _Mapping]] = ..., aes: _Optional[_Union[AESEncryptionRef, _Mapping]] = ..., pgp: _Optional[_Union[PGPEncryptionRef, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class SFTPTransport(_message.Message):
+    __slots__ = ["host", "port", "password", "ssh_key", "username", "base_dir"]
+    HOST_FIELD_NUMBER: _ClassVar[int]
+    PORT_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    SSH_KEY_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
+    BASE_DIR_FIELD_NUMBER: _ClassVar[int]
+    host: str
+    port: int
+    password: PasswordRef
+    ssh_key: SSHKeyRef
+    username: str
+    base_dir: str
+    def __init__(self, host: _Optional[str] = ..., port: _Optional[int] = ..., password: _Optional[_Union[PasswordRef, _Mapping]] = ..., ssh_key: _Optional[_Union[SSHKeyRef, _Mapping]] = ..., username: _Optional[str] = ..., base_dir: _Optional[str] = ...) -> None: ...
+
+class EmailTransport(_message.Message):
+    __slots__ = ["from_address", "to_address"]
+    FROM_ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    TO_ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    from_address: str
+    to_address: str
+    def __init__(self, from_address: _Optional[str] = ..., to_address: _Optional[str] = ...) -> None: ...
+
+class Room303Transport(_message.Message):
+    __slots__ = ["system_message"]
+    SYSTEM_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    system_message: Room303SystemMessage
+    def __init__(self, system_message: _Optional[_Union[Room303SystemMessage, _Mapping]] = ...) -> None: ...
+
+class Room303SystemMessage(_message.Message):
+    __slots__ = ["room", "username", "user_id"]
+    ROOM_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    room: str
+    username: str
+    user_id: str
+    def __init__(self, room: _Optional[str] = ..., username: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+
+class SMSTransport(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class AESEncryptionRef(_message.Message):
+    __slots__ = ["aes_sid"]
+    AES_SID_FIELD_NUMBER: _ClassVar[int]
+    aes_sid: int
+    def __init__(self, aes_sid: _Optional[int] = ...) -> None: ...
+
+class PGPEncryptionRef(_message.Message):
+    __slots__ = ["pgp_sid"]
+    PGP_SID_FIELD_NUMBER: _ClassVar[int]
+    pgp_sid: int
+    def __init__(self, pgp_sid: _Optional[int] = ...) -> None: ...
+
+class PasswordRef(_message.Message):
+    __slots__ = ["password_sid"]
+    PASSWORD_SID_FIELD_NUMBER: _ClassVar[int]
+    password_sid: int
+    def __init__(self, password_sid: _Optional[int] = ...) -> None: ...
+
+class SSHKeyRef(_message.Message):
+    __slots__ = ["ssh_key_sid"]
+    SSH_KEY_SID_FIELD_NUMBER: _ClassVar[int]
+    ssh_key_sid: int
+    def __init__(self, ssh_key_sid: _Optional[int] = ...) -> None: ...
+
+class Encryption(_message.Message):
+    __slots__ = ["encryption_sid", "org_id", "name", "description", "pgp_key_pair", "aes_password", "created_on", "last_edited"]
+    ENCRYPTION_SID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    PGP_KEY_PAIR_FIELD_NUMBER: _ClassVar[int]
+    AES_PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    CREATED_ON_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    encryption_sid: int
+    org_id: str
+    name: str
+    description: str
+    pgp_key_pair: PGPKeyPair
+    aes_password: AESPassword
+    created_on: _timestamp_pb2.Timestamp
+    last_edited: _timestamp_pb2.Timestamp
+    def __init__(self, encryption_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., pgp_key_pair: _Optional[_Union[PGPKeyPair, _Mapping]] = ..., aes_password: _Optional[_Union[AESPassword, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
