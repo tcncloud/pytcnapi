@@ -69,6 +69,11 @@ class IntegrationsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.Empty.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.IntegrationInfos.FromString,
                 )
+        self.ListIntegrationsForOrg = channel.unary_unary(
+                '/api.v1alpha1.integrations.Integrations/ListIntegrationsForOrg',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationsForOrgReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.IntegrationInfos.FromString,
+                )
         self.ListIntegrationConfigNames = channel.unary_unary(
                 '/api.v1alpha1.integrations.Integrations/ListIntegrationConfigNames',
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationConfigNamesReq.SerializeToString,
@@ -210,6 +215,12 @@ class IntegrationsServicer(object):
     def ListIntegrations(self, request, context):
         """list all supported integrations
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListIntegrationsForOrg(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -365,6 +376,11 @@ def add_IntegrationsServicer_to_server(servicer, server):
             'ListIntegrations': grpc.unary_unary_rpc_method_handler(
                     servicer.ListIntegrations,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.Empty.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.IntegrationInfos.SerializeToString,
+            ),
+            'ListIntegrationsForOrg': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListIntegrationsForOrg,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationsForOrgReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.IntegrationInfos.SerializeToString,
             ),
             'ListIntegrationConfigNames': grpc.unary_unary_rpc_method_handler(
@@ -625,6 +641,23 @@ class Integrations(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/ListIntegrations',
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.Empty.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.IntegrationInfos.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListIntegrationsForOrg(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/ListIntegrationsForOrg',
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationsForOrgReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.IntegrationInfos.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

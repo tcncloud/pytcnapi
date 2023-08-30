@@ -105,6 +105,10 @@ class ProcessRes(_message.Message):
     transaction_id: str
     def __init__(self, result: bool = ..., data: _Optional[_Mapping[str, Value]] = ..., integration: _Optional[str] = ..., method: _Optional[str] = ..., transaction_id: _Optional[str] = ...) -> None: ...
 
+class ListIntegrationsForOrgReq(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class IntegrationInfos(_message.Message):
     __slots__ = ["values"]
     VALUES_FIELD_NUMBER: _ClassVar[int]
