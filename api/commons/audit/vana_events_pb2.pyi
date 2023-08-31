@@ -60,3 +60,19 @@ class VanaFlagSummaryEvent(_message.Message):
     end_time: _timestamp_pb2.Timestamp
     flag_summaries: _containers.RepeatedCompositeFieldContainer[VanaFlagSummaryEvent.FlagSummary]
     def __init__(self, start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summaries: _Optional[_Iterable[_Union[VanaFlagSummaryEvent.FlagSummary, _Mapping]]] = ...) -> None: ...
+
+class VanaPhraseCorrectionEvent(_message.Message):
+    __slots__ = ["start_time", "end_time", "original_text", "proposed_text", "url", "channel"]
+    START_TIME_FIELD_NUMBER: _ClassVar[int]
+    END_TIME_FIELD_NUMBER: _ClassVar[int]
+    ORIGINAL_TEXT_FIELD_NUMBER: _ClassVar[int]
+    PROPOSED_TEXT_FIELD_NUMBER: _ClassVar[int]
+    URL_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_FIELD_NUMBER: _ClassVar[int]
+    start_time: int
+    end_time: int
+    original_text: str
+    proposed_text: str
+    url: str
+    channel: int
+    def __init__(self, start_time: _Optional[int] = ..., end_time: _Optional[int] = ..., original_text: _Optional[str] = ..., proposed_text: _Optional[str] = ..., url: _Optional[str] = ..., channel: _Optional[int] = ...) -> None: ...
