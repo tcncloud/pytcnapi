@@ -49,6 +49,11 @@ class DeliveryApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigRes.FromString,
                 )
+        self.GetDeliveryDefinitionByName = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinitionByName',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.FromString,
+                )
         self.GetTransferConfig = channel.unary_unary(
                 '/api.v1alpha1.delivery.DeliveryApi/GetTransferConfig',
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetTransferConfigReq.SerializeToString,
@@ -136,6 +141,12 @@ class DeliveryApiServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteTransferConfig(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDeliveryDefinitionByName(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -232,6 +243,11 @@ def add_DeliveryApiServicer_to_server(servicer, server):
                     servicer.DeleteTransferConfig,
                     request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigRes.SerializeToString,
+            ),
+            'GetDeliveryDefinitionByName': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDeliveryDefinitionByName,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.SerializeToString,
             ),
             'GetTransferConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTransferConfig,
@@ -404,6 +420,23 @@ class DeliveryApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/DeleteTransferConfig',
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigReq.SerializeToString,
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDeliveryDefinitionByName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinitionByName',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

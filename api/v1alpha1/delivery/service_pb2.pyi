@@ -197,6 +197,22 @@ class CreateEncryptionRes(_message.Message):
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
+class GetDeliveryDefinitionByNameReq(_message.Message):
+    __slots__ = ["name", "mask", "entity"]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    MASK_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    mask: _field_mask_pb2.FieldMask
+    entity: DeliveryDefinition
+    def __init__(self, name: _Optional[str] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+
+class GetDeliveryDefinitionByNameRes(_message.Message):
+    __slots__ = ["entity"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: DeliveryDefinition
+    def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+
 class TransferConfig(_message.Message):
     __slots__ = ["sid", "name", "description", "ttl", "credential", "destination", "source", "created_on", "last_edited"]
     SID_FIELD_NUMBER: _ClassVar[int]
