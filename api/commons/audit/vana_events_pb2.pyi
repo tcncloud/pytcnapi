@@ -1,3 +1,4 @@
+from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -60,3 +61,19 @@ class VanaFlagSummaryEvent(_message.Message):
     end_time: _timestamp_pb2.Timestamp
     flag_summaries: _containers.RepeatedCompositeFieldContainer[VanaFlagSummaryEvent.FlagSummary]
     def __init__(self, start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summaries: _Optional[_Iterable[_Union[VanaFlagSummaryEvent.FlagSummary, _Mapping]]] = ...) -> None: ...
+
+class VanaPhraseCorrectionEvent(_message.Message):
+    __slots__ = ["start_offset", "end_offset", "original_text", "proposed_text", "url", "channel"]
+    START_OFFSET_FIELD_NUMBER: _ClassVar[int]
+    END_OFFSET_FIELD_NUMBER: _ClassVar[int]
+    ORIGINAL_TEXT_FIELD_NUMBER: _ClassVar[int]
+    PROPOSED_TEXT_FIELD_NUMBER: _ClassVar[int]
+    URL_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_FIELD_NUMBER: _ClassVar[int]
+    start_offset: _duration_pb2.Duration
+    end_offset: _duration_pb2.Duration
+    original_text: str
+    proposed_text: str
+    url: str
+    channel: int
+    def __init__(self, start_offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., end_offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., original_text: _Optional[str] = ..., proposed_text: _Optional[str] = ..., url: _Optional[str] = ..., channel: _Optional[int] = ...) -> None: ...
