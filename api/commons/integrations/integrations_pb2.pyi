@@ -1333,12 +1333,16 @@ class VerificationNewzwareAccountInquiry(_message.Message):
     def __init__(self) -> None: ...
 
 class PaymentExperianCC(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["use_invoice_account_number"]
+    USE_INVOICE_ACCOUNT_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    use_invoice_account_number: bool
+    def __init__(self, use_invoice_account_number: bool = ...) -> None: ...
 
 class PaymentExperianACH(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["use_invoice_account_number"]
+    USE_INVOICE_ACCOUNT_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    use_invoice_account_number: bool
+    def __init__(self, use_invoice_account_number: bool = ...) -> None: ...
 
 class PaymentAuthorizeNetCC(_message.Message):
     __slots__ = []
