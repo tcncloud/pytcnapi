@@ -177,16 +177,18 @@ class CloseTicketRes(_message.Message):
     def __init__(self, is_status: bool = ...) -> None: ...
 
 class CreateSlaReq(_message.Message):
-    __slots__ = ["sla_sid", "name", "description", "interval"]
+    __slots__ = ["sla_sid", "name", "description", "interval", "duration"]
     SLA_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    DURATION_FIELD_NUMBER: _ClassVar[int]
     sla_sid: int
     name: str
     description: str
     interval: int
-    def __init__(self, sla_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., interval: _Optional[int] = ...) -> None: ...
+    duration: _tickets_pb2.Duration
+    def __init__(self, sla_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., interval: _Optional[int] = ..., duration: _Optional[_Union[_tickets_pb2.Duration, _Mapping]] = ...) -> None: ...
 
 class CreateSlaRes(_message.Message):
     __slots__ = ["sla"]
