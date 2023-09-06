@@ -181,7 +181,7 @@ class GetForecastingParametersRes(_message.Message):
     def __init__(self, forecasting_parameters: _Optional[_Union[_wfm_pb2.ForecastingParameters, _Mapping]] = ...) -> None: ...
 
 class HistoricalDataInterval(_message.Message):
-    __slots__ = ["start_datetime", "skill_profile_sid", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_calls", "total_abandoned_calls", "is_delta", "original_average_speed_of_answer_in_seconds", "original_average_handle_time_in_seconds", "original_average_after_call_work_in_seconds", "original_average_time_to_abort_in_seconds", "original_total_calls", "original_total_abandoned_calls"]
+    __slots__ = ["start_datetime", "skill_profile_sid", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_calls", "total_abandoned_calls", "is_delta", "original_average_speed_of_answer_in_seconds", "original_average_handle_time_in_seconds", "original_average_after_call_work_in_seconds", "original_average_time_to_abort_in_seconds", "original_total_calls", "original_total_abandoned_calls", "skill_profile_category"]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
@@ -197,6 +197,7 @@ class HistoricalDataInterval(_message.Message):
     ORIGINAL_AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_TOTAL_ABANDONED_CALLS_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
     skill_profile_sid: int
     average_speed_of_answer_in_seconds: _wrappers_pb2.FloatValue
@@ -212,13 +213,16 @@ class HistoricalDataInterval(_message.Message):
     original_average_time_to_abort_in_seconds: _wrappers_pb2.FloatValue
     original_total_calls: int
     original_total_abandoned_calls: int
-    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., total_calls: _Optional[int] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., original_average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_total_calls: _Optional[int] = ..., original_total_abandoned_calls: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., total_calls: _Optional[int] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., original_average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_total_calls: _Optional[int] = ..., original_total_abandoned_calls: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class ListHistoricalDataReq(_message.Message):
-    __slots__ = ["skill_profile_sid"]
+    __slots__ = ["skill_profile_sid", "skill_profile_category"]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
-    def __init__(self, skill_profile_sid: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class ListHistoricalDataRes(_message.Message):
     __slots__ = ["historical_data_intervals"]
