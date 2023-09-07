@@ -1,10 +1,9 @@
 from data.billing.v1alpha1 import invoices_pb2 as _invoices_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from services.billing.v1alpha1 import core_pb2 as _core_pb2
-from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -55,10 +54,10 @@ class ListInvoicesRequest(_message.Message):
     def __init__(self, invoice: _Optional[_Union[_invoices_pb2.Invoice, _Mapping]] = ..., selector_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., order_by: _Optional[_Union[_core_pb2.OrderBy, _Mapping]] = ...) -> None: ...
 
 class ListInvoicesResponse(_message.Message):
-    __slots__ = ["invoices"]
-    INVOICES_FIELD_NUMBER: _ClassVar[int]
-    invoices: _containers.RepeatedCompositeFieldContainer[_invoices_pb2.Invoice]
-    def __init__(self, invoices: _Optional[_Iterable[_Union[_invoices_pb2.Invoice, _Mapping]]] = ...) -> None: ...
+    __slots__ = ["invoice"]
+    INVOICE_FIELD_NUMBER: _ClassVar[int]
+    invoice: _invoices_pb2.Invoice
+    def __init__(self, invoice: _Optional[_Union[_invoices_pb2.Invoice, _Mapping]] = ...) -> None: ...
 
 class UpdateInvoiceRequest(_message.Message):
     __slots__ = ["invoice", "update_fields"]
