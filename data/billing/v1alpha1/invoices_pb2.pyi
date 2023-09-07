@@ -1,5 +1,6 @@
 from data.billing.v1alpha1 import products_pb2 as _products_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -22,8 +23,8 @@ class Invoice(_message.Message):
     create_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
     items: _containers.RepeatedCompositeFieldContainer[InvoiceItem]
-    url: str
-    def __init__(self, invoice_id: _Optional[str] = ..., org_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., url: _Optional[str] = ...) -> None: ...
+    url: _wrappers_pb2.StringValue
+    def __init__(self, invoice_id: _Optional[str] = ..., org_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., url: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
     __slots__ = ["invoice_item_id", "invoice_id", "product", "price", "create_time", "update_time"]
