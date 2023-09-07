@@ -958,10 +958,10 @@ class ListProgramNodesBySidReq(_message.Message):
     def __init__(self, program_node_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ListProgramNodesBySidRes(_message.Message):
-    __slots__ = ["program_node"]
-    PROGRAM_NODE_FIELD_NUMBER: _ClassVar[int]
-    program_node: _containers.RepeatedCompositeFieldContainer[ProgramNode]
-    def __init__(self, program_node: _Optional[_Iterable[_Union[ProgramNode, _Mapping]]] = ...) -> None: ...
+    __slots__ = ["program_nodes"]
+    PROGRAM_NODES_FIELD_NUMBER: _ClassVar[int]
+    program_nodes: _containers.RepeatedCompositeFieldContainer[ProgramNode]
+    def __init__(self, program_nodes: _Optional[_Iterable[_Union[ProgramNode, _Mapping]]] = ...) -> None: ...
 
 class ParentEntity(_message.Message):
     __slots__ = ["parent_sid", "parent_type"]
