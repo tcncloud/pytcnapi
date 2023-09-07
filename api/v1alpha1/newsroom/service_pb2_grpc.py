@@ -37,6 +37,26 @@ class NewsroomAPIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdateNewsArticleRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdateNewsArticleResponse.FromString,
                 )
+        self.CreatePublishedNewsArticle = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/CreatePublishedNewsArticle',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.CreatePublishedNewsArticleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.CreatePublishedNewsArticleResponse.FromString,
+                )
+        self.ListPublishedNewsArticles = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/ListPublishedNewsArticles',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedNewsArticlesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedNewsArticlesResponse.FromString,
+                )
+        self.GetPublishedNewsArticleById = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/GetPublishedNewsArticleById',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedNewsArticleByIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedNewsArticleByIdResponse.FromString,
+                )
+        self.UpdatePublishedNewsArticle = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/UpdatePublishedNewsArticle',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedNewsArticleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedNewsArticleResponse.FromString,
+                )
 
 
 class NewsroomAPIServicer(object):
@@ -73,6 +93,34 @@ class NewsroomAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreatePublishedNewsArticle(self, request, context):
+        """create published news article
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPublishedNewsArticles(self, request, context):
+        """list published news articles
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetPublishedNewsArticleById(self, request, context):
+        """get published news article details by the id
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdatePublishedNewsArticle(self, request, context):
+        """update published news article
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_NewsroomAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -95,6 +143,26 @@ def add_NewsroomAPIServicer_to_server(servicer, server):
                     servicer.UpdateNewsArticle,
                     request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdateNewsArticleRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdateNewsArticleResponse.SerializeToString,
+            ),
+            'CreatePublishedNewsArticle': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePublishedNewsArticle,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.CreatePublishedNewsArticleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.CreatePublishedNewsArticleResponse.SerializeToString,
+            ),
+            'ListPublishedNewsArticles': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPublishedNewsArticles,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedNewsArticlesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedNewsArticlesResponse.SerializeToString,
+            ),
+            'GetPublishedNewsArticleById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPublishedNewsArticleById,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedNewsArticleByIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedNewsArticleByIdResponse.SerializeToString,
+            ),
+            'UpdatePublishedNewsArticle': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdatePublishedNewsArticle,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedNewsArticleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedNewsArticleResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -174,5 +242,73 @@ class NewsroomAPI(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/UpdateNewsArticle',
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdateNewsArticleRequest.SerializeToString,
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdateNewsArticleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreatePublishedNewsArticle(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/CreatePublishedNewsArticle',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.CreatePublishedNewsArticleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.CreatePublishedNewsArticleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPublishedNewsArticles(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/ListPublishedNewsArticles',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedNewsArticlesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedNewsArticlesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPublishedNewsArticleById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/GetPublishedNewsArticleById',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedNewsArticleByIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedNewsArticleByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdatePublishedNewsArticle(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/UpdatePublishedNewsArticle',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedNewsArticleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedNewsArticleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
