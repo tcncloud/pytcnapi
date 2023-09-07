@@ -898,7 +898,7 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @skill_profile_sid or @call_profile_template in the request is invalid.
+        - grpc.Invalid: the @skill_profile_category or @call_profile_template in the request is invalid.
         - grpc.Internal: error occurs during the building of the profile forecast.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
