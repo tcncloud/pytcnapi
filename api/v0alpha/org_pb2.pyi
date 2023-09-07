@@ -1991,7 +1991,7 @@ class UpdateSchedulePreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class SchedulePreferences(_message.Message):
-    __slots__ = ["display_schedule_by_time_zone", "use_schedule_by_time_zone", "schedule_by_time_zone_scope", "display_schedule_as_paused", "schedule_as_paused", "default_completion_threshold", "display_campaign_linking", "use_campaign_linking", "campaign_links", "default_campaign_link_id"]
+    __slots__ = ["display_schedule_by_time_zone", "use_schedule_by_time_zone", "schedule_by_time_zone_scope", "display_schedule_as_paused", "schedule_as_paused", "default_completion_threshold", "display_campaign_linking", "use_campaign_linking", "campaign_links", "default_campaign_link_id", "resend_cancelled_campaigns"]
     class CampaignLinksEntry(_message.Message):
         __slots__ = ["key", "value"]
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -2009,6 +2009,7 @@ class SchedulePreferences(_message.Message):
     USE_CAMPAIGN_LINKING_FIELD_NUMBER: _ClassVar[int]
     CAMPAIGN_LINKS_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_CAMPAIGN_LINK_ID_FIELD_NUMBER: _ClassVar[int]
+    RESEND_CANCELLED_CAMPAIGNS_FIELD_NUMBER: _ClassVar[int]
     display_schedule_by_time_zone: bool
     use_schedule_by_time_zone: bool
     schedule_by_time_zone_scope: _org_preferences_pb2.ScheduleByTimeZoneScope
@@ -2019,7 +2020,8 @@ class SchedulePreferences(_message.Message):
     use_campaign_linking: bool
     campaign_links: _containers.ScalarMap[str, str]
     default_campaign_link_id: str
-    def __init__(self, display_schedule_by_time_zone: bool = ..., use_schedule_by_time_zone: bool = ..., schedule_by_time_zone_scope: _Optional[_Union[_org_preferences_pb2.ScheduleByTimeZoneScope, str]] = ..., display_schedule_as_paused: bool = ..., schedule_as_paused: bool = ..., default_completion_threshold: _Optional[int] = ..., display_campaign_linking: bool = ..., use_campaign_linking: bool = ..., campaign_links: _Optional[_Mapping[str, str]] = ..., default_campaign_link_id: _Optional[str] = ...) -> None: ...
+    resend_cancelled_campaigns: bool
+    def __init__(self, display_schedule_by_time_zone: bool = ..., use_schedule_by_time_zone: bool = ..., schedule_by_time_zone_scope: _Optional[_Union[_org_preferences_pb2.ScheduleByTimeZoneScope, str]] = ..., display_schedule_as_paused: bool = ..., schedule_as_paused: bool = ..., default_completion_threshold: _Optional[int] = ..., display_campaign_linking: bool = ..., use_campaign_linking: bool = ..., campaign_links: _Optional[_Mapping[str, str]] = ..., default_campaign_link_id: _Optional[str] = ..., resend_cancelled_campaigns: bool = ...) -> None: ...
 
 class GetEmailSmsPreferencesRequest(_message.Message):
     __slots__ = ["field_mask"]
