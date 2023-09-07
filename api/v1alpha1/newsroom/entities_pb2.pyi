@@ -78,19 +78,19 @@ class NewsArticleDetails(_message.Message):
     last_edited: _timestamp_pb2.Timestamp
     def __init__(self, new_article_sid: _Optional[int] = ..., title: _Optional[str] = ..., content: _Optional[str] = ..., status: _Optional[_Union[_newsroom_pb2.ArticleStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
-class PublishedNewsArticleDetails(_message.Message):
-    __slots__ = ["published_new_article_sid", "news_article_details", "date_published", "display_to_user"]
-    PUBLISHED_NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+class PublishedArticleDetails(_message.Message):
+    __slots__ = ["published_article_sid", "news_article_details", "date_published", "display_to_user"]
+    PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     NEWS_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     DATE_PUBLISHED_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_TO_USER_FIELD_NUMBER: _ClassVar[int]
-    published_new_article_sid: int
+    published_article_sid: int
     news_article_details: NewsArticleDetails
     date_published: _timestamp_pb2.Timestamp
     display_to_user: bool
-    def __init__(self, published_new_article_sid: _Optional[int] = ..., news_article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ..., date_published: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., display_to_user: bool = ...) -> None: ...
+    def __init__(self, published_article_sid: _Optional[int] = ..., news_article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ..., date_published: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., display_to_user: bool = ...) -> None: ...
 
-class CreatePublishedNewsArticleRequest(_message.Message):
+class CreatePublishedArticleRequest(_message.Message):
     __slots__ = ["new_article_sid", "display_to_user"]
     NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_TO_USER_FIELD_NUMBER: _ClassVar[int]
@@ -98,44 +98,44 @@ class CreatePublishedNewsArticleRequest(_message.Message):
     display_to_user: bool
     def __init__(self, new_article_sid: _Optional[int] = ..., display_to_user: bool = ...) -> None: ...
 
-class CreatePublishedNewsArticleResponse(_message.Message):
+class CreatePublishedArticleResponse(_message.Message):
     __slots__ = ["published_article_details"]
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
-    published_article_details: PublishedNewsArticleDetails
-    def __init__(self, published_article_details: _Optional[_Union[PublishedNewsArticleDetails, _Mapping]] = ...) -> None: ...
+    published_article_details: PublishedArticleDetails
+    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
 
-class ListPublishedNewsArticlesRequest(_message.Message):
+class ListPublishedArticlesRequest(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
-class ListPublishedNewsArticlesResponse(_message.Message):
+class ListPublishedArticlesResponse(_message.Message):
     __slots__ = ["published_article_details"]
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
-    published_article_details: _containers.RepeatedCompositeFieldContainer[PublishedNewsArticleDetails]
-    def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedNewsArticleDetails, _Mapping]]] = ...) -> None: ...
+    published_article_details: _containers.RepeatedCompositeFieldContainer[PublishedArticleDetails]
+    def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedArticleDetails, _Mapping]]] = ...) -> None: ...
 
-class GetPublishedNewsArticleByIdRequest(_message.Message):
+class GetPublishedArticleByIdRequest(_message.Message):
     __slots__ = ["new_article_sid"]
     NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     new_article_sid: int
     def __init__(self, new_article_sid: _Optional[int] = ...) -> None: ...
 
-class GetPublishedNewsArticleByIdResponse(_message.Message):
+class GetPublishedArticleByIdResponse(_message.Message):
     __slots__ = ["published_article_details"]
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
-    published_article_details: PublishedNewsArticleDetails
-    def __init__(self, published_article_details: _Optional[_Union[PublishedNewsArticleDetails, _Mapping]] = ...) -> None: ...
+    published_article_details: PublishedArticleDetails
+    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
 
-class UpdatePublishedNewsArticleRequest(_message.Message):
+class UpdatePublishedArticleRequest(_message.Message):
     __slots__ = ["published_article_details", "field_mask"]
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
-    published_article_details: PublishedNewsArticleDetails
+    published_article_details: PublishedArticleDetails
     field_mask: _field_mask_pb2.FieldMask
-    def __init__(self, published_article_details: _Optional[_Union[PublishedNewsArticleDetails, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
-class UpdatePublishedNewsArticleResponse(_message.Message):
+class UpdatePublishedArticleResponse(_message.Message):
     __slots__ = ["published_article_details"]
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
-    published_article_details: PublishedNewsArticleDetails
-    def __init__(self, published_article_details: _Optional[_Union[PublishedNewsArticleDetails, _Mapping]] = ...) -> None: ...
+    published_article_details: PublishedArticleDetails
+    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...

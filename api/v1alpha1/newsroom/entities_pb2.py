@@ -16,7 +16,7 @@ from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mas
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$api/v1alpha1/newsroom/entities.proto\x12\x15\x61pi.v1alpha1.newsroom\x1a\x1a\x61pi/commons/newsroom.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"J\n\x18\x43reateNewsArticleRequest\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12\x18\n\x07\x63ontent\x18\x02 \x01(\tR\x07\x63ontent\"o\n\x19\x43reateNewsArticleResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"\x8c\x01\n\x17ListNewsArticlesRequest\x12\x36\n\x08statuses\x18\x01 \x03(\x0e\x32\x1a.api.commons.ArticleStatusR\x08statuses\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"n\n\x18ListNewsArticlesResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x03(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"G\n\x19GetNewsArticleByIdRequest\x12*\n\x0fnew_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\rnewArticleSid\"p\n\x1aGetNewsArticleByIdResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"\xa9\x01\n\x18UpdateNewsArticleRequest\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"o\n\x19UpdateNewsArticleResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"\xa0\x02\n\x12NewsArticleDetails\x12*\n\x0fnew_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\rnewArticleSid\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12\x18\n\x07\x63ontent\x18\x03 \x01(\tR\x07\x63ontent\x12\x32\n\x06status\x18\x04 \x01(\x0e\x32\x1a.api.commons.ArticleStatusR\x06status\x12=\n\x0c\x64\x61te_created\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\x12;\n\x0blast_edited\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nlastEdited\"\xa4\x02\n\x1bPublishedNewsArticleDetails\x12=\n\x19published_new_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\x16publishedNewArticleSid\x12[\n\x14news_article_details\x18\x02 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x12newsArticleDetails\x12\x41\n\x0e\x64\x61te_published\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\rdatePublished\x12&\n\x0f\x64isplay_to_user\x18\x04 \x01(\x08R\rdisplayToUser\"s\n!CreatePublishedNewsArticleRequest\x12&\n\x0fnew_article_sid\x18\x01 \x01(\x03R\rnewArticleSid\x12&\n\x0f\x64isplay_to_user\x18\x02 \x01(\x08R\rdisplayToUser\"\x94\x01\n\"CreatePublishedNewsArticleResponse\x12n\n\x19published_article_details\x18\x01 \x01(\x0b\x32\x32.api.v1alpha1.newsroom.PublishedNewsArticleDetailsR\x17publishedArticleDetails\"\"\n ListPublishedNewsArticlesRequest\"\x93\x01\n!ListPublishedNewsArticlesResponse\x12n\n\x19published_article_details\x18\x01 \x03(\x0b\x32\x32.api.v1alpha1.newsroom.PublishedNewsArticleDetailsR\x17publishedArticleDetails\"P\n\"GetPublishedNewsArticleByIdRequest\x12*\n\x0fnew_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\rnewArticleSid\"\x95\x01\n#GetPublishedNewsArticleByIdResponse\x12n\n\x19published_article_details\x18\x01 \x01(\x0b\x32\x32.api.v1alpha1.newsroom.PublishedNewsArticleDetailsR\x17publishedArticleDetails\"\xce\x01\n!UpdatePublishedNewsArticleRequest\x12n\n\x19published_article_details\x18\x01 \x01(\x0b\x32\x32.api.v1alpha1.newsroom.PublishedNewsArticleDetailsR\x17publishedArticleDetails\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"\x94\x01\n\"UpdatePublishedNewsArticleResponse\x12n\n\x19published_article_details\x18\x01 \x01(\x0b\x32\x32.api.v1alpha1.newsroom.PublishedNewsArticleDetailsR\x17publishedArticleDetailsB\xa0\x01\n\x19\x63om.api.v1alpha1.newsroomB\rEntitiesProtoP\x01\xa2\x02\x03\x41VN\xaa\x02\x15\x41pi.V1alpha1.Newsroom\xca\x02\x15\x41pi\\V1alpha1\\Newsroom\xe2\x02!Api\\V1alpha1\\Newsroom\\GPBMetadata\xea\x02\x17\x41pi::V1alpha1::Newsroomb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$api/v1alpha1/newsroom/entities.proto\x12\x15\x61pi.v1alpha1.newsroom\x1a\x1a\x61pi/commons/newsroom.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"J\n\x18\x43reateNewsArticleRequest\x12\x14\n\x05title\x18\x01 \x01(\tR\x05title\x12\x18\n\x07\x63ontent\x18\x02 \x01(\tR\x07\x63ontent\"o\n\x19\x43reateNewsArticleResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"\x8c\x01\n\x17ListNewsArticlesRequest\x12\x36\n\x08statuses\x18\x01 \x03(\x0e\x32\x1a.api.commons.ArticleStatusR\x08statuses\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"n\n\x18ListNewsArticlesResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x03(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"G\n\x19GetNewsArticleByIdRequest\x12*\n\x0fnew_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\rnewArticleSid\"p\n\x1aGetNewsArticleByIdResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"\xa9\x01\n\x18UpdateNewsArticleRequest\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"o\n\x19UpdateNewsArticleResponse\x12R\n\x0f\x61rticle_details\x18\x01 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x0e\x61rticleDetails\"\xa0\x02\n\x12NewsArticleDetails\x12*\n\x0fnew_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\rnewArticleSid\x12\x14\n\x05title\x18\x02 \x01(\tR\x05title\x12\x18\n\x07\x63ontent\x18\x03 \x01(\tR\x07\x63ontent\x12\x32\n\x06status\x18\x04 \x01(\x0e\x32\x1a.api.commons.ArticleStatusR\x06status\x12=\n\x0c\x64\x61te_created\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\x12;\n\x0blast_edited\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nlastEdited\"\x99\x02\n\x17PublishedArticleDetails\x12\x36\n\x15published_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\x13publishedArticleSid\x12[\n\x14news_article_details\x18\x02 \x01(\x0b\x32).api.v1alpha1.newsroom.NewsArticleDetailsR\x12newsArticleDetails\x12\x41\n\x0e\x64\x61te_published\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\rdatePublished\x12&\n\x0f\x64isplay_to_user\x18\x04 \x01(\x08R\rdisplayToUser\"o\n\x1d\x43reatePublishedArticleRequest\x12&\n\x0fnew_article_sid\x18\x01 \x01(\x03R\rnewArticleSid\x12&\n\x0f\x64isplay_to_user\x18\x02 \x01(\x08R\rdisplayToUser\"\x8c\x01\n\x1e\x43reatePublishedArticleResponse\x12j\n\x19published_article_details\x18\x01 \x01(\x0b\x32..api.v1alpha1.newsroom.PublishedArticleDetailsR\x17publishedArticleDetails\"\x1e\n\x1cListPublishedArticlesRequest\"\x8b\x01\n\x1dListPublishedArticlesResponse\x12j\n\x19published_article_details\x18\x01 \x03(\x0b\x32..api.v1alpha1.newsroom.PublishedArticleDetailsR\x17publishedArticleDetails\"L\n\x1eGetPublishedArticleByIdRequest\x12*\n\x0fnew_article_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\rnewArticleSid\"\x8d\x01\n\x1fGetPublishedArticleByIdResponse\x12j\n\x19published_article_details\x18\x01 \x01(\x0b\x32..api.v1alpha1.newsroom.PublishedArticleDetailsR\x17publishedArticleDetails\"\xc6\x01\n\x1dUpdatePublishedArticleRequest\x12j\n\x19published_article_details\x18\x01 \x01(\x0b\x32..api.v1alpha1.newsroom.PublishedArticleDetailsR\x17publishedArticleDetails\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"\x8c\x01\n\x1eUpdatePublishedArticleResponse\x12j\n\x19published_article_details\x18\x01 \x01(\x0b\x32..api.v1alpha1.newsroom.PublishedArticleDetailsR\x17publishedArticleDetailsB\xa0\x01\n\x19\x63om.api.v1alpha1.newsroomB\rEntitiesProtoP\x01\xa2\x02\x03\x41VN\xaa\x02\x15\x41pi.V1alpha1.Newsroom\xca\x02\x15\x41pi\\V1alpha1\\Newsroom\xe2\x02!Api\\V1alpha1\\Newsroom\\GPBMetadata\xea\x02\x17\x41pi::V1alpha1::Newsroomb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -28,10 +28,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETNEWSARTICLEBYIDREQUEST.fields_by_name['new_article_sid']._serialized_options = b'0\001'
   _NEWSARTICLEDETAILS.fields_by_name['new_article_sid']._options = None
   _NEWSARTICLEDETAILS.fields_by_name['new_article_sid']._serialized_options = b'0\001'
-  _PUBLISHEDNEWSARTICLEDETAILS.fields_by_name['published_new_article_sid']._options = None
-  _PUBLISHEDNEWSARTICLEDETAILS.fields_by_name['published_new_article_sid']._serialized_options = b'0\001'
-  _GETPUBLISHEDNEWSARTICLEBYIDREQUEST.fields_by_name['new_article_sid']._options = None
-  _GETPUBLISHEDNEWSARTICLEBYIDREQUEST.fields_by_name['new_article_sid']._serialized_options = b'0\001'
+  _PUBLISHEDARTICLEDETAILS.fields_by_name['published_article_sid']._options = None
+  _PUBLISHEDARTICLEDETAILS.fields_by_name['published_article_sid']._serialized_options = b'0\001'
+  _GETPUBLISHEDARTICLEBYIDREQUEST.fields_by_name['new_article_sid']._options = None
+  _GETPUBLISHEDARTICLEBYIDREQUEST.fields_by_name['new_article_sid']._serialized_options = b'0\001'
   _globals['_CREATENEWSARTICLEREQUEST']._serialized_start=158
   _globals['_CREATENEWSARTICLEREQUEST']._serialized_end=232
   _globals['_CREATENEWSARTICLERESPONSE']._serialized_start=234
@@ -50,22 +50,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_UPDATENEWSARTICLERESPONSE']._serialized_end=1072
   _globals['_NEWSARTICLEDETAILS']._serialized_start=1075
   _globals['_NEWSARTICLEDETAILS']._serialized_end=1363
-  _globals['_PUBLISHEDNEWSARTICLEDETAILS']._serialized_start=1366
-  _globals['_PUBLISHEDNEWSARTICLEDETAILS']._serialized_end=1658
-  _globals['_CREATEPUBLISHEDNEWSARTICLEREQUEST']._serialized_start=1660
-  _globals['_CREATEPUBLISHEDNEWSARTICLEREQUEST']._serialized_end=1775
-  _globals['_CREATEPUBLISHEDNEWSARTICLERESPONSE']._serialized_start=1778
-  _globals['_CREATEPUBLISHEDNEWSARTICLERESPONSE']._serialized_end=1926
-  _globals['_LISTPUBLISHEDNEWSARTICLESREQUEST']._serialized_start=1928
-  _globals['_LISTPUBLISHEDNEWSARTICLESREQUEST']._serialized_end=1962
-  _globals['_LISTPUBLISHEDNEWSARTICLESRESPONSE']._serialized_start=1965
-  _globals['_LISTPUBLISHEDNEWSARTICLESRESPONSE']._serialized_end=2112
-  _globals['_GETPUBLISHEDNEWSARTICLEBYIDREQUEST']._serialized_start=2114
-  _globals['_GETPUBLISHEDNEWSARTICLEBYIDREQUEST']._serialized_end=2194
-  _globals['_GETPUBLISHEDNEWSARTICLEBYIDRESPONSE']._serialized_start=2197
-  _globals['_GETPUBLISHEDNEWSARTICLEBYIDRESPONSE']._serialized_end=2346
-  _globals['_UPDATEPUBLISHEDNEWSARTICLEREQUEST']._serialized_start=2349
-  _globals['_UPDATEPUBLISHEDNEWSARTICLEREQUEST']._serialized_end=2555
-  _globals['_UPDATEPUBLISHEDNEWSARTICLERESPONSE']._serialized_start=2558
-  _globals['_UPDATEPUBLISHEDNEWSARTICLERESPONSE']._serialized_end=2706
+  _globals['_PUBLISHEDARTICLEDETAILS']._serialized_start=1366
+  _globals['_PUBLISHEDARTICLEDETAILS']._serialized_end=1647
+  _globals['_CREATEPUBLISHEDARTICLEREQUEST']._serialized_start=1649
+  _globals['_CREATEPUBLISHEDARTICLEREQUEST']._serialized_end=1760
+  _globals['_CREATEPUBLISHEDARTICLERESPONSE']._serialized_start=1763
+  _globals['_CREATEPUBLISHEDARTICLERESPONSE']._serialized_end=1903
+  _globals['_LISTPUBLISHEDARTICLESREQUEST']._serialized_start=1905
+  _globals['_LISTPUBLISHEDARTICLESREQUEST']._serialized_end=1935
+  _globals['_LISTPUBLISHEDARTICLESRESPONSE']._serialized_start=1938
+  _globals['_LISTPUBLISHEDARTICLESRESPONSE']._serialized_end=2077
+  _globals['_GETPUBLISHEDARTICLEBYIDREQUEST']._serialized_start=2079
+  _globals['_GETPUBLISHEDARTICLEBYIDREQUEST']._serialized_end=2155
+  _globals['_GETPUBLISHEDARTICLEBYIDRESPONSE']._serialized_start=2158
+  _globals['_GETPUBLISHEDARTICLEBYIDRESPONSE']._serialized_end=2299
+  _globals['_UPDATEPUBLISHEDARTICLEREQUEST']._serialized_start=2302
+  _globals['_UPDATEPUBLISHEDARTICLEREQUEST']._serialized_end=2500
+  _globals['_UPDATEPUBLISHEDARTICLERESPONSE']._serialized_start=2503
+  _globals['_UPDATEPUBLISHEDARTICLERESPONSE']._serialized_end=2643
 # @@protoc_insertion_point(module_scope)
