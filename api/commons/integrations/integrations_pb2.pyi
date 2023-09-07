@@ -816,7 +816,7 @@ class PaymentFlow(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_cc: _Optional[_Union[PaymentExperianCC, _Mapping]] = ..., experian_ach: _Optional[_Union[PaymentExperianACH, _Mapping]] = ..., authorize_net_cc: _Optional[_Union[PaymentAuthorizeNetCC, _Mapping]] = ..., authorize_net_ach: _Optional[_Union[PaymentAuthorizeNetACH, _Mapping]] = ..., authorize_net_paypal: _Optional[_Union[PaymentAuthorizeNetPaypal, _Mapping]] = ..., authorize_net_apple_pay: _Optional[_Union[PaymentAuthorizeNetApplePay, _Mapping]] = ..., authorize_net_google_pay: _Optional[_Union[PaymentAuthorizeNetGooglePay, _Mapping]] = ..., payway_submit_card_sale_request: _Optional[_Union[PaymentPaywaySubmitCardSaleRequest, _Mapping]] = ..., payway_submit_ach_alert_request: _Optional[_Union[PaymentPaywaySubmitACHAlertRequest, _Mapping]] = ..., newzware_cc: _Optional[_Union[PaymentNewzwareCc, _Mapping]] = ..., newzware_ach: _Optional[_Union[PaymentNewzwareAch, _Mapping]] = ..., priocommerce_cc: _Optional[_Union[PaymentPriocommerceCc, _Mapping]] = ..., priocommerce_ach: _Optional[_Union[PaymentPriocommerceAch, _Mapping]] = ..., payment_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class VerificationFlow(_message.Message):
-    __slots__ = ["plugin_instance_id", "experian_query_balance", "experian_link_data", "experian_zip_dob", "authorize_net_customer_profile", "authorize_net_link_data", "journey", "newzware_lookup_phone", "newzware_account_inquiry", "pricommerce_get_customer", "verification_fields"]
+    __slots__ = ["plugin_instance_id", "experian_query_balance", "experian_link_data", "experian_zip_dob", "authorize_net_customer_profile", "authorize_net_link_data", "journey", "newzware_lookup_phone", "newzware_account_inquiry", "priocommerce_get_customer", "verification_fields"]
     PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_QUERY_BALANCE_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_LINK_DATA_FIELD_NUMBER: _ClassVar[int]
@@ -826,7 +826,7 @@ class VerificationFlow(_message.Message):
     JOURNEY_FIELD_NUMBER: _ClassVar[int]
     NEWZWARE_LOOKUP_PHONE_FIELD_NUMBER: _ClassVar[int]
     NEWZWARE_ACCOUNT_INQUIRY_FIELD_NUMBER: _ClassVar[int]
-    PRICOMMERCE_GET_CUSTOMER_FIELD_NUMBER: _ClassVar[int]
+    PRIOCOMMERCE_GET_CUSTOMER_FIELD_NUMBER: _ClassVar[int]
     VERIFICATION_FIELDS_FIELD_NUMBER: _ClassVar[int]
     plugin_instance_id: str
     experian_query_balance: VerificationExperianQueryBalance
@@ -837,9 +837,9 @@ class VerificationFlow(_message.Message):
     journey: VerificationJourney
     newzware_lookup_phone: VerificationNewzwareLookupPhone
     newzware_account_inquiry: VerificationNewzwareAccountInquiry
-    pricommerce_get_customer: VerificationPriocommerceGetCustomer
+    priocommerce_get_customer: VerificationPriocommerceGetCustomer
     verification_fields: _containers.RepeatedCompositeFieldContainer[FieldDefinition]
-    def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[VerificationExperianQueryBalance, _Mapping]] = ..., experian_link_data: _Optional[_Union[VerificationExperianLinkData, _Mapping]] = ..., experian_zip_dob: _Optional[_Union[VerificationExperianZipDob, _Mapping]] = ..., authorize_net_customer_profile: _Optional[_Union[VerificationAuthorizeNetCustomerProfile, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[VerificationAuthorizeNetLinkData, _Mapping]] = ..., journey: _Optional[_Union[VerificationJourney, _Mapping]] = ..., newzware_lookup_phone: _Optional[_Union[VerificationNewzwareLookupPhone, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[VerificationNewzwareAccountInquiry, _Mapping]] = ..., pricommerce_get_customer: _Optional[_Union[VerificationPriocommerceGetCustomer, _Mapping]] = ..., verification_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
+    def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[VerificationExperianQueryBalance, _Mapping]] = ..., experian_link_data: _Optional[_Union[VerificationExperianLinkData, _Mapping]] = ..., experian_zip_dob: _Optional[_Union[VerificationExperianZipDob, _Mapping]] = ..., authorize_net_customer_profile: _Optional[_Union[VerificationAuthorizeNetCustomerProfile, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[VerificationAuthorizeNetLinkData, _Mapping]] = ..., journey: _Optional[_Union[VerificationJourney, _Mapping]] = ..., newzware_lookup_phone: _Optional[_Union[VerificationNewzwareLookupPhone, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[VerificationNewzwareAccountInquiry, _Mapping]] = ..., priocommerce_get_customer: _Optional[_Union[VerificationPriocommerceGetCustomer, _Mapping]] = ..., verification_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class FieldDefinition(_message.Message):
     __slots__ = ["name", "alt_name", "display_name", "field_type", "validation_type", "formats", "invoice_type", "helper_text"]
