@@ -304,6 +304,18 @@ class BuildCallProfileTemplateForSkillProfileRes(_message.Message):
     call_profile_template: CallProfileTemplate
     def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ...) -> None: ...
 
+class BuildCallProfileTemplateReq(_message.Message):
+    __slots__ = ["skill_profile_category"]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
+
+class BuildCallProfileTemplateRes(_message.Message):
+    __slots__ = ["call_profile_template"]
+    CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    call_profile_template: CallProfileTemplate
+    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ...) -> None: ...
+
 class CreateInactiveSkillProfileMappingReq(_message.Message):
     __slots__ = ["inactive_skill_profile_sid", "active_skill_profile_sid"]
     INACTIVE_SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]

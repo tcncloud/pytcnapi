@@ -80,6 +80,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileRes.FromString,
                 )
+        self.BuildCallProfileTemplate = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/BuildCallProfileTemplate',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateRes.FromString,
+                )
         self.CreateInactiveSkillProfileMapping = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateInactiveSkillProfileMapping',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInactiveSkillProfileMappingReq.SerializeToString,
@@ -776,11 +781,30 @@ class WFMServicer(object):
         The @total_calls in the returned template be summed from the (@training_data_start_datetime - @averages_calculation_range_in_months) to @training_data_end_datetime,
         or from @training_data_start_datetime to @training_data_end_datetime if @averages_calculation_range_in_months is 0.
         The fixed averages fields in the call profile template, will be set to the averages that the skill profile has.
+        DEPRECATED as of Sep/7/2023 - Use BuildCallProfileTemplate instead.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid in the request is invalid.
         - grpc.NotFound: the @skill_profile_sid given is not found for the org.
+        - grpc.Internal: error occurs when building the call profile template.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BuildCallProfileTemplate(self, request, context):
+        """Builds and returns a call profile template for the org sending the request and the given @skill_profile_category.
+        The template will be generated using the training data for said skill profile category using the @training_data_range and @averages_calculation_range_in_months
+        from the client's saved forecasting parameters.
+        The @total_calls in the returned template be summed from the (@training_data_start_datetime - @averages_calculation_range_in_months) to @training_data_end_datetime,
+        or from @training_data_start_datetime to @training_data_end_datetime if @averages_calculation_range_in_months is 0.
+        The fixed averages fields in the call profile template, will be set to the averages that the skill profile category has.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_category in the request is invalid.
+        - grpc.NotFound: the @skill_profile_category given is not found for the org.
         - grpc.Internal: error occurs when building the call profile template.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2434,6 +2458,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileRes.SerializeToString,
             ),
+            'BuildCallProfileTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.BuildCallProfileTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateRes.SerializeToString,
+            ),
             'CreateInactiveSkillProfileMapping': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateInactiveSkillProfileMapping,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInactiveSkillProfileMappingReq.FromString,
@@ -3188,6 +3217,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/BuildCallProfileTemplateForSkillProfile',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BuildCallProfileTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/BuildCallProfileTemplate',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
