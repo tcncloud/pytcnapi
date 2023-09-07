@@ -52,11 +52,6 @@ class NewsroomAPIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdResponse.FromString,
                 )
-        self.UpdatePublishedArticle = channel.unary_unary(
-                '/api.v1alpha1.newsroom.NewsroomAPI/UpdatePublishedArticle',
-                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedArticleRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedArticleResponse.FromString,
-                )
 
 
 class NewsroomAPIServicer(object):
@@ -94,28 +89,21 @@ class NewsroomAPIServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreatePublishedArticle(self, request, context):
-        """create published news article
+        """create published article
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListPublishedArticles(self, request, context):
-        """list published news articles
+        """list published articles
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetPublishedArticleById(self, request, context):
-        """get published news article details by the id
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdatePublishedArticle(self, request, context):
-        """update published news article
+        """get published article details by the id
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -158,11 +146,6 @@ def add_NewsroomAPIServicer_to_server(servicer, server):
                     servicer.GetPublishedArticleById,
                     request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdResponse.SerializeToString,
-            ),
-            'UpdatePublishedArticle': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdatePublishedArticle,
-                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedArticleRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedArticleResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -293,22 +276,5 @@ class NewsroomAPI(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/GetPublishedArticleById',
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdRequest.SerializeToString,
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdatePublishedArticle(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/UpdatePublishedArticle',
-            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedArticleRequest.SerializeToString,
-            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UpdatePublishedArticleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

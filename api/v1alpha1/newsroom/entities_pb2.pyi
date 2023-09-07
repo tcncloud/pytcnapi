@@ -125,17 +125,3 @@ class GetPublishedArticleByIdResponse(_message.Message):
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     published_article_details: PublishedArticleDetails
     def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
-
-class UpdatePublishedArticleRequest(_message.Message):
-    __slots__ = ["published_article_details", "field_mask"]
-    PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
-    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
-    published_article_details: PublishedArticleDetails
-    field_mask: _field_mask_pb2.FieldMask
-    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
-
-class UpdatePublishedArticleResponse(_message.Message):
-    __slots__ = ["published_article_details"]
-    PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
-    published_article_details: PublishedArticleDetails
-    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
