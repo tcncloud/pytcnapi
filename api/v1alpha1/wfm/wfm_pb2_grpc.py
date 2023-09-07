@@ -315,6 +315,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.FromString,
                 )
+        self.ListWFMAgentSids = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
+                )
         self.ListWFMAgentsAssociatedWithAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListWFMAgentsAssociatedWithAgentGroup',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.SerializeToString,
@@ -1483,6 +1488,20 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: @created_after_datetime has an invalid value.
         - grpc.Internal: error occurs when getting the wfm agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListWFMAgentSids(self, request, context):
+        """Gets the wfm_agent_sids with the given @tcn_agent_sids for the org sending the request.
+        Returns a Key:Pair map from the tcn_agent_sid to it's wfm_agent_sid.
+        If the wfm_agent_sid is not found for any @tcn_agent_sids, they will not have an entry in the returned @sids.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @tcn_agent_sids are invalid.
+        - grpc.Internal: error occours while listing the wfm_agent_sids.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2669,6 +2688,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListUngroupedWFMAgents,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.SerializeToString,
+            ),
+            'ListWFMAgentSids': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWFMAgentSids,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.SerializeToString,
             ),
             'ListWFMAgentsAssociatedWithAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.ListWFMAgentsAssociatedWithAgentGroup,
@@ -3988,6 +4012,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListUngroupedWFMAgents',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWFMAgentSids(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
