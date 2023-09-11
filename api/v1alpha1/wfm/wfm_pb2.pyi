@@ -971,6 +971,18 @@ class UpdateProgramNodeRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListProgramNodesBySidReq(_message.Message):
+    __slots__ = ["program_node_sids"]
+    PROGRAM_NODE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    program_node_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, program_node_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListProgramNodesBySidRes(_message.Message):
+    __slots__ = ["program_nodes"]
+    PROGRAM_NODES_FIELD_NUMBER: _ClassVar[int]
+    program_nodes: _containers.RepeatedCompositeFieldContainer[ProgramNode]
+    def __init__(self, program_nodes: _Optional[_Iterable[_Union[ProgramNode, _Mapping]]] = ...) -> None: ...
+
 class ParentEntity(_message.Message):
     __slots__ = ["parent_sid", "parent_type"]
     PARENT_SID_FIELD_NUMBER: _ClassVar[int]

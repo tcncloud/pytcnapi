@@ -250,6 +250,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeRes.FromString,
                 )
+        self.ListProgramNodesBySid = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListProgramNodesBySid',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.FromString,
+                )
         self.CreateConstraintRule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateConstraintRule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateConstraintRuleReq.SerializeToString,
@@ -1291,6 +1296,18 @@ class WFMServicer(object):
         - grpc.Invalid: one or more fields in the @program_node have invalid values.
         - grpc.Internal: error occurs when updating the program node.
         - grpc.NotFound: entry to be updated doesn't exist, or the given parent @location_node_sid belongs to a different scenario than the program node to update.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListProgramNodesBySid(self, request, context):
+        """Lists the program nodes with the given @program_node_sids for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the given @program_node_sids are invalid.
+        - grpc.Internal: error occurs when listing the program nodes.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2628,6 +2645,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeRes.SerializeToString,
             ),
+            'ListProgramNodesBySid': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListProgramNodesBySid,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.SerializeToString,
+            ),
             'CreateConstraintRule': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateConstraintRule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateConstraintRuleReq.FromString,
@@ -3795,6 +3817,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateProgramNode',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListProgramNodesBySid(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListProgramNodesBySid',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
