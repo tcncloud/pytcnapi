@@ -1284,6 +1284,25 @@ class ListUngroupedWFMAgentsRes(_message.Message):
     wfm_agents: _containers.RepeatedCompositeFieldContainer[WFMAgent]
     def __init__(self, wfm_agents: _Optional[_Iterable[_Union[WFMAgent, _Mapping]]] = ...) -> None: ...
 
+class ListWFMAgentSidsReq(_message.Message):
+    __slots__ = ["tcn_agent_sids"]
+    TCN_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    tcn_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, tcn_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListWFMAgentSidsRes(_message.Message):
+    __slots__ = ["sids"]
+    class SidsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: int
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[int] = ...) -> None: ...
+    SIDS_FIELD_NUMBER: _ClassVar[int]
+    sids: _containers.ScalarMap[int, int]
+    def __init__(self, sids: _Optional[_Mapping[int, int]] = ...) -> None: ...
+
 class ListWFMAgentsAssociatedWithAgentGroupReq(_message.Message):
     __slots__ = ["agent_group_sid"]
     AGENT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
