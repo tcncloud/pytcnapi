@@ -304,6 +304,18 @@ class BuildCallProfileTemplateForSkillProfileRes(_message.Message):
     call_profile_template: CallProfileTemplate
     def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ...) -> None: ...
 
+class BuildCallProfileTemplateReq(_message.Message):
+    __slots__ = ["skill_profile_category"]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
+
+class BuildCallProfileTemplateRes(_message.Message):
+    __slots__ = ["call_profile_template"]
+    CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    call_profile_template: CallProfileTemplate
+    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ...) -> None: ...
+
 class CreateInactiveSkillProfileMappingReq(_message.Message):
     __slots__ = ["inactive_skill_profile_sid", "active_skill_profile_sid"]
     INACTIVE_SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -371,17 +383,19 @@ class GetSkillProfilesCountRes(_message.Message):
     def __init__(self, count: _Optional[int] = ...) -> None: ...
 
 class BuildProfileForecastByIntervalReq(_message.Message):
-    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid"]
+    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid", "skill_profile_category"]
     CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     FIXED_AVERAGES_FORECAST_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     call_profile_template: CallProfileTemplate
     fixed_averages_forecast: bool
     skill_profile_sid: int
-    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class CallDataByInterval(_message.Message):
-    __slots__ = ["start_datetime", "skill_profile_sid", "total_calls", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_abandoned_calls", "is_delta", "forecast_data_interval_sid", "interval_width_in_minutes"]
+    __slots__ = ["start_datetime", "skill_profile_sid", "total_calls", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_abandoned_calls", "is_delta", "forecast_data_interval_sid", "interval_width_in_minutes", "skill_profile_category"]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
@@ -393,6 +407,7 @@ class CallDataByInterval(_message.Message):
     IS_DELTA_FIELD_NUMBER: _ClassVar[int]
     FORECAST_DATA_INTERVAL_SID_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
     skill_profile_sid: int
     total_calls: int
@@ -404,17 +419,20 @@ class CallDataByInterval(_message.Message):
     is_delta: bool
     forecast_data_interval_sid: int
     interval_width_in_minutes: int
-    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., total_calls: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., forecast_data_interval_sid: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., total_calls: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., forecast_data_interval_sid: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class BuildProfileForecastByIntervalWithStatsReq(_message.Message):
-    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid"]
+    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid", "skill_profile_category"]
     CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     FIXED_AVERAGES_FORECAST_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     call_profile_template: CallProfileTemplate
     fixed_averages_forecast: bool
     skill_profile_sid: int
-    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class BuildProfileForecastByIntervalWithStatsRes(_message.Message):
     __slots__ = ["call_data", "forecast_stats"]
@@ -425,14 +443,16 @@ class BuildProfileForecastByIntervalWithStatsRes(_message.Message):
     def __init__(self, call_data: _Optional[_Union[CallDataByInterval, _Mapping]] = ..., forecast_stats: _Optional[_Union[GetForecastStatisticsRes, _Mapping]] = ...) -> None: ...
 
 class UpsertProfileForecastReq(_message.Message):
-    __slots__ = ["skill_profile_sid", "call_profile_template", "fixed_averages_forecast"]
+    __slots__ = ["skill_profile_sid", "call_profile_template", "fixed_averages_forecast", "skill_profile_category"]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     FIXED_AVERAGES_FORECAST_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
     call_profile_template: CallProfileTemplate
     fixed_averages_forecast: bool
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class UpsertProfileForecastRes(_message.Message):
     __slots__ = []
