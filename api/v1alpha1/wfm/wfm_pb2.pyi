@@ -1234,14 +1234,16 @@ class UpdateWFMAgentRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAllWFMAgentsReq(_message.Message):
-    __slots__ = ["include_inactive", "include_skill_proficiencies", "include_agent_groups"]
+    __slots__ = ["include_inactive", "include_skill_proficiencies", "include_agent_groups", "agent_group_schedule_scenario_sid"]
     INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SKILL_PROFICIENCIES_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_GROUP_SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     include_inactive: bool
     include_skill_proficiencies: bool
     include_agent_groups: bool
-    def __init__(self, include_inactive: bool = ..., include_skill_proficiencies: bool = ..., include_agent_groups: bool = ...) -> None: ...
+    agent_group_schedule_scenario_sid: int
+    def __init__(self, include_inactive: bool = ..., include_skill_proficiencies: bool = ..., include_agent_groups: bool = ..., agent_group_schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
 class ListAllWFMAgentsRes(_message.Message):
     __slots__ = ["wfm_agents", "agent_groups_by_agent"]
