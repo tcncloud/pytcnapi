@@ -106,16 +106,18 @@ class TicketAction(_message.Message):
     def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., callback_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., ticket_id: _Optional[int] = ..., start_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state: _Optional[int] = ..., action_skills: _Optional[_Iterable[str]] = ..., action_sla_id: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ...) -> None: ...
 
 class CallbackContext(_message.Message):
-    __slots__ = ["caller_id", "phone_no", "country_code", "caller_name"]
+    __slots__ = ["caller_id", "phone_no", "country_code", "caller_name", "caller_country_code"]
     CALLER_ID_FIELD_NUMBER: _ClassVar[int]
     PHONE_NO_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     CALLER_NAME_FIELD_NUMBER: _ClassVar[int]
+    CALLER_COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     caller_id: str
     phone_no: str
     country_code: str
     caller_name: str
-    def __init__(self, caller_id: _Optional[str] = ..., phone_no: _Optional[str] = ..., country_code: _Optional[str] = ..., caller_name: _Optional[str] = ...) -> None: ...
+    caller_country_code: str
+    def __init__(self, caller_id: _Optional[str] = ..., phone_no: _Optional[str] = ..., country_code: _Optional[str] = ..., caller_name: _Optional[str] = ..., caller_country_code: _Optional[str] = ...) -> None: ...
 
 class Metadata(_message.Message):
     __slots__ = ["name", "value"]

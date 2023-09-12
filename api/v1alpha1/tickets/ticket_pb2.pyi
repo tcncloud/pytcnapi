@@ -17,7 +17,7 @@ class PingRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateTicketReq(_message.Message):
-    __slots__ = ["title", "description", "project_sid", "due_date", "metadata", "ticket_skills", "status", "ticket_sla", "assign_self", "assign_other", "ticket_action"]
+    __slots__ = ["title", "description", "project_sid", "due_date", "metadata", "ticket_skills", "status", "ticket_sla", "assign_self", "assign_other", "ticket_action", "ticket_assignee"]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -29,6 +29,7 @@ class CreateTicketReq(_message.Message):
     ASSIGN_SELF_FIELD_NUMBER: _ClassVar[int]
     ASSIGN_OTHER_FIELD_NUMBER: _ClassVar[int]
     TICKET_ACTION_FIELD_NUMBER: _ClassVar[int]
+    TICKET_ASSIGNEE_FIELD_NUMBER: _ClassVar[int]
     title: str
     description: str
     project_sid: int
@@ -40,7 +41,8 @@ class CreateTicketReq(_message.Message):
     assign_self: bool
     assign_other: str
     ticket_action: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.TicketAction]
-    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., project_sid: _Optional[int] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_tickets_pb2.Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[_tickets_pb2.Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[_tickets_pb2.Sla, _Mapping]]] = ..., assign_self: bool = ..., assign_other: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[_tickets_pb2.TicketAction, _Mapping]]] = ...) -> None: ...
+    ticket_assignee: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., project_sid: _Optional[int] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_tickets_pb2.Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[_tickets_pb2.Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[_tickets_pb2.Sla, _Mapping]]] = ..., assign_self: bool = ..., assign_other: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[_tickets_pb2.TicketAction, _Mapping]]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CreateTicketRes(_message.Message):
     __slots__ = ["ticket"]
@@ -339,12 +341,14 @@ class AssignTicketActionResponse(_message.Message):
     def __init__(self, is_assigned: bool = ...) -> None: ...
 
 class ChangeTicketStatusRequest(_message.Message):
-    __slots__ = ["ticket_id", "status_id"]
+    __slots__ = ["ticket_id", "status_id", "ticket_status"]
     TICKET_ID_FIELD_NUMBER: _ClassVar[int]
     STATUS_ID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_STATUS_FIELD_NUMBER: _ClassVar[int]
     ticket_id: int
     status_id: int
-    def __init__(self, ticket_id: _Optional[int] = ..., status_id: _Optional[int] = ...) -> None: ...
+    ticket_status: _tickets_pb2.TicketStatus
+    def __init__(self, ticket_id: _Optional[int] = ..., status_id: _Optional[int] = ..., ticket_status: _Optional[_Union[_tickets_pb2.TicketStatus, str]] = ...) -> None: ...
 
 class ChangeTicketStatusResponse(_message.Message):
     __slots__ = ["is_status_edited"]
