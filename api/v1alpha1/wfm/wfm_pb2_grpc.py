@@ -250,6 +250,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeRes.FromString,
                 )
+        self.ListProgramNodesBySid = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListProgramNodesBySid',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.FromString,
+                )
         self.CreateConstraintRule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateConstraintRule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateConstraintRuleReq.SerializeToString,
@@ -319,6 +324,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/ListUngroupedWFMAgents',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.FromString,
+                )
+        self.ListWFMAgentSids = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
                 )
         self.ListWFMAgentsAssociatedWithAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListWFMAgentsAssociatedWithAgentGroup',
@@ -1296,6 +1306,18 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListProgramNodesBySid(self, request, context):
+        """Lists the program nodes with the given @program_node_sids for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the given @program_node_sids are invalid.
+        - grpc.Internal: error occurs when listing the program nodes.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateConstraintRule(self, request, context):
         """Creates the given @constraint_rule for the org sending the request.
         The @constraint_rule_sid and @skill_proficiency_sid (if one was created) of the new entities will be returned in the response.
@@ -1472,6 +1494,10 @@ class WFMServicer(object):
         if @include_inactive is true then inactive agents will also be included, otherwise only active agents will be returned.
         if @include_skill_proficiencies is true then agents returned will include their skill proficiencies.
         if @include_agent_groups is true then the @agent_groups_by_agent response field will be set with a list of agent groups correlating to each agents index in the @wfm_agents field.
+        if @include_agent_groups is set to true, the @agent_group_schedule_scenario_sid field must be set, so that the agent groups for the correct scenario are returned.
+        if @include_agent_groups is set to true, and @agent_group_schedule_scenario_sid is not set, the agent groups will not be filtered by schedule scenario.
+        if @include_agent_groups is set to false, the @agent_group_schedule_scenario_sid will be ignored.
+        @agent_group_schedule_scenario_sid does not effect which @wfm_agents are returned.
         WFM agents with no associated agent_groups will have an empty slice in agent_groups_by_agent at their correlated index.
         Required Permissions:
         NONE
@@ -1506,6 +1532,20 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: @created_after_datetime has an invalid value.
         - grpc.Internal: error occurs when getting the wfm agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListWFMAgentSids(self, request, context):
+        """Gets the wfm_agent_sids with the given @tcn_agent_sids for the org sending the request.
+        Returns a map where Key: tcn_agent_sid - Value: wfm_agent_sid.
+        If the wfm_agent_sid is not found for any @tcn_agent_sids, they will not have an entry in the returned @sids.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @tcn_agent_sids are invalid.
+        - grpc.Internal: error occours while listing the wfm_agent_sids.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2628,6 +2668,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeRes.SerializeToString,
             ),
+            'ListProgramNodesBySid': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListProgramNodesBySid,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.SerializeToString,
+            ),
             'CreateConstraintRule': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateConstraintRule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateConstraintRuleReq.FromString,
@@ -2697,6 +2742,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListUngroupedWFMAgents,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.SerializeToString,
+            ),
+            'ListWFMAgentSids': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWFMAgentSids,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.SerializeToString,
             ),
             'ListWFMAgentsAssociatedWithAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.ListWFMAgentsAssociatedWithAgentGroup,
@@ -3799,6 +3849,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListProgramNodesBySid(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListProgramNodesBySid',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateConstraintRule(request,
             target,
             options=(),
@@ -4033,6 +4100,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListUngroupedWFMAgents',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWFMAgentSids(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

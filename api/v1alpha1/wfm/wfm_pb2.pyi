@@ -971,6 +971,18 @@ class UpdateProgramNodeRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListProgramNodesBySidReq(_message.Message):
+    __slots__ = ["program_node_sids"]
+    PROGRAM_NODE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    program_node_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, program_node_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListProgramNodesBySidRes(_message.Message):
+    __slots__ = ["program_nodes"]
+    PROGRAM_NODES_FIELD_NUMBER: _ClassVar[int]
+    program_nodes: _containers.RepeatedCompositeFieldContainer[ProgramNode]
+    def __init__(self, program_nodes: _Optional[_Iterable[_Union[ProgramNode, _Mapping]]] = ...) -> None: ...
+
 class ParentEntity(_message.Message):
     __slots__ = ["parent_sid", "parent_type"]
     PARENT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -1222,14 +1234,16 @@ class UpdateWFMAgentRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAllWFMAgentsReq(_message.Message):
-    __slots__ = ["include_inactive", "include_skill_proficiencies", "include_agent_groups"]
+    __slots__ = ["include_inactive", "include_skill_proficiencies", "include_agent_groups", "agent_group_schedule_scenario_sid"]
     INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SKILL_PROFICIENCIES_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_GROUP_SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     include_inactive: bool
     include_skill_proficiencies: bool
     include_agent_groups: bool
-    def __init__(self, include_inactive: bool = ..., include_skill_proficiencies: bool = ..., include_agent_groups: bool = ...) -> None: ...
+    agent_group_schedule_scenario_sid: int
+    def __init__(self, include_inactive: bool = ..., include_skill_proficiencies: bool = ..., include_agent_groups: bool = ..., agent_group_schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
 class ListAllWFMAgentsRes(_message.Message):
     __slots__ = ["wfm_agents", "agent_groups_by_agent"]
@@ -1271,6 +1285,25 @@ class ListUngroupedWFMAgentsRes(_message.Message):
     WFM_AGENTS_FIELD_NUMBER: _ClassVar[int]
     wfm_agents: _containers.RepeatedCompositeFieldContainer[WFMAgent]
     def __init__(self, wfm_agents: _Optional[_Iterable[_Union[WFMAgent, _Mapping]]] = ...) -> None: ...
+
+class ListWFMAgentSidsReq(_message.Message):
+    __slots__ = ["tcn_agent_sids"]
+    TCN_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    tcn_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, tcn_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListWFMAgentSidsRes(_message.Message):
+    __slots__ = ["sids"]
+    class SidsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: int
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[int] = ...) -> None: ...
+    SIDS_FIELD_NUMBER: _ClassVar[int]
+    sids: _containers.ScalarMap[int, int]
+    def __init__(self, sids: _Optional[_Mapping[int, int]] = ...) -> None: ...
 
 class ListWFMAgentsAssociatedWithAgentGroupReq(_message.Message):
     __slots__ = ["agent_group_sid"]
