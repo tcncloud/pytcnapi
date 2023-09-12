@@ -144,6 +144,34 @@ class ProcessElementReq(_message.Message):
     process_message: str
     def __init__(self, element_id: _Optional[str] = ..., process_message: _Optional[str] = ...) -> None: ...
 
+class ProcessListRequest(_message.Message):
+    __slots__ = ["element_id", "list"]
+    ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    element_id: str
+    list: bytes
+    def __init__(self, element_id: _Optional[str] = ..., list: _Optional[bytes] = ...) -> None: ...
+
+class ProcessListResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class StreamListRequest(_message.Message):
+    __slots__ = ["org_id", "region_id", "element_id", "chunk"]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    REGION_ID_FIELD_NUMBER: _ClassVar[int]
+    ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    CHUNK_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    region_id: str
+    element_id: str
+    chunk: bytes
+    def __init__(self, org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., element_id: _Optional[str] = ..., chunk: _Optional[bytes] = ...) -> None: ...
+
+class StreamListResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class ListAvailableFieldsByElementIdReq(_message.Message):
     __slots__ = ["element_id"]
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]

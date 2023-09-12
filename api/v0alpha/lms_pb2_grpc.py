@@ -140,6 +140,16 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ProcessElementReq.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.ProcessList = channel.unary_unary(
+                '/api.v0alpha.LMS/ProcessList',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ProcessListRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.ProcessListResponse.FromString,
+                )
+        self.StreamList = channel.stream_unary(
+                '/api.v0alpha.LMS/StreamList',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.StreamListRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.StreamListResponse.FromString,
+                )
         self.GetAvailableFields = channel.unary_unary(
                 '/api.v0alpha.LMS/GetAvailableFields',
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
@@ -438,6 +448,18 @@ class LMSServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ProcessElement(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ProcessList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def StreamList(self, request_iterator, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -761,6 +783,16 @@ def add_LMSServicer_to_server(servicer, server):
                     servicer.ProcessElement,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.ProcessElementReq.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'ProcessList': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProcessList,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ProcessListRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.ProcessListResponse.SerializeToString,
+            ),
+            'StreamList': grpc.stream_unary_rpc_method_handler(
+                    servicer.StreamList,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.StreamListRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.StreamListResponse.SerializeToString,
             ),
             'GetAvailableFields': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAvailableFields,
@@ -1339,6 +1371,40 @@ class LMS(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ProcessElement',
             api_dot_v0alpha_dot_lms__pb2.ProcessElementReq.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ProcessList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ProcessList',
+            api_dot_v0alpha_dot_lms__pb2.ProcessListRequest.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.ProcessListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StreamList(request_iterator,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.stream_unary(request_iterator, target, '/api.v0alpha.LMS/StreamList',
+            api_dot_v0alpha_dot_lms__pb2.StreamListRequest.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.StreamListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
