@@ -535,36 +535,40 @@ class ListRegressionTemplatesRes(_message.Message):
     def __init__(self, regression_templates: _Optional[_Iterable[_Union[RegressionTemplate, _Mapping]]] = ...) -> None: ...
 
 class BuildRegressionForecastByIntervalReq(_message.Message):
-    __slots__ = ["average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast"]
+    __slots__ = ["average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast", "skill_profile_category"]
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_TO_FORECAST_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     average_speed_of_answer_in_seconds: float
     average_handle_time_in_seconds: float
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     regression_template: RegressionTemplate
     skill_profile_sids_to_forecast: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class BuildRegressionForecastByIntervalWithStatsReq(_message.Message):
-    __slots__ = ["average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast"]
+    __slots__ = ["average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast", "skill_profile_category"]
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_TO_FORECAST_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     average_speed_of_answer_in_seconds: float
     average_handle_time_in_seconds: float
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     regression_template: RegressionTemplate
     skill_profile_sids_to_forecast: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class GetForecastStatisticsRes(_message.Message):
     __slots__ = ["num_intervals_measured", "total_calls_historical", "total_calls_predicted", "percent_calls_over_under", "rms_error_calls", "rms_error_ATAB", "rms_error_ASA", "rms_error_ACW", "rms_error_AHT", "are_stats_invalid", "invalid_reason"]
@@ -617,20 +621,22 @@ class ListForecastIntervalsForSkillProfileReq(_message.Message):
     def __init__(self, skill_profile_sid: _Optional[int] = ...) -> None: ...
 
 class UpsertRegressionForecastReq(_message.Message):
-    __slots__ = ["regression_template", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "skill_profile_sids_to_forecast"]
+    __slots__ = ["regression_template", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "skill_profile_sids_to_forecast", "skill_profile_category"]
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_TO_FORECAST_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     regression_template: RegressionTemplate
     average_speed_of_answer_in_seconds: float
     average_handle_time_in_seconds: float
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     skill_profile_sids_to_forecast: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class UpsertRegressionForecastRes(_message.Message):
     __slots__ = []
