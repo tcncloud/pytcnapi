@@ -67,7 +67,33 @@ class DeleteDashboardRequest(_message.Message):
     dashboard_id: str
     def __init__(self, dashboard_id: _Optional[str] = ...) -> None: ...
 
+class DeleteStandardDashboardRequest(_message.Message):
+    __slots__ = ["dashboard_id"]
+    DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    dashboard_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ...) -> None: ...
+
 class GetDashboardRequest(_message.Message):
+    __slots__ = ["dashboard_id"]
+    DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    dashboard_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ...) -> None: ...
+
+class CreateStandardDashboardRequest(_message.Message):
+    __slots__ = ["title", "description", "layout", "view", "type"]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    LAYOUT_FIELD_NUMBER: _ClassVar[int]
+    VIEW_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    title: str
+    description: str
+    layout: DashboardLayout
+    view: DashboardView
+    type: DashboardType
+    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
+
+class CreateStandardDashboardResponse(_message.Message):
     __slots__ = ["dashboard_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
@@ -175,7 +201,33 @@ class UpdateDashboardRequest(_message.Message):
     type: DashboardType
     def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
 
+class UpdateStandardDashboardRequest(_message.Message):
+    __slots__ = ["dashboard_id", "title", "description", "layout", "view", "type"]
+    DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    LAYOUT_FIELD_NUMBER: _ClassVar[int]
+    VIEW_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    dashboard_id: str
+    title: str
+    description: str
+    layout: DashboardLayout
+    view: DashboardView
+    type: DashboardType
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
+
 class UpdateDashboardTitleAndDescriptionRequest(_message.Message):
+    __slots__ = ["dashboard_id", "title", "description"]
+    DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    dashboard_id: str
+    title: str
+    description: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class UpdateStandardDashboardTitleAndDescriptionRequest(_message.Message):
     __slots__ = ["dashboard_id", "title", "description"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -193,7 +245,23 @@ class UpdateDashboardLayoutRequest(_message.Message):
     layout: DashboardLayout
     def __init__(self, dashboard_id: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ...) -> None: ...
 
+class UpdateStandardDashboardLayoutRequest(_message.Message):
+    __slots__ = ["dashboard_id", "layout"]
+    DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    LAYOUT_FIELD_NUMBER: _ClassVar[int]
+    dashboard_id: str
+    layout: DashboardLayout
+    def __init__(self, dashboard_id: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ...) -> None: ...
+
 class UpdateDashboardViewRequest(_message.Message):
+    __slots__ = ["dashboard_id", "view"]
+    DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    VIEW_FIELD_NUMBER: _ClassVar[int]
+    dashboard_id: str
+    view: DashboardView
+    def __init__(self, dashboard_id: _Optional[str] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ...) -> None: ...
+
+class UpdateStandardDashboardViewRequest(_message.Message):
     __slots__ = ["dashboard_id", "view"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
