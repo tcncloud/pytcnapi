@@ -1,4 +1,5 @@
 from annotations import authz_pb2 as _authz_pb2
+from api.commons import dashboards_pb2 as _dashboards_pb2
 from api.commons import org_pb2 as _org_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
@@ -148,20 +149,22 @@ class PanelSource(_message.Message):
     def __init__(self, insight_id: _Optional[str] = ..., legacy_insight_id: _Optional[str] = ...) -> None: ...
 
 class Dashboard(_message.Message):
-    __slots__ = ["dashboard_id", "title", "description", "layout", "view", "type"]
+    __slots__ = ["dashboard_id", "title", "description", "layout", "view", "type", "permission_type"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     LAYOUT_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
+    PERMISSION_TYPE_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     title: str
     description: str
     layout: DashboardLayout
     view: DashboardView
     type: DashboardType
-    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
+    permission_type: _dashboards_pb2.DashboardPermissionType
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ..., permission_type: _Optional[_Union[_dashboards_pb2.DashboardPermissionType, str]] = ...) -> None: ...
 
 class DashboardType(_message.Message):
     __slots__ = ["historic", "real_time"]
