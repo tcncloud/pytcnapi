@@ -115,10 +115,10 @@ class ListPublishedArticlesResponse(_message.Message):
     def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedArticleDetails, _Mapping]]] = ...) -> None: ...
 
 class GetPublishedArticleByIdRequest(_message.Message):
-    __slots__ = ["new_article_sid"]
-    NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
-    new_article_sid: int
-    def __init__(self, new_article_sid: _Optional[int] = ...) -> None: ...
+    __slots__ = ["published_article_sid"]
+    PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+    published_article_sid: int
+    def __init__(self, published_article_sid: _Optional[int] = ...) -> None: ...
 
 class GetPublishedArticleByIdResponse(_message.Message):
     __slots__ = ["published_article_details"]
