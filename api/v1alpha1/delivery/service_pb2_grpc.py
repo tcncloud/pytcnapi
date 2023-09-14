@@ -39,11 +39,6 @@ class DeliveryApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigRes.FromString,
                 )
-        self.GetDeliveryDefinitionByName = channel.unary_unary(
-                '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinitionByName',
-                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.FromString,
-                )
         self.GetTransferConfig = channel.unary_unary(
                 '/api.v1alpha1.delivery.DeliveryApi/GetTransferConfig',
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetTransferConfigReq.SerializeToString,
@@ -94,6 +89,36 @@ class DeliveryApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionRes.FromString,
                 )
+        self.DeleteDeliveryDefinition = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/DeleteDeliveryDefinition',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteDeliveryDefinitionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteDeliveryDefinitionRes.FromString,
+                )
+        self.GetDeliveryDefinition = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinition',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionRes.FromString,
+                )
+        self.GetDeliveryDefinitionByName = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinitionByName',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.FromString,
+                )
+        self.ListDeliveryDefinitions = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/ListDeliveryDefinitions',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsRes.FromString,
+                )
+        self.ListDeliveryDefinitionsByCredentialID = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/ListDeliveryDefinitionsByCredentialID',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsByCredentialIDReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsByCredentialIDRes.FromString,
+                )
+        self.UpdateDeliveryDefinition = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/UpdateDeliveryDefinition',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateDeliveryDefinitionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateDeliveryDefinitionRes.FromString,
+                )
         self.CreateEncryption = channel.unary_unary(
                 '/api.v1alpha1.delivery.DeliveryApi/CreateEncryption',
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionReq.SerializeToString,
@@ -129,12 +154,6 @@ class DeliveryApiServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteTransferConfig(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetDeliveryDefinitionByName(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -200,6 +219,42 @@ class DeliveryApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteDeliveryDefinition(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDeliveryDefinition(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDeliveryDefinitionByName(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListDeliveryDefinitions(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListDeliveryDefinitionsByCredentialID(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateDeliveryDefinition(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateEncryption(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -233,11 +288,6 @@ def add_DeliveryApiServicer_to_server(servicer, server):
                     servicer.DeleteTransferConfig,
                     request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigRes.SerializeToString,
-            ),
-            'GetDeliveryDefinitionByName': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetDeliveryDefinitionByName,
-                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.SerializeToString,
             ),
             'GetTransferConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTransferConfig,
@@ -288,6 +338,36 @@ def add_DeliveryApiServicer_to_server(servicer, server):
                     servicer.CreateDeliveryDefinition,
                     request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionRes.SerializeToString,
+            ),
+            'DeleteDeliveryDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteDeliveryDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteDeliveryDefinitionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteDeliveryDefinitionRes.SerializeToString,
+            ),
+            'GetDeliveryDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDeliveryDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionRes.SerializeToString,
+            ),
+            'GetDeliveryDefinitionByName': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDeliveryDefinitionByName,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.SerializeToString,
+            ),
+            'ListDeliveryDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListDeliveryDefinitions,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsRes.SerializeToString,
+            ),
+            'ListDeliveryDefinitionsByCredentialID': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListDeliveryDefinitionsByCredentialID,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsByCredentialIDReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsByCredentialIDRes.SerializeToString,
+            ),
+            'UpdateDeliveryDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateDeliveryDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateDeliveryDefinitionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateDeliveryDefinitionRes.SerializeToString,
             ),
             'CreateEncryption': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateEncryption,
@@ -386,23 +466,6 @@ class DeliveryApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/DeleteTransferConfig',
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigReq.SerializeToString,
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteTransferConfigRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetDeliveryDefinitionByName(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinitionByName',
-            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.SerializeToString,
-            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -573,6 +636,108 @@ class DeliveryApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/CreateDeliveryDefinition',
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionReq.SerializeToString,
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateDeliveryDefinitionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteDeliveryDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/DeleteDeliveryDefinition',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteDeliveryDefinitionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteDeliveryDefinitionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDeliveryDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinition',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDeliveryDefinitionByName(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/GetDeliveryDefinitionByName',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetDeliveryDefinitionByNameRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListDeliveryDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/ListDeliveryDefinitions',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListDeliveryDefinitionsByCredentialID(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/ListDeliveryDefinitionsByCredentialID',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsByCredentialIDReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListDeliveryDefinitionsByCredentialIDRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateDeliveryDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/UpdateDeliveryDefinition',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateDeliveryDefinitionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateDeliveryDefinitionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
