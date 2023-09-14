@@ -124,6 +124,26 @@ class DeliveryApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionRes.FromString,
                 )
+        self.DeleteEncryption = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/DeleteEncryption',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteEncryptionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteEncryptionRes.FromString,
+                )
+        self.GetEncryption = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/GetEncryption',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetEncryptionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetEncryptionRes.FromString,
+                )
+        self.ListEncryptions = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/ListEncryptions',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListEncryptionsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListEncryptionsRes.FromString,
+                )
+        self.UpdateEncryption = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/UpdateEncryption',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateEncryptionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateEncryptionRes.FromString,
+                )
 
 
 class DeliveryApiServicer(object):
@@ -261,6 +281,30 @@ class DeliveryApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteEncryption(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetEncryption(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListEncryptions(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateEncryption(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DeliveryApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -373,6 +417,26 @@ def add_DeliveryApiServicer_to_server(servicer, server):
                     servicer.CreateEncryption,
                     request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionRes.SerializeToString,
+            ),
+            'DeleteEncryption': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteEncryption,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteEncryptionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteEncryptionRes.SerializeToString,
+            ),
+            'GetEncryption': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetEncryption,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetEncryptionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetEncryptionRes.SerializeToString,
+            ),
+            'ListEncryptions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListEncryptions,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListEncryptionsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListEncryptionsRes.SerializeToString,
+            ),
+            'UpdateEncryption': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateEncryption,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateEncryptionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateEncryptionRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -755,5 +819,73 @@ class DeliveryApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/CreateEncryption',
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionReq.SerializeToString,
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.CreateEncryptionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteEncryption(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/DeleteEncryption',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteEncryptionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.DeleteEncryptionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetEncryption(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/GetEncryption',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetEncryptionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.GetEncryptionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListEncryptions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/ListEncryptions',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListEncryptionsReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListEncryptionsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateEncryption(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/UpdateEncryption',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateEncryptionReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.UpdateEncryptionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -209,6 +209,22 @@ class GetDeliveryDefinitionRes(_message.Message):
     entity: DeliveryDefinition
     def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
 
+class GetDeliveryDefinitionByNameReq(_message.Message):
+    __slots__ = ["name", "mask", "entity"]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    MASK_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    mask: _field_mask_pb2.FieldMask
+    entity: DeliveryDefinition
+    def __init__(self, name: _Optional[str] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+
+class GetDeliveryDefinitionByNameRes(_message.Message):
+    __slots__ = ["entity"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: DeliveryDefinition
+    def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+
 class ListDeliveryDefinitionsReq(_message.Message):
     __slots__ = ["entity", "mask", "list_req"]
     ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -269,21 +285,59 @@ class CreateEncryptionRes(_message.Message):
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
-class GetDeliveryDefinitionByNameReq(_message.Message):
-    __slots__ = ["name", "mask", "entity"]
-    NAME_FIELD_NUMBER: _ClassVar[int]
-    MASK_FIELD_NUMBER: _ClassVar[int]
+class DeleteEncryptionReq(_message.Message):
+    __slots__ = ["entity", "mask"]
     ENTITY_FIELD_NUMBER: _ClassVar[int]
-    name: str
+    MASK_FIELD_NUMBER: _ClassVar[int]
+    entity: ID
     mask: _field_mask_pb2.FieldMask
-    entity: DeliveryDefinition
-    def __init__(self, name: _Optional[str] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+    def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
-class GetDeliveryDefinitionByNameRes(_message.Message):
+class DeleteEncryptionRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class GetEncryptionReq(_message.Message):
+    __slots__ = ["entity", "mask"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    MASK_FIELD_NUMBER: _ClassVar[int]
+    entity: Encryption
+    mask: _field_mask_pb2.FieldMask
+    def __init__(self, entity: _Optional[_Union[Encryption, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class GetEncryptionRes(_message.Message):
     __slots__ = ["entity"]
     ENTITY_FIELD_NUMBER: _ClassVar[int]
-    entity: DeliveryDefinition
-    def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
+    entity: Encryption
+    def __init__(self, entity: _Optional[_Union[Encryption, _Mapping]] = ...) -> None: ...
+
+class ListEncryptionsReq(_message.Message):
+    __slots__ = ["entity", "mask"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    MASK_FIELD_NUMBER: _ClassVar[int]
+    entity: ListReq
+    mask: _field_mask_pb2.FieldMask
+    def __init__(self, entity: _Optional[_Union[ListReq, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class ListEncryptionsRes(_message.Message):
+    __slots__ = ["entities"]
+    ENTITIES_FIELD_NUMBER: _ClassVar[int]
+    entities: _containers.RepeatedCompositeFieldContainer[Encryption]
+    def __init__(self, entities: _Optional[_Iterable[_Union[Encryption, _Mapping]]] = ...) -> None: ...
+
+class UpdateEncryptionReq(_message.Message):
+    __slots__ = ["entity", "mask"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    MASK_FIELD_NUMBER: _ClassVar[int]
+    entity: Encryption
+    mask: _field_mask_pb2.FieldMask
+    def __init__(self, entity: _Optional[_Union[Encryption, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateEncryptionRes(_message.Message):
+    __slots__ = ["entity"]
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: ID
+    def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class TransferConfig(_message.Message):
     __slots__ = ["sid", "name", "description", "ttl", "credential", "destination", "source", "created_on", "last_edited"]
