@@ -616,12 +616,6 @@ class ListForecastIntervalsForSkillProfileReq(_message.Message):
     skill_profile_sid: int
     def __init__(self, skill_profile_sid: _Optional[int] = ...) -> None: ...
 
-class ListForecastIntervalsReq(_message.Message):
-    __slots__ = ["skill_profile_category"]
-    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
-    skill_profile_category: _wfm_pb2.SkillProfileCategory
-    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
-
 class UpsertRegressionForecastReq(_message.Message):
     __slots__ = ["regression_template", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "skill_profile_sids_to_forecast"]
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
@@ -665,7 +659,7 @@ class UpsertForecastDataDeltasRes(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteForecastIntervalsReq(_message.Message):
-    __slots__ = ["skill_profile_sid", "forecast_interval_sids", "skill_profile_category", "forecast_interval_delete_type"]
+    __slots__ = ["skill_profile_sid", "forecast_interval_sids", "forecast_interval_delete_type"]
     class ForecastIntervalDeleteType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = []
         INTERVALS_AND_DELTAS: _ClassVar[DeleteForecastIntervalsReq.ForecastIntervalDeleteType]
@@ -679,13 +673,11 @@ class DeleteForecastIntervalsReq(_message.Message):
         def __init__(self, sids: _Optional[_Iterable[int]] = ...) -> None: ...
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     FORECAST_INTERVAL_SIDS_FIELD_NUMBER: _ClassVar[int]
-    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     FORECAST_INTERVAL_DELETE_TYPE_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
     forecast_interval_sids: DeleteForecastIntervalsReq.IntervalSids
-    skill_profile_category: _wfm_pb2.SkillProfileCategory
     forecast_interval_delete_type: DeleteForecastIntervalsReq.ForecastIntervalDeleteType
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., forecast_interval_sids: _Optional[_Union[DeleteForecastIntervalsReq.IntervalSids, _Mapping]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., forecast_interval_delete_type: _Optional[_Union[DeleteForecastIntervalsReq.ForecastIntervalDeleteType, str]] = ...) -> None: ...
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., forecast_interval_sids: _Optional[_Union[DeleteForecastIntervalsReq.IntervalSids, _Mapping]] = ..., forecast_interval_delete_type: _Optional[_Union[DeleteForecastIntervalsReq.ForecastIntervalDeleteType, str]] = ...) -> None: ...
 
 class DeleteForecastIntervalsRes(_message.Message):
     __slots__ = []
