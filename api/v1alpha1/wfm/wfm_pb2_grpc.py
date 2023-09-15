@@ -160,6 +160,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsForSkillProfileReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
                 )
+        self.ListForecastIntervals = channel.unary_stream(
+                '/api.v1alpha1.wfm.WFM/ListForecastIntervals',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
+                )
         self.BuildRegressionForecastByInterval = channel.unary_stream(
                 '/api.v1alpha1.wfm.WFM/BuildRegressionForecastByInterval',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildRegressionForecastByIntervalReq.SerializeToString,
@@ -1011,10 +1016,23 @@ class WFMServicer(object):
 
     def ListForecastIntervalsForSkillProfile(self, request, context):
         """Gets the forecast data intervals for the given @skill_profile_sid.
+        DEPRECATED as of Sep/13/2023 - Use ListForecastIntervals instead.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid in the request is invalid.
+        - grpc.Internal: error occurs when getting the forecast data intervals.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListForecastIntervals(self, request, context):
+        """Gets the forecast data intervals for the given @skill_profile_category.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_category in the request is invalid.
         - grpc.Internal: error occurs when getting the forecast data intervals.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1105,7 +1123,7 @@ class WFMServicer(object):
 
     def DeleteForecastIntervals(self, request, context):
         """Deletes forecast data intervals/deltas based on the parameters provided.
-        If @delete_param is type skill_profile_sid, then the intervals/deltas to be deleted will be
+        If @delete_param is type skill_profile_category, then the intervals/deltas to be deleted will be
         associated with that id. If @delete_param is type interval_sids, then the intervals/deltas to be
         deleted will be contained in the list @interval_sids. The @delete_type field determines which
         table(s) in the database the intervals/deltas will be deleted from.
@@ -2578,6 +2596,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsForSkillProfileReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.SerializeToString,
             ),
+            'ListForecastIntervals': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListForecastIntervals,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.SerializeToString,
+            ),
             'BuildRegressionForecastByInterval': grpc.unary_stream_rpc_method_handler(
                     servicer.BuildRegressionForecastByInterval,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildRegressionForecastByIntervalReq.FromString,
@@ -3538,6 +3561,23 @@ class WFM(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.wfm.WFM/ListForecastIntervalsForSkillProfile',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsForSkillProfileReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListForecastIntervals(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.wfm.WFM/ListForecastIntervals',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

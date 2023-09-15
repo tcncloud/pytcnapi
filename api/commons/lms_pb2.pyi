@@ -67,6 +67,7 @@ class RecordType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RECORD_TYPE_FULL_NAME: _ClassVar[RecordType]
     RECORD_TYPE_ACCOUNT_NUMBER: _ClassVar[RecordType]
     RECORD_TYPE_STRUCT_VALUE: _ClassVar[RecordType]
+    RECORD_TYPE_EHR_DETAILS: _ClassVar[RecordType]
 
 class FieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -90,6 +91,7 @@ class FieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FIELD_TYPE_ACCOUNT_NUMBER: _ClassVar[FieldType]
     FIELD_TYPE_ERROR: _ClassVar[FieldType]
     FIELD_TYPE_STRUCT_VALUE: _ClassVar[FieldType]
+    FIELD_TYPE_EHR_DETAILS: _ClassVar[FieldType]
 
 class FileFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -260,6 +262,7 @@ RECORD_TYPE_DATE_OF_BIRTH: RecordType
 RECORD_TYPE_FULL_NAME: RecordType
 RECORD_TYPE_ACCOUNT_NUMBER: RecordType
 RECORD_TYPE_STRUCT_VALUE: RecordType
+RECORD_TYPE_EHR_DETAILS: RecordType
 FIELD_TYPE_STRING: FieldType
 FIELD_TYPE_NUMBER: FieldType
 FIELD_TYPE_BOOLEAN: FieldType
@@ -280,6 +283,7 @@ FIELD_TYPE_FULL_NAME: FieldType
 FIELD_TYPE_ACCOUNT_NUMBER: FieldType
 FIELD_TYPE_ERROR: FieldType
 FIELD_TYPE_STRUCT_VALUE: FieldType
+FIELD_TYPE_EHR_DETAILS: FieldType
 FILE_FORMAT_CSV: FileFormat
 FILE_FORMAT_CUSTOM_DELIM: FileFormat
 FILE_FORMAT_FIXED_FORMAT: FileFormat
