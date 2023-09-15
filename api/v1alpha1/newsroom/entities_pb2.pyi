@@ -154,3 +154,13 @@ class UserActivityResponse(_message.Message):
     USER_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     user_activity: UserActivity
     def __init__(self, user_activity: _Optional[_Union[UserActivity, _Mapping]] = ...) -> None: ...
+
+class GetNewsForUserRequest(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class GetNewsForUserResponse(_message.Message):
+    __slots__ = ["published_article_details"]
+    PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    published_article_details: _containers.RepeatedCompositeFieldContainer[PublishedArticleDetails]
+    def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedArticleDetails, _Mapping]]] = ...) -> None: ...
