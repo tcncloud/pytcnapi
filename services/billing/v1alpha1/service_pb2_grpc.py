@@ -148,14 +148,16 @@ class BillingServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateBillingPlan(self, request, context):
-        """UpdateBillingPlan updates the specified billing plan.
+        """UpdateBillingPlan updates the specified billing plan. This is expected to provide
+        all the rate definitions for the billing plan if updating rates.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateDefaultBillingPlan(self, request, context):
-        """UpdateDefaultBillingPlan updates the default billing plan.
+        """UpdateDefaultBillingPlan updates the default billing plan. This is expected to provide
+        all the rate definitions for the billing plan.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
