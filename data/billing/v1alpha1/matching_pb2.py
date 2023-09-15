@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$data/billing/v1alpha1/matching.proto\x12\x15\x64\x61ta.billing.v1alpha1\"\x10\n\x0eMatchingConfig*-\n\x0cMatchingRule\x12\x1d\n\x19MATCHING_RULE_UNSPECIFIED\x10\x00\x42\xa0\x01\n\x19\x63om.data.billing.v1alpha1B\rMatchingProtoP\x01\xa2\x02\x03\x44\x42X\xaa\x02\x15\x44\x61ta.Billing.V1alpha1\xca\x02\x15\x44\x61ta\\Billing\\V1alpha1\xe2\x02!Data\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x17\x44\x61ta::Billing::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$data/billing/v1alpha1/matching.proto\x12\x15\x64\x61ta.billing.v1alpha1\"h\n\x0eMatchingConfig\x12L\n\tarea_code\x18\x01 \x01(\x0b\x32-.data.billing.v1alpha1.MatchingConfigAreaCodeH\x00R\x08\x61reaCodeB\x08\n\x06\x63onfig\"K\n\x16MatchingConfigAreaCode\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n\narea_codes\x18\x02 \x03(\tR\tareaCodes*J\n\x0cMatchingRule\x12\x1d\n\x19MATCHING_RULE_UNSPECIFIED\x10\x00\x12\x1b\n\x17MATCHING_RULE_AREA_CODE\x10\x01\x42\xa0\x01\n\x19\x63om.data.billing.v1alpha1B\rMatchingProtoP\x01\xa2\x02\x03\x44\x42X\xaa\x02\x15\x44\x61ta.Billing.V1alpha1\xca\x02\x15\x44\x61ta\\Billing\\V1alpha1\xe2\x02!Data\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x17\x44\x61ta::Billing::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -21,8 +21,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'data.billing.v1alpha1.match
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\031com.data.billing.v1alpha1B\rMatchingProtoP\001\242\002\003DBX\252\002\025Data.Billing.V1alpha1\312\002\025Data\\Billing\\V1alpha1\342\002!Data\\Billing\\V1alpha1\\GPBMetadata\352\002\027Data::Billing::V1alpha1'
-  _globals['_MATCHINGRULE']._serialized_start=81
-  _globals['_MATCHINGRULE']._serialized_end=126
+  _globals['_MATCHINGRULE']._serialized_start=246
+  _globals['_MATCHINGRULE']._serialized_end=320
   _globals['_MATCHINGCONFIG']._serialized_start=63
-  _globals['_MATCHINGCONFIG']._serialized_end=79
+  _globals['_MATCHINGCONFIG']._serialized_end=167
+  _globals['_MATCHINGCONFIGAREACODE']._serialized_start=169
+  _globals['_MATCHINGCONFIGAREACODE']._serialized_end=244
 # @@protoc_insertion_point(module_scope)
