@@ -80,6 +80,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileRes.FromString,
                 )
+        self.BuildCallProfileTemplate = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/BuildCallProfileTemplate',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateRes.FromString,
+                )
         self.CreateInactiveSkillProfileMapping = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateInactiveSkillProfileMapping',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInactiveSkillProfileMappingReq.SerializeToString,
@@ -153,6 +158,11 @@ class WFMStub(object):
         self.ListForecastIntervalsForSkillProfile = channel.unary_stream(
                 '/api.v1alpha1.wfm.WFM/ListForecastIntervalsForSkillProfile',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsForSkillProfileReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
+                )
+        self.ListForecastIntervals = channel.unary_stream(
+                '/api.v1alpha1.wfm.WFM/ListForecastIntervals',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
                 )
         self.BuildRegressionForecastByInterval = channel.unary_stream(
@@ -245,6 +255,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeRes.FromString,
                 )
+        self.ListProgramNodesBySid = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListProgramNodesBySid',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.FromString,
+                )
         self.CreateConstraintRule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateConstraintRule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateConstraintRuleReq.SerializeToString,
@@ -314,6 +329,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/ListUngroupedWFMAgents',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.FromString,
+                )
+        self.ListWFMAgentSids = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
                 )
         self.ListWFMAgentsAssociatedWithAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListWFMAgentsAssociatedWithAgentGroup',
@@ -714,17 +734,16 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListHistoricalData(self, request, context):
-        """Gets the historical data for the org sending the request and the given @skill_profile_sid.
+        """Gets the historical data for the org sending the request and the given @skill_profile_category.
         It will look through the client's call history and generate the historical data by using their configured forecasting parameters (historical data period and interval width).
         The duration of each interval will be the interval width of the org's forecasting parameters.
-        It also applies any deltas that the client has stored for the given @SkillProfileSid.
+        It also applies any deltas that the client has stored for the given @skill_profile_category, if the category is a group it will use the deltas of the skill profiles part of that group.
         If the client has no historical data, only the deltas will be applied to the returned intervals, all other intervals will have nil averages.
-        If any inactive skill profiles are mapped to the given @skill_profile_sid, the call history and deltas of those skill profiles will be included for the historical data calculation.
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @skill_profile_sid in the request is invalid.
-        - grpc.NotFound: the @skill_profile_sid given is not found for the org.
+        - grpc.Invalid: the @skill_profile_category in the request is invalid.
+        - grpc.NotFound: the @skill_profile_category given is not found for the org.
         - grpc.Internal: error occurs when getting the historical data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -777,11 +796,30 @@ class WFMServicer(object):
         The @total_calls in the returned template be summed from the (@training_data_start_datetime - @averages_calculation_range_in_months) to @training_data_end_datetime,
         or from @training_data_start_datetime to @training_data_end_datetime if @averages_calculation_range_in_months is 0.
         The fixed averages fields in the call profile template, will be set to the averages that the skill profile has.
+        DEPRECATED as of Sep/7/2023 - Use BuildCallProfileTemplate instead.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid in the request is invalid.
         - grpc.NotFound: the @skill_profile_sid given is not found for the org.
+        - grpc.Internal: error occurs when building the call profile template.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BuildCallProfileTemplate(self, request, context):
+        """Builds and returns a call profile template for the org sending the request and the given @skill_profile_category.
+        The template will be generated using the training data for said skill profile category using the @training_data_range and @averages_calculation_range_in_months
+        from the client's saved forecasting parameters.
+        The @total_calls in the returned template be summed from the (@training_data_start_datetime - @averages_calculation_range_in_months) to @training_data_end_datetime,
+        or from @training_data_start_datetime to @training_data_end_datetime if @averages_calculation_range_in_months is 0.
+        The fixed averages fields in the call profile template, will be set to the averages that the skill profile category has.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_category in the request is invalid.
+        - grpc.NotFound: the @skill_profile_category given is not found for the org.
         - grpc.Internal: error occurs when building the call profile template.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -870,12 +908,12 @@ class WFMServicer(object):
         """Builds a profile forecast using the provided @call_profile_template.
         The forecaster will produce intervals from the following range using the client's saved forecasting parameters:
         (@training_data_range_end_datetime - @forecast_test_range_in_weeks) to @forecast_range_end_datetime.
-        The @total_calls in the @call_profile_template will be scaled using the same ranges as BuildCallProfileTemplateForSkillProfile.
+        The @total_calls in the @call_profile_template will be scaled using the same ranges as BuildCallProfileTemplate.
         The @fixed_averages_forecast field indicates whether or not to do a fixed averages forecast.
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @skill_profile_sid or @call_profile_template in the request is invalid.
+        - grpc.Invalid: the @skill_profile_category or @call_profile_template in the request is invalid.
         - grpc.Internal: error occurs during the building of the profile forecast.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -886,13 +924,13 @@ class WFMServicer(object):
         """Builds a profile forecast using the provided @call_profile_template.
         The forecaster will produce intervals from the following range using the client's saved forecasting parameters:
         (@training_data_range_end_datetime - @forecast_test_range_in_weeks) to @forecast_range_end_datetime.
-        The @total_calls in the @call_profile_template will be scaled using the same ranges as BuildCallProfileTemplateForSkillProfile.
+        The @total_calls in the @call_profile_template will be scaled using the same ranges as BuildCallProfileTemplate.
         The @fixed_averages_forecast field indicates whether or not to do a fixed averages forecast.
-        It also returns the statistics of the produced forecast by using the test data of the given @skill_profile_sid.
+        It also returns the statistics of the produced forecast by using the test data of the given @skill_profile_category.
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @skill_profile_sid or @call_profile_template in the request is invalid.
+        - grpc.Invalid: the @skill_profile_category or @call_profile_template in the request is invalid.
         - grpc.Internal: error occurs during the building of the profile forecast.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -978,6 +1016,7 @@ class WFMServicer(object):
 
     def ListForecastIntervalsForSkillProfile(self, request, context):
         """Gets the forecast data intervals for the given @skill_profile_sid.
+        DEPRECATED as of Sep/13/2023 - Use ListForecastIntervals instead.
         Required permissions:
         NONE
         Errors:
@@ -988,16 +1027,27 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListForecastIntervals(self, request, context):
+        """Gets the forecast data intervals for the given @skill_profile_category.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_category in the request is invalid.
+        - grpc.Internal: error occurs when getting the forecast data intervals.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def BuildRegressionForecastByInterval(self, request, context):
         """Generates a regression forecast using the provided @regression_template.
-        It will generate forecast intervals for the skill profiles sids in @skill_profile_sids_to_forecast,
-        if the list is empty or has no valid skill profile sids, it will generate and save forecasts for all active skill profiles.
+        It will generate forecast intervals for the skill profiles sids in @skill_profile_sids_to_forecast.
         It will use the client's saved forecasting test range as the start datetime and the forecast range as the end datetime of the forecasted data.
         It will use the client's saved interval width to divide the resulting forecast intervals.
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @regression_template in the request is invalid.
+        - grpc.Invalid: no @skill_profile_sids_to_forecast are given or the @regression_template in the request is invalid.
         - grpc.Internal: error occurs during the building of the regression forecast.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1006,14 +1056,13 @@ class WFMServicer(object):
 
     def BuildRegressionForecastByIntervalWithStats(self, request, context):
         """Generates a regression forecast and calculates forecast statistics using the provided @regression_template.
-        It will generate forecast intervals for the skill profiles sids in @skill_profile_sids_to_forecast,
-        if the list is empty or has no valid skill profile sids, it will generate and save forecasts for all active skill profiles.
+        It will generate forecast intervals for the skill profiles sids in @skill_profile_sids_to_forecast.
         It will use the client's saved forecasting test range as the start datetime and the forecast range as the end datetime of the forecasted data.
         It will use the client's saved interval width to divide the resulting forecast intervals.
         The first message received will be the forecast statistics while all subsequent ones will be the forecast intervals.
 
         Errors:
-        - grpc.Invalid: the @regression_template in the request is invalid.
+        - grpc.Invalid: no @skill_profile_sids_to_forecast are given or the @regression_template in the request is invalid.
         - grpc.Internal: error occurs either during the when building the forecast or calculating the stats.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1074,7 +1123,7 @@ class WFMServicer(object):
 
     def DeleteForecastIntervals(self, request, context):
         """Deletes forecast data intervals/deltas based on the parameters provided.
-        If @delete_param is type skill_profile_sid, then the intervals/deltas to be deleted will be
+        If @delete_param is type skill_profile_category, then the intervals/deltas to be deleted will be
         associated with that id. If @delete_param is type interval_sids, then the intervals/deltas to be
         deleted will be contained in the list @interval_sids. The @delete_type field determines which
         table(s) in the database the intervals/deltas will be deleted from.
@@ -1275,6 +1324,18 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListProgramNodesBySid(self, request, context):
+        """Lists the program nodes with the given @program_node_sids for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the given @program_node_sids are invalid.
+        - grpc.Internal: error occurs when listing the program nodes.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateConstraintRule(self, request, context):
         """Creates the given @constraint_rule for the org sending the request.
         The @constraint_rule_sid and @skill_proficiency_sid (if one was created) of the new entities will be returned in the response.
@@ -1451,6 +1512,10 @@ class WFMServicer(object):
         if @include_inactive is true then inactive agents will also be included, otherwise only active agents will be returned.
         if @include_skill_proficiencies is true then agents returned will include their skill proficiencies.
         if @include_agent_groups is true then the @agent_groups_by_agent response field will be set with a list of agent groups correlating to each agents index in the @wfm_agents field.
+        if @include_agent_groups is set to true, the @agent_group_schedule_scenario_sid field must be set, so that the agent groups for the correct scenario are returned.
+        if @include_agent_groups is set to true, and @agent_group_schedule_scenario_sid is not set, the agent groups will not be filtered by schedule scenario.
+        if @include_agent_groups is set to false, the @agent_group_schedule_scenario_sid will be ignored.
+        @agent_group_schedule_scenario_sid does not effect which @wfm_agents are returned.
         WFM agents with no associated agent_groups will have an empty slice in agent_groups_by_agent at their correlated index.
         Required Permissions:
         NONE
@@ -1485,6 +1550,20 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: @created_after_datetime has an invalid value.
         - grpc.Internal: error occurs when getting the wfm agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListWFMAgentSids(self, request, context):
+        """Gets the wfm_agent_sids with the given @tcn_agent_sids for the org sending the request.
+        Returns a map where Key: tcn_agent_sid - Value: wfm_agent_sid.
+        If the wfm_agent_sid is not found for any @tcn_agent_sids, they will not have an entry in the returned @sids.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @tcn_agent_sids are invalid.
+        - grpc.Internal: error occours while listing the wfm_agent_sids.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2437,6 +2516,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateForSkillProfileRes.SerializeToString,
             ),
+            'BuildCallProfileTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.BuildCallProfileTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateRes.SerializeToString,
+            ),
             'CreateInactiveSkillProfileMapping': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateInactiveSkillProfileMapping,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInactiveSkillProfileMappingReq.FromString,
@@ -2510,6 +2594,11 @@ def add_WFMServicer_to_server(servicer, server):
             'ListForecastIntervalsForSkillProfile': grpc.unary_stream_rpc_method_handler(
                     servicer.ListForecastIntervalsForSkillProfile,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsForSkillProfileReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.SerializeToString,
+            ),
+            'ListForecastIntervals': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListForecastIntervals,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.SerializeToString,
             ),
             'BuildRegressionForecastByInterval': grpc.unary_stream_rpc_method_handler(
@@ -2602,6 +2691,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateProgramNodeRes.SerializeToString,
             ),
+            'ListProgramNodesBySid': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListProgramNodesBySid,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.SerializeToString,
+            ),
             'CreateConstraintRule': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateConstraintRule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateConstraintRuleReq.FromString,
@@ -2671,6 +2765,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListUngroupedWFMAgents,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.SerializeToString,
+            ),
+            'ListWFMAgentSids': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWFMAgentSids,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.SerializeToString,
             ),
             'ListWFMAgentsAssociatedWithAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.ListWFMAgentsAssociatedWithAgentGroup,
@@ -3195,6 +3294,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def BuildCallProfileTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/BuildCallProfileTemplate',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildCallProfileTemplateRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateInactiveSkillProfileMapping(request,
             target,
             options=(),
@@ -3445,6 +3561,23 @@ class WFM(object):
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.wfm.WFM/ListForecastIntervalsForSkillProfile',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsForSkillProfileReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListForecastIntervals(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.wfm.WFM/ListForecastIntervals',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -3756,6 +3889,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListProgramNodesBySid(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListProgramNodesBySid',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListProgramNodesBySidRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateConstraintRule(request,
             target,
             options=(),
@@ -3990,6 +4140,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListUngroupedWFMAgents',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUngroupedWFMAgentsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWFMAgentSids(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

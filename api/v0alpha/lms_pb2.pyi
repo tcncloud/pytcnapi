@@ -144,6 +144,34 @@ class ProcessElementReq(_message.Message):
     process_message: str
     def __init__(self, element_id: _Optional[str] = ..., process_message: _Optional[str] = ...) -> None: ...
 
+class ProcessListRequest(_message.Message):
+    __slots__ = ["element_id", "list"]
+    ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    LIST_FIELD_NUMBER: _ClassVar[int]
+    element_id: str
+    list: bytes
+    def __init__(self, element_id: _Optional[str] = ..., list: _Optional[bytes] = ...) -> None: ...
+
+class ProcessListResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class StreamListRequest(_message.Message):
+    __slots__ = ["org_id", "region_id", "element_id", "chunk"]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    REGION_ID_FIELD_NUMBER: _ClassVar[int]
+    ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    CHUNK_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    region_id: str
+    element_id: str
+    chunk: bytes
+    def __init__(self, org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., element_id: _Optional[str] = ..., chunk: _Optional[bytes] = ...) -> None: ...
+
+class StreamListResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class ListAvailableFieldsByElementIdReq(_message.Message):
     __slots__ = ["element_id"]
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -2364,7 +2392,7 @@ class SplitByEqualParts(_message.Message):
     def __init__(self, part_size: _Optional[int] = ...) -> None: ...
 
 class EpicEntrypoint(_message.Message):
-    __slots__ = ["cron", "max_wait_time", "entity_types", "group_base_url", "group_fhir_id", "runtime_values", "flush_page_count", "flush_minute_count", "flush_during_check"]
+    __slots__ = ["cron", "max_wait_time", "entity_types", "group_base_url", "group_fhir_id", "runtime_values", "flush_page_count", "flush_minute_count", "flush_during_check", "timezone"]
     CRON_FIELD_NUMBER: _ClassVar[int]
     MAX_WAIT_TIME_FIELD_NUMBER: _ClassVar[int]
     ENTITY_TYPES_FIELD_NUMBER: _ClassVar[int]
@@ -2374,6 +2402,7 @@ class EpicEntrypoint(_message.Message):
     FLUSH_PAGE_COUNT_FIELD_NUMBER: _ClassVar[int]
     FLUSH_MINUTE_COUNT_FIELD_NUMBER: _ClassVar[int]
     FLUSH_DURING_CHECK_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     cron: str
     max_wait_time: float
     entity_types: _containers.RepeatedScalarFieldContainer[EpicEntityType]
@@ -2383,7 +2412,8 @@ class EpicEntrypoint(_message.Message):
     flush_page_count: int
     flush_minute_count: int
     flush_during_check: bool
-    def __init__(self, cron: _Optional[str] = ..., max_wait_time: _Optional[float] = ..., entity_types: _Optional[_Iterable[_Union[EpicEntityType, str]]] = ..., group_base_url: _Optional[str] = ..., group_fhir_id: _Optional[str] = ..., runtime_values: _Optional[_Union[RuntimeValues, _Mapping]] = ..., flush_page_count: _Optional[int] = ..., flush_minute_count: _Optional[int] = ..., flush_during_check: bool = ...) -> None: ...
+    timezone: str
+    def __init__(self, cron: _Optional[str] = ..., max_wait_time: _Optional[float] = ..., entity_types: _Optional[_Iterable[_Union[EpicEntityType, str]]] = ..., group_base_url: _Optional[str] = ..., group_fhir_id: _Optional[str] = ..., runtime_values: _Optional[_Union[RuntimeValues, _Mapping]] = ..., flush_page_count: _Optional[int] = ..., flush_minute_count: _Optional[int] = ..., flush_during_check: bool = ..., timezone: _Optional[str] = ...) -> None: ...
 
 class RuntimeValues(_message.Message):
     __slots__ = ["state", "access_token", "check_url", "data_urls", "current_iteration", "total_seconds_spent", "errors", "total_not_ready_count", "file_ids", "preliminary_vars", "parent_event_ids", "no_more_pages", "total_fts_ids"]
