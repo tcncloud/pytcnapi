@@ -125,16 +125,18 @@ class AssignRandomExtensionResponse(_message.Message):
     def __init__(self, extension: _Optional[int] = ...) -> None: ...
 
 class CreateRingGroupRequest(_message.Message):
-    __slots__ = ["name", "description", "ring_strategy", "pbx_user_ids"]
+    __slots__ = ["name", "description", "ring_strategy", "pbx_user_ids", "extension"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     RING_STRATEGY_FIELD_NUMBER: _ClassVar[int]
     PBX_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    EXTENSION_FIELD_NUMBER: _ClassVar[int]
     name: str
     description: str
     ring_strategy: RingStrategy
     pbx_user_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., ring_strategy: _Optional[_Union[RingStrategy, str]] = ..., pbx_user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    extension: int
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., ring_strategy: _Optional[_Union[RingStrategy, str]] = ..., pbx_user_ids: _Optional[_Iterable[str]] = ..., extension: _Optional[int] = ...) -> None: ...
 
 class CreateRingGroupResponse(_message.Message):
     __slots__ = ["group"]
