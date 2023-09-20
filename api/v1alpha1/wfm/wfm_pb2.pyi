@@ -384,6 +384,16 @@ class CreateSkillProfileGroupRes(_message.Message):
     skill_profile_group_sid: int
     def __init__(self, skill_profile_group_sid: _Optional[int] = ...) -> None: ...
 
+class UpdateSkillProfileGroupReq(_message.Message):
+    __slots__ = ["skill_profile_group"]
+    SKILL_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group: SkillProfileGroup
+    def __init__(self, skill_profile_group: _Optional[_Union[SkillProfileGroup, _Mapping]] = ...) -> None: ...
+
+class UpdateSkillProfileGroupRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class DeleteHistoricalDataDeltasReq(_message.Message):
     __slots__ = ["skill_profile_sid", "start_datetimes"]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
