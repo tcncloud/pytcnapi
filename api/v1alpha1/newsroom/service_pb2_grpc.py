@@ -52,6 +52,16 @@ class NewsroomAPIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdResponse.FromString,
                 )
+        self.UserActivity = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/UserActivity',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UserActivityRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UserActivityResponse.FromString,
+                )
+        self.GetNewsForUser = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/GetNewsForUser',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserResponse.FromString,
+                )
 
 
 class NewsroomAPIServicer(object):
@@ -109,6 +119,20 @@ class NewsroomAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UserActivity(self, request, context):
+        """user activity updates
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetNewsForUser(self, request, context):
+        """fetch the unseen articles for the user
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_NewsroomAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -146,6 +170,16 @@ def add_NewsroomAPIServicer_to_server(servicer, server):
                     servicer.GetPublishedArticleById,
                     request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdResponse.SerializeToString,
+            ),
+            'UserActivity': grpc.unary_unary_rpc_method_handler(
+                    servicer.UserActivity,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UserActivityRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UserActivityResponse.SerializeToString,
+            ),
+            'GetNewsForUser': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNewsForUser,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -276,5 +310,39 @@ class NewsroomAPI(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/GetPublishedArticleById',
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdRequest.SerializeToString,
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetPublishedArticleByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UserActivity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/UserActivity',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UserActivityRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.UserActivityResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetNewsForUser(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/GetNewsForUser',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
