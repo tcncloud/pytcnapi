@@ -2714,6 +2714,30 @@ class DeleteSchedulingTargetRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class GetDefaultSchedulingTargetReq(_message.Message):
+    __slots__ = ["org_id"]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    def __init__(self, org_id: _Optional[str] = ...) -> None: ...
+
+class GetDefaultSchedulingTargetRes(_message.Message):
+    __slots__ = ["scheduling_target"]
+    SCHEDULING_TARGET_FIELD_NUMBER: _ClassVar[int]
+    scheduling_target: SchedulingTarget
+    def __init__(self, scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
+
+class SetDefaultSchedulingTargetReq(_message.Message):
+    __slots__ = ["org_id", "scheduling_target"]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULING_TARGET_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    scheduling_target: SchedulingTarget
+    def __init__(self, org_id: _Optional[str] = ..., scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
+
+class SetDefaultSchedulingTargetRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class ListRequiredCallsIntervalsReq(_message.Message):
     __slots__ = ["node_selector", "datetime_range", "interval_width_in_minutes"]
     NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
