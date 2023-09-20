@@ -615,6 +615,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.FromString,
                 )
+        self.GetDefaultSchedulingTarget = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetDefaultSchedulingTarget',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.FromString,
+                )
+        self.SetDefaultSchedulingTarget = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/SetDefaultSchedulingTarget',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.FromString,
+                )
         self.GetPerformanceMetrics = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/GetPerformanceMetrics',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetPerformanceMetricsReq.SerializeToString,
@@ -2241,7 +2251,7 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @org_id or @shift_instance_sids in the request are invalid.
+        - grpc.Invalid: the @shift_instance_sids in the request are invalid.
         - grpc.Internal: error occurs when listing the shift instances or their shift segments.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2415,6 +2425,25 @@ class WFMServicer(object):
         -grpc.Invalid: the @node_selector is invalid.
         -grpc.NotFound: the scheduling target for the given @node_selector doesn't exist for the org making the request.
         -grpc.Internal: error occurs when removing the scheduling target.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDefaultSchedulingTarget(self, request, context):
+        """Gets the scheduling-target values for the org making the request.
+        Errors:
+        - grpc.Internal: error occours when getting the scheduling-target values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetDefaultSchedulingTarget(self, request, context):
+        """Sets the scheduling-target values for the org making the request.
+        Errors:
+        - grpc.Invalid: any of the given values are invalid.
+        - grpc.Internal: error occours when setting the scheduling-target values.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3050,6 +3079,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteSchedulingTarget,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.SerializeToString,
+            ),
+            'GetDefaultSchedulingTarget': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDefaultSchedulingTarget,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.SerializeToString,
+            ),
+            'SetDefaultSchedulingTarget': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDefaultSchedulingTarget,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.SerializeToString,
             ),
             'GetPerformanceMetrics': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPerformanceMetrics,
@@ -5109,6 +5148,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteSchedulingTarget',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDefaultSchedulingTarget(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetDefaultSchedulingTarget',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetDefaultSchedulingTarget(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/SetDefaultSchedulingTarget',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

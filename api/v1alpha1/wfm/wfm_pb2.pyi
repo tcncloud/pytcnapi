@@ -2715,10 +2715,8 @@ class DeleteSchedulingTargetRes(_message.Message):
     def __init__(self) -> None: ...
 
 class GetDefaultSchedulingTargetReq(_message.Message):
-    __slots__ = ["org_id"]
-    ORG_ID_FIELD_NUMBER: _ClassVar[int]
-    org_id: str
-    def __init__(self, org_id: _Optional[str] = ...) -> None: ...
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class GetDefaultSchedulingTargetRes(_message.Message):
     __slots__ = ["scheduling_target"]
@@ -2727,12 +2725,10 @@ class GetDefaultSchedulingTargetRes(_message.Message):
     def __init__(self, scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
 
 class SetDefaultSchedulingTargetReq(_message.Message):
-    __slots__ = ["org_id", "scheduling_target"]
-    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["scheduling_target"]
     SCHEDULING_TARGET_FIELD_NUMBER: _ClassVar[int]
-    org_id: str
     scheduling_target: SchedulingTarget
-    def __init__(self, org_id: _Optional[str] = ..., scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
+    def __init__(self, scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
 
 class SetDefaultSchedulingTargetRes(_message.Message):
     __slots__ = []
