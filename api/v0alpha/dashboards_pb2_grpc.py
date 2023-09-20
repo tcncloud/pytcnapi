@@ -70,36 +70,6 @@ class DashboardsStub(object):
                 request_serializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateDashboardLayoutRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
-        self.CreateStandardDashboard = channel.unary_unary(
-                '/api.v0alpha.Dashboards/CreateStandardDashboard',
-                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.CreateStandardDashboardRequest.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_dashboards__pb2.CreateStandardDashboardResponse.FromString,
-                )
-        self.UpdateStandardDashboard = channel.unary_unary(
-                '/api.v0alpha.Dashboards/UpdateStandardDashboard',
-                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.UpdateStandardDashboardTitleAndDescription = channel.unary_unary(
-                '/api.v0alpha.Dashboards/UpdateStandardDashboardTitleAndDescription',
-                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardTitleAndDescriptionRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.UpdateStandardDashboardView = channel.unary_unary(
-                '/api.v0alpha.Dashboards/UpdateStandardDashboardView',
-                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardViewRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.UpdateStandardDashboardLayout = channel.unary_unary(
-                '/api.v0alpha.Dashboards/UpdateStandardDashboardLayout',
-                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardLayoutRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
-        self.DeleteStandardDashboard = channel.unary_unary(
-                '/api.v0alpha.Dashboards/DeleteStandardDashboard',
-                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.DeleteStandardDashboardRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-                )
 
 
 class DashboardsServicer(object):
@@ -180,48 +150,6 @@ class DashboardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateStandardDashboard(self, request, context):
-        """CreateStandardDashboard creates a TCN standard dashboard
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateStandardDashboard(self, request, context):
-        """UpdateStandardDashboard updates a TCN standard dashboard
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateStandardDashboardTitleAndDescription(self, request, context):
-        """UpdateStandardDashboardTitleAndDescription updates a TCN standard dashboard title and description
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateStandardDashboardView(self, request, context):
-        """UpdateStandardDashboardView updates a TCN standard dashboard view
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateStandardDashboardLayout(self, request, context):
-        """UpdateStandardDashboardLayout updates a TCN standard dashboard layout
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteStandardDashboard(self, request, context):
-        """DeleteStandardDashboard deletes a TCN standard dashboard
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_DashboardsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -278,36 +206,6 @@ def add_DashboardsServicer_to_server(servicer, server):
             'UpdateDashboardLayout': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateDashboardLayout,
                     request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateDashboardLayoutRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'CreateStandardDashboard': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateStandardDashboard,
-                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.CreateStandardDashboardRequest.FromString,
-                    response_serializer=api_dot_v0alpha_dot_dashboards__pb2.CreateStandardDashboardResponse.SerializeToString,
-            ),
-            'UpdateStandardDashboard': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateStandardDashboard,
-                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'UpdateStandardDashboardTitleAndDescription': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateStandardDashboardTitleAndDescription,
-                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardTitleAndDescriptionRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'UpdateStandardDashboardView': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateStandardDashboardView,
-                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardViewRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'UpdateStandardDashboardLayout': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateStandardDashboardLayout,
-                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardLayoutRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-            ),
-            'DeleteStandardDashboard': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteStandardDashboard,
-                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.DeleteStandardDashboardRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
@@ -503,108 +401,6 @@ class Dashboards(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/UpdateDashboardLayout',
             api_dot_v0alpha_dot_dashboards__pb2.UpdateDashboardLayoutRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateStandardDashboard(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/CreateStandardDashboard',
-            api_dot_v0alpha_dot_dashboards__pb2.CreateStandardDashboardRequest.SerializeToString,
-            api_dot_v0alpha_dot_dashboards__pb2.CreateStandardDashboardResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateStandardDashboard(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/UpdateStandardDashboard',
-            api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateStandardDashboardTitleAndDescription(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/UpdateStandardDashboardTitleAndDescription',
-            api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardTitleAndDescriptionRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateStandardDashboardView(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/UpdateStandardDashboardView',
-            api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardViewRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateStandardDashboardLayout(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/UpdateStandardDashboardLayout',
-            api_dot_v0alpha_dot_dashboards__pb2.UpdateStandardDashboardLayoutRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteStandardDashboard(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/DeleteStandardDashboard',
-            api_dot_v0alpha_dot_dashboards__pb2.DeleteStandardDashboardRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
