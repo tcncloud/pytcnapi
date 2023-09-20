@@ -11,6 +11,20 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class PublishDashboardRequest(_message.Message):
+    __slots__ = ["resource_id", "destination_resource_id"]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    DESTINATION_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    destination_resource_id: str
+    def __init__(self, resource_id: _Optional[str] = ..., destination_resource_id: _Optional[str] = ...) -> None: ...
+
+class PublishDashboardResponse(_message.Message):
+    __slots__ = ["resource_id"]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
+
 class ListDashboardsRequest(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
