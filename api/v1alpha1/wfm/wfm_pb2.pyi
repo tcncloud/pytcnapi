@@ -60,6 +60,30 @@ class SkillProfile(_message.Message):
     are_averages_manual: bool
     def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., unnamed: bool = ..., inactive_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., skills_count: _Optional[int] = ..., occurrence: _Optional[float] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ...) -> None: ...
 
+class SkillProfileGroup(_message.Message):
+    __slots__ = ["skill_profile_group_sid", "name", "description", "create_time", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "skill_profile_sids"]
+    SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    ARE_AVERAGES_MANUAL_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sid: int
+    name: str
+    description: str
+    create_time: _timestamp_pb2.Timestamp
+    average_speed_of_answer_in_seconds: float
+    average_handle_time_in_seconds: float
+    average_after_call_work_in_seconds: float
+    average_time_to_abort_in_seconds: float
+    are_averages_manual: bool
+    skill_profile_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., skill_profile_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
 class ListSkillProfilesReq(_message.Message):
     __slots__ = ["active_only", "with_skills"]
     ACTIVE_ONLY_FIELD_NUMBER: _ClassVar[int]
@@ -347,6 +371,18 @@ class DisconnectInactiveSkillProfileMappingReq(_message.Message):
 class DisconnectInactiveSkillProfileMappingRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class CreateSkillProfileGroupReq(_message.Message):
+    __slots__ = ["skill_profile_group"]
+    SKILL_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group: SkillProfileGroup
+    def __init__(self, skill_profile_group: _Optional[_Union[SkillProfileGroup, _Mapping]] = ...) -> None: ...
+
+class CreateSkillProfileGroupRes(_message.Message):
+    __slots__ = ["skill_profile_group_sid"]
+    SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sid: int
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ...) -> None: ...
 
 class DeleteHistoricalDataDeltasReq(_message.Message):
     __slots__ = ["skill_profile_sid", "start_datetimes"]
