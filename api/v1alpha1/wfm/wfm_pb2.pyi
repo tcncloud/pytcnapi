@@ -2731,3 +2731,154 @@ class ListRequiredCallsIntervalsRes(_message.Message):
     interval_width_in_minutes: int
     required_calls_intervals: _containers.RepeatedCompositeFieldContainer[RequiredCallsInterval]
     def __init__(self, interval_width_in_minutes: _Optional[int] = ..., required_calls_intervals: _Optional[_Iterable[_Union[RequiredCallsInterval, _Mapping]]] = ...) -> None: ...
+
+class CreateTourPatternReq(_message.Message):
+    __slots__ = ["shift_template_sid"]
+    SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    shift_template_sid: int
+    def __init__(self, shift_template_sid: _Optional[int] = ...) -> None: ...
+
+class CreateTourPatternRes(_message.Message):
+    __slots__ = ["tour_pattern_sid"]
+    TOUR_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern_sid: int
+    def __init__(self, tour_pattern_sid: _Optional[int] = ...) -> None: ...
+
+class GetTourPatternReq(_message.Message):
+    __slots__ = ["shift_template_sid"]
+    SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    shift_template_sid: int
+    def __init__(self, shift_template_sid: _Optional[int] = ...) -> None: ...
+
+class GetTourPatternRes(_message.Message):
+    __slots__ = ["tour_pattern"]
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: _wfm_pb2.TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[_wfm_pb2.TourPattern, _Mapping]] = ...) -> None: ...
+
+class CreateTourWeekPatternReq(_message.Message):
+    __slots__ = ["tour_pattern_sid"]
+    TOUR_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern_sid: int
+    def __init__(self, tour_pattern_sid: _Optional[int] = ...) -> None: ...
+
+class CreateTourWeekPatternRes(_message.Message):
+    __slots__ = ["tour_week_pattern_sid"]
+    TOUR_WEEK_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_week_pattern_sid: int
+    def __init__(self, tour_week_pattern_sid: _Optional[int] = ...) -> None: ...
+
+class ListTourWeekPatternsReq(_message.Message):
+    __slots__ = ["tour_pattern_sid"]
+    TOUR_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern_sid: int
+    def __init__(self, tour_pattern_sid: _Optional[int] = ...) -> None: ...
+
+class ListTourWeekPatternsRes(_message.Message):
+    __slots__ = ["tour_week_patterns"]
+    TOUR_WEEK_PATTERNS_FIELD_NUMBER: _ClassVar[int]
+    tour_week_patterns: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.TourWeekPattern]
+    def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[_wfm_pb2.TourWeekPattern, _Mapping]]] = ...) -> None: ...
+
+class CreateTourShiftInstanceConfigReq(_message.Message):
+    __slots__ = ["tour_shift_instance_config"]
+    TOUR_SHIFT_INSTANCE_CONFIG_FIELD_NUMBER: _ClassVar[int]
+    tour_shift_instance_config: _wfm_pb2.TourShiftInstanceConfig
+    def __init__(self, tour_shift_instance_config: _Optional[_Union[_wfm_pb2.TourShiftInstanceConfig, _Mapping]] = ...) -> None: ...
+
+class CreateTourShiftInstanceConfigRes(_message.Message):
+    __slots__ = ["tour_shift_instance_config_sid"]
+    TOUR_SHIFT_INSTANCE_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_shift_instance_config_sid: int
+    def __init__(self, tour_shift_instance_config_sid: _Optional[int] = ...) -> None: ...
+
+class ListTourShiftInstanceConfigsReq(_message.Message):
+    __slots__ = ["tour_week_pattern_sids"]
+    TOUR_WEEK_PATTERN_SIDS_FIELD_NUMBER: _ClassVar[int]
+    tour_week_pattern_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, tour_week_pattern_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListTourShiftInstanceConfigsRes(_message.Message):
+    __slots__ = ["tour_shift_instance_configs"]
+    TOUR_SHIFT_INSTANCE_CONFIGS_FIELD_NUMBER: _ClassVar[int]
+    tour_shift_instance_configs: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.TourShiftInstanceConfig]
+    def __init__(self, tour_shift_instance_configs: _Optional[_Iterable[_Union[_wfm_pb2.TourShiftInstanceConfig, _Mapping]]] = ...) -> None: ...
+
+class CreateTourShiftSegmentConfigReq(_message.Message):
+    __slots__ = ["tour_shift_segment_config"]
+    TOUR_SHIFT_SEGMENT_CONFIG_FIELD_NUMBER: _ClassVar[int]
+    tour_shift_segment_config: _wfm_pb2.TourShiftSegmentConfig
+    def __init__(self, tour_shift_segment_config: _Optional[_Union[_wfm_pb2.TourShiftSegmentConfig, _Mapping]] = ...) -> None: ...
+
+class CreateTourShiftSegmentConfigRes(_message.Message):
+    __slots__ = ["tour_shift_segment_config_sid"]
+    TOUR_SHIFT_SEGMENT_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_shift_segment_config_sid: int
+    def __init__(self, tour_shift_segment_config_sid: _Optional[int] = ...) -> None: ...
+
+class ListTourShiftSegmentConfigsReq(_message.Message):
+    __slots__ = ["tour_shift_instance_config_sids"]
+    TOUR_SHIFT_INSTANCE_CONFIG_SIDS_FIELD_NUMBER: _ClassVar[int]
+    tour_shift_instance_config_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, tour_shift_instance_config_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListTourShiftSegmentConfigsRes(_message.Message):
+    __slots__ = ["tour_shift_segment_configs"]
+    TOUR_SHIFT_SEGMENT_CONFIGS_FIELD_NUMBER: _ClassVar[int]
+    tour_shift_segment_configs: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.TourShiftSegmentConfig]
+    def __init__(self, tour_shift_segment_configs: _Optional[_Iterable[_Union[_wfm_pb2.TourShiftSegmentConfig, _Mapping]]] = ...) -> None: ...
+
+class CreateTourAgentCollectionReq(_message.Message):
+    __slots__ = ["tour_agent_collection"]
+    TOUR_AGENT_COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    tour_agent_collection: _wfm_pb2.TourAgentCollection
+    def __init__(self, tour_agent_collection: _Optional[_Union[_wfm_pb2.TourAgentCollection, _Mapping]] = ...) -> None: ...
+
+class CreateTourAgentCollectionRes(_message.Message):
+    __slots__ = ["tour_agent_collection_sid"]
+    TOUR_AGENT_COLLECTION_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_agent_collection_sid: int
+    def __init__(self, tour_agent_collection_sid: _Optional[int] = ...) -> None: ...
+
+class ListTourAgentCollectionsReq(_message.Message):
+    __slots__ = ["tour_pattern_sid"]
+    TOUR_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern_sid: int
+    def __init__(self, tour_pattern_sid: _Optional[int] = ...) -> None: ...
+
+class ListTourAgentCollectionsRes(_message.Message):
+    __slots__ = ["tour_agent_collections"]
+    TOUR_AGENT_COLLECTIONS_FIELD_NUMBER: _ClassVar[int]
+    tour_agent_collections: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.TourAgentCollection]
+    def __init__(self, tour_agent_collections: _Optional[_Iterable[_Union[_wfm_pb2.TourAgentCollection, _Mapping]]] = ...) -> None: ...
+
+class CreateTourAgentCollectionWFMAgentsReq(_message.Message):
+    __slots__ = ["wfm_agent_sids", "tour_agent_collection_sid"]
+    WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    TOUR_AGENT_COLLECTION_SID_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    tour_agent_collection_sid: int
+    def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ..., tour_agent_collection_sid: _Optional[int] = ...) -> None: ...
+
+class CreateTourAgentCollectionWFMAgentsRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListTourAgentCollectionWFMAgentsReq(_message.Message):
+    __slots__ = ["tour_agent_collection_sids"]
+    TOUR_AGENT_COLLECTION_SIDS_FIELD_NUMBER: _ClassVar[int]
+    tour_agent_collection_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, tour_agent_collection_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListTourAgentCollectionWFMAgentsRes(_message.Message):
+    __slots__ = ["wfm_agent_pairings"]
+    class SidMapping(_message.Message):
+        __slots__ = ["agent_collection_sid", "wfm_agent_sids"]
+        AGENT_COLLECTION_SID_FIELD_NUMBER: _ClassVar[int]
+        WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+        agent_collection_sid: int
+        wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+        def __init__(self, agent_collection_sid: _Optional[int] = ..., wfm_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+    WFM_AGENT_PAIRINGS_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_pairings: _containers.RepeatedCompositeFieldContainer[ListTourAgentCollectionWFMAgentsRes.SidMapping]
+    def __init__(self, wfm_agent_pairings: _Optional[_Iterable[_Union[ListTourAgentCollectionWFMAgentsRes.SidMapping, _Mapping]]] = ...) -> None: ...
