@@ -64,6 +64,11 @@ class InsightsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesResponse.FromString,
                 )
+        self.PublishInsight = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/PublishInsight',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightResponse.FromString,
+                )
 
 
 class InsightsServicer(object):
@@ -105,21 +110,21 @@ class InsightsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateCommonsInsight(self, request, context):
-        """CreateCommonsInsight creates a common library insight
+        """CreateCommonsInsight is deprecated.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateCommonsInsight(self, request, context):
-        """UpdateCommonsInsight updates a common library insight
+        """UpdateCommonsInsight is deprecated.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteCommonsInsight(self, request, context):
-        """DeleteCommonsInsight deletes a common library insight
+        """DeleteCommonsInsight is deprecated.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -134,6 +139,13 @@ class InsightsServicer(object):
 
     def ListVfses(self, request, context):
         """ListVfses lists exported vfs aliases
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def PublishInsight(self, request, context):
+        """PublishInsight publishes an insight
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -191,6 +203,11 @@ def add_InsightsServicer_to_server(servicer, server):
                     servicer.ListVfses,
                     request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesResponse.SerializeToString,
+            ),
+            'PublishInsight': grpc.unary_unary_rpc_method_handler(
+                    servicer.PublishInsight,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -369,5 +386,22 @@ class Insights(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/ListVfses',
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesRequest.SerializeToString,
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PublishInsight(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/PublishInsight',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
