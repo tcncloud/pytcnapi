@@ -115,6 +115,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
                 )
+        self.UpdateSkillProfileGroupAssociations = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroupAssociations',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.FromString,
+                )
         self.DeleteHistoricalDataDeltas = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteHistoricalDataDeltas',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteHistoricalDataDeltasReq.SerializeToString,
@@ -915,6 +920,20 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the @skill_profile_group_sids in the request is invalid.
         - grpc.Internal: error occurs getting the skill profile groups.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateSkillProfileGroupAssociations(self, request, context):
+        """Updates associations of the given @skill_profile_group_sid for the org sending the request.
+        It will create the associations with the @skill_profile_sids_to_associate, and remove the associations with the @skill_profile_sids_to_disassociate.
+        Only one of the skill_profile_sids fields needs to be set, but both can be set on the same request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the values in the request are invalid.
+        - grpc.Internal: error occurs updating the skill profile group associations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2606,6 +2625,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.SerializeToString,
             ),
+            'UpdateSkillProfileGroupAssociations': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSkillProfileGroupAssociations,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.SerializeToString,
+            ),
             'DeleteHistoricalDataDeltas': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteHistoricalDataDeltas,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteHistoricalDataDeltasReq.FromString,
@@ -3479,6 +3503,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListSkillProfileGroups',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSkillProfileGroupAssociations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroupAssociations',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

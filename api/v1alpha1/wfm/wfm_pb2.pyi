@@ -406,6 +406,20 @@ class ListSkillProfileGroupsRes(_message.Message):
     skill_profile_groups: _containers.RepeatedCompositeFieldContainer[SkillProfileGroup]
     def __init__(self, skill_profile_groups: _Optional[_Iterable[_Union[SkillProfileGroup, _Mapping]]] = ...) -> None: ...
 
+class UpdateSkillProfileGroupAssociationsReq(_message.Message):
+    __slots__ = ["skill_profile_group_sid", "skill_profile_sids_to_associate", "skill_profile_sids_to_disassociate"]
+    SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_SIDS_TO_ASSOCIATE_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_SIDS_TO_DISASSOCIATE_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sid: int
+    skill_profile_sids_to_associate: _containers.RepeatedScalarFieldContainer[int]
+    skill_profile_sids_to_disassociate: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., skill_profile_sids_to_associate: _Optional[_Iterable[int]] = ..., skill_profile_sids_to_disassociate: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class UpdateSkillProfileGroupAssociationsRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class DeleteHistoricalDataDeltasReq(_message.Message):
     __slots__ = ["skill_profile_sid", "start_datetimes"]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
