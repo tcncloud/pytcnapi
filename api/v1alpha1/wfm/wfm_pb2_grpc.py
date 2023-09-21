@@ -110,6 +110,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.FromString,
                 )
+        self.ListSkillProfileGroups = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListSkillProfileGroups',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
+                )
         self.DeleteHistoricalDataDeltas = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteHistoricalDataDeltas',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteHistoricalDataDeltasReq.SerializeToString,
@@ -897,6 +902,19 @@ class WFMServicer(object):
         - grpc.Invalid: the @skill_profile_group in the request is invalid.
         - grpc.NotFound: the skill profile group to update doesn't exist.
         - grpc.Internal: error occurs updating the skill profile group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSkillProfileGroups(self, request, context):
+        """Gets the skill profile groups that have the @skill_profile_group_sids for the org sending the request.
+        If @skill_profile_group_sids is empty it will get all the skill profile groups for the org.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_group_sids in the request is invalid.
+        - grpc.Internal: error occurs getting the skill profile groups.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2583,6 +2601,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.SerializeToString,
             ),
+            'ListSkillProfileGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSkillProfileGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.SerializeToString,
+            ),
             'DeleteHistoricalDataDeltas': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteHistoricalDataDeltas,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteHistoricalDataDeltasReq.FromString,
@@ -3439,6 +3462,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroup',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSkillProfileGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListSkillProfileGroups',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

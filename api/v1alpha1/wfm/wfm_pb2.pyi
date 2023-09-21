@@ -394,6 +394,18 @@ class UpdateSkillProfileGroupRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListSkillProfileGroupsReq(_message.Message):
+    __slots__ = ["skill_profile_group_sids"]
+    SKILL_PROFILE_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, skill_profile_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListSkillProfileGroupsRes(_message.Message):
+    __slots__ = ["skill_profile_groups"]
+    SKILL_PROFILE_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_groups: _containers.RepeatedCompositeFieldContainer[SkillProfileGroup]
+    def __init__(self, skill_profile_groups: _Optional[_Iterable[_Union[SkillProfileGroup, _Mapping]]] = ...) -> None: ...
+
 class DeleteHistoricalDataDeltasReq(_message.Message):
     __slots__ = ["skill_profile_sid", "start_datetimes"]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
