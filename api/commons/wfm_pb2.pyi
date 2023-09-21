@@ -579,13 +579,13 @@ class TourAgentCollection(_message.Message):
     def __init__(self, tour_agent_collection_sid: _Optional[int] = ..., tour_pattern_sid: _Optional[int] = ..., min_agents_to_schedule: _Optional[int] = ..., max_agents_to_schedule: _Optional[int] = ..., first_week_pattern_number: _Optional[int] = ..., name: _Optional[str] = ..., wfm_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class TourPattern(_message.Message):
-    __slots__ = ["tour_pattern_sid", "shift_template_sid", "member_tour_week_patterns", "member_tour_agent_collection"]
+    __slots__ = ["tour_pattern_sid", "shift_template_sid", "member_tour_week_patterns", "member_tour_agent_collections"]
     TOUR_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
     SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_TOUR_WEEK_PATTERNS_FIELD_NUMBER: _ClassVar[int]
-    MEMBER_TOUR_AGENT_COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    MEMBER_TOUR_AGENT_COLLECTIONS_FIELD_NUMBER: _ClassVar[int]
     tour_pattern_sid: int
     shift_template_sid: int
     member_tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
-    member_tour_agent_collection: _containers.RepeatedCompositeFieldContainer[TourAgentCollection]
-    def __init__(self, tour_pattern_sid: _Optional[int] = ..., shift_template_sid: _Optional[int] = ..., member_tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., member_tour_agent_collection: _Optional[_Iterable[_Union[TourAgentCollection, _Mapping]]] = ...) -> None: ...
+    member_tour_agent_collections: _containers.RepeatedCompositeFieldContainer[TourAgentCollection]
+    def __init__(self, tour_pattern_sid: _Optional[int] = ..., shift_template_sid: _Optional[int] = ..., member_tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., member_tour_agent_collections: _Optional[_Iterable[_Union[TourAgentCollection, _Mapping]]] = ...) -> None: ...
