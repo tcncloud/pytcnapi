@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"api/commons/audit/lms_events.proto\x12\x11\x61pi.commons.audit\"z\n\x17LMSPipelineFailureEvent\x12\x1d\n\nelement_id\x18\x01 \x01(\tR\telementId\x12!\n\x0c\x65lement_name\x18\x02 \x01(\tR\x0b\x65lementName\x12\x1d\n\nfile_names\x18\x03 \x03(\tR\tfileNamesB\x8d\x01\n\x15\x63om.api.commons.auditB\x0eLmsEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"api/commons/audit/lms_events.proto\x12\x11\x61pi.commons.audit\"\xa3\x01\n\x17LMSPipelineFailureEvent\x12\x1d\n\nelement_id\x18\x01 \x01(\tR\telementId\x12!\n\x0c\x65lement_name\x18\x02 \x01(\tR\x0b\x65lementName\x12\x1d\n\nfile_names\x18\x03 \x03(\tR\tfileNames\x12\'\n\x0f\x66\x61ilure_message\x18\x04 \x01(\tR\x0e\x66\x61ilureMessageB\x8d\x01\n\x15\x63om.api.commons.auditB\x0eLmsEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -21,6 +21,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.audit.lms_event
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\025com.api.commons.auditB\016LmsEventsProtoP\001\242\002\003ACA\252\002\021Api.Commons.Audit\312\002\021Api\\Commons\\Audit\342\002\035Api\\Commons\\Audit\\GPBMetadata\352\002\023Api::Commons::Audit'
-  _globals['_LMSPIPELINEFAILUREEVENT']._serialized_start=57
-  _globals['_LMSPIPELINEFAILUREEVENT']._serialized_end=179
+  _globals['_LMSPIPELINEFAILUREEVENT']._serialized_start=58
+  _globals['_LMSPIPELINEFAILUREEVENT']._serialized_end=221
 # @@protoc_insertion_point(module_scope)
