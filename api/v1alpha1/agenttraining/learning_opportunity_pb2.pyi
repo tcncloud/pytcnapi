@@ -29,6 +29,16 @@ class ListLearningOpportunitiesResponse(_message.Message):
     learning_opportunities: _containers.RepeatedCompositeFieldContainer[_agent_training_pb2.LearningOpportunity]
     def __init__(self, learning_opportunities: _Optional[_Iterable[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]]] = ...) -> None: ...
 
+class ListAgentLearningOpportunitiesRequest(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListAgentLearningOpportunitiesResponse(_message.Message):
+    __slots__ = ["learning_opportunities"]
+    LEARNING_OPPORTUNITIES_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunities: _containers.RepeatedCompositeFieldContainer[_agent_training_pb2.LearningOpportunity]
+    def __init__(self, learning_opportunities: _Optional[_Iterable[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]]] = ...) -> None: ...
+
 class UpdateLearningOpportunityRequest(_message.Message):
     __slots__ = ["learning_opportunity", "update_mask"]
     LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
