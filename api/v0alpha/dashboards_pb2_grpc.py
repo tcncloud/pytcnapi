@@ -70,6 +70,11 @@ class DashboardsStub(object):
                 request_serializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateDashboardLayoutRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.PublishDashboard = channel.unary_unary(
+                '/api.v0alpha.Dashboards/PublishDashboard',
+                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardResponse.FromString,
+                )
 
 
 class DashboardsServicer(object):
@@ -150,6 +155,13 @@ class DashboardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def PublishDashboard(self, request, context):
+        """PublishDashboard publishes a dashboard
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DashboardsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -207,6 +219,11 @@ def add_DashboardsServicer_to_server(servicer, server):
                     servicer.UpdateDashboardLayout,
                     request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.UpdateDashboardLayoutRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'PublishDashboard': grpc.unary_unary_rpc_method_handler(
+                    servicer.PublishDashboard,
+                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -402,5 +419,22 @@ class Dashboards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/UpdateDashboardLayout',
             api_dot_v0alpha_dot_dashboards__pb2.UpdateDashboardLayoutRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PublishDashboard(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/PublishDashboard',
+            api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardRequest.SerializeToString,
+            api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -11,6 +11,20 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class PublishDashboardRequest(_message.Message):
+    __slots__ = ["resource_id", "destination_resource_id"]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    DESTINATION_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    destination_resource_id: str
+    def __init__(self, resource_id: _Optional[str] = ..., destination_resource_id: _Optional[str] = ...) -> None: ...
+
+class PublishDashboardResponse(_message.Message):
+    __slots__ = ["resource_id"]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
+
 class ListDashboardsRequest(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
@@ -22,16 +36,18 @@ class ListDashboardsResponse(_message.Message):
     def __init__(self, dashboard_summaries: _Optional[_Iterable[_Union[DashboardSummary, _Mapping]]] = ...) -> None: ...
 
 class DashboardSummary(_message.Message):
-    __slots__ = ["dashboard_id", "title", "description", "panel_count"]
+    __slots__ = ["dashboard_id", "title", "description", "panel_count", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     PANEL_COUNT_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     title: str
     description: str
     panel_count: int
-    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., panel_count: _Optional[int] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., panel_count: _Optional[int] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class GetDefaultDashboardRequest(_message.Message):
     __slots__ = []
@@ -62,16 +78,20 @@ class ProductType(_message.Message):
     def __init__(self, name: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class DeleteDashboardRequest(_message.Message):
-    __slots__ = ["dashboard_id"]
+    __slots__ = ["dashboard_id", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
-    def __init__(self, dashboard_id: _Optional[str] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class GetDashboardRequest(_message.Message):
-    __slots__ = ["dashboard_id"]
+    __slots__ = ["dashboard_id", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
-    def __init__(self, dashboard_id: _Optional[str] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class CreateDashboardRequest(_message.Message):
     __slots__ = ["title", "description", "layout", "view", "type"]
@@ -88,10 +108,12 @@ class CreateDashboardRequest(_message.Message):
     def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
 
 class CreateDashboardResponse(_message.Message):
-    __slots__ = ["dashboard_id"]
+    __slots__ = ["dashboard_id", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
-    def __init__(self, dashboard_id: _Optional[str] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class DashboardLayout(_message.Message):
     __slots__ = ["panels"]
@@ -122,20 +144,22 @@ class PanelSource(_message.Message):
     def __init__(self, insight_id: _Optional[str] = ..., legacy_insight_id: _Optional[str] = ...) -> None: ...
 
 class Dashboard(_message.Message):
-    __slots__ = ["dashboard_id", "title", "description", "layout", "view", "type"]
+    __slots__ = ["dashboard_id", "title", "description", "layout", "view", "type", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     LAYOUT_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     title: str
     description: str
     layout: DashboardLayout
     view: DashboardView
     type: DashboardType
-    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class DashboardType(_message.Message):
     __slots__ = ["historic", "real_time"]
@@ -160,46 +184,54 @@ class RealTimeConfig(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateDashboardRequest(_message.Message):
-    __slots__ = ["dashboard_id", "title", "description", "layout", "view", "type"]
+    __slots__ = ["dashboard_id", "title", "description", "layout", "view", "type", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     LAYOUT_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     title: str
     description: str
     layout: DashboardLayout
     view: DashboardView
     type: DashboardType
-    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class UpdateDashboardTitleAndDescriptionRequest(_message.Message):
-    __slots__ = ["dashboard_id", "title", "description"]
+    __slots__ = ["dashboard_id", "title", "description", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     title: str
     description: str
-    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class UpdateDashboardLayoutRequest(_message.Message):
-    __slots__ = ["dashboard_id", "layout"]
+    __slots__ = ["dashboard_id", "layout", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     LAYOUT_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     layout: DashboardLayout
-    def __init__(self, dashboard_id: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class UpdateDashboardViewRequest(_message.Message):
-    __slots__ = ["dashboard_id", "view"]
+    __slots__ = ["dashboard_id", "view", "resource_id"]
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     view: DashboardView
-    def __init__(self, dashboard_id: _Optional[str] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ...) -> None: ...
+    resource_id: str
+    def __init__(self, dashboard_id: _Optional[str] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class DashboardView(_message.Message):
     __slots__ = ["org_ids"]
