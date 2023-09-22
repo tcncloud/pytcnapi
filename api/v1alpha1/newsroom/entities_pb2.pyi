@@ -164,3 +164,25 @@ class GetNewsForUserResponse(_message.Message):
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     published_article_details: _containers.RepeatedCompositeFieldContainer[PublishedArticleDetails]
     def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedArticleDetails, _Mapping]]] = ...) -> None: ...
+
+class StoreNewsroomImageRequest(_message.Message):
+    __slots__ = ["image"]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsroomImage
+    def __init__(self, image: _Optional[_Union[NewsroomImage, _Mapping]] = ...) -> None: ...
+
+class NewsroomImage(_message.Message):
+    __slots__ = ["uuid", "content", "download_url"]
+    UUID_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
+    uuid: str
+    content: str
+    download_url: str
+    def __init__(self, uuid: _Optional[str] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ...) -> None: ...
+
+class StoreNewsroomImageResponse(_message.Message):
+    __slots__ = ["image"]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsroomImage
+    def __init__(self, image: _Optional[_Union[NewsroomImage, _Mapping]] = ...) -> None: ...
