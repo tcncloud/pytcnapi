@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Insight(_message.Message):
-    __slots__ = ["insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id"]
+    __slots__ = ["insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight"]
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -17,6 +17,7 @@ class Insight(_message.Message):
     BODY_FIELD_NUMBER: _ClassVar[int]
     INSIGHT_PERMISSION_TYPE_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    STANDARD_INSIGHT_FIELD_NUMBER: _ClassVar[int]
     insight_id: int
     name: str
     description: str
@@ -25,7 +26,8 @@ class Insight(_message.Message):
     body: str
     insight_permission_type: _insights_pb2.InsightPermissionType
     resource_id: str
-    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ...) -> None: ...
+    standard_insight: bool
+    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ...) -> None: ...
 
 class PublishInsightRequest(_message.Message):
     __slots__ = ["resource_id", "destination_resource_id"]
