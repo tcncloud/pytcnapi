@@ -4392,25 +4392,32 @@ class DeleteAuthConnectionResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UserSubscription(_message.Message):
-    __slots__ = ["subscription_id", "event_type", "user_id", "room303", "version", "filters"]
+    __slots__ = ["subscription_id", "event_type", "user_id", "room303", "delivery", "version", "filters"]
     class Room303(_message.Message):
         __slots__ = ["room_name"]
         ROOM_NAME_FIELD_NUMBER: _ClassVar[int]
         room_name: str
         def __init__(self, room_name: _Optional[str] = ...) -> None: ...
+    class Delivery(_message.Message):
+        __slots__ = ["transfer_config_name"]
+        TRANSFER_CONFIG_NAME_FIELD_NUMBER: _ClassVar[int]
+        transfer_config_name: str
+        def __init__(self, transfer_config_name: _Optional[str] = ...) -> None: ...
     SUBSCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ROOM303_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_FIELD_NUMBER: _ClassVar[int]
     VERSION_FIELD_NUMBER: _ClassVar[int]
     FILTERS_FIELD_NUMBER: _ClassVar[int]
     subscription_id: str
     event_type: _event_types_pb2.EventType
     user_id: str
     room303: UserSubscription.Room303
+    delivery: UserSubscription.Delivery
     version: int
     filters: _containers.RepeatedCompositeFieldContainer[_notifications_pb2.FieldValueFilter]
-    def __init__(self, subscription_id: _Optional[str] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., user_id: _Optional[str] = ..., room303: _Optional[_Union[UserSubscription.Room303, _Mapping]] = ..., version: _Optional[int] = ..., filters: _Optional[_Iterable[_Union[_notifications_pb2.FieldValueFilter, _Mapping]]] = ...) -> None: ...
+    def __init__(self, subscription_id: _Optional[str] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., user_id: _Optional[str] = ..., room303: _Optional[_Union[UserSubscription.Room303, _Mapping]] = ..., delivery: _Optional[_Union[UserSubscription.Delivery, _Mapping]] = ..., version: _Optional[int] = ..., filters: _Optional[_Iterable[_Union[_notifications_pb2.FieldValueFilter, _Mapping]]] = ...) -> None: ...
 
 class AddUserSubscriptionRequest(_message.Message):
     __slots__ = ["subscription"]

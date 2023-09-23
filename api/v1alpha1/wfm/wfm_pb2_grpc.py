@@ -100,6 +100,26 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingRes.FromString,
                 )
+        self.CreateSkillProfileGroup = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateSkillProfileGroup',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupRes.FromString,
+                )
+        self.UpdateSkillProfileGroup = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroup',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.FromString,
+                )
+        self.ListSkillProfileGroups = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListSkillProfileGroups',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
+                )
+        self.UpdateSkillProfileGroupAssociations = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroupAssociations',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.FromString,
+                )
         self.DeleteHistoricalDataDeltas = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteHistoricalDataDeltas',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteHistoricalDataDeltasReq.SerializeToString,
@@ -615,6 +635,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.FromString,
                 )
+        self.GetDefaultSchedulingTarget = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetDefaultSchedulingTarget',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.FromString,
+                )
+        self.SetDefaultSchedulingTarget = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/SetDefaultSchedulingTarget',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.FromString,
+                )
         self.GetPerformanceMetrics = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/GetPerformanceMetrics',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetPerformanceMetricsReq.SerializeToString,
@@ -635,6 +665,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.FromString,
                 )
+        self.DeleteTourPattern = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteTourPattern',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternRes.FromString,
+                )
         self.CreateTourWeekPattern = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateTourWeekPattern',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourWeekPatternReq.SerializeToString,
@@ -645,35 +680,70 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourWeekPatternsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourWeekPatternsRes.FromString,
                 )
+        self.DeleteTourWeekPatterns = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteTourWeekPatterns',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourWeekPatternsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourWeekPatternsRes.FromString,
+                )
         self.CreateTourShiftInstanceConfig = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateTourShiftInstanceConfig',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftInstanceConfigReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftInstanceConfigRes.FromString,
+                )
+        self.UpdateTourShiftInstanceConfig = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateTourShiftInstanceConfig',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftInstanceConfigReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftInstanceConfigRes.FromString,
                 )
         self.ListTourShiftInstanceConfigs = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListTourShiftInstanceConfigs',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftInstanceConfigsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftInstanceConfigsRes.FromString,
                 )
+        self.DeleteTourShiftInstanceConfigs = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteTourShiftInstanceConfigs',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftInstanceConfigsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftInstanceConfigsRes.FromString,
+                )
         self.CreateTourShiftSegmentConfig = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateTourShiftSegmentConfig',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftSegmentConfigReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftSegmentConfigRes.FromString,
+                )
+        self.UpdateTourShiftSegmentConfig = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateTourShiftSegmentConfig',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftSegmentConfigReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftSegmentConfigRes.FromString,
                 )
         self.ListTourShiftSegmentConfigs = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListTourShiftSegmentConfigs',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftSegmentConfigsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftSegmentConfigsRes.FromString,
                 )
+        self.DeleteTourShiftSegmentConfigs = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteTourShiftSegmentConfigs',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftSegmentConfigsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftSegmentConfigsRes.FromString,
+                )
         self.CreateTourAgentCollection = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateTourAgentCollection',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourAgentCollectionReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourAgentCollectionRes.FromString,
                 )
+        self.UpdateTourAgentCollection = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateTourAgentCollection',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourAgentCollectionReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourAgentCollectionRes.FromString,
+                )
         self.ListTourAgentCollections = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListTourAgentCollections',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionsRes.FromString,
+                )
+        self.DeleteTourAgentCollections = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteTourAgentCollections',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionsRes.FromString,
                 )
         self.CreateTourAgentCollectionWFMAgents = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateTourAgentCollectionWFMAgents',
@@ -684,6 +754,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/ListTourAgentCollectionWFMAgents',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionWFMAgentsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionWFMAgentsRes.FromString,
+                )
+        self.DeleteTourAgentCollectionWFMAgents = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteTourAgentCollectionWFMAgents',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsRes.FromString,
                 )
 
 
@@ -920,6 +995,60 @@ class WFMServicer(object):
         - grpc.NotFound: the skill profile is not found for the org.
         - grpc.Internal: the current mapping for the given @inactive_skill_profile_sid is already disconnected,
         				            the given @inactive_skill_profile_sid is of an active skill profile.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateSkillProfileGroup(self, request, context):
+        """Creates the given @skill_profile_group.
+        @skill_profile_group_sids will be ignored since associations cannot be created by this method.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_group in the request is invalid.
+        - grpc.Internal: error occurs creating the skill profile group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateSkillProfileGroup(self, request, context):
+        """Updates the given @skill_profile_group that has the @skill_profile_group_sid for the org sending the request.
+        @skill_profile_group_sids will be ignored since associations cannot be updated by this method.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_group in the request is invalid.
+        - grpc.NotFound: the skill profile group to update doesn't exist.
+        - grpc.Internal: error occurs updating the skill profile group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSkillProfileGroups(self, request, context):
+        """Gets the skill profile groups that have the @skill_profile_group_sids for the org sending the request.
+        If @skill_profile_group_sids is empty it will get all the skill profile groups for the org.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_group_sids in the request is invalid.
+        - grpc.Internal: error occurs getting the skill profile groups.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateSkillProfileGroupAssociations(self, request, context):
+        """Updates associations of the given @skill_profile_group_sid for the org sending the request.
+        It will create the associations with the @skill_profile_sids_to_associate, and remove the associations with the @skill_profile_sids_to_disassociate.
+        Only one of the skill_profile_sids fields needs to be set, but both can be set on the same request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the values in the request are invalid.
+        - grpc.Internal: error occurs updating the skill profile group associations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2480,6 +2609,25 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetDefaultSchedulingTarget(self, request, context):
+        """Gets the scheduling-target values for the org making the request.
+        Errors:
+        - grpc.Internal: error occours when getting the scheduling-target values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetDefaultSchedulingTarget(self, request, context):
+        """Sets the scheduling-target values for the org making the request.
+        Errors:
+        - grpc.Invalid: any of the given values are invalid.
+        - grpc.Internal: error occours when setting the scheduling-target values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetPerformanceMetrics(self, request, context):
         """Gets the performance metrics across @datetime_range for shift instances in @schedule_selector associated with @node_selector for the org making the request.
         Performance metrics will be generated for each of the given @metric_params.
@@ -2534,6 +2682,19 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteTourPattern(self, request, context):
+        """Deletes the tour pattern belonging to @tour_pattern_sid and the org sending the request.
+        Any member Tour Week Patterns or Agent Collections will be deleted as well.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when deleting the data or it's children.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateTourWeekPattern(self, request, context):
         """Creates a tour week pattern for @tour_pattern_sid for the org sending the request, returning @tour_week_pattern_sid.
         The newly created tour week pattern will be placed at the end of the existing sequence of tour week patterns for @tour_pattern_sid.
@@ -2559,6 +2720,20 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteTourWeekPatterns(self, request, context):
+        """Deletes the tour week patterns with the given @tour_week_pattern_sids for the org sending the request.
+        Any Tour Week Instance or Segment Configs using @tour_week_pattern_sids will be deleted.
+        Request will error if any @tour_week_pattern_sids are in use by a Tour Agent Collection.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid or a @tour_week_pattern_sid is in use by a Tour Agent Collection.
+        - grpc.Internal: error occurs when deleting the tour week patterns or configs.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateTourShiftInstanceConfig(self, request, context):
         """Creates the @tour_shift_instance_config for the org sending the request, returning @tour_shift_instance_config_sid.
         The given @tour_shift_instance_config will not be created if it will overlap another tour shift instance config belonging to @tour_week_pattern_sid.
@@ -2573,8 +2748,34 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateTourShiftInstanceConfig(self, request, context):
+        """Updates the @tour_shift_instance_config for the org sending the request, returning @tour_shift_instance_config_sid.
+        The given @tour_shift_instance_config will not be created if it will overlap another tour shift instance config belonging to @tour_week_pattern_sid.
+        The @member_tour_shift_segment_configs field will be ignored, and will not be updated if passed through this endpoint.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid or a preexisting tour shift instance config would overlap @tour_shift_instance_config.
+        - grpc.Internal: error occurs when updating the data.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListTourShiftInstanceConfigs(self, request, context):
         """Lists the tour shift instance configs belonging to @tour_week_pattern_sids for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when getting the tour shift instance configs.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteTourShiftInstanceConfigs(self, request, context):
+        """Deletes the tour shift instance configs matching @tour_shift_instance_config_sids for the org sending the request.
         Required permissions:
         NONE
         Errors:
@@ -2597,6 +2798,19 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateTourShiftSegmentConfig(self, request, context):
+        """Updates the given @tour_shift_segment_config matching @tour_shift_segment_config_sid and the org sending the request.
+        If the updated Tour Shify Segment Config overlaps another segment or does not fit within the parent Tour Shift Instance Config the update will fail.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid, the @tour_shift_instance_config_sid does not exist for the org sending the request, or the resulting update would result in a conflict.
+        - grpc.Internal: error occurs when updating the entity.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListTourShiftSegmentConfigs(self, request, context):
         """Lists the tour shift segment configs belonging to @tour_shift_instance_config_sids for the org sending the request.
         Required permissions:
@@ -2604,6 +2818,18 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the tour shift segment configs.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteTourShiftSegmentConfigs(self, request, context):
+        """Deletes the tour shift segment configs associated with the given @tour_shift_segment_config_sids for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when deleting the tour shift segment configs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2623,6 +2849,20 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateTourAgentCollection(self, request, context):
+        """Updates the given @tour_agent_collection matching the @tour_agent_collection_sid for the org sending the request.
+        The @wfm_agent_sids will be ignored and will not be updated through this endpoint.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid, the first_week_pattern_number for @tour_pattern_sid is already in use by another tour agent collection,
+        or the given @tour_pattern_sid does not exist for the org sending the request.
+        - grpc.Internal: error occurs when updating the entity.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListTourAgentCollections(self, request, context):
         """Lists the tour agent collections belonging to @tour_pattern_sid for the org sending the request.
         Required permissions:
@@ -2630,6 +2870,19 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the tour agent collections.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteTourAgentCollections(self, request, context):
+        """Deletes the tour agent collections belonging matching @tour_agent_collection_sids for the org sending the request.
+        Any existing associations with WFM Agent Sids will be deleted as well.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when deleting the tour agent collections.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2656,6 +2909,19 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when getting the tour agent collections.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteTourAgentCollectionWFMAgents(self, request, context):
+        """Deletes association between the @wfm_agent_sids and @tour_agent_collection_sid for the org sending the request.
+        If no @wfm_agent_sids are provided, all existing @wfm_agent_sids for the given @tour_agent_collection_sid will be deleted.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid or there are no wfm agent associations to delete for @tour_agent_collection_sid .
         - grpc.Internal: error occurs when getting the tour agent collections.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2749,6 +3015,26 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DisconnectInactiveSkillProfileMapping,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingRes.SerializeToString,
+            ),
+            'CreateSkillProfileGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSkillProfileGroup,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupRes.SerializeToString,
+            ),
+            'UpdateSkillProfileGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSkillProfileGroup,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.SerializeToString,
+            ),
+            'ListSkillProfileGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSkillProfileGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.SerializeToString,
+            ),
+            'UpdateSkillProfileGroupAssociations': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSkillProfileGroupAssociations,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.SerializeToString,
             ),
             'DeleteHistoricalDataDeltas': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteHistoricalDataDeltas,
@@ -3265,6 +3551,16 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.SerializeToString,
             ),
+            'GetDefaultSchedulingTarget': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDefaultSchedulingTarget,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.SerializeToString,
+            ),
+            'SetDefaultSchedulingTarget': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDefaultSchedulingTarget,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.SerializeToString,
+            ),
             'GetPerformanceMetrics': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPerformanceMetrics,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetPerformanceMetricsReq.FromString,
@@ -3285,6 +3581,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.SerializeToString,
             ),
+            'DeleteTourPattern': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTourPattern,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternRes.SerializeToString,
+            ),
             'CreateTourWeekPattern': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTourWeekPattern,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourWeekPatternReq.FromString,
@@ -3295,35 +3596,70 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourWeekPatternsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourWeekPatternsRes.SerializeToString,
             ),
+            'DeleteTourWeekPatterns': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTourWeekPatterns,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourWeekPatternsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourWeekPatternsRes.SerializeToString,
+            ),
             'CreateTourShiftInstanceConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTourShiftInstanceConfig,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftInstanceConfigReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftInstanceConfigRes.SerializeToString,
+            ),
+            'UpdateTourShiftInstanceConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateTourShiftInstanceConfig,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftInstanceConfigReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftInstanceConfigRes.SerializeToString,
             ),
             'ListTourShiftInstanceConfigs': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTourShiftInstanceConfigs,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftInstanceConfigsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftInstanceConfigsRes.SerializeToString,
             ),
+            'DeleteTourShiftInstanceConfigs': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTourShiftInstanceConfigs,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftInstanceConfigsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftInstanceConfigsRes.SerializeToString,
+            ),
             'CreateTourShiftSegmentConfig': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTourShiftSegmentConfig,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftSegmentConfigReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftSegmentConfigRes.SerializeToString,
+            ),
+            'UpdateTourShiftSegmentConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateTourShiftSegmentConfig,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftSegmentConfigReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftSegmentConfigRes.SerializeToString,
             ),
             'ListTourShiftSegmentConfigs': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTourShiftSegmentConfigs,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftSegmentConfigsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourShiftSegmentConfigsRes.SerializeToString,
             ),
+            'DeleteTourShiftSegmentConfigs': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTourShiftSegmentConfigs,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftSegmentConfigsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftSegmentConfigsRes.SerializeToString,
+            ),
             'CreateTourAgentCollection': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTourAgentCollection,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourAgentCollectionReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourAgentCollectionRes.SerializeToString,
             ),
+            'UpdateTourAgentCollection': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateTourAgentCollection,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourAgentCollectionReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourAgentCollectionRes.SerializeToString,
+            ),
             'ListTourAgentCollections': grpc.unary_unary_rpc_method_handler(
                     servicer.ListTourAgentCollections,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionsRes.SerializeToString,
+            ),
+            'DeleteTourAgentCollections': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTourAgentCollections,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionsRes.SerializeToString,
             ),
             'CreateTourAgentCollectionWFMAgents': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTourAgentCollectionWFMAgents,
@@ -3334,6 +3670,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListTourAgentCollectionWFMAgents,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionWFMAgentsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionWFMAgentsRes.SerializeToString,
+            ),
+            'DeleteTourAgentCollectionWFMAgents': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTourAgentCollectionWFMAgents,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -3632,6 +3973,74 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DisconnectInactiveSkillProfileMapping',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateSkillProfileGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateSkillProfileGroup',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSkillProfileGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroup',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSkillProfileGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListSkillProfileGroups',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSkillProfileGroupAssociations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroupAssociations',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -5387,6 +5796,40 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetDefaultSchedulingTarget(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetDefaultSchedulingTarget',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetDefaultSchedulingTarget(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/SetDefaultSchedulingTarget',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetPerformanceMetrics(request,
             target,
             options=(),
@@ -5455,6 +5898,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteTourPattern(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteTourPattern',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateTourWeekPattern(request,
             target,
             options=(),
@@ -5489,6 +5949,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteTourWeekPatterns(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteTourWeekPatterns',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourWeekPatternsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourWeekPatternsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateTourShiftInstanceConfig(request,
             target,
             options=(),
@@ -5502,6 +5979,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateTourShiftInstanceConfig',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftInstanceConfigReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftInstanceConfigRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateTourShiftInstanceConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateTourShiftInstanceConfig',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftInstanceConfigReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftInstanceConfigRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -5523,6 +6017,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteTourShiftInstanceConfigs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteTourShiftInstanceConfigs',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftInstanceConfigsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftInstanceConfigsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateTourShiftSegmentConfig(request,
             target,
             options=(),
@@ -5536,6 +6047,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateTourShiftSegmentConfig',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftSegmentConfigReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourShiftSegmentConfigRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateTourShiftSegmentConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateTourShiftSegmentConfig',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftSegmentConfigReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourShiftSegmentConfigRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -5557,6 +6085,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteTourShiftSegmentConfigs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteTourShiftSegmentConfigs',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftSegmentConfigsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourShiftSegmentConfigsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateTourAgentCollection(request,
             target,
             options=(),
@@ -5574,6 +6119,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpdateTourAgentCollection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateTourAgentCollection',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourAgentCollectionReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateTourAgentCollectionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListTourAgentCollections(request,
             target,
             options=(),
@@ -5587,6 +6149,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListTourAgentCollections',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteTourAgentCollections(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteTourAgentCollections',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -5621,5 +6200,22 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListTourAgentCollectionWFMAgents',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionWFMAgentsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListTourAgentCollectionWFMAgentsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteTourAgentCollectionWFMAgents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteTourAgentCollectionWFMAgents',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
