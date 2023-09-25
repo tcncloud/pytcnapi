@@ -1140,16 +1140,18 @@ class AllowedHoldType(_message.Message):
     def __init__(self) -> None: ...
 
 class ManualApprovalSettings(_message.Message):
-    __slots__ = ["allowed", "confirm", "sms_allowed", "sms_number_confirmation"]
+    __slots__ = ["allowed", "confirm", "sms_allowed", "sms_number_confirmation", "disable_reject_option_for_approvers"]
     ALLOWED_FIELD_NUMBER: _ClassVar[int]
     CONFIRM_FIELD_NUMBER: _ClassVar[int]
     SMS_ALLOWED_FIELD_NUMBER: _ClassVar[int]
     SMS_NUMBER_CONFIRMATION_FIELD_NUMBER: _ClassVar[int]
+    DISABLE_REJECT_OPTION_FOR_APPROVERS_FIELD_NUMBER: _ClassVar[int]
     allowed: bool
     confirm: bool
     sms_allowed: bool
     sms_number_confirmation: bool
-    def __init__(self, allowed: bool = ..., confirm: bool = ..., sms_allowed: bool = ..., sms_number_confirmation: bool = ...) -> None: ...
+    disable_reject_option_for_approvers: bool
+    def __init__(self, allowed: bool = ..., confirm: bool = ..., sms_allowed: bool = ..., sms_number_confirmation: bool = ..., disable_reject_option_for_approvers: bool = ...) -> None: ...
 
 class ListHuntGroupWebLinksReq(_message.Message):
     __slots__ = ["hunt_group_sid", "call_sid", "call_type", "service_id", "scheduled_callback_id", "session_sid", "isInitialPreview"]

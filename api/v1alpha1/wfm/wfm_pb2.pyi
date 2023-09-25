@@ -60,6 +60,30 @@ class SkillProfile(_message.Message):
     are_averages_manual: bool
     def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., unnamed: bool = ..., inactive_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., skills_count: _Optional[int] = ..., occurrence: _Optional[float] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ...) -> None: ...
 
+class SkillProfileGroup(_message.Message):
+    __slots__ = ["skill_profile_group_sid", "name", "description", "create_time", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "skill_profile_sids"]
+    SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    ARE_AVERAGES_MANUAL_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sid: int
+    name: str
+    description: str
+    create_time: _timestamp_pb2.Timestamp
+    average_speed_of_answer_in_seconds: float
+    average_handle_time_in_seconds: float
+    average_after_call_work_in_seconds: float
+    average_time_to_abort_in_seconds: float
+    are_averages_manual: bool
+    skill_profile_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., skill_profile_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
 class ListSkillProfilesReq(_message.Message):
     __slots__ = ["active_only", "with_skills"]
     ACTIVE_ONLY_FIELD_NUMBER: _ClassVar[int]
@@ -181,7 +205,7 @@ class GetForecastingParametersRes(_message.Message):
     def __init__(self, forecasting_parameters: _Optional[_Union[_wfm_pb2.ForecastingParameters, _Mapping]] = ...) -> None: ...
 
 class HistoricalDataInterval(_message.Message):
-    __slots__ = ["start_datetime", "skill_profile_sid", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_calls", "total_abandoned_calls", "is_delta", "original_average_speed_of_answer_in_seconds", "original_average_handle_time_in_seconds", "original_average_after_call_work_in_seconds", "original_average_time_to_abort_in_seconds", "original_total_calls", "original_total_abandoned_calls"]
+    __slots__ = ["start_datetime", "skill_profile_sid", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_calls", "total_abandoned_calls", "is_delta", "original_average_speed_of_answer_in_seconds", "original_average_handle_time_in_seconds", "original_average_after_call_work_in_seconds", "original_average_time_to_abort_in_seconds", "original_total_calls", "original_total_abandoned_calls", "skill_profile_category"]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
@@ -197,6 +221,7 @@ class HistoricalDataInterval(_message.Message):
     ORIGINAL_AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_TOTAL_ABANDONED_CALLS_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
     skill_profile_sid: int
     average_speed_of_answer_in_seconds: _wrappers_pb2.FloatValue
@@ -212,13 +237,16 @@ class HistoricalDataInterval(_message.Message):
     original_average_time_to_abort_in_seconds: _wrappers_pb2.FloatValue
     original_total_calls: int
     original_total_abandoned_calls: int
-    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., total_calls: _Optional[int] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., original_average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_total_calls: _Optional[int] = ..., original_total_abandoned_calls: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., total_calls: _Optional[int] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., original_average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_total_calls: _Optional[int] = ..., original_total_abandoned_calls: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class ListHistoricalDataReq(_message.Message):
-    __slots__ = ["skill_profile_sid"]
+    __slots__ = ["skill_profile_sid", "skill_profile_category"]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
-    def __init__(self, skill_profile_sid: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class ListHistoricalDataRes(_message.Message):
     __slots__ = ["historical_data_intervals"]
@@ -300,6 +328,18 @@ class BuildCallProfileTemplateForSkillProfileRes(_message.Message):
     call_profile_template: CallProfileTemplate
     def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ...) -> None: ...
 
+class BuildCallProfileTemplateReq(_message.Message):
+    __slots__ = ["skill_profile_category"]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
+
+class BuildCallProfileTemplateRes(_message.Message):
+    __slots__ = ["call_profile_template"]
+    CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    call_profile_template: CallProfileTemplate
+    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ...) -> None: ...
+
 class CreateInactiveSkillProfileMappingReq(_message.Message):
     __slots__ = ["inactive_skill_profile_sid", "active_skill_profile_sid"]
     INACTIVE_SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -329,6 +369,54 @@ class DisconnectInactiveSkillProfileMappingReq(_message.Message):
     def __init__(self, inactive_skill_profile_sid: _Optional[int] = ...) -> None: ...
 
 class DisconnectInactiveSkillProfileMappingRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class CreateSkillProfileGroupReq(_message.Message):
+    __slots__ = ["skill_profile_group"]
+    SKILL_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group: SkillProfileGroup
+    def __init__(self, skill_profile_group: _Optional[_Union[SkillProfileGroup, _Mapping]] = ...) -> None: ...
+
+class CreateSkillProfileGroupRes(_message.Message):
+    __slots__ = ["skill_profile_group_sid"]
+    SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sid: int
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ...) -> None: ...
+
+class UpdateSkillProfileGroupReq(_message.Message):
+    __slots__ = ["skill_profile_group"]
+    SKILL_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group: SkillProfileGroup
+    def __init__(self, skill_profile_group: _Optional[_Union[SkillProfileGroup, _Mapping]] = ...) -> None: ...
+
+class UpdateSkillProfileGroupRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListSkillProfileGroupsReq(_message.Message):
+    __slots__ = ["skill_profile_group_sids"]
+    SKILL_PROFILE_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, skill_profile_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListSkillProfileGroupsRes(_message.Message):
+    __slots__ = ["skill_profile_groups"]
+    SKILL_PROFILE_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_groups: _containers.RepeatedCompositeFieldContainer[SkillProfileGroup]
+    def __init__(self, skill_profile_groups: _Optional[_Iterable[_Union[SkillProfileGroup, _Mapping]]] = ...) -> None: ...
+
+class UpdateSkillProfileGroupAssociationsReq(_message.Message):
+    __slots__ = ["skill_profile_group_sid", "skill_profile_sids_to_associate", "skill_profile_sids_to_disassociate"]
+    SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_SIDS_TO_ASSOCIATE_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_SIDS_TO_DISASSOCIATE_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_group_sid: int
+    skill_profile_sids_to_associate: _containers.RepeatedScalarFieldContainer[int]
+    skill_profile_sids_to_disassociate: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., skill_profile_sids_to_associate: _Optional[_Iterable[int]] = ..., skill_profile_sids_to_disassociate: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class UpdateSkillProfileGroupAssociationsRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
@@ -367,17 +455,19 @@ class GetSkillProfilesCountRes(_message.Message):
     def __init__(self, count: _Optional[int] = ...) -> None: ...
 
 class BuildProfileForecastByIntervalReq(_message.Message):
-    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid"]
+    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid", "skill_profile_category"]
     CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     FIXED_AVERAGES_FORECAST_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     call_profile_template: CallProfileTemplate
     fixed_averages_forecast: bool
     skill_profile_sid: int
-    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class CallDataByInterval(_message.Message):
-    __slots__ = ["start_datetime", "skill_profile_sid", "total_calls", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_abandoned_calls", "is_delta", "forecast_data_interval_sid", "interval_width_in_minutes"]
+    __slots__ = ["start_datetime", "skill_profile_sid", "total_calls", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_abandoned_calls", "is_delta", "forecast_data_interval_sid", "interval_width_in_minutes", "skill_profile_category"]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
@@ -389,6 +479,7 @@ class CallDataByInterval(_message.Message):
     IS_DELTA_FIELD_NUMBER: _ClassVar[int]
     FORECAST_DATA_INTERVAL_SID_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
     skill_profile_sid: int
     total_calls: int
@@ -400,17 +491,20 @@ class CallDataByInterval(_message.Message):
     is_delta: bool
     forecast_data_interval_sid: int
     interval_width_in_minutes: int
-    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., total_calls: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., forecast_data_interval_sid: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., total_calls: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., forecast_data_interval_sid: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class BuildProfileForecastByIntervalWithStatsReq(_message.Message):
-    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid"]
+    __slots__ = ["call_profile_template", "fixed_averages_forecast", "skill_profile_sid", "skill_profile_category"]
     CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     FIXED_AVERAGES_FORECAST_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     call_profile_template: CallProfileTemplate
     fixed_averages_forecast: bool
     skill_profile_sid: int
-    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class BuildProfileForecastByIntervalWithStatsRes(_message.Message):
     __slots__ = ["call_data", "forecast_stats"]
@@ -421,14 +515,16 @@ class BuildProfileForecastByIntervalWithStatsRes(_message.Message):
     def __init__(self, call_data: _Optional[_Union[CallDataByInterval, _Mapping]] = ..., forecast_stats: _Optional[_Union[GetForecastStatisticsRes, _Mapping]] = ...) -> None: ...
 
 class UpsertProfileForecastReq(_message.Message):
-    __slots__ = ["skill_profile_sid", "call_profile_template", "fixed_averages_forecast"]
+    __slots__ = ["skill_profile_sid", "call_profile_template", "fixed_averages_forecast", "skill_profile_category"]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_PROFILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     FIXED_AVERAGES_FORECAST_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
     call_profile_template: CallProfileTemplate
     fixed_averages_forecast: bool
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class UpsertProfileForecastRes(_message.Message):
     __slots__ = []
@@ -592,6 +688,12 @@ class ListForecastIntervalsForSkillProfileReq(_message.Message):
     skill_profile_sid: int
     def __init__(self, skill_profile_sid: _Optional[int] = ...) -> None: ...
 
+class ListForecastIntervalsReq(_message.Message):
+    __slots__ = ["skill_profile_category"]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
+
 class UpsertRegressionForecastReq(_message.Message):
     __slots__ = ["regression_template", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "skill_profile_sids_to_forecast"]
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
@@ -635,7 +737,7 @@ class UpsertForecastDataDeltasRes(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteForecastIntervalsReq(_message.Message):
-    __slots__ = ["skill_profile_sid", "forecast_interval_sids", "forecast_interval_delete_type"]
+    __slots__ = ["skill_profile_sid", "forecast_interval_sids", "skill_profile_category", "forecast_interval_delete_type"]
     class ForecastIntervalDeleteType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = []
         INTERVALS_AND_DELTAS: _ClassVar[DeleteForecastIntervalsReq.ForecastIntervalDeleteType]
@@ -649,11 +751,13 @@ class DeleteForecastIntervalsReq(_message.Message):
         def __init__(self, sids: _Optional[_Iterable[int]] = ...) -> None: ...
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     FORECAST_INTERVAL_SIDS_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     FORECAST_INTERVAL_DELETE_TYPE_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
     forecast_interval_sids: DeleteForecastIntervalsReq.IntervalSids
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
     forecast_interval_delete_type: DeleteForecastIntervalsReq.ForecastIntervalDeleteType
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., forecast_interval_sids: _Optional[_Union[DeleteForecastIntervalsReq.IntervalSids, _Mapping]] = ..., forecast_interval_delete_type: _Optional[_Union[DeleteForecastIntervalsReq.ForecastIntervalDeleteType, str]] = ...) -> None: ...
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., forecast_interval_sids: _Optional[_Union[DeleteForecastIntervalsReq.IntervalSids, _Mapping]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., forecast_interval_delete_type: _Optional[_Union[DeleteForecastIntervalsReq.ForecastIntervalDeleteType, str]] = ...) -> None: ...
 
 class DeleteForecastIntervalsRes(_message.Message):
     __slots__ = []
@@ -947,6 +1051,18 @@ class UpdateProgramNodeRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListProgramNodesBySidReq(_message.Message):
+    __slots__ = ["program_node_sids"]
+    PROGRAM_NODE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    program_node_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, program_node_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListProgramNodesBySidRes(_message.Message):
+    __slots__ = ["program_nodes"]
+    PROGRAM_NODES_FIELD_NUMBER: _ClassVar[int]
+    program_nodes: _containers.RepeatedCompositeFieldContainer[ProgramNode]
+    def __init__(self, program_nodes: _Optional[_Iterable[_Union[ProgramNode, _Mapping]]] = ...) -> None: ...
+
 class ParentEntity(_message.Message):
     __slots__ = ["parent_sid", "parent_type"]
     PARENT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -1069,6 +1185,16 @@ class UpdateNonSkillActivityRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class ListNonSkillActivitiesReq(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class ListNonSkillActivitiesRes(_message.Message):
+    __slots__ = ["non_skill_activities"]
+    NON_SKILL_ACTIVITIES_FIELD_NUMBER: _ClassVar[int]
+    non_skill_activities: _containers.RepeatedCompositeFieldContainer[NonSkillActivity]
+    def __init__(self, non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ...) -> None: ...
+
 class ListNonSkillActivityAssociationsReq(_message.Message):
     __slots__ = ["associated_entity", "relationship_type"]
     ASSOCIATED_ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -1188,14 +1314,16 @@ class UpdateWFMAgentRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAllWFMAgentsReq(_message.Message):
-    __slots__ = ["include_inactive", "include_skill_proficiencies", "include_agent_groups"]
+    __slots__ = ["include_inactive", "include_skill_proficiencies", "include_agent_groups", "agent_group_schedule_scenario_sid"]
     INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SKILL_PROFICIENCIES_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_GROUP_SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     include_inactive: bool
     include_skill_proficiencies: bool
     include_agent_groups: bool
-    def __init__(self, include_inactive: bool = ..., include_skill_proficiencies: bool = ..., include_agent_groups: bool = ...) -> None: ...
+    agent_group_schedule_scenario_sid: int
+    def __init__(self, include_inactive: bool = ..., include_skill_proficiencies: bool = ..., include_agent_groups: bool = ..., agent_group_schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
 class ListAllWFMAgentsRes(_message.Message):
     __slots__ = ["wfm_agents", "agent_groups_by_agent"]
@@ -1237,6 +1365,25 @@ class ListUngroupedWFMAgentsRes(_message.Message):
     WFM_AGENTS_FIELD_NUMBER: _ClassVar[int]
     wfm_agents: _containers.RepeatedCompositeFieldContainer[WFMAgent]
     def __init__(self, wfm_agents: _Optional[_Iterable[_Union[WFMAgent, _Mapping]]] = ...) -> None: ...
+
+class ListWFMAgentSidsReq(_message.Message):
+    __slots__ = ["tcn_agent_sids"]
+    TCN_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    tcn_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, tcn_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ListWFMAgentSidsRes(_message.Message):
+    __slots__ = ["sids"]
+    class SidsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: int
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[int] = ...) -> None: ...
+    SIDS_FIELD_NUMBER: _ClassVar[int]
+    sids: _containers.ScalarMap[int, int]
+    def __init__(self, sids: _Optional[_Mapping[int, int]] = ...) -> None: ...
 
 class ListWFMAgentsAssociatedWithAgentGroupReq(_message.Message):
     __slots__ = ["agent_group_sid"]
@@ -2323,6 +2470,28 @@ class ListDraftSchedulesRes(_message.Message):
     draft_schedules: _containers.RepeatedCompositeFieldContainer[DraftSchedule]
     def __init__(self, draft_schedules: _Optional[_Iterable[_Union[DraftSchedule, _Mapping]]] = ...) -> None: ...
 
+class ClearScheduleReq(_message.Message):
+    __slots__ = ["schedule_selector", "node_selector", "datetime_range", "invert_datetime_range", "start_datetimes_only", "delete_locked"]
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    INVERT_DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIMES_ONLY_FIELD_NUMBER: _ClassVar[int]
+    DELETE_LOCKED_FIELD_NUMBER: _ClassVar[int]
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    node_selector: ParentEntity
+    datetime_range: _wfm_pb2.DatetimeRange
+    invert_datetime_range: bool
+    start_datetimes_only: bool
+    delete_locked: bool
+    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., invert_datetime_range: bool = ..., start_datetimes_only: bool = ..., delete_locked: bool = ...) -> None: ...
+
+class ClearScheduleRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class DeleteDraftScheduleReq(_message.Message):
     __slots__ = ["draft_schedule_sid"]
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -2332,6 +2501,26 @@ class DeleteDraftScheduleReq(_message.Message):
 class DeleteDraftScheduleRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class ListShiftInstancesBySidReq(_message.Message):
+    __slots__ = ["shift_instance_sids", "include_shift_segments", "include_shift_template", "include_scheduling_activity", "include_activity"]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SHIFT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    include_shift_segments: bool
+    include_shift_template: bool
+    include_scheduling_activity: bool
+    include_activity: bool
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ..., include_shift_template: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ...) -> None: ...
+
+class ListShiftInstancesBySidRes(_message.Message):
+    __slots__ = ["shift_instances"]
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
 
 class CopyScheduleToScheduleReq(_message.Message):
     __slots__ = ["source_schedule_selector", "destination_schedule_selector", "node_selector", "datetime_range", "start_datetimes_only", "overlap_as_warning"]
@@ -2594,6 +2783,26 @@ class DeleteSchedulingTargetReq(_message.Message):
     def __init__(self, node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ...) -> None: ...
 
 class DeleteSchedulingTargetRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class GetDefaultSchedulingTargetReq(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class GetDefaultSchedulingTargetRes(_message.Message):
+    __slots__ = ["scheduling_target"]
+    SCHEDULING_TARGET_FIELD_NUMBER: _ClassVar[int]
+    scheduling_target: SchedulingTarget
+    def __init__(self, scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
+
+class SetDefaultSchedulingTargetReq(_message.Message):
+    __slots__ = ["scheduling_target"]
+    SCHEDULING_TARGET_FIELD_NUMBER: _ClassVar[int]
+    scheduling_target: SchedulingTarget
+    def __init__(self, scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
+
+class SetDefaultSchedulingTargetRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 

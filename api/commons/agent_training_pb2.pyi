@@ -36,3 +36,11 @@ class LearningOpportunity(_message.Message):
     title: str
     status: LearningOpportunityStatus
     def __init__(self, learning_opportunity_id: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., start_offset: _Optional[int] = ..., end_offset: _Optional[int] = ..., description: _Optional[str] = ..., title: _Optional[str] = ..., status: _Optional[_Union[LearningOpportunityStatus, str]] = ...) -> None: ...
+
+class CallIdentifier(_message.Message):
+    __slots__ = ["sid", "type"]
+    SID_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    sid: int
+    type: _acd_pb2.CallType.Enum
+    def __init__(self, sid: _Optional[int] = ..., type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...

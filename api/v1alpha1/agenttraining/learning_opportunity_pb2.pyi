@@ -1,4 +1,5 @@
 from api.commons import agent_training_pb2 as _agent_training_pb2
+from api.commons import scorecards_pb2 as _scorecards_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -20,8 +21,16 @@ class CreateLearningOpportunityResponse(_message.Message):
     def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
 
 class ListLearningOpportunitiesRequest(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["call_identifiers", "transcript_sids", "agent_user_ids", "created_at"]
+    CALL_IDENTIFIERS_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
+    call_identifiers: _containers.RepeatedCompositeFieldContainer[_agent_training_pb2.CallIdentifier]
+    transcript_sids: _containers.RepeatedScalarFieldContainer[int]
+    agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
+    created_at: _scorecards_pb2.TimeFilter
+    def __init__(self, call_identifiers: _Optional[_Iterable[_Union[_agent_training_pb2.CallIdentifier, _Mapping]]] = ..., transcript_sids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
 
 class ListLearningOpportunitiesResponse(_message.Message):
     __slots__ = ["learning_opportunities"]
