@@ -100,6 +100,26 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingRes.FromString,
                 )
+        self.CreateSkillProfileGroup = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateSkillProfileGroup',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupRes.FromString,
+                )
+        self.UpdateSkillProfileGroup = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroup',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.FromString,
+                )
+        self.ListSkillProfileGroups = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListSkillProfileGroups',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
+                )
+        self.UpdateSkillProfileGroupAssociations = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroupAssociations',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.FromString,
+                )
         self.DeleteHistoricalDataDeltas = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteHistoricalDataDeltas',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteHistoricalDataDeltasReq.SerializeToString,
@@ -615,6 +635,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.FromString,
                 )
+        self.GetDefaultSchedulingTarget = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetDefaultSchedulingTarget',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.FromString,
+                )
+        self.SetDefaultSchedulingTarget = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/SetDefaultSchedulingTarget',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.FromString,
+                )
         self.GetPerformanceMetrics = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/GetPerformanceMetrics',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetPerformanceMetricsReq.SerializeToString,
@@ -860,6 +890,60 @@ class WFMServicer(object):
         - grpc.NotFound: the skill profile is not found for the org.
         - grpc.Internal: the current mapping for the given @inactive_skill_profile_sid is already disconnected,
         				            the given @inactive_skill_profile_sid is of an active skill profile.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateSkillProfileGroup(self, request, context):
+        """Creates the given @skill_profile_group.
+        @skill_profile_group_sids will be ignored since associations cannot be created by this method.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_group in the request is invalid.
+        - grpc.Internal: error occurs creating the skill profile group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateSkillProfileGroup(self, request, context):
+        """Updates the given @skill_profile_group that has the @skill_profile_group_sid for the org sending the request.
+        @skill_profile_group_sids will be ignored since associations cannot be updated by this method.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_group in the request is invalid.
+        - grpc.NotFound: the skill profile group to update doesn't exist.
+        - grpc.Internal: error occurs updating the skill profile group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSkillProfileGroups(self, request, context):
+        """Gets the skill profile groups that have the @skill_profile_group_sids for the org sending the request.
+        If @skill_profile_group_sids is empty it will get all the skill profile groups for the org.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @skill_profile_group_sids in the request is invalid.
+        - grpc.Internal: error occurs getting the skill profile groups.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateSkillProfileGroupAssociations(self, request, context):
+        """Updates associations of the given @skill_profile_group_sid for the org sending the request.
+        It will create the associations with the @skill_profile_sids_to_associate, and remove the associations with the @skill_profile_sids_to_disassociate.
+        Only one of the skill_profile_sids fields needs to be set, but both can be set on the same request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the values in the request are invalid.
+        - grpc.Internal: error occurs updating the skill profile group associations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2241,7 +2325,7 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the @org_id or @shift_instance_sids in the request are invalid.
+        - grpc.Invalid: the @shift_instance_sids in the request are invalid.
         - grpc.Internal: error occurs when listing the shift instances or their shift segments.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2420,6 +2504,25 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetDefaultSchedulingTarget(self, request, context):
+        """Gets the scheduling-target values for the org making the request.
+        Errors:
+        - grpc.Internal: error occours when getting the scheduling-target values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetDefaultSchedulingTarget(self, request, context):
+        """Sets the scheduling-target values for the org making the request.
+        Errors:
+        - grpc.Invalid: any of the given values are invalid.
+        - grpc.Internal: error occours when setting the scheduling-target values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetPerformanceMetrics(self, request, context):
         """Gets the performance metrics across @datetime_range for shift instances in @schedule_selector associated with @node_selector for the org making the request.
         Performance metrics will be generated for each of the given @metric_params.
@@ -2535,6 +2638,26 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DisconnectInactiveSkillProfileMapping,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingRes.SerializeToString,
+            ),
+            'CreateSkillProfileGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSkillProfileGroup,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupRes.SerializeToString,
+            ),
+            'UpdateSkillProfileGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSkillProfileGroup,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.SerializeToString,
+            ),
+            'ListSkillProfileGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSkillProfileGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.SerializeToString,
+            ),
+            'UpdateSkillProfileGroupAssociations': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSkillProfileGroupAssociations,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.SerializeToString,
             ),
             'DeleteHistoricalDataDeltas': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteHistoricalDataDeltas,
@@ -3051,6 +3174,16 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.SerializeToString,
             ),
+            'GetDefaultSchedulingTarget': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDefaultSchedulingTarget,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.SerializeToString,
+            ),
+            'SetDefaultSchedulingTarget': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDefaultSchedulingTarget,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.SerializeToString,
+            ),
             'GetPerformanceMetrics': grpc.unary_unary_rpc_method_handler(
                     servicer.GetPerformanceMetrics,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetPerformanceMetricsReq.FromString,
@@ -3358,6 +3491,74 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DisconnectInactiveSkillProfileMapping',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DisconnectInactiveSkillProfileMappingRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateSkillProfileGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateSkillProfileGroup',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSkillProfileGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSkillProfileGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroup',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSkillProfileGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListSkillProfileGroups',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfileGroupsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSkillProfileGroupAssociations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateSkillProfileGroupAssociations',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateSkillProfileGroupAssociationsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -5109,6 +5310,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteSchedulingTarget',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingTargetRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDefaultSchedulingTarget(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetDefaultSchedulingTarget',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultSchedulingTargetRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetDefaultSchedulingTarget(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/SetDefaultSchedulingTarget',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetDefaultSchedulingTargetRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

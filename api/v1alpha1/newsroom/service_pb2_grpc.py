@@ -62,10 +62,15 @@ class NewsroomAPIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserResponse.FromString,
                 )
-        self.StoreNewsroomImage = channel.unary_unary(
-                '/api.v1alpha1.newsroom.NewsroomAPI/StoreNewsroomImage',
-                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsroomImageRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsroomImageResponse.FromString,
+        self.StoreNewsArticleImage = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/StoreNewsArticleImage',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsArticleImageRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsArticleImageResponse.FromString,
+                )
+        self.ListImagesForNewsArticle = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/ListImagesForNewsArticle',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListImagesForNewsArticleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListImagesForNewsArticleResponse.FromString,
                 )
 
 
@@ -138,8 +143,15 @@ class NewsroomAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def StoreNewsroomImage(self, request, context):
-        """upload newsroom images
+    def StoreNewsArticleImage(self, request, context):
+        """upload newsroom image for the news article
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListImagesForNewsArticle(self, request, context):
+        """list newsroom images
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -193,10 +205,15 @@ def add_NewsroomAPIServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetNewsForUserResponse.SerializeToString,
             ),
-            'StoreNewsroomImage': grpc.unary_unary_rpc_method_handler(
-                    servicer.StoreNewsroomImage,
-                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsroomImageRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsroomImageResponse.SerializeToString,
+            'StoreNewsArticleImage': grpc.unary_unary_rpc_method_handler(
+                    servicer.StoreNewsArticleImage,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsArticleImageRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsArticleImageResponse.SerializeToString,
+            ),
+            'ListImagesForNewsArticle': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListImagesForNewsArticle,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListImagesForNewsArticleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListImagesForNewsArticleResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -365,7 +382,7 @@ class NewsroomAPI(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def StoreNewsroomImage(request,
+    def StoreNewsArticleImage(request,
             target,
             options=(),
             channel_credentials=None,
@@ -375,8 +392,25 @@ class NewsroomAPI(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/StoreNewsroomImage',
-            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsroomImageRequest.SerializeToString,
-            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsroomImageResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/StoreNewsArticleImage',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsArticleImageRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.StoreNewsArticleImageResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListImagesForNewsArticle(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/ListImagesForNewsArticle',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListImagesForNewsArticleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListImagesForNewsArticleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
