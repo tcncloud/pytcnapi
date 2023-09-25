@@ -39,8 +39,14 @@ class ListLearningOpportunitiesResponse(_message.Message):
     def __init__(self, learning_opportunities: _Optional[_Iterable[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]]] = ...) -> None: ...
 
 class ListAgentLearningOpportunitiesRequest(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["call_identifiers", "transcript_sids", "created_at"]
+    CALL_IDENTIFIERS_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
+    call_identifiers: _containers.RepeatedCompositeFieldContainer[_agent_training_pb2.CallIdentifier]
+    transcript_sids: _containers.RepeatedScalarFieldContainer[int]
+    created_at: _scorecards_pb2.TimeFilter
+    def __init__(self, call_identifiers: _Optional[_Iterable[_Union[_agent_training_pb2.CallIdentifier, _Mapping]]] = ..., transcript_sids: _Optional[_Iterable[int]] = ..., created_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
 
 class ListAgentLearningOpportunitiesResponse(_message.Message):
     __slots__ = ["learning_opportunities"]
