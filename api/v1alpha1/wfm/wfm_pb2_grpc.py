@@ -2657,25 +2657,25 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateTourPattern(self, request, context):
-        """Creates a tour pattern for @shift_template_sid and the org sending the request, returning @tour_pattern_sid.
-        If there is already a tour shift for @shift_template_sid then the method call will fail to create a new tour pattern.
+        """Creates a Tour Pattern for @shift_template_sid and the org sending the request, returning @tour_pattern_sid.
+        If there is already a Tour Pattern for @shift_template_sid then the method call will fail to create a new Tour Pattern.
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or a tour shift already exists for @shift_template_sid.
-        - grpc.Internal: error occurs when creating the tour pattern.
+        - grpc.Invalid: the request data is invalid or a Tour Pattern already exists for @shift_template_sid.
+        - grpc.Internal: error occurs when creating the Tour Pattern.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetTourPattern(self, request, context):
-        """Gets the tour pattern belonging to @shift_template_sid and the org sending the request.
+        """Gets the Tour Pattern belonging to @shift_template_sid and the org sending the request.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
-        - grpc.NotFound: the requested tour pattern does not exist.
+        - grpc.NotFound: the requested Tour Pattern does not exist.
         - grpc.Internal: error occurs when getting the data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2683,7 +2683,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteTourPattern(self, request, context):
-        """Deletes the tour pattern belonging to @tour_pattern_sid and the org sending the request.
+        """Deletes the Tour Pattern belonging to @tour_pattern_sid and the org sending the request.
         Any member Tour Week Patterns or Agent Collections will be deleted as well.
         Required permissions:
         NONE
@@ -2696,34 +2696,34 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateTourWeekPattern(self, request, context):
-        """Creates a tour week pattern for @tour_pattern_sid for the org sending the request, returning @tour_week_pattern_sid.
-        The newly created tour week pattern will be placed at the end of the existing sequence of tour week patterns for @tour_pattern_sid.
+        """Creates a Tour Week Pattern for @tour_pattern_sid for the org sending the request, returning @tour_week_pattern_sid.
+        The newly created Tour Week Pattern will be placed at the end of the existing sequence of tour week patterns for @tour_pattern_sid.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid, or the given @tour_pattern_sid does not exist for the org sending the request.
-        - grpc.Internal: error occurs when creating the tour week pattern.
+        - grpc.Internal: error occurs when creating the Tour Week Pattern.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListTourWeekPatterns(self, request, context):
-        """Lists the tour week patterns with @tour_pattern_sid for the org sending the request
+        """Lists the Tour Week Patterns with @tour_pattern_sid for the org sending the request
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
-        - grpc.Internal: error occurs when getting the tour week patterns.
+        - grpc.Internal: error occurs when getting the Tour Week Patterns.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteTourWeekPatterns(self, request, context):
-        """Deletes the tour week patterns with the given @tour_week_pattern_sids for the org sending the request.
+        """Deletes the Tour Week Patterns with the given @tour_week_pattern_sids for the org sending the request.
         Any Tour Week Instance or Segment Configs using @tour_week_pattern_sids will be deleted.
-        Request will error if any @tour_week_pattern_sids are in use by a Tour Agent Collection.
+        Request will error if any @tour_week_pattern_sids are in use by a Tour Agent Collection, as those must be removed first.
         Required permissions:
         NONE
         Errors:
@@ -2755,7 +2755,7 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or a preexisting tour shift instance config would overlap @tour_shift_instance_config.
+        - grpc.Invalid: the request data is invalid or a preexisting Tour Shift Instance Config would overlap @tour_shift_instance_config.
         - grpc.Internal: error occurs when updating the data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2763,24 +2763,24 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListTourShiftInstanceConfigs(self, request, context):
-        """Lists the tour shift instance configs belonging to @tour_week_pattern_sids for the org sending the request.
+        """Lists the Tour Shift Instance Configs belonging to @tour_week_pattern_sids for the org sending the request.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
-        - grpc.Internal: error occurs when getting the tour shift instance configs.
+        - grpc.Internal: error occurs when getting the Tour Shift Instance Configs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteTourShiftInstanceConfigs(self, request, context):
-        """Deletes the tour shift instance configs matching @tour_shift_instance_config_sids for the org sending the request.
+        """Deletes the Tour Shift Instance Configs matching @tour_shift_instance_config_sids for the org sending the request.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
-        - grpc.Internal: error occurs when getting the tour shift instance configs.
+        - grpc.Internal: error occurs when getting the Tour Shift Instance Configs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2799,8 +2799,8 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateTourShiftSegmentConfig(self, request, context):
-        """Updates the given @tour_shift_segment_config matching @tour_shift_segment_config_sid and the org sending the request.
-        If the updated Tour Shify Segment Config overlaps another segment or does not fit within the parent Tour Shift Instance Config the update will fail.
+        """Updates the given @tour_shift_segment_config matching @tour_shift_segment_config_sid for the org sending the request.
+        If the updated Tour Shift Segment Config overlaps another segment or does not fit within the parent Tour Shift Instance Config the update will fail.
         Required permissions:
         NONE
         Errors:
@@ -2812,24 +2812,24 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListTourShiftSegmentConfigs(self, request, context):
-        """Lists the tour shift segment configs belonging to @tour_shift_instance_config_sids for the org sending the request.
+        """Lists the Tour Shift Segment Configs belonging to @tour_shift_instance_config_sids for the org sending the request.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
-        - grpc.Internal: error occurs when getting the tour shift segment configs.
+        - grpc.Internal: error occurs when getting the Tour Shift Segment Configs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteTourShiftSegmentConfigs(self, request, context):
-        """Deletes the tour shift segment configs associated with the given @tour_shift_segment_config_sids for the org sending the request.
+        """Deletes the Tour Shift Segment Configs associated with the given @tour_shift_segment_config_sids for the org sending the request.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
-        - grpc.Internal: error occurs when deleting the tour shift segment configs.
+        - grpc.Internal: error occurs when deleting the Tour Shift Segment Configs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2864,7 +2864,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListTourAgentCollections(self, request, context):
-        """Lists the tour agent collections belonging to @tour_pattern_sid for the org sending the request.
+        """Lists the Tour Agent Collections belonging to @tour_pattern_sid for the org sending the request.
         Required permissions:
         NONE
         Errors:
@@ -2876,7 +2876,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteTourAgentCollections(self, request, context):
-        """Deletes the tour agent collections belonging matching @tour_agent_collection_sids for the org sending the request.
+        """Deletes the Tour Agent collections matching @tour_agent_collection_sids for the org sending the request.
         Any existing associations with WFM Agent Sids will be deleted as well.
         Required permissions:
         NONE
@@ -2890,7 +2890,7 @@ class WFMServicer(object):
 
     def CreateTourAgentCollectionWFMAgents(self, request, context):
         """Creates an assocation between the @tour_agent_collection_sid and the @wfm_agent_sids for the org sending the request.
-        If there is already an association between any of the @wfm_agent_sids and the tour pattern that @tour_agent_collection_sid belongs to, the method will fail and no associations will be created.
+        If there is already an association between any of the @wfm_agent_sids and the Tour Pattern that @tour_agent_collection_sid belongs to, the method will fail and no associations will be created.
         Required permissions:
         NONE
         Errors:
@@ -2921,7 +2921,7 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or there are no wfm agent associations to delete for @tour_agent_collection_sid .
+        - grpc.Invalid: the request data is invalid or there are no WFM Agent associations to delete for @tour_agent_collection_sid .
         - grpc.Internal: error occurs when getting the tour agent collections.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
