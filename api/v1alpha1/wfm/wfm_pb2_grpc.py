@@ -2662,7 +2662,8 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or a Tour Pattern already exists for @shift_template_sid.
+        - grpc.Invalid: the request data is invalid.
+        - grpc.AlreadyExists: A Tour Pattern already exists for @shift_template_sid.
         - grpc.Internal: error occurs when creating the Tour Pattern.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2701,7 +2702,8 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid, or the given @tour_pattern_sid does not exist for the org sending the request.
+        - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: the given @tour_pattern_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when creating the Tour Week Pattern.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2727,7 +2729,8 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or a @tour_week_pattern_sid is in use by a Tour Agent Collection.
+        - grpc.Invalid: the request data is invalid.
+        - grpc.FailedPrecondition: a @tour_week_pattern_sid is in use by a Tour Agent Collection.
         - grpc.Internal: error occurs when deleting the tour week patterns or configs.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2791,7 +2794,8 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or the @tour_shift_instance_config_sid does not exist for the org sending the request.
+        - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: the @tour_shift_instance_config_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when creating the entity.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2804,7 +2808,8 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid, the @tour_shift_instance_config_sid does not exist for the org sending the request, or the resulting update would result in a conflict.
+        - grpc.Invalid: the request data is invalid or the resulting update would result in a conflict.
+        - grpc.NotFound: the @tour_shift_instance_config_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when updating the entity.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2841,8 +2846,9 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid, the first_week_pattern_number for @tour_pattern_sid is already in use by another tour agent collection,
-        or the given @tour_pattern_sid does not exist for the org sending the request.
+        - grpc.Invalid: the request data is invalid.
+        - grpc.AlreadyExists: the first_week_pattern_number for @tour_pattern_sid is already in use by another tour agent collection.
+        - grpc.NotFound: the given @tour_pattern_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when creating the entity.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2855,8 +2861,9 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid, the first_week_pattern_number for @tour_pattern_sid is already in use by another tour agent collection,
-        or the given @tour_pattern_sid does not exist for the org sending the request.
+        - grpc.Invalid: the request data is invalid.
+        - grpc.AlreadyExists: the first_week_pattern_number for @tour_pattern_sid is already in use by another tour agent collection.
+        - grpc.NotFound: the given @tour_pattern_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when updating the entity.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2894,7 +2901,8 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or an association already exists for at least one SID in @wfm_agent_sids.
+        - grpc.Invalid: the request data is invalid
+        - grpc.AlreadyExists: an association already exists for at least one SID in @wfm_agent_sids.
         - grpc.Internal: error occurs when creating the association.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2904,7 +2912,7 @@ class WFMServicer(object):
     def ListTourAgentCollectionWFMAgents(self, request, context):
         """Lists the WFM Agent SIDs belonging to @tour_agent_collection_sids for the org sending the request.
         The resulting sids will be returned in @wfm_agent_pairings each containing an @agent_collection_sid and @wfm_agent_sids.
-        If no agents are found for an sid in the given @tour_agent_collection_sids, that @agent_collection_sid will have an empty slice in @wfm_agent_sids.
+        If no agents are found for a sid in the given @tour_agent_collection_sids, that @agent_collection_sid will have an empty slice in @wfm_agent_sids.
         Required permissions:
         NONE
         Errors:
@@ -2921,7 +2929,8 @@ class WFMServicer(object):
         Required permissions:
         NONE
         Errors:
-        - grpc.Invalid: the request data is invalid or there are no WFM Agent associations to delete for @tour_agent_collection_sid .
+        - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: there are no WFM Agent associations to delete for @tour_agent_collection_sid.
         - grpc.Internal: error occurs when getting the tour agent collections.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
