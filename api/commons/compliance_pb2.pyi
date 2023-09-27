@@ -110,18 +110,29 @@ CONSENT_ABSENT_ACTION_ALLOW: ConsentAbsentAction
 CONSENT_ABSENT_ACTION_DENY: ConsentAbsentAction
 
 class Rule(_message.Message):
-    __slots__ = ["verb", "entity", "sub_entity", "selectors", "rule_text"]
+    __slots__ = ["verb", "entity", "sub_entity", "selectors", "rule_text", "predicates"]
     VERB_FIELD_NUMBER: _ClassVar[int]
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     SUB_ENTITY_FIELD_NUMBER: _ClassVar[int]
     SELECTORS_FIELD_NUMBER: _ClassVar[int]
     RULE_TEXT_FIELD_NUMBER: _ClassVar[int]
+    PREDICATES_FIELD_NUMBER: _ClassVar[int]
     verb: Verb
     entity: Entity
     sub_entity: SubEntity
     selectors: _containers.RepeatedCompositeFieldContainer[Selector]
     rule_text: str
-    def __init__(self, verb: _Optional[_Union[Verb, str]] = ..., entity: _Optional[_Union[Entity, str]] = ..., sub_entity: _Optional[_Union[SubEntity, str]] = ..., selectors: _Optional[_Iterable[_Union[Selector, _Mapping]]] = ..., rule_text: _Optional[str] = ...) -> None: ...
+    predicates: Predicate
+    def __init__(self, verb: _Optional[_Union[Verb, str]] = ..., entity: _Optional[_Union[Entity, str]] = ..., sub_entity: _Optional[_Union[SubEntity, str]] = ..., selectors: _Optional[_Iterable[_Union[Selector, _Mapping]]] = ..., rule_text: _Optional[str] = ..., predicates: _Optional[_Union[Predicate, _Mapping]] = ...) -> None: ...
+
+class Predicate(_message.Message):
+    __slots__ = ["selector"]
+    AND_FIELD_NUMBER: _ClassVar[int]
+    OR_FIELD_NUMBER: _ClassVar[int]
+    NOT_FIELD_NUMBER: _ClassVar[int]
+    SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    selector: Selector
+    def __init__(self, selector: _Optional[_Union[Selector, _Mapping]] = ..., **kwargs) -> None: ...
 
 class Selector(_message.Message):
     __slots__ = ["time", "week", "dncl", "frequency", "location", "phone_type", "month", "date", "holiday", "meta", "plugin"]
@@ -174,20 +185,39 @@ class DnclExp(_message.Message):
     def __init__(self, list_name: _Optional[str] = ..., field_names: _Optional[_Union[FieldNamesMod, _Mapping]] = ...) -> None: ...
 
 class FrequencyExp(_message.Message):
-    __slots__ = ["count", "duration", "results", "dispositions", "field_names", "checking_entities"]
+    __slots__ = ["count", "duration", "results", "dispositions", "field_names", "checking_entities", "predicate"]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     DURATION_FIELD_NUMBER: _ClassVar[int]
     RESULTS_FIELD_NUMBER: _ClassVar[int]
     DISPOSITIONS_FIELD_NUMBER: _ClassVar[int]
     FIELD_NAMES_FIELD_NUMBER: _ClassVar[int]
     CHECKING_ENTITIES_FIELD_NUMBER: _ClassVar[int]
+    PREDICATE_FIELD_NUMBER: _ClassVar[int]
     count: int
     duration: int
     results: ResultsMod
     dispositions: DispositionMod
     field_names: FieldNamesMod
     checking_entities: _containers.RepeatedCompositeFieldContainer[EntityExp]
-    def __init__(self, count: _Optional[int] = ..., duration: _Optional[int] = ..., results: _Optional[_Union[ResultsMod, _Mapping]] = ..., dispositions: _Optional[_Union[DispositionMod, _Mapping]] = ..., field_names: _Optional[_Union[FieldNamesMod, _Mapping]] = ..., checking_entities: _Optional[_Iterable[_Union[EntityExp, _Mapping]]] = ...) -> None: ...
+    predicate: ModPredicate
+    def __init__(self, count: _Optional[int] = ..., duration: _Optional[int] = ..., results: _Optional[_Union[ResultsMod, _Mapping]] = ..., dispositions: _Optional[_Union[DispositionMod, _Mapping]] = ..., field_names: _Optional[_Union[FieldNamesMod, _Mapping]] = ..., checking_entities: _Optional[_Iterable[_Union[EntityExp, _Mapping]]] = ..., predicate: _Optional[_Union[ModPredicate, _Mapping]] = ...) -> None: ...
+
+class Mod(_message.Message):
+    __slots__ = ["results", "dispositions"]
+    RESULTS_FIELD_NUMBER: _ClassVar[int]
+    DISPOSITIONS_FIELD_NUMBER: _ClassVar[int]
+    results: ResultsMod
+    dispositions: DispositionMod
+    def __init__(self, results: _Optional[_Union[ResultsMod, _Mapping]] = ..., dispositions: _Optional[_Union[DispositionMod, _Mapping]] = ...) -> None: ...
+
+class ModPredicate(_message.Message):
+    __slots__ = ["mod"]
+    AND_FIELD_NUMBER: _ClassVar[int]
+    OR_FIELD_NUMBER: _ClassVar[int]
+    NOT_FIELD_NUMBER: _ClassVar[int]
+    MOD_FIELD_NUMBER: _ClassVar[int]
+    mod: Mod
+    def __init__(self, mod: _Optional[_Union[Mod, _Mapping]] = ..., **kwargs) -> None: ...
 
 class LocationExp(_message.Message):
     __slots__ = ["country", "state", "county", "city", "province", "postal_codes", "area_codes"]
