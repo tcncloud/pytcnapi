@@ -1,4 +1,5 @@
 from annotations import authz_pb2 as _authz_pb2
+from api.v1alpha1.vanalytics import correction_pb2 as _correction_pb2
 from api.v1alpha1.vanalytics import filter_pb2 as _filter_pb2
 from api.v1alpha1.vanalytics import flag_pb2 as _flag_pb2
 from api.v1alpha1.vanalytics import flag_filter_pb2 as _flag_filter_pb2
