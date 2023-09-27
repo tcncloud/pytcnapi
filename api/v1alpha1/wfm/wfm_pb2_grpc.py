@@ -963,6 +963,7 @@ class WFMServicer(object):
 
     def CreateInactiveSkillProfileMapping(self, request, context):
         """Creates a mapping entry for the @inactive_skill_profile_sid to the @active_skill_profile_sid for the org sending the request.
+        DEPRECATED as of Sep/27/2023 - Use skill profile groups instead.
         Required permissions:
         NONE
         Errors:
@@ -988,6 +989,7 @@ class WFMServicer(object):
 
     def DisconnectInactiveSkillProfileMapping(self, request, context):
         """Changes the current mapping for the given @inactive_skill_profile_sid to be disconnected.
+        DEPRECATED as of Sep/27/2023 - Use skill profile groups instead.
         Required permissions:
         NONE
         Errors:
