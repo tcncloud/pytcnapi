@@ -24,6 +24,26 @@ class AgentTrainingServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesResponse.FromString,
                 )
+        self.ListAgentLearningOpportunities = channel.unary_unary(
+                '/api.v1alpha1.agenttraining.AgentTrainingService/ListAgentLearningOpportunities',
+                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesResponse.FromString,
+                )
+        self.UpdateLearningOpportunity = channel.unary_unary(
+                '/api.v1alpha1.agenttraining.AgentTrainingService/UpdateLearningOpportunity',
+                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityResponse.FromString,
+                )
+        self.DeleteLearningOpportunity = channel.unary_unary(
+                '/api.v1alpha1.agenttraining.AgentTrainingService/DeleteLearningOpportunity',
+                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityResponse.FromString,
+                )
+        self.GetLearningOpportunity = channel.unary_unary(
+                '/api.v1alpha1.agenttraining.AgentTrainingService/GetLearningOpportunity',
+                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityResponse.FromString,
+                )
 
 
 class AgentTrainingServiceServicer(object):
@@ -43,6 +63,34 @@ class AgentTrainingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAgentLearningOpportunities(self, request, context):
+        """ListAgentLearningOpportunities lists learning opportunities by agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateLearningOpportunity(self, request, context):
+        """UpdateLearningOpportunity updates a learning opportunity.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteLearningOpportunity(self, request, context):
+        """DeleteLearningOpportunity deletes a learning opportunity.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetLearningOpportunity(self, request, context):
+        """GetLearningOpportunity gets a learning opportunity.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AgentTrainingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -55,6 +103,26 @@ def add_AgentTrainingServiceServicer_to_server(servicer, server):
                     servicer.ListLearningOpportunities,
                     request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesResponse.SerializeToString,
+            ),
+            'ListAgentLearningOpportunities': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentLearningOpportunities,
+                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesResponse.SerializeToString,
+            ),
+            'UpdateLearningOpportunity': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateLearningOpportunity,
+                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityResponse.SerializeToString,
+            ),
+            'DeleteLearningOpportunity': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteLearningOpportunity,
+                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityResponse.SerializeToString,
+            ),
+            'GetLearningOpportunity': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetLearningOpportunity,
+                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -97,5 +165,73 @@ class AgentTrainingService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/ListLearningOpportunities',
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesRequest.SerializeToString,
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentLearningOpportunities(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/ListAgentLearningOpportunities',
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateLearningOpportunity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/UpdateLearningOpportunity',
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityRequest.SerializeToString,
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteLearningOpportunity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/DeleteLearningOpportunity',
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityRequest.SerializeToString,
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetLearningOpportunity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/GetLearningOpportunity',
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityRequest.SerializeToString,
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
