@@ -3160,9 +3160,9 @@ class GenerateTourWeekPatternsReq(_message.Message):
     def __init__(self, target_shift_template_sid: _Optional[int] = ..., num_weeks_in_tour: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
 class GenerateTourWeekPatternsRes(_message.Message):
-    __slots__ = ["tour_pattern", "diagnostics"]
-    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["tour_week_patterns", "diagnostics"]
+    TOUR_WEEK_PATTERNS_FIELD_NUMBER: _ClassVar[int]
     DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
-    tour_pattern: TourPattern
+    tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
-    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+    def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
