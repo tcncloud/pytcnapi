@@ -68,6 +68,18 @@ class UpdateLearningOpportunityResponse(_message.Message):
     learning_opportunity: _agent_training_pb2.LearningOpportunity
     def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
 
+class CompleteAgentLearningOpportunityRequest(_message.Message):
+    __slots__ = ["learning_opportunity_id"]
+    LEARNING_OPPORTUNITY_ID_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity_id: int
+    def __init__(self, learning_opportunity_id: _Optional[int] = ...) -> None: ...
+
+class CompleteAgentLearningOpportunityResponse(_message.Message):
+    __slots__ = ["learning_opportunity"]
+    LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
+    learning_opportunity: _agent_training_pb2.LearningOpportunity
+    def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
+
 class DeleteLearningOpportunityRequest(_message.Message):
     __slots__ = ["learning_opportunity_id"]
     LEARNING_OPPORTUNITY_ID_FIELD_NUMBER: _ClassVar[int]
