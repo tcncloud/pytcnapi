@@ -30,16 +30,16 @@ class PersistedFlowDefinition(_message.Message):
     def __init__(self, flow_definition_id: _Optional[str] = ..., org_id: _Optional[str] = ..., application: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., definition: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., extra: _Optional[str] = ...) -> None: ...
 
 class CreateFlowDefinitionRequest(_message.Message):
-    __slots__ = ["definition"]
-    DEFINITION_FIELD_NUMBER: _ClassVar[int]
-    definition: PersistedFlowDefinition
-    def __init__(self, definition: _Optional[_Union[PersistedFlowDefinition, _Mapping]] = ...) -> None: ...
+    __slots__ = ["flow_definition"]
+    FLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    flow_definition: PersistedFlowDefinition
+    def __init__(self, flow_definition: _Optional[_Union[PersistedFlowDefinition, _Mapping]] = ...) -> None: ...
 
 class CreateFlowDefinitionResponse(_message.Message):
-    __slots__ = ["flow_definition_id"]
-    FLOW_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
-    flow_definition_id: str
-    def __init__(self, flow_definition_id: _Optional[str] = ...) -> None: ...
+    __slots__ = ["flow_definition"]
+    FLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    flow_definition: PersistedFlowDefinition
+    def __init__(self, flow_definition: _Optional[_Union[PersistedFlowDefinition, _Mapping]] = ...) -> None: ...
 
 class GetFlowDefinitionRequest(_message.Message):
     __slots__ = ["flow_definition_id"]
@@ -48,10 +48,10 @@ class GetFlowDefinitionRequest(_message.Message):
     def __init__(self, flow_definition_id: _Optional[str] = ...) -> None: ...
 
 class GetFlowDefinitionResponse(_message.Message):
-    __slots__ = ["definition"]
-    DEFINITION_FIELD_NUMBER: _ClassVar[int]
-    definition: PersistedFlowDefinition
-    def __init__(self, definition: _Optional[_Union[PersistedFlowDefinition, _Mapping]] = ...) -> None: ...
+    __slots__ = ["flow_definition"]
+    FLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    flow_definition: PersistedFlowDefinition
+    def __init__(self, flow_definition: _Optional[_Union[PersistedFlowDefinition, _Mapping]] = ...) -> None: ...
 
 class ListFlowDefinitionsRequest(_message.Message):
     __slots__ = ["org_id", "application"]
