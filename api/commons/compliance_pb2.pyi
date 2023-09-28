@@ -110,29 +110,18 @@ CONSENT_ABSENT_ACTION_ALLOW: ConsentAbsentAction
 CONSENT_ABSENT_ACTION_DENY: ConsentAbsentAction
 
 class Rule(_message.Message):
-    __slots__ = ["verb", "entity", "sub_entity", "selectors", "rule_text", "predicate"]
+    __slots__ = ["verb", "entity", "sub_entity", "selectors", "rule_text"]
     VERB_FIELD_NUMBER: _ClassVar[int]
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     SUB_ENTITY_FIELD_NUMBER: _ClassVar[int]
     SELECTORS_FIELD_NUMBER: _ClassVar[int]
     RULE_TEXT_FIELD_NUMBER: _ClassVar[int]
-    PREDICATE_FIELD_NUMBER: _ClassVar[int]
     verb: Verb
     entity: Entity
     sub_entity: SubEntity
     selectors: _containers.RepeatedCompositeFieldContainer[Selector]
     rule_text: str
-    predicate: Predicate
-    def __init__(self, verb: _Optional[_Union[Verb, str]] = ..., entity: _Optional[_Union[Entity, str]] = ..., sub_entity: _Optional[_Union[SubEntity, str]] = ..., selectors: _Optional[_Iterable[_Union[Selector, _Mapping]]] = ..., rule_text: _Optional[str] = ..., predicate: _Optional[_Union[Predicate, _Mapping]] = ...) -> None: ...
-
-class Predicate(_message.Message):
-    __slots__ = ["selector"]
-    AND_FIELD_NUMBER: _ClassVar[int]
-    OR_FIELD_NUMBER: _ClassVar[int]
-    NOT_FIELD_NUMBER: _ClassVar[int]
-    SELECTOR_FIELD_NUMBER: _ClassVar[int]
-    selector: Selector
-    def __init__(self, selector: _Optional[_Union[Selector, _Mapping]] = ..., **kwargs) -> None: ...
+    def __init__(self, verb: _Optional[_Union[Verb, str]] = ..., entity: _Optional[_Union[Entity, str]] = ..., sub_entity: _Optional[_Union[SubEntity, str]] = ..., selectors: _Optional[_Iterable[_Union[Selector, _Mapping]]] = ..., rule_text: _Optional[str] = ...) -> None: ...
 
 class Selector(_message.Message):
     __slots__ = ["time", "week", "dncl", "frequency", "location", "phone_type", "month", "date", "holiday", "meta", "plugin"]
