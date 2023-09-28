@@ -164,3 +164,39 @@ class GetNewsForUserResponse(_message.Message):
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     published_article_details: _containers.RepeatedCompositeFieldContainer[PublishedArticleDetails]
     def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedArticleDetails, _Mapping]]] = ...) -> None: ...
+
+class StoreNewsArticleImageRequest(_message.Message):
+    __slots__ = ["image"]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class NewsArticleImage(_message.Message):
+    __slots__ = ["uuid", "new_article_sid", "content", "download_url"]
+    UUID_FIELD_NUMBER: _ClassVar[int]
+    NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
+    uuid: str
+    new_article_sid: int
+    content: str
+    download_url: str
+    def __init__(self, uuid: _Optional[str] = ..., new_article_sid: _Optional[int] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ...) -> None: ...
+
+class StoreNewsArticleImageResponse(_message.Message):
+    __slots__ = ["image"]
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class ListImagesForNewsArticleRequest(_message.Message):
+    __slots__ = ["new_article_sid"]
+    NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+    new_article_sid: int
+    def __init__(self, new_article_sid: _Optional[int] = ...) -> None: ...
+
+class ListImagesForNewsArticleResponse(_message.Message):
+    __slots__ = ["news_article_images"]
+    NEWS_ARTICLE_IMAGES_FIELD_NUMBER: _ClassVar[int]
+    news_article_images: _containers.RepeatedCompositeFieldContainer[NewsArticleImage]
+    def __init__(self, news_article_images: _Optional[_Iterable[_Union[NewsArticleImage, _Mapping]]] = ...) -> None: ...

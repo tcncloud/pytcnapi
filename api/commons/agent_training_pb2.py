@@ -12,9 +12,10 @@ _sym_db = _symbol_database.Default()
 
 
 from api.commons import acd_pb2 as api_dot_commons_dot_acd__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/agent_training.proto\x12\x0b\x61pi.commons\x1a\x15\x61pi/commons/acd.proto\"\xd0\x02\n\x13LearningOpportunity\x12\x36\n\x17learning_opportunity_id\x18\x02 \x01(\x03R\x15learningOpportunityId\x12\x19\n\x08\x63\x61ll_sid\x18\x03 \x01(\x03R\x07\x63\x61llSid\x12\x37\n\tcall_type\x18\x04 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x08\x63\x61llType\x12%\n\x0etranscript_sid\x18\x05 \x01(\x03R\rtranscriptSid\x12\"\n\ragent_user_id\x18\x06 \x01(\tR\x0b\x61gentUserId\x12!\n\x0cstart_offset\x18\x07 \x01(\x05R\x0bstartOffset\x12\x1d\n\nend_offset\x18\x08 \x01(\x05R\tendOffset\x12 \n\x0b\x64\x65scription\x18\t \x01(\tR\x0b\x64\x65scriptionBr\n\x0f\x63om.api.commonsB\x12\x41gentTrainingProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/agent_training.proto\x12\x0b\x61pi.commons\x1a\x15\x61pi/commons/acd.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe1\x03\n\x13LearningOpportunity\x12\x36\n\x17learning_opportunity_id\x18\x02 \x01(\x03R\x15learningOpportunityId\x12\x19\n\x08\x63\x61ll_sid\x18\x03 \x01(\x03R\x07\x63\x61llSid\x12\x37\n\tcall_type\x18\x04 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x08\x63\x61llType\x12%\n\x0etranscript_sid\x18\x05 \x01(\x03R\rtranscriptSid\x12\"\n\ragent_user_id\x18\x06 \x01(\tR\x0b\x61gentUserId\x12!\n\x0cstart_offset\x18\x07 \x01(\x05R\x0bstartOffset\x12\x1d\n\nend_offset\x18\x08 \x01(\x05R\tendOffset\x12 \n\x0b\x64\x65scription\x18\t \x01(\tR\x0b\x64\x65scription\x12\x39\n\ncreated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x14\n\x05title\x18\x0c \x01(\tR\x05title\x12>\n\x06status\x18\r \x01(\x0e\x32&.api.commons.LearningOpportunityStatusR\x06status\"R\n\x0e\x43\x61llIdentifier\x12\x10\n\x03sid\x18\x01 \x01(\x03R\x03sid\x12.\n\x04type\x18\x02 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x04type*B\n\x19LearningOpportunityStatus\x12\x0f\n\x0bSTATUS_OPEN\x10\x00\x12\x14\n\x10STATUS_COMPLETED\x10\x01\x42r\n\x0f\x63om.api.commonsB\x12\x41gentTrainingProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,6 +23,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.agent_training_
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\017com.api.commonsB\022AgentTrainingProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
-  _globals['_LEARNINGOPPORTUNITY']._serialized_start=73
-  _globals['_LEARNINGOPPORTUNITY']._serialized_end=409
+  _globals['_LEARNINGOPPORTUNITYSTATUS']._serialized_start=673
+  _globals['_LEARNINGOPPORTUNITYSTATUS']._serialized_end=739
+  _globals['_LEARNINGOPPORTUNITY']._serialized_start=106
+  _globals['_LEARNINGOPPORTUNITY']._serialized_end=587
+  _globals['_CALLIDENTIFIER']._serialized_start=589
+  _globals['_CALLIDENTIFIER']._serialized_end=671
 # @@protoc_insertion_point(module_scope)
