@@ -461,7 +461,7 @@ class ListFieldsReq(_message.Message):
     def __init__(self) -> None: ...
 
 class RecordFieldProto(_message.Message):
-    __slots__ = ["name", "string_value", "number_value", "bool_value", "phone", "currency", "postal_code", "email", "date_time", "repeated_records", "record_field_map", "err", "enriched_phone", "enriched_zip", "ehr_details"]
+    __slots__ = ["name", "string_value", "number_value", "bool_value", "phone", "currency", "postal_code", "email", "date_time", "repeated_records", "record_field_map", "err", "enriched_phone", "enriched_zip"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     STRING_VALUE_FIELD_NUMBER: _ClassVar[int]
     NUMBER_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -476,7 +476,6 @@ class RecordFieldProto(_message.Message):
     ERR_FIELD_NUMBER: _ClassVar[int]
     ENRICHED_PHONE_FIELD_NUMBER: _ClassVar[int]
     ENRICHED_ZIP_FIELD_NUMBER: _ClassVar[int]
-    EHR_DETAILS_FIELD_NUMBER: _ClassVar[int]
     name: str
     string_value: str
     number_value: float
@@ -491,8 +490,7 @@ class RecordFieldProto(_message.Message):
     err: Error
     enriched_phone: EnrichedPhone
     enriched_zip: EnrichedZip
-    ehr_details: EHRDetails
-    def __init__(self, name: _Optional[str] = ..., string_value: _Optional[str] = ..., number_value: _Optional[float] = ..., bool_value: bool = ..., phone: _Optional[_Union[Phone, _Mapping]] = ..., currency: _Optional[_Union[Currency, _Mapping]] = ..., postal_code: _Optional[_Union[PostalCode, _Mapping]] = ..., email: _Optional[_Union[Email, _Mapping]] = ..., date_time: _Optional[_Union[DateTime, _Mapping]] = ..., repeated_records: _Optional[_Union[RepeatedRecords, _Mapping]] = ..., record_field_map: _Optional[_Union[RecordFieldMap, _Mapping]] = ..., err: _Optional[_Union[Error, _Mapping]] = ..., enriched_phone: _Optional[_Union[EnrichedPhone, _Mapping]] = ..., enriched_zip: _Optional[_Union[EnrichedZip, _Mapping]] = ..., ehr_details: _Optional[_Union[EHRDetails, _Mapping]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., string_value: _Optional[str] = ..., number_value: _Optional[float] = ..., bool_value: bool = ..., phone: _Optional[_Union[Phone, _Mapping]] = ..., currency: _Optional[_Union[Currency, _Mapping]] = ..., postal_code: _Optional[_Union[PostalCode, _Mapping]] = ..., email: _Optional[_Union[Email, _Mapping]] = ..., date_time: _Optional[_Union[DateTime, _Mapping]] = ..., repeated_records: _Optional[_Union[RepeatedRecords, _Mapping]] = ..., record_field_map: _Optional[_Union[RecordFieldMap, _Mapping]] = ..., err: _Optional[_Union[Error, _Mapping]] = ..., enriched_phone: _Optional[_Union[EnrichedPhone, _Mapping]] = ..., enriched_zip: _Optional[_Union[EnrichedZip, _Mapping]] = ...) -> None: ...
 
 class RepeatedRecords(_message.Message):
     __slots__ = ["records"]
@@ -1631,50 +1629,6 @@ class EnrichedZip(_message.Message):
     time_zone: str
     utc: float
     def __init__(self, accuracy: _Optional[int] = ..., admin_code1: _Optional[str] = ..., admin_code2: _Optional[str] = ..., admin_code3: _Optional[str] = ..., admin_name1: _Optional[str] = ..., admin_name2: _Optional[str] = ..., admin_name3: _Optional[str] = ..., area_code: _Optional[str] = ..., city_name: _Optional[str] = ..., city_type: _Optional[str] = ..., country_code: _Optional[str] = ..., county_fips: _Optional[str] = ..., county_name: _Optional[str] = ..., dst: bool = ..., iso2: _Optional[str] = ..., msa_code: _Optional[str] = ..., place_name: _Optional[str] = ..., postal_code: _Optional[str] = ..., postal_code_key: _Optional[str] = ..., postal_type: _Optional[str] = ..., province_abbr: _Optional[str] = ..., province_name: _Optional[str] = ..., source: _Optional[str] = ..., state_fips: _Optional[str] = ..., time_zone: _Optional[str] = ..., utc: _Optional[float] = ...) -> None: ...
-
-class EHRDetails(_message.Message):
-    __slots__ = ["display_collection", "display_key", "strings", "numbers", "dates", "bools"]
-    class StringsEntry(_message.Message):
-        __slots__ = ["key", "value"]
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: str
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
-    class NumbersEntry(_message.Message):
-        __slots__ = ["key", "value"]
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: float
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[float] = ...) -> None: ...
-    class DatesEntry(_message.Message):
-        __slots__ = ["key", "value"]
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: DateTime
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[DateTime, _Mapping]] = ...) -> None: ...
-    class BoolsEntry(_message.Message):
-        __slots__ = ["key", "value"]
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
-    DISPLAY_COLLECTION_FIELD_NUMBER: _ClassVar[int]
-    DISPLAY_KEY_FIELD_NUMBER: _ClassVar[int]
-    STRINGS_FIELD_NUMBER: _ClassVar[int]
-    NUMBERS_FIELD_NUMBER: _ClassVar[int]
-    DATES_FIELD_NUMBER: _ClassVar[int]
-    BOOLS_FIELD_NUMBER: _ClassVar[int]
-    display_collection: str
-    display_key: str
-    strings: _containers.ScalarMap[str, str]
-    numbers: _containers.ScalarMap[str, float]
-    dates: _containers.MessageMap[str, DateTime]
-    bools: _containers.ScalarMap[str, bool]
-    def __init__(self, display_collection: _Optional[str] = ..., display_key: _Optional[str] = ..., strings: _Optional[_Mapping[str, str]] = ..., numbers: _Optional[_Mapping[str, float]] = ..., dates: _Optional[_Mapping[str, DateTime]] = ..., bools: _Optional[_Mapping[str, bool]] = ...) -> None: ...
 
 class Now(_message.Message):
     __slots__ = []
