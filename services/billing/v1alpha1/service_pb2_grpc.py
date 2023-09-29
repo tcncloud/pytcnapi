@@ -55,12 +55,12 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceResponse.FromString,
                 )
-        self.ListBillingPlans = channel.unary_stream(
+        self.ListBillingPlans = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/ListBillingPlans',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansResponse.FromString,
                 )
-        self.ListInvoices = channel.unary_stream(
+        self.ListInvoices = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/ListInvoices',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesResponse.FromString,
@@ -322,12 +322,12 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceResponse.SerializeToString,
             ),
-            'ListBillingPlans': grpc.unary_stream_rpc_method_handler(
+            'ListBillingPlans': grpc.unary_unary_rpc_method_handler(
                     servicer.ListBillingPlans,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansResponse.SerializeToString,
             ),
-            'ListInvoices': grpc.unary_stream_rpc_method_handler(
+            'ListInvoices': grpc.unary_unary_rpc_method_handler(
                     servicer.ListInvoices,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesResponse.SerializeToString,
@@ -504,7 +504,7 @@ class BillingService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/services.billing.v1alpha1.BillingService/ListBillingPlans',
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ListBillingPlans',
             services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansResponse.FromString,
             options, channel_credentials,
@@ -521,7 +521,7 @@ class BillingService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/services.billing.v1alpha1.BillingService/ListInvoices',
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ListInvoices',
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesResponse.FromString,
             options, channel_credentials,
