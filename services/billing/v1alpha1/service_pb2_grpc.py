@@ -7,8 +7,7 @@ from services.billing.v1alpha1 import plans_pb2 as services_dot_billing_dot_v1al
 
 
 class BillingServiceStub(object):
-    """BillingService handles billing requests.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
         """Constructor.
@@ -35,6 +34,11 @@ class BillingServiceStub(object):
                 '/services.billing.v1alpha1.BillingService/DeleteInvoice',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.FromString,
+                )
+        self.GetActiveBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/GetActiveBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanResponse.FromString,
                 )
         self.GetBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/GetBillingPlan',
@@ -79,92 +83,197 @@ class BillingServiceStub(object):
 
 
 class BillingServiceServicer(object):
-    """BillingService handles billing requests.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def CreateBillingPlan(self, request, context):
-        """CreateBillingPlan creates a new billing plan for an organization.
+        """Creates a billing plan for the ORG.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateInvoice(self, request, context):
-        """CreateInvoice creates a new invoice for an organization for the specified
-        billing cycle. If one already exists, the old one will be deleted first.
+        """Creates an invoice for the ORG for the specified billing cycle.
+        - If an invoice already exists for the ORG for the specified billing cycle,
+        the old one will be deleted first.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteBillingPlan(self, request, context):
-        """DeleteBillingPlan deletes the specified inactive billing plan. This will fail
-        if the billing plan is in use, or already deleted.
+        """Deletes an inactive billing plan. A billing plan is inactive if it hasn't started.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteInvoice(self, request, context):
-        """DeleteInvoice deletes the specified invoice.
+        """Deletes an invoice.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified invoice doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetActiveBillingPlan(self, request, context):
+        """Returns the active billing plan for the ORG. The active billing plan is a billing plan whose
+        start_time has passed and end_time has not passed. If multiple satisfy that requirement, the
+        newest one is considered active. If no plan is active, it indicates the org is currently using
+        only the system defaults.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The org does not have an active billing plan.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetBillingPlan(self, request, context):
-        """GetBillingPlan returns the active billing plan for the organization.
+        """Returns the specified billing plan.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetDefaultBillingPlan(self, request, context):
-        """GetDefaultBillingPlan returns the default billing plan for the region.
+        """Returns the default billing plan for the REGION.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetInvoice(self, request, context):
-        """GetInvoice returns the specified invoice.
+        """Returns the specified invoice.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified invoice doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListBillingPlans(self, request, context):
-        """ListBillingPlans returns the specified list of billing plans.
+        """Lists the billing plans for the ORG. This includes both active and inactive plans, but does not
+        include deleted plans.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListInvoices(self, request, context):
-        """ListInvoices returns the specified list of invoices.
+        """Lists the invoices for the ORG.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateBillingPlan(self, request, context):
-        """UpdateBillingPlan updates the specified billing plan. This is expected to provide
-        all the rate definitions for the billing plan if updating rates.
+        """Updates an inactive billing plan. A billing plan is inactive if it hasn't started.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateDefaultBillingPlan(self, request, context):
-        """UpdateDefaultBillingPlan updates the default billing plan. This is expected to provide
-        all the rate definitions for the billing plan.
+        """Updates the default billing plan for the REGION.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateInvoice(self, request, context):
-        """UpdateInvoice updates the specified invoice.
+        """Updates the specified invoice.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified invoice doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -192,6 +301,11 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.DeleteInvoice,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.SerializeToString,
+            ),
+            'GetActiveBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetActiveBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanResponse.SerializeToString,
             ),
             'GetBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBillingPlan,
@@ -241,8 +355,7 @@ def add_BillingServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class BillingService(object):
-    """BillingService handles billing requests.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def CreateBillingPlan(request,
@@ -309,6 +422,23 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DeleteInvoice',
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetActiveBillingPlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetActiveBillingPlan',
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

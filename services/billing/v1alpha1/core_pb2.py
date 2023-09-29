@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$services/billing/v1alpha1/core.proto\x12\x19services.billing.v1alpha1\x1a\x1fgoogle/protobuf/timestamp.proto\"l\n\x07OrderBy\x12\x16\n\x06\x66ields\x18\x01 \x03(\tR\x06\x66ields\x12I\n\tdirection\x18\x02 \x01(\x0e\x32+.services.billing.v1alpha1.OrderByDirectionR\tdirection\"\x9a\x01\n\x0cTimeSelector\x12\x1d\n\nfield_name\x18\x01 \x01(\tR\tfieldName\x12\x39\n\x02op\x18\x02 \x01(\x0e\x32).services.billing.v1alpha1.TimeSelectorOpR\x02op\x12\x30\n\x05value\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x05value*o\n\x10OrderByDirection\x12\"\n\x1eORDER_BY_DIRECTION_UNSPECIFIED\x10\x00\x12\x1a\n\x16ORDER_BY_DIRECTION_ASC\x10\x01\x12\x1b\n\x17ORDER_BY_DIRECTION_DESC\x10\x02*\xaf\x01\n\x0eTimeSelectorOp\x12 \n\x1cTIME_SELECTOR_OP_UNSPECIFIED\x10\x00\x12\x17\n\x13TIME_SELECTOR_OP_EQ\x10\x01\x12\x17\n\x13TIME_SELECTOR_OP_GT\x10\x02\x12\x17\n\x13TIME_SELECTOR_OP_GE\x10\x03\x12\x17\n\x13TIME_SELECTOR_OP_LT\x10\x04\x12\x17\n\x13TIME_SELECTOR_OP_LE\x10\x05\x42\xb0\x01\n\x1d\x63om.services.billing.v1alpha1B\tCoreProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$services/billing/v1alpha1/core.proto\x12\x19services.billing.v1alpha1\x1a\x1fgoogle/protobuf/timestamp.proto\"2\n\x04Page\x12\x14\n\x05limit\x18\x01 \x01(\x03R\x05limit\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"d\n\x04Sort\x12\x14\n\x05\x66ield\x18\x01 \x01(\tR\x05\x66ield\x12\x46\n\tdirection\x18\x02 \x01(\x0e\x32(.services.billing.v1alpha1.SortDirectionR\tdirection*H\n\rSortDirection\x12\x1e\n\x1aSORT_DIRECTION_UNSPECIFIED\x10\x00\x12\x17\n\x13SORT_DIRECTION_DESC\x10\x01\x42\xb0\x01\n\x1d\x63om.services.billing.v1alpha1B\tCoreProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,12 +22,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'services.billing.v1alpha1.c
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\035com.services.billing.v1alpha1B\tCoreProtoP\001\242\002\003SBX\252\002\031Services.Billing.V1alpha1\312\002\031Services\\Billing\\V1alpha1\342\002%Services\\Billing\\V1alpha1\\GPBMetadata\352\002\033Services::Billing::V1alpha1'
-  _globals['_ORDERBYDIRECTION']._serialized_start=367
-  _globals['_ORDERBYDIRECTION']._serialized_end=478
-  _globals['_TIMESELECTOROP']._serialized_start=481
-  _globals['_TIMESELECTOROP']._serialized_end=656
-  _globals['_ORDERBY']._serialized_start=100
-  _globals['_ORDERBY']._serialized_end=208
-  _globals['_TIMESELECTOR']._serialized_start=211
-  _globals['_TIMESELECTOR']._serialized_end=365
+  _globals['_SORTDIRECTION']._serialized_start=254
+  _globals['_SORTDIRECTION']._serialized_end=326
+  _globals['_PAGE']._serialized_start=100
+  _globals['_PAGE']._serialized_end=150
+  _globals['_SORT']._serialized_start=152
+  _globals['_SORT']._serialized_end=252
 # @@protoc_insertion_point(module_scope)
