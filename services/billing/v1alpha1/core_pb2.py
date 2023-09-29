@@ -11,10 +11,9 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$services/billing/v1alpha1/core.proto\x12\x19services.billing.v1alpha1\x1a\x1fgoogle/protobuf/timestamp.proto\"2\n\x04Page\x12\x14\n\x05limit\x18\x01 \x01(\x03R\x05limit\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"d\n\x04Sort\x12\x14\n\x05\x66ield\x18\x01 \x01(\tR\x05\x66ield\x12\x46\n\tdirection\x18\x02 \x01(\x0e\x32(.services.billing.v1alpha1.SortDirectionR\tdirection*H\n\rSortDirection\x12\x1e\n\x1aSORT_DIRECTION_UNSPECIFIED\x10\x00\x12\x17\n\x13SORT_DIRECTION_DESC\x10\x01\x42\xb0\x01\n\x1d\x63om.services.billing.v1alpha1B\tCoreProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$services/billing/v1alpha1/core.proto\x12\x19services.billing.v1alpha1\"2\n\x04Page\x12\x14\n\x05limit\x18\x01 \x01(\x03R\x05limit\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"d\n\x04Sort\x12\x14\n\x05\x66ield\x18\x01 \x01(\tR\x05\x66ield\x12\x46\n\tdirection\x18\x02 \x01(\x0e\x32(.services.billing.v1alpha1.SortDirectionR\tdirection*H\n\rSortDirection\x12\x1e\n\x1aSORT_DIRECTION_UNSPECIFIED\x10\x00\x12\x17\n\x13SORT_DIRECTION_DESC\x10\x01\x42\xb0\x01\n\x1d\x63om.services.billing.v1alpha1B\tCoreProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,10 +21,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'services.billing.v1alpha1.c
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\035com.services.billing.v1alpha1B\tCoreProtoP\001\242\002\003SBX\252\002\031Services.Billing.V1alpha1\312\002\031Services\\Billing\\V1alpha1\342\002%Services\\Billing\\V1alpha1\\GPBMetadata\352\002\033Services::Billing::V1alpha1'
-  _globals['_SORTDIRECTION']._serialized_start=254
-  _globals['_SORTDIRECTION']._serialized_end=326
-  _globals['_PAGE']._serialized_start=100
-  _globals['_PAGE']._serialized_end=150
-  _globals['_SORT']._serialized_start=152
-  _globals['_SORT']._serialized_end=252
+  _globals['_SORTDIRECTION']._serialized_start=221
+  _globals['_SORTDIRECTION']._serialized_end=293
+  _globals['_PAGE']._serialized_start=67
+  _globals['_PAGE']._serialized_end=117
+  _globals['_SORT']._serialized_start=119
+  _globals['_SORT']._serialized_end=219
 # @@protoc_insertion_point(module_scope)
