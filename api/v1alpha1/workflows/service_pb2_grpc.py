@@ -6,7 +6,7 @@ from api.v1alpha1.workflows import service_pb2 as api_dot_v1alpha1_dot_workflows
 
 
 class WorkflowDefinitionPersistServiceStub(object):
-    """WorkflowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
+    """WorkflowDefinitionPersistService is the service that provides CRUD operations for workflow definitions.
     PERMISSION_WORKFLOWS is required for all operations
     """
 
@@ -44,12 +44,12 @@ class WorkflowDefinitionPersistServiceStub(object):
 
 
 class WorkflowDefinitionPersistServiceServicer(object):
-    """WorkflowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
+    """WorkflowDefinitionPersistService is the service that provides CRUD operations for workflow definitions.
     PERMISSION_WORKFLOWS is required for all operations
     """
 
     def CreateWorkflowDefinition(self, request, context):
-        """CreateFlowDefinition creates a new flow definition in the database
+        """CreateWorkflowDefinition creates a new flow definition in the database
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -120,7 +120,7 @@ def add_WorkflowDefinitionPersistServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class WorkflowDefinitionPersistService(object):
-    """WorkflowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
+    """WorkflowDefinitionPersistService is the service that provides CRUD operations for workflow definitions.
     PERMISSION_WORKFLOWS is required for all operations
     """
 
