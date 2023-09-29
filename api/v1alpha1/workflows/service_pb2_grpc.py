@@ -5,8 +5,8 @@ import grpc
 from api.v1alpha1.workflows import service_pb2 as api_dot_v1alpha1_dot_workflows_dot_service__pb2
 
 
-class FlowDefinitionPersistServiceStub(object):
-    """FlowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
+class WorkflowDefinitionPersistServiceStub(object):
+    """WorkflowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
     PERMISSION_WORKFLOWS is required for all operations
     """
 
@@ -16,116 +16,116 @@ class FlowDefinitionPersistServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.CreateFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.FlowDefinitionPersistService/CreateFlowDefinition',
-                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateFlowDefinitionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateFlowDefinitionResponse.FromString,
+        self.CreateWorkflowDefinition = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/CreateWorkflowDefinition',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateWorkflowDefinitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateWorkflowDefinitionResponse.FromString,
                 )
-        self.GetFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.FlowDefinitionPersistService/GetFlowDefinition',
-                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetFlowDefinitionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetFlowDefinitionResponse.FromString,
+        self.GetWorkflowDefinition = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/GetWorkflowDefinition',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetWorkflowDefinitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetWorkflowDefinitionResponse.FromString,
                 )
-        self.ListFlowDefinitions = channel.unary_stream(
-                '/api.v1alpha1.workflows.FlowDefinitionPersistService/ListFlowDefinitions',
-                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListFlowDefinitionsRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListFlowDefinitionsResponse.FromString,
+        self.ListWorkflowDefinitions = channel.unary_stream(
+                '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/ListWorkflowDefinitions',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListWorkflowDefinitionsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListWorkflowDefinitionsResponse.FromString,
                 )
-        self.UpdateFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.FlowDefinitionPersistService/UpdateFlowDefinition',
-                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateFlowDefinitionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateFlowDefinitionResponse.FromString,
+        self.UpdateWorkflowDefinition = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/UpdateWorkflowDefinition',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionResponse.FromString,
                 )
-        self.ValidateFlowDefinition = channel.unary_unary(
-                '/api.v1alpha1.workflows.FlowDefinitionPersistService/ValidateFlowDefinition',
-                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateFlowDefinitionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateFlowDefinitionResponse.FromString,
+        self.ValidateWorkflowDefinition = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/ValidateWorkflowDefinition',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateWorkflowDefinitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateWorkflowDefinitionResponse.FromString,
                 )
 
 
-class FlowDefinitionPersistServiceServicer(object):
-    """FlowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
+class WorkflowDefinitionPersistServiceServicer(object):
+    """WorkflowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
     PERMISSION_WORKFLOWS is required for all operations
     """
 
-    def CreateFlowDefinition(self, request, context):
+    def CreateWorkflowDefinition(self, request, context):
         """CreateFlowDefinition creates a new flow definition in the database
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetFlowDefinition(self, request, context):
-        """GetFlowDefinition retrieves a flow definition from the database
+    def GetWorkflowDefinition(self, request, context):
+        """GetWorkflowDefinition retrieves a flow definition from the database
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListFlowDefinitions(self, request, context):
-        """ListFlowDefinitions retrieves a list of flow definitions from the database optionally filtered by the owning application
+    def ListWorkflowDefinitions(self, request, context):
+        """ListWorkflowDefinitions retrieves a list of flow definitions from the database optionally filtered by the owning application
         if application is not specified, all flow definitions for the org are returned
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateFlowDefinition(self, request, context):
-        """UpdateFlowDefinition updates a flow definition in the database. Only the name, description and definition graph itself are updated
+    def UpdateWorkflowDefinition(self, request, context):
+        """UpdateWorkflowDefinition updates a flow definition in the database. Only the name, description and definition graph itself are updated
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ValidateFlowDefinition(self, request, context):
-        """ValidateFlowDefinition validates a flow definition in the database. Only the name, description and definition graph itself are updated
+    def ValidateWorkflowDefinition(self, request, context):
+        """ValidateWorkflowDefinition validates a flow definition in the database. Only the name, description and definition graph itself are updated
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_FlowDefinitionPersistServiceServicer_to_server(servicer, server):
+def add_WorkflowDefinitionPersistServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'CreateFlowDefinition': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateFlowDefinition,
-                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateFlowDefinitionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateFlowDefinitionResponse.SerializeToString,
+            'CreateWorkflowDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateWorkflowDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateWorkflowDefinitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateWorkflowDefinitionResponse.SerializeToString,
             ),
-            'GetFlowDefinition': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetFlowDefinition,
-                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetFlowDefinitionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetFlowDefinitionResponse.SerializeToString,
+            'GetWorkflowDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetWorkflowDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetWorkflowDefinitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetWorkflowDefinitionResponse.SerializeToString,
             ),
-            'ListFlowDefinitions': grpc.unary_stream_rpc_method_handler(
-                    servicer.ListFlowDefinitions,
-                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListFlowDefinitionsRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListFlowDefinitionsResponse.SerializeToString,
+            'ListWorkflowDefinitions': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListWorkflowDefinitions,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListWorkflowDefinitionsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListWorkflowDefinitionsResponse.SerializeToString,
             ),
-            'UpdateFlowDefinition': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateFlowDefinition,
-                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateFlowDefinitionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateFlowDefinitionResponse.SerializeToString,
+            'UpdateWorkflowDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateWorkflowDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionResponse.SerializeToString,
             ),
-            'ValidateFlowDefinition': grpc.unary_unary_rpc_method_handler(
-                    servicer.ValidateFlowDefinition,
-                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateFlowDefinitionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateFlowDefinitionResponse.SerializeToString,
+            'ValidateWorkflowDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.ValidateWorkflowDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateWorkflowDefinitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateWorkflowDefinitionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.v1alpha1.workflows.FlowDefinitionPersistService', rpc_method_handlers)
+            'api.v1alpha1.workflows.WorkflowDefinitionPersistService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
  # This class is part of an EXPERIMENTAL API.
-class FlowDefinitionPersistService(object):
-    """FlowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
+class WorkflowDefinitionPersistService(object):
+    """WorkflowDefinitionPersistService is the service that provides CRUD operations for FlowDefinitions.
     PERMISSION_WORKFLOWS is required for all operations
     """
 
     @staticmethod
-    def CreateFlowDefinition(request,
+    def CreateWorkflowDefinition(request,
             target,
             options=(),
             channel_credentials=None,
@@ -135,14 +135,14 @@ class FlowDefinitionPersistService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.FlowDefinitionPersistService/CreateFlowDefinition',
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateFlowDefinitionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateFlowDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/CreateWorkflowDefinition',
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateWorkflowDefinitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.CreateWorkflowDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetFlowDefinition(request,
+    def GetWorkflowDefinition(request,
             target,
             options=(),
             channel_credentials=None,
@@ -152,14 +152,14 @@ class FlowDefinitionPersistService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.FlowDefinitionPersistService/GetFlowDefinition',
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetFlowDefinitionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetFlowDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/GetWorkflowDefinition',
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetWorkflowDefinitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.GetWorkflowDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListFlowDefinitions(request,
+    def ListWorkflowDefinitions(request,
             target,
             options=(),
             channel_credentials=None,
@@ -169,14 +169,14 @@ class FlowDefinitionPersistService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.workflows.FlowDefinitionPersistService/ListFlowDefinitions',
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListFlowDefinitionsRequest.SerializeToString,
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListFlowDefinitionsResponse.FromString,
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/ListWorkflowDefinitions',
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListWorkflowDefinitionsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ListWorkflowDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateFlowDefinition(request,
+    def UpdateWorkflowDefinition(request,
             target,
             options=(),
             channel_credentials=None,
@@ -186,14 +186,14 @@ class FlowDefinitionPersistService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.FlowDefinitionPersistService/UpdateFlowDefinition',
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateFlowDefinitionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateFlowDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/UpdateWorkflowDefinition',
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ValidateFlowDefinition(request,
+    def ValidateWorkflowDefinition(request,
             target,
             options=(),
             channel_credentials=None,
@@ -203,8 +203,8 @@ class FlowDefinitionPersistService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.FlowDefinitionPersistService/ValidateFlowDefinition',
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateFlowDefinitionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateFlowDefinitionResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/ValidateWorkflowDefinition',
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateWorkflowDefinitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateWorkflowDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
