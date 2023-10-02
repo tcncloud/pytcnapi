@@ -106,12 +106,14 @@ class UserActivity(_message.Message):
     def __init__(self, user_activity_log_sid: _Optional[int] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., user_activity_details: _Optional[_Union[UserActivity.UserActivityDetails, _Mapping]] = ...) -> None: ...
 
 class CreatePublishedArticleRequest(_message.Message):
-    __slots__ = ["new_article_sid", "display_to_user"]
+    __slots__ = ["new_article_sid", "display_to_user", "article_link"]
     NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_TO_USER_FIELD_NUMBER: _ClassVar[int]
+    ARTICLE_LINK_FIELD_NUMBER: _ClassVar[int]
     new_article_sid: int
     display_to_user: bool
-    def __init__(self, new_article_sid: _Optional[int] = ..., display_to_user: bool = ...) -> None: ...
+    article_link: str
+    def __init__(self, new_article_sid: _Optional[int] = ..., display_to_user: bool = ..., article_link: _Optional[str] = ...) -> None: ...
 
 class CreatePublishedArticleResponse(_message.Message):
     __slots__ = ["published_article_details"]
