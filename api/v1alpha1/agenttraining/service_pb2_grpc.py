@@ -29,11 +29,6 @@ class AgentTrainingServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesResponse.FromString,
                 )
-        self.CompleteAgentLearningOpportunity = channel.unary_unary(
-                '/api.v1alpha1.agenttraining.AgentTrainingService/CompleteAgentLearningOpportunity',
-                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityResponse.FromString,
-                )
         self.UpdateLearningOpportunity = channel.unary_unary(
                 '/api.v1alpha1.agenttraining.AgentTrainingService/UpdateLearningOpportunity',
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityRequest.SerializeToString,
@@ -70,13 +65,6 @@ class AgentTrainingServiceServicer(object):
 
     def ListAgentLearningOpportunities(self, request, context):
         """ListAgentLearningOpportunities lists learning opportunities by agent.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def CompleteAgentLearningOpportunity(self, request, context):
-        """CompleteAgentLearningOpportunity completes an agent's learning opportunity.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -120,11 +108,6 @@ def add_AgentTrainingServiceServicer_to_server(servicer, server):
                     servicer.ListAgentLearningOpportunities,
                     request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesResponse.SerializeToString,
-            ),
-            'CompleteAgentLearningOpportunity': grpc.unary_unary_rpc_method_handler(
-                    servicer.CompleteAgentLearningOpportunity,
-                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityResponse.SerializeToString,
             ),
             'UpdateLearningOpportunity': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateLearningOpportunity,
@@ -199,23 +182,6 @@ class AgentTrainingService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/ListAgentLearningOpportunities',
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesRequest.SerializeToString,
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListAgentLearningOpportunitiesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CompleteAgentLearningOpportunity(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/CompleteAgentLearningOpportunity',
-            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityRequest.SerializeToString,
-            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
