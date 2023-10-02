@@ -2906,6 +2906,18 @@ class CreateTourPatternRes(_message.Message):
     tour_pattern_sid: int
     def __init__(self, tour_pattern_sid: _Optional[int] = ...) -> None: ...
 
+class UpsertTourPatternWithMembersReq(_message.Message):
+    __slots__ = ["tour_pattern"]
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+
+class UpsertTourPatternWithMembersRes(_message.Message):
+    __slots__ = ["tour_pattern"]
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+
 class GetTourPatternReq(_message.Message):
     __slots__ = ["shift_template_sid"]
     SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -3136,3 +3148,21 @@ class DeleteTourAgentCollectionWFMAgentsReq(_message.Message):
 class DeleteTourAgentCollectionWFMAgentsRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class GenerateTourWeekPatternsReq(_message.Message):
+    __slots__ = ["target_shift_template_sid", "num_weeks_in_tour", "schedule_scenario_sid"]
+    TARGET_SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    NUM_WEEKS_IN_TOUR_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    target_shift_template_sid: int
+    num_weeks_in_tour: int
+    schedule_scenario_sid: int
+    def __init__(self, target_shift_template_sid: _Optional[int] = ..., num_weeks_in_tour: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+
+class GenerateTourWeekPatternsRes(_message.Message):
+    __slots__ = ["tour_week_patterns", "diagnostics"]
+    TOUR_WEEK_PATTERNS_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...

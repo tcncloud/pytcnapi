@@ -660,6 +660,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourPatternReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourPatternRes.FromString,
                 )
+        self.UpsertTourPatternWithMembers = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpsertTourPatternWithMembers',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertTourPatternWithMembersReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertTourPatternWithMembersRes.FromString,
+                )
         self.GetTourPattern = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/GetTourPattern',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.SerializeToString,
@@ -759,6 +764,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/DeleteTourAgentCollectionWFMAgents',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsRes.FromString,
+                )
+        self.GenerateTourWeekPatterns = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GenerateTourWeekPatterns',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsRes.FromString,
                 )
 
 
@@ -2670,6 +2680,23 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpsertTourPatternWithMembers(self, request, context):
+        """Replaces the existing Tour Pattern and members with @tour_pattern for the @tour_pattern.shift_template_sid and the org sending the request.
+        Returns the newly created Tour Pattern and members with their updated SIDs and Week Pattern Numbers.
+        Any existing Tour Week Patterns, Tour Shift Instance and Segment Configs, Tour Agent Collections and their WFM Agent SIDs
+        belonging to @tour_pattern.shift_template_sid will be replaced with the members on the provided @tour_pattern.
+        At least one Tour Agent Collection and one Tour Week Pattern must be provided in the member fields.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: the @tour_pattern.shift_template_sid does not exist.
+        - grpc.Internal: error occurs when upserting the tour pattern or members.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetTourPattern(self, request, context):
         """Gets the Tour Pattern belonging to @shift_template_sid and the org sending the request.
         Required permissions:
@@ -2932,6 +2959,24 @@ class WFMServicer(object):
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: there are no WFM Agent associations to delete for @tour_agent_collection_sid.
         - grpc.Internal: error occurs when getting the tour agent collections.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GenerateTourWeekPatterns(self, request, context):
+        """Generates a list of tour week patterns for @target_shift_template_sid and the org sending the request.
+        Sets the member_tour_week_patterns with a tour week pattern for each of the @num_weeks_in_tour.
+        Each of the tour week patterns will be set with tour shift instances and segment configs based on
+        the forecasted call data over the next @num_weeks_in_tour, starting on the next Monday.
+        The returned data will not be persisted. This method will not effect any existing tour week patterns in the database.
+        The @tour_week_patterns returned by this method are intended to replace, not append, all currenly existing tour week patterns for @target_shift_template_sid, once persisted.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: there is no call center node or @shift_template_sid associated with @schedule_scenario_sid.
+        - grpc.Internal: error occurs when generating the tour week patterns.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3585,6 +3630,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourPatternReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateTourPatternRes.SerializeToString,
             ),
+            'UpsertTourPatternWithMembers': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpsertTourPatternWithMembers,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertTourPatternWithMembersReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertTourPatternWithMembersRes.SerializeToString,
+            ),
             'GetTourPattern': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTourPattern,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.FromString,
@@ -3684,6 +3734,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteTourAgentCollectionWFMAgents,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsRes.SerializeToString,
+            ),
+            'GenerateTourWeekPatterns': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateTourWeekPatterns,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -5890,6 +5945,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpsertTourPatternWithMembers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpsertTourPatternWithMembers',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertTourPatternWithMembersReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertTourPatternWithMembersRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetTourPattern(request,
             target,
             options=(),
@@ -6226,5 +6298,22 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteTourAgentCollectionWFMAgents',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourAgentCollectionWFMAgentsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GenerateTourWeekPatterns(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GenerateTourWeekPatterns',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
