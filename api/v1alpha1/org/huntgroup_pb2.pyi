@@ -130,6 +130,38 @@ class DeleteDataDipTemplateResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class CopyDataDipTemplateRequest(_message.Message):
+    __slots__ = ["org_id", "xml_client_property_sid", "config_name"]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    XML_CLIENT_PROPERTY_SID_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_NAME_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    xml_client_property_sid: int
+    config_name: str
+    def __init__(self, org_id: _Optional[str] = ..., xml_client_property_sid: _Optional[int] = ..., config_name: _Optional[str] = ...) -> None: ...
+
+class CopyDataDipTemplateResponse(_message.Message):
+    __slots__ = ["xml_client_property_sid"]
+    XML_CLIENT_PROPERTY_SID_FIELD_NUMBER: _ClassVar[int]
+    xml_client_property_sid: int
+    def __init__(self, xml_client_property_sid: _Optional[int] = ...) -> None: ...
+
+class CopyDataDipTemplateToOrganizationRequest(_message.Message):
+    __slots__ = ["org_id", "xml_client_property_sid", "config_name", "destination_org_id"]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    XML_CLIENT_PROPERTY_SID_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_NAME_FIELD_NUMBER: _ClassVar[int]
+    DESTINATION_ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    xml_client_property_sid: int
+    config_name: str
+    destination_org_id: str
+    def __init__(self, org_id: _Optional[str] = ..., xml_client_property_sid: _Optional[int] = ..., config_name: _Optional[str] = ..., destination_org_id: _Optional[str] = ...) -> None: ...
+
+class CopyDataDipTemplateToOrganizationResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class ListAgentResponseAutoRulesRequest(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
