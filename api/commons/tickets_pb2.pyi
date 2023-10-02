@@ -32,7 +32,7 @@ TICKET_STATUS_OPEN: TicketStatus
 TICKET_STATUS_CLOSE: TicketStatus
 
 class Ticket(_message.Message):
-    __slots__ = ["ticket_sid", "project_sid", "project_title", "ticket_code", "title", "description", "org_id", "created_by_id", "created_by_name", "created_by_date", "due_date", "assignee_list", "metadata", "ticket_skills", "status", "ticket_sla", "assignee", "ticket_action", "ticket_status", "ticket_assignee"]
+    __slots__ = ["ticket_sid", "project_sid", "project_title", "ticket_code", "title", "description", "org_id", "created_by_id", "created_by_name", "created_by_date", "due_date", "assignee_list", "metadata", "ticket_skills", "status", "ticket_sla", "assignee", "ticket_action", "ticket_status", "ticket_assignee", "ticket_participant"]
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -53,6 +53,7 @@ class Ticket(_message.Message):
     TICKET_ACTION_FIELD_NUMBER: _ClassVar[int]
     TICKET_STATUS_FIELD_NUMBER: _ClassVar[int]
     TICKET_ASSIGNEE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_PARTICIPANT_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     project_sid: int
     project_title: str
@@ -73,7 +74,8 @@ class Ticket(_message.Message):
     ticket_action: _containers.RepeatedCompositeFieldContainer[TicketAction]
     ticket_status: TicketStatus
     ticket_assignee: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, ticket_sid: _Optional[int] = ..., project_sid: _Optional[int] = ..., project_title: _Optional[str] = ..., ticket_code: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., org_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee_list: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., assignee: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[TicketAction, _Mapping]]] = ..., ticket_status: _Optional[_Union[TicketStatus, str]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ...) -> None: ...
+    ticket_participant: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, ticket_sid: _Optional[int] = ..., project_sid: _Optional[int] = ..., project_title: _Optional[str] = ..., ticket_code: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., org_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee_list: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., assignee: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[TicketAction, _Mapping]]] = ..., ticket_status: _Optional[_Union[TicketStatus, str]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., ticket_participant: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Duration(_message.Message):
     __slots__ = ["value", "scale"]
@@ -84,7 +86,7 @@ class Duration(_message.Message):
     def __init__(self, value: _Optional[int] = ..., scale: _Optional[_Union[TimeScale, str]] = ...) -> None: ...
 
 class TicketAction(_message.Message):
-    __slots__ = ["ticket_action_id", "action_id", "callback_context", "ticket_id", "start_ts", "expiry_ts", "state", "action_skills", "action_sla_id"]
+    __slots__ = ["ticket_action_id", "action_id", "callback_context", "ticket_id", "start_ts", "expiry_ts", "state", "action_skills", "action_sla_id", "work_done_by"]
     TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     CALLBACK_CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -94,6 +96,7 @@ class TicketAction(_message.Message):
     STATE_FIELD_NUMBER: _ClassVar[int]
     ACTION_SKILLS_FIELD_NUMBER: _ClassVar[int]
     ACTION_SLA_ID_FIELD_NUMBER: _ClassVar[int]
+    WORK_DONE_BY_FIELD_NUMBER: _ClassVar[int]
     ticket_action_id: int
     action_id: int
     callback_context: CallbackContext
@@ -103,7 +106,8 @@ class TicketAction(_message.Message):
     state: int
     action_skills: _containers.RepeatedScalarFieldContainer[str]
     action_sla_id: _containers.RepeatedCompositeFieldContainer[Sla]
-    def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., callback_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., ticket_id: _Optional[int] = ..., start_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state: _Optional[int] = ..., action_skills: _Optional[_Iterable[str]] = ..., action_sla_id: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ...) -> None: ...
+    work_done_by: str
+    def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., callback_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., ticket_id: _Optional[int] = ..., start_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state: _Optional[int] = ..., action_skills: _Optional[_Iterable[str]] = ..., action_sla_id: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., work_done_by: _Optional[str] = ...) -> None: ...
 
 class CallbackContext(_message.Message):
     __slots__ = ["caller_id", "phone_no", "country_code", "caller_name", "caller_country_code"]
