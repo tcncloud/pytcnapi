@@ -83,12 +83,12 @@ class ListBillingPlansRequest(_message.Message):
     def __init__(self, billing_plan_id: _Optional[str] = ..., billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., filter: _Optional[str] = ..., sort: _Optional[_Union[_core_pb2.Sort, _Mapping]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
 
 class ListBillingPlansResponse(_message.Message):
-    __slots__ = ["billing_plan", "token"]
-    BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["billing_plans", "token"]
+    BILLING_PLANS_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
-    billing_plan: _containers.RepeatedCompositeFieldContainer[_plan_pb2.BillingPlan]
+    billing_plans: _containers.RepeatedCompositeFieldContainer[_plan_pb2.BillingPlan]
     token: str
-    def __init__(self, billing_plan: _Optional[_Iterable[_Union[_plan_pb2.BillingPlan, _Mapping]]] = ..., token: _Optional[str] = ...) -> None: ...
+    def __init__(self, billing_plans: _Optional[_Iterable[_Union[_plan_pb2.BillingPlan, _Mapping]]] = ..., token: _Optional[str] = ...) -> None: ...
 
 class UpdateBillingPlanRequest(_message.Message):
     __slots__ = ["billing_plan_id", "billing_plan", "update_fields"]
