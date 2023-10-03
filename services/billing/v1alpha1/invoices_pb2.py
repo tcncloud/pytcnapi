@@ -16,7 +16,7 @@ from services.billing.entities.v1alpha1 import invoice_pb2 as services_dot_billi
 from services.billing.v1alpha1 import core_pb2 as services_dot_billing_dot_v1alpha1_dot_core__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(services/billing/v1alpha1/invoices.proto\x12\x19services.billing.v1alpha1\x1a google/protobuf/field_mask.proto\x1a\x30services/billing/entities/v1alpha1/invoice.proto\x1a$services/billing/v1alpha1/core.proto\"|\n\x14\x43reateInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\x12\x45\n\x07invoice\x18\x02 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\"6\n\x15\x43reateInvoiceResponse\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\"5\n\x14\x44\x65leteInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\"\x17\n\x15\x44\x65leteInvoiceResponse\"2\n\x11GetInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\"[\n\x12GetInvoiceResponse\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\"\xbe\x02\n\x13ListInvoicesRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\x12\x45\n\x07invoice\x18\x02 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12?\n\rreturn_fields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0creturnFields\x12\x16\n\x06\x66ilter\x18\x04 \x01(\tR\x06\x66ilter\x12\x33\n\x04sort\x18\x05 \x01(\x0b\x32\x1f.services.billing.v1alpha1.SortR\x04sort\x12\x33\n\x04page\x18\x06 \x01(\x0b\x32\x1f.services.billing.v1alpha1.PageR\x04page\"u\n\x14ListInvoicesResponse\x12G\n\x08invoices\x18\x01 \x03(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x08invoices\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"\xbd\x01\n\x14UpdateInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\x12\x45\n\x07invoice\x18\x02 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12?\n\rupdate_fields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0cupdateFields\"\x17\n\x15UpdateInvoiceResponseB\xb4\x01\n\x1d\x63om.services.billing.v1alpha1B\rInvoicesProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(services/billing/v1alpha1/invoices.proto\x12\x19services.billing.v1alpha1\x1a google/protobuf/field_mask.proto\x1a\x30services/billing/entities/v1alpha1/invoice.proto\x1a$services/billing/v1alpha1/core.proto\"|\n\x14\x43reateInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\x12\x45\n\x07invoice\x18\x02 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\"6\n\x15\x43reateInvoiceResponse\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\"5\n\x14\x44\x65leteInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\"\x17\n\x15\x44\x65leteInvoiceResponse\"2\n\x11GetInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\"[\n\x12GetInvoiceResponse\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\"\xea\x01\n\x13ListInvoicesRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\x12\x16\n\x06\x66ilter\x18\x02 \x01(\tR\x06\x66ilter\x12\x32\n\x06\x66ields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x06\x66ields\x12\x33\n\x04sort\x18\x04 \x03(\x0b\x32\x1f.services.billing.v1alpha1.SortR\x04sort\x12\x33\n\x04page\x18\x05 \x01(\x0b\x32\x1f.services.billing.v1alpha1.PageR\x04page\"u\n\x14ListInvoicesResponse\x12G\n\x08invoices\x18\x01 \x03(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x08invoices\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"\xbd\x01\n\x14UpdateInvoiceRequest\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\x12\x45\n\x07invoice\x18\x02 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12?\n\rupdate_fields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0cupdateFields\"\x17\n\x15UpdateInvoiceResponseB\xb4\x01\n\x1d\x63om.services.billing.v1alpha1B\rInvoicesProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -37,11 +37,11 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_GETINVOICERESPONSE']._serialized_start=507
   _globals['_GETINVOICERESPONSE']._serialized_end=598
   _globals['_LISTINVOICESREQUEST']._serialized_start=601
-  _globals['_LISTINVOICESREQUEST']._serialized_end=919
-  _globals['_LISTINVOICESRESPONSE']._serialized_start=921
-  _globals['_LISTINVOICESRESPONSE']._serialized_end=1038
-  _globals['_UPDATEINVOICEREQUEST']._serialized_start=1041
-  _globals['_UPDATEINVOICEREQUEST']._serialized_end=1230
-  _globals['_UPDATEINVOICERESPONSE']._serialized_start=1232
-  _globals['_UPDATEINVOICERESPONSE']._serialized_end=1255
+  _globals['_LISTINVOICESREQUEST']._serialized_end=835
+  _globals['_LISTINVOICESRESPONSE']._serialized_start=837
+  _globals['_LISTINVOICESRESPONSE']._serialized_end=954
+  _globals['_UPDATEINVOICEREQUEST']._serialized_start=957
+  _globals['_UPDATEINVOICEREQUEST']._serialized_end=1146
+  _globals['_UPDATEINVOICERESPONSE']._serialized_start=1148
+  _globals['_UPDATEINVOICERESPONSE']._serialized_end=1171
 # @@protoc_insertion_point(module_scope)

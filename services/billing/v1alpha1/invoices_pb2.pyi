@@ -45,20 +45,18 @@ class GetInvoiceResponse(_message.Message):
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ...) -> None: ...
 
 class ListInvoicesRequest(_message.Message):
-    __slots__ = ["invoice_id", "invoice", "return_fields", "filter", "sort", "page"]
+    __slots__ = ["invoice_id", "filter", "fields", "sort", "page"]
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
-    INVOICE_FIELD_NUMBER: _ClassVar[int]
-    RETURN_FIELDS_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
     SORT_FIELD_NUMBER: _ClassVar[int]
     PAGE_FIELD_NUMBER: _ClassVar[int]
     invoice_id: str
-    invoice: _invoice_pb2.Invoice
-    return_fields: _field_mask_pb2.FieldMask
     filter: str
-    sort: _core_pb2.Sort
+    fields: _field_mask_pb2.FieldMask
+    sort: _containers.RepeatedCompositeFieldContainer[_core_pb2.Sort]
     page: _core_pb2.Page
-    def __init__(self, invoice_id: _Optional[str] = ..., invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., filter: _Optional[str] = ..., sort: _Optional[_Union[_core_pb2.Sort, _Mapping]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
+    def __init__(self, invoice_id: _Optional[str] = ..., filter: _Optional[str] = ..., fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., sort: _Optional[_Iterable[_Union[_core_pb2.Sort, _Mapping]]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
 
 class ListInvoicesResponse(_message.Message):
     __slots__ = ["invoices", "token"]

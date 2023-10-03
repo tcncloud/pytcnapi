@@ -67,20 +67,18 @@ class GetDefaultBillingPlanResponse(_message.Message):
     def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
 
 class ListBillingPlansRequest(_message.Message):
-    __slots__ = ["billing_plan_id", "billing_plan", "return_fields", "filter", "sort", "page"]
+    __slots__ = ["billing_plan_id", "filter", "fields", "sort", "page"]
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
-    BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
-    RETURN_FIELDS_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
     SORT_FIELD_NUMBER: _ClassVar[int]
     PAGE_FIELD_NUMBER: _ClassVar[int]
     billing_plan_id: str
-    billing_plan: _plan_pb2.BillingPlan
-    return_fields: _field_mask_pb2.FieldMask
     filter: str
-    sort: _core_pb2.Sort
+    fields: _field_mask_pb2.FieldMask
+    sort: _containers.RepeatedCompositeFieldContainer[_core_pb2.Sort]
     page: _core_pb2.Page
-    def __init__(self, billing_plan_id: _Optional[str] = ..., billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., filter: _Optional[str] = ..., sort: _Optional[_Union[_core_pb2.Sort, _Mapping]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
+    def __init__(self, billing_plan_id: _Optional[str] = ..., filter: _Optional[str] = ..., fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., sort: _Optional[_Iterable[_Union[_core_pb2.Sort, _Mapping]]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
 
 class ListBillingPlansResponse(_message.Message):
     __slots__ = ["billing_plans", "token"]
