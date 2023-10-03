@@ -2311,6 +2311,7 @@ class WFMServicer(object):
         If @get_updated_shifts is true, then the returned draft schedule will also contain the shift instances and segments in the given @datetime_range.
         Errors:
         - grpc.Invalid: the @name, @description or @datetime_range are invalid.
+        - grpc.NotFound: the @draft_schedule_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when updating the schedule or its instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2720,6 +2721,7 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: the Tour Pattern to delete does not exist.
         - grpc.Internal: error occurs when deleting the data or it's children.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2775,6 +2777,7 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid or a preexisting tour shift instance config would overlap @tour_shift_instance_config.
+        - grpc.NotFound: the @tour_week_pattern_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when creating the data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2789,6 +2792,7 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid or a preexisting Tour Shift Instance Config would overlap @tour_shift_instance_config.
+        - grpc.NotFound: the @tour_week_pattern_sid does not exist for the org sending the request.
         - grpc.Internal: error occurs when updating the data.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2932,6 +2936,7 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Invalid: the request data is invalid
+        - grpc.NotFound: one or more @wfm_agent_sids does not exist for the org sending the request.
         - grpc.AlreadyExists: an association already exists for at least one SID in @wfm_agent_sids.
         - grpc.Internal: error occurs when creating the association.
         """
