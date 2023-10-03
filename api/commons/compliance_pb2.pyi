@@ -195,7 +195,6 @@ class MatchingMod(_message.Message):
     __slots__ = ["mod"]
     AND_FIELD_NUMBER: _ClassVar[int]
     OR_FIELD_NUMBER: _ClassVar[int]
-    NOT_FIELD_NUMBER: _ClassVar[int]
     MOD_FIELD_NUMBER: _ClassVar[int]
     mod: MatchingEntity
     def __init__(self, mod: _Optional[_Union[MatchingEntity, _Mapping]] = ..., **kwargs) -> None: ...

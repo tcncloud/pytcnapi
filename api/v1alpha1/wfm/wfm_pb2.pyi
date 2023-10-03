@@ -810,14 +810,16 @@ class CalculateTrainingDataAveragesForSkillProfileRes(_message.Message):
     def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ...) -> None: ...
 
 class UpdateSkillProfileAveragesUsingHistoricalDataReq(_message.Message):
-    __slots__ = ["skill_profile_sids", "datetime_range", "exclude_skill_profiles_with_manual_averages"]
+    __slots__ = ["skill_profile_sids", "datetime_range", "exclude_skill_profiles_with_manual_averages", "skill_profile_group_sids"]
     SKILL_PROFILE_SIDS_FIELD_NUMBER: _ClassVar[int]
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
     EXCLUDE_SKILL_PROFILES_WITH_MANUAL_AVERAGES_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sids: _containers.RepeatedScalarFieldContainer[int]
     datetime_range: _wfm_pb2.DatetimeRange
     exclude_skill_profiles_with_manual_averages: bool
-    def __init__(self, skill_profile_sids: _Optional[_Iterable[int]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., exclude_skill_profiles_with_manual_averages: bool = ...) -> None: ...
+    skill_profile_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, skill_profile_sids: _Optional[_Iterable[int]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., exclude_skill_profiles_with_manual_averages: bool = ..., skill_profile_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class UpdateSkillProfileAveragesUsingHistoricalDataRes(_message.Message):
     __slots__ = []
@@ -2906,6 +2908,18 @@ class CreateTourPatternRes(_message.Message):
     tour_pattern_sid: int
     def __init__(self, tour_pattern_sid: _Optional[int] = ...) -> None: ...
 
+class UpsertTourPatternWithMembersReq(_message.Message):
+    __slots__ = ["tour_pattern"]
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+
+class UpsertTourPatternWithMembersRes(_message.Message):
+    __slots__ = ["tour_pattern"]
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+
 class GetTourPatternReq(_message.Message):
     __slots__ = ["shift_template_sid"]
     SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -3136,3 +3150,21 @@ class DeleteTourAgentCollectionWFMAgentsReq(_message.Message):
 class DeleteTourAgentCollectionWFMAgentsRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
+
+class GenerateTourWeekPatternsReq(_message.Message):
+    __slots__ = ["target_shift_template_sid", "num_weeks_in_tour", "schedule_scenario_sid"]
+    TARGET_SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    NUM_WEEKS_IN_TOUR_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    target_shift_template_sid: int
+    num_weeks_in_tour: int
+    schedule_scenario_sid: int
+    def __init__(self, target_shift_template_sid: _Optional[int] = ..., num_weeks_in_tour: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+
+class GenerateTourWeekPatternsRes(_message.Message):
+    __slots__ = ["tour_week_patterns", "diagnostics"]
+    TOUR_WEEK_PATTERNS_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...

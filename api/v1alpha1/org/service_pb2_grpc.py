@@ -539,6 +539,16 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteDataDipTemplateRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteDataDipTemplateResponse.FromString,
                 )
+        self.CopyDataDipTemplate = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CopyDataDipTemplate',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateResponse.FromString,
+                )
+        self.CopyDataDipTemplateToOrganization = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CopyDataDipTemplateToOrganization',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationResponse.FromString,
+                )
         self.ListAgentResponseAutoRules = channel.unary_unary(
                 '/api.v1alpha1.org.Org/ListAgentResponseAutoRules',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentResponseAutoRulesRequest.SerializeToString,
@@ -1549,6 +1559,20 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CopyDataDipTemplate(self, request, context):
+        """Copies a data dip template.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyDataDipTemplateToOrganization(self, request, context):
+        """Copies a data dip template to a different organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListAgentResponseAutoRules(self, request, context):
         """Lists Agent Call Response Automatically added compliance rules for an Org.
         """
@@ -2427,6 +2451,16 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.DeleteDataDipTemplate,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteDataDipTemplateRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteDataDipTemplateResponse.SerializeToString,
+            ),
+            'CopyDataDipTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyDataDipTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateResponse.SerializeToString,
+            ),
+            'CopyDataDipTemplateToOrganization': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyDataDipTemplateToOrganization,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationResponse.SerializeToString,
             ),
             'ListAgentResponseAutoRules': grpc.unary_unary_rpc_method_handler(
                     servicer.ListAgentResponseAutoRules,
@@ -4427,6 +4461,40 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteDataDipTemplate',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteDataDipTemplateRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteDataDipTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyDataDipTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CopyDataDipTemplate',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyDataDipTemplateToOrganization(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CopyDataDipTemplateToOrganization',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

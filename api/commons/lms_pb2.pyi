@@ -215,6 +215,7 @@ class EventState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EVENT_STATE_CHECK: _ClassVar[EventState]
     EVENT_STATE_PROCESS: _ClassVar[EventState]
     EVENT_STATE_CLEANUP: _ClassVar[EventState]
+    EVENT_STATE_FINISHED: _ClassVar[EventState]
 
 class TimeUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -350,6 +351,7 @@ EVENT_STATE_KICKOFF: EventState
 EVENT_STATE_CHECK: EventState
 EVENT_STATE_PROCESS: EventState
 EVENT_STATE_CLEANUP: EventState
+EVENT_STATE_FINISHED: EventState
 DEFAULT: TimeUnit
 TIME_WEEKS: TimeUnit
 TIME_DAYS: TimeUnit
