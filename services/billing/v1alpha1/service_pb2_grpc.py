@@ -35,6 +35,11 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.FromString,
                 )
+        self.ExportInvoice = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/ExportInvoice',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ExportInvoiceRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ExportInvoiceResponse.FromString,
+                )
         self.GetActiveBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/GetActiveBillingPlan',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanRequest.SerializeToString,
@@ -134,6 +139,21 @@ class BillingServiceServicer(object):
 
     def DeleteInvoice(self, request, context):
         """Deletes an invoice.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified invoice doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ExportInvoice(self, request, context):
+        """Exports an invoice.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
@@ -304,6 +324,11 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.SerializeToString,
             ),
+            'ExportInvoice': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExportInvoice,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ExportInvoiceRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ExportInvoiceResponse.SerializeToString,
+            ),
             'GetActiveBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.GetActiveBillingPlan,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetActiveBillingPlanRequest.FromString,
@@ -424,6 +449,23 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DeleteInvoice',
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ExportInvoice(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ExportInvoice',
+            services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ExportInvoiceRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ExportInvoiceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
