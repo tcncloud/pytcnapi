@@ -21,10 +21,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.types_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\017com.api.commonsB\nTypesProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
-  _INT64ID.fields_by_name['value']._options = None
-  _INT64ID.fields_by_name['value']._serialized_options = b'0\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.commonsB\nTypesProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
+  _globals['_INT64ID'].fields_by_name['value']._options = None
+  _globals['_INT64ID'].fields_by_name['value']._serialized_options = b'0\001'
   _globals['_EMPTY']._serialized_start=105
   _globals['_EMPTY']._serialized_end=112
   _globals['_INT32NULLABLE']._serialized_start=114
