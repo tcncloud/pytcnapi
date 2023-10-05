@@ -108,11 +108,10 @@ class BillingServiceServicer(object):
 
     def CreateInvoice(self, request, context):
         """Creates an invoice for the ORG for the specified billing cycle.
-        - If an invoice already exists for the ORG for the specified billing cycle,
-        the old one will be deleted first.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
+        - grpc.AlreadyExists: An invoice already exists for the specified billing cycle.
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.

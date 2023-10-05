@@ -1,4 +1,5 @@
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from services.billing.entities.v1alpha1 import plan_pb2 as _plan_pb2
 from services.billing.v1alpha1 import core_pb2 as _core_pb2
 from google.protobuf.internal import containers as _containers
@@ -39,10 +40,12 @@ class GetActiveBillingPlanRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class GetActiveBillingPlanResponse(_message.Message):
-    __slots__ = ["billing_plan"]
+    __slots__ = ["billing_plan", "effective_time"]
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
+    EFFECTIVE_TIME_FIELD_NUMBER: _ClassVar[int]
     billing_plan: _plan_pb2.BillingPlan
-    def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
+    effective_time: _timestamp_pb2.Timestamp
+    def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ..., effective_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GetBillingPlanRequest(_message.Message):
     __slots__ = ["billing_plan_id"]
