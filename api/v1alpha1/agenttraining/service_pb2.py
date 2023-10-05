@@ -22,12 +22,12 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.agenttraining.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\036com.api.v1alpha1.agenttrainingB\014ServiceProtoP\001\242\002\003AVA\252\002\032Api.V1alpha1.Agenttraining\312\002\032Api\\V1alpha1\\Agenttraining\342\002&Api\\V1alpha1\\Agenttraining\\GPBMetadata\352\002\034Api::V1alpha1::Agenttraining'
-  _AGENTTRAININGSERVICE.methods_by_name['CreateLearningOpportunity']._options = None
-  _AGENTTRAININGSERVICE.methods_by_name['CreateLearningOpportunity']._serialized_options = b'\272\270\221\002\005\n\003\010\301\014\202\323\344\223\002O\"J/api/v1alpha1/agenttraining/agenttrainingservice/createlearningopportunity:\001*'
-  _AGENTTRAININGSERVICE.methods_by_name['ListLearningOpportunities']._options = None
-  _AGENTTRAININGSERVICE.methods_by_name['ListLearningOpportunities']._serialized_options = b'\272\270\221\002\005\n\003\010\301\014\202\323\344\223\002O\"J/api/v1alpha1/agenttraining/agenttrainingservice/listlearningopportunities:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\036com.api.v1alpha1.agenttrainingB\014ServiceProtoP\001\242\002\003AVA\252\002\032Api.V1alpha1.Agenttraining\312\002\032Api\\V1alpha1\\Agenttraining\342\002&Api\\V1alpha1\\Agenttraining\\GPBMetadata\352\002\034Api::V1alpha1::Agenttraining'
+  _globals['_AGENTTRAININGSERVICE'].methods_by_name['CreateLearningOpportunity']._options = None
+  _globals['_AGENTTRAININGSERVICE'].methods_by_name['CreateLearningOpportunity']._serialized_options = b'\272\270\221\002\005\n\003\010\301\014\202\323\344\223\002O\"J/api/v1alpha1/agenttraining/agenttrainingservice/createlearningopportunity:\001*'
+  _globals['_AGENTTRAININGSERVICE'].methods_by_name['ListLearningOpportunities']._options = None
+  _globals['_AGENTTRAININGSERVICE'].methods_by_name['ListLearningOpportunities']._serialized_options = b'\272\270\221\002\005\n\003\010\301\014\202\323\344\223\002O\"J/api/v1alpha1/agenttraining/agenttrainingservice/listlearningopportunities:\001*'
   _globals['_AGENTTRAININGSERVICE']._serialized_start=183
   _globals['_AGENTTRAININGSERVICE']._serialized_end=709
 # @@protoc_insertion_point(module_scope)

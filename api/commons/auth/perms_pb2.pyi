@@ -34,6 +34,7 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_BILLING_EDIT: _ClassVar[Permission]
     PERMISSION_TCN_ADMIN_SETTINGS: _ClassVar[Permission]
     PERMISSION_TCN_BILLING: _ClassVar[Permission]
+    PERMISSION_TCN_BILLING_ADMIN: _ClassVar[Permission]
     PERMISSION_AGENT: _ClassVar[Permission]
     PERMISSION_ACCEPT_QUEUED_CALLS: _ClassVar[Permission]
     PERMISSION_VIEW_CAMPAIGN_COMPLETION: _ClassVar[Permission]
@@ -108,6 +109,7 @@ PERMISSION_IMITATION: Permission
 PERMISSION_BILLING_EDIT: Permission
 PERMISSION_TCN_ADMIN_SETTINGS: Permission
 PERMISSION_TCN_BILLING: Permission
+PERMISSION_TCN_BILLING_ADMIN: Permission
 PERMISSION_AGENT: Permission
 PERMISSION_ACCEPT_QUEUED_CALLS: Permission
 PERMISSION_VIEW_CAMPAIGN_COMPLETION: Permission

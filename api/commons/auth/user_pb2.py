@@ -19,8 +19,8 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.auth.user_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\024com.api.commons.authB\tUserProtoP\001\242\002\003ACA\252\002\020Api.Commons.Auth\312\002\020Api\\Commons\\Auth\342\002\034Api\\Commons\\Auth\\GPBMetadata\352\002\022Api::Commons::Auth'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\024com.api.commons.authB\tUserProtoP\001\242\002\003ACA\252\002\020Api.Commons.Auth\312\002\020Api\\Commons\\Auth\342\002\034Api\\Commons\\Auth\\GPBMetadata\352\002\022Api::Commons::Auth'
   _globals['_AUTHCLAIMS']._serialized_start=50
   _globals['_AUTHCLAIMS']._serialized_end=390
   _globals['_AUTHENTICATEDUSER']._serialized_start=392

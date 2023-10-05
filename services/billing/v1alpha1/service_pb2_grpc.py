@@ -2,8 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from services.billing.v1alpha1 import groups_pb2 as services_dot_billing_dot_v1alpha1_dot_groups__pb2
 from services.billing.v1alpha1 import invoices_pb2 as services_dot_billing_dot_v1alpha1_dot_invoices__pb2
 from services.billing.v1alpha1 import plans_pb2 as services_dot_billing_dot_v1alpha1_dot_plans__pb2
+from services.billing.v1alpha1 import rates_pb2 as services_dot_billing_dot_v1alpha1_dot_rates__pb2
 
 
 class BillingServiceStub(object):
@@ -15,6 +17,16 @@ class BillingServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.BulkDeleteRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/BulkDeleteRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkDeleteRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkDeleteRateDefinitionsResponse.FromString,
+                )
+        self.BulkUpdateRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/BulkUpdateRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkUpdateRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkUpdateRateDefinitionsResponse.FromString,
+                )
         self.CreateBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/CreateBillingPlan',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CreateBillingPlanRequest.SerializeToString,
@@ -25,6 +37,16 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.CreateInvoiceRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.CreateInvoiceResponse.FromString,
                 )
+        self.CreateRateDefinition = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/CreateRateDefinition',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.CreateRateDefinitionRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.CreateRateDefinitionResponse.FromString,
+                )
+        self.CreateRateDefinitionGroup = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/CreateRateDefinitionGroup',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.CreateRateDefinitionGroupRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.CreateRateDefinitionGroupResponse.FromString,
+                )
         self.DeleteBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/DeleteBillingPlan',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DeleteBillingPlanRequest.SerializeToString,
@@ -34,6 +56,16 @@ class BillingServiceStub(object):
                 '/services.billing.v1alpha1.BillingService/DeleteInvoice',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.FromString,
+                )
+        self.DeleteRateDefinition = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/DeleteRateDefinition',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionResponse.FromString,
+                )
+        self.DeleteRateDefinitionGroup = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/DeleteRateDefinitionGroup',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.DeleteRateDefinitionGroupRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.DeleteRateDefinitionGroupResponse.FromString,
                 )
         self.ExportInvoice = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/ExportInvoice',
@@ -60,6 +92,16 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceResponse.FromString,
                 )
+        self.GetRateDefinition = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/GetRateDefinition',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionResponse.FromString,
+                )
+        self.GetRateDefinitionGroup = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/GetRateDefinitionGroup',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.GetRateDefinitionGroupRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.GetRateDefinitionGroupResponse.FromString,
+                )
         self.ListBillingPlans = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/ListBillingPlans',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.SerializeToString,
@@ -69,6 +111,16 @@ class BillingServiceStub(object):
                 '/services.billing.v1alpha1.BillingService/ListInvoices',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesResponse.FromString,
+                )
+        self.ListRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/ListRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListRateDefinitionsResponse.FromString,
+                )
+        self.ListRateDefinitionGroups = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/ListRateDefinitionGroups',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.ListRateDefinitionGroupsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.ListRateDefinitionGroupsResponse.FromString,
                 )
         self.UpdateBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/UpdateBillingPlan',
@@ -85,15 +137,55 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.UpdateInvoiceRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.UpdateInvoiceResponse.FromString,
                 )
+        self.UpdateRateDefinition = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/UpdateRateDefinition',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.UpdateRateDefinitionRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.UpdateRateDefinitionResponse.FromString,
+                )
+        self.UpdateRateDefinitionGroup = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/UpdateRateDefinitionGroup',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.UpdateRateDefinitionGroupRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.UpdateRateDefinitionGroupResponse.FromString,
+                )
 
 
 class BillingServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
+    def BulkDeleteRateDefinitions(self, request, context):
+        """Bulk deletes rate definitions.
+        - The billing plan(s) must be inactive.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.FailedPrecondition: The billing plan(s) are active.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkUpdateRateDefinitions(self, request, context):
+        """Bulk updates rate definitions.
+        - The billing plan(s) must be inactive.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.FailedPrecondition: The billing plan(s) are active.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateBillingPlan(self, request, context):
         """Creates a billing plan for the ORG.
-        - The rate definitions must have the rate definition group id populated and it
-        must be a valid reference to a rate definition group on the default billing plan.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
@@ -112,6 +204,38 @@ class BillingServiceServicer(object):
         CUSTOMER_SUPPORT
         Errors:
         - grpc.AlreadyExists: An invoice already exists for the specified billing cycle.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateRateDefinition(self, request, context):
+        """Creates a rate definition for a Billing Plan in an ORG.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.AlreadyExists: A rate definition with the same group id already exists.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan or rate definition group doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateRateDefinitionGroup(self, request, context):
+        """Creates a rate definition group.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.AlreadyExists: A rate definition group with the same data already exists.
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
@@ -144,6 +268,40 @@ class BillingServiceServicer(object):
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.NotFound: The specified invoice doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRateDefinition(self, request, context):
+        """Deletes a rate definition from a Billing Plan in an ORG.
+        - The billing plan must be inactive.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.FailedPrecondition: The billing plan is active.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan or rate definition group doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRateDefinitionGroup(self, request, context):
+        """Deletes a rate definition group.
+        - This will stop any rate definitions in the group from generating charges.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified rate definition group doesn't exist.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
         - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
@@ -227,9 +385,38 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetRateDefinition(self, request, context):
+        """Returns the specified rate definition.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified rate definition doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRateDefinitionGroup(self, request, context):
+        """Returns the specified rate definition group.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified rate definition group doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListBillingPlans(self, request, context):
-        """Lists the billing plans for the ORG. This includes both active and inactive plans, but does not
-        include deleted plans.
+        """Lists billing plans.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
@@ -243,7 +430,7 @@ class BillingServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListInvoices(self, request, context):
-        """Lists the invoices for the ORG.
+        """Lists invoices.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
@@ -251,6 +438,34 @@ class BillingServiceServicer(object):
         - grpc.InvalidArgument: The request is invalid.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
         - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRateDefinitions(self, request, context):
+        """Lists rate definitions.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRateDefinitionGroups(self, request, context):
+        """Lists rate definition groups.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -275,6 +490,7 @@ class BillingServiceServicer(object):
         """Updates the default billing plan for the REGION.
         Required permissions:
         CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
         Errors:
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
@@ -300,9 +516,53 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateRateDefinition(self, request, context):
+        """Updates a rate definition.
+        - The billing plan must be inactive.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.FailedPrecondition: The billing plan is active.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified rate definition doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateRateDefinitionGroup(self, request, context):
+        """Updates a rate definition group.
+        - Any rate definitions using this group will use the new data.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified rate definition group doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_BillingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'BulkDeleteRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkDeleteRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkDeleteRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkDeleteRateDefinitionsResponse.SerializeToString,
+            ),
+            'BulkUpdateRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkUpdateRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkUpdateRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkUpdateRateDefinitionsResponse.SerializeToString,
+            ),
             'CreateBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateBillingPlan,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CreateBillingPlanRequest.FromString,
@@ -313,6 +573,16 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.CreateInvoiceRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.CreateInvoiceResponse.SerializeToString,
             ),
+            'CreateRateDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateRateDefinition,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.CreateRateDefinitionRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.CreateRateDefinitionResponse.SerializeToString,
+            ),
+            'CreateRateDefinitionGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateRateDefinitionGroup,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.CreateRateDefinitionGroupRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.CreateRateDefinitionGroupResponse.SerializeToString,
+            ),
             'DeleteBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteBillingPlan,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DeleteBillingPlanRequest.FromString,
@@ -322,6 +592,16 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.DeleteInvoice,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.SerializeToString,
+            ),
+            'DeleteRateDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRateDefinition,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionResponse.SerializeToString,
+            ),
+            'DeleteRateDefinitionGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRateDefinitionGroup,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.DeleteRateDefinitionGroupRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.DeleteRateDefinitionGroupResponse.SerializeToString,
             ),
             'ExportInvoice': grpc.unary_unary_rpc_method_handler(
                     servicer.ExportInvoice,
@@ -348,6 +628,16 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceResponse.SerializeToString,
             ),
+            'GetRateDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRateDefinition,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionResponse.SerializeToString,
+            ),
+            'GetRateDefinitionGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRateDefinitionGroup,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.GetRateDefinitionGroupRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.GetRateDefinitionGroupResponse.SerializeToString,
+            ),
             'ListBillingPlans': grpc.unary_unary_rpc_method_handler(
                     servicer.ListBillingPlans,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.FromString,
@@ -357,6 +647,16 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.ListInvoices,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesResponse.SerializeToString,
+            ),
+            'ListRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListRateDefinitionsResponse.SerializeToString,
+            ),
+            'ListRateDefinitionGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRateDefinitionGroups,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.ListRateDefinitionGroupsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.ListRateDefinitionGroupsResponse.SerializeToString,
             ),
             'UpdateBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateBillingPlan,
@@ -373,6 +673,16 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.UpdateInvoiceRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.UpdateInvoiceResponse.SerializeToString,
             ),
+            'UpdateRateDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateRateDefinition,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.UpdateRateDefinitionRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.UpdateRateDefinitionResponse.SerializeToString,
+            ),
+            'UpdateRateDefinitionGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateRateDefinitionGroup,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.UpdateRateDefinitionGroupRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_groups__pb2.UpdateRateDefinitionGroupResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'services.billing.v1alpha1.BillingService', rpc_method_handlers)
@@ -382,6 +692,40 @@ def add_BillingServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class BillingService(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def BulkDeleteRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/BulkDeleteRateDefinitions',
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkDeleteRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkDeleteRateDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkUpdateRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/BulkUpdateRateDefinitions',
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkUpdateRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.BulkUpdateRateDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def CreateBillingPlan(request,
@@ -418,6 +762,40 @@ class BillingService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateRateDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/CreateRateDefinition',
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.CreateRateDefinitionRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.CreateRateDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateRateDefinitionGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/CreateRateDefinitionGroup',
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.CreateRateDefinitionGroupRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.CreateRateDefinitionGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteBillingPlan(request,
             target,
             options=(),
@@ -448,6 +826,40 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DeleteInvoice',
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.DeleteInvoiceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRateDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DeleteRateDefinition',
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRateDefinitionGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DeleteRateDefinitionGroup',
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.DeleteRateDefinitionGroupRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.DeleteRateDefinitionGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -537,6 +949,40 @@ class BillingService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetRateDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetRateDefinition',
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRateDefinitionGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetRateDefinitionGroup',
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.GetRateDefinitionGroupRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.GetRateDefinitionGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListBillingPlans(request,
             target,
             options=(),
@@ -567,6 +1013,40 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ListInvoices',
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ListRateDefinitions',
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListRateDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRateDefinitionGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ListRateDefinitionGroups',
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.ListRateDefinitionGroupsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.ListRateDefinitionGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -618,5 +1098,39 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/UpdateInvoice',
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.UpdateInvoiceRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_invoices__pb2.UpdateInvoiceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateRateDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/UpdateRateDefinition',
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.UpdateRateDefinitionRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_rates__pb2.UpdateRateDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateRateDefinitionGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/UpdateRateDefinitionGroup',
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.UpdateRateDefinitionGroupRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_groups__pb2.UpdateRateDefinitionGroupResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

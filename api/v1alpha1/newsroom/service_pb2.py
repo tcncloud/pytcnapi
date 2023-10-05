@@ -22,16 +22,16 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.newsroom.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\031com.api.v1alpha1.newsroomB\014ServiceProtoP\001\242\002\003AVN\252\002\025Api.V1alpha1.Newsroom\312\002\025Api\\V1alpha1\\Newsroom\342\002!Api\\V1alpha1\\Newsroom\\GPBMetadata\352\002\027Api::V1alpha1::Newsroom'
-  _NEWSROOMAPI.methods_by_name['CreateNewsArticle']._options = None
-  _NEWSROOMAPI.methods_by_name['CreateNewsArticle']._serialized_options = b'\272\270\221\002\005\n\003\010\350 \202\323\344\223\002-\"(/api/v1alpha1/newsroom/createnewsarticle:\001*'
-  _NEWSROOMAPI.methods_by_name['ListNewsArticles']._options = None
-  _NEWSROOMAPI.methods_by_name['ListNewsArticles']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002,\"\'/api/v1alpha1/newsroom/listnewsarticles:\001*'
-  _NEWSROOMAPI.methods_by_name['GetNewsArticleById']._options = None
-  _NEWSROOMAPI.methods_by_name['GetNewsArticleById']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002.\")/api/v1alpha1/newsroom/getnewsarticlebyid:\001*'
-  _NEWSROOMAPI.methods_by_name['UpdateNewsArticle']._options = None
-  _NEWSROOMAPI.methods_by_name['UpdateNewsArticle']._serialized_options = b'\272\270\221\002\005\n\003\010\350 \202\323\344\223\002-\"(/api/v1alpha1/newsroom/updatenewsarticle:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.api.v1alpha1.newsroomB\014ServiceProtoP\001\242\002\003AVN\252\002\025Api.V1alpha1.Newsroom\312\002\025Api\\V1alpha1\\Newsroom\342\002!Api\\V1alpha1\\Newsroom\\GPBMetadata\352\002\027Api::V1alpha1::Newsroom'
+  _globals['_NEWSROOMAPI'].methods_by_name['CreateNewsArticle']._options = None
+  _globals['_NEWSROOMAPI'].methods_by_name['CreateNewsArticle']._serialized_options = b'\272\270\221\002\005\n\003\010\350 \202\323\344\223\002-\"(/api/v1alpha1/newsroom/createnewsarticle:\001*'
+  _globals['_NEWSROOMAPI'].methods_by_name['ListNewsArticles']._options = None
+  _globals['_NEWSROOMAPI'].methods_by_name['ListNewsArticles']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002,\"\'/api/v1alpha1/newsroom/listnewsarticles:\001*'
+  _globals['_NEWSROOMAPI'].methods_by_name['GetNewsArticleById']._options = None
+  _globals['_NEWSROOMAPI'].methods_by_name['GetNewsArticleById']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002.\")/api/v1alpha1/newsroom/getnewsarticlebyid:\001*'
+  _globals['_NEWSROOMAPI'].methods_by_name['UpdateNewsArticle']._options = None
+  _globals['_NEWSROOMAPI'].methods_by_name['UpdateNewsArticle']._serialized_options = b'\272\270\221\002\005\n\003\010\350 \202\323\344\223\002-\"(/api/v1alpha1/newsroom/updatenewsarticle:\001*'
   _globals['_NEWSROOMAPI']._serialized_start=156
   _globals['_NEWSROOMAPI']._serialized_end=899
 # @@protoc_insertion_point(module_scope)

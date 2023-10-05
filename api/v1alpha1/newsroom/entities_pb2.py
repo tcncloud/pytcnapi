@@ -22,12 +22,12 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.newsroom.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\031com.api.v1alpha1.newsroomB\rEntitiesProtoP\001\242\002\003AVN\252\002\025Api.V1alpha1.Newsroom\312\002\025Api\\V1alpha1\\Newsroom\342\002!Api\\V1alpha1\\Newsroom\\GPBMetadata\352\002\027Api::V1alpha1::Newsroom'
-  _GETNEWSARTICLEBYIDREQUEST.fields_by_name['new_article_sid']._options = None
-  _GETNEWSARTICLEBYIDREQUEST.fields_by_name['new_article_sid']._serialized_options = b'0\001'
-  _NEWSARTICLEDETAILS.fields_by_name['new_article_sid']._options = None
-  _NEWSARTICLEDETAILS.fields_by_name['new_article_sid']._serialized_options = b'0\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.api.v1alpha1.newsroomB\rEntitiesProtoP\001\242\002\003AVN\252\002\025Api.V1alpha1.Newsroom\312\002\025Api\\V1alpha1\\Newsroom\342\002!Api\\V1alpha1\\Newsroom\\GPBMetadata\352\002\027Api::V1alpha1::Newsroom'
+  _globals['_GETNEWSARTICLEBYIDREQUEST'].fields_by_name['new_article_sid']._options = None
+  _globals['_GETNEWSARTICLEBYIDREQUEST'].fields_by_name['new_article_sid']._serialized_options = b'0\001'
+  _globals['_NEWSARTICLEDETAILS'].fields_by_name['new_article_sid']._options = None
+  _globals['_NEWSARTICLEDETAILS'].fields_by_name['new_article_sid']._serialized_options = b'0\001'
   _globals['_CREATENEWSARTICLEREQUEST']._serialized_start=158
   _globals['_CREATENEWSARTICLEREQUEST']._serialized_end=232
   _globals['_CREATENEWSARTICLERESPONSE']._serialized_start=234

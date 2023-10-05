@@ -22,16 +22,16 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.workflows.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\032com.api.v1alpha1.workflowsB\014ServiceProtoP\001\242\002\003AVW\252\002\026Api.V1alpha1.Workflows\312\002\026Api\\V1alpha1\\Workflows\342\002\"Api\\V1alpha1\\Workflows\\GPBMetadata\352\002\030Api::V1alpha1::Workflows'
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['ListFlowDefinitions']._options = None
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['ListFlowDefinitions']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0020\"+/api/v1alpha1/workflows/listflowdefinitions:\001*'
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['SaveFlowDefinition']._options = None
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['SaveFlowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\002/\"*/api/v1alpha1/workflows/saveflowdefinition:\001*'
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['GetFlowDefinition']._options = None
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['GetFlowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\002.\")/api/v1alpha1/workflows/getflowdefinition:\001*'
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['DeleteFlowDefinition']._options = None
-  _WORKFLOWSDEFINITIONSERVICE.methods_by_name['DeleteFlowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0021\",/api/v1alpha1/workflows/deleteflowdefinition:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\032com.api.v1alpha1.workflowsB\014ServiceProtoP\001\242\002\003AVW\252\002\026Api.V1alpha1.Workflows\312\002\026Api\\V1alpha1\\Workflows\342\002\"Api\\V1alpha1\\Workflows\\GPBMetadata\352\002\030Api::V1alpha1::Workflows'
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['ListFlowDefinitions']._options = None
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['ListFlowDefinitions']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0020\"+/api/v1alpha1/workflows/listflowdefinitions:\001*'
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['SaveFlowDefinition']._options = None
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['SaveFlowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\002/\"*/api/v1alpha1/workflows/saveflowdefinition:\001*'
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['GetFlowDefinition']._options = None
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['GetFlowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\002.\")/api/v1alpha1/workflows/getflowdefinition:\001*'
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['DeleteFlowDefinition']._options = None
+  _globals['_WORKFLOWSDEFINITIONSERVICE'].methods_by_name['DeleteFlowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0021\",/api/v1alpha1/workflows/deleteflowdefinition:\001*'
   _globals['_WORKFLOWSDEFINITIONSERVICE']._serialized_start=159
   _globals['_WORKFLOWSDEFINITIONSERVICE']._serialized_end=959
 # @@protoc_insertion_point(module_scope)

@@ -23,14 +23,14 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.workflows.nodes_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\031com.api.commons.workflowsB\nNodesProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
-  _NODEDEFINITION.fields_by_name['omni_bot_test_start']._options = None
-  _NODEDEFINITION.fields_by_name['omni_bot_test_start']._serialized_options = b'\030\001'
-  _NODEDEFINITION.fields_by_name['omni_bot_test_step']._options = None
-  _NODEDEFINITION.fields_by_name['omni_bot_test_step']._serialized_options = b'\030\001'
-  _NODEDEFINITION.fields_by_name['omni_bot_test_end']._options = None
-  _NODEDEFINITION.fields_by_name['omni_bot_test_end']._serialized_options = b'\030\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.api.commons.workflowsB\nNodesProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
+  _globals['_NODEDEFINITION'].fields_by_name['omni_bot_test_start']._options = None
+  _globals['_NODEDEFINITION'].fields_by_name['omni_bot_test_start']._serialized_options = b'\030\001'
+  _globals['_NODEDEFINITION'].fields_by_name['omni_bot_test_step']._options = None
+  _globals['_NODEDEFINITION'].fields_by_name['omni_bot_test_step']._serialized_options = b'\030\001'
+  _globals['_NODEDEFINITION'].fields_by_name['omni_bot_test_end']._options = None
+  _globals['_NODEDEFINITION'].fields_by_name['omni_bot_test_end']._serialized_options = b'\030\001'
   _globals['_NODEDEFINITION']._serialized_start=208
   _globals['_NODEDEFINITION']._serialized_end=2263
 # @@protoc_insertion_point(module_scope)

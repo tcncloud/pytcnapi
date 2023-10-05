@@ -19,12 +19,12 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.workflows.omni_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\031com.api.commons.workflowsB\tOmniProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
-  _OMNINODESETSKILL.fields_by_name['skill']._options = None
-  _OMNINODESETSKILL.fields_by_name['skill']._serialized_options = b'\030\001'
-  _OMNINODEWEBHOOK_HEADERSENTRY._options = None
-  _OMNINODEWEBHOOK_HEADERSENTRY._serialized_options = b'8\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.api.commons.workflowsB\tOmniProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
+  _globals['_OMNINODESETSKILL'].fields_by_name['skill']._options = None
+  _globals['_OMNINODESETSKILL'].fields_by_name['skill']._serialized_options = b'\030\001'
+  _globals['_OMNINODEWEBHOOK_HEADERSENTRY']._options = None
+  _globals['_OMNINODEWEBHOOK_HEADERSENTRY']._serialized_options = b'8\001'
   _globals['_OMNINODESCRUBLISTACTION']._serialized_start=839
   _globals['_OMNINODESCRUBLISTACTION']._serialized_end=885
   _globals['_OMNINODEPROMPT']._serialized_start=59

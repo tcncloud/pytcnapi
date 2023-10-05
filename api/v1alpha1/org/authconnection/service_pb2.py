@@ -22,20 +22,20 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.org.authconnection.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n#com.api.v1alpha1.org.authconnectionB\014ServiceProtoP\001\242\002\004AVOA\252\002\037Api.V1alpha1.Org.Authconnection\312\002\037Api\\V1alpha1\\Org\\Authconnection\342\002+Api\\V1alpha1\\Org\\Authconnection\\GPBMetadata\352\002\"Api::V1alpha1::Org::Authconnection'
-  _AUTHCONNECTIONSERVICE.methods_by_name['CreateAuthConnection']._options = None
-  _AUTHCONNECTIONSERVICE.methods_by_name['CreateAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002(\"#/api/v1alpha1/org/connection/create:\001*'
-  _AUTHCONNECTIONSERVICE.methods_by_name['GetAuthConnectionSettings']._options = None
-  _AUTHCONNECTIONSERVICE.methods_by_name['GetAuthConnectionSettings']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002-\"(/api/v1alpha1/org/connection/getsettings:\001*'
-  _AUTHCONNECTIONSERVICE.methods_by_name['GetAuthConnection']._options = None
-  _AUTHCONNECTIONSERVICE.methods_by_name['GetAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002%\" /api/v1alpha1/org/connection/get:\001*'
-  _AUTHCONNECTIONSERVICE.methods_by_name['DeleteAuthConnection']._options = None
-  _AUTHCONNECTIONSERVICE.methods_by_name['DeleteAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002(\"#/api/v1alpha1/org/connection/delete:\001*'
-  _AUTHCONNECTIONSERVICE.methods_by_name['UpdateAuthConnectionSecret']._options = None
-  _AUTHCONNECTIONSERVICE.methods_by_name['UpdateAuthConnectionSecret']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002/\"*/api/v1alpha1/org/connection/update/secret:\001*'
-  _AUTHCONNECTIONSERVICE.methods_by_name['UpdateAuthConnectionGroups']._options = None
-  _AUTHCONNECTIONSERVICE.methods_by_name['UpdateAuthConnectionGroups']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002/\"*/api/v1alpha1/org/connection/update/groups:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n#com.api.v1alpha1.org.authconnectionB\014ServiceProtoP\001\242\002\004AVOA\252\002\037Api.V1alpha1.Org.Authconnection\312\002\037Api\\V1alpha1\\Org\\Authconnection\342\002+Api\\V1alpha1\\Org\\Authconnection\\GPBMetadata\352\002\"Api::V1alpha1::Org::Authconnection'
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['CreateAuthConnection']._options = None
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['CreateAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002(\"#/api/v1alpha1/org/connection/create:\001*'
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['GetAuthConnectionSettings']._options = None
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['GetAuthConnectionSettings']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002-\"(/api/v1alpha1/org/connection/getsettings:\001*'
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['GetAuthConnection']._options = None
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['GetAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002%\" /api/v1alpha1/org/connection/get:\001*'
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['DeleteAuthConnection']._options = None
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['DeleteAuthConnection']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002(\"#/api/v1alpha1/org/connection/delete:\001*'
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['UpdateAuthConnectionSecret']._options = None
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['UpdateAuthConnectionSecret']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002/\"*/api/v1alpha1/org/connection/update/secret:\001*'
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['UpdateAuthConnectionGroups']._options = None
+  _globals['_AUTHCONNECTIONSERVICE'].methods_by_name['UpdateAuthConnectionGroups']._serialized_options = b'\272\270\221\002\005\n\003\010\204\002\202\323\344\223\002/\"*/api/v1alpha1/org/connection/update/groups:\001*'
   _globals['_AUTHCONNECTIONSERVICE']._serialized_start=186
   _globals['_AUTHCONNECTIONSERVICE']._serialized_end=1515
 # @@protoc_insertion_point(module_scope)

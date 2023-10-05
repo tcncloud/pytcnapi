@@ -19,14 +19,14 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.workflows.omni_bot_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\031com.api.commons.workflowsB\014OmniBotProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
-  _OMNIBOTNODETESTSTART.fields_by_name['data']._options = None
-  _OMNIBOTNODETESTSTART.fields_by_name['data']._serialized_options = b'\030\001'
-  _OMNIBOTNODETESTSTEP.fields_by_name['data']._options = None
-  _OMNIBOTNODETESTSTEP.fields_by_name['data']._serialized_options = b'\030\001'
-  _OMNIBOTNODETESTEND.fields_by_name['error']._options = None
-  _OMNIBOTNODETESTEND.fields_by_name['error']._serialized_options = b'\030\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.api.commons.workflowsB\014OmniBotProtoP\001\242\002\003ACW\252\002\025Api.Commons.Workflows\312\002\025Api\\Commons\\Workflows\342\002!Api\\Commons\\Workflows\\GPBMetadata\352\002\027Api::Commons::Workflows'
+  _globals['_OMNIBOTNODETESTSTART'].fields_by_name['data']._options = None
+  _globals['_OMNIBOTNODETESTSTART'].fields_by_name['data']._serialized_options = b'\030\001'
+  _globals['_OMNIBOTNODETESTSTEP'].fields_by_name['data']._options = None
+  _globals['_OMNIBOTNODETESTSTEP'].fields_by_name['data']._serialized_options = b'\030\001'
+  _globals['_OMNIBOTNODETESTEND'].fields_by_name['error']._options = None
+  _globals['_OMNIBOTNODETESTEND'].fields_by_name['error']._serialized_options = b'\030\001'
   _globals['_OMNIBOTNODETESTSTART']._serialized_start=63
   _globals['_OMNIBOTNODETESTSTART']._serialized_end=109
   _globals['_OMNIBOTNODETESTSTEP']._serialized_start=111
