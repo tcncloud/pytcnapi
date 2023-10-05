@@ -1504,6 +1504,7 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: one or more fields in the @node have invalid values.
         - grpc.NotFound: parent location node doesn't exist or belongs to a different scenario than the one given.
+        the @skill_profile_category does not exist.
         - grpc.Internal: error occurs when creating the program node.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1521,6 +1522,7 @@ class WFMServicer(object):
         - grpc.Invalid: one or more fields in the @program_node have invalid values.
         - grpc.Internal: error occurs when updating the program node.
         - grpc.NotFound: entry to be updated doesn't exist, or the given parent @location_node_sid belongs to a different scenario than the program node to update.
+        the @skill_profile_category does not exist.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
