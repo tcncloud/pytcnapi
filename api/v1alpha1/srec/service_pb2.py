@@ -22,14 +22,14 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.srec.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\025com.api.v1alpha1.srecB\014ServiceProtoP\001\242\002\003AVS\252\002\021Api.V1alpha1.Srec\312\002\021Api\\V1alpha1\\Srec\342\002\035Api\\V1alpha1\\Srec\\GPBMetadata\352\002\023Api::V1alpha1::Srec'
-  _SREC.methods_by_name['ListScreenRecordings']._options = None
-  _SREC.methods_by_name['ListScreenRecordings']._serialized_options = b'\272\270\221\002\005\n\003\010\371\003\202\323\344\223\0021\",/api/v1alpha1/srec/srec/listscreenrecordings:\001*'
-  _SREC.methods_by_name['GetScreenRecordingURL']._options = None
-  _SREC.methods_by_name['GetScreenRecordingURL']._serialized_options = b'\272\270\221\002\005\n\003\010\371\003\202\323\344\223\0022\"-/api/v1alpha1/srec/srec/getscreenrecordingurl:\001*'
-  _SREC.methods_by_name['DeleteScreenRecording']._options = None
-  _SREC.methods_by_name['DeleteScreenRecording']._serialized_options = b'\272\270\221\002\005\n\003\010\373\003\202\323\344\223\0022\"-/api/v1alpha1/srec/srec/deletescreenrecording:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.api.v1alpha1.srecB\014ServiceProtoP\001\242\002\003AVS\252\002\021Api.V1alpha1.Srec\312\002\021Api\\V1alpha1\\Srec\342\002\035Api\\V1alpha1\\Srec\\GPBMetadata\352\002\023Api::V1alpha1::Srec'
+  _globals['_SREC'].methods_by_name['ListScreenRecordings']._options = None
+  _globals['_SREC'].methods_by_name['ListScreenRecordings']._serialized_options = b'\272\270\221\002\005\n\003\010\371\003\202\323\344\223\0021\",/api/v1alpha1/srec/srec/listscreenrecordings:\001*'
+  _globals['_SREC'].methods_by_name['GetScreenRecordingURL']._options = None
+  _globals['_SREC'].methods_by_name['GetScreenRecordingURL']._serialized_options = b'\272\270\221\002\005\n\003\010\371\003\202\323\344\223\0022\"-/api/v1alpha1/srec/srec/getscreenrecordingurl:\001*'
+  _globals['_SREC'].methods_by_name['DeleteScreenRecording']._options = None
+  _globals['_SREC'].methods_by_name['DeleteScreenRecording']._serialized_options = b'\272\270\221\002\005\n\003\010\373\003\202\323\344\223\0022\"-/api/v1alpha1/srec/srec/deletescreenrecording:\001*'
   _globals['_LISTSCREENRECORDINGSREQUEST']._serialized_start=142
   _globals['_LISTSCREENRECORDINGSREQUEST']._serialized_end=231
   _globals['_LISTSCREENRECORDINGSRESPONSE']._serialized_start=234
