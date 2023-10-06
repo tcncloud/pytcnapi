@@ -21,6 +21,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.api.annotations_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\016com.google.apiB\020AnnotationsProtoP\001ZAgoogle.golang.org/genproto/googleapis/api/annotations;annotations\242\002\003GAX\252\002\nGoogle.Api\312\002\nGoogle\\Api\342\002\026Google\\Api\\GPBMetadata\352\002\013Google::Api'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\016com.google.apiB\020AnnotationsProtoP\001ZAgoogle.golang.org/genproto/googleapis/api/annotations;annotations\242\002\003GAX\252\002\nGoogle.Api\312\002\nGoogle\\Api\342\002\026Google\\Api\\GPBMetadata\352\002\013Google::Api'
 # @@protoc_insertion_point(module_scope)

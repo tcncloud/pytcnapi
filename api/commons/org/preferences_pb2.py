@@ -24,10 +24,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.org.preferences_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\023com.api.commons.orgB\020PreferencesProtoP\001\242\002\003ACO\252\002\017Api.Commons.Org\312\002\017Api\\Commons\\Org\342\002\033Api\\Commons\\Org\\GPBMetadata\352\002\021Api::Commons::Org'
-  _SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY._options = None
-  _SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY._serialized_options = b'8\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\023com.api.commons.orgB\020PreferencesProtoP\001\242\002\003ACO\252\002\017Api.Commons.Org\312\002\017Api\\Commons\\Org\342\002\033Api\\Commons\\Org\\GPBMetadata\352\002\021Api::Commons::Org'
+  _globals['_SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY']._options = None
+  _globals['_SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY']._serialized_options = b'8\001'
   _globals['_ORGANIZATIONPREFERENCES']._serialized_start=186
   _globals['_ORGANIZATIONPREFERENCES']._serialized_end=422
   _globals['_AGENTPREFERENCES']._serialized_start=425
