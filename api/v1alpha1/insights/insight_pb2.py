@@ -21,14 +21,14 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.insights.insight_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\031com.api.v1alpha1.insightsB\014InsightProtoP\001\242\002\003AVI\252\002\025Api.V1alpha1.Insights\312\002\025Api\\V1alpha1\\Insights\342\002!Api\\V1alpha1\\Insights\\GPBMetadata\352\002\027Api::V1alpha1::Insights'
-  _INSIGHT.fields_by_name['insight_id']._options = None
-  _INSIGHT.fields_by_name['insight_id']._serialized_options = b'0\001'
-  _DELETEINSIGHTREQUEST.fields_by_name['insight_id']._options = None
-  _DELETEINSIGHTREQUEST.fields_by_name['insight_id']._serialized_options = b'0\001'
-  _GETINSIGHTREQUEST.fields_by_name['insight_id']._options = None
-  _GETINSIGHTREQUEST.fields_by_name['insight_id']._serialized_options = b'0\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\031com.api.v1alpha1.insightsB\014InsightProtoP\001\242\002\003AVI\252\002\025Api.V1alpha1.Insights\312\002\025Api\\V1alpha1\\Insights\342\002!Api\\V1alpha1\\Insights\\GPBMetadata\352\002\027Api::V1alpha1::Insights'
+  _globals['_INSIGHT'].fields_by_name['insight_id']._options = None
+  _globals['_INSIGHT'].fields_by_name['insight_id']._serialized_options = b'0\001'
+  _globals['_DELETEINSIGHTREQUEST'].fields_by_name['insight_id']._options = None
+  _globals['_DELETEINSIGHTREQUEST'].fields_by_name['insight_id']._serialized_options = b'0\001'
+  _globals['_GETINSIGHTREQUEST'].fields_by_name['insight_id']._options = None
+  _globals['_GETINSIGHTREQUEST'].fields_by_name['insight_id']._serialized_options = b'0\001'
   _globals['_INSIGHT']._serialized_start=125
   _globals['_INSIGHT']._serialized_end=513
   _globals['_PUBLISHINSIGHTREQUEST']._serialized_start=515

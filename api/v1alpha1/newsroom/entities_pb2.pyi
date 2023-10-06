@@ -178,18 +178,20 @@ class StoreNewsArticleImageRequest(_message.Message):
     def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
 
 class NewsArticleImage(_message.Message):
-    __slots__ = ["uuid", "new_article_sid", "content", "download_url", "image_reference_id"]
+    __slots__ = ["uuid", "new_article_sid", "content", "download_url", "image_reference_id", "image_type"]
     UUID_FIELD_NUMBER: _ClassVar[int]
     NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
     IMAGE_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_TYPE_FIELD_NUMBER: _ClassVar[int]
     uuid: str
     new_article_sid: int
     content: str
     download_url: str
     image_reference_id: str
-    def __init__(self, uuid: _Optional[str] = ..., new_article_sid: _Optional[int] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
+    image_type: str
+    def __init__(self, uuid: _Optional[str] = ..., new_article_sid: _Optional[int] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ..., image_reference_id: _Optional[str] = ..., image_type: _Optional[str] = ...) -> None: ...
 
 class StoreNewsArticleImageResponse(_message.Message):
     __slots__ = ["image"]
