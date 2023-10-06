@@ -9,14 +9,16 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateNewsArticleRequest(_message.Message):
-    __slots__ = ["title", "content", "image_reference_id"]
+    __slots__ = ["title", "content", "author", "image_reference_id"]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
+    AUTHOR_FIELD_NUMBER: _ClassVar[int]
     IMAGE_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     title: str
     content: str
+    author: str
     image_reference_id: str
-    def __init__(self, title: _Optional[str] = ..., content: _Optional[str] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, title: _Optional[str] = ..., content: _Optional[str] = ..., author: _Optional[str] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
 
 class CreateNewsArticleResponse(_message.Message):
     __slots__ = ["article_details"]
@@ -65,13 +67,14 @@ class UpdateNewsArticleResponse(_message.Message):
     def __init__(self, article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ...) -> None: ...
 
 class NewsArticleDetails(_message.Message):
-    __slots__ = ["new_article_sid", "title", "content", "status", "date_created", "last_edited", "image_reference_id"]
+    __slots__ = ["new_article_sid", "title", "content", "status", "date_created", "last_edited", "author", "image_reference_id"]
     NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    AUTHOR_FIELD_NUMBER: _ClassVar[int]
     IMAGE_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     new_article_sid: int
     title: str
@@ -79,8 +82,9 @@ class NewsArticleDetails(_message.Message):
     status: _newsroom_pb2.ArticleStatus
     date_created: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
+    author: str
     image_reference_id: str
-    def __init__(self, new_article_sid: _Optional[int] = ..., title: _Optional[str] = ..., content: _Optional[str] = ..., status: _Optional[_Union[_newsroom_pb2.ArticleStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, new_article_sid: _Optional[int] = ..., title: _Optional[str] = ..., content: _Optional[str] = ..., status: _Optional[_Union[_newsroom_pb2.ArticleStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., author: _Optional[str] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
 
 class PublishedArticleDetails(_message.Message):
     __slots__ = ["published_article_sid", "news_article_details", "date_published", "display_to_user"]
