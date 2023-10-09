@@ -21,20 +21,20 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.soundboard.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.soundboardB\rEntitiesProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Soundboard\312\002\027Api\\V1alpha1\\Soundboard\342\002#Api\\V1alpha1\\Soundboard\\GPBMetadata\352\002\031Api::V1alpha1::Soundboard'
-  _SOUNDBOARDDETAILS.fields_by_name['soundboard_id']._options = None
-  _SOUNDBOARDDETAILS.fields_by_name['soundboard_id']._serialized_options = b'0\001'
-  _GETSOUNDBOARDFILEREQ.fields_by_name['soundboard_id']._options = None
-  _GETSOUNDBOARDFILEREQ.fields_by_name['soundboard_id']._serialized_options = b'0\001'
-  _GETSOUNDBOARDREQ.fields_by_name['soundboard_id']._options = None
-  _GETSOUNDBOARDREQ.fields_by_name['soundboard_id']._serialized_options = b'0\001'
-  _CREATESOUNDBOARDRES.fields_by_name['soundboard_id']._options = None
-  _CREATESOUNDBOARDRES.fields_by_name['soundboard_id']._serialized_options = b'0\001'
-  _UPDATESOUNDBOARDRES.fields_by_name['soundboard_id']._options = None
-  _UPDATESOUNDBOARDRES.fields_by_name['soundboard_id']._serialized_options = b'0\001'
-  _DELETESOUNDBOARDREQ.fields_by_name['soundboard_id']._options = None
-  _DELETESOUNDBOARDREQ.fields_by_name['soundboard_id']._serialized_options = b'0\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.api.v1alpha1.soundboardB\rEntitiesProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Soundboard\312\002\027Api\\V1alpha1\\Soundboard\342\002#Api\\V1alpha1\\Soundboard\\GPBMetadata\352\002\031Api::V1alpha1::Soundboard'
+  _globals['_SOUNDBOARDDETAILS'].fields_by_name['soundboard_id']._options = None
+  _globals['_SOUNDBOARDDETAILS'].fields_by_name['soundboard_id']._serialized_options = b'0\001'
+  _globals['_GETSOUNDBOARDFILEREQ'].fields_by_name['soundboard_id']._options = None
+  _globals['_GETSOUNDBOARDFILEREQ'].fields_by_name['soundboard_id']._serialized_options = b'0\001'
+  _globals['_GETSOUNDBOARDREQ'].fields_by_name['soundboard_id']._options = None
+  _globals['_GETSOUNDBOARDREQ'].fields_by_name['soundboard_id']._serialized_options = b'0\001'
+  _globals['_CREATESOUNDBOARDRES'].fields_by_name['soundboard_id']._options = None
+  _globals['_CREATESOUNDBOARDRES'].fields_by_name['soundboard_id']._serialized_options = b'0\001'
+  _globals['_UPDATESOUNDBOARDRES'].fields_by_name['soundboard_id']._options = None
+  _globals['_UPDATESOUNDBOARDRES'].fields_by_name['soundboard_id']._serialized_options = b'0\001'
+  _globals['_DELETESOUNDBOARDREQ'].fields_by_name['soundboard_id']._options = None
+  _globals['_DELETESOUNDBOARDREQ'].fields_by_name['soundboard_id']._serialized_options = b'0\001'
   _globals['_SOUNDBOARDDETAILS']._serialized_start=124
   _globals['_SOUNDBOARDDETAILS']._serialized_end=530
   _globals['_GETSOUNDBOARDFILEREQ']._serialized_start=532
