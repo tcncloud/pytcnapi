@@ -8,29 +8,19 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class BulkDeleteRateDefinitionsRequest(_message.Message):
+class CreateDefaultRateDefinitionRequest(_message.Message):
+    __slots__ = ["rate_definition_id", "rate_definition"]
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
+    RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    rate_definition_id: str
+    rate_definition: _rates_pb2.RateDefinition
+    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ...) -> None: ...
+
+class CreateDefaultRateDefinitionResponse(_message.Message):
     __slots__ = ["rate_definition_id"]
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     rate_definition_id: str
     def __init__(self, rate_definition_id: _Optional[str] = ...) -> None: ...
-
-class BulkDeleteRateDefinitionsResponse(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
-
-class BulkUpdateRateDefinitionsRequest(_message.Message):
-    __slots__ = ["rate_definition_id", "rate_definition", "update_fields"]
-    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
-    RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
-    UPDATE_FIELDS_FIELD_NUMBER: _ClassVar[int]
-    rate_definition_id: str
-    rate_definition: _rates_pb2.RateDefinition
-    update_fields: _field_mask_pb2.FieldMask
-    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ..., update_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
-
-class BulkUpdateRateDefinitionsResponse(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
 
 class CreateRateDefinitionRequest(_message.Message):
     __slots__ = ["rate_definition_id", "rate_definition"]
@@ -45,6 +35,16 @@ class CreateRateDefinitionResponse(_message.Message):
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     rate_definition_id: str
     def __init__(self, rate_definition_id: _Optional[str] = ...) -> None: ...
+
+class DeleteDefaultRateDefinitionRequest(_message.Message):
+    __slots__ = ["rate_definition_id"]
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
+    rate_definition_id: str
+    def __init__(self, rate_definition_id: _Optional[str] = ...) -> None: ...
+
+class DeleteDefaultRateDefinitionResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class DeleteRateDefinitionRequest(_message.Message):
     __slots__ = ["rate_definition_id"]
@@ -89,6 +89,20 @@ class ListRateDefinitionsResponse(_message.Message):
     rate_definitions: _containers.RepeatedCompositeFieldContainer[_rates_pb2.RateDefinition]
     token: str
     def __init__(self, rate_definitions: _Optional[_Iterable[_Union[_rates_pb2.RateDefinition, _Mapping]]] = ..., token: _Optional[str] = ...) -> None: ...
+
+class UpdateDefaultRateDefinitionRequest(_message.Message):
+    __slots__ = ["rate_definition_id", "rate_definition", "update_fields"]
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
+    RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    rate_definition_id: str
+    rate_definition: _rates_pb2.RateDefinition
+    update_fields: _field_mask_pb2.FieldMask
+    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ..., update_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateDefaultRateDefinitionResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class UpdateRateDefinitionRequest(_message.Message):
     __slots__ = ["rate_definition_id", "rate_definition", "update_fields"]

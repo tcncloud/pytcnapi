@@ -23,6 +23,20 @@ class CreateBillingPlanResponse(_message.Message):
     billing_plan_id: str
     def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
 
+class CreateDefaultBillingPlanRequest(_message.Message):
+    __slots__ = ["billing_plan_id", "billing_plan"]
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    billing_plan: _plan_pb2.BillingPlan
+    def __init__(self, billing_plan_id: _Optional[str] = ..., billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
+
+class CreateDefaultBillingPlanResponse(_message.Message):
+    __slots__ = ["billing_plan_id"]
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
 class DeleteBillingPlanRequest(_message.Message):
     __slots__ = ["billing_plan_id"]
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
@@ -33,19 +47,29 @@ class DeleteBillingPlanResponse(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class DeleteDefaultBillingPlanRequest(_message.Message):
+    __slots__ = ["billing_plan_id"]
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
+class DeleteDefaultBillingPlanResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class GetActiveBillingPlanRequest(_message.Message):
-    __slots__ = ["org_id"]
+    __slots__ = ["org_id", "effective_time"]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    EFFECTIVE_TIME_FIELD_NUMBER: _ClassVar[int]
     org_id: str
-    def __init__(self, org_id: _Optional[str] = ...) -> None: ...
+    effective_time: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., effective_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GetActiveBillingPlanResponse(_message.Message):
-    __slots__ = ["billing_plan", "effective_time"]
+    __slots__ = ["billing_plan"]
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
-    EFFECTIVE_TIME_FIELD_NUMBER: _ClassVar[int]
     billing_plan: _plan_pb2.BillingPlan
-    effective_time: _timestamp_pb2.Timestamp
-    def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ..., effective_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
 
 class GetBillingPlanRequest(_message.Message):
     __slots__ = ["billing_plan_id"]
@@ -54,16 +78,6 @@ class GetBillingPlanRequest(_message.Message):
     def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
 
 class GetBillingPlanResponse(_message.Message):
-    __slots__ = ["billing_plan"]
-    BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
-    billing_plan: _plan_pb2.BillingPlan
-    def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
-
-class GetDefaultBillingPlanRequest(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
-
-class GetDefaultBillingPlanResponse(_message.Message):
     __slots__ = ["billing_plan"]
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
     billing_plan: _plan_pb2.BillingPlan
@@ -106,12 +120,14 @@ class UpdateBillingPlanResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateDefaultBillingPlanRequest(_message.Message):
-    __slots__ = ["billing_plan", "update_fields"]
+    __slots__ = ["billing_plan_id", "billing_plan", "update_fields"]
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
     UPDATE_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
     billing_plan: _plan_pb2.BillingPlan
     update_fields: _field_mask_pb2.FieldMask
-    def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ..., update_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    def __init__(self, billing_plan_id: _Optional[str] = ..., billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ..., update_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateDefaultBillingPlanResponse(_message.Message):
     __slots__ = []

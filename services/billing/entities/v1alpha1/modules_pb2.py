@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha1/modules.proto\x12\"services.billing.entities.v1alpha1\x1a\x1egoogle/protobuf/wrappers.proto\"!\n\x0b\x42\x61sicConfig\x12\x12\n\x04rate\x18\x01 \x01(\x01R\x04rate\"\xc3\x01\n\x11\x42\x61sicAmountConfig\x12\x16\n\x06\x61mount\x18\x01 \x01(\x03R\x06\x61mount\x12\x12\n\x04rate\x18\x02 \x01(\x01R\x04rate\x12@\n\rmin_increment\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x0cminIncrement\x12@\n\rmax_increment\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x0cmaxIncrementB\xe1\x01\n&com.services.billing.entities.v1alpha1B\x0cModulesProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha1\xca\x02\"Services\\Billing\\Entities\\V1alpha1\xe2\x02.Services\\Billing\\Entities\\V1alpha1\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha1/modules.proto\x12\"services.billing.entities.v1alpha1\x1a\x1egoogle/protobuf/wrappers.proto\"!\n\x0b\x42\x61sicConfig\x12\x12\n\x04rate\x18\x01 \x01(\x01R\x04rate\"\xb8\x01\n\x11\x42\x61sicAmountConfig\x12\x1b\n\tunit_size\x18\x01 \x01(\x03R\x08unitSize\x12\x12\n\x04rate\x18\x02 \x01(\x01R\x04rate\x12\x38\n\tmin_units\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x08minUnits\x12\x38\n\tmax_units\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x08maxUnitsB\xe1\x01\n&com.services.billing.entities.v1alpha1B\x0cModulesProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha1\xca\x02\"Services\\Billing\\Entities\\V1alpha1\xe2\x02.Services\\Billing\\Entities\\V1alpha1\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,5 +25,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_BASICCONFIG']._serialized_start=120
   _globals['_BASICCONFIG']._serialized_end=153
   _globals['_BASICAMOUNTCONFIG']._serialized_start=156
-  _globals['_BASICAMOUNTCONFIG']._serialized_end=351
+  _globals['_BASICAMOUNTCONFIG']._serialized_end=340
 # @@protoc_insertion_point(module_scope)

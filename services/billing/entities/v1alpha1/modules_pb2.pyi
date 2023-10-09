@@ -12,13 +12,13 @@ class BasicConfig(_message.Message):
     def __init__(self, rate: _Optional[float] = ...) -> None: ...
 
 class BasicAmountConfig(_message.Message):
-    __slots__ = ["amount", "rate", "min_increment", "max_increment"]
-    AMOUNT_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["unit_size", "rate", "min_units", "max_units"]
+    UNIT_SIZE_FIELD_NUMBER: _ClassVar[int]
     RATE_FIELD_NUMBER: _ClassVar[int]
-    MIN_INCREMENT_FIELD_NUMBER: _ClassVar[int]
-    MAX_INCREMENT_FIELD_NUMBER: _ClassVar[int]
-    amount: int
+    MIN_UNITS_FIELD_NUMBER: _ClassVar[int]
+    MAX_UNITS_FIELD_NUMBER: _ClassVar[int]
+    unit_size: int
     rate: float
-    min_increment: _wrappers_pb2.Int64Value
-    max_increment: _wrappers_pb2.Int64Value
-    def __init__(self, amount: _Optional[int] = ..., rate: _Optional[float] = ..., min_increment: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., max_increment: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    min_units: _wrappers_pb2.Int64Value
+    max_units: _wrappers_pb2.Int64Value
+    def __init__(self, unit_size: _Optional[int] = ..., rate: _Optional[float] = ..., min_units: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., max_units: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
