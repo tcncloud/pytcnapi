@@ -35,18 +35,18 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.org.legacy.entities_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.org.legacyB\rEntitiesProtoP\001\242\002\004AVOL\252\002\027Api.V1alpha1.Org.Legacy\312\002\027Api\\V1alpha1\\Org\\Legacy\342\002#Api\\V1alpha1\\Org\\Legacy\\GPBMetadata\352\002\032Api::V1alpha1::Org::Legacy'
-  _GETORGANIZATIONPROFILERESPONSE_ALLOWEDREGIONSENTRY._options = None
-  _GETORGANIZATIONPROFILERESPONSE_ALLOWEDREGIONSENTRY._serialized_options = b'8\001'
-  _SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY._options = None
-  _SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY._serialized_options = b'8\001'
-  _ORGBILLINGSETTINGS_COUNTRYREGIONOVERRIDESENTRY._options = None
-  _ORGBILLINGSETTINGS_COUNTRYREGIONOVERRIDESENTRY._serialized_options = b'8\001'
-  _BILLINGREGIONMAP_REGIONRATESENTRY._options = None
-  _BILLINGREGIONMAP_REGIONRATESENTRY._serialized_options = b'8\001'
-  _GETORGBILLINGSETTINGSRESPONSE_COUNTRYDEFAULTREGIONSENTRY._options = None
-  _GETORGBILLINGSETTINGSRESPONSE_COUNTRYDEFAULTREGIONSENTRY._serialized_options = b'8\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.api.v1alpha1.org.legacyB\rEntitiesProtoP\001\242\002\004AVOL\252\002\027Api.V1alpha1.Org.Legacy\312\002\027Api\\V1alpha1\\Org\\Legacy\342\002#Api\\V1alpha1\\Org\\Legacy\\GPBMetadata\352\002\032Api::V1alpha1::Org::Legacy'
+  _globals['_GETORGANIZATIONPROFILERESPONSE_ALLOWEDREGIONSENTRY']._options = None
+  _globals['_GETORGANIZATIONPROFILERESPONSE_ALLOWEDREGIONSENTRY']._serialized_options = b'8\001'
+  _globals['_SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY']._options = None
+  _globals['_SCHEDULEPREFERENCES_CAMPAIGNLINKSENTRY']._serialized_options = b'8\001'
+  _globals['_ORGBILLINGSETTINGS_COUNTRYREGIONOVERRIDESENTRY']._options = None
+  _globals['_ORGBILLINGSETTINGS_COUNTRYREGIONOVERRIDESENTRY']._serialized_options = b'8\001'
+  _globals['_BILLINGREGIONMAP_REGIONRATESENTRY']._options = None
+  _globals['_BILLINGREGIONMAP_REGIONRATESENTRY']._serialized_options = b'8\001'
+  _globals['_GETORGBILLINGSETTINGSRESPONSE_COUNTRYDEFAULTREGIONSENTRY']._options = None
+  _globals['_GETORGBILLINGSETTINGSRESPONSE_COUNTRYDEFAULTREGIONSENTRY']._serialized_options = b'8\001'
   _globals['_GETAGENTQUICKVIEWPREFERENCESREQUEST']._serialized_start=553
   _globals['_GETAGENTQUICKVIEWPREFERENCESREQUEST']._serialized_end=649
   _globals['_GETAGENTQUICKVIEWPREFERENCESRESPONSE']._serialized_start=652

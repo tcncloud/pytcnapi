@@ -22,12 +22,12 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.billing.detail_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\027com.api.commons.billingB\013DetailProtoP\001\242\002\003ACB\252\002\023Api.Commons.Billing\312\002\023Api\\Commons\\Billing\342\002\037Api\\Commons\\Billing\\GPBMetadata\352\002\025Api::Commons::Billing'
-  _PLAN.fields_by_name['billing_plan_id']._options = None
-  _PLAN.fields_by_name['billing_plan_id']._serialized_options = b'0\001'
-  _DETAIL.fields_by_name['billing_plan_id']._options = None
-  _DETAIL.fields_by_name['billing_plan_id']._serialized_options = b'0\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\027com.api.commons.billingB\013DetailProtoP\001\242\002\003ACB\252\002\023Api.Commons.Billing\312\002\023Api\\Commons\\Billing\342\002\037Api\\Commons\\Billing\\GPBMetadata\352\002\025Api::Commons::Billing'
+  _globals['_PLAN'].fields_by_name['billing_plan_id']._options = None
+  _globals['_PLAN'].fields_by_name['billing_plan_id']._serialized_options = b'0\001'
+  _globals['_DETAIL'].fields_by_name['billing_plan_id']._options = None
+  _globals['_DETAIL'].fields_by_name['billing_plan_id']._serialized_options = b'0\001'
   _globals['_DETAILCONFIGTYPE']._serialized_start=5744
   _globals['_DETAILCONFIGTYPE']._serialized_end=7848
   _globals['_PLAN']._serialized_start=171
