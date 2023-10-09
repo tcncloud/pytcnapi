@@ -22,10 +22,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.vmds.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\025com.api.v1alpha1.vmdsB\014ServiceProtoP\001\242\002\003AVV\252\002\021Api.V1alpha1.Vmds\312\002\021Api\\V1alpha1\\Vmds\342\002\035Api\\V1alpha1\\Vmds\\GPBMetadata\352\002\023Api::V1alpha1::Vmds'
-  _VMDSSERVICE.methods_by_name['DownloadSpecifiedMessages']._options = None
-  _VMDSSERVICE.methods_by_name['DownloadSpecifiedMessages']._serialized_options = b'\272\270\221\002\005\n\003\010\371\n\202\323\344\223\0021\",/api/v1alpha1/vmds/downloadspecifiedmessages:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\025com.api.v1alpha1.vmdsB\014ServiceProtoP\001\242\002\003AVV\252\002\021Api.V1alpha1.Vmds\312\002\021Api\\V1alpha1\\Vmds\342\002\035Api\\V1alpha1\\Vmds\\GPBMetadata\352\002\023Api::V1alpha1::Vmds'
+  _globals['_VMDSSERVICE'].methods_by_name['DownloadSpecifiedMessages']._options = None
+  _globals['_VMDSSERVICE'].methods_by_name['DownloadSpecifiedMessages']._serialized_options = b'\272\270\221\002\005\n\003\010\371\n\202\323\344\223\0021\",/api/v1alpha1/vmds/downloadspecifiedmessages:\001*'
   _globals['_DOWNLOADSPECIFIEDMESSAGESREQUEST']._serialized_start=133
   _globals['_DOWNLOADSPECIFIEDMESSAGESREQUEST']._serialized_end=401
   _globals['_DOWNLOADSPECIFIEDMESSAGESREQUEST_MESSAGEREQUEST']._serialized_start=266
