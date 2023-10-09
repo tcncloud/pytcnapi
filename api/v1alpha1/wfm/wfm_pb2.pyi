@@ -397,10 +397,12 @@ class UpdateSkillProfileGroupRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListSkillProfileGroupsReq(_message.Message):
-    __slots__ = ["skill_profile_group_sids"]
+    __slots__ = ["skill_profile_group_sids", "include_inactive"]
     SKILL_PROFILE_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     skill_profile_group_sids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, skill_profile_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+    include_inactive: bool
+    def __init__(self, skill_profile_group_sids: _Optional[_Iterable[int]] = ..., include_inactive: bool = ...) -> None: ...
 
 class ListSkillProfileGroupsRes(_message.Message):
     __slots__ = ["skill_profile_groups"]
