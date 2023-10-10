@@ -20,8 +20,8 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.billing.modules.modules_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\037com.api.commons.billing.modulesB\014ModulesProtoP\001\242\002\004ACBM\252\002\033Api.Commons.Billing.Modules\312\002\033Api\\Commons\\Billing\\Modules\342\002\'Api\\Commons\\Billing\\Modules\\GPBMetadata\352\002\036Api::Commons::Billing::Modules'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\037com.api.commons.billing.modulesB\014ModulesProtoP\001\242\002\004ACBM\252\002\033Api.Commons.Billing.Modules\312\002\033Api\\Commons\\Billing\\Modules\342\002\'Api\\Commons\\Billing\\Modules\\GPBMetadata\352\002\036Api::Commons::Billing::Modules'
   _globals['_BASICCONFIG']._serialized_start=106
   _globals['_BASICCONFIG']._serialized_end=139
   _globals['_BASICAMOUNTCONFIG']._serialized_start=142

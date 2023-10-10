@@ -22,18 +22,18 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.workflows.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\032com.api.v1alpha1.workflowsB\014ServiceProtoP\001\242\002\003AVW\252\002\026Api.V1alpha1.Workflows\312\002\026Api\\V1alpha1\\Workflows\342\002\"Api\\V1alpha1\\Workflows\\GPBMetadata\352\002\030Api::V1alpha1::Workflows'
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['CreateWorkflowDefinition']._options = None
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['CreateWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0025\"0/api/v1alpha1/workflows/createworkflowdefinition:\001*'
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['GetWorkflowDefinition']._options = None
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['GetWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0025\"0/api/v1alpha1/workflows/createworkflowdefinition:\001*'
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['ListWorkflowDefinitions']._options = None
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['ListWorkflowDefinitions']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0024\"//api/v1alpha1/workflows/listworkflowdefinitions:\001*'
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['UpdateWorkflowDefinition']._options = None
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['UpdateWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0025\"0/api/v1alpha1/workflows/updateworkflowdefinition:\001*'
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['ValidateWorkflowDefinition']._options = None
-  _WORKFLOWDEFINITIONPERSISTSERVICE.methods_by_name['ValidateWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0027\"2/api/v1alpha1/workflows/validateworkflowdefinition:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\032com.api.v1alpha1.workflowsB\014ServiceProtoP\001\242\002\003AVW\252\002\026Api.V1alpha1.Workflows\312\002\026Api\\V1alpha1\\Workflows\342\002\"Api\\V1alpha1\\Workflows\\GPBMetadata\352\002\030Api::V1alpha1::Workflows'
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['CreateWorkflowDefinition']._options = None
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['CreateWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0025\"0/api/v1alpha1/workflows/createworkflowdefinition:\001*'
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['GetWorkflowDefinition']._options = None
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['GetWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0025\"0/api/v1alpha1/workflows/createworkflowdefinition:\001*'
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['ListWorkflowDefinitions']._options = None
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['ListWorkflowDefinitions']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0024\"//api/v1alpha1/workflows/listworkflowdefinitions:\001*'
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['UpdateWorkflowDefinition']._options = None
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['UpdateWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0025\"0/api/v1alpha1/workflows/updateworkflowdefinition:\001*'
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['ValidateWorkflowDefinition']._options = None
+  _globals['_WORKFLOWDEFINITIONPERSISTSERVICE'].methods_by_name['ValidateWorkflowDefinition']._serialized_options = b'\272\270\221\002\005\n\003\010\240\037\202\323\344\223\0027\"2/api/v1alpha1/workflows/validateworkflowdefinition:\001*'
   _globals['_PERSISTEDWORKFLOWDEFINITION']._serialized_start=153
   _globals['_PERSISTEDWORKFLOWDEFINITION']._serialized_end=515
   _globals['_CREATEWORKFLOWDEFINITIONREQUEST']._serialized_start=518
