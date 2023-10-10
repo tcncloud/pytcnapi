@@ -11,7 +11,7 @@ class BasicConfig(_message.Message):
     rate: float
     def __init__(self, rate: _Optional[float] = ...) -> None: ...
 
-class BasicAmountConfig(_message.Message):
+class BasicUnitConfig(_message.Message):
     __slots__ = ["unit_size", "rate", "min_units", "max_units"]
     UNIT_SIZE_FIELD_NUMBER: _ClassVar[int]
     RATE_FIELD_NUMBER: _ClassVar[int]
