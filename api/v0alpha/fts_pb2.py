@@ -21,10 +21,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v0alpha.fts_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\017com.api.v0alphaB\010FtsProtoP\001\242\002\003AVX\252\002\013Api.V0alpha\312\002\013Api\\V0alpha\342\002\027Api\\V0alpha\\GPBMetadata\352\002\014Api::V0alpha'
-  _FTS.methods_by_name['GetUploadFileUrl']._options = None
-  _FTS.methods_by_name['GetUploadFileUrl']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002 \"\033/api/v0alpha/fts/upload_url:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.v0alphaB\010FtsProtoP\001\242\002\003AVX\252\002\013Api.V0alpha\312\002\013Api\\V0alpha\342\002\027Api\\V0alpha\\GPBMetadata\352\002\014Api::V0alpha'
+  _globals['_FTS'].methods_by_name['GetUploadFileUrl']._options = None
+  _globals['_FTS'].methods_by_name['GetUploadFileUrl']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002 \"\033/api/v0alpha/fts/upload_url:\001*'
   _globals['_GETUPLOADFILEURLREQ']._serialized_start=93
   _globals['_GETUPLOADFILEURLREQ']._serialized_end=138
   _globals['_GETUPLOADFILEURLRES']._serialized_start=140

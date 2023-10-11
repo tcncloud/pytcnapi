@@ -21,10 +21,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.org.huntgroup_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\023com.api.commons.orgB\016HuntgroupProtoP\001\242\002\003ACO\252\002\017Api.Commons.Org\312\002\017Api\\Commons\\Org\342\002\033Api\\Commons\\Org\\GPBMetadata\352\002\021Api::Commons::Org'
-  _MANUALDIALSETTINGS.fields_by_name['enable_reject_option_for_approvers']._options = None
-  _MANUALDIALSETTINGS.fields_by_name['enable_reject_option_for_approvers']._serialized_options = b'\030\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\023com.api.commons.orgB\016HuntgroupProtoP\001\242\002\003ACO\252\002\017Api.Commons.Org\312\002\017Api\\Commons\\Org\342\002\033Api\\Commons\\Org\\GPBMetadata\352\002\021Api::Commons::Org'
+  _globals['_MANUALDIALSETTINGS'].fields_by_name['enable_reject_option_for_approvers']._options = None
+  _globals['_MANUALDIALSETTINGS'].fields_by_name['enable_reject_option_for_approvers']._serialized_options = b'\030\001'
   _globals['_HUNTGROUPSETTINGS']._serialized_start=103
   _globals['_HUNTGROUPSETTINGS']._serialized_end=740
   _globals['_GENERALSETTINGS']._serialized_start=743

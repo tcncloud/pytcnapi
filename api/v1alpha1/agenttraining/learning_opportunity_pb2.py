@@ -22,8 +22,8 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.agenttraining.learning_opportunity_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\036com.api.v1alpha1.agenttrainingB\030LearningOpportunityProtoP\001\242\002\003AVA\252\002\032Api.V1alpha1.Agenttraining\312\002\032Api\\V1alpha1\\Agenttraining\342\002&Api\\V1alpha1\\Agenttraining\\GPBMetadata\352\002\034Api::V1alpha1::Agenttraining'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\036com.api.v1alpha1.agenttrainingB\030LearningOpportunityProtoP\001\242\002\003AVA\252\002\032Api.V1alpha1.Agenttraining\312\002\032Api\\V1alpha1\\Agenttraining\342\002&Api\\V1alpha1\\Agenttraining\\GPBMetadata\352\002\034Api::V1alpha1::Agenttraining'
   _globals['_CREATELEARNINGOPPORTUNITYREQUEST']._serialized_start=183
   _globals['_CREATELEARNINGOPPORTUNITYREQUEST']._serialized_end=302
   _globals['_CREATELEARNINGOPPORTUNITYRESPONSE']._serialized_start=304

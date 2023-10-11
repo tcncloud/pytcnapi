@@ -22,10 +22,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.agentsmith.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.agentsmithB\014ServiceProtoP\001\242\002\003AVA\252\002\027Api.V1alpha1.Agentsmith\312\002\027Api\\V1alpha1\\Agentsmith\342\002#Api\\V1alpha1\\Agentsmith\\GPBMetadata\352\002\031Api::V1alpha1::Agentsmith'
-  _AGENTSMITH.methods_by_name['FollowAgent']._options = None
-  _AGENTSMITH.methods_by_name['FollowAgent']._serialized_options = b'\272\270\221\002\005\n\003\010\254\002\202\323\344\223\0024\"//api/v1alpha1/agentsmith/agentsmith/followagent:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.api.v1alpha1.agentsmithB\014ServiceProtoP\001\242\002\003AVA\252\002\027Api.V1alpha1.Agentsmith\312\002\027Api\\V1alpha1\\Agentsmith\342\002#Api\\V1alpha1\\Agentsmith\\GPBMetadata\352\002\031Api::V1alpha1::Agentsmith'
+  _globals['_AGENTSMITH'].methods_by_name['FollowAgent']._options = None
+  _globals['_AGENTSMITH'].methods_by_name['FollowAgent']._serialized_options = b'\272\270\221\002\005\n\003\010\254\002\202\323\344\223\0024\"//api/v1alpha1/agentsmith/agentsmith/followagent:\001*'
   _globals['_AGENTSTATE']._serialized_start=1043
   _globals['_AGENTSTATE']._serialized_end=1195
   _globals['_FOLLOWAGENTREQ']._serialized_start=154

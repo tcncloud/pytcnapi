@@ -24,10 +24,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.scorecards.category_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.scorecardsB\rCategoryProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Scorecards\312\002\027Api\\V1alpha1\\Scorecards\342\002#Api\\V1alpha1\\Scorecards\\GPBMetadata\352\002\031Api::V1alpha1::Scorecards'
-  _LISTCATEGORIESREQUEST.fields_by_name['call_types']._options = None
-  _LISTCATEGORIESREQUEST.fields_by_name['call_types']._serialized_options = b'\030\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.api.v1alpha1.scorecardsB\rCategoryProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Scorecards\312\002\027Api\\V1alpha1\\Scorecards\342\002#Api\\V1alpha1\\Scorecards\\GPBMetadata\352\002\031Api::V1alpha1::Scorecards'
+  _globals['_LISTCATEGORIESREQUEST'].fields_by_name['call_types']._options = None
+  _globals['_LISTCATEGORIESREQUEST'].fields_by_name['call_types']._serialized_options = b'\030\001'
   _globals['_CREATECATEGORYREQUEST']._serialized_start=219
   _globals['_CREATECATEGORYREQUEST']._serialized_end=293
   _globals['_CREATECATEGORYRESPONSE']._serialized_start=295

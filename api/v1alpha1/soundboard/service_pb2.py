@@ -22,18 +22,18 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.soundboard.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\033com.api.v1alpha1.soundboardB\014ServiceProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Soundboard\312\002\027Api\\V1alpha1\\Soundboard\342\002#Api\\V1alpha1\\Soundboard\\GPBMetadata\352\002\031Api::V1alpha1::Soundboard'
-  _SOUNDBOARD.methods_by_name['GetSoundboardFile']._options = None
-  _SOUNDBOARD.methods_by_name['GetSoundboardFile']._serialized_options = b'\272\270\221\002\005\n\003\010\244\r\202\323\344\223\002)\"$/api/v1alpha1/org/soundboard/getfile:\001*'
-  _SOUNDBOARD.methods_by_name['CreateSoundboard']._options = None
-  _SOUNDBOARD.methods_by_name['CreateSoundboard']._serialized_options = b'\272\270\221\002\005\n\003\010\245\r\202\323\344\223\002(\"#/api/v1alpha1/org/soundboard/create:\001*'
-  _SOUNDBOARD.methods_by_name['ListSoundboards']._options = None
-  _SOUNDBOARD.methods_by_name['ListSoundboards']._serialized_options = b'\272\270\221\002\005\n\003\010\244\r\202\323\344\223\002&\"!/api/v1alpha1/org/soundboard/list:\001*'
-  _SOUNDBOARD.methods_by_name['UpdateSoundboard']._options = None
-  _SOUNDBOARD.methods_by_name['UpdateSoundboard']._serialized_options = b'\272\270\221\002\005\n\003\010\245\r\202\323\344\223\002(\"#/api/v1alpha1/org/soundboard/update:\001*'
-  _SOUNDBOARD.methods_by_name['DeleteSoundboard']._options = None
-  _SOUNDBOARD.methods_by_name['DeleteSoundboard']._serialized_options = b'\272\270\221\002\005\n\003\010\245\r\202\323\344\223\002(\"#/api/v1alpha1/org/soundboard/delete:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\033com.api.v1alpha1.soundboardB\014ServiceProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Soundboard\312\002\027Api\\V1alpha1\\Soundboard\342\002#Api\\V1alpha1\\Soundboard\\GPBMetadata\352\002\031Api::V1alpha1::Soundboard'
+  _globals['_SOUNDBOARD'].methods_by_name['GetSoundboardFile']._options = None
+  _globals['_SOUNDBOARD'].methods_by_name['GetSoundboardFile']._serialized_options = b'\272\270\221\002\005\n\003\010\244\r\202\323\344\223\002)\"$/api/v1alpha1/org/soundboard/getfile:\001*'
+  _globals['_SOUNDBOARD'].methods_by_name['CreateSoundboard']._options = None
+  _globals['_SOUNDBOARD'].methods_by_name['CreateSoundboard']._serialized_options = b'\272\270\221\002\005\n\003\010\245\r\202\323\344\223\002(\"#/api/v1alpha1/org/soundboard/create:\001*'
+  _globals['_SOUNDBOARD'].methods_by_name['ListSoundboards']._options = None
+  _globals['_SOUNDBOARD'].methods_by_name['ListSoundboards']._serialized_options = b'\272\270\221\002\005\n\003\010\244\r\202\323\344\223\002&\"!/api/v1alpha1/org/soundboard/list:\001*'
+  _globals['_SOUNDBOARD'].methods_by_name['UpdateSoundboard']._options = None
+  _globals['_SOUNDBOARD'].methods_by_name['UpdateSoundboard']._serialized_options = b'\272\270\221\002\005\n\003\010\245\r\202\323\344\223\002(\"#/api/v1alpha1/org/soundboard/update:\001*'
+  _globals['_SOUNDBOARD'].methods_by_name['DeleteSoundboard']._options = None
+  _globals['_SOUNDBOARD'].methods_by_name['DeleteSoundboard']._serialized_options = b'\272\270\221\002\005\n\003\010\245\r\202\323\344\223\002(\"#/api/v1alpha1/org/soundboard/delete:\001*'
   _globals['_SOUNDBOARD']._serialized_start=162
   _globals['_SOUNDBOARD']._serialized_end=1030
 # @@protoc_insertion_point(module_scope)

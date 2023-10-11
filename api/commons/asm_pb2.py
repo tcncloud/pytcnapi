@@ -22,16 +22,16 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.asm_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\017com.api.commonsB\010AsmProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
-  _DASHBOARDAGENTINFO_SKILLSENTRY._options = None
-  _DASHBOARDAGENTINFO_SKILLSENTRY._serialized_options = b'8\001'
-  _DASHBOARDAGENTINFO.fields_by_name['current_conversation_sid']._options = None
-  _DASHBOARDAGENTINFO.fields_by_name['current_conversation_sid']._serialized_options = b'0\001'
-  _QUEUECALLADD_FORMATTEDSKILLSENTRY._options = None
-  _QUEUECALLADD_FORMATTEDSKILLSENTRY._serialized_options = b'8\001'
-  _QUEUECALLADD_SKILLSENTRY._options = None
-  _QUEUECALLADD_SKILLSENTRY._serialized_options = b'8\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.commonsB\010AsmProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
+  _globals['_DASHBOARDAGENTINFO_SKILLSENTRY']._options = None
+  _globals['_DASHBOARDAGENTINFO_SKILLSENTRY']._serialized_options = b'8\001'
+  _globals['_DASHBOARDAGENTINFO'].fields_by_name['current_conversation_sid']._options = None
+  _globals['_DASHBOARDAGENTINFO'].fields_by_name['current_conversation_sid']._serialized_options = b'0\001'
+  _globals['_QUEUECALLADD_FORMATTEDSKILLSENTRY']._options = None
+  _globals['_QUEUECALLADD_FORMATTEDSKILLSENTRY']._serialized_options = b'8\001'
+  _globals['_QUEUECALLADD_SKILLSENTRY']._options = None
+  _globals['_QUEUECALLADD_SKILLSENTRY']._serialized_options = b'8\001'
   _globals['_ASMSUBSESSIONTYPE']._serialized_start=2849
   _globals['_ASMSUBSESSIONTYPE']._serialized_end=2889
   _globals['_STATUSSTATE']._serialized_start=2891

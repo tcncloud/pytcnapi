@@ -22,16 +22,16 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.api.client_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\016com.google.apiB\013ClientProtoP\001ZAgoogle.golang.org/genproto/googleapis/api/annotations;annotations\242\002\003GAX\252\002\nGoogle.Api\312\002\nGoogle\\Api\342\002\026Google\\Api\\GPBMetadata\352\002\013Google::Api'
-  _COMMONLANGUAGESETTINGS.fields_by_name['reference_docs_uri']._options = None
-  _COMMONLANGUAGESETTINGS.fields_by_name['reference_docs_uri']._serialized_options = b'\030\001'
-  _JAVASETTINGS_SERVICECLASSNAMESENTRY._options = None
-  _JAVASETTINGS_SERVICECLASSNAMESENTRY._serialized_options = b'8\001'
-  _DOTNETSETTINGS_RENAMEDSERVICESENTRY._options = None
-  _DOTNETSETTINGS_RENAMEDSERVICESENTRY._serialized_options = b'8\001'
-  _DOTNETSETTINGS_RENAMEDRESOURCESENTRY._options = None
-  _DOTNETSETTINGS_RENAMEDRESOURCESENTRY._serialized_options = b'8\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\016com.google.apiB\013ClientProtoP\001ZAgoogle.golang.org/genproto/googleapis/api/annotations;annotations\242\002\003GAX\252\002\nGoogle.Api\312\002\nGoogle\\Api\342\002\026Google\\Api\\GPBMetadata\352\002\013Google::Api'
+  _globals['_COMMONLANGUAGESETTINGS'].fields_by_name['reference_docs_uri']._options = None
+  _globals['_COMMONLANGUAGESETTINGS'].fields_by_name['reference_docs_uri']._serialized_options = b'\030\001'
+  _globals['_JAVASETTINGS_SERVICECLASSNAMESENTRY']._options = None
+  _globals['_JAVASETTINGS_SERVICECLASSNAMESENTRY']._serialized_options = b'8\001'
+  _globals['_DOTNETSETTINGS_RENAMEDSERVICESENTRY']._options = None
+  _globals['_DOTNETSETTINGS_RENAMEDSERVICESENTRY']._serialized_options = b'8\001'
+  _globals['_DOTNETSETTINGS_RENAMEDRESOURCESENTRY']._options = None
+  _globals['_DOTNETSETTINGS_RENAMEDRESOURCESENTRY']._serialized_options = b'8\001'
   _globals['_CLIENTLIBRARYORGANIZATION']._serialized_start=3209
   _globals['_CLIENTLIBRARYORGANIZATION']._serialized_end=3372
   _globals['_CLIENTLIBRARYDESTINATION']._serialized_start=3374

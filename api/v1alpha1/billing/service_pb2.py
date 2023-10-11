@@ -22,16 +22,16 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.billing.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\030com.api.v1alpha1.billingB\014ServiceProtoP\001\242\002\003AVB\252\002\024Api.V1alpha1.Billing\312\002\024Api\\V1alpha1\\Billing\342\002 Api\\V1alpha1\\Billing\\GPBMetadata\352\002\026Api::V1alpha1::Billing'
-  _BILLING.methods_by_name['GetBillingPlan']._options = None
-  _BILLING.methods_by_name['GetBillingPlan']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\002)\"$/api/v1alpha1/billing/getbillingplan:\001*'
-  _BILLING.methods_by_name['UpdateBillingPlan']._options = None
-  _BILLING.methods_by_name['UpdateBillingPlan']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\002,\"\'/api/v1alpha1/billing/updatebillingplan:\001*'
-  _BILLING.methods_by_name['GetInvoice']._options = None
-  _BILLING.methods_by_name['GetInvoice']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\002%\" /api/v1alpha1/billing/getinvoice:\001*'
-  _BILLING.methods_by_name['ExportGeneratedInvoice']._options = None
-  _BILLING.methods_by_name['ExportGeneratedInvoice']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\0021\",/api/v1alpha1/billing/exportgeneratedinvoice:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\030com.api.v1alpha1.billingB\014ServiceProtoP\001\242\002\003AVB\252\002\024Api.V1alpha1.Billing\312\002\024Api\\V1alpha1\\Billing\342\002 Api\\V1alpha1\\Billing\\GPBMetadata\352\002\026Api::V1alpha1::Billing'
+  _globals['_BILLING'].methods_by_name['GetBillingPlan']._options = None
+  _globals['_BILLING'].methods_by_name['GetBillingPlan']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\002)\"$/api/v1alpha1/billing/getbillingplan:\001*'
+  _globals['_BILLING'].methods_by_name['UpdateBillingPlan']._options = None
+  _globals['_BILLING'].methods_by_name['UpdateBillingPlan']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\002,\"\'/api/v1alpha1/billing/updatebillingplan:\001*'
+  _globals['_BILLING'].methods_by_name['GetInvoice']._options = None
+  _globals['_BILLING'].methods_by_name['GetInvoice']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\002%\" /api/v1alpha1/billing/getinvoice:\001*'
+  _globals['_BILLING'].methods_by_name['ExportGeneratedInvoice']._options = None
+  _globals['_BILLING'].methods_by_name['ExportGeneratedInvoice']._serialized_options = b'\272\270\221\002\005\n\003\010\310\001\202\323\344\223\0021\",/api/v1alpha1/billing/exportgeneratedinvoice:\001*'
   _globals['_BILLING']._serialized_start=153
   _globals['_BILLING']._serialized_end=830
 # @@protoc_insertion_point(module_scope)

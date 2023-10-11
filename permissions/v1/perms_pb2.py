@@ -19,6 +19,6 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'permissions.v1.perms_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\022com.permissions.v1B\nPermsProtoP\001\242\002\003PXX\252\002\016Permissions.V1\312\002\016Permissions\\V1\342\002\032Permissions\\V1\\GPBMetadata\352\002\017Permissions::V1'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\022com.permissions.v1B\nPermsProtoP\001\242\002\003PXX\252\002\016Permissions.V1\312\002\016Permissions\\V1\342\002\032Permissions\\V1\\GPBMetadata\352\002\017Permissions::V1'
 # @@protoc_insertion_point(module_scope)

@@ -26,18 +26,18 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.longrunning.operations_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\026com.google.longrunningB\017OperationsProtoP\001ZCcloud.google.com/go/longrunning/autogen/longrunningpb;longrunningpb\370\001\001\242\002\003GLX\252\002\022Google.Longrunning\312\002\022Google\\Longrunning\342\002\036Google\\Longrunning\\GPBMetadata\352\002\023Google::Longrunning'
-  _OPERATIONS._options = None
-  _OPERATIONS._serialized_options = b'\312A\032longrunning.googleapis.com'
-  _OPERATIONS.methods_by_name['ListOperations']._options = None
-  _OPERATIONS.methods_by_name['ListOperations']._serialized_options = b'\332A\013name,filter\202\323\344\223\002\027\022\025/v1/{name=operations}'
-  _OPERATIONS.methods_by_name['GetOperation']._options = None
-  _OPERATIONS.methods_by_name['GetOperation']._serialized_options = b'\332A\004name\202\323\344\223\002\032\022\030/v1/{name=operations/**}'
-  _OPERATIONS.methods_by_name['DeleteOperation']._options = None
-  _OPERATIONS.methods_by_name['DeleteOperation']._serialized_options = b'\332A\004name\202\323\344\223\002\032*\030/v1/{name=operations/**}'
-  _OPERATIONS.methods_by_name['CancelOperation']._options = None
-  _OPERATIONS.methods_by_name['CancelOperation']._serialized_options = b'\332A\004name\202\323\344\223\002$\"\037/v1/{name=operations/**}:cancel:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\026com.google.longrunningB\017OperationsProtoP\001ZCcloud.google.com/go/longrunning/autogen/longrunningpb;longrunningpb\370\001\001\242\002\003GLX\252\002\022Google.Longrunning\312\002\022Google\\Longrunning\342\002\036Google\\Longrunning\\GPBMetadata\352\002\023Google::Longrunning'
+  _globals['_OPERATIONS']._options = None
+  _globals['_OPERATIONS']._serialized_options = b'\312A\032longrunning.googleapis.com'
+  _globals['_OPERATIONS'].methods_by_name['ListOperations']._options = None
+  _globals['_OPERATIONS'].methods_by_name['ListOperations']._serialized_options = b'\332A\013name,filter\202\323\344\223\002\027\022\025/v1/{name=operations}'
+  _globals['_OPERATIONS'].methods_by_name['GetOperation']._options = None
+  _globals['_OPERATIONS'].methods_by_name['GetOperation']._serialized_options = b'\332A\004name\202\323\344\223\002\032\022\030/v1/{name=operations/**}'
+  _globals['_OPERATIONS'].methods_by_name['DeleteOperation']._options = None
+  _globals['_OPERATIONS'].methods_by_name['DeleteOperation']._serialized_options = b'\332A\004name\202\323\344\223\002\032*\030/v1/{name=operations/**}'
+  _globals['_OPERATIONS'].methods_by_name['CancelOperation']._options = None
+  _globals['_OPERATIONS'].methods_by_name['CancelOperation']._serialized_options = b'\332A\004name\202\323\344\223\002$\"\037/v1/{name=operations/**}:cancel:\001*'
   _globals['_OPERATION']._serialized_start=262
   _globals['_OPERATION']._serialized_end=469
   _globals['_GETOPERATIONREQUEST']._serialized_start=471

@@ -22,10 +22,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.vanalytics.notifier.service_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n$com.api.v1alpha1.vanalytics.notifierB\014ServiceProtoP\001\242\002\004AVVN\252\002 Api.V1alpha1.Vanalytics.Notifier\312\002 Api\\V1alpha1\\Vanalytics\\Notifier\342\002,Api\\V1alpha1\\Vanalytics\\Notifier\\GPBMetadata\352\002#Api::V1alpha1::Vanalytics::Notifier'
-  _NOTIFIER.methods_by_name['GetNotify']._options = None
-  _NOTIFIER.methods_by_name['GetNotify']._serialized_options = b'\272\270\221\002\005\n\003\010\364\003\202\323\344\223\0029\"4/api/v1alpha1/vanalytics/notifier/notifier/getnotify:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n$com.api.v1alpha1.vanalytics.notifierB\014ServiceProtoP\001\242\002\004AVVN\252\002 Api.V1alpha1.Vanalytics.Notifier\312\002 Api\\V1alpha1\\Vanalytics\\Notifier\342\002,Api\\V1alpha1\\Vanalytics\\Notifier\\GPBMetadata\352\002#Api::V1alpha1::Vanalytics::Notifier'
+  _globals['_NOTIFIER'].methods_by_name['GetNotify']._options = None
+  _globals['_NOTIFIER'].methods_by_name['GetNotify']._serialized_options = b'\272\270\221\002\005\n\003\010\364\003\202\323\344\223\0029\"4/api/v1alpha1/vanalytics/notifier/notifier/getnotify:\001*'
   _globals['_GETNOTIFYREQUEST']._serialized_start=172
   _globals['_GETNOTIFYREQUEST']._serialized_end=219
   _globals['_NOTIFY']._serialized_start=222

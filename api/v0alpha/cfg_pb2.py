@@ -21,10 +21,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v0alpha.cfg_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\017com.api.v0alphaB\010CfgProtoP\001\242\002\003AVX\252\002\013Api.V0alpha\312\002\013Api\\V0alpha\342\002\027Api\\V0alpha\\GPBMetadata\352\002\014Api::V0alpha'
-  _CFG.methods_by_name['GetWebAgentConfig']._options = None
-  _CFG.methods_by_name['GetWebAgentConfig']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002\'\"\"/api/v0alpha/cfg/getwebagentconfig:\001*'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.v0alphaB\010CfgProtoP\001\242\002\003AVX\252\002\013Api.V0alpha\312\002\013Api\\V0alpha\342\002\027Api\\V0alpha\\GPBMetadata\352\002\014Api::V0alpha'
+  _globals['_CFG'].methods_by_name['GetWebAgentConfig']._options = None
+  _globals['_CFG'].methods_by_name['GetWebAgentConfig']._serialized_options = b'\272\270\221\002\002\030\001\202\323\344\223\002\'\"\"/api/v0alpha/cfg/getwebagentconfig:\001*'
   _globals['_GETCONFIGREQ']._serialized_start=93
   _globals['_GETCONFIGREQ']._serialized_end=136
   _globals['_WEBAGENT']._serialized_start=139

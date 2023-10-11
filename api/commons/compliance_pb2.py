@@ -23,12 +23,12 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.compliance_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\017com.api.commonsB\017ComplianceProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
-  _SCENARIODATA_CALLMETADATAENTRY._options = None
-  _SCENARIODATA_CALLMETADATAENTRY._serialized_options = b'8\001'
-  _SCENARIODATA.fields_by_name['country_code']._options = None
-  _SCENARIODATA.fields_by_name['country_code']._serialized_options = b'\030\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.commonsB\017ComplianceProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
+  _globals['_SCENARIODATA_CALLMETADATAENTRY']._options = None
+  _globals['_SCENARIODATA_CALLMETADATAENTRY']._serialized_options = b'8\001'
+  _globals['_SCENARIODATA'].fields_by_name['country_code']._options = None
+  _globals['_SCENARIODATA'].fields_by_name['country_code']._serialized_options = b'\030\001'
   _globals['_VERB']._serialized_start=4997
   _globals['_VERB']._serialized_end=5072
   _globals['_ENTITY']._serialized_start=5074

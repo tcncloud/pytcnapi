@@ -21,10 +21,10 @@ _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'annotations.authz_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
-  DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\017com.annotationsB\nAuthzProtoP\001\242\002\003AXX\252\002\013Annotations\312\002\013Annotations\342\002\027Annotations\\GPBMetadata\352\002\013Annotations'
-  _PERMISSIONS.fields_by_name['wip']._options = None
-  _PERMISSIONS.fields_by_name['wip']._serialized_options = b'\030\001'
+  _globals['DESCRIPTOR']._options = None
+  _globals['DESCRIPTOR']._serialized_options = b'\n\017com.annotationsB\nAuthzProtoP\001\242\002\003AXX\252\002\013Annotations\312\002\013Annotations\342\002\027Annotations\\GPBMetadata\352\002\013Annotations'
+  _globals['_PERMISSIONS'].fields_by_name['wip']._options = None
+  _globals['_PERMISSIONS'].fields_by_name['wip']._serialized_options = b'\030\001'
   _globals['_PERMISSIONS']._serialized_start=105
   _globals['_PERMISSIONS']._serialized_end=241
   _globals['_PERMISSIONSET']._serialized_start=243
