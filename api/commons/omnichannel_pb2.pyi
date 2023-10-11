@@ -1160,3 +1160,35 @@ class Signature(_message.Message):
     name: str
     description: str
     def __init__(self, signature_sid: _Optional[int] = ..., signature: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class OmniProjectComplianceSettings(_message.Message):
+    __slots__ = ["email", "sms"]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    SMS_FIELD_NUMBER: _ClassVar[int]
+    email: OmniComplianceSettings
+    sms: OmniComplianceSettings
+    def __init__(self, email: _Optional[_Union[OmniComplianceSettings, _Mapping]] = ..., sms: _Optional[_Union[OmniComplianceSettings, _Mapping]] = ...) -> None: ...
+
+class OmniComplianceConfig(_message.Message):
+    __slots__ = ["keywords", "confirmation_message"]
+    KEYWORDS_FIELD_NUMBER: _ClassVar[int]
+    CONFIRMATION_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    keywords: _containers.RepeatedScalarFieldContainer[str]
+    confirmation_message: str
+    def __init__(self, keywords: _Optional[_Iterable[str]] = ..., confirmation_message: _Optional[str] = ...) -> None: ...
+
+class OmniComplianceSettings(_message.Message):
+    __slots__ = ["opt_in", "opt_out", "help", "information", "scrub_list_id", "rule_set_id"]
+    OPT_IN_FIELD_NUMBER: _ClassVar[int]
+    OPT_OUT_FIELD_NUMBER: _ClassVar[int]
+    HELP_FIELD_NUMBER: _ClassVar[int]
+    INFORMATION_FIELD_NUMBER: _ClassVar[int]
+    SCRUB_LIST_ID_FIELD_NUMBER: _ClassVar[int]
+    RULE_SET_ID_FIELD_NUMBER: _ClassVar[int]
+    opt_in: OmniComplianceConfig
+    opt_out: OmniComplianceConfig
+    help: OmniComplianceConfig
+    information: OmniComplianceConfig
+    scrub_list_id: str
+    rule_set_id: _wrappers_pb2.StringValue
+    def __init__(self, opt_in: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., opt_out: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., help: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., information: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., scrub_list_id: _Optional[str] = ..., rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
