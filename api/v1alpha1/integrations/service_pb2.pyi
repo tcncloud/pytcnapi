@@ -1134,7 +1134,7 @@ class PluginInstanceId(_message.Message):
     def __init__(self, id: _Optional[str] = ...) -> None: ...
 
 class PluginInstance(_message.Message):
-    __slots__ = ["id", "name", "description", "plugin_definition", "data", "metadata", "last_edited", "method_id"]
+    __slots__ = ["id", "name", "description", "plugin_definition", "data", "metadata", "last_edited", "method_id", "display_methods"]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -1143,6 +1143,7 @@ class PluginInstance(_message.Message):
     METADATA_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
     METHOD_ID_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_METHODS_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -1151,7 +1152,8 @@ class PluginInstance(_message.Message):
     metadata: Values
     last_edited: _timestamp_pb2.Timestamp
     method_id: _integrations_pb2.RequestMethod
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., plugin_definition: _Optional[str] = ..., data: _Optional[_Union[Values, _Mapping]] = ..., metadata: _Optional[_Union[Values, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ...) -> None: ...
+    display_methods: _containers.RepeatedScalarFieldContainer[_integrations_pb2.RequestMethod]
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., plugin_definition: _Optional[str] = ..., data: _Optional[_Union[Values, _Mapping]] = ..., metadata: _Optional[_Union[Values, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., display_methods: _Optional[_Iterable[_Union[_integrations_pb2.RequestMethod, str]]] = ...) -> None: ...
 
 class PortalLinkTransactionRow(_message.Message):
     __slots__ = ["views", "verify_attempts", "verify_successes", "payment_attempts", "payment_successes", "payment_amount", "date", "link_data"]
