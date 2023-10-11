@@ -2912,6 +2912,18 @@ class CreateTourPatternRes(_message.Message):
     tour_pattern_sid: int
     def __init__(self, tour_pattern_sid: _Optional[int] = ...) -> None: ...
 
+class GetTourPatternDiagnosticsReq(_message.Message):
+    __slots__ = ["tour_pattern"]
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+
+class GetTourPatternDiagnosticsRes(_message.Message):
+    __slots__ = ["diagnostics"]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class UpsertTourPatternWithMembersReq(_message.Message):
     __slots__ = ["tour_pattern"]
     TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
@@ -2919,10 +2931,12 @@ class UpsertTourPatternWithMembersReq(_message.Message):
     def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
 
 class UpsertTourPatternWithMembersRes(_message.Message):
-    __slots__ = ["tour_pattern"]
+    __slots__ = ["tour_pattern", "diagnostics"]
     TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
     tour_pattern: TourPattern
-    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class GetTourPatternReq(_message.Message):
     __slots__ = ["shift_template_sid"]
