@@ -61,7 +61,7 @@ class SkillProfile(_message.Message):
     def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., unnamed: bool = ..., inactive_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., skills_count: _Optional[int] = ..., occurrence: _Optional[float] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ...) -> None: ...
 
 class SkillProfileGroup(_message.Message):
-    __slots__ = ["skill_profile_group_sid", "name", "description", "create_time", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "skill_profile_sids"]
+    __slots__ = ["skill_profile_group_sid", "name", "description", "create_time", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "skill_profile_sids", "datetime_set_to_inactive"]
     SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -72,6 +72,7 @@ class SkillProfileGroup(_message.Message):
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     ARE_AVERAGES_MANUAL_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_SET_TO_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     skill_profile_group_sid: int
     name: str
     description: str
@@ -82,7 +83,8 @@ class SkillProfileGroup(_message.Message):
     average_time_to_abort_in_seconds: float
     are_averages_manual: bool
     skill_profile_sids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., skill_profile_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+    datetime_set_to_inactive: _timestamp_pb2.Timestamp
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., skill_profile_sids: _Optional[_Iterable[int]] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ListSkillProfilesReq(_message.Message):
     __slots__ = ["active_only", "with_skills"]
@@ -395,10 +397,12 @@ class UpdateSkillProfileGroupRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListSkillProfileGroupsReq(_message.Message):
-    __slots__ = ["skill_profile_group_sids"]
+    __slots__ = ["skill_profile_group_sids", "include_inactive"]
     SKILL_PROFILE_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
     skill_profile_group_sids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, skill_profile_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+    include_inactive: bool
+    def __init__(self, skill_profile_group_sids: _Optional[_Iterable[int]] = ..., include_inactive: bool = ...) -> None: ...
 
 class ListSkillProfileGroupsRes(_message.Message):
     __slots__ = ["skill_profile_groups"]
