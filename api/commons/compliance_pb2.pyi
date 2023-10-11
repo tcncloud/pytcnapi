@@ -174,20 +174,38 @@ class DnclExp(_message.Message):
     def __init__(self, list_name: _Optional[str] = ..., field_names: _Optional[_Union[FieldNamesMod, _Mapping]] = ...) -> None: ...
 
 class FrequencyExp(_message.Message):
-    __slots__ = ["count", "duration", "results", "dispositions", "field_names", "checking_entities"]
+    __slots__ = ["count", "duration", "results", "dispositions", "field_names", "checking_entities", "matching"]
     COUNT_FIELD_NUMBER: _ClassVar[int]
     DURATION_FIELD_NUMBER: _ClassVar[int]
     RESULTS_FIELD_NUMBER: _ClassVar[int]
     DISPOSITIONS_FIELD_NUMBER: _ClassVar[int]
     FIELD_NAMES_FIELD_NUMBER: _ClassVar[int]
     CHECKING_ENTITIES_FIELD_NUMBER: _ClassVar[int]
+    MATCHING_FIELD_NUMBER: _ClassVar[int]
     count: int
     duration: int
     results: ResultsMod
     dispositions: DispositionMod
     field_names: FieldNamesMod
     checking_entities: _containers.RepeatedCompositeFieldContainer[EntityExp]
-    def __init__(self, count: _Optional[int] = ..., duration: _Optional[int] = ..., results: _Optional[_Union[ResultsMod, _Mapping]] = ..., dispositions: _Optional[_Union[DispositionMod, _Mapping]] = ..., field_names: _Optional[_Union[FieldNamesMod, _Mapping]] = ..., checking_entities: _Optional[_Iterable[_Union[EntityExp, _Mapping]]] = ...) -> None: ...
+    matching: MatchingMod
+    def __init__(self, count: _Optional[int] = ..., duration: _Optional[int] = ..., results: _Optional[_Union[ResultsMod, _Mapping]] = ..., dispositions: _Optional[_Union[DispositionMod, _Mapping]] = ..., field_names: _Optional[_Union[FieldNamesMod, _Mapping]] = ..., checking_entities: _Optional[_Iterable[_Union[EntityExp, _Mapping]]] = ..., matching: _Optional[_Union[MatchingMod, _Mapping]] = ...) -> None: ...
+
+class MatchingMod(_message.Message):
+    __slots__ = ["mod"]
+    AND_FIELD_NUMBER: _ClassVar[int]
+    OR_FIELD_NUMBER: _ClassVar[int]
+    MOD_FIELD_NUMBER: _ClassVar[int]
+    mod: MatchingEntity
+    def __init__(self, mod: _Optional[_Union[MatchingEntity, _Mapping]] = ..., **kwargs) -> None: ...
+
+class MatchingEntity(_message.Message):
+    __slots__ = ["results", "dispositions"]
+    RESULTS_FIELD_NUMBER: _ClassVar[int]
+    DISPOSITIONS_FIELD_NUMBER: _ClassVar[int]
+    results: ResultsMod
+    dispositions: DispositionMod
+    def __init__(self, results: _Optional[_Union[ResultsMod, _Mapping]] = ..., dispositions: _Optional[_Union[DispositionMod, _Mapping]] = ...) -> None: ...
 
 class LocationExp(_message.Message):
     __slots__ = ["country", "state", "county", "city", "province", "postal_codes", "area_codes"]
