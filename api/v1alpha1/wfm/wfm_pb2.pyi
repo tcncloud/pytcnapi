@@ -996,7 +996,7 @@ class UpdateLocationNodeRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ProgramNode(_message.Message):
-    __slots__ = ["program_node_sid", "name", "description", "location_node_sid", "datetime_set_to_inactive", "shrinkage_is_percentage", "shrinkage_value", "schedule_scenario_sid", "member_shift_templates", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "member_skill_proficiencies", "origin_sid"]
+    __slots__ = ["program_node_sid", "name", "description", "location_node_sid", "datetime_set_to_inactive", "shrinkage_is_percentage", "shrinkage_value", "schedule_scenario_sid", "member_shift_templates", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "member_skill_proficiencies", "origin_sid", "skill_profile_category"]
     PROGRAM_NODE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -1013,6 +1013,7 @@ class ProgramNode(_message.Message):
     MEMBER_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
     MEMBER_SKILL_PROFICIENCIES_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     program_node_sid: int
     name: str
     description: str
@@ -1029,7 +1030,8 @@ class ProgramNode(_message.Message):
     member_agent_groups: _containers.RepeatedCompositeFieldContainer[AgentGroup]
     member_skill_proficiencies: _containers.RepeatedCompositeFieldContainer[SkillProficiency]
     origin_sid: _wrappers_pb2.Int64Value
-    def __init__(self, program_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., location_node_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., shrinkage_is_percentage: bool = ..., shrinkage_value: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., member_shift_templates: _Optional[_Iterable[_Union[ShiftTemplate, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., member_skill_proficiencies: _Optional[_Iterable[_Union[SkillProficiency, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, program_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., location_node_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., shrinkage_is_percentage: bool = ..., shrinkage_value: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., member_shift_templates: _Optional[_Iterable[_Union[ShiftTemplate, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., member_skill_proficiencies: _Optional[_Iterable[_Union[SkillProficiency, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class CreateProgramNodeReq(_message.Message):
     __slots__ = ["node"]
@@ -1910,7 +1912,7 @@ class CopyScenarioRes(_message.Message):
     def __init__(self, schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
 class CreateScheduleScenarioWithNodesReq(_message.Message):
-    __slots__ = ["schedule_scenario", "call_center_node_name", "call_center_node_description", "client_node_name", "client_node_description", "location_node_name", "location_node_description", "program_node_name", "program_node_description", "time_zone_val"]
+    __slots__ = ["schedule_scenario", "call_center_node_name", "call_center_node_description", "client_node_name", "client_node_description", "location_node_name", "location_node_description", "program_node_name", "program_node_description", "time_zone_val", "skill_profile_category"]
     SCHEDULE_SCENARIO_FIELD_NUMBER: _ClassVar[int]
     CALL_CENTER_NODE_NAME_FIELD_NUMBER: _ClassVar[int]
     CALL_CENTER_NODE_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -1921,6 +1923,7 @@ class CreateScheduleScenarioWithNodesReq(_message.Message):
     PROGRAM_NODE_NAME_FIELD_NUMBER: _ClassVar[int]
     PROGRAM_NODE_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_VAL_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     schedule_scenario: ScheduleScenario
     call_center_node_name: str
     call_center_node_description: str
@@ -1931,7 +1934,8 @@ class CreateScheduleScenarioWithNodesReq(_message.Message):
     program_node_name: str
     program_node_description: str
     time_zone_val: _org_pb2.TimeZone
-    def __init__(self, schedule_scenario: _Optional[_Union[ScheduleScenario, _Mapping]] = ..., call_center_node_name: _Optional[str] = ..., call_center_node_description: _Optional[str] = ..., client_node_name: _Optional[str] = ..., client_node_description: _Optional[str] = ..., location_node_name: _Optional[str] = ..., location_node_description: _Optional[str] = ..., program_node_name: _Optional[str] = ..., program_node_description: _Optional[str] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ...) -> None: ...
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, schedule_scenario: _Optional[_Union[ScheduleScenario, _Mapping]] = ..., call_center_node_name: _Optional[str] = ..., call_center_node_description: _Optional[str] = ..., client_node_name: _Optional[str] = ..., client_node_description: _Optional[str] = ..., location_node_name: _Optional[str] = ..., location_node_description: _Optional[str] = ..., program_node_name: _Optional[str] = ..., program_node_description: _Optional[str] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class CreateScheduleScenarioWithNodesRes(_message.Message):
     __slots__ = ["schedule_scenario_sid"]

@@ -519,3 +519,43 @@ class OmnichannelPaymentLinkSentEvent(_message.Message):
     message: _omnichannel_pb2.OmniMessage
     link: str
     def __init__(self, message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., link: _Optional[str] = ...) -> None: ...
+
+class OmnichannelManualApproveTaskAcceptedEvent(_message.Message):
+    __slots__ = ["task", "user_id", "asm_session_sid"]
+    TASK_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    task: _omnichannel_pb2.OmniTask
+    user_id: str
+    asm_session_sid: int
+    def __init__(self, task: _Optional[_Union[_omnichannel_pb2.OmniTask, _Mapping]] = ..., user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
+
+class OmnichannelManualApproveTaskRejectedEvent(_message.Message):
+    __slots__ = ["task", "user_id", "asm_session_sid"]
+    TASK_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    task: _omnichannel_pb2.OmniTask
+    user_id: str
+    asm_session_sid: int
+    def __init__(self, task: _Optional[_Union[_omnichannel_pb2.OmniTask, _Mapping]] = ..., user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
+
+class OmnichannelManualApproveTaskTimeoutEvent(_message.Message):
+    __slots__ = ["task", "user_id", "asm_session_sid"]
+    TASK_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    task: _omnichannel_pb2.OmniTask
+    user_id: str
+    asm_session_sid: int
+    def __init__(self, task: _Optional[_Union[_omnichannel_pb2.OmniTask, _Mapping]] = ..., user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
+
+class OmnichannelManualApproveTaskRequeueEvent(_message.Message):
+    __slots__ = ["task", "user_id", "asm_session_sid"]
+    TASK_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    task: _omnichannel_pb2.OmniTask
+    user_id: str
+    asm_session_sid: int
+    def __init__(self, task: _Optional[_Union[_omnichannel_pb2.OmniTask, _Mapping]] = ..., user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...

@@ -1504,6 +1504,7 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: one or more fields in the @node have invalid values.
         - grpc.NotFound: parent location node doesn't exist or belongs to a different scenario than the one given.
+        the @skill_profile_category does not exist.
         - grpc.Internal: error occurs when creating the program node.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -1521,6 +1522,7 @@ class WFMServicer(object):
         - grpc.Invalid: one or more fields in the @program_node have invalid values.
         - grpc.Internal: error occurs when updating the program node.
         - grpc.NotFound: entry to be updated doesn't exist, or the given parent @location_node_sid belongs to a different scenario than the program node to update.
+        the @skill_profile_category does not exist.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2160,10 +2162,12 @@ class WFMServicer(object):
         The @node_description fields may optionally be left blank.
         The @copied_from_scenario_sid field will be ignored, as it will be set to nil in the newly created scenario.
         The @creation_datetime and @is_default fields will also be ignored and set as the current time and false respectively.
+        The @skill_profile_category will be associated with the created program node.
         Required permissions:
         NONE
         Errors:
         - grpc.Invalid: parameters in the @req are invalid for the org making the request.
+        - grpc.NotFound: the @skill_profile_category does not exist.
         - grpc.Internal: error occurs when creating the new scenario, or any of the node entities.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
