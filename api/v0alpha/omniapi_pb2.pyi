@@ -729,18 +729,20 @@ class CreateProjectRes(_message.Message):
     def __init__(self, project: _Optional[_Union[Project, _Mapping]] = ..., reference_id: _Optional[str] = ...) -> None: ...
 
 class Project(_message.Message):
-    __slots__ = ["project_sid", "name", "description", "status", "date_created"]
+    __slots__ = ["project_sid", "name", "description", "status", "date_created", "compliance_config"]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    COMPLIANCE_CONFIG_FIELD_NUMBER: _ClassVar[int]
     project_sid: int
     name: str
     description: str
     status: _omnichannel_pb2.ProjectStatus
     date_created: _timestamp_pb2.Timestamp
-    def __init__(self, project_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., status: _Optional[_Union[_omnichannel_pb2.ProjectStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    compliance_config: _omnichannel_pb2.OmniProjectComplianceConfig
+    def __init__(self, project_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., status: _Optional[_Union[_omnichannel_pb2.ProjectStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., compliance_config: _Optional[_Union[_omnichannel_pb2.OmniProjectComplianceConfig, _Mapping]] = ...) -> None: ...
 
 class ListProjectsReq(_message.Message):
     __slots__ = []
