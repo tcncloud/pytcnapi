@@ -369,6 +369,11 @@ class P3ApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_p3api__pb2.CreateContactFieldDescriptionReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_p3api__pb2.CreateContactFieldDescriptionRes.FromString,
                 )
+        self.UpdateContactFieldDescription = channel.unary_unary(
+                '/api.v0alpha.P3Api/UpdateContactFieldDescription',
+                request_serializer=api_dot_v0alpha_dot_p3api__pb2.UpdateContactFieldDescriptionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_p3api__pb2.UpdateContactFieldDescriptionRes.FromString,
+                )
         self.DeleteContactFieldDescription = channel.unary_unary(
                 '/api.v0alpha.P3Api/DeleteContactFieldDescription',
                 request_serializer=api_dot_v0alpha_dot_p3api__pb2.DeleteContactFieldDescriptionReq.SerializeToString,
@@ -1069,6 +1074,13 @@ class P3ApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateContactFieldDescription(self, request, context):
+        """Update contact field description details
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteContactFieldDescription(self, request, context):
         """Delete contact field description details
         """
@@ -1672,6 +1684,11 @@ def add_P3ApiServicer_to_server(servicer, server):
                     servicer.CreateContactFieldDescription,
                     request_deserializer=api_dot_v0alpha_dot_p3api__pb2.CreateContactFieldDescriptionReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_p3api__pb2.CreateContactFieldDescriptionRes.SerializeToString,
+            ),
+            'UpdateContactFieldDescription': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateContactFieldDescription,
+                    request_deserializer=api_dot_v0alpha_dot_p3api__pb2.UpdateContactFieldDescriptionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_p3api__pb2.UpdateContactFieldDescriptionRes.SerializeToString,
             ),
             'DeleteContactFieldDescription': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteContactFieldDescription,
@@ -3017,6 +3034,23 @@ class P3Api(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.P3Api/CreateContactFieldDescription',
             api_dot_v0alpha_dot_p3api__pb2.CreateContactFieldDescriptionReq.SerializeToString,
             api_dot_v0alpha_dot_p3api__pb2.CreateContactFieldDescriptionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateContactFieldDescription(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.P3Api/UpdateContactFieldDescription',
+            api_dot_v0alpha_dot_p3api__pb2.UpdateContactFieldDescriptionReq.SerializeToString,
+            api_dot_v0alpha_dot_p3api__pb2.UpdateContactFieldDescriptionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
