@@ -29,6 +29,7 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_SOUNDBOARD_VIEW: _ClassVar[Permission]
     PERMISSION_SOUNDBOARD_EDIT: _ClassVar[Permission]
     PERMISSION_SUBSCRIPTION_MANAGEMENT: _ClassVar[Permission]
+    PERMISSION_COPY_TO_ORGANIZATION: _ClassVar[Permission]
     PERMISSION_CUSTOMER_SUPPORT: _ClassVar[Permission]
     PERMISSION_IMITATION: _ClassVar[Permission]
     PERMISSION_BILLING_EDIT: _ClassVar[Permission]
@@ -87,6 +88,7 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_WORKFLOWS: _ClassVar[Permission]
     PERMISSION_PBX_MANAGER_VIEW: _ClassVar[Permission]
     PERMISSION_PBX_MANAGER_EDIT: _ClassVar[Permission]
+    PERMISSION_NEWSROOM_VIEW: _ClassVar[Permission]
     PERMISSION_NEWSROOM_EDIT: _ClassVar[Permission]
     PERMISSION_NEWSROOM_PUBLISH: _ClassVar[Permission]
 PERMISSION_UNSPECIFIED: Permission
@@ -111,6 +113,7 @@ PERMISSION_HUNTGROUP_EDIT: Permission
 PERMISSION_SOUNDBOARD_VIEW: Permission
 PERMISSION_SOUNDBOARD_EDIT: Permission
 PERMISSION_SUBSCRIPTION_MANAGEMENT: Permission
+PERMISSION_COPY_TO_ORGANIZATION: Permission
 PERMISSION_CUSTOMER_SUPPORT: Permission
 PERMISSION_IMITATION: Permission
 PERMISSION_BILLING_EDIT: Permission
@@ -169,5 +172,6 @@ PERMISSION_TICKETS_ADMIN: Permission
 PERMISSION_WORKFLOWS: Permission
 PERMISSION_PBX_MANAGER_VIEW: Permission
 PERMISSION_PBX_MANAGER_EDIT: Permission
+PERMISSION_NEWSROOM_VIEW: Permission
 PERMISSION_NEWSROOM_EDIT: Permission
 PERMISSION_NEWSROOM_PUBLISH: Permission

@@ -2316,6 +2316,22 @@ class CreateContactFieldDescriptionRes(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
+class UpdateContactFieldDescriptionReq(_message.Message):
+    __slots__ = ["contact_field_description_sid", "field_name", "is_phone", "display_format_string"]
+    CONTACT_FIELD_DESCRIPTION_SID_FIELD_NUMBER: _ClassVar[int]
+    FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    IS_PHONE_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_FORMAT_STRING_FIELD_NUMBER: _ClassVar[int]
+    contact_field_description_sid: int
+    field_name: str
+    is_phone: bool
+    display_format_string: _wrappers_pb2.StringValue
+    def __init__(self, contact_field_description_sid: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
+
+class UpdateContactFieldDescriptionRes(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
 class DeleteContactFieldDescriptionReq(_message.Message):
     __slots__ = ["contact_field_description_sid"]
     CONTACT_FIELD_DESCRIPTION_SID_FIELD_NUMBER: _ClassVar[int]

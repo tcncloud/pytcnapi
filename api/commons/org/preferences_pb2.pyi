@@ -104,16 +104,20 @@ class ContactFieldDescription(_message.Message):
     def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[str] = ...) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
-    __slots__ = ["org_id", "authorization_via_ip", "allowed_ips", "agent_api_key"]
+    __slots__ = ["org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users"]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_IPS_FIELD_NUMBER: _ClassVar[int]
     AGENT_API_KEY_FIELD_NUMBER: _ClassVar[int]
+    ENABLE_2FA_FIELD_NUMBER: _ClassVar[int]
+    BLOCK_UNVERIFIED_USERS_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     authorization_via_ip: bool
     allowed_ips: _containers.RepeatedScalarFieldContainer[str]
     agent_api_key: str
-    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ...) -> None: ...
+    enable_2fa: bool
+    block_unverified_users: bool
+    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ...) -> None: ...
 
 class WebhookPreferences(_message.Message):
     __slots__ = ["org_id", "push_urls_enabled", "call_result_push_url", "agent_response_push_url"]
