@@ -51,6 +51,12 @@ class ConfigEntityType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SCHEDULING_ACTIVITY: _ClassVar[ConfigEntityType]
     SKILL_PROFICIENCY: _ClassVar[ConfigEntityType]
     SCHEDULE_SCENARIO: _ClassVar[ConfigEntityType]
+    SKILL: _ClassVar[ConfigEntityType]
+    TOUR_PATTERN: _ClassVar[ConfigEntityType]
+    TOUR_WEEK_PATTERN: _ClassVar[ConfigEntityType]
+    TOUR_SHIFT_INSTANCE_CONFIG: _ClassVar[ConfigEntityType]
+    TOUR_SHIFT_SEGMENT_CONFIG: _ClassVar[ConfigEntityType]
+    TOUR_AGENT_COLLECTION: _ClassVar[ConfigEntityType]
 
 class ConstraintRuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -236,6 +242,12 @@ OPEN_TIMES: ConfigEntityType
 SCHEDULING_ACTIVITY: ConfigEntityType
 SKILL_PROFICIENCY: ConfigEntityType
 SCHEDULE_SCENARIO: ConfigEntityType
+SKILL: ConfigEntityType
+TOUR_PATTERN: ConfigEntityType
+TOUR_WEEK_PATTERN: ConfigEntityType
+TOUR_SHIFT_INSTANCE_CONFIG: ConfigEntityType
+TOUR_SHIFT_SEGMENT_CONFIG: ConfigEntityType
+TOUR_AGENT_COLLECTION: ConfigEntityType
 MIN_CONSEC_ON: ConstraintRuleType
 MAX_CONSEC_ON: ConstraintRuleType
 MIN_CONSEC_OFF: ConstraintRuleType
