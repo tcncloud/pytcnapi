@@ -324,7 +324,7 @@ CAMPAIGN_DIRECTION_INBOUND: CampaignDirection
 CAMPAIGN_DIRECTION_OUTBOUND: CampaignDirection
 
 class OmniCampaign(_message.Message):
-    __slots__ = ["campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url"]
+    __slots__ = ["campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url", "compliance_config"]
     CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -338,6 +338,7 @@ class OmniCampaign(_message.Message):
     MODULES_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     SHORTEN_URL_FIELD_NUMBER: _ClassVar[int]
+    COMPLIANCE_CONFIG_FIELD_NUMBER: _ClassVar[int]
     campaign_sid: int
     name: str
     description: str
@@ -351,7 +352,8 @@ class OmniCampaign(_message.Message):
     modules: _containers.RepeatedCompositeFieldContainer[OmniCampaignModule]
     time_zone: _org_pb2.TimeZoneWrapper
     shorten_url: bool
-    def __init__(self, campaign_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[OmniCampaignStatus, str]] = ..., channel_type: _Optional[_Union[ChannelType, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., project_sid: _Optional[int] = ..., modules: _Optional[_Iterable[_Union[OmniCampaignModule, _Mapping]]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., shorten_url: bool = ...) -> None: ...
+    compliance_config: OmniComplianceConfig
+    def __init__(self, campaign_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[OmniCampaignStatus, str]] = ..., channel_type: _Optional[_Union[ChannelType, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., project_sid: _Optional[int] = ..., modules: _Optional[_Iterable[_Union[OmniCampaignModule, _Mapping]]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., shorten_url: bool = ..., compliance_config: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ...) -> None: ...
 
 class OmniCampaignModule(_message.Message):
     __slots__ = ["campaign_module_sid", "campaign_sid", "module_type", "status", "config", "date_created", "date_modified", "scheduled_stop_date", "actual_stop_date", "hours_of_operation", "details", "attachments"]
@@ -1160,3 +1162,35 @@ class Signature(_message.Message):
     name: str
     description: str
     def __init__(self, signature_sid: _Optional[int] = ..., signature: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class OmniProjectComplianceConfig(_message.Message):
+    __slots__ = ["email", "sms"]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    SMS_FIELD_NUMBER: _ClassVar[int]
+    email: OmniComplianceConfig
+    sms: OmniComplianceConfig
+    def __init__(self, email: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., sms: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ...) -> None: ...
+
+class OmniComplianceAction(_message.Message):
+    __slots__ = ["keywords", "confirmation_message"]
+    KEYWORDS_FIELD_NUMBER: _ClassVar[int]
+    CONFIRMATION_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    keywords: _containers.RepeatedScalarFieldContainer[str]
+    confirmation_message: str
+    def __init__(self, keywords: _Optional[_Iterable[str]] = ..., confirmation_message: _Optional[str] = ...) -> None: ...
+
+class OmniComplianceConfig(_message.Message):
+    __slots__ = ["opt_in", "opt_out", "help", "information", "scrub_list_id", "rule_set_id"]
+    OPT_IN_FIELD_NUMBER: _ClassVar[int]
+    OPT_OUT_FIELD_NUMBER: _ClassVar[int]
+    HELP_FIELD_NUMBER: _ClassVar[int]
+    INFORMATION_FIELD_NUMBER: _ClassVar[int]
+    SCRUB_LIST_ID_FIELD_NUMBER: _ClassVar[int]
+    RULE_SET_ID_FIELD_NUMBER: _ClassVar[int]
+    opt_in: OmniComplianceAction
+    opt_out: OmniComplianceAction
+    help: OmniComplianceAction
+    information: OmniComplianceAction
+    scrub_list_id: str
+    rule_set_id: _wrappers_pb2.StringValue
+    def __init__(self, opt_in: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., opt_out: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., help: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., information: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., scrub_list_id: _Optional[str] = ..., rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
