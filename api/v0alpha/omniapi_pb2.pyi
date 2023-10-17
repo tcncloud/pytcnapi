@@ -713,12 +713,14 @@ class UpdateSignatureRes(_message.Message):
     def __init__(self, signature: _Optional[_Union[_omnichannel_pb2.Signature, _Mapping]] = ...) -> None: ...
 
 class CreateProjectReq(_message.Message):
-    __slots__ = ["name", "description"]
+    __slots__ = ["name", "description", "compliance_config"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    COMPLIANCE_CONFIG_FIELD_NUMBER: _ClassVar[int]
     name: str
     description: str
-    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    compliance_config: _omnichannel_pb2.OmniProjectComplianceConfig
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., compliance_config: _Optional[_Union[_omnichannel_pb2.OmniProjectComplianceConfig, _Mapping]] = ...) -> None: ...
 
 class CreateProjectRes(_message.Message):
     __slots__ = ["project", "reference_id"]
