@@ -51,6 +51,12 @@ class ConfigEntityType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SCHEDULING_ACTIVITY: _ClassVar[ConfigEntityType]
     SKILL_PROFICIENCY: _ClassVar[ConfigEntityType]
     SCHEDULE_SCENARIO: _ClassVar[ConfigEntityType]
+    SKILL: _ClassVar[ConfigEntityType]
+    TOUR_PATTERN: _ClassVar[ConfigEntityType]
+    TOUR_WEEK_PATTERN: _ClassVar[ConfigEntityType]
+    TOUR_SHIFT_INSTANCE_CONFIG: _ClassVar[ConfigEntityType]
+    TOUR_SHIFT_SEGMENT_CONFIG: _ClassVar[ConfigEntityType]
+    TOUR_AGENT_COLLECTION: _ClassVar[ConfigEntityType]
 
 class ConstraintRuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -236,6 +242,12 @@ OPEN_TIMES: ConfigEntityType
 SCHEDULING_ACTIVITY: ConfigEntityType
 SKILL_PROFICIENCY: ConfigEntityType
 SCHEDULE_SCENARIO: ConfigEntityType
+SKILL: ConfigEntityType
+TOUR_PATTERN: ConfigEntityType
+TOUR_WEEK_PATTERN: ConfigEntityType
+TOUR_SHIFT_INSTANCE_CONFIG: ConfigEntityType
+TOUR_SHIFT_SEGMENT_CONFIG: ConfigEntityType
+TOUR_AGENT_COLLECTION: ConfigEntityType
 MIN_CONSEC_ON: ConstraintRuleType
 MAX_CONSEC_ON: ConstraintRuleType
 MIN_CONSEC_OFF: ConstraintRuleType
@@ -549,3 +561,19 @@ class SkillProfileCategory(_message.Message):
     skill_profile_category_sid: int
     skill_profile_category_type: SkillProfileCategory.CategoryType
     def __init__(self, skill_profile_category_sid: _Optional[int] = ..., skill_profile_category_type: _Optional[_Union[SkillProfileCategory.CategoryType, str]] = ...) -> None: ...
+
+class SchedulingResultMetric(_message.Message):
+    __slots__ = ["total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result"]
+    TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
+    COVERAGE_FIELD_NUMBER: _ClassVar[int]
+    ROOT_MEAN_SQUARE_FIELD_NUMBER: _ClassVar[int]
+    HAS_RESULT_FIELD_NUMBER: _ClassVar[int]
+    total_internal_intervals: int
+    total_intervals_with_fte_required: int
+    total_intervals_with_ftes_remaining: int
+    coverage: float
+    root_mean_square: float
+    has_result: bool
+    def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ...) -> None: ...
