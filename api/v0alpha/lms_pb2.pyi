@@ -2468,3 +2468,9 @@ class EntityURL(_message.Message):
     entity_type: EpicEntityType
     url: str
     def __init__(self, entity_type: _Optional[_Union[EpicEntityType, str]] = ..., url: _Optional[str] = ...) -> None: ...
+
+class TestingBytes(_message.Message):
+    __slots__ = ["test"]
+    TEST_FIELD_NUMBER: _ClassVar[int]
+    test: bytes
+    def __init__(self, test: _Optional[bytes] = ...) -> None: ...

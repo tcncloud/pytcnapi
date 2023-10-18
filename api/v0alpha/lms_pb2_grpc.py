@@ -290,6 +290,11 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.CjsSecureSearchCriteria.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.TestByteField = channel.unary_unary(
+                '/api.v0alpha.LMS/TestByteField',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.TestingBytes.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
         self.GetQueuedEventsStatusByElementId = channel.unary_unary(
                 '/api.v0alpha.LMS/GetQueuedEventsStatusByElementId',
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
@@ -650,6 +655,12 @@ class LMSServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TestByteField(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetQueuedEventsStatusByElementId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -932,6 +943,11 @@ def add_LMSServicer_to_server(servicer, server):
             'UpdateCjsSecureSearchCriteria': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateCjsSecureSearchCriteria,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.CjsSecureSearchCriteria.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'TestByteField': grpc.unary_unary_rpc_method_handler(
+                    servicer.TestByteField,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.TestingBytes.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
             'GetQueuedEventsStatusByElementId': grpc.unary_unary_rpc_method_handler(
@@ -1880,6 +1896,23 @@ class LMS(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/UpdateCjsSecureSearchCriteria',
             api_dot_v0alpha_dot_lms__pb2.CjsSecureSearchCriteria.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TestByteField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/TestByteField',
+            api_dot_v0alpha_dot_lms__pb2.TestingBytes.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
