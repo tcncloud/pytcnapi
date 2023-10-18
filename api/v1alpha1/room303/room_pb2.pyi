@@ -1,5 +1,6 @@
 from api.commons import room303_pb2 as _room303_pb2
 from api.commons import user_pb2 as _user_pb2
+from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -8,14 +9,16 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateRoomRequest(_message.Message):
-    __slots__ = ["name", "type", "members"]
+    __slots__ = ["name", "type", "members", "config"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     MEMBERS_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
     name: str
     type: _room303_pb2.RoomType
     members: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_room303_pb2.RoomType, str]] = ..., members: _Optional[_Iterable[str]] = ...) -> None: ...
+    config: _room303_pb2.RoomConfig
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_room303_pb2.RoomType, str]] = ..., members: _Optional[_Iterable[str]] = ..., config: _Optional[_Union[_room303_pb2.RoomConfig, _Mapping]] = ...) -> None: ...
 
 class GetRoomRequest(_message.Message):
     __slots__ = ["room_id"]
@@ -70,3 +73,13 @@ class UserDetails(_message.Message):
     first_name: str
     last_name: str
     def __init__(self, user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
+
+class UpdateRoomConfigRequest(_message.Message):
+    __slots__ = ["room_id", "config", "field_mask"]
+    ROOM_ID_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    room_id: str
+    config: _room303_pb2.RoomConfig
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, room_id: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.RoomConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
