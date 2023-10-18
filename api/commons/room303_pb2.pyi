@@ -58,7 +58,7 @@ class Member(_message.Message):
     def __init__(self, user_sid: _Optional[_Union[UserSid, _Mapping]] = ..., added_by: _Optional[_Union[UserSid, _Mapping]] = ..., added_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., room_id: _Optional[str] = ..., admin: bool = ...) -> None: ...
 
 class Room(_message.Message):
-    __slots__ = ["org_id", "room_id", "type", "created_at", "updated_at", "status", "id", "display_name", "config"]
+    __slots__ = ["org_id", "room_id", "type", "created_at", "updated_at", "status", "id", "display_name"]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -67,7 +67,6 @@ class Room(_message.Message):
     STATUS_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
-    CONFIG_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     room_id: str
     type: RoomType
@@ -76,8 +75,7 @@ class Room(_message.Message):
     status: RoomStatus
     id: str
     display_name: str
-    config: str
-    def __init__(self, org_id: _Optional[str] = ..., room_id: _Optional[str] = ..., type: _Optional[_Union[RoomType, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[RoomStatus, str]] = ..., id: _Optional[str] = ..., display_name: _Optional[str] = ..., config: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., room_id: _Optional[str] = ..., type: _Optional[_Union[RoomType, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[RoomStatus, str]] = ..., id: _Optional[str] = ..., display_name: _Optional[str] = ...) -> None: ...
 
 class Message(_message.Message):
     __slots__ = ["org_id", "message_id", "room_id", "from_user", "status", "received_at", "updated_at", "payload", "unread", "nonce"]

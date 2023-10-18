@@ -122,11 +122,6 @@ class Room303APIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesResponse.FromString,
                 )
-        self.EditRoomConfig = channel.unary_unary(
-                '/api.v1alpha1.room303.Room303API/EditRoomConfig',
-                request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.EditRoomConfigRequest.SerializeToString,
-                response_deserializer=api_dot_commons_dot_room303__pb2.Room.FromString,
-                )
 
 
 class Room303APIServicer(object):
@@ -278,13 +273,6 @@ class Room303APIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def EditRoomConfig(self, request, context):
-        """allow room configurations to be edited
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_Room303APIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -392,11 +380,6 @@ def add_Room303APIServicer_to_server(servicer, server):
                     servicer.ListUsersNames,
                     request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesResponse.SerializeToString,
-            ),
-            'EditRoomConfig': grpc.unary_unary_rpc_method_handler(
-                    servicer.EditRoomConfig,
-                    request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.EditRoomConfigRequest.FromString,
-                    response_serializer=api_dot_commons_dot_room303__pb2.Room.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -762,22 +745,5 @@ class Room303API(object):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.room303.Room303API/ListUsersNames',
             api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesRequest.SerializeToString,
             api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def EditRoomConfig(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/EditRoomConfig',
-            api_dot_v1alpha1_dot_room303_dot_room__pb2.EditRoomConfigRequest.SerializeToString,
-            api_dot_commons_dot_room303__pb2.Room.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

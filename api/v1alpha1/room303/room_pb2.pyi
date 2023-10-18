@@ -8,16 +8,14 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateRoomRequest(_message.Message):
-    __slots__ = ["name", "type", "members", "config"]
+    __slots__ = ["name", "type", "members"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     MEMBERS_FIELD_NUMBER: _ClassVar[int]
-    CONFIG_FIELD_NUMBER: _ClassVar[int]
     name: str
     type: _room303_pb2.RoomType
     members: _containers.RepeatedScalarFieldContainer[str]
-    config: str
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_room303_pb2.RoomType, str]] = ..., members: _Optional[_Iterable[str]] = ..., config: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_room303_pb2.RoomType, str]] = ..., members: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetRoomRequest(_message.Message):
     __slots__ = ["room_id"]
@@ -72,11 +70,3 @@ class UserDetails(_message.Message):
     first_name: str
     last_name: str
     def __init__(self, user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
-
-class EditRoomConfigRequest(_message.Message):
-    __slots__ = ["room_id", "config"]
-    ROOM_ID_FIELD_NUMBER: _ClassVar[int]
-    CONFIG_FIELD_NUMBER: _ClassVar[int]
-    room_id: str
-    config: str
-    def __init__(self, room_id: _Optional[str] = ..., config: _Optional[str] = ...) -> None: ...
