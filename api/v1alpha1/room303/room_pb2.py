@@ -15,7 +15,7 @@ from api.commons import room303_pb2 as api_dot_commons_dot_room303__pb2
 from api.commons import user_pb2 as api_dot_commons_dot_user__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/room303/room.proto\x12\x14\x61pi.v1alpha1.room303\x1a\x19\x61pi/commons/room303.proto\x1a\x16\x61pi/commons/user.proto\"l\n\x11\x43reateRoomRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12)\n\x04type\x18\x02 \x01(\x0e\x32\x15.api.commons.RoomTypeR\x04type\x12\x18\n\x07members\x18\x03 \x03(\tR\x07members\")\n\x0eGetRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x15\n\x13ListAllRoomsRequest\"\x1b\n\x19ListRoomsForMemberRequest\"<\n\x11ListRoomsResponse\x12\'\n\x05rooms\x18\x01 \x03(\x0b\x32\x11.api.commons.RoomR\x05rooms\"-\n\x12\x41rchiveRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x93\x01\n\x15ListUsersNamesRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x14\n\x05\x61gent\x18\x02 \x01(\x08R\x05\x61gent\x12M\n\x0f\x61rchived_filter\x18\x03 \x01(\x0e\x32$.api.commons.UserArchivedStateFilterR\x0e\x61rchivedFilter\"^\n\x16ListUsersNamesResponse\x12\x44\n\x0cuser_details\x18\x01 \x03(\x0b\x32!.api.v1alpha1.room303.UserDetailsR\x0buserDetails\"\x7f\n\x0bUserDetails\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x1b\n\tuser_name\x18\x02 \x01(\tR\x08userName\x12\x1d\n\nfirst_name\x18\x03 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x04 \x01(\tR\x08lastNameB\x97\x01\n\x18\x63om.api.v1alpha1.room303B\tRoomProtoP\x01\xa2\x02\x03\x41VR\xaa\x02\x14\x41pi.V1alpha1.Room303\xca\x02\x14\x41pi\\V1alpha1\\Room303\xe2\x02 Api\\V1alpha1\\Room303\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Room303b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/room303/room.proto\x12\x14\x61pi.v1alpha1.room303\x1a\x19\x61pi/commons/room303.proto\x1a\x16\x61pi/commons/user.proto\"\x84\x01\n\x11\x43reateRoomRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12)\n\x04type\x18\x02 \x01(\x0e\x32\x15.api.commons.RoomTypeR\x04type\x12\x18\n\x07members\x18\x03 \x03(\tR\x07members\x12\x16\n\x06\x63onfig\x18\x04 \x01(\tR\x06\x63onfig\")\n\x0eGetRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x15\n\x13ListAllRoomsRequest\"\x1b\n\x19ListRoomsForMemberRequest\"<\n\x11ListRoomsResponse\x12\'\n\x05rooms\x18\x01 \x03(\x0b\x32\x11.api.commons.RoomR\x05rooms\"-\n\x12\x41rchiveRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x93\x01\n\x15ListUsersNamesRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x14\n\x05\x61gent\x18\x02 \x01(\x08R\x05\x61gent\x12M\n\x0f\x61rchived_filter\x18\x03 \x01(\x0e\x32$.api.commons.UserArchivedStateFilterR\x0e\x61rchivedFilter\"^\n\x16ListUsersNamesResponse\x12\x44\n\x0cuser_details\x18\x01 \x03(\x0b\x32!.api.v1alpha1.room303.UserDetailsR\x0buserDetails\"\x7f\n\x0bUserDetails\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x1b\n\tuser_name\x18\x02 \x01(\tR\x08userName\x12\x1d\n\nfirst_name\x18\x03 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x04 \x01(\tR\x08lastName\"H\n\x15\x45\x64itRoomConfigRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\x12\x16\n\x06\x63onfig\x18\x02 \x01(\tR\x06\x63onfigB\x97\x01\n\x18\x63om.api.v1alpha1.room303B\tRoomProtoP\x01\xa2\x02\x03\x41VR\xaa\x02\x14\x41pi.V1alpha1.Room303\xca\x02\x14\x41pi\\V1alpha1\\Room303\xe2\x02 Api\\V1alpha1\\Room303\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Room303b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -23,22 +23,24 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.room303.room_p
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\030com.api.v1alpha1.room303B\tRoomProtoP\001\242\002\003AVR\252\002\024Api.V1alpha1.Room303\312\002\024Api\\V1alpha1\\Room303\342\002 Api\\V1alpha1\\Room303\\GPBMetadata\352\002\026Api::V1alpha1::Room303'
-  _globals['_CREATEROOMREQUEST']._serialized_start=108
-  _globals['_CREATEROOMREQUEST']._serialized_end=216
-  _globals['_GETROOMREQUEST']._serialized_start=218
-  _globals['_GETROOMREQUEST']._serialized_end=259
-  _globals['_LISTALLROOMSREQUEST']._serialized_start=261
-  _globals['_LISTALLROOMSREQUEST']._serialized_end=282
-  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_start=284
-  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_end=311
-  _globals['_LISTROOMSRESPONSE']._serialized_start=313
-  _globals['_LISTROOMSRESPONSE']._serialized_end=373
-  _globals['_ARCHIVEROOMREQUEST']._serialized_start=375
-  _globals['_ARCHIVEROOMREQUEST']._serialized_end=420
-  _globals['_LISTUSERSNAMESREQUEST']._serialized_start=423
-  _globals['_LISTUSERSNAMESREQUEST']._serialized_end=570
-  _globals['_LISTUSERSNAMESRESPONSE']._serialized_start=572
-  _globals['_LISTUSERSNAMESRESPONSE']._serialized_end=666
-  _globals['_USERDETAILS']._serialized_start=668
-  _globals['_USERDETAILS']._serialized_end=795
+  _globals['_CREATEROOMREQUEST']._serialized_start=109
+  _globals['_CREATEROOMREQUEST']._serialized_end=241
+  _globals['_GETROOMREQUEST']._serialized_start=243
+  _globals['_GETROOMREQUEST']._serialized_end=284
+  _globals['_LISTALLROOMSREQUEST']._serialized_start=286
+  _globals['_LISTALLROOMSREQUEST']._serialized_end=307
+  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_start=309
+  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_end=336
+  _globals['_LISTROOMSRESPONSE']._serialized_start=338
+  _globals['_LISTROOMSRESPONSE']._serialized_end=398
+  _globals['_ARCHIVEROOMREQUEST']._serialized_start=400
+  _globals['_ARCHIVEROOMREQUEST']._serialized_end=445
+  _globals['_LISTUSERSNAMESREQUEST']._serialized_start=448
+  _globals['_LISTUSERSNAMESREQUEST']._serialized_end=595
+  _globals['_LISTUSERSNAMESRESPONSE']._serialized_start=597
+  _globals['_LISTUSERSNAMESRESPONSE']._serialized_end=691
+  _globals['_USERDETAILS']._serialized_start=693
+  _globals['_USERDETAILS']._serialized_end=820
+  _globals['_EDITROOMCONFIGREQUEST']._serialized_start=822
+  _globals['_EDITROOMCONFIGREQUEST']._serialized_end=894
 # @@protoc_insertion_point(module_scope)
