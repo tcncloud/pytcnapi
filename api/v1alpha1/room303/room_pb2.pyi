@@ -9,16 +9,14 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateRoomRequest(_message.Message):
-    __slots__ = ["name", "type", "members", "config"]
+    __slots__ = ["name", "type", "members"]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     MEMBERS_FIELD_NUMBER: _ClassVar[int]
-    CONFIG_FIELD_NUMBER: _ClassVar[int]
     name: str
     type: _room303_pb2.RoomType
     members: _containers.RepeatedScalarFieldContainer[str]
-    config: _room303_pb2.RoomConfig
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_room303_pb2.RoomType, str]] = ..., members: _Optional[_Iterable[str]] = ..., config: _Optional[_Union[_room303_pb2.RoomConfig, _Mapping]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_room303_pb2.RoomType, str]] = ..., members: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetRoomRequest(_message.Message):
     __slots__ = ["room_id"]
@@ -83,3 +81,29 @@ class UpdateRoomConfigRequest(_message.Message):
     config: _room303_pb2.RoomConfig
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, room_id: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.RoomConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateGlobalConfigRequest(_message.Message):
+    __slots__ = ["config", "field_mask"]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    config: _room303_pb2.GlobalConfig
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateGlobalConfigResponse(_message.Message):
+    __slots__ = ["config"]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    config: _room303_pb2.GlobalConfig
+    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ...) -> None: ...
+
+class GetGlobalConfigRequest(_message.Message):
+    __slots__ = ["config"]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    config: _room303_pb2.GlobalConfig
+    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ...) -> None: ...
+
+class GetGlobalConfigResponse(_message.Message):
+    __slots__ = ["config"]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    config: _room303_pb2.GlobalConfig
+    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ...) -> None: ...

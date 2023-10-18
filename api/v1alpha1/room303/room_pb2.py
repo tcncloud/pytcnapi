@@ -16,7 +16,7 @@ from api.commons import user_pb2 as api_dot_commons_dot_user__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/room303/room.proto\x12\x14\x61pi.v1alpha1.room303\x1a\x19\x61pi/commons/room303.proto\x1a\x16\x61pi/commons/user.proto\x1a google/protobuf/field_mask.proto\"\x9d\x01\n\x11\x43reateRoomRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12)\n\x04type\x18\x02 \x01(\x0e\x32\x15.api.commons.RoomTypeR\x04type\x12\x18\n\x07members\x18\x03 \x03(\tR\x07members\x12/\n\x06\x63onfig\x18\x04 \x01(\x0b\x32\x17.api.commons.RoomConfigR\x06\x63onfig\")\n\x0eGetRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x15\n\x13ListAllRoomsRequest\"\x1b\n\x19ListRoomsForMemberRequest\"<\n\x11ListRoomsResponse\x12\'\n\x05rooms\x18\x01 \x03(\x0b\x32\x11.api.commons.RoomR\x05rooms\"-\n\x12\x41rchiveRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x93\x01\n\x15ListUsersNamesRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x14\n\x05\x61gent\x18\x02 \x01(\x08R\x05\x61gent\x12M\n\x0f\x61rchived_filter\x18\x03 \x01(\x0e\x32$.api.commons.UserArchivedStateFilterR\x0e\x61rchivedFilter\"^\n\x16ListUsersNamesResponse\x12\x44\n\x0cuser_details\x18\x01 \x03(\x0b\x32!.api.v1alpha1.room303.UserDetailsR\x0buserDetails\"\x7f\n\x0bUserDetails\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x1b\n\tuser_name\x18\x02 \x01(\tR\x08userName\x12\x1d\n\nfirst_name\x18\x03 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x04 \x01(\tR\x08lastName\"\x9e\x01\n\x17UpdateRoomConfigRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\x12/\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.api.commons.RoomConfigR\x06\x63onfig\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMaskB\x97\x01\n\x18\x63om.api.v1alpha1.room303B\tRoomProtoP\x01\xa2\x02\x03\x41VR\xaa\x02\x14\x41pi.V1alpha1.Room303\xca\x02\x14\x41pi\\V1alpha1\\Room303\xe2\x02 Api\\V1alpha1\\Room303\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Room303b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/v1alpha1/room303/room.proto\x12\x14\x61pi.v1alpha1.room303\x1a\x19\x61pi/commons/room303.proto\x1a\x16\x61pi/commons/user.proto\x1a google/protobuf/field_mask.proto\"l\n\x11\x43reateRoomRequest\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12)\n\x04type\x18\x02 \x01(\x0e\x32\x15.api.commons.RoomTypeR\x04type\x12\x18\n\x07members\x18\x03 \x03(\tR\x07members\")\n\x0eGetRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x15\n\x13ListAllRoomsRequest\"\x1b\n\x19ListRoomsForMemberRequest\"<\n\x11ListRoomsResponse\x12\'\n\x05rooms\x18\x01 \x03(\x0b\x32\x11.api.commons.RoomR\x05rooms\"-\n\x12\x41rchiveRoomRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\"\x93\x01\n\x15ListUsersNamesRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x14\n\x05\x61gent\x18\x02 \x01(\x08R\x05\x61gent\x12M\n\x0f\x61rchived_filter\x18\x03 \x01(\x0e\x32$.api.commons.UserArchivedStateFilterR\x0e\x61rchivedFilter\"^\n\x16ListUsersNamesResponse\x12\x44\n\x0cuser_details\x18\x01 \x03(\x0b\x32!.api.v1alpha1.room303.UserDetailsR\x0buserDetails\"\x7f\n\x0bUserDetails\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\x12\x1b\n\tuser_name\x18\x02 \x01(\tR\x08userName\x12\x1d\n\nfirst_name\x18\x03 \x01(\tR\tfirstName\x12\x1b\n\tlast_name\x18\x04 \x01(\tR\x08lastName\"\x9e\x01\n\x17UpdateRoomConfigRequest\x12\x17\n\x07room_id\x18\x01 \x01(\tR\x06roomId\x12/\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x17.api.commons.RoomConfigR\x06\x63onfig\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"\x89\x01\n\x19UpdateGlobalConfigRequest\x12\x31\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x19.api.commons.GlobalConfigR\x06\x63onfig\x12\x39\n\nfield_mask\x18\x64 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"O\n\x1aUpdateGlobalConfigResponse\x12\x31\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x19.api.commons.GlobalConfigR\x06\x63onfig\"K\n\x16GetGlobalConfigRequest\x12\x31\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x19.api.commons.GlobalConfigR\x06\x63onfig\"L\n\x17GetGlobalConfigResponse\x12\x31\n\x06\x63onfig\x18\x01 \x01(\x0b\x32\x19.api.commons.GlobalConfigR\x06\x63onfigB\x97\x01\n\x18\x63om.api.v1alpha1.room303B\tRoomProtoP\x01\xa2\x02\x03\x41VR\xaa\x02\x14\x41pi.V1alpha1.Room303\xca\x02\x14\x41pi\\V1alpha1\\Room303\xe2\x02 Api\\V1alpha1\\Room303\\GPBMetadata\xea\x02\x16\x41pi::V1alpha1::Room303b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,24 +24,32 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.room303.room_p
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\030com.api.v1alpha1.room303B\tRoomProtoP\001\242\002\003AVR\252\002\024Api.V1alpha1.Room303\312\002\024Api\\V1alpha1\\Room303\342\002 Api\\V1alpha1\\Room303\\GPBMetadata\352\002\026Api::V1alpha1::Room303'
-  _globals['_CREATEROOMREQUEST']._serialized_start=143
-  _globals['_CREATEROOMREQUEST']._serialized_end=300
-  _globals['_GETROOMREQUEST']._serialized_start=302
-  _globals['_GETROOMREQUEST']._serialized_end=343
-  _globals['_LISTALLROOMSREQUEST']._serialized_start=345
-  _globals['_LISTALLROOMSREQUEST']._serialized_end=366
-  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_start=368
-  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_end=395
-  _globals['_LISTROOMSRESPONSE']._serialized_start=397
-  _globals['_LISTROOMSRESPONSE']._serialized_end=457
-  _globals['_ARCHIVEROOMREQUEST']._serialized_start=459
-  _globals['_ARCHIVEROOMREQUEST']._serialized_end=504
-  _globals['_LISTUSERSNAMESREQUEST']._serialized_start=507
-  _globals['_LISTUSERSNAMESREQUEST']._serialized_end=654
-  _globals['_LISTUSERSNAMESRESPONSE']._serialized_start=656
-  _globals['_LISTUSERSNAMESRESPONSE']._serialized_end=750
-  _globals['_USERDETAILS']._serialized_start=752
-  _globals['_USERDETAILS']._serialized_end=879
-  _globals['_UPDATEROOMCONFIGREQUEST']._serialized_start=882
-  _globals['_UPDATEROOMCONFIGREQUEST']._serialized_end=1040
+  _globals['_CREATEROOMREQUEST']._serialized_start=142
+  _globals['_CREATEROOMREQUEST']._serialized_end=250
+  _globals['_GETROOMREQUEST']._serialized_start=252
+  _globals['_GETROOMREQUEST']._serialized_end=293
+  _globals['_LISTALLROOMSREQUEST']._serialized_start=295
+  _globals['_LISTALLROOMSREQUEST']._serialized_end=316
+  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_start=318
+  _globals['_LISTROOMSFORMEMBERREQUEST']._serialized_end=345
+  _globals['_LISTROOMSRESPONSE']._serialized_start=347
+  _globals['_LISTROOMSRESPONSE']._serialized_end=407
+  _globals['_ARCHIVEROOMREQUEST']._serialized_start=409
+  _globals['_ARCHIVEROOMREQUEST']._serialized_end=454
+  _globals['_LISTUSERSNAMESREQUEST']._serialized_start=457
+  _globals['_LISTUSERSNAMESREQUEST']._serialized_end=604
+  _globals['_LISTUSERSNAMESRESPONSE']._serialized_start=606
+  _globals['_LISTUSERSNAMESRESPONSE']._serialized_end=700
+  _globals['_USERDETAILS']._serialized_start=702
+  _globals['_USERDETAILS']._serialized_end=829
+  _globals['_UPDATEROOMCONFIGREQUEST']._serialized_start=832
+  _globals['_UPDATEROOMCONFIGREQUEST']._serialized_end=990
+  _globals['_UPDATEGLOBALCONFIGREQUEST']._serialized_start=993
+  _globals['_UPDATEGLOBALCONFIGREQUEST']._serialized_end=1130
+  _globals['_UPDATEGLOBALCONFIGRESPONSE']._serialized_start=1132
+  _globals['_UPDATEGLOBALCONFIGRESPONSE']._serialized_end=1211
+  _globals['_GETGLOBALCONFIGREQUEST']._serialized_start=1213
+  _globals['_GETGLOBALCONFIGREQUEST']._serialized_end=1288
+  _globals['_GETGLOBALCONFIGRESPONSE']._serialized_start=1290
+  _globals['_GETGLOBALCONFIGRESPONSE']._serialized_end=1366
 # @@protoc_insertion_point(module_scope)

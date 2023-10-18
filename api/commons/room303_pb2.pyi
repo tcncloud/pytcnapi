@@ -23,6 +23,12 @@ class RoomStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROOM_STATUS_ACTIVE: _ClassVar[RoomStatus]
     ROOM_STATUS_ARCHIVED: _ClassVar[RoomStatus]
     ROOM_STATUS_DELETED: _ClassVar[RoomStatus]
+
+class ConfigPermissionOptions(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = []
+    LIMITED: _ClassVar[ConfigPermissionOptions]
+    ROOM303_MEMBER: _ClassVar[ConfigPermissionOptions]
+    ROOM303_SUPERVISOR: _ClassVar[ConfigPermissionOptions]
 ROOM_TYPE_DIRECT: RoomType
 ROOM_TYPE_MULTI: RoomType
 ROOM_TYPE_SYSTEM: RoomType
@@ -32,6 +38,9 @@ MESSAGE_STATUS_ARCHIVED: MessageStatus
 ROOM_STATUS_ACTIVE: RoomStatus
 ROOM_STATUS_ARCHIVED: RoomStatus
 ROOM_STATUS_DELETED: RoomStatus
+LIMITED: ConfigPermissionOptions
+ROOM303_MEMBER: ConfigPermissionOptions
+ROOM303_SUPERVISOR: ConfigPermissionOptions
 
 class UserSid(_message.Message):
     __slots__ = ["user_id", "full_name", "display_name"]
@@ -126,3 +135,15 @@ class RoomConfig(_message.Message):
     promote_to_admin: str
     archive: str
     def __init__(self, read_messages: _Optional[str] = ..., send_message: _Optional[str] = ..., add_member: _Optional[str] = ..., remove_member: _Optional[str] = ..., promote_to_admin: _Optional[str] = ..., archive: _Optional[str] = ...) -> None: ...
+
+class GlobalConfig(_message.Message):
+    __slots__ = ["create_room", "join_existing_rooms", "send_message_to_supervisors", "send_message_to_non_supervisors"]
+    CREATE_ROOM_FIELD_NUMBER: _ClassVar[int]
+    JOIN_EXISTING_ROOMS_FIELD_NUMBER: _ClassVar[int]
+    SEND_MESSAGE_TO_SUPERVISORS_FIELD_NUMBER: _ClassVar[int]
+    SEND_MESSAGE_TO_NON_SUPERVISORS_FIELD_NUMBER: _ClassVar[int]
+    create_room: ConfigPermissionOptions
+    join_existing_rooms: ConfigPermissionOptions
+    send_message_to_supervisors: ConfigPermissionOptions
+    send_message_to_non_supervisors: ConfigPermissionOptions
+    def __init__(self, create_room: _Optional[_Union[ConfigPermissionOptions, str]] = ..., join_existing_rooms: _Optional[_Union[ConfigPermissionOptions, str]] = ..., send_message_to_supervisors: _Optional[_Union[ConfigPermissionOptions, str]] = ..., send_message_to_non_supervisors: _Optional[_Union[ConfigPermissionOptions, str]] = ...) -> None: ...
