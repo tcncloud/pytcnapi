@@ -97,10 +97,8 @@ class UpdateGlobalConfigResponse(_message.Message):
     def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ...) -> None: ...
 
 class GetGlobalConfigRequest(_message.Message):
-    __slots__ = ["config"]
-    CONFIG_FIELD_NUMBER: _ClassVar[int]
-    config: _room303_pb2.GlobalConfig
-    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ...) -> None: ...
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class GetGlobalConfigResponse(_message.Message):
     __slots__ = ["config"]
