@@ -24,11 +24,11 @@ class RoomStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROOM_STATUS_ARCHIVED: _ClassVar[RoomStatus]
     ROOM_STATUS_DELETED: _ClassVar[RoomStatus]
 
-class ConfigPermissionOptions(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+class ConfigPermissionEnum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
-    LIMITED: _ClassVar[ConfigPermissionOptions]
-    ROOM303_MEMBER: _ClassVar[ConfigPermissionOptions]
-    ROOM303_SUPERVISOR: _ClassVar[ConfigPermissionOptions]
+    LIMITED: _ClassVar[ConfigPermissionEnum]
+    ROOM303_MEMBER: _ClassVar[ConfigPermissionEnum]
+    ROOM303_SUPERVISOR: _ClassVar[ConfigPermissionEnum]
 ROOM_TYPE_DIRECT: RoomType
 ROOM_TYPE_MULTI: RoomType
 ROOM_TYPE_SYSTEM: RoomType
@@ -38,9 +38,9 @@ MESSAGE_STATUS_ARCHIVED: MessageStatus
 ROOM_STATUS_ACTIVE: RoomStatus
 ROOM_STATUS_ARCHIVED: RoomStatus
 ROOM_STATUS_DELETED: RoomStatus
-LIMITED: ConfigPermissionOptions
-ROOM303_MEMBER: ConfigPermissionOptions
-ROOM303_SUPERVISOR: ConfigPermissionOptions
+LIMITED: ConfigPermissionEnum
+ROOM303_MEMBER: ConfigPermissionEnum
+ROOM303_SUPERVISOR: ConfigPermissionEnum
 
 class UserSid(_message.Message):
     __slots__ = ["user_id", "full_name", "display_name"]
@@ -120,30 +120,30 @@ class MessageStat(_message.Message):
     unread_messages: int
     def __init__(self, room_id: _Optional[str] = ..., unread_messages: _Optional[int] = ...) -> None: ...
 
+class GlobalConfig(_message.Message):
+    __slots__ = ["create_room", "join_existing_room", "send_message_to_supervisor", "send_message_to_non_supervisor"]
+    CREATE_ROOM_FIELD_NUMBER: _ClassVar[int]
+    JOIN_EXISTING_ROOM_FIELD_NUMBER: _ClassVar[int]
+    SEND_MESSAGE_TO_SUPERVISOR_FIELD_NUMBER: _ClassVar[int]
+    SEND_MESSAGE_TO_NON_SUPERVISOR_FIELD_NUMBER: _ClassVar[int]
+    create_room: ConfigPermissionEnum
+    join_existing_room: ConfigPermissionEnum
+    send_message_to_supervisor: ConfigPermissionEnum
+    send_message_to_non_supervisor: ConfigPermissionEnum
+    def __init__(self, create_room: _Optional[_Union[ConfigPermissionEnum, str]] = ..., join_existing_room: _Optional[_Union[ConfigPermissionEnum, str]] = ..., send_message_to_supervisor: _Optional[_Union[ConfigPermissionEnum, str]] = ..., send_message_to_non_supervisor: _Optional[_Union[ConfigPermissionEnum, str]] = ...) -> None: ...
+
 class RoomConfig(_message.Message):
-    __slots__ = ["read_messages", "send_message", "add_member", "remove_member", "promote_to_admin", "archive"]
+    __slots__ = ["add_user", "remove_user", "promote_to_admin", "read_messages", "send_message", "archive_room"]
+    ADD_USER_FIELD_NUMBER: _ClassVar[int]
+    REMOVE_USER_FIELD_NUMBER: _ClassVar[int]
+    PROMOTE_TO_ADMIN_FIELD_NUMBER: _ClassVar[int]
     READ_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     SEND_MESSAGE_FIELD_NUMBER: _ClassVar[int]
-    ADD_MEMBER_FIELD_NUMBER: _ClassVar[int]
-    REMOVE_MEMBER_FIELD_NUMBER: _ClassVar[int]
-    PROMOTE_TO_ADMIN_FIELD_NUMBER: _ClassVar[int]
-    ARCHIVE_FIELD_NUMBER: _ClassVar[int]
-    read_messages: str
-    send_message: str
-    add_member: str
-    remove_member: str
-    promote_to_admin: str
-    archive: str
-    def __init__(self, read_messages: _Optional[str] = ..., send_message: _Optional[str] = ..., add_member: _Optional[str] = ..., remove_member: _Optional[str] = ..., promote_to_admin: _Optional[str] = ..., archive: _Optional[str] = ...) -> None: ...
-
-class GlobalConfig(_message.Message):
-    __slots__ = ["create_room", "join_existing_rooms", "send_message_to_supervisors", "send_message_to_non_supervisors"]
-    CREATE_ROOM_FIELD_NUMBER: _ClassVar[int]
-    JOIN_EXISTING_ROOMS_FIELD_NUMBER: _ClassVar[int]
-    SEND_MESSAGE_TO_SUPERVISORS_FIELD_NUMBER: _ClassVar[int]
-    SEND_MESSAGE_TO_NON_SUPERVISORS_FIELD_NUMBER: _ClassVar[int]
-    create_room: ConfigPermissionOptions
-    join_existing_rooms: ConfigPermissionOptions
-    send_message_to_supervisors: ConfigPermissionOptions
-    send_message_to_non_supervisors: ConfigPermissionOptions
-    def __init__(self, create_room: _Optional[_Union[ConfigPermissionOptions, str]] = ..., join_existing_rooms: _Optional[_Union[ConfigPermissionOptions, str]] = ..., send_message_to_supervisors: _Optional[_Union[ConfigPermissionOptions, str]] = ..., send_message_to_non_supervisors: _Optional[_Union[ConfigPermissionOptions, str]] = ...) -> None: ...
+    ARCHIVE_ROOM_FIELD_NUMBER: _ClassVar[int]
+    add_user: ConfigPermissionEnum
+    remove_user: ConfigPermissionEnum
+    promote_to_admin: ConfigPermissionEnum
+    read_messages: ConfigPermissionEnum
+    send_message: ConfigPermissionEnum
+    archive_room: ConfigPermissionEnum
+    def __init__(self, add_user: _Optional[_Union[ConfigPermissionEnum, str]] = ..., remove_user: _Optional[_Union[ConfigPermissionEnum, str]] = ..., promote_to_admin: _Optional[_Union[ConfigPermissionEnum, str]] = ..., read_messages: _Optional[_Union[ConfigPermissionEnum, str]] = ..., send_message: _Optional[_Union[ConfigPermissionEnum, str]] = ..., archive_room: _Optional[_Union[ConfigPermissionEnum, str]] = ...) -> None: ...
