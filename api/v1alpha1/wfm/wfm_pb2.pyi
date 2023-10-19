@@ -1548,14 +1548,14 @@ class ListShiftTemplatesBySidsRes(_message.Message):
     def __init__(self, shift_templates: _Optional[_Iterable[_Union[ShiftTemplate, _Mapping]]] = ...) -> None: ...
 
 class BuildShiftTemplateDiagnosticsReq(_message.Message):
-    __slots__ = ["shift_template_sid", "schedule_scenario_sid", "parent_program_node"]
+    __slots__ = ["shift_template_sid", "schedule_scenario_sid", "parent_program_node_sid"]
     SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
-    PARENT_PROGRAM_NODE_FIELD_NUMBER: _ClassVar[int]
+    PARENT_PROGRAM_NODE_SID_FIELD_NUMBER: _ClassVar[int]
     shift_template_sid: int
     schedule_scenario_sid: int
-    parent_program_node: ProgramNode
-    def __init__(self, shift_template_sid: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., parent_program_node: _Optional[_Union[ProgramNode, _Mapping]] = ...) -> None: ...
+    parent_program_node_sid: int
+    def __init__(self, shift_template_sid: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., parent_program_node_sid: _Optional[int] = ...) -> None: ...
 
 class BuildShiftTemplateDiagnosticsRes(_message.Message):
     __slots__ = ["diagnostics"]
