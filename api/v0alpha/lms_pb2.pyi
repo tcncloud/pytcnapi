@@ -2472,5 +2472,5 @@ class EntityURL(_message.Message):
 class TestingBytes(_message.Message):
     __slots__ = ["test"]
     TEST_FIELD_NUMBER: _ClassVar[int]
-    test: bytes
-    def __init__(self, test: _Optional[bytes] = ...) -> None: ...
+    test: str
+    def __init__(self, test: _Optional[str] = ...) -> None: ...
