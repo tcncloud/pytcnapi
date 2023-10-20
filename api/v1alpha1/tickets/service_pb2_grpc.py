@@ -146,6 +146,11 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketTemplateRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketTemplateResponse.FromString,
                 )
+        self.EditTicketTemplate = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/EditTicketTemplate',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateResponse.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -336,6 +341,13 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def EditTicketTemplate(self, request, context):
+        """Public method to change the Status of a ticket
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -468,6 +480,11 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.CreateTicketTemplate,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketTemplateRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketTemplateResponse.SerializeToString,
+            ),
+            'EditTicketTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.EditTicketTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -919,5 +936,22 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/CreateTicketTemplate',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketTemplateRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateTicketTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EditTicketTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/EditTicketTemplate',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
