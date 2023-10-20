@@ -34,6 +34,11 @@ class IntegrationsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.GetIntegrationTransactionReportDataReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.GetIntegrationTransactionReportDataRes.FromString,
                 )
+        self.SearchPastTransactions = channel.unary_unary(
+                '/api.v1alpha1.integrations.Integrations/SearchPastTransactions',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.SearchPastTransactionsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.SearchPastTransactionsResponse.FromString,
+                )
         self.GetAggregatedMetadata = channel.unary_unary(
                 '/api.v1alpha1.integrations.Integrations/GetAggregatedMetadata',
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.GetAggregatedMetadataReq.SerializeToString,
@@ -165,6 +170,12 @@ class IntegrationsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetIntegrationTransactionReportData(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SearchPastTransactions(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -342,6 +353,11 @@ def add_IntegrationsServicer_to_server(servicer, server):
                     servicer.GetIntegrationTransactionReportData,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.GetIntegrationTransactionReportDataReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.GetIntegrationTransactionReportDataRes.SerializeToString,
+            ),
+            'SearchPastTransactions': grpc.unary_unary_rpc_method_handler(
+                    servicer.SearchPastTransactions,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.SearchPastTransactionsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.SearchPastTransactionsResponse.SerializeToString,
             ),
             'GetAggregatedMetadata': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAggregatedMetadata,
@@ -523,6 +539,23 @@ class Integrations(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/GetIntegrationTransactionReportData',
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.GetIntegrationTransactionReportDataReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.GetIntegrationTransactionReportDataRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SearchPastTransactions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/SearchPastTransactions',
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.SearchPastTransactionsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.SearchPastTransactionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

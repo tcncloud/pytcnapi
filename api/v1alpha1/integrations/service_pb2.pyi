@@ -105,6 +105,59 @@ class ProcessRes(_message.Message):
     transaction_id: str
     def __init__(self, result: bool = ..., data: _Optional[_Mapping[str, Value]] = ..., integration: _Optional[str] = ..., method: _Optional[str] = ..., transaction_id: _Optional[str] = ...) -> None: ...
 
+class SearchPastTransactionsRequest(_message.Message):
+    __slots__ = ["plugin_instance_id", "int_id", "method_id", "match_fields", "limit", "search_before"]
+    class MatchFieldsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
+    INT_ID_FIELD_NUMBER: _ClassVar[int]
+    METHOD_ID_FIELD_NUMBER: _ClassVar[int]
+    MATCH_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    LIMIT_FIELD_NUMBER: _ClassVar[int]
+    SEARCH_BEFORE_FIELD_NUMBER: _ClassVar[int]
+    plugin_instance_id: str
+    int_id: _integrations_pb2.IntegrationType
+    method_id: _integrations_pb2.RequestMethod
+    match_fields: _containers.ScalarMap[str, str]
+    limit: int
+    search_before: _timestamp_pb2.Timestamp
+    def __init__(self, plugin_instance_id: _Optional[str] = ..., int_id: _Optional[_Union[_integrations_pb2.IntegrationType, str]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., match_fields: _Optional[_Mapping[str, str]] = ..., limit: _Optional[int] = ..., search_before: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class SearchPastTransactionsResponse(_message.Message):
+    __slots__ = ["values"]
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.RepeatedCompositeFieldContainer[PastTxEntity]
+    def __init__(self, values: _Optional[_Iterable[_Union[PastTxEntity, _Mapping]]] = ...) -> None: ...
+
+class PastTxEntity(_message.Message):
+    __slots__ = ["req", "res", "created_on"]
+    class ReqEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class ResEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    REQ_FIELD_NUMBER: _ClassVar[int]
+    RES_FIELD_NUMBER: _ClassVar[int]
+    CREATED_ON_FIELD_NUMBER: _ClassVar[int]
+    req: _containers.ScalarMap[str, str]
+    res: _containers.ScalarMap[str, str]
+    created_on: _timestamp_pb2.Timestamp
+    def __init__(self, req: _Optional[_Mapping[str, str]] = ..., res: _Optional[_Mapping[str, str]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
 class ListIntegrationsForOrgReq(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
