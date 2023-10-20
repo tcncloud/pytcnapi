@@ -77,6 +77,80 @@ class Ticket(_message.Message):
     ticket_participant: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, ticket_sid: _Optional[int] = ..., project_sid: _Optional[int] = ..., project_title: _Optional[str] = ..., ticket_code: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., org_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee_list: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., assignee: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[TicketAction, _Mapping]]] = ..., ticket_status: _Optional[_Union[TicketStatus, str]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., ticket_participant: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class TemplateCondition(_message.Message):
+    __slots__ = ["is_mandatory", "is_editable"]
+    IS_MANDATORY_FIELD_NUMBER: _ClassVar[int]
+    IS_EDITABLE_FIELD_NUMBER: _ClassVar[int]
+    is_mandatory: bool
+    is_editable: bool
+    def __init__(self, is_mandatory: bool = ..., is_editable: bool = ...) -> None: ...
+
+class TicketTemplate(_message.Message):
+    __slots__ = ["ticket_template_id", "template_name", "teplate_start_date", "teplate_end_date", "ticket_title", "ticket_description", "title_condition", "description_condition", "ticket_assignee", "assignee_condition", "ticket_sla", "ticket_sla_condition", "action_type", "action_skills", "action_skills_condition", "action_start_date", "action_start_date_condition", "action_expiry_date", "action_expiry_date_condition", "action_sla", "action_sla_condition", "is_valid", "callback_default", "created_by_id", "created_date"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    TEPLATE_START_DATE_FIELD_NUMBER: _ClassVar[int]
+    TEPLATE_END_DATE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_TITLE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TITLE_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    TICKET_ASSIGNEE_FIELD_NUMBER: _ClassVar[int]
+    ASSIGNEE_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    TICKET_SLA_FIELD_NUMBER: _ClassVar[int]
+    TICKET_SLA_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ACTION_SKILLS_FIELD_NUMBER: _ClassVar[int]
+    ACTION_SKILLS_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    ACTION_START_DATE_FIELD_NUMBER: _ClassVar[int]
+    ACTION_START_DATE_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    ACTION_EXPIRY_DATE_FIELD_NUMBER: _ClassVar[int]
+    ACTION_EXPIRY_DATE_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    ACTION_SLA_FIELD_NUMBER: _ClassVar[int]
+    ACTION_SLA_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    IS_VALID_FIELD_NUMBER: _ClassVar[int]
+    CALLBACK_DEFAULT_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    CREATED_DATE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    template_name: str
+    teplate_start_date: _timestamp_pb2.Timestamp
+    teplate_end_date: _timestamp_pb2.Timestamp
+    ticket_title: str
+    ticket_description: str
+    title_condition: TemplateCondition
+    description_condition: TemplateCondition
+    ticket_assignee: _containers.RepeatedScalarFieldContainer[str]
+    assignee_condition: TemplateCondition
+    ticket_sla: _containers.RepeatedCompositeFieldContainer[Sla]
+    ticket_sla_condition: TemplateCondition
+    action_type: str
+    action_skills: _containers.RepeatedCompositeFieldContainer[Skills]
+    action_skills_condition: TemplateCondition
+    action_start_date: _timestamp_pb2.Timestamp
+    action_start_date_condition: TemplateCondition
+    action_expiry_date: _timestamp_pb2.Timestamp
+    action_expiry_date_condition: TemplateCondition
+    action_sla: _containers.RepeatedCompositeFieldContainer[Sla]
+    action_sla_condition: TemplateCondition
+    is_valid: bool
+    callback_default: TicketCallbackTemplate
+    created_by_id: str
+    created_date: _timestamp_pb2.Timestamp
+    def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ..., teplate_start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., teplate_end_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_title: _Optional[str] = ..., ticket_description: _Optional[str] = ..., title_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., description_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., assignee_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., ticket_sla_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_type: _Optional[str] = ..., action_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., action_skills_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., action_start_date_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_expiry_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., action_expiry_date_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., action_sla_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., is_valid: bool = ..., callback_default: _Optional[_Union[TicketCallbackTemplate, _Mapping]] = ..., created_by_id: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class TicketCallbackTemplate(_message.Message):
+    __slots__ = ["caller_id", "caller_id_condition", "country_code", "country_code_condition"]
+    CALLER_ID_FIELD_NUMBER: _ClassVar[int]
+    CALLER_ID_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_CONDITION_FIELD_NUMBER: _ClassVar[int]
+    caller_id: str
+    caller_id_condition: TemplateCondition
+    country_code: str
+    country_code_condition: TemplateCondition
+    def __init__(self, caller_id: _Optional[str] = ..., caller_id_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., country_code: _Optional[str] = ..., country_code_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ...) -> None: ...
+
 class Duration(_message.Message):
     __slots__ = ["value", "scale"]
     VALUE_FIELD_NUMBER: _ClassVar[int]
