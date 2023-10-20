@@ -151,6 +151,16 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateResponse.FromString,
                 )
+        self.ListTicketTemplate = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/ListTicketTemplate',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketTemplateResponse.FromString,
+                )
+        self.AssignTicketTemplate = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/AssignTicketTemplate',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateResponse.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -348,6 +358,20 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListTicketTemplate(self, request, context):
+        """Public method to change the Status of a ticket
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AssignTicketTemplate(self, request, context):
+        """Public method to change the Status of a ticket
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -485,6 +509,16 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.EditTicketTemplate,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateResponse.SerializeToString,
+            ),
+            'ListTicketTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTicketTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketTemplateResponse.SerializeToString,
+            ),
+            'AssignTicketTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignTicketTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -953,5 +987,39 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/EditTicketTemplate',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditTicketTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTicketTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListTicketTemplate',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignTicketTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/AssignTicketTemplate',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -151,6 +151,40 @@ class TicketCallbackTemplate(_message.Message):
     country_code_condition: TemplateCondition
     def __init__(self, caller_id: _Optional[str] = ..., caller_id_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., country_code: _Optional[str] = ..., country_code_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ...) -> None: ...
 
+class ListTemplate(_message.Message):
+    __slots__ = ["ticket_template_id", "template_name", "project_sid", "project_code", "action_type", "is_valid", "created_by_id", "created_date"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_CODE_FIELD_NUMBER: _ClassVar[int]
+    ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    IS_VALID_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    CREATED_DATE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    template_name: str
+    project_sid: int
+    project_code: str
+    action_type: str
+    is_valid: bool
+    created_by_id: str
+    created_date: _timestamp_pb2.Timestamp
+    def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ..., project_sid: _Optional[int] = ..., project_code: _Optional[str] = ..., action_type: _Optional[str] = ..., is_valid: bool = ..., created_by_id: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class AssignProjectTemplate(_message.Message):
+    __slots__ = ["ticket_template_id", "template_name", "project_sid", "project_code", "action_type"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_CODE_FIELD_NUMBER: _ClassVar[int]
+    ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    template_name: str
+    project_sid: int
+    project_code: str
+    action_type: str
+    def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ..., project_sid: _Optional[int] = ..., project_code: _Optional[str] = ..., action_type: _Optional[str] = ...) -> None: ...
+
 class Duration(_message.Message):
     __slots__ = ["value", "scale"]
     VALUE_FIELD_NUMBER: _ClassVar[int]
