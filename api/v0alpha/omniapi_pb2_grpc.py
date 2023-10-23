@@ -134,6 +134,16 @@ class OmniApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersRes.FromString,
                 )
+        self.ApproveTask = channel.unary_unary(
+                '/api.v0alpha.OmniApi/ApproveTask',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ApproveTaskRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ApproveTaskResponse.FromString,
+                )
+        self.GetNextQueuedTask = channel.unary_unary(
+                '/api.v0alpha.OmniApi/GetNextQueuedTask',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetNextQueuedTaskRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetNextQueuedTaskResponse.FromString,
+                )
         self.GetTask = channel.unary_unary(
                 '/api.v0alpha.OmniApi/GetTask',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetTaskReq.SerializeToString,
@@ -143,6 +153,16 @@ class OmniApiStub(object):
                 '/api.v0alpha.OmniApi/ListTasks',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListTasksReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListTasksRes.FromString,
+                )
+        self.RejectTask = channel.unary_unary(
+                '/api.v0alpha.OmniApi/RejectTask',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.RejectTaskRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.RejectTaskResponse.FromString,
+                )
+        self.RequeueTask = channel.unary_unary(
+                '/api.v0alpha.OmniApi/RequeueTask',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.RequeueTaskRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.RequeueTaskResponse.FromString,
                 )
         self.CreateConnectedInbox = channel.unary_unary(
                 '/api.v0alpha.OmniApi/CreateConnectedInbox',
@@ -527,6 +547,20 @@ class OmniApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ApproveTask(self, request, context):
+        """ApproveTask approves a task.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetNextQueuedTask(self, request, context):
+        """GetNextQueuedTask retrieves the next queued task for the agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetTask(self, request, context):
         """GetTask - retrieves a task using the provided criteria
         Required permissions:
@@ -540,6 +574,20 @@ class OmniApiServicer(object):
         """ListTasks - retrieves tasks using the provided criteria
         Required permissions:
         OMNI_BOSS
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RejectTask(self, request, context):
+        """RejectTask rejects a task.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RequeueTask(self, request, context):
+        """RequeueTask requeues a task.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1060,6 +1108,16 @@ def add_OmniApiServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersRes.SerializeToString,
             ),
+            'ApproveTask': grpc.unary_unary_rpc_method_handler(
+                    servicer.ApproveTask,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ApproveTaskRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ApproveTaskResponse.SerializeToString,
+            ),
+            'GetNextQueuedTask': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetNextQueuedTask,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetNextQueuedTaskRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetNextQueuedTaskResponse.SerializeToString,
+            ),
             'GetTask': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTask,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetTaskReq.FromString,
@@ -1069,6 +1127,16 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.ListTasks,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListTasksReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListTasksRes.SerializeToString,
+            ),
+            'RejectTask': grpc.unary_unary_rpc_method_handler(
+                    servicer.RejectTask,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.RejectTaskRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.RejectTaskResponse.SerializeToString,
+            ),
+            'RequeueTask': grpc.unary_unary_rpc_method_handler(
+                    servicer.RequeueTask,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.RequeueTaskRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.RequeueTaskResponse.SerializeToString,
             ),
             'CreateConnectedInbox': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateConnectedInbox,
@@ -1675,6 +1743,40 @@ class OmniApi(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ApproveTask(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ApproveTask',
+            api_dot_v0alpha_dot_omniapi__pb2.ApproveTaskRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.ApproveTaskResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetNextQueuedTask(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/GetNextQueuedTask',
+            api_dot_v0alpha_dot_omniapi__pb2.GetNextQueuedTaskRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.GetNextQueuedTaskResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetTask(request,
             target,
             options=(),
@@ -1705,6 +1807,40 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ListTasks',
             api_dot_v0alpha_dot_omniapi__pb2.ListTasksReq.SerializeToString,
             api_dot_v0alpha_dot_omniapi__pb2.ListTasksRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RejectTask(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/RejectTask',
+            api_dot_v0alpha_dot_omniapi__pb2.RejectTaskRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.RejectTaskResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RequeueTask(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/RequeueTask',
+            api_dot_v0alpha_dot_omniapi__pb2.RequeueTaskRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.RequeueTaskResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
