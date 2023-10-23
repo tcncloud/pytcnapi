@@ -442,6 +442,28 @@ class HeaderGroup(_message.Message):
     headers: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, name: _Optional[str] = ..., headers: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class ApproveTaskRequest(_message.Message):
+    __slots__ = ["task_sid"]
+    TASK_SID_FIELD_NUMBER: _ClassVar[int]
+    task_sid: int
+    def __init__(self, task_sid: _Optional[int] = ...) -> None: ...
+
+class ApproveTaskResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class GetNextQueuedTaskRequest(_message.Message):
+    __slots__ = ["skills"]
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
+    skills: _omnichannel_pb2.OmniConversationSkills
+    def __init__(self, skills: _Optional[_Union[_omnichannel_pb2.OmniConversationSkills, _Mapping]] = ...) -> None: ...
+
+class GetNextQueuedTaskResponse(_message.Message):
+    __slots__ = ["task"]
+    TASK_FIELD_NUMBER: _ClassVar[int]
+    task: _omnichannel_pb2.OmniTask
+    def __init__(self, task: _Optional[_Union[_omnichannel_pb2.OmniTask, _Mapping]] = ...) -> None: ...
+
 class GetTaskReq(_message.Message):
     __slots__ = ["field_mask", "by_conversation"]
     class ByConversation(_message.Message):
@@ -479,6 +501,26 @@ class ListTasksRes(_message.Message):
     next_page_token: str
     tasks: _containers.RepeatedCompositeFieldContainer[_omnichannel_pb2.OmniTask]
     def __init__(self, next_page_token: _Optional[str] = ..., tasks: _Optional[_Iterable[_Union[_omnichannel_pb2.OmniTask, _Mapping]]] = ...) -> None: ...
+
+class RejectTaskRequest(_message.Message):
+    __slots__ = ["task_sid"]
+    TASK_SID_FIELD_NUMBER: _ClassVar[int]
+    task_sid: int
+    def __init__(self, task_sid: _Optional[int] = ...) -> None: ...
+
+class RejectTaskResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class RequeueTaskRequest(_message.Message):
+    __slots__ = ["task_sid"]
+    TASK_SID_FIELD_NUMBER: _ClassVar[int]
+    task_sid: int
+    def __init__(self, task_sid: _Optional[int] = ...) -> None: ...
+
+class RequeueTaskResponse(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
 
 class CreateConnectedInboxRes(_message.Message):
     __slots__ = ["connected_inbox_sid"]
