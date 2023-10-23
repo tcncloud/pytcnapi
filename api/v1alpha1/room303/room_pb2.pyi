@@ -1,6 +1,7 @@
 from api.commons import room303_pb2 as _room303_pb2
 from api.commons import user_pb2 as _user_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -91,17 +92,25 @@ class UpdateGlobalConfigRequest(_message.Message):
     def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateGlobalConfigResponse(_message.Message):
-    __slots__ = ["config"]
+    __slots__ = ["config", "edited_by", "last_edited"]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
+    EDITED_BY_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
     config: _room303_pb2.GlobalConfig
-    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ...) -> None: ...
+    edited_by: str
+    last_edited: _timestamp_pb2.Timestamp
+    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., edited_by: _Optional[str] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GetGlobalConfigRequest(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
 class GetGlobalConfigResponse(_message.Message):
-    __slots__ = ["config"]
+    __slots__ = ["config", "edited_by", "last_edited"]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
+    EDITED_BY_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
     config: _room303_pb2.GlobalConfig
-    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ...) -> None: ...
+    edited_by: str
+    last_edited: _timestamp_pb2.Timestamp
+    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., edited_by: _Optional[str] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
