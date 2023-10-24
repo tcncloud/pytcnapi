@@ -7,14 +7,16 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OmnichannelCreateProjectEvent(_message.Message):
-    __slots__ = ["client_sid", "name", "description"]
+    __slots__ = ["client_sid", "name", "description", "compliance_config"]
     CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    COMPLIANCE_CONFIG_FIELD_NUMBER: _ClassVar[int]
     client_sid: int
     name: str
     description: str
-    def __init__(self, client_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    compliance_config: _omnichannel_pb2.OmniProjectComplianceConfig
+    def __init__(self, client_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., compliance_config: _Optional[_Union[_omnichannel_pb2.OmniProjectComplianceConfig, _Mapping]] = ...) -> None: ...
 
 class OmnichannelCreateCampaignEvent(_message.Message):
     __slots__ = ["name", "description", "channel_type", "campaign_direction", "campaign_sid", "omni_campaign", "project_sid"]

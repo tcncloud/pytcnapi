@@ -1,5 +1,7 @@
 from api.commons import room303_pb2 as _room303_pb2
 from api.commons import user_pb2 as _user_pb2
+from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -70,3 +72,49 @@ class UserDetails(_message.Message):
     first_name: str
     last_name: str
     def __init__(self, user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
+
+class UpdateRoomConfigRequest(_message.Message):
+    __slots__ = ["room_id", "config", "field_mask"]
+    ROOM_ID_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    room_id: str
+    config: _room303_pb2.RoomConfig
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, room_id: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.RoomConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateGlobalConfigRequest(_message.Message):
+    __slots__ = ["config", "field_mask"]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    config: _room303_pb2.GlobalConfig
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateGlobalConfigResponse(_message.Message):
+    __slots__ = ["edited_by", "config", "date_created", "last_edited"]
+    EDITED_BY_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    edited_by: str
+    config: _room303_pb2.GlobalConfig
+    date_created: _timestamp_pb2.Timestamp
+    last_edited: _timestamp_pb2.Timestamp
+    def __init__(self, edited_by: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class GetGlobalConfigRequest(_message.Message):
+    __slots__ = []
+    def __init__(self) -> None: ...
+
+class GetGlobalConfigResponse(_message.Message):
+    __slots__ = ["edited_by", "config", "date_created", "last_edited"]
+    EDITED_BY_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    edited_by: str
+    config: _room303_pb2.GlobalConfig
+    date_created: _timestamp_pb2.Timestamp
+    last_edited: _timestamp_pb2.Timestamp
+    def __init__(self, edited_by: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
