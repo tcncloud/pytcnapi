@@ -122,6 +122,21 @@ class Room303APIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesResponse.FromString,
                 )
+        self.UpdateRoomConfig = channel.unary_unary(
+                '/api.v1alpha1.room303.Room303API/UpdateRoomConfig',
+                request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateRoomConfigRequest.SerializeToString,
+                response_deserializer=api_dot_commons_dot_room303__pb2.Room.FromString,
+                )
+        self.UpdateGlobalConfig = channel.unary_unary(
+                '/api.v1alpha1.room303.Room303API/UpdateGlobalConfig',
+                request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateGlobalConfigRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateGlobalConfigResponse.FromString,
+                )
+        self.GetGlobalConfig = channel.unary_unary(
+                '/api.v1alpha1.room303.Room303API/GetGlobalConfig',
+                request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigResponse.FromString,
+                )
 
 
 class Room303APIServicer(object):
@@ -273,6 +288,27 @@ class Room303APIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateRoomConfig(self, request, context):
+        """allow room configurations to be updated
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateGlobalConfig(self, request, context):
+        """update global configuration
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetGlobalConfig(self, request, context):
+        """get global configuration
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_Room303APIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -380,6 +416,21 @@ def add_Room303APIServicer_to_server(servicer, server):
                     servicer.ListUsersNames,
                     request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesResponse.SerializeToString,
+            ),
+            'UpdateRoomConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateRoomConfig,
+                    request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateRoomConfigRequest.FromString,
+                    response_serializer=api_dot_commons_dot_room303__pb2.Room.SerializeToString,
+            ),
+            'UpdateGlobalConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateGlobalConfig,
+                    request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateGlobalConfigRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateGlobalConfigResponse.SerializeToString,
+            ),
+            'GetGlobalConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetGlobalConfig,
+                    request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -745,5 +796,56 @@ class Room303API(object):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.room303.Room303API/ListUsersNames',
             api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesRequest.SerializeToString,
             api_dot_v1alpha1_dot_room303_dot_room__pb2.ListUsersNamesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateRoomConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/UpdateRoomConfig',
+            api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateRoomConfigRequest.SerializeToString,
+            api_dot_commons_dot_room303__pb2.Room.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateGlobalConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/UpdateGlobalConfig',
+            api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateGlobalConfigRequest.SerializeToString,
+            api_dot_v1alpha1_dot_room303_dot_room__pb2.UpdateGlobalConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetGlobalConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/GetGlobalConfig',
+            api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigRequest.SerializeToString,
+            api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
