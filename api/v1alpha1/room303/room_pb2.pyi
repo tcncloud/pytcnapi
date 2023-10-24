@@ -92,25 +92,29 @@ class UpdateGlobalConfigRequest(_message.Message):
     def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateGlobalConfigResponse(_message.Message):
-    __slots__ = ["config", "edited_by", "last_edited"]
-    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["edited_by", "config", "date_created", "last_edited"]
     EDITED_BY_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
-    config: _room303_pb2.GlobalConfig
     edited_by: str
+    config: _room303_pb2.GlobalConfig
+    date_created: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
-    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., edited_by: _Optional[str] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, edited_by: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GetGlobalConfigRequest(_message.Message):
     __slots__ = []
     def __init__(self) -> None: ...
 
 class GetGlobalConfigResponse(_message.Message):
-    __slots__ = ["config", "edited_by", "last_edited"]
-    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["edited_by", "config", "date_created", "last_edited"]
     EDITED_BY_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
-    config: _room303_pb2.GlobalConfig
     edited_by: str
+    config: _room303_pb2.GlobalConfig
+    date_created: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
-    def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., edited_by: _Optional[str] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, edited_by: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
