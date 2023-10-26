@@ -5,6 +5,7 @@ from api.commons import lms_pb2 as _lms_pb2
 from api.commons import perms_pb2 as _perms_pb2
 from api.commons import types_pb2 as _types_pb2
 from google.api import annotations_pb2 as _annotations_pb2
+from google.api import httpbody_pb2 as _httpbody_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -2468,3 +2469,9 @@ class EntityURL(_message.Message):
     entity_type: EpicEntityType
     url: str
     def __init__(self, entity_type: _Optional[_Union[EpicEntityType, str]] = ..., url: _Optional[str] = ...) -> None: ...
+
+class SampleRequest(_message.Message):
+    __slots__ = ["http_body"]
+    HTTP_BODY_FIELD_NUMBER: _ClassVar[int]
+    http_body: _httpbody_pb2.HttpBody
+    def __init__(self, http_body: _Optional[_Union[_httpbody_pb2.HttpBody, _Mapping]] = ...) -> None: ...
