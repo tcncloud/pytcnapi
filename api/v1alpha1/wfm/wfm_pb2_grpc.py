@@ -590,11 +590,6 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.FromString,
                 )
-        self.SplitShiftInstance = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/SplitShiftInstance',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceRes.FromString,
-                )
         self.SwapShiftInstances = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/SwapShiftInstances',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapShiftInstancesReq.SerializeToString,
@@ -2512,22 +2507,6 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SplitShiftInstance(self, request, context):
-        """Splits the @shift_instance_sid into two, at the given @time_to_split, returning the updated and new @shift_instances.
-        Any shift segments will be split between the two shift instances at @time_to_split.
-        If the @time_to_split creates instances shorter then the minimum length specified by the shift template,
-        warning diagnostics will be returned and the instance will still be split.
-        Required permissions:
-        NONE
-        Errors:
-        -grpc.Invalid: one or more fields in the request have invalid values, or @time_to_split is not at least 5 minutes from the start or end of @shift_instance_sid.
-        -grpc.NotFound: the @shift_instance_sid does't exist for the org sending the request.
-        -grpc.Internal: error occurs when creating or updating the shift instances.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def SwapShiftInstances(self, request, context):
         """Swaps shift instances with the given @shift_instance_sids that belong to @wfm_agent_sid1 to belong to @wfm_agent_sid2 (and viceversa).
         Returns the swapped @shift_instances after they are succesfully updated.
@@ -3610,11 +3589,6 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.CreateShiftInstanceV2,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.SerializeToString,
-            ),
-            'SplitShiftInstance': grpc.unary_unary_rpc_method_handler(
-                    servicer.SplitShiftInstance,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceRes.SerializeToString,
             ),
             'SwapShiftInstances': grpc.unary_unary_rpc_method_handler(
                     servicer.SwapShiftInstances,
@@ -5764,23 +5738,6 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateShiftInstanceV2',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SplitShiftInstance(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/SplitShiftInstance',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceReq.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
