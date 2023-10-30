@@ -2604,6 +2604,22 @@ class CreateShiftInstanceV2Res(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
+class SplitShiftInstanceReq(_message.Message):
+    __slots__ = ["shift_instance_sid", "time_to_split"]
+    SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
+    TIME_TO_SPLIT_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sid: int
+    time_to_split: _timestamp_pb2.Timestamp
+    def __init__(self, shift_instance_sid: _Optional[int] = ..., time_to_split: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class SplitShiftInstanceRes(_message.Message):
+    __slots__ = ["shift_instances", "diagnostics"]
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class SwapShiftInstancesReq(_message.Message):
     __slots__ = ["wfm_agent_sid1", "wfm_agent_sid2", "shift_instance_sids"]
     WFM_AGENT_SID1_FIELD_NUMBER: _ClassVar[int]
