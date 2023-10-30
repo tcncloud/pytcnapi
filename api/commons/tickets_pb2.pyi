@@ -86,11 +86,9 @@ class TemplateCondition(_message.Message):
     def __init__(self, is_mandatory: bool = ..., is_editable: bool = ...) -> None: ...
 
 class TicketTemplate(_message.Message):
-    __slots__ = ["ticket_template_id", "template_name", "template_start_date", "template_end_date", "ticket_title", "ticket_description", "title_condition", "description_condition", "ticket_assignee", "assignee_condition", "ticket_sla", "action_type", "action_skills", "action_skills_condition", "action_expiry_date", "action_expiry_date_condition", "action_sla", "is_valid", "callback_default", "created_by_id", "created_date", "ticket_callback_template_condition"]
+    __slots__ = ["ticket_template_id", "template_name", "ticket_title", "ticket_description", "title_condition", "description_condition", "ticket_assignee", "assignee_condition", "ticket_sla", "action_type", "action_skills", "action_skills_condition", "action_expiry_date", "action_expiry_date_condition", "action_sla", "is_valid", "callback_default", "created_by_id", "created_date", "ticket_callback_template_condition"]
     TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_NAME_FIELD_NUMBER: _ClassVar[int]
-    TEMPLATE_START_DATE_FIELD_NUMBER: _ClassVar[int]
-    TEMPLATE_END_DATE_FIELD_NUMBER: _ClassVar[int]
     TICKET_TITLE_FIELD_NUMBER: _ClassVar[int]
     TICKET_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     TITLE_CONDITION_FIELD_NUMBER: _ClassVar[int]
@@ -111,8 +109,6 @@ class TicketTemplate(_message.Message):
     TICKET_CALLBACK_TEMPLATE_CONDITION_FIELD_NUMBER: _ClassVar[int]
     ticket_template_id: int
     template_name: str
-    template_start_date: _timestamp_pb2.Timestamp
-    template_end_date: _timestamp_pb2.Timestamp
     ticket_title: str
     ticket_description: str
     title_condition: TemplateCondition
@@ -131,7 +127,7 @@ class TicketTemplate(_message.Message):
     created_by_id: str
     created_date: _timestamp_pb2.Timestamp
     ticket_callback_template_condition: TemplateCondition
-    def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ..., template_start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., template_end_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_title: _Optional[str] = ..., ticket_description: _Optional[str] = ..., title_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., description_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., assignee_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., action_type: _Optional[str] = ..., action_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., action_skills_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_expiry_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., action_expiry_date_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., is_valid: bool = ..., callback_default: _Optional[_Union[TicketCallbackTemplate, _Mapping]] = ..., created_by_id: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_callback_template_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ...) -> None: ...
+    def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ..., ticket_title: _Optional[str] = ..., ticket_description: _Optional[str] = ..., title_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., description_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., assignee_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., action_type: _Optional[str] = ..., action_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., action_skills_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_expiry_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., action_expiry_date_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ..., action_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., is_valid: bool = ..., callback_default: _Optional[_Union[TicketCallbackTemplate, _Mapping]] = ..., created_by_id: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_callback_template_condition: _Optional[_Union[TemplateCondition, _Mapping]] = ...) -> None: ...
 
 class TicketCallbackTemplate(_message.Message):
     __slots__ = ["caller_id", "country_code"]
