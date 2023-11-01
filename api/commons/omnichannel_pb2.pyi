@@ -28,7 +28,6 @@ class SmsNumberProvider(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PLIVO_PROVIDER: _ClassVar[SmsNumberProvider]
     APEIRON_PROVIDER: _ClassVar[SmsNumberProvider]
     AUSBURST_SMS_PROVIDER: _ClassVar[SmsNumberProvider]
-    MEDIASAT_SMS_PROVIDER: _ClassVar[SmsNumberProvider]
 
 class OmniCampaignModuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []
@@ -209,7 +208,6 @@ BURST_SMS_PROVIDER: SmsNumberProvider
 PLIVO_PROVIDER: SmsNumberProvider
 APEIRON_PROVIDER: SmsNumberProvider
 AUSBURST_SMS_PROVIDER: SmsNumberProvider
-MEDIASAT_SMS_PROVIDER: SmsNumberProvider
 MODULE_TYPE_INBOUND: OmniCampaignModuleType
 MODULE_TYPE_OUTBOUND: OmniCampaignModuleType
 MODULE_TYPE_MANUAL_APPROVAL: OmniCampaignModuleType
