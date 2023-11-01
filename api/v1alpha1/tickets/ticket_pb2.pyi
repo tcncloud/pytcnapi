@@ -91,8 +91,8 @@ class ListTicketTemplateResponse(_message.Message):
 class AssignProjectTemplateRequest(_message.Message):
     __slots__ = ["project_template"]
     PROJECT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
-    project_template: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.AssignProjectTemplate]
-    def __init__(self, project_template: _Optional[_Iterable[_Union[_tickets_pb2.AssignProjectTemplate, _Mapping]]] = ...) -> None: ...
+    project_template: _tickets_pb2.AssignProjectTemplate
+    def __init__(self, project_template: _Optional[_Union[_tickets_pb2.AssignProjectTemplate, _Mapping]] = ...) -> None: ...
 
 class AssignProjectTemplateResponse(_message.Message):
     __slots__ = ["is_assigned"]
