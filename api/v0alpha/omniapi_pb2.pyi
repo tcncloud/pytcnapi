@@ -453,10 +453,19 @@ class ApproveTaskResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetNextQueuedTaskRequest(_message.Message):
-    __slots__ = ["skills"]
+    __slots__ = ["skills", "agent_skills"]
+    class AgentSkillsEntry(_message.Message):
+        __slots__ = ["key", "value"]
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: int
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
     SKILLS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_SKILLS_FIELD_NUMBER: _ClassVar[int]
     skills: _omnichannel_pb2.OmniConversationSkills
-    def __init__(self, skills: _Optional[_Union[_omnichannel_pb2.OmniConversationSkills, _Mapping]] = ...) -> None: ...
+    agent_skills: _containers.ScalarMap[str, int]
+    def __init__(self, skills: _Optional[_Union[_omnichannel_pb2.OmniConversationSkills, _Mapping]] = ..., agent_skills: _Optional[_Mapping[str, int]] = ...) -> None: ...
 
 class GetNextQueuedTaskResponse(_message.Message):
     __slots__ = ["task"]
