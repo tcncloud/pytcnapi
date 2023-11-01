@@ -73,8 +73,14 @@ class EditTicketTemplateResponse(_message.Message):
     def __init__(self, is_edited: bool = ...) -> None: ...
 
 class ListTicketTemplateRequest(_message.Message):
-    __slots__ = []
-    def __init__(self) -> None: ...
+    __slots__ = ["ticket_template_id", "project_id", "request_mask"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_MASK_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    project_id: int
+    request_mask: _field_mask_pb2.FieldMask
+    def __init__(self, ticket_template_id: _Optional[int] = ..., project_id: _Optional[int] = ..., request_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class ListTicketTemplateResponse(_message.Message):
     __slots__ = ["enabled_templates"]
