@@ -593,7 +593,7 @@ class SchedulingResultMetric(_message.Message):
     has_result: bool
     def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ...) -> None: ...
 
-class ClientHistoryCache(_message.Message):
+class ClientHistoryCacheInfo(_message.Message):
     __slots__ = ("state", "progress_percentage")
     STATE_FIELD_NUMBER: _ClassVar[int]
     PROGRESS_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
