@@ -6,17 +6,17 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class InterruptedPeeringStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     InterruptPeeringStatus_MANUAL: _ClassVar[InterruptedPeeringStatus]
     InterruptPeeringStatus_PREVIEW: _ClassVar[InterruptedPeeringStatus]
 
 class RecalculateBillingMonth(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RECALCULATE_BILLING_MONTH_CURRENT: _ClassVar[RecalculateBillingMonth]
     RECALCULATE_BILLING_MONTH_PREVIOUS: _ClassVar[RecalculateBillingMonth]
 
 class RecalculateBillingType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RECALCULATE_BILLING_TYPE_OUTBOUND_CALLS: _ClassVar[RecalculateBillingType]
     RECALCULATE_BILLING_TYPE_INBOUND_CALLS: _ClassVar[RecalculateBillingType]
     RECALCULATE_BILLING_TYPE_AGENTS: _ClassVar[RecalculateBillingType]
@@ -25,12 +25,12 @@ class RecalculateBillingType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     RECALCULATE_BILLING_TYPE_MANUAL_DIAL_CALLS: _ClassVar[RecalculateBillingType]
 
 class PhoneBookSIPType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     PHONE_BOOK_SIP_TYPE_OUTBOUND: _ClassVar[PhoneBookSIPType]
     PHONE_BOOK_SIP_TYPE_TRANSFER: _ClassVar[PhoneBookSIPType]
 
 class PhoneBookPhoneNumberType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     PHONE_BOOK_PHONE_NUMBER_TYPE_CALLER_ID: _ClassVar[PhoneBookPhoneNumberType]
     PHONE_BOOK_PHONE_NUMBER_TYPE_OUTBOUND: _ClassVar[PhoneBookPhoneNumberType]
     PHONE_BOOK_PHONE_NUMBER_TYPE_TRANSFER: _ClassVar[PhoneBookPhoneNumberType]
@@ -51,7 +51,7 @@ PHONE_BOOK_PHONE_NUMBER_TYPE_OUTBOUND: PhoneBookPhoneNumberType
 PHONE_BOOK_PHONE_NUMBER_TYPE_TRANSFER: PhoneBookPhoneNumberType
 
 class ClientInfoDataRow(_message.Message):
-    __slots__ = ["field_label", "field_value", "is_phone", "dialed_number", "contact_field_description_sid"]
+    __slots__ = ("field_label", "field_value", "is_phone", "dialed_number", "contact_field_description_sid")
     FIELD_LABEL_FIELD_NUMBER: _ClassVar[int]
     FIELD_VALUE_FIELD_NUMBER: _ClassVar[int]
     IS_PHONE_FIELD_NUMBER: _ClassVar[int]
@@ -65,7 +65,7 @@ class ClientInfoDataRow(_message.Message):
     def __init__(self, field_label: _Optional[str] = ..., field_value: _Optional[str] = ..., is_phone: bool = ..., dialed_number: bool = ..., contact_field_description_sid: _Optional[int] = ...) -> None: ...
 
 class RGBColor(_message.Message):
-    __slots__ = ["red", "green", "blue"]
+    __slots__ = ("red", "green", "blue")
     RED_FIELD_NUMBER: _ClassVar[int]
     GREEN_FIELD_NUMBER: _ClassVar[int]
     BLUE_FIELD_NUMBER: _ClassVar[int]
@@ -75,7 +75,7 @@ class RGBColor(_message.Message):
     def __init__(self, red: _Optional[int] = ..., green: _Optional[int] = ..., blue: _Optional[int] = ...) -> None: ...
 
 class DialedNumberFieldSettings(_message.Message):
-    __slots__ = ["should_display", "color", "bg_color", "allow_agent_copy"]
+    __slots__ = ("should_display", "color", "bg_color", "allow_agent_copy")
     SHOULD_DISPLAY_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
     BG_COLOR_FIELD_NUMBER: _ClassVar[int]
@@ -87,7 +87,7 @@ class DialedNumberFieldSettings(_message.Message):
     def __init__(self, should_display: bool = ..., color: _Optional[_Union[RGBColor, _Mapping]] = ..., bg_color: _Optional[_Union[RGBColor, _Mapping]] = ..., allow_agent_copy: bool = ...) -> None: ...
 
 class ClientInfoDisplayTemplateRow(_message.Message):
-    __slots__ = ["field_label", "color", "bg_color", "contact_field_description_sid", "allow_agent_copy"]
+    __slots__ = ("field_label", "color", "bg_color", "contact_field_description_sid", "allow_agent_copy")
     FIELD_LABEL_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
     BG_COLOR_FIELD_NUMBER: _ClassVar[int]
@@ -101,9 +101,9 @@ class ClientInfoDisplayTemplateRow(_message.Message):
     def __init__(self, field_label: _Optional[str] = ..., color: _Optional[_Union[RGBColor, _Mapping]] = ..., bg_color: _Optional[_Union[RGBColor, _Mapping]] = ..., contact_field_description_sid: _Optional[int] = ..., allow_agent_copy: bool = ...) -> None: ...
 
 class CallHistorySearchType(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         STANDARD: _ClassVar[CallHistorySearchType.Enum]
         BY_ID: _ClassVar[CallHistorySearchType.Enum]
         BY_AGENT: _ClassVar[CallHistorySearchType.Enum]
@@ -113,9 +113,9 @@ class CallHistorySearchType(_message.Message):
     def __init__(self) -> None: ...
 
 class CallHistorySearchScope(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         ALL: _ClassVar[CallHistorySearchScope.Enum]
         TWENTY_FOUR_HOURS: _ClassVar[CallHistorySearchScope.Enum]
         TWO_DAYS: _ClassVar[CallHistorySearchScope.Enum]
@@ -143,9 +143,9 @@ class CallHistorySearchScope(_message.Message):
     def __init__(self) -> None: ...
 
 class ListPhoneBookOrderBy(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         PHONE_BOOK_SID: _ClassVar[ListPhoneBookOrderBy.Enum]
         ENTRY_TYPE: _ClassVar[ListPhoneBookOrderBy.Enum]
         ENTRY_NAME: _ClassVar[ListPhoneBookOrderBy.Enum]

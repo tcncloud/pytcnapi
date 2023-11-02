@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AnaTimeZone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ANA_TIME_ZONE_UNKNOWN: _ClassVar[AnaTimeZone]
     ANA_TIME_ZONE_AMERICA_ANCHORAGE: _ClassVar[AnaTimeZone]
     ANA_TIME_ZONE_AMERICA_CHICAGO: _ClassVar[AnaTimeZone]
@@ -53,21 +53,21 @@ class AnaTimeZone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ANA_TIME_ZONE_ETC_GREENWICH: _ClassVar[AnaTimeZone]
 
 class TimeFilterType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TIME_FILTER_TYPE_UNDEFINED: _ClassVar[TimeFilterType]
     TIME_FILTER_TYPE_QUICK: _ClassVar[TimeFilterType]
     TIME_FILTER_TYPE_ABSOLUTE: _ClassVar[TimeFilterType]
     TIME_FILTER_TYPE_RELATIVE: _ClassVar[TimeFilterType]
 
 class DashPageType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DASH_PAGE_TYPE_UNDEFINED: _ClassVar[DashPageType]
     DASH_PAGE_TYPE_DASHBOARD: _ClassVar[DashPageType]
     DASH_PAGE_TYPE_VISUALIZATION_LEGACY: _ClassVar[DashPageType]
     DASH_PAGE_TYPE_CHART: _ClassVar[DashPageType]
 
 class FilterBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FILTER_BY_UNDEFINED: _ClassVar[FilterBy]
     FILTER_BY_MINUTES: _ClassVar[FilterBy]
     FILTER_BY_HOURS: _ClassVar[FilterBy]
@@ -77,7 +77,7 @@ class FilterBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FILTER_BY_YEARS: _ClassVar[FilterBy]
 
 class WallaceDataType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     WALLACE_DATA_TYPE_UNDEFINED: _ClassVar[WallaceDataType]
     WALLACE_DATA_TYPE_KEYWORD: _ClassVar[WallaceDataType]
     WALLACE_DATA_TYPE_LONG: _ClassVar[WallaceDataType]
@@ -97,7 +97,7 @@ class WallaceDataType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     WALLACE_DATA_TYPE_DOUBLE_KEYWORD: _ClassVar[WallaceDataType]
 
 class TimeScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ONE_DAY: _ClassVar[TimeScope]
     ONE_WEEK: _ClassVar[TimeScope]
     ONE_MONTH: _ClassVar[TimeScope]
@@ -113,7 +113,7 @@ class TimeScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FOUR_HOURS: _ClassVar[TimeScope]
 
 class Tag(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TAG_ALL: _ClassVar[Tag]
     TAG_CUSTOM: _ClassVar[Tag]
     TAG_LEGACY: _ClassVar[Tag]
@@ -143,13 +143,13 @@ class Tag(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     P3_RJ_MISC_SCHEDULED_CALLBACK: _ClassVar[Tag]
 
 class CsvQuoteType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     NO_QUOTE_TYPE: _ClassVar[CsvQuoteType]
     SINGLE: _ClassVar[CsvQuoteType]
     DOUBLE: _ClassVar[CsvQuoteType]
 
 class StringComparison(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     STRING_EQ: _ClassVar[StringComparison]
     STRING_NEQ: _ClassVar[StringComparison]
     STRING_STARTS_WITH: _ClassVar[StringComparison]
@@ -162,7 +162,7 @@ class StringComparison(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     STRING_NOT_BLANK: _ClassVar[StringComparison]
 
 class FloatComparison(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FLOAT_EQ: _ClassVar[FloatComparison]
     FLOAT_NEQ: _ClassVar[FloatComparison]
     LT: _ClassVar[FloatComparison]
@@ -173,12 +173,12 @@ class FloatComparison(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FLOAT_NOT_BLANK: _ClassVar[FloatComparison]
 
 class BoolComparison(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     BOOL_EQ: _ClassVar[BoolComparison]
     BOOL_NEQ: _ClassVar[BoolComparison]
 
 class DateComparison(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DATE_COMPARISON_EQ: _ClassVar[DateComparison]
     DATE_COMPARISON_NEQ: _ClassVar[DateComparison]
     DATE_COMPARISON_LT: _ClassVar[DateComparison]
@@ -187,23 +187,23 @@ class DateComparison(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATE_COMPARISON_GTE: _ClassVar[DateComparison]
 
 class CompoundFilterJoin(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AND: _ClassVar[CompoundFilterJoin]
     OR: _ClassVar[CompoundFilterJoin]
 
 class AnaExportType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ANA_EXPORT_TYPE_EMAIL: _ClassVar[AnaExportType]
     ANA_EXPORT_TYPE_SFTP: _ClassVar[AnaExportType]
     ANA_EXPORT_TYPE_HTTPS: _ClassVar[AnaExportType]
 
 class ExporterDataSelectionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CHART_ID_SELECTION_TYPE: _ClassVar[ExporterDataSelectionType]
     CUSTOM_SELECTION_TYPE: _ClassVar[ExporterDataSelectionType]
 
 class NumericAggregation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FLOAT_AGGREGATION_TOP_HITS: _ClassVar[NumericAggregation]
     FLOAT_AGGREGATION_AVERAGE: _ClassVar[NumericAggregation]
     FLOAT_AGGREGATION_SUM: _ClassVar[NumericAggregation]
@@ -215,14 +215,14 @@ class NumericAggregation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FLOAT_AGGREGATION_NONE: _ClassVar[NumericAggregation]
 
 class NonNumericAggregation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     STRING_AGGREGATION_TOP_HITS: _ClassVar[NonNumericAggregation]
     STRING_AGGREGATION_TERMS: _ClassVar[NonNumericAggregation]
     STRING_AGGREGATION_COUNT: _ClassVar[NonNumericAggregation]
     STRING_AGGREGATION_NONE: _ClassVar[NonNumericAggregation]
 
 class Operation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     OPERATION_ADD: _ClassVar[Operation]
     OPERATION_SUBTRACT_LEFT: _ClassVar[Operation]
     OPERATION_SUBTRACT_RIGHT: _ClassVar[Operation]
@@ -231,18 +231,18 @@ class Operation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OPERATION_DIVIDE_RIGHT: _ClassVar[Operation]
 
 class CustomDataSeleciton(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CUSTOM_DATA_SELECTION_UKNOWN: _ClassVar[CustomDataSeleciton]
 
 class DataPointType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DATA_POINT_TYPE_NUMBER: _ClassVar[DataPointType]
     DATA_POINT_TYPE_STRING: _ClassVar[DataPointType]
     DATA_POINT_TYPE_BOOLEAN: _ClassVar[DataPointType]
     DATA_POINT_TYPE_DATE: _ClassVar[DataPointType]
 
 class ExportStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     NOT_SENT: _ClassVar[ExportStatus]
     SENT: _ClassVar[ExportStatus]
 ANA_TIME_ZONE_UNKNOWN: AnaTimeZone

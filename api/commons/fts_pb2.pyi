@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AppName(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     OUTSIDE: _ClassVar[AppName]
     LMS: _ClassVar[AppName]
     P3API: _ClassVar[AppName]

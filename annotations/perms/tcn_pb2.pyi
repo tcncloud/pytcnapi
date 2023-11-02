@@ -10,7 +10,7 @@ OPTIONS_FIELD_NUMBER: _ClassVar[int]
 options: _descriptor.FieldDescriptor
 
 class Tcn(_message.Message):
-    __slots__ = ["wip", "app", "card", "features"]
+    __slots__ = ("wip", "app", "card", "features")
     WIP_FIELD_NUMBER: _ClassVar[int]
     APP_FIELD_NUMBER: _ClassVar[int]
     CARD_FIELD_NUMBER: _ClassVar[int]

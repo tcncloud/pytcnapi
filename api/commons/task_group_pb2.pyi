@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TaskGroupStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TG_UNKNOWN: _ClassVar[TaskGroupStatus]
     TG_PREPARE: _ClassVar[TaskGroupStatus]
     TG_SCHEDULED: _ClassVar[TaskGroupStatus]

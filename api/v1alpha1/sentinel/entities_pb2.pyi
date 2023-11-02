@@ -8,15 +8,15 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SentinelEvent(_message.Message):
-    __slots__ = ["log_event"]
+    __slots__ = ("log_event",)
     LOG_EVENT_FIELD_NUMBER: _ClassVar[int]
     log_event: LogEvent
     def __init__(self, log_event: _Optional[_Union[LogEvent, _Mapping]] = ...) -> None: ...
 
 class LogEvent(_message.Message):
-    __slots__ = ["trace_id", "session_id", "message", "location", "stack_trace", "timestamp", "metadata", "severity"]
+    __slots__ = ("trace_id", "session_id", "message", "location", "stack_trace", "timestamp", "metadata", "severity")
     class MetadataEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -41,11 +41,11 @@ class LogEvent(_message.Message):
     def __init__(self, trace_id: _Optional[str] = ..., session_id: _Optional[str] = ..., message: _Optional[str] = ..., location: _Optional[str] = ..., stack_trace: _Optional[str] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Mapping[str, str]] = ..., severity: _Optional[_Union[_logging_pb2.Level, str]] = ...) -> None: ...
 
 class SendEventsReq(_message.Message):
-    __slots__ = ["events"]
+    __slots__ = ("events",)
     EVENTS_FIELD_NUMBER: _ClassVar[int]
     events: _containers.RepeatedCompositeFieldContainer[SentinelEvent]
     def __init__(self, events: _Optional[_Iterable[_Union[SentinelEvent, _Mapping]]] = ...) -> None: ...
 
 class SendEventsRes(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...

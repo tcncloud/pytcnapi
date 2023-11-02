@@ -6,9 +6,9 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AgentSessionStatus(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         UNKNOWN: _ClassVar[AgentSessionStatus.Enum]
         LOGGING_IN: _ClassVar[AgentSessionStatus.Enum]
         LOGGED_IN: _ClassVar[AgentSessionStatus.Enum]

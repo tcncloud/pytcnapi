@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateTransferConfigReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: TransferConfig
@@ -20,13 +20,13 @@ class CreateTransferConfigReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class CreateTransferConfigRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class ListTransferConfigsReq(_message.Message):
-    __slots__ = ["entity", "mask", "list_req"]
+    __slots__ = ("entity", "mask", "list_req")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     LIST_REQ_FIELD_NUMBER: _ClassVar[int]
@@ -36,13 +36,13 @@ class ListTransferConfigsReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., list_req: _Optional[_Union[ListReq, _Mapping]] = ...) -> None: ...
 
 class ListTransferConfigsRes(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[TransferConfig]
     def __init__(self, entities: _Optional[_Iterable[_Union[TransferConfig, _Mapping]]] = ...) -> None: ...
 
 class ListTransferConfigsByCredentialIDReq(_message.Message):
-    __slots__ = ["entity", "mask", "credential_sid", "list_req"]
+    __slots__ = ("entity", "mask", "credential_sid", "list_req")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     CREDENTIAL_SID_FIELD_NUMBER: _ClassVar[int]
@@ -54,13 +54,13 @@ class ListTransferConfigsByCredentialIDReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., credential_sid: _Optional[_Union[ID, _Mapping]] = ..., list_req: _Optional[_Union[ListReq, _Mapping]] = ...) -> None: ...
 
 class ListTransferConfigsByCredentialIDRes(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[TransferConfig]
     def __init__(self, entities: _Optional[_Iterable[_Union[TransferConfig, _Mapping]]] = ...) -> None: ...
 
 class UpdateTransferConfigReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: TransferConfig
@@ -68,13 +68,13 @@ class UpdateTransferConfigReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateTransferConfigRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class DeleteTransferConfigReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: TransferConfig
@@ -82,11 +82,11 @@ class DeleteTransferConfigReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class DeleteTransferConfigRes(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class GetTransferConfigReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: TransferConfig
@@ -94,13 +94,13 @@ class GetTransferConfigReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetTransferConfigRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: TransferConfig
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ...) -> None: ...
 
 class GetTransferConfigByNameReq(_message.Message):
-    __slots__ = ["name", "mask", "entity"]
+    __slots__ = ("name", "mask", "entity")
     NAME_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -110,13 +110,13 @@ class GetTransferConfigByNameReq(_message.Message):
     def __init__(self, name: _Optional[str] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., entity: _Optional[_Union[TransferConfig, _Mapping]] = ...) -> None: ...
 
 class GetTransferConfigByNameRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: TransferConfig
     def __init__(self, entity: _Optional[_Union[TransferConfig, _Mapping]] = ...) -> None: ...
 
 class ListHistoryReq(_message.Message):
-    __slots__ = ["entity", "mask", "list_req"]
+    __slots__ = ("entity", "mask", "list_req")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     LIST_REQ_FIELD_NUMBER: _ClassVar[int]
@@ -126,13 +126,13 @@ class ListHistoryReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[History, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., list_req: _Optional[_Union[ListReq, _Mapping]] = ...) -> None: ...
 
 class ListHistoryRes(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[History]
     def __init__(self, entities: _Optional[_Iterable[_Union[History, _Mapping]]] = ...) -> None: ...
 
 class ListHistoryByTransferConfigReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: ListByIDReq
@@ -140,13 +140,13 @@ class ListHistoryByTransferConfigReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[ListByIDReq, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class ListHistoryByTransferConfigRes(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[History]
     def __init__(self, entities: _Optional[_Iterable[_Union[History, _Mapping]]] = ...) -> None: ...
 
 class CreateHistoryReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: History
@@ -154,13 +154,13 @@ class CreateHistoryReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[History, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class CreateHistoryRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class GetHistoryReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: ID
@@ -168,35 +168,35 @@ class GetHistoryReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetHistoryRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: History
     def __init__(self, entity: _Optional[_Union[History, _Mapping]] = ...) -> None: ...
 
 class CreateDeliveryDefinitionReq(_message.Message):
-    __slots__ = ["definition"]
+    __slots__ = ("definition",)
     DEFINITION_FIELD_NUMBER: _ClassVar[int]
     definition: DeliveryDefinition
     def __init__(self, definition: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
 
 class CreateDeliveryDefinitionRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class DeleteDeliveryDefinitionReq(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class DeleteDeliveryDefinitionRes(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class GetDeliveryDefinitionReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: DeliveryDefinition
@@ -204,13 +204,13 @@ class GetDeliveryDefinitionReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetDeliveryDefinitionRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: DeliveryDefinition
     def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
 
 class GetDeliveryDefinitionByNameReq(_message.Message):
-    __slots__ = ["name", "mask", "entity"]
+    __slots__ = ("name", "mask", "entity")
     NAME_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -220,13 +220,13 @@ class GetDeliveryDefinitionByNameReq(_message.Message):
     def __init__(self, name: _Optional[str] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
 
 class GetDeliveryDefinitionByNameRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: DeliveryDefinition
     def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ...) -> None: ...
 
 class ListDeliveryDefinitionsReq(_message.Message):
-    __slots__ = ["entity", "mask", "list_req"]
+    __slots__ = ("entity", "mask", "list_req")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     LIST_REQ_FIELD_NUMBER: _ClassVar[int]
@@ -236,13 +236,13 @@ class ListDeliveryDefinitionsReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., list_req: _Optional[_Union[ListReq, _Mapping]] = ...) -> None: ...
 
 class ListDeliveryDefinitionsRes(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[DeliveryDefinition]
     def __init__(self, entities: _Optional[_Iterable[_Union[DeliveryDefinition, _Mapping]]] = ...) -> None: ...
 
 class ListDeliveryDefinitionsByCredentialIDReq(_message.Message):
-    __slots__ = ["entity", "mask", "credential_sid", "list_req"]
+    __slots__ = ("entity", "mask", "credential_sid", "list_req")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     CREDENTIAL_SID_FIELD_NUMBER: _ClassVar[int]
@@ -254,13 +254,13 @@ class ListDeliveryDefinitionsByCredentialIDReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., credential_sid: _Optional[_Union[ID, _Mapping]] = ..., list_req: _Optional[_Union[ListReq, _Mapping]] = ...) -> None: ...
 
 class ListDeliveryDefinitionsByCredentialIDRes(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[DeliveryDefinition]
     def __init__(self, entities: _Optional[_Iterable[_Union[DeliveryDefinition, _Mapping]]] = ...) -> None: ...
 
 class UpdateDeliveryDefinitionReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: DeliveryDefinition
@@ -268,25 +268,25 @@ class UpdateDeliveryDefinitionReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[DeliveryDefinition, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateDeliveryDefinitionRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class CreateEncryptionReq(_message.Message):
-    __slots__ = ["encryption"]
+    __slots__ = ("encryption",)
     ENCRYPTION_FIELD_NUMBER: _ClassVar[int]
     encryption: Encryption
     def __init__(self, encryption: _Optional[_Union[Encryption, _Mapping]] = ...) -> None: ...
 
 class CreateEncryptionRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class DeleteEncryptionReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: ID
@@ -294,11 +294,11 @@ class DeleteEncryptionReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class DeleteEncryptionRes(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class GetEncryptionReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: Encryption
@@ -306,13 +306,13 @@ class GetEncryptionReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[Encryption, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetEncryptionRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: Encryption
     def __init__(self, entity: _Optional[_Union[Encryption, _Mapping]] = ...) -> None: ...
 
 class ListEncryptionsReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: ListReq
@@ -320,13 +320,13 @@ class ListEncryptionsReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[ListReq, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class ListEncryptionsRes(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[Encryption]
     def __init__(self, entities: _Optional[_Iterable[_Union[Encryption, _Mapping]]] = ...) -> None: ...
 
 class UpdateEncryptionReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: Encryption
@@ -334,13 +334,13 @@ class UpdateEncryptionReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[Encryption, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateEncryptionRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class TransferConfig(_message.Message):
-    __slots__ = ["sid", "name", "description", "ttl", "credential", "destination", "source", "created_on", "last_edited"]
+    __slots__ = ("sid", "name", "description", "ttl", "credential", "destination", "source", "created_on", "last_edited")
     SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -362,13 +362,13 @@ class TransferConfig(_message.Message):
     def __init__(self, sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ttl: _Optional[int] = ..., credential: _Optional[_Union[Credential, _Mapping]] = ..., destination: _Optional[_Union[Destination, _Mapping]] = ..., source: _Optional[_Union[Source, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ID(_message.Message):
-    __slots__ = ["sid"]
+    __slots__ = ("sid",)
     SID_FIELD_NUMBER: _ClassVar[int]
     sid: int
     def __init__(self, sid: _Optional[int] = ...) -> None: ...
 
 class ListReq(_message.Message):
-    __slots__ = ["before_sid", "limit"]
+    __slots__ = ("before_sid", "limit")
     BEFORE_SID_FIELD_NUMBER: _ClassVar[int]
     LIMIT_FIELD_NUMBER: _ClassVar[int]
     before_sid: int
@@ -376,7 +376,7 @@ class ListReq(_message.Message):
     def __init__(self, before_sid: _Optional[int] = ..., limit: _Optional[int] = ...) -> None: ...
 
 class History(_message.Message):
-    __slots__ = ["sid", "transfer_config_name", "transfer_config_sid", "delivery_type", "error", "success", "created_on", "transfer_start", "transfer_complete", "origin", "org_id", "message_payload", "message_payload_len", "status", "is_inbound", "transaction_sid"]
+    __slots__ = ("sid", "transfer_config_name", "transfer_config_sid", "delivery_type", "error", "success", "created_on", "transfer_start", "transfer_complete", "origin", "org_id", "message_payload", "message_payload_len", "status", "is_inbound", "transaction_sid")
     SID_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_CONFIG_NAME_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
@@ -412,7 +412,7 @@ class History(_message.Message):
     def __init__(self, sid: _Optional[int] = ..., transfer_config_name: _Optional[str] = ..., transfer_config_sid: _Optional[int] = ..., delivery_type: _Optional[str] = ..., error: _Optional[str] = ..., success: bool = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., transfer_start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., transfer_complete: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., origin: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., org_id: _Optional[str] = ..., message_payload: _Optional[str] = ..., message_payload_len: _Optional[int] = ..., status: _Optional[_Union[_delivery_pb2.TransferStatus, str]] = ..., is_inbound: bool = ..., transaction_sid: _Optional[int] = ...) -> None: ...
 
 class ListByIDReq(_message.Message):
-    __slots__ = ["before_sid", "limit", "other_sid"]
+    __slots__ = ("before_sid", "limit", "other_sid")
     BEFORE_SID_FIELD_NUMBER: _ClassVar[int]
     LIMIT_FIELD_NUMBER: _ClassVar[int]
     OTHER_SID_FIELD_NUMBER: _ClassVar[int]
@@ -422,7 +422,7 @@ class ListByIDReq(_message.Message):
     def __init__(self, before_sid: _Optional[int] = ..., limit: _Optional[int] = ..., other_sid: _Optional[int] = ...) -> None: ...
 
 class Credential(_message.Message):
-    __slots__ = ["sid", "name", "description", "data", "created_on", "last_edited"]
+    __slots__ = ("sid", "name", "description", "data", "created_on", "last_edited")
     SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -438,7 +438,7 @@ class Credential(_message.Message):
     def __init__(self, sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., data: _Optional[_Union[CredentialData, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Destination(_message.Message):
-    __slots__ = ["encryption", "email", "room303", "sms", "sftp"]
+    __slots__ = ("encryption", "email", "room303", "sms", "sftp")
     ENCRYPTION_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     ROOM303_FIELD_NUMBER: _ClassVar[int]
@@ -452,7 +452,7 @@ class Destination(_message.Message):
     def __init__(self, encryption: _Optional[_Union[_delivery_pb2.Encryption, _Mapping]] = ..., email: _Optional[_Union[EmailDestination, _Mapping]] = ..., room303: _Optional[_Union[Room303Destination, _Mapping]] = ..., sms: _Optional[_Union[SmsDestination, _Mapping]] = ..., sftp: _Optional[_Union[SftpDestination, _Mapping]] = ...) -> None: ...
 
 class SftpDestination(_message.Message):
-    __slots__ = ["base_directory", "address", "port"]
+    __slots__ = ("base_directory", "address", "port")
     BASE_DIRECTORY_FIELD_NUMBER: _ClassVar[int]
     ADDRESS_FIELD_NUMBER: _ClassVar[int]
     PORT_FIELD_NUMBER: _ClassVar[int]
@@ -462,7 +462,7 @@ class SftpDestination(_message.Message):
     def __init__(self, base_directory: _Optional[str] = ..., address: _Optional[str] = ..., port: _Optional[int] = ...) -> None: ...
 
 class Room303Destination(_message.Message):
-    __slots__ = ["room", "username", "user_id"]
+    __slots__ = ("room", "username", "user_id")
     ROOM_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -472,7 +472,7 @@ class Room303Destination(_message.Message):
     def __init__(self, room: _Optional[str] = ..., username: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class SmsDestination(_message.Message):
-    __slots__ = ["destination_phone", "source_phone"]
+    __slots__ = ("destination_phone", "source_phone")
     DESTINATION_PHONE_FIELD_NUMBER: _ClassVar[int]
     SOURCE_PHONE_FIELD_NUMBER: _ClassVar[int]
     destination_phone: str
@@ -480,7 +480,7 @@ class SmsDestination(_message.Message):
     def __init__(self, destination_phone: _Optional[str] = ..., source_phone: _Optional[str] = ...) -> None: ...
 
 class EmailDestination(_message.Message):
-    __slots__ = ["to_addr", "cc_addrs", "from_addr"]
+    __slots__ = ("to_addr", "cc_addrs", "from_addr")
     TO_ADDR_FIELD_NUMBER: _ClassVar[int]
     CC_ADDRS_FIELD_NUMBER: _ClassVar[int]
     FROM_ADDR_FIELD_NUMBER: _ClassVar[int]
@@ -490,7 +490,7 @@ class EmailDestination(_message.Message):
     def __init__(self, to_addr: _Optional[str] = ..., cc_addrs: _Optional[_Iterable[str]] = ..., from_addr: _Optional[str] = ...) -> None: ...
 
 class CredentialData(_message.Message):
-    __slots__ = ["user_password", "password", "ssh_key_pair", "pgp_key_pair", "aes_password"]
+    __slots__ = ("user_password", "password", "ssh_key_pair", "pgp_key_pair", "aes_password")
     USER_PASSWORD_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     SSH_KEY_PAIR_FIELD_NUMBER: _ClassVar[int]
@@ -504,7 +504,7 @@ class CredentialData(_message.Message):
     def __init__(self, user_password: _Optional[_Union[UserPassword, _Mapping]] = ..., password: _Optional[_Union[Password, _Mapping]] = ..., ssh_key_pair: _Optional[_Union[SSHKeyPair, _Mapping]] = ..., pgp_key_pair: _Optional[_Union[PGPKeyPair, _Mapping]] = ..., aes_password: _Optional[_Union[AESPassword, _Mapping]] = ...) -> None: ...
 
 class UserPassword(_message.Message):
-    __slots__ = ["username", "password"]
+    __slots__ = ("username", "password")
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     username: str
@@ -512,13 +512,13 @@ class UserPassword(_message.Message):
     def __init__(self, username: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
 
 class Password(_message.Message):
-    __slots__ = ["password"]
+    __slots__ = ("password",)
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     password: str
     def __init__(self, password: _Optional[str] = ...) -> None: ...
 
 class SSHKeyPair(_message.Message):
-    __slots__ = ["public_key", "private_key"]
+    __slots__ = ("public_key", "private_key")
     PUBLIC_KEY_FIELD_NUMBER: _ClassVar[int]
     PRIVATE_KEY_FIELD_NUMBER: _ClassVar[int]
     public_key: str
@@ -526,7 +526,7 @@ class SSHKeyPair(_message.Message):
     def __init__(self, public_key: _Optional[str] = ..., private_key: _Optional[str] = ...) -> None: ...
 
 class PGPKeyPair(_message.Message):
-    __slots__ = ["public_key", "private_key"]
+    __slots__ = ("public_key", "private_key")
     PUBLIC_KEY_FIELD_NUMBER: _ClassVar[int]
     PRIVATE_KEY_FIELD_NUMBER: _ClassVar[int]
     public_key: str
@@ -534,13 +534,13 @@ class PGPKeyPair(_message.Message):
     def __init__(self, public_key: _Optional[str] = ..., private_key: _Optional[str] = ...) -> None: ...
 
 class AESPassword(_message.Message):
-    __slots__ = ["password"]
+    __slots__ = ("password",)
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     password: str
     def __init__(self, password: _Optional[str] = ...) -> None: ...
 
 class Source(_message.Message):
-    __slots__ = ["encryption", "sftp"]
+    __slots__ = ("encryption", "sftp")
     ENCRYPTION_FIELD_NUMBER: _ClassVar[int]
     SFTP_FIELD_NUMBER: _ClassVar[int]
     encryption: _delivery_pb2.Encryption
@@ -548,13 +548,13 @@ class Source(_message.Message):
     def __init__(self, encryption: _Optional[_Union[_delivery_pb2.Encryption, _Mapping]] = ..., sftp: _Optional[_Union[SftpSource, _Mapping]] = ...) -> None: ...
 
 class SftpSource(_message.Message):
-    __slots__ = ["directory"]
+    __slots__ = ("directory",)
     DIRECTORY_FIELD_NUMBER: _ClassVar[int]
     directory: str
     def __init__(self, directory: _Optional[str] = ...) -> None: ...
 
 class GetCredentialReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: Credential
@@ -562,13 +562,13 @@ class GetCredentialReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[Credential, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetCredentialRes(_message.Message):
-    __slots__ = ["credential"]
+    __slots__ = ("credential",)
     CREDENTIAL_FIELD_NUMBER: _ClassVar[int]
     credential: Credential
     def __init__(self, credential: _Optional[_Union[Credential, _Mapping]] = ...) -> None: ...
 
 class ListCredentialsReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: ListReq
@@ -576,13 +576,13 @@ class ListCredentialsReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[ListReq, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class ListCredentialsRes(_message.Message):
-    __slots__ = ["credentials"]
+    __slots__ = ("credentials",)
     CREDENTIALS_FIELD_NUMBER: _ClassVar[int]
     credentials: Credentials
     def __init__(self, credentials: _Optional[_Union[Credentials, _Mapping]] = ...) -> None: ...
 
 class CreateCredentialReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: Credential
@@ -590,13 +590,13 @@ class CreateCredentialReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[Credential, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class CreateCredentialRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class DeleteCredentialReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: ID
@@ -604,11 +604,11 @@ class DeleteCredentialReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class DeleteCredentialRes(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class UpdateCredentialReq(_message.Message):
-    __slots__ = ["entity", "mask"]
+    __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: Credential
@@ -616,19 +616,19 @@ class UpdateCredentialReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[Credential, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateCredentialRes(_message.Message):
-    __slots__ = ["entity"]
+    __slots__ = ("entity",)
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: ID
     def __init__(self, entity: _Optional[_Union[ID, _Mapping]] = ...) -> None: ...
 
 class Credentials(_message.Message):
-    __slots__ = ["entities"]
+    __slots__ = ("entities",)
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[Credential]
     def __init__(self, entities: _Optional[_Iterable[_Union[Credential, _Mapping]]] = ...) -> None: ...
 
 class DeliveryDefinition(_message.Message):
-    __slots__ = ["delivery_definition_sid", "org_id", "name", "description", "ttl", "sftp", "email", "room303", "sms", "aes", "pgp", "created_on", "last_edited"]
+    __slots__ = ("delivery_definition_sid", "org_id", "name", "description", "ttl", "sftp", "email", "room303", "sms", "aes", "pgp", "created_on", "last_edited")
     DELIVERY_DEFINITION_SID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -658,7 +658,7 @@ class DeliveryDefinition(_message.Message):
     def __init__(self, delivery_definition_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ttl: _Optional[int] = ..., sftp: _Optional[_Union[SFTPTransport, _Mapping]] = ..., email: _Optional[_Union[EmailTransport, _Mapping]] = ..., room303: _Optional[_Union[Room303Transport, _Mapping]] = ..., sms: _Optional[_Union[SMSTransport, _Mapping]] = ..., aes: _Optional[_Union[AESEncryptionRef, _Mapping]] = ..., pgp: _Optional[_Union[PGPEncryptionRef, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class SFTPTransport(_message.Message):
-    __slots__ = ["host", "port", "password", "ssh_key", "username", "base_dir"]
+    __slots__ = ("host", "port", "password", "ssh_key", "username", "base_dir")
     HOST_FIELD_NUMBER: _ClassVar[int]
     PORT_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
@@ -674,7 +674,7 @@ class SFTPTransport(_message.Message):
     def __init__(self, host: _Optional[str] = ..., port: _Optional[int] = ..., password: _Optional[_Union[PasswordRef, _Mapping]] = ..., ssh_key: _Optional[_Union[SSHKeyRef, _Mapping]] = ..., username: _Optional[str] = ..., base_dir: _Optional[str] = ...) -> None: ...
 
 class EmailTransport(_message.Message):
-    __slots__ = ["from_address", "to_address"]
+    __slots__ = ("from_address", "to_address")
     FROM_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     TO_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     from_address: str
@@ -682,13 +682,13 @@ class EmailTransport(_message.Message):
     def __init__(self, from_address: _Optional[str] = ..., to_address: _Optional[str] = ...) -> None: ...
 
 class Room303Transport(_message.Message):
-    __slots__ = ["system_message"]
+    __slots__ = ("system_message",)
     SYSTEM_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     system_message: Room303SystemMessage
     def __init__(self, system_message: _Optional[_Union[Room303SystemMessage, _Mapping]] = ...) -> None: ...
 
 class Room303SystemMessage(_message.Message):
-    __slots__ = ["room", "username", "user_id"]
+    __slots__ = ("room", "username", "user_id")
     ROOM_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -698,35 +698,35 @@ class Room303SystemMessage(_message.Message):
     def __init__(self, room: _Optional[str] = ..., username: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class SMSTransport(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class AESEncryptionRef(_message.Message):
-    __slots__ = ["aes_sid"]
+    __slots__ = ("aes_sid",)
     AES_SID_FIELD_NUMBER: _ClassVar[int]
     aes_sid: int
     def __init__(self, aes_sid: _Optional[int] = ...) -> None: ...
 
 class PGPEncryptionRef(_message.Message):
-    __slots__ = ["pgp_sid"]
+    __slots__ = ("pgp_sid",)
     PGP_SID_FIELD_NUMBER: _ClassVar[int]
     pgp_sid: int
     def __init__(self, pgp_sid: _Optional[int] = ...) -> None: ...
 
 class PasswordRef(_message.Message):
-    __slots__ = ["password_sid"]
+    __slots__ = ("password_sid",)
     PASSWORD_SID_FIELD_NUMBER: _ClassVar[int]
     password_sid: int
     def __init__(self, password_sid: _Optional[int] = ...) -> None: ...
 
 class SSHKeyRef(_message.Message):
-    __slots__ = ["ssh_key_sid"]
+    __slots__ = ("ssh_key_sid",)
     SSH_KEY_SID_FIELD_NUMBER: _ClassVar[int]
     ssh_key_sid: int
     def __init__(self, ssh_key_sid: _Optional[int] = ...) -> None: ...
 
 class Encryption(_message.Message):
-    __slots__ = ["encryption_sid", "org_id", "name", "description", "pgp_key_pair", "aes_password", "created_on", "last_edited"]
+    __slots__ = ("encryption_sid", "org_id", "name", "description", "pgp_key_pair", "aes_password", "created_on", "last_edited")
     ENCRYPTION_SID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]

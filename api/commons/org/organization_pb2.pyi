@@ -8,9 +8,9 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Organization(_message.Message):
-    __slots__ = ["org_id", "enabled_regions", "region_id", "billing_id", "client_sid", "name", "add_date", "is_manual_only_account", "backoffice_theme", "archived", "crm_id", "time_zone", "callbacks_service_id", "p3_owner_id"]
+    __slots__ = ("org_id", "enabled_regions", "region_id", "billing_id", "client_sid", "name", "add_date", "is_manual_only_account", "backoffice_theme", "archived", "crm_id", "time_zone", "callbacks_service_id", "p3_owner_id")
     class EnabledRegionsEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -47,7 +47,7 @@ class Organization(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., enabled_regions: _Optional[_Mapping[str, int]] = ..., region_id: _Optional[str] = ..., billing_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., name: _Optional[str] = ..., add_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_manual_only_account: bool = ..., backoffice_theme: _Optional[_Union[_org_pb2.ClientSkin, str]] = ..., archived: bool = ..., crm_id: _Optional[str] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., callbacks_service_id: _Optional[str] = ..., p3_owner_id: _Optional[str] = ...) -> None: ...
 
 class OrganizationDetails(_message.Message):
-    __slots__ = ["organization", "last_scheduled_date"]
+    __slots__ = ("organization", "last_scheduled_date")
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     LAST_SCHEDULED_DATE_FIELD_NUMBER: _ClassVar[int]
     organization: Organization

@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ConnectionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CONNECTION_TYPE_NONE: _ClassVar[ConnectionType]
     CONNECTION_TYPE_OIDC: _ClassVar[ConnectionType]
     CONNECTION_TYPE_AZURE: _ClassVar[ConnectionType]
@@ -17,9 +17,9 @@ CONNECTION_TYPE_OIDC: ConnectionType
 CONNECTION_TYPE_AZURE: ConnectionType
 
 class AuthConnectionSettings(_message.Message):
-    __slots__ = ["issuer_url", "tenant_url", "client_id", "connection_id", "secret_expiration", "default_group", "custom_groups", "org_id", "name", "type"]
+    __slots__ = ("issuer_url", "tenant_url", "client_id", "connection_id", "secret_expiration", "default_group", "custom_groups", "org_id", "name", "type")
     class SecretExpiration(_message.Message):
-        __slots__ = ["date"]
+        __slots__ = ("date",)
         DATE_FIELD_NUMBER: _ClassVar[int]
         date: _timestamp_pb2.Timestamp
         def __init__(self, date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
@@ -46,7 +46,7 @@ class AuthConnectionSettings(_message.Message):
     def __init__(self, issuer_url: _Optional[str] = ..., tenant_url: _Optional[str] = ..., client_id: _Optional[str] = ..., connection_id: _Optional[str] = ..., secret_expiration: _Optional[_Union[AuthConnectionSettings.SecretExpiration, _Mapping]] = ..., default_group: _Optional[_Union[GroupItem, _Mapping]] = ..., custom_groups: _Optional[_Iterable[_Union[GroupItem, _Mapping]]] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[ConnectionType, str]] = ...) -> None: ...
 
 class GroupItem(_message.Message):
-    __slots__ = ["group_name", "hunt_group_sid", "agent_profile_group_id", "p3_permission_group_id", "permission_group_ids"]
+    __slots__ = ("group_name", "hunt_group_sid", "agent_profile_group_id", "p3_permission_group_id", "permission_group_ids")
     GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
