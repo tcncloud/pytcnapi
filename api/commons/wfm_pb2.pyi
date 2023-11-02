@@ -211,6 +211,13 @@ class BitmapType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMPLETE: _ClassVar[BitmapType]
     ONLY_WEEKMAPS: _ClassVar[BitmapType]
     ONLY_CALENDAR_ITEMS: _ClassVar[BitmapType]
+
+class HistoryCacheState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    NOT_LOADED: _ClassVar[HistoryCacheState]
+    LOADING: _ClassVar[HistoryCacheState]
+    LOADING_COMPLETE: _ClassVar[HistoryCacheState]
+    LOADING_FAILED: _ClassVar[HistoryCacheState]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -365,6 +372,10 @@ SERVICE_LEVEL: SchedulingTargetType
 COMPLETE: BitmapType
 ONLY_WEEKMAPS: BitmapType
 ONLY_CALENDAR_ITEMS: BitmapType
+NOT_LOADED: HistoryCacheState
+LOADING: HistoryCacheState
+LOADING_COMPLETE: HistoryCacheState
+LOADING_FAILED: HistoryCacheState
 
 class SkillType(_message.Message):
     __slots__ = ()
@@ -581,3 +592,11 @@ class SchedulingResultMetric(_message.Message):
     root_mean_square: float
     has_result: bool
     def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ...) -> None: ...
+
+class ClientHistoryCache(_message.Message):
+    __slots__ = ("state", "progress_percentage")
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    PROGRESS_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    state: HistoryCacheState
+    progress_percentage: int
+    def __init__(self, state: _Optional[_Union[HistoryCacheState, str]] = ..., progress_percentage: _Optional[int] = ...) -> None: ...
