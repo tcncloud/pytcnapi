@@ -44,6 +44,62 @@ class CreateTicketReq(_message.Message):
     ticket_assignee: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., project_sid: _Optional[int] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_tickets_pb2.Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[_tickets_pb2.Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[_tickets_pb2.Sla, _Mapping]]] = ..., assign_self: bool = ..., assign_other: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[_tickets_pb2.TicketAction, _Mapping]]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class CreateTicketTemplateRequest(_message.Message):
+    __slots__ = ["ticket_template"]
+    TICKET_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template: _tickets_pb2.TicketTemplate
+    def __init__(self, ticket_template: _Optional[_Union[_tickets_pb2.TicketTemplate, _Mapping]] = ...) -> None: ...
+
+class CreateTicketTemplateResponse(_message.Message):
+    __slots__ = ["ticket_template"]
+    TICKET_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template: _tickets_pb2.TicketTemplate
+    def __init__(self, ticket_template: _Optional[_Union[_tickets_pb2.TicketTemplate, _Mapping]] = ...) -> None: ...
+
+class EditTicketTemplateRequest(_message.Message):
+    __slots__ = ["ticket_template_id", "edit_value", "edited_fields_mask"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    EDIT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    EDITED_FIELDS_MASK_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    edit_value: _tickets_pb2.TicketTemplate
+    edited_fields_mask: _field_mask_pb2.FieldMask
+    def __init__(self, ticket_template_id: _Optional[int] = ..., edit_value: _Optional[_Union[_tickets_pb2.TicketTemplate, _Mapping]] = ..., edited_fields_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class EditTicketTemplateResponse(_message.Message):
+    __slots__ = ["is_edited"]
+    IS_EDITED_FIELD_NUMBER: _ClassVar[int]
+    is_edited: bool
+    def __init__(self, is_edited: bool = ...) -> None: ...
+
+class ListTicketTemplateRequest(_message.Message):
+    __slots__ = ["ticket_template_id", "project_id", "request_mask"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_MASK_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    project_id: int
+    request_mask: _field_mask_pb2.FieldMask
+    def __init__(self, ticket_template_id: _Optional[int] = ..., project_id: _Optional[int] = ..., request_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class ListTicketTemplateResponse(_message.Message):
+    __slots__ = ["enabled_templates"]
+    ENABLED_TEMPLATES_FIELD_NUMBER: _ClassVar[int]
+    enabled_templates: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.ListTemplate]
+    def __init__(self, enabled_templates: _Optional[_Iterable[_Union[_tickets_pb2.ListTemplate, _Mapping]]] = ...) -> None: ...
+
+class AssignProjectTemplateRequest(_message.Message):
+    __slots__ = ["project_template"]
+    PROJECT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    project_template: _tickets_pb2.AssignProjectTemplate
+    def __init__(self, project_template: _Optional[_Union[_tickets_pb2.AssignProjectTemplate, _Mapping]] = ...) -> None: ...
+
+class AssignProjectTemplateResponse(_message.Message):
+    __slots__ = ["is_assigned"]
+    IS_ASSIGNED_FIELD_NUMBER: _ClassVar[int]
+    is_assigned: bool
+    def __init__(self, is_assigned: bool = ...) -> None: ...
+
 class CreateTicketRes(_message.Message):
     __slots__ = ["ticket"]
     TICKET_FIELD_NUMBER: _ClassVar[int]

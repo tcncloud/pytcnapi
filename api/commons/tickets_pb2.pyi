@@ -77,6 +77,60 @@ class Ticket(_message.Message):
     ticket_participant: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, ticket_sid: _Optional[int] = ..., project_sid: _Optional[int] = ..., project_title: _Optional[str] = ..., ticket_code: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., org_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee_list: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., assignee: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[TicketAction, _Mapping]]] = ..., ticket_status: _Optional[_Union[TicketStatus, str]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., ticket_participant: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class TicketTemplate(_message.Message):
+    __slots__ = ["ticket_template_id", "org_id", "template", "template_entity_version", "template_name", "created_by_id", "modified_by", "created_date", "modified_date", "is_active"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_ENTITY_VERSION_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    MODIFIED_BY_FIELD_NUMBER: _ClassVar[int]
+    CREATED_DATE_FIELD_NUMBER: _ClassVar[int]
+    MODIFIED_DATE_FIELD_NUMBER: _ClassVar[int]
+    IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    org_id: str
+    template: str
+    template_entity_version: str
+    template_name: str
+    created_by_id: str
+    modified_by: str
+    created_date: _timestamp_pb2.Timestamp
+    modified_date: _timestamp_pb2.Timestamp
+    is_active: bool
+    def __init__(self, ticket_template_id: _Optional[int] = ..., org_id: _Optional[str] = ..., template: _Optional[str] = ..., template_entity_version: _Optional[str] = ..., template_name: _Optional[str] = ..., created_by_id: _Optional[str] = ..., modified_by: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., modified_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_active: bool = ...) -> None: ...
+
+class ListTemplate(_message.Message):
+    __slots__ = ["ticket_template_id", "template_name", "project_id", "template", "template_entity_version", "is_active", "created_by_id", "created_date", "project_title"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_ENTITY_VERSION_FIELD_NUMBER: _ClassVar[int]
+    IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    CREATED_DATE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_TITLE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    template_name: str
+    project_id: int
+    template: str
+    template_entity_version: str
+    is_active: bool
+    created_by_id: str
+    created_date: _timestamp_pb2.Timestamp
+    project_title: str
+    def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ..., project_id: _Optional[int] = ..., template: _Optional[str] = ..., template_entity_version: _Optional[str] = ..., is_active: bool = ..., created_by_id: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., project_title: _Optional[str] = ...) -> None: ...
+
+class AssignProjectTemplate(_message.Message):
+    __slots__ = ["ticket_template_id", "project_id"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: _containers.RepeatedScalarFieldContainer[int]
+    project_id: int
+    def __init__(self, ticket_template_id: _Optional[_Iterable[int]] = ..., project_id: _Optional[int] = ...) -> None: ...
+
 class Duration(_message.Message):
     __slots__ = ["value", "scale"]
     VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -188,20 +242,30 @@ class ConfirmClose(_message.Message):
     def __init__(self, status: _Optional[int] = ...) -> None: ...
 
 class TicketProject(_message.Message):
-    __slots__ = ["ticket_project_id", "org_id", "project_sid", "project_code", "project_title", "is_active"]
+    __slots__ = ["ticket_project_id", "org_id", "project_sid", "project_code", "project_title", "is_active", "template_desc"]
     TICKET_PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_CODE_FIELD_NUMBER: _ClassVar[int]
     PROJECT_TITLE_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_DESC_FIELD_NUMBER: _ClassVar[int]
     ticket_project_id: int
     org_id: str
     project_sid: int
     project_code: str
     project_title: str
     is_active: bool
-    def __init__(self, ticket_project_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_sid: _Optional[int] = ..., project_code: _Optional[str] = ..., project_title: _Optional[str] = ..., is_active: bool = ...) -> None: ...
+    template_desc: _containers.RepeatedCompositeFieldContainer[TemplateDescription]
+    def __init__(self, ticket_project_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_sid: _Optional[int] = ..., project_code: _Optional[str] = ..., project_title: _Optional[str] = ..., is_active: bool = ..., template_desc: _Optional[_Iterable[_Union[TemplateDescription, _Mapping]]] = ...) -> None: ...
+
+class TemplateDescription(_message.Message):
+    __slots__ = ["ticket_template_id", "template_name"]
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    template_name: str
+    def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ...) -> None: ...
 
 class TicketSla(_message.Message):
     __slots__ = ["sla_sid", "name", "description", "interval", "is_active", "ticket_sla_duration"]
