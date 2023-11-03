@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AsmAgentLoginEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid"]
+    __slots__ = ("user_id", "asm_session_sid")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
@@ -15,7 +15,7 @@ class AsmAgentLoginEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
 
 class AsmOpenVoiceEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid", "voice_session_sid"]
+    __slots__ = ("user_id", "asm_session_sid", "voice_session_sid")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -25,7 +25,7 @@ class AsmOpenVoiceEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class AsmOpenOmniAgentEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid"]
+    __slots__ = ("user_id", "asm_session_sid")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
@@ -33,7 +33,7 @@ class AsmOpenOmniAgentEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
 
 class AsmActivateConversationEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid", "conversation"]
+    __slots__ = ("user_id", "asm_session_sid", "conversation")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     CONVERSATION_FIELD_NUMBER: _ClassVar[int]
@@ -43,7 +43,7 @@ class AsmActivateConversationEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ...) -> None: ...
 
 class AsmDeactivateConversationEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid", "conversation"]
+    __slots__ = ("user_id", "asm_session_sid", "conversation")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     CONVERSATION_FIELD_NUMBER: _ClassVar[int]
@@ -53,7 +53,7 @@ class AsmDeactivateConversationEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ...) -> None: ...
 
 class AsmAgentStateChangedEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid", "new_status", "old_status"]
+    __slots__ = ("user_id", "asm_session_sid", "new_status", "old_status")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     NEW_STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -65,7 +65,7 @@ class AsmAgentStateChangedEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., new_status: _Optional[_Union[_asm_pb2.StatusState, str]] = ..., old_status: _Optional[_Union[_asm_pb2.StatusState, str]] = ...) -> None: ...
 
 class AsmAgentLogoutEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid", "reason"]
+    __slots__ = ("user_id", "asm_session_sid", "reason")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
@@ -75,7 +75,7 @@ class AsmAgentLogoutEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., reason: _Optional[str] = ...) -> None: ...
 
 class AsmPauseEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid"]
+    __slots__ = ("user_id", "asm_session_sid")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
@@ -83,7 +83,7 @@ class AsmPauseEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
 
 class AsmResumeEvent(_message.Message):
-    __slots__ = ["user_id", "asm_session_sid"]
+    __slots__ = ("user_id", "asm_session_sid")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
@@ -91,7 +91,7 @@ class AsmResumeEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
 
 class AsmConversationPulledEvent(_message.Message):
-    __slots__ = ["conversation"]
+    __slots__ = ("conversation",)
     CONVERSATION_FIELD_NUMBER: _ClassVar[int]
     conversation: _omnichannel_pb2.OmniConversation
     def __init__(self, conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ...) -> None: ...

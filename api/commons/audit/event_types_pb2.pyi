@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class EventType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DUMMY_APPLICATION: _ClassVar[EventType]
     DUMMY_APPLICATION_STORAGE: _ClassVar[EventType]
     DUMMY_APPLICATION_COMPUTE: _ClassVar[EventType]

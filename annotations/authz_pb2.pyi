@@ -10,7 +10,7 @@ AUTHZ_FIELD_NUMBER: _ClassVar[int]
 authz: _descriptor.FieldDescriptor
 
 class Permissions(_message.Message):
-    __slots__ = ["sets", "wip", "no_permissions"]
+    __slots__ = ("sets", "wip", "no_permissions")
     SETS_FIELD_NUMBER: _ClassVar[int]
     WIP_FIELD_NUMBER: _ClassVar[int]
     NO_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
@@ -20,7 +20,7 @@ class Permissions(_message.Message):
     def __init__(self, sets: _Optional[_Iterable[_Union[PermissionSet, _Mapping]]] = ..., wip: bool = ..., no_permissions: bool = ...) -> None: ...
 
 class PermissionSet(_message.Message):
-    __slots__ = ["permissions"]
+    __slots__ = ("permissions",)
     PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
     def __init__(self, permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ...) -> None: ...

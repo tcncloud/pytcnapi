@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AddRoomMemberRequest(_message.Message):
-    __slots__ = ["room_id", "user_id", "admin"]
+    __slots__ = ("room_id", "user_id", "admin")
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ADMIN_FIELD_NUMBER: _ClassVar[int]
@@ -17,7 +17,7 @@ class AddRoomMemberRequest(_message.Message):
     def __init__(self, room_id: _Optional[str] = ..., user_id: _Optional[str] = ..., admin: bool = ...) -> None: ...
 
 class RemoveRoomMemberRequest(_message.Message):
-    __slots__ = ["user_id", "room_id"]
+    __slots__ = ("user_id", "room_id")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
@@ -25,23 +25,23 @@ class RemoveRoomMemberRequest(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., room_id: _Optional[str] = ...) -> None: ...
 
 class RemoveRoomMemberResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListRoomMembersRequest(_message.Message):
-    __slots__ = ["room_id"]
+    __slots__ = ("room_id",)
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     def __init__(self, room_id: _Optional[str] = ...) -> None: ...
 
 class ListRoomMembersResponse(_message.Message):
-    __slots__ = ["members"]
+    __slots__ = ("members",)
     MEMBERS_FIELD_NUMBER: _ClassVar[int]
     members: _containers.RepeatedCompositeFieldContainer[_room303_pb2.Member]
     def __init__(self, members: _Optional[_Iterable[_Union[_room303_pb2.Member, _Mapping]]] = ...) -> None: ...
 
 class SetAdminForRoomMemberRequest(_message.Message):
-    __slots__ = ["room_id", "user_id"]
+    __slots__ = ("room_id", "user_id")
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
@@ -49,17 +49,17 @@ class SetAdminForRoomMemberRequest(_message.Message):
     def __init__(self, room_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class SetAdminForRoomMemberResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class JoinRoomRequest(_message.Message):
-    __slots__ = ["room_id"]
+    __slots__ = ("room_id",)
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     def __init__(self, room_id: _Optional[str] = ...) -> None: ...
 
 class GetRoomMemberRequest(_message.Message):
-    __slots__ = ["room_id", "user_id"]
+    __slots__ = ("room_id", "user_id")
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str

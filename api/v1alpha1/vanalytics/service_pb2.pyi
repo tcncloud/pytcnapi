@@ -18,7 +18,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuditRequest(_message.Message):
-    __slots__ = ["since", "until"]
+    __slots__ = ("since", "until")
     SINCE_FIELD_NUMBER: _ClassVar[int]
     UNTIL_FIELD_NUMBER: _ClassVar[int]
     since: _timestamp_pb2.Timestamp
@@ -26,7 +26,7 @@ class AuditRequest(_message.Message):
     def __init__(self, since: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., until: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class AuditResponse(_message.Message):
-    __slots__ = ["audio_time", "billed_audio_time", "last_usage", "billed_transcripts"]
+    __slots__ = ("audio_time", "billed_audio_time", "last_usage", "billed_transcripts")
     AUDIO_TIME_FIELD_NUMBER: _ClassVar[int]
     BILLED_AUDIO_TIME_FIELD_NUMBER: _ClassVar[int]
     LAST_USAGE_FIELD_NUMBER: _ClassVar[int]
@@ -38,7 +38,7 @@ class AuditResponse(_message.Message):
     def __init__(self, audio_time: _Optional[float] = ..., billed_audio_time: _Optional[float] = ..., last_usage: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., billed_transcripts: _Optional[int] = ...) -> None: ...
 
 class GetRecordingUrlRequest(_message.Message):
-    __slots__ = ["transcript_sid", "kind"]
+    __slots__ = ("transcript_sid", "kind")
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     KIND_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: int
@@ -46,13 +46,13 @@ class GetRecordingUrlRequest(_message.Message):
     def __init__(self, transcript_sid: _Optional[int] = ..., kind: _Optional[str] = ...) -> None: ...
 
 class GetRecordingUrlResponse(_message.Message):
-    __slots__ = ["url"]
+    __slots__ = ("url",)
     URL_FIELD_NUMBER: _ClassVar[int]
     url: str
     def __init__(self, url: _Optional[str] = ...) -> None: ...
 
 class ListBillingSpanRequest(_message.Message):
-    __slots__ = ["page_size", "page_token"]
+    __slots__ = ("page_size", "page_token")
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     page_size: int
@@ -60,7 +60,7 @@ class ListBillingSpanRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
 
 class ListBillingSpanResponse(_message.Message):
-    __slots__ = ["next_page_token", "spans"]
+    __slots__ = ("next_page_token", "spans")
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     SPANS_FIELD_NUMBER: _ClassVar[int]
     next_page_token: str
@@ -68,7 +68,7 @@ class ListBillingSpanResponse(_message.Message):
     def __init__(self, next_page_token: _Optional[str] = ..., spans: _Optional[_Iterable[_Union[BillingSpan, _Mapping]]] = ...) -> None: ...
 
 class BillingSpan(_message.Message):
-    __slots__ = ["calls", "hours", "cost", "start_time", "end_time"]
+    __slots__ = ("calls", "hours", "cost", "start_time", "end_time")
     CALLS_FIELD_NUMBER: _ClassVar[int]
     HOURS_FIELD_NUMBER: _ClassVar[int]
     COST_FIELD_NUMBER: _ClassVar[int]

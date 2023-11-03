@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Status(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     PENDING: _ClassVar[Status]
     REJECTED: _ClassVar[Status]
     ACCEPTED: _ClassVar[Status]
@@ -19,7 +19,7 @@ REJECTED: Status
 ACCEPTED: Status
 
 class Trust(_message.Message):
-    __slots__ = ["trust_id", "grantor", "grantee", "name", "description", "permissions", "labels", "status", "deleted"]
+    __slots__ = ("trust_id", "grantor", "grantee", "name", "description", "permissions", "labels", "status", "deleted")
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     GRANTOR_FIELD_NUMBER: _ClassVar[int]
     GRANTEE_FIELD_NUMBER: _ClassVar[int]
@@ -41,9 +41,9 @@ class Trust(_message.Message):
     def __init__(self, trust_id: _Optional[str] = ..., grantor: _Optional[str] = ..., grantee: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., status: _Optional[_Union[Status, str]] = ..., deleted: bool = ...) -> None: ...
 
 class TrustGroup(_message.Message):
-    __slots__ = ["grantor", "labeled_permissions"]
+    __slots__ = ("grantor", "labeled_permissions")
     class LabeledPermissions(_message.Message):
-        __slots__ = ["permissions", "labels"]
+        __slots__ = ("permissions", "labels")
         PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
         LABELS_FIELD_NUMBER: _ClassVar[int]
         permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
@@ -56,9 +56,9 @@ class TrustGroup(_message.Message):
     def __init__(self, grantor: _Optional[str] = ..., labeled_permissions: _Optional[_Iterable[_Union[TrustGroup.LabeledPermissions, _Mapping]]] = ...) -> None: ...
 
 class TrustFilter(_message.Message):
-    __slots__ = ["grantor", "grantee", "status_filter"]
+    __slots__ = ("grantor", "grantee", "status_filter")
     class StatusFilter(_message.Message):
-        __slots__ = ["values"]
+        __slots__ = ("values",)
         VALUES_FIELD_NUMBER: _ClassVar[int]
         values: _containers.RepeatedScalarFieldContainer[Status]
         def __init__(self, values: _Optional[_Iterable[_Union[Status, str]]] = ...) -> None: ...

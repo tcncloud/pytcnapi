@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FieldValueFilter(_message.Message):
-    __slots__ = ["key", "value"]
+    __slots__ = ("key", "value")
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     key: str
@@ -14,9 +14,9 @@ class FieldValueFilter(_message.Message):
     def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class NotificationType(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         INVALID: _ClassVar[NotificationType.Enum]
         EMAIL: _ClassVar[NotificationType.Enum]
         SERVER_PUSH: _ClassVar[NotificationType.Enum]

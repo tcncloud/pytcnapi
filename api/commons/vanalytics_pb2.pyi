@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Interval(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TODAY: _ClassVar[Interval]
     YESTERDAY: _ClassVar[Interval]
     THIS_WEEK: _ClassVar[Interval]

@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AgentInfo(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_INFO_ACTIVE_AGENTS: _ClassVar[AgentInfo]
     AGENT_INFO_IN_CONFERENCE_AGENTS: _ClassVar[AgentInfo]
     AGENT_INFO_MANUAL_AGENTS: _ClassVar[AgentInfo]
@@ -17,7 +17,7 @@ class AgentInfo(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AGENT_INFO_WRAP_UP_AGENTS: _ClassVar[AgentInfo]
 
 class SkillStats(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SKILL_STATS_AGENT_PEERED_CALLS: _ClassVar[SkillStats]
     SKILL_STATS_AVERAGE_LENGTH: _ClassVar[SkillStats]
     SKILL_STATS_CALL_COUNT: _ClassVar[SkillStats]
@@ -42,7 +42,7 @@ class SkillStats(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SKILL_STATS_TOTAL_LENGTH_FOR_AVERAGE: _ClassVar[SkillStats]
 
 class SkillQueues(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SKILL_QUEUES_ACD_QUEUE: _ClassVar[SkillQueues]
     SKILL_QUEUES_MULTI_HOLD: _ClassVar[SkillQueues]
     SKILL_QUEUES_SIMPLE_HOLD: _ClassVar[SkillQueues]
@@ -51,7 +51,7 @@ class SkillQueues(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SKILL_QUEUES_GRAND_TOTALS: _ClassVar[SkillQueues]
 
 class AgentStats(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_STATS_AGENT_NAME: _ClassVar[AgentStats]
     AGENT_STATS_AGENT_STATUS: _ClassVar[AgentStats]
     AGENT_STATS_DURATION_IN_STATUS: _ClassVar[AgentStats]
@@ -69,7 +69,7 @@ class AgentStats(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AGENT_STATS_TOTAL_HOLD_COUNT: _ClassVar[AgentStats]
 
 class ManagerBargeInMode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MONITOR: _ClassVar[ManagerBargeInMode]
     FULL_CONFERENCE: _ClassVar[ManagerBargeInMode]
     AGENT_WHISPER: _ClassVar[ManagerBargeInMode]

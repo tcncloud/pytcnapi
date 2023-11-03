@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Application(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     APPLICATION_UNSPECIFIED: _ClassVar[Application]
     APPLICATION_AGENT: _ClassVar[Application]
     APPLICATION_BUSINESS_INTELLIGENCE: _ClassVar[Application]
@@ -26,7 +26,7 @@ class Application(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     APPLICATION_NEWSROOM: _ClassVar[Application]
 
 class Card(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CARD_UNSPECIFIED: _ClassVar[Card]
     CARD_ORGANIZATION: _ClassVar[Card]
     CARD_USERS: _ClassVar[Card]

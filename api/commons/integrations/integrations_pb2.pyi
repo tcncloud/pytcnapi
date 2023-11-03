@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class IntegrationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     INTEGRATION_TYPE_UNKNOWN: _ClassVar[IntegrationType]
     INTEGRATION_TYPE_BRAINTREE: _ClassVar[IntegrationType]
     INTEGRATION_TYPE_RELATIENT: _ClassVar[IntegrationType]
@@ -52,7 +52,7 @@ class IntegrationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     INTEGRATION_TYPE_PAYNSECONDS: _ClassVar[IntegrationType]
 
 class RequestMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     REQUEST_METHOD_UNKNOWN: _ClassVar[RequestMethod]
     REQUEST_METHOD_BRAINTREE_CREDITSALE: _ClassVar[RequestMethod]
     REQUEST_METHOD_BRAINTREE_BANKSALE: _ClassVar[RequestMethod]
@@ -256,13 +256,13 @@ class RequestMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REQUEST_METHOD_PAYNSECONDS_TOKENIZE_CARD: _ClassVar[RequestMethod]
 
 class TransactionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TRANSACTION_TYPE_PAYMENT: _ClassVar[TransactionType]
     TRANSACTION_TYPE_DATA_INQUIRY: _ClassVar[TransactionType]
     TRANSACTION_TYPE_ACCOUNT_VERIFY: _ClassVar[TransactionType]
 
 class RequestSource(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     REQUEST_SOURCE_IVR: _ClassVar[RequestSource]
     REQUEST_SOURCE_EMAIL: _ClassVar[RequestSource]
     REQUEST_SOURCE_WEB: _ClassVar[RequestSource]
@@ -271,12 +271,12 @@ class RequestSource(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REQUEST_SOURCE_LMS: _ClassVar[RequestSource]
 
 class TransactionResult(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TRANSACTION_RESULT_SUCCESS: _ClassVar[TransactionResult]
     TRANSACTION_RESULT_FAILED: _ClassVar[TransactionResult]
 
 class ValueType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     VALUE_TYPE_UNKNOWN: _ClassVar[ValueType]
     VALUE_TYPE_NUMBER: _ClassVar[ValueType]
     VALUE_TYPE_BOOL: _ClassVar[ValueType]
@@ -288,7 +288,7 @@ class ValueType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALUE_TYPE_COMPOSITE_VAL: _ClassVar[ValueType]
 
 class Visibility(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     VISIBILITY_INVISIBLE: _ClassVar[Visibility]
     VISIBILITY_UNRESTRICTED: _ClassVar[Visibility]
     VISIBILITY_RUNTIME: _ClassVar[Visibility]
@@ -296,7 +296,7 @@ class Visibility(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VISIBILITY_PLUGIN: _ClassVar[Visibility]
 
 class CompareOperation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     COMPARE_OPERATION_EQ: _ClassVar[CompareOperation]
     COMPARE_OPERATION_GT: _ClassVar[CompareOperation]
     COMPARE_OPERATION_LT: _ClassVar[CompareOperation]
@@ -305,14 +305,14 @@ class CompareOperation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COMPARE_OPERATION_NE: _ClassVar[CompareOperation]
 
 class FlowFieldLoc(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FFL_ANY: _ClassVar[FlowFieldLoc]
     FFL_LINK: _ClassVar[FlowFieldLoc]
     FFL_PLUGIN_INST: _ClassVar[FlowFieldLoc]
     FFL_SUBMIT: _ClassVar[FlowFieldLoc]
 
 class Validation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     VALIDATION_NONE: _ClassVar[Validation]
     VALIDATION_CREDITCARD: _ClassVar[Validation]
     VALIDATION_CVC: _ClassVar[Validation]
@@ -329,7 +329,7 @@ class Validation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALIDATION_REGEX: _ClassVar[Validation]
 
 class InvoiceDisplayType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     UNSPECIFIED: _ClassVar[InvoiceDisplayType]
     AMOUNT_DUE: _ClassVar[InvoiceDisplayType]
     SERVICE_DATE: _ClassVar[InvoiceDisplayType]
@@ -358,7 +358,7 @@ class InvoiceDisplayType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PATIENT_ZIP_CODE: _ClassVar[InvoiceDisplayType]
 
 class FieldSource(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FIELD_SOURCE_NONE: _ClassVar[FieldSource]
     FIELD_SOURCE_LINK: _ClassVar[FieldSource]
     FIELD_SOURCE_VERIFICATION_DATA: _ClassVar[FieldSource]
@@ -370,7 +370,7 @@ class FieldSource(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FIELD_SOURCE_PAYMENT_FORM: _ClassVar[FieldSource]
 
 class FlowType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FLOW_TYPE_UNKNOWN: _ClassVar[FlowType]
     FLOW_TYPE_INVOICE: _ClassVar[FlowType]
     FLOW_TYPE_PAYMENT: _ClassVar[FlowType]
@@ -710,7 +710,7 @@ FLOW_TYPE_VERIFICATION: FlowType
 FLOW_TYPE_EXECUTE: FlowType
 
 class Invoices(_message.Message):
-    __slots__ = ["top_level_fields", "invoices"]
+    __slots__ = ("top_level_fields", "invoices")
     TOP_LEVEL_FIELDS_FIELD_NUMBER: _ClassVar[int]
     INVOICES_FIELD_NUMBER: _ClassVar[int]
     top_level_fields: _containers.RepeatedCompositeFieldContainer[InvoiceField]
@@ -718,7 +718,7 @@ class Invoices(_message.Message):
     def __init__(self, top_level_fields: _Optional[_Iterable[_Union[InvoiceField, _Mapping]]] = ..., invoices: _Optional[_Iterable[_Union[Invoice, _Mapping]]] = ...) -> None: ...
 
 class Invoice(_message.Message):
-    __slots__ = ["top_level_fields", "items"]
+    __slots__ = ("top_level_fields", "items")
     TOP_LEVEL_FIELDS_FIELD_NUMBER: _ClassVar[int]
     ITEMS_FIELD_NUMBER: _ClassVar[int]
     top_level_fields: _containers.RepeatedCompositeFieldContainer[InvoiceField]
@@ -726,13 +726,13 @@ class Invoice(_message.Message):
     def __init__(self, top_level_fields: _Optional[_Iterable[_Union[InvoiceField, _Mapping]]] = ..., items: _Optional[_Iterable[_Union[Item, _Mapping]]] = ...) -> None: ...
 
 class Item(_message.Message):
-    __slots__ = ["fields"]
+    __slots__ = ("fields",)
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     fields: _containers.RepeatedCompositeFieldContainer[InvoiceField]
     def __init__(self, fields: _Optional[_Iterable[_Union[InvoiceField, _Mapping]]] = ...) -> None: ...
 
 class InvoiceField(_message.Message):
-    __slots__ = ["item_type", "name", "display_name", "value"]
+    __slots__ = ("item_type", "name", "display_name", "value")
     ITEM_TYPE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -744,7 +744,7 @@ class InvoiceField(_message.Message):
     def __init__(self, item_type: _Optional[_Union[InvoiceDisplayType, str]] = ..., name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class InvoiceTemplate(_message.Message):
-    __slots__ = ["account_fields", "invoice_descriptions"]
+    __slots__ = ("account_fields", "invoice_descriptions")
     ACCOUNT_FIELDS_FIELD_NUMBER: _ClassVar[int]
     INVOICE_DESCRIPTIONS_FIELD_NUMBER: _ClassVar[int]
     account_fields: _containers.RepeatedCompositeFieldContainer[FieldDefinition]
@@ -752,7 +752,7 @@ class InvoiceTemplate(_message.Message):
     def __init__(self, account_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ..., invoice_descriptions: _Optional[_Iterable[_Union[InvoiceDescription, _Mapping]]] = ...) -> None: ...
 
 class InvoiceDescription(_message.Message):
-    __slots__ = ["invoice_description_fields", "line_items"]
+    __slots__ = ("invoice_description_fields", "line_items")
     INVOICE_DESCRIPTION_FIELDS_FIELD_NUMBER: _ClassVar[int]
     LINE_ITEMS_FIELD_NUMBER: _ClassVar[int]
     invoice_description_fields: _containers.RepeatedCompositeFieldContainer[FieldDefinition]
@@ -760,19 +760,19 @@ class InvoiceDescription(_message.Message):
     def __init__(self, invoice_description_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ..., line_items: _Optional[_Iterable[_Union[LineItemGroup, _Mapping]]] = ...) -> None: ...
 
 class LineItemGroup(_message.Message):
-    __slots__ = ["line_item_fields"]
+    __slots__ = ("line_item_fields",)
     LINE_ITEM_FIELDS_FIELD_NUMBER: _ClassVar[int]
     line_item_fields: _containers.RepeatedCompositeFieldContainer[FieldDefinition]
     def __init__(self, line_item_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class ListOfStrings(_message.Message):
-    __slots__ = ["values"]
+    __slots__ = ("values",)
     VALUES_FIELD_NUMBER: _ClassVar[int]
     values: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, values: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Flow(_message.Message):
-    __slots__ = ["invoice_flow", "payment_flow", "verification_flow", "execute_flow"]
+    __slots__ = ("invoice_flow", "payment_flow", "verification_flow", "execute_flow")
     INVOICE_FLOW_FIELD_NUMBER: _ClassVar[int]
     PAYMENT_FLOW_FIELD_NUMBER: _ClassVar[int]
     VERIFICATION_FLOW_FIELD_NUMBER: _ClassVar[int]
@@ -784,7 +784,7 @@ class Flow(_message.Message):
     def __init__(self, invoice_flow: _Optional[_Union[InvoiceFlow, _Mapping]] = ..., payment_flow: _Optional[_Union[PaymentFlow, _Mapping]] = ..., verification_flow: _Optional[_Union[VerificationFlow, _Mapping]] = ..., execute_flow: _Optional[_Union[ExecuteFlow, _Mapping]] = ...) -> None: ...
 
 class InvoiceFlow(_message.Message):
-    __slots__ = ["plugin_instance_id", "experian_query_balance", "authorize_net_link_data", "authorize_net_custom_http", "journey", "dynamic_journey", "newzware_account_inquiry", "invoice_template"]
+    __slots__ = ("plugin_instance_id", "experian_query_balance", "authorize_net_link_data", "authorize_net_custom_http", "journey", "dynamic_journey", "newzware_account_inquiry", "invoice_template")
     PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_QUERY_BALANCE_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZE_NET_LINK_DATA_FIELD_NUMBER: _ClassVar[int]
@@ -804,7 +804,7 @@ class InvoiceFlow(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[InvoiceExperianQueryBalance, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[InvoiceAuthorizeNetLinkData, _Mapping]] = ..., authorize_net_custom_http: _Optional[_Union[InvoiceAuthorizeNetCustomHttp, _Mapping]] = ..., journey: _Optional[_Union[InvoiceJourney, _Mapping]] = ..., dynamic_journey: _Optional[_Union[InvoiceDynamicJourney, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[InvoiceNewzwareAccountInquiry, _Mapping]] = ..., invoice_template: _Optional[_Union[InvoiceTemplate, _Mapping]] = ...) -> None: ...
 
 class PaymentFlow(_message.Message):
-    __slots__ = ["plugin_instance_id", "experian_cc", "experian_ach", "authorize_net_cc", "authorize_net_ach", "authorize_net_paypal", "authorize_net_apple_pay", "authorize_net_google_pay", "payway_submit_card_sale_request", "payway_submit_ach_alert_request", "newzware_cc", "newzware_ach", "priocommerce_cc", "priocommerce_ach", "payment_fields"]
+    __slots__ = ("plugin_instance_id", "experian_cc", "experian_ach", "authorize_net_cc", "authorize_net_ach", "authorize_net_paypal", "authorize_net_apple_pay", "authorize_net_google_pay", "payway_submit_card_sale_request", "payway_submit_ach_alert_request", "newzware_cc", "newzware_ach", "priocommerce_cc", "priocommerce_ach", "payment_fields")
     PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_CC_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_ACH_FIELD_NUMBER: _ClassVar[int]
@@ -838,7 +838,7 @@ class PaymentFlow(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_cc: _Optional[_Union[PaymentExperianCC, _Mapping]] = ..., experian_ach: _Optional[_Union[PaymentExperianACH, _Mapping]] = ..., authorize_net_cc: _Optional[_Union[PaymentAuthorizeNetCC, _Mapping]] = ..., authorize_net_ach: _Optional[_Union[PaymentAuthorizeNetACH, _Mapping]] = ..., authorize_net_paypal: _Optional[_Union[PaymentAuthorizeNetPaypal, _Mapping]] = ..., authorize_net_apple_pay: _Optional[_Union[PaymentAuthorizeNetApplePay, _Mapping]] = ..., authorize_net_google_pay: _Optional[_Union[PaymentAuthorizeNetGooglePay, _Mapping]] = ..., payway_submit_card_sale_request: _Optional[_Union[PaymentPaywaySubmitCardSaleRequest, _Mapping]] = ..., payway_submit_ach_alert_request: _Optional[_Union[PaymentPaywaySubmitACHAlertRequest, _Mapping]] = ..., newzware_cc: _Optional[_Union[PaymentNewzwareCc, _Mapping]] = ..., newzware_ach: _Optional[_Union[PaymentNewzwareAch, _Mapping]] = ..., priocommerce_cc: _Optional[_Union[PaymentPriocommerceCc, _Mapping]] = ..., priocommerce_ach: _Optional[_Union[PaymentPriocommerceAch, _Mapping]] = ..., payment_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class VerificationFlow(_message.Message):
-    __slots__ = ["plugin_instance_id", "experian_query_balance", "experian_link_data", "experian_zip_dob", "authorize_net_customer_profile", "authorize_net_link_data", "journey", "newzware_lookup_phone", "newzware_account_inquiry", "verification_fields"]
+    __slots__ = ("plugin_instance_id", "experian_query_balance", "experian_link_data", "experian_zip_dob", "authorize_net_customer_profile", "authorize_net_link_data", "journey", "newzware_lookup_phone", "newzware_account_inquiry", "verification_fields")
     PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_QUERY_BALANCE_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_LINK_DATA_FIELD_NUMBER: _ClassVar[int]
@@ -862,7 +862,7 @@ class VerificationFlow(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[VerificationExperianQueryBalance, _Mapping]] = ..., experian_link_data: _Optional[_Union[VerificationExperianLinkData, _Mapping]] = ..., experian_zip_dob: _Optional[_Union[VerificationExperianZipDob, _Mapping]] = ..., authorize_net_customer_profile: _Optional[_Union[VerificationAuthorizeNetCustomerProfile, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[VerificationAuthorizeNetLinkData, _Mapping]] = ..., journey: _Optional[_Union[VerificationJourney, _Mapping]] = ..., newzware_lookup_phone: _Optional[_Union[VerificationNewzwareLookupPhone, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[VerificationNewzwareAccountInquiry, _Mapping]] = ..., verification_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class FieldDefinition(_message.Message):
-    __slots__ = ["name", "alt_name", "display_name", "field_type", "validation_type", "formats", "invoice_type", "helper_text"]
+    __slots__ = ("name", "alt_name", "display_name", "field_type", "validation_type", "formats", "invoice_type", "helper_text")
     NAME_FIELD_NUMBER: _ClassVar[int]
     ALT_NAME_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -882,13 +882,13 @@ class FieldDefinition(_message.Message):
     def __init__(self, name: _Optional[str] = ..., alt_name: _Optional[str] = ..., display_name: _Optional[str] = ..., field_type: _Optional[_Union[ValueType, str]] = ..., validation_type: _Optional[_Union[Validation, str]] = ..., formats: _Optional[_Iterable[str]] = ..., invoice_type: _Optional[_Union[InvoiceDisplayType, str]] = ..., helper_text: _Optional[_Union[HelperText, _Mapping]] = ...) -> None: ...
 
 class HelperText(_message.Message):
-    __slots__ = ["text"]
+    __slots__ = ("text",)
     TEXT_FIELD_NUMBER: _ClassVar[int]
     text: str
     def __init__(self, text: _Optional[str] = ...) -> None: ...
 
 class ExecuteFlow(_message.Message):
-    __slots__ = ["plugin_instance_id", "braintree_credit_sale", "braintree_bank_sale", "relatient_get_patient_balance", "relatient_get_patient_cc_tokens", "relatient_post_patient_token", "relatient_post_patient_balance", "relatient_get_patient", "relatient_post_balance_by_id", "relatient_create_fortis_achtoken", "relatient_create_fortis_cctoken", "relatient_fortis_token_ach_debit_payment", "relatient_fortis_token_cc_payment", "cybersource_credit_payment", "cybersource_echeck_payment", "circpro_phone_lookup_with_bundle", "circpro_phone_lookup", "circpro_vacation_restart_inquiry", "circpro_complaint_inquiry", "circpro_account_inquiry", "circpro_account_inquiry_with_tax", "circpro_account_inquiry_with_tax_bundle", "circpro_complaint_codes", "circpro_complaint_update", "circpro_vacation_update", "circpro_restart_update", "circpro_law_immediate_payment", "circpro_law_update_data_with_pac", "circpro_law_get_customers", "authorizenet_charge_credit_card", "authorizenet_debit_bank_account", "authorizenet_create_customer_payment_profile", "authorizenet_paypal_transaction", "authorizenet_google_pay_transaction", "authorizenet_apple_pay_transaction", "authorizenet_pay_pal_auth_capture", "expitrans_cc_transaction", "expitrans_ach_transaction", "axiamedfusion_cc_transaction", "axiamedfusion_ach_transaction", "axiamedfusion_card_verify", "instamed_payment_sale", "instamed_void_payment", "usaepay_submit_cc_payments", "usaepay_submit_ach_payments", "usaepay_get_cc_token", "ezidebit_submit_cc_payments", "ezidebit_submit_ach_payments", "bambora_submit_cc_payments", "bambora_submit_ach_payments", "repay_store_card", "repay_payment_token", "repay_ach_payment_token", "axia_submit_sale_request_by_cc", "axia_submit_sale_request_by_check", "securetrading_send_payment", "payment_vision_submit_card_sale_request_by_cc", "payment_vision_submit_card_sale_request_by_ach", "interprose_lookup_account", "interprose_submit_card_sale_request_by_cc", "interprose_submit_card_sale_request_by_ach", "interprose_lookup_payment_id", "interprose_lookup_account_by_form_id", "dallasnews_search_by_phone", "dallasnews_search_by_zip_street", "dallasnews_search_by", "dallasnews_create_vacation", "dallasnews_get_vacation", "dallasnews_get_vacation_days_between", "dallasnews_get_vacation_with_cutoff", "dallasnews_delete_vacation", "dallasnews_add_complaint", "dallasnews_update_phone_number", "dallasnews_stop_account", "dallasnews_cc_payment_token", "dallasnews_ach_payment_token", "payway_submit_card_sale_request", "payway_create_token_request", "payway_submit_ach_sale_request", "billingtree_submit_card_sale_request", "experian_cc_payment_request", "experian_cc_payment_plan_request", "experian_balancerequest", "experian_ach_payment_request", "experian_ach_payment_plan_request", "experian_stella_card_entry", "experian_stella_echeck", "experian_stella_card_device_tokenization", "experian_stella_token_payment", "experian_stella_ach_tokenization", "experian_stella_add_usa_epay_token", "experian_stella_payment_plans", "experian_stella_auth", "newscycle_login", "newscycle_search_page", "newscycle_billing_info", "newscycle_service_error_info", "newscycle_service_error_trans", "newscycle_stop_info", "newscycle_stop_trans", "newscycle_renew_info", "newscycle_auto_renew_info", "newscycle_auto_tran", "newscycle_pay_info", "newscycle_pay_tran", "trustcommerce_credit_sale", "trustcommerce_ach_sale", "vantiv_credit_sale", "vantiv_ach_sale", "journey_latest", "journey_list", "journey_update", "athenahealth_get_patients", "athenahealth_get_patients_with_id", "athenahealth_cc_payment", "brainworks_get_customers_by_phone", "brainworks_get_suspends", "brainworks_get_customer_by_cust_id_v2", "brainworks_get_complaints", "brainworks_get_codes_or_types", "brainworks_stop_suspends", "brainworks_start_suspends", "brainworks_send_complaint", "brainworks_get_customer_by_cust_id", "osgconnect_cc_payments", "osgconnect_ach_payments", "osgconnect_validate_account_no", "ntvb_credit_missed_delivery", "ntvb_customer_search", "ntvb_end_call", "ntvb_integration_definition", "ntvb_missed_delivery", "ntvb_remove_autorenewal", "ntvb_renew_subscription", "ntvb_renewal_offers", "ntvb_set_autorenewal", "ntvb_start_incoming_call", "ntvb_start_outgoing_call", "ntvb_subscription_info", "ntvb_vacation_stop", "ntvb_authtest", "elavon_credit_card_sale", "elavon_add_recurring", "elavon_dcc_response", "elavon_delete_recurring", "elavon_update_recurring", "elavon_health_care_cc_sale", "elavon_add_installment", "elavon_update_installment", "elavon_delete_installment", "elavon_mcc_credit_card_sale", "globalPayments_card_sale", "globalPayments_get_transaction_by_id", "globalPayments_list_transactions", "globalPayments_refund_sale", "globalPayments_reverse_sale_or_refund", "payscout_credit_sale", "payscout_echeck_sale", "i2c_echo", "i2c_balance_inquiry", "i2c_verify_user", "i2c_search_customer", "i2c_make_payment", "i2c_get_cardholder_profile", "i2c_get_cardholder_statement", "i2c_get_cardholder_balance", "i2c_get_creditpayment_info", "i2c_transaction_history", "opayo_cc_payment", "shift4_cc_payment", "shift4_access_token", "poscorp_accesstoken", "poscorp_lookup_guarantor", "poscorp_update_payment_status", "PIANO_GET_USER", "PIANO_UPDATE_USER", "PIANO_UPDATE_SUBSCRIPTION", "PIANO_GET_PAYMENT", "PIANO_LIST_SUBSCRIPTION", "PIANO_LASTACCESS_CONVERSION", "epic_get_token", "epic_get_patient", "epic_match_patient", "epic_search_appointment", "epic_find_appointment", "epic_book_appointment", "epic_get_account", "newzware_phone_lookup", "newzware_account_inquiry", "newzware_cc_payment", "newzware_ach_Payment", "newzware_complaint_history", "newzware_complaint_update", "newzware_vacation_restart", "newzware_vacation_update", "newzware_phone_lookup_multi", "priocommerce_ach_payment", "priocommerce_cc_payment", "naviga_create_payment", "naviga_change_billing", "paynseconds_tokenize_card"]
+    __slots__ = ("plugin_instance_id", "braintree_credit_sale", "braintree_bank_sale", "relatient_get_patient_balance", "relatient_get_patient_cc_tokens", "relatient_post_patient_token", "relatient_post_patient_balance", "relatient_get_patient", "relatient_post_balance_by_id", "relatient_create_fortis_achtoken", "relatient_create_fortis_cctoken", "relatient_fortis_token_ach_debit_payment", "relatient_fortis_token_cc_payment", "cybersource_credit_payment", "cybersource_echeck_payment", "circpro_phone_lookup_with_bundle", "circpro_phone_lookup", "circpro_vacation_restart_inquiry", "circpro_complaint_inquiry", "circpro_account_inquiry", "circpro_account_inquiry_with_tax", "circpro_account_inquiry_with_tax_bundle", "circpro_complaint_codes", "circpro_complaint_update", "circpro_vacation_update", "circpro_restart_update", "circpro_law_immediate_payment", "circpro_law_update_data_with_pac", "circpro_law_get_customers", "authorizenet_charge_credit_card", "authorizenet_debit_bank_account", "authorizenet_create_customer_payment_profile", "authorizenet_paypal_transaction", "authorizenet_google_pay_transaction", "authorizenet_apple_pay_transaction", "authorizenet_pay_pal_auth_capture", "expitrans_cc_transaction", "expitrans_ach_transaction", "axiamedfusion_cc_transaction", "axiamedfusion_ach_transaction", "axiamedfusion_card_verify", "instamed_payment_sale", "instamed_void_payment", "usaepay_submit_cc_payments", "usaepay_submit_ach_payments", "usaepay_get_cc_token", "ezidebit_submit_cc_payments", "ezidebit_submit_ach_payments", "bambora_submit_cc_payments", "bambora_submit_ach_payments", "repay_store_card", "repay_payment_token", "repay_ach_payment_token", "axia_submit_sale_request_by_cc", "axia_submit_sale_request_by_check", "securetrading_send_payment", "payment_vision_submit_card_sale_request_by_cc", "payment_vision_submit_card_sale_request_by_ach", "interprose_lookup_account", "interprose_submit_card_sale_request_by_cc", "interprose_submit_card_sale_request_by_ach", "interprose_lookup_payment_id", "interprose_lookup_account_by_form_id", "dallasnews_search_by_phone", "dallasnews_search_by_zip_street", "dallasnews_search_by", "dallasnews_create_vacation", "dallasnews_get_vacation", "dallasnews_get_vacation_days_between", "dallasnews_get_vacation_with_cutoff", "dallasnews_delete_vacation", "dallasnews_add_complaint", "dallasnews_update_phone_number", "dallasnews_stop_account", "dallasnews_cc_payment_token", "dallasnews_ach_payment_token", "payway_submit_card_sale_request", "payway_create_token_request", "payway_submit_ach_sale_request", "billingtree_submit_card_sale_request", "experian_cc_payment_request", "experian_cc_payment_plan_request", "experian_balancerequest", "experian_ach_payment_request", "experian_ach_payment_plan_request", "experian_stella_card_entry", "experian_stella_echeck", "experian_stella_card_device_tokenization", "experian_stella_token_payment", "experian_stella_ach_tokenization", "experian_stella_add_usa_epay_token", "experian_stella_payment_plans", "experian_stella_auth", "newscycle_login", "newscycle_search_page", "newscycle_billing_info", "newscycle_service_error_info", "newscycle_service_error_trans", "newscycle_stop_info", "newscycle_stop_trans", "newscycle_renew_info", "newscycle_auto_renew_info", "newscycle_auto_tran", "newscycle_pay_info", "newscycle_pay_tran", "trustcommerce_credit_sale", "trustcommerce_ach_sale", "vantiv_credit_sale", "vantiv_ach_sale", "journey_latest", "journey_list", "journey_update", "athenahealth_get_patients", "athenahealth_get_patients_with_id", "athenahealth_cc_payment", "brainworks_get_customers_by_phone", "brainworks_get_suspends", "brainworks_get_customer_by_cust_id_v2", "brainworks_get_complaints", "brainworks_get_codes_or_types", "brainworks_stop_suspends", "brainworks_start_suspends", "brainworks_send_complaint", "brainworks_get_customer_by_cust_id", "osgconnect_cc_payments", "osgconnect_ach_payments", "osgconnect_validate_account_no", "ntvb_credit_missed_delivery", "ntvb_customer_search", "ntvb_end_call", "ntvb_integration_definition", "ntvb_missed_delivery", "ntvb_remove_autorenewal", "ntvb_renew_subscription", "ntvb_renewal_offers", "ntvb_set_autorenewal", "ntvb_start_incoming_call", "ntvb_start_outgoing_call", "ntvb_subscription_info", "ntvb_vacation_stop", "ntvb_authtest", "elavon_credit_card_sale", "elavon_add_recurring", "elavon_dcc_response", "elavon_delete_recurring", "elavon_update_recurring", "elavon_health_care_cc_sale", "elavon_add_installment", "elavon_update_installment", "elavon_delete_installment", "elavon_mcc_credit_card_sale", "globalPayments_card_sale", "globalPayments_get_transaction_by_id", "globalPayments_list_transactions", "globalPayments_refund_sale", "globalPayments_reverse_sale_or_refund", "payscout_credit_sale", "payscout_echeck_sale", "i2c_echo", "i2c_balance_inquiry", "i2c_verify_user", "i2c_search_customer", "i2c_make_payment", "i2c_get_cardholder_profile", "i2c_get_cardholder_statement", "i2c_get_cardholder_balance", "i2c_get_creditpayment_info", "i2c_transaction_history", "opayo_cc_payment", "shift4_cc_payment", "shift4_access_token", "poscorp_accesstoken", "poscorp_lookup_guarantor", "poscorp_update_payment_status", "PIANO_GET_USER", "PIANO_UPDATE_USER", "PIANO_UPDATE_SUBSCRIPTION", "PIANO_GET_PAYMENT", "PIANO_LIST_SUBSCRIPTION", "PIANO_LASTACCESS_CONVERSION", "epic_get_token", "epic_get_patient", "epic_match_patient", "epic_search_appointment", "epic_find_appointment", "epic_book_appointment", "epic_get_account", "newzware_phone_lookup", "newzware_account_inquiry", "newzware_cc_payment", "newzware_ach_Payment", "newzware_complaint_history", "newzware_complaint_update", "newzware_vacation_restart", "newzware_vacation_update", "newzware_phone_lookup_multi", "priocommerce_ach_payment", "priocommerce_cc_payment", "naviga_create_payment", "naviga_change_billing", "paynseconds_tokenize_card")
     PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     BRAINTREE_CREDIT_SALE_FIELD_NUMBER: _ClassVar[int]
     BRAINTREE_BANK_SALE_FIELD_NUMBER: _ClassVar[int]
@@ -1294,29 +1294,29 @@ class ExecuteFlow(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., braintree_credit_sale: _Optional[_Union[ExecuteBraintreeCreditSale, _Mapping]] = ..., braintree_bank_sale: _Optional[_Union[ExecuteBraintreeBankSale, _Mapping]] = ..., relatient_get_patient_balance: _Optional[_Union[ExecuteRelatientGetPatientBalance, _Mapping]] = ..., relatient_get_patient_cc_tokens: _Optional[_Union[ExecuteRelatientGetPatientCcTokens, _Mapping]] = ..., relatient_post_patient_token: _Optional[_Union[ExecuteRelatientPostPatientToken, _Mapping]] = ..., relatient_post_patient_balance: _Optional[_Union[ExecuteRelatientPostPatientBalance, _Mapping]] = ..., relatient_get_patient: _Optional[_Union[ExecuteRelatientGetPatient, _Mapping]] = ..., relatient_post_balance_by_id: _Optional[_Union[ExecuteRelatientPostBalanceById, _Mapping]] = ..., relatient_create_fortis_achtoken: _Optional[_Union[ExecuteRelatientCreateFortisAchtoken, _Mapping]] = ..., relatient_create_fortis_cctoken: _Optional[_Union[ExecuteRelatientCreateFortisCctoken, _Mapping]] = ..., relatient_fortis_token_ach_debit_payment: _Optional[_Union[ExecuteRelatientFortisTokenAchDebitPayment, _Mapping]] = ..., relatient_fortis_token_cc_payment: _Optional[_Union[ExecuteRelatientFortisTokenCcPayment, _Mapping]] = ..., cybersource_credit_payment: _Optional[_Union[ExecuteCybersourceCreditPayment, _Mapping]] = ..., cybersource_echeck_payment: _Optional[_Union[ExecuteCybersourceEcheckPayment, _Mapping]] = ..., circpro_phone_lookup_with_bundle: _Optional[_Union[ExecuteCircproPhoneLookupWithBundle, _Mapping]] = ..., circpro_phone_lookup: _Optional[_Union[ExecuteCircproPhoneLookup, _Mapping]] = ..., circpro_vacation_restart_inquiry: _Optional[_Union[ExecuteCircproVacationRestartInquiry, _Mapping]] = ..., circpro_complaint_inquiry: _Optional[_Union[ExecuteCircproComplaintInquiry, _Mapping]] = ..., circpro_account_inquiry: _Optional[_Union[ExecuteCircproAccountInquiry, _Mapping]] = ..., circpro_account_inquiry_with_tax: _Optional[_Union[ExecuteCircproAccountInquiryWithTax, _Mapping]] = ..., circpro_account_inquiry_with_tax_bundle: _Optional[_Union[ExecuteCircproAccountInquiryWithTaxBundle, _Mapping]] = ..., circpro_complaint_codes: _Optional[_Union[ExecuteCircproComplaintCodes, _Mapping]] = ..., circpro_complaint_update: _Optional[_Union[ExecuteCircproComplaintUpdate, _Mapping]] = ..., circpro_vacation_update: _Optional[_Union[ExecuteCircproVacationUpdate, _Mapping]] = ..., circpro_restart_update: _Optional[_Union[ExecuteCircproRestartUpdate, _Mapping]] = ..., circpro_law_immediate_payment: _Optional[_Union[ExecuteCircproLawImmediatePayment, _Mapping]] = ..., circpro_law_update_data_with_pac: _Optional[_Union[ExecuteCircproLawUpdateDataWithPac, _Mapping]] = ..., circpro_law_get_customers: _Optional[_Union[ExecuteCircproLawGetCustomers, _Mapping]] = ..., authorizenet_charge_credit_card: _Optional[_Union[ExecuteAuthorizenetChargeCreditCard, _Mapping]] = ..., authorizenet_debit_bank_account: _Optional[_Union[ExecuteAuthorizenetDebitBankAccount, _Mapping]] = ..., authorizenet_create_customer_payment_profile: _Optional[_Union[ExecuteAuthorizenetCreateCustomerPaymentProfile, _Mapping]] = ..., authorizenet_paypal_transaction: _Optional[_Union[ExecuteAuthorizenetPaypalTransaction, _Mapping]] = ..., authorizenet_google_pay_transaction: _Optional[_Union[ExecuteAuthorizenetGooglePayTransaction, _Mapping]] = ..., authorizenet_apple_pay_transaction: _Optional[_Union[ExecuteAuthorizenetApplePayTransaction, _Mapping]] = ..., authorizenet_pay_pal_auth_capture: _Optional[_Union[ExecuteAuthorizenetPayPalAuthCapture, _Mapping]] = ..., expitrans_cc_transaction: _Optional[_Union[ExecuteExpitransCcTransaction, _Mapping]] = ..., expitrans_ach_transaction: _Optional[_Union[ExecuteExpitransAchTransaction, _Mapping]] = ..., axiamedfusion_cc_transaction: _Optional[_Union[ExecuteAxiamedfusionCcTransaction, _Mapping]] = ..., axiamedfusion_ach_transaction: _Optional[_Union[ExecuteAxiamedfusionAchTransaction, _Mapping]] = ..., axiamedfusion_card_verify: _Optional[_Union[ExecuteAxiamedfusionCardVerify, _Mapping]] = ..., instamed_payment_sale: _Optional[_Union[ExecuteInstamedPaymentSale, _Mapping]] = ..., instamed_void_payment: _Optional[_Union[ExecuteInstamedVoidPayment, _Mapping]] = ..., usaepay_submit_cc_payments: _Optional[_Union[ExecuteUsaepaySubmitCcPayments, _Mapping]] = ..., usaepay_submit_ach_payments: _Optional[_Union[ExecuteUsaepaySubmitAchPayments, _Mapping]] = ..., usaepay_get_cc_token: _Optional[_Union[ExecuteUsaepayGetCcToken, _Mapping]] = ..., ezidebit_submit_cc_payments: _Optional[_Union[ExecuteEzidebitSubmitCcPayments, _Mapping]] = ..., ezidebit_submit_ach_payments: _Optional[_Union[ExecuteEzidebitSubmitAchPayments, _Mapping]] = ..., bambora_submit_cc_payments: _Optional[_Union[ExecuteBamboraSubmitCcPayments, _Mapping]] = ..., bambora_submit_ach_payments: _Optional[_Union[ExecuteBamboraSubmitAchPayments, _Mapping]] = ..., repay_store_card: _Optional[_Union[ExecuteRepayStoreCard, _Mapping]] = ..., repay_payment_token: _Optional[_Union[ExecuteRepayPaymentToken, _Mapping]] = ..., repay_ach_payment_token: _Optional[_Union[ExecuteRepayAchPaymentToken, _Mapping]] = ..., axia_submit_sale_request_by_cc: _Optional[_Union[ExecuteAxiaSubmitSaleRequestByCc, _Mapping]] = ..., axia_submit_sale_request_by_check: _Optional[_Union[ExecuteAxiaSubmitSaleRequestByCheck, _Mapping]] = ..., securetrading_send_payment: _Optional[_Union[ExecuteSecuretradingSendPayment, _Mapping]] = ..., payment_vision_submit_card_sale_request_by_cc: _Optional[_Union[ExecutePaymentVisionSubmitCardSaleRequestByCc, _Mapping]] = ..., payment_vision_submit_card_sale_request_by_ach: _Optional[_Union[ExecutePaymentVisionSubmitCardSaleRequestByAch, _Mapping]] = ..., interprose_lookup_account: _Optional[_Union[ExecuteInterproseLookupAccount, _Mapping]] = ..., interprose_submit_card_sale_request_by_cc: _Optional[_Union[ExecuteInterproseSubmitCardSaleRequestByCc, _Mapping]] = ..., interprose_submit_card_sale_request_by_ach: _Optional[_Union[ExecuteInterproseSubmitCardSaleRequestByAch, _Mapping]] = ..., interprose_lookup_payment_id: _Optional[_Union[ExecuteInterproseLookupPaymentId, _Mapping]] = ..., interprose_lookup_account_by_form_id: _Optional[_Union[ExecuteInterproseLookupAccountByFormId, _Mapping]] = ..., dallasnews_search_by_phone: _Optional[_Union[ExecuteDallasnewsSearchByPhone, _Mapping]] = ..., dallasnews_search_by_zip_street: _Optional[_Union[ExecuteDallasnewsSearchByZipStreet, _Mapping]] = ..., dallasnews_search_by: _Optional[_Union[ExecuteDallasnewsSearchBy, _Mapping]] = ..., dallasnews_create_vacation: _Optional[_Union[ExecuteDallasnewsCreateVacation, _Mapping]] = ..., dallasnews_get_vacation: _Optional[_Union[ExecuteDallasnewsGetVacation, _Mapping]] = ..., dallasnews_get_vacation_days_between: _Optional[_Union[ExecuteDallasnewsGetVacationDaysBetween, _Mapping]] = ..., dallasnews_get_vacation_with_cutoff: _Optional[_Union[ExecuteDallasnewsGetVacationWithCutoff, _Mapping]] = ..., dallasnews_delete_vacation: _Optional[_Union[ExecuteDallasnewsDeleteVacation, _Mapping]] = ..., dallasnews_add_complaint: _Optional[_Union[ExecuteDallasnewsAddComplaint, _Mapping]] = ..., dallasnews_update_phone_number: _Optional[_Union[ExecuteDallasnewsUpdatePhoneNumber, _Mapping]] = ..., dallasnews_stop_account: _Optional[_Union[ExecuteDallasnewsStopAccount, _Mapping]] = ..., dallasnews_cc_payment_token: _Optional[_Union[ExecuteDallasnewsCcPaymentToken, _Mapping]] = ..., dallasnews_ach_payment_token: _Optional[_Union[ExecuteDallasnewsAchPaymentToken, _Mapping]] = ..., payway_submit_card_sale_request: _Optional[_Union[ExecutePaywaySubmitCardSaleRequest, _Mapping]] = ..., payway_create_token_request: _Optional[_Union[ExecutePaywayCreateTokenRequest, _Mapping]] = ..., payway_submit_ach_sale_request: _Optional[_Union[ExecutePaywaySubmitACHSaleRequest, _Mapping]] = ..., billingtree_submit_card_sale_request: _Optional[_Union[ExecuteBillingtreeSubmitCardSaleRequest, _Mapping]] = ..., experian_cc_payment_request: _Optional[_Union[ExecuteExperianCcPaymentRequest, _Mapping]] = ..., experian_cc_payment_plan_request: _Optional[_Union[ExecuteExperianCcPaymentPlanRequest, _Mapping]] = ..., experian_balancerequest: _Optional[_Union[ExecuteExperianBalancerequest, _Mapping]] = ..., experian_ach_payment_request: _Optional[_Union[ExecuteExperianAchPaymentRequest, _Mapping]] = ..., experian_ach_payment_plan_request: _Optional[_Union[ExecuteExperianAchPaymentPlanRequest, _Mapping]] = ..., experian_stella_card_entry: _Optional[_Union[ExecuteExperianStellaCardEntry, _Mapping]] = ..., experian_stella_echeck: _Optional[_Union[ExecuteExperianStellaECheck, _Mapping]] = ..., experian_stella_card_device_tokenization: _Optional[_Union[ExecuteExperianStellaCardDeviceTokenization, _Mapping]] = ..., experian_stella_token_payment: _Optional[_Union[ExecuteExperianStellaTokenPayment, _Mapping]] = ..., experian_stella_ach_tokenization: _Optional[_Union[ExecuteExperianStellaAchTokenization, _Mapping]] = ..., experian_stella_add_usa_epay_token: _Optional[_Union[ExecuteExperianStellaAddusaepaytoken, _Mapping]] = ..., experian_stella_payment_plans: _Optional[_Union[ExecuteExperianStellaPaymentPlans, _Mapping]] = ..., experian_stella_auth: _Optional[_Union[ExecuteExperianStellaAuth, _Mapping]] = ..., newscycle_login: _Optional[_Union[ExecuteNewscycleLogin, _Mapping]] = ..., newscycle_search_page: _Optional[_Union[ExecuteNewscycleSearchPage, _Mapping]] = ..., newscycle_billing_info: _Optional[_Union[ExecuteNewscycleBillingInfo, _Mapping]] = ..., newscycle_service_error_info: _Optional[_Union[ExecuteNewscycleServiceErrorInfo, _Mapping]] = ..., newscycle_service_error_trans: _Optional[_Union[ExecuteNewscycleServiceErrorTrans, _Mapping]] = ..., newscycle_stop_info: _Optional[_Union[ExecuteNewscycleStopInfo, _Mapping]] = ..., newscycle_stop_trans: _Optional[_Union[ExecuteNewscycleStopTrans, _Mapping]] = ..., newscycle_renew_info: _Optional[_Union[ExecuteNewscycleRenewInfo, _Mapping]] = ..., newscycle_auto_renew_info: _Optional[_Union[ExecuteNewscycleAutoRenewInfo, _Mapping]] = ..., newscycle_auto_tran: _Optional[_Union[ExecuteNewscycleAutoTran, _Mapping]] = ..., newscycle_pay_info: _Optional[_Union[ExecuteNewscyclePayInfo, _Mapping]] = ..., newscycle_pay_tran: _Optional[_Union[ExecuteNewscyclePayTran, _Mapping]] = ..., trustcommerce_credit_sale: _Optional[_Union[ExecuteTrustcommerceCreditSale, _Mapping]] = ..., trustcommerce_ach_sale: _Optional[_Union[ExecuteTrustcommerceAchSale, _Mapping]] = ..., vantiv_credit_sale: _Optional[_Union[ExecuteVantivCreditSale, _Mapping]] = ..., vantiv_ach_sale: _Optional[_Union[ExecuteVantivAchSale, _Mapping]] = ..., journey_latest: _Optional[_Union[ExecuteJourneyLatest, _Mapping]] = ..., journey_list: _Optional[_Union[ExecuteJourneyList, _Mapping]] = ..., journey_update: _Optional[_Union[ExecuteJourneyUpdate, _Mapping]] = ..., athenahealth_get_patients: _Optional[_Union[ExecuteAthenahealthGetPatients, _Mapping]] = ..., athenahealth_get_patients_with_id: _Optional[_Union[ExecuteAthenahealthGetPatientsWithId, _Mapping]] = ..., athenahealth_cc_payment: _Optional[_Union[ExecuteAthenahealthCcPayment, _Mapping]] = ..., brainworks_get_customers_by_phone: _Optional[_Union[ExecuteBrainworksGetCustomersByPhone, _Mapping]] = ..., brainworks_get_suspends: _Optional[_Union[ExecuteBrainworksGetSuspends, _Mapping]] = ..., brainworks_get_customer_by_cust_id_v2: _Optional[_Union[ExecuteBrainworksGetCustomerByCustIdV2, _Mapping]] = ..., brainworks_get_complaints: _Optional[_Union[ExecuteBrainworksGetComplaints, _Mapping]] = ..., brainworks_get_codes_or_types: _Optional[_Union[ExecuteBrainworksGetCodesOrTypes, _Mapping]] = ..., brainworks_stop_suspends: _Optional[_Union[ExecuteBrainworksStopSuspends, _Mapping]] = ..., brainworks_start_suspends: _Optional[_Union[ExecuteBrainworksStartSuspends, _Mapping]] = ..., brainworks_send_complaint: _Optional[_Union[ExecuteBrainworksSendComplaint, _Mapping]] = ..., brainworks_get_customer_by_cust_id: _Optional[_Union[ExecuteBrainworksGetCustomerByCustId, _Mapping]] = ..., osgconnect_cc_payments: _Optional[_Union[ExecuteOsgconnectCcPayments, _Mapping]] = ..., osgconnect_ach_payments: _Optional[_Union[ExecuteOsgconnectAchPayments, _Mapping]] = ..., osgconnect_validate_account_no: _Optional[_Union[ExecuteOsgconnectValidateAccountNo, _Mapping]] = ..., ntvb_credit_missed_delivery: _Optional[_Union[ExecuteNtvbCreditMissedDelivery, _Mapping]] = ..., ntvb_customer_search: _Optional[_Union[ExecuteNtvbCustomerSearch, _Mapping]] = ..., ntvb_end_call: _Optional[_Union[ExecuteNtvbEndCall, _Mapping]] = ..., ntvb_integration_definition: _Optional[_Union[ExecuteNtvbIntegrationDefinition, _Mapping]] = ..., ntvb_missed_delivery: _Optional[_Union[ExecuteNtvbMissedDelivery, _Mapping]] = ..., ntvb_remove_autorenewal: _Optional[_Union[ExecuteNtvbRemoveAutorenewal, _Mapping]] = ..., ntvb_renew_subscription: _Optional[_Union[ExecuteNtvbRenewSubscription, _Mapping]] = ..., ntvb_renewal_offers: _Optional[_Union[ExecuteNtvbRenewalOffers, _Mapping]] = ..., ntvb_set_autorenewal: _Optional[_Union[ExecuteNtvbSetAutorenewal, _Mapping]] = ..., ntvb_start_incoming_call: _Optional[_Union[ExecuteNtvbStartIncomingCall, _Mapping]] = ..., ntvb_start_outgoing_call: _Optional[_Union[ExecuteNtvbStartOutgoingCall, _Mapping]] = ..., ntvb_subscription_info: _Optional[_Union[ExecuteNtvbSubscriptionInfo, _Mapping]] = ..., ntvb_vacation_stop: _Optional[_Union[ExecuteNtvbVacationStop, _Mapping]] = ..., ntvb_authtest: _Optional[_Union[ExecuteNtvbAuthtest, _Mapping]] = ..., elavon_credit_card_sale: _Optional[_Union[ExecuteElavonCreditCardSale, _Mapping]] = ..., elavon_add_recurring: _Optional[_Union[ExecuteElavonAddRecurring, _Mapping]] = ..., elavon_dcc_response: _Optional[_Union[ExecuteElavonDccResponse, _Mapping]] = ..., elavon_delete_recurring: _Optional[_Union[ExecuteElavonDeleteRecurring, _Mapping]] = ..., elavon_update_recurring: _Optional[_Union[ExecuteElavonUpdateRecurring, _Mapping]] = ..., elavon_health_care_cc_sale: _Optional[_Union[ExecuteElavonHealthCareCCSale, _Mapping]] = ..., elavon_add_installment: _Optional[_Union[ExecuteElavonAddInstallment, _Mapping]] = ..., elavon_update_installment: _Optional[_Union[ExecuteElavonUpdateInstallment, _Mapping]] = ..., elavon_delete_installment: _Optional[_Union[ExecuteElavonDeleteInstallment, _Mapping]] = ..., elavon_mcc_credit_card_sale: _Optional[_Union[ExecuteElavonMccCreditCardSale, _Mapping]] = ..., globalPayments_card_sale: _Optional[_Union[ExecuteGlobalPaymentsCardSale, _Mapping]] = ..., globalPayments_get_transaction_by_id: _Optional[_Union[ExecuteGlobalPaymentsGetTransactionByID, _Mapping]] = ..., globalPayments_list_transactions: _Optional[_Union[ExecuteGlobalPaymentsListTransactions, _Mapping]] = ..., globalPayments_refund_sale: _Optional[_Union[ExecuteGlobalPaymentsRefundSale, _Mapping]] = ..., globalPayments_reverse_sale_or_refund: _Optional[_Union[ExecuteGlobalPaymentsReverseSaleOrRefund, _Mapping]] = ..., payscout_credit_sale: _Optional[_Union[ExecutePayScoutCreditCardSale, _Mapping]] = ..., payscout_echeck_sale: _Optional[_Union[ExecutePayScoutEcheckSale, _Mapping]] = ..., i2c_echo: _Optional[_Union[ExecuteI2cEcho, _Mapping]] = ..., i2c_balance_inquiry: _Optional[_Union[ExecuteI2cBalanceInquiry, _Mapping]] = ..., i2c_verify_user: _Optional[_Union[ExecuteI2cVerifyUser, _Mapping]] = ..., i2c_search_customer: _Optional[_Union[ExecuteI2cSearchCustomer, _Mapping]] = ..., i2c_make_payment: _Optional[_Union[ExecuteI2cMakePayment, _Mapping]] = ..., i2c_get_cardholder_profile: _Optional[_Union[ExecuteI2cGetCardholderProfile, _Mapping]] = ..., i2c_get_cardholder_statement: _Optional[_Union[ExecuteI2cGetCardholderStatement, _Mapping]] = ..., i2c_get_cardholder_balance: _Optional[_Union[ExecuteI2cGetCardholderBalance, _Mapping]] = ..., i2c_get_creditpayment_info: _Optional[_Union[ExecuteI2cGetCreditPaymentInfo, _Mapping]] = ..., i2c_transaction_history: _Optional[_Union[ExecuteI2cTransactionHistory, _Mapping]] = ..., opayo_cc_payment: _Optional[_Union[ExecuteOpayoCcPayments, _Mapping]] = ..., shift4_cc_payment: _Optional[_Union[ExecuteShift4CcPayments, _Mapping]] = ..., shift4_access_token: _Optional[_Union[ExecuteShift4CcPayments, _Mapping]] = ..., poscorp_accesstoken: _Optional[_Union[ExecutePoscorpAccesstoken, _Mapping]] = ..., poscorp_lookup_guarantor: _Optional[_Union[ExecutePoscorpLookupGuarantor, _Mapping]] = ..., poscorp_update_payment_status: _Optional[_Union[ExecutePoscorpUpdatePaymentStatus, _Mapping]] = ..., PIANO_GET_USER: _Optional[_Union[ExecutePianoGetUser, _Mapping]] = ..., PIANO_UPDATE_USER: _Optional[_Union[ExecutePianoUpdateUser, _Mapping]] = ..., PIANO_UPDATE_SUBSCRIPTION: _Optional[_Union[ExecutePianoUpdateSubscription, _Mapping]] = ..., PIANO_GET_PAYMENT: _Optional[_Union[ExecutePianoGetPayment, _Mapping]] = ..., PIANO_LIST_SUBSCRIPTION: _Optional[_Union[ExecutePianoListSubscription, _Mapping]] = ..., PIANO_LASTACCESS_CONVERSION: _Optional[_Union[ExecutePianoLastAccessConversion, _Mapping]] = ..., epic_get_token: _Optional[_Union[ExecuteEpicGetToken, _Mapping]] = ..., epic_get_patient: _Optional[_Union[ExecuteEpicGetPatient, _Mapping]] = ..., epic_match_patient: _Optional[_Union[ExecuteEpicMatchPatient, _Mapping]] = ..., epic_search_appointment: _Optional[_Union[ExecuteEpicSearchAppointment, _Mapping]] = ..., epic_find_appointment: _Optional[_Union[ExecuteEpicFindAppointment, _Mapping]] = ..., epic_book_appointment: _Optional[_Union[ExecuteEpicBookAppointment, _Mapping]] = ..., epic_get_account: _Optional[_Union[ExecuteEpicGetAccount, _Mapping]] = ..., newzware_phone_lookup: _Optional[_Union[ExecuteNewzwarePhoneLookup, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[ExecuteNewzwareAccountInquiry, _Mapping]] = ..., newzware_cc_payment: _Optional[_Union[ExecuteNewzwareCcPayment, _Mapping]] = ..., newzware_ach_Payment: _Optional[_Union[ExecuteNewzwareAchPayment, _Mapping]] = ..., newzware_complaint_history: _Optional[_Union[ExecuteNewzwareComplaintHistory, _Mapping]] = ..., newzware_complaint_update: _Optional[_Union[ExecuteNewzwareComplaintUpdate, _Mapping]] = ..., newzware_vacation_restart: _Optional[_Union[ExecuteNewzwareVacationRestart, _Mapping]] = ..., newzware_vacation_update: _Optional[_Union[ExecuteNewzwareVacationUpdate, _Mapping]] = ..., newzware_phone_lookup_multi: _Optional[_Union[ExecuteNewzwarePhoneLookupMulti, _Mapping]] = ..., priocommerce_ach_payment: _Optional[_Union[ExecutePriocommerceAchPayment, _Mapping]] = ..., priocommerce_cc_payment: _Optional[_Union[ExecutePriocommerceCcPayment, _Mapping]] = ..., naviga_create_payment: _Optional[_Union[ExecuteNavigaCreatePayment, _Mapping]] = ..., naviga_change_billing: _Optional[_Union[ExecuteNavigaChangeBilling, _Mapping]] = ..., paynseconds_tokenize_card: _Optional[_Union[ExecutePaynsecondsTokenizeCard, _Mapping]] = ...) -> None: ...
 
 class InvoiceExperianQueryBalance(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class InvoiceAuthorizeNetAuthorizedTransactionIdLookup(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class InvoiceAuthorizeNetLinkData(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class InvoiceAuthorizeNetCustomHttp(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class InvoiceJourney(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class InvoiceDynamicJourney(_message.Message):
-    __slots__ = ["match_fields", "total_field", "journey_fields"]
+    __slots__ = ("match_fields", "total_field", "journey_fields")
     class JourneyFieldsEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -1331,31 +1331,31 @@ class InvoiceDynamicJourney(_message.Message):
     def __init__(self, match_fields: _Optional[_Iterable[str]] = ..., total_field: _Optional[str] = ..., journey_fields: _Optional[_Mapping[str, ListOfStrings]] = ...) -> None: ...
 
 class InvoiceNewzwareAccountInquiry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VerificationExperianQueryBalance(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VerificationExperianLinkData(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VerificationExperianZipDob(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VerificationAuthorizeNetCustomerProfile(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VerificationAuthorizeNetLinkData(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VerificationJourney(_message.Message):
-    __slots__ = ["date_of_birth_field", "last_name_field", "first_name_field", "zip_field", "last4_ssn"]
+    __slots__ = ("date_of_birth_field", "last_name_field", "first_name_field", "zip_field", "last4_ssn")
     DATE_OF_BIRTH_FIELD_FIELD_NUMBER: _ClassVar[int]
     LAST_NAME_FIELD_FIELD_NUMBER: _ClassVar[int]
     FIRST_NAME_FIELD_FIELD_NUMBER: _ClassVar[int]
@@ -1369,865 +1369,865 @@ class VerificationJourney(_message.Message):
     def __init__(self, date_of_birth_field: _Optional[str] = ..., last_name_field: _Optional[str] = ..., first_name_field: _Optional[str] = ..., zip_field: _Optional[str] = ..., last4_ssn: _Optional[str] = ...) -> None: ...
 
 class VerificationNewzwareLookupPhone(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class VerificationNewzwareAccountInquiry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentExperianCC(_message.Message):
-    __slots__ = ["use_invoice_account_number"]
+    __slots__ = ("use_invoice_account_number",)
     USE_INVOICE_ACCOUNT_NUMBER_FIELD_NUMBER: _ClassVar[int]
     use_invoice_account_number: bool
     def __init__(self, use_invoice_account_number: bool = ...) -> None: ...
 
 class PaymentExperianACH(_message.Message):
-    __slots__ = ["use_invoice_account_number"]
+    __slots__ = ("use_invoice_account_number",)
     USE_INVOICE_ACCOUNT_NUMBER_FIELD_NUMBER: _ClassVar[int]
     use_invoice_account_number: bool
     def __init__(self, use_invoice_account_number: bool = ...) -> None: ...
 
 class PaymentAuthorizeNetCC(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentAuthorizeNetACH(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentAuthorizeNetPaypal(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentAuthorizeNetApplePay(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentAuthorizeNetGooglePay(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentPaywaySubmitCardSaleRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentPaywaySubmitACHAlertRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentNewzwareCc(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentNewzwareAch(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentPriocommerceCc(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class PaymentPriocommerceAch(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBraintreeCreditSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBraintreeBankSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientGetPatientBalance(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientGetPatientCcTokens(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientPostPatientToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientPostPatientBalance(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientGetPatient(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientPostBalanceById(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientCreateFortisAchtoken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientCreateFortisCctoken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientFortisTokenAchDebitPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRelatientFortisTokenCcPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCybersourceCreditPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCybersourceEcheckPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproPhoneLookupWithBundle(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproPhoneLookup(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproVacationRestartInquiry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproComplaintInquiry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproAccountInquiry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproAccountInquiryWithTax(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproAccountInquiryWithTaxBundle(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproComplaintCodes(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproComplaintUpdate(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproVacationUpdate(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproRestartUpdate(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproLawImmediatePayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproLawUpdateDataWithPac(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteCircproLawGetCustomers(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAuthorizenetChargeCreditCard(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAuthorizenetDebitBankAccount(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAuthorizenetCreateCustomerPaymentProfile(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAuthorizenetPaypalTransaction(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAuthorizenetGooglePayTransaction(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAuthorizenetApplePayTransaction(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAuthorizenetPayPalAuthCapture(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExpitransCcTransaction(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExpitransAchTransaction(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAxiamedfusionCcTransaction(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAxiamedfusionAchTransaction(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAxiamedfusionCardVerify(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteInstamedPaymentSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteInstamedVoidPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteUsaepaySubmitCcPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteUsaepaySubmitAchPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteUsaepayGetCcToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEzidebitSubmitCcPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEzidebitSubmitAchPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBamboraSubmitCcPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBamboraSubmitAchPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRepayStoreCard(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRepayPaymentToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteRepayAchPaymentToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAxiaSubmitSaleRequestByCc(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAxiaSubmitSaleRequestByCheck(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteSecuretradingSendPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePaymentVisionSubmitCardSaleRequestByCc(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePaymentVisionSubmitCardSaleRequestByAch(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteInterproseLookupAccount(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteInterproseSubmitCardSaleRequestByCc(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteInterproseSubmitCardSaleRequestByAch(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteInterproseLookupPaymentId(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteInterproseLookupAccountByFormId(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsSearchByPhone(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsSearchByZipStreet(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsSearchBy(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsCreateVacation(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsGetVacation(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsGetVacationDaysBetween(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsGetVacationWithCutoff(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsDeleteVacation(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsAddComplaint(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsUpdatePhoneNumber(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsStopAccount(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsCcPaymentToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteDallasnewsAchPaymentToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePaywaySubmitCardSaleRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePaywayCreateTokenRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePaywaySubmitACHSaleRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBillingtreeSubmitCardSaleRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianCcPaymentRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianCcPaymentPlanRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianBalancerequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianAchPaymentRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianAchPaymentPlanRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaCardEntry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaECheck(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaCardDeviceTokenization(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaTokenPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaAchTokenization(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaAddusaepaytoken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaPaymentPlans(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteExperianStellaAuth(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleLogin(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleSearchPage(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleBillingInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleServiceErrorInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleServiceErrorTrans(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleStopInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleStopTrans(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleRenewInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleAutoRenewInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscycleAutoTran(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscyclePayInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewscyclePayTran(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteTrustcommerceCreditSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteTrustcommerceAchSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteVantivCreditSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteVantivAchSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteJourneyLatest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteJourneyList(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteJourneyUpdate(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAthenahealthGetPatients(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAthenahealthGetPatientsWithId(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteAthenahealthCcPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksGetCustomersByPhone(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksGetSuspends(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksGetCustomerByCustIdV2(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksGetComplaints(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksGetCodesOrTypes(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksStopSuspends(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksStartSuspends(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksSendComplaint(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteBrainworksGetCustomerByCustId(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteOsgconnectCcPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteOsgconnectAchPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteOsgconnectValidateAccountNo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbCreditMissedDelivery(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbCustomerSearch(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbEndCall(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbIntegrationDefinition(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbMissedDelivery(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbRemoveAutorenewal(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbRenewSubscription(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbRenewalOffers(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbSetAutorenewal(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbStartIncomingCall(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbStartOutgoingCall(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbSubscriptionInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbVacationStop(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNtvbAuthtest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonCreditCardSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonAddRecurring(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonDccResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonUpdateRecurring(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonDeleteRecurring(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonMccCreditCardSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonHealthCareCCSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonAddInstallment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonDeleteInstallment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteElavonUpdateInstallment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteGlobalPaymentsCardSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteGlobalPaymentsGetTransactionByID(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteGlobalPaymentsListTransactions(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteGlobalPaymentsRefundSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteGlobalPaymentsReverseSaleOrRefund(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePayScoutCreditCardSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePayScoutEcheckSale(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cEcho(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cBalanceInquiry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cVerifyUser(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cSearchCustomer(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cMakePayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cGetCardholderProfile(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cGetCardholderStatement(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cGetCardholderBalance(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cGetCreditPaymentInfo(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteI2cTransactionHistory(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteOpayoCcPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteShift4CcPayments(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteShift4AccessToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePoscorpAccesstoken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePoscorpLookupGuarantor(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePoscorpUpdatePaymentStatus(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePianoGetUser(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePianoUpdateUser(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePianoUpdateSubscription(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePianoGetPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePianoListSubscription(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePianoLastAccessConversion(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEpicGetToken(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEpicGetPatient(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEpicMatchPatient(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEpicSearchAppointment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEpicFindAppointment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEpicBookAppointment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteEpicGetAccount(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwarePhoneLookup(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwareAccountInquiry(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwareCcPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwareAchPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwareComplaintHistory(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwareComplaintUpdate(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwareVacationRestart(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwareVacationUpdate(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNewzwarePhoneLookupMulti(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePriocommerceAchPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePriocommerceCcPayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNavigaCreatePayment(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecuteNavigaChangeBilling(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ExecutePaynsecondsTokenizeCard(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...

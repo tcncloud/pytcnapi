@@ -8,12 +8,12 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class LearningOpportunityStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     STATUS_OPEN: _ClassVar[LearningOpportunityStatus]
     STATUS_COMPLETED: _ClassVar[LearningOpportunityStatus]
 
 class LearningOpportunityOrigin(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     UNDEFINED: _ClassVar[LearningOpportunityOrigin]
     QUALITY_EVALUATION: _ClassVar[LearningOpportunityOrigin]
     AUTO_EVALUATION: _ClassVar[LearningOpportunityOrigin]
@@ -30,7 +30,7 @@ CONVERSATION: LearningOpportunityOrigin
 FLAGGED_CONVERSATION: LearningOpportunityOrigin
 
 class LearningOpportunity(_message.Message):
-    __slots__ = ["learning_opportunity_id", "call_sid", "call_type", "transcript_sid", "agent_user_id", "start_offset", "end_offset", "description", "created_at", "title", "status", "origin", "creator_user_id"]
+    __slots__ = ("learning_opportunity_id", "call_sid", "call_type", "transcript_sid", "agent_user_id", "start_offset", "end_offset", "description", "created_at", "title", "status", "origin", "creator_user_id")
     LEARNING_OPPORTUNITY_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -60,7 +60,7 @@ class LearningOpportunity(_message.Message):
     def __init__(self, learning_opportunity_id: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., start_offset: _Optional[int] = ..., end_offset: _Optional[int] = ..., description: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., title: _Optional[str] = ..., status: _Optional[_Union[LearningOpportunityStatus, str]] = ..., origin: _Optional[_Union[LearningOpportunityOrigin, str]] = ..., creator_user_id: _Optional[str] = ...) -> None: ...
 
 class CallIdentifier(_message.Message):
-    __slots__ = ["sid", "type"]
+    __slots__ = ("sid", "type")
     SID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     sid: int
