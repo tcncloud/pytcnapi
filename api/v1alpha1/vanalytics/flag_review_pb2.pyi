@@ -7,13 +7,13 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateFlagReviewRequest(_message.Message):
-    __slots__ = ["flag_review"]
+    __slots__ = ("flag_review",)
     FLAG_REVIEW_FIELD_NUMBER: _ClassVar[int]
     flag_review: FlagReview
     def __init__(self, flag_review: _Optional[_Union[FlagReview, _Mapping]] = ...) -> None: ...
 
 class BulkCreateFlagReviewRequest(_message.Message):
-    __slots__ = ["flag_sid", "notes"]
+    __slots__ = ("flag_sid", "notes")
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
     NOTES_FIELD_NUMBER: _ClassVar[int]
     flag_sid: int
@@ -21,11 +21,11 @@ class BulkCreateFlagReviewRequest(_message.Message):
     def __init__(self, flag_sid: _Optional[int] = ..., notes: _Optional[str] = ...) -> None: ...
 
 class BulkCreateFlagReviewResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListFlagReviewsRequest(_message.Message):
-    __slots__ = ["page_size", "order_by", "page_token", "transcript_sid"]
+    __slots__ = ("page_size", "order_by", "page_token", "transcript_sid")
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -37,7 +37,7 @@ class ListFlagReviewsRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., transcript_sid: _Optional[int] = ...) -> None: ...
 
 class ListFlagReviewsResponse(_message.Message):
-    __slots__ = ["next_page_token", "flag_reviews"]
+    __slots__ = ("next_page_token", "flag_reviews")
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     FLAG_REVIEWS_FIELD_NUMBER: _ClassVar[int]
     next_page_token: str
@@ -45,7 +45,7 @@ class ListFlagReviewsResponse(_message.Message):
     def __init__(self, next_page_token: _Optional[str] = ..., flag_reviews: _Optional[_Iterable[_Union[FlagReview, _Mapping]]] = ...) -> None: ...
 
 class FlagReview(_message.Message):
-    __slots__ = ["flag_review_sid", "transcript_sid", "flag_sid", "create_time", "notes", "flag_snapshot_sid"]
+    __slots__ = ("flag_review_sid", "transcript_sid", "flag_sid", "create_time", "notes", "flag_snapshot_sid")
     FLAG_REVIEW_SID_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]

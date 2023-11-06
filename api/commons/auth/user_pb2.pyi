@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AuthClaims(_message.Message):
-    __slots__ = ["auth0_user_id", "org_user_id", "org_id", "api_key", "region_id", "name", "impersonate", "client_sid", "agent_sid", "login_sid", "active_org_id"]
+    __slots__ = ("auth0_user_id", "org_user_id", "org_id", "api_key", "region_id", "name", "impersonate", "client_sid", "agent_sid", "login_sid", "active_org_id")
     AUTH0_USER_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_USER_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
@@ -31,7 +31,7 @@ class AuthClaims(_message.Message):
     def __init__(self, auth0_user_id: _Optional[str] = ..., org_user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., api_key: _Optional[str] = ..., region_id: _Optional[str] = ..., name: _Optional[str] = ..., impersonate: _Optional[str] = ..., client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., login_sid: _Optional[int] = ..., active_org_id: _Optional[str] = ...) -> None: ...
 
 class AuthenticatedUser(_message.Message):
-    __slots__ = ["claims"]
+    __slots__ = ("claims",)
     CLAIMS_FIELD_NUMBER: _ClassVar[int]
     claims: AuthClaims
     def __init__(self, claims: _Optional[_Union[AuthClaims, _Mapping]] = ...) -> None: ...

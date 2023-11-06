@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ScheduledCallbackStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SCS_INVALID: _ClassVar[ScheduledCallbackStatus]
     SCS_OPENED: _ClassVar[ScheduledCallbackStatus]
     SCS_CANCELED: _ClassVar[ScheduledCallbackStatus]

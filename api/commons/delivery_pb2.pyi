@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TransferStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TRANSFER_STATUS_WAITING: _ClassVar[TransferStatus]
     TRANSFER_STATUS_RUNNING: _ClassVar[TransferStatus]
     TRANSFER_STATUS_DONE_SUCCESS: _ClassVar[TransferStatus]
@@ -19,5 +19,5 @@ TRANSFER_STATUS_DONE_PARTIAL_FAILURE: TransferStatus
 TRANSFER_STATUS_DONE_TOTAL_FAILURE: TransferStatus
 
 class Encryption(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...

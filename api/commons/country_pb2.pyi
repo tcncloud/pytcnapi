@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Country(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     COUNTRY_UNDEFINED: _ClassVar[Country]
     COUNTRY_AFGHANISTAN: _ClassVar[Country]
     COUNTRY_ALBANIA: _ClassVar[Country]

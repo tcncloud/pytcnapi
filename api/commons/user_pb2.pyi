@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UserArchivedStateFilter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     USER_ARCHIVED_STATE_FILTER_ALL: _ClassVar[UserArchivedStateFilter]
     USER_ARCHIVED_STATE_FILTER_ARCHIVED: _ClassVar[UserArchivedStateFilter]
     USER_ARCHIVED_STATE_FILTER_UNARCHIVED: _ClassVar[UserArchivedStateFilter]

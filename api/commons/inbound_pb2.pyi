@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class InboundGroupStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     IBG_UNKNOWN: _ClassVar[InboundGroupStatus]
     IBG_PREPARE: _ClassVar[InboundGroupStatus]
     IBG_SCHEDULED: _ClassVar[InboundGroupStatus]

@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RegressionForecasterModelTypes(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RANDOM_FOREST: _ClassVar[RegressionForecasterModelTypes]
     ADABOOST: _ClassVar[RegressionForecasterModelTypes]
     GRADIENT_BOOSTING: _ClassVar[RegressionForecasterModelTypes]
@@ -19,13 +19,13 @@ class RegressionForecasterModelTypes(int, metaclass=_enum_type_wrapper.EnumTypeW
     AUTO: _ClassVar[RegressionForecasterModelTypes]
 
 class RegressionForecasterAvgsProcessingType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FORECAST: _ClassVar[RegressionForecasterAvgsProcessingType]
     AVERAGES: _ClassVar[RegressionForecasterAvgsProcessingType]
     FIXED_AVERAGES: _ClassVar[RegressionForecasterAvgsProcessingType]
 
 class ConstraintTimeUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MINUTES: _ClassVar[ConstraintTimeUnit]
     HOURS: _ClassVar[ConstraintTimeUnit]
     SHIFTS: _ClassVar[ConstraintTimeUnit]
@@ -35,7 +35,7 @@ class ConstraintTimeUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     YEARS: _ClassVar[ConstraintTimeUnit]
 
 class ConfigEntityType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CALL_CENTER_NODE: _ClassVar[ConfigEntityType]
     CLIENT_NODE: _ClassVar[ConfigEntityType]
     LOCATION_NODE: _ClassVar[ConfigEntityType]
@@ -59,7 +59,7 @@ class ConfigEntityType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TOUR_AGENT_COLLECTION: _ClassVar[ConfigEntityType]
 
 class ConstraintRuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MIN_CONSEC_ON: _ClassVar[ConstraintRuleType]
     MAX_CONSEC_ON: _ClassVar[ConstraintRuleType]
     MIN_CONSEC_OFF: _ClassVar[ConstraintRuleType]
@@ -71,24 +71,24 @@ class ConstraintRuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MIN_SKILL_LEVEL: _ClassVar[ConstraintRuleType]
 
 class DOWPlacementType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MUST_NOT: _ClassVar[DOWPlacementType]
     MAY: _ClassVar[DOWPlacementType]
     MUST: _ClassVar[DOWPlacementType]
 
 class OpenTimesOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CLOSED: _ClassVar[OpenTimesOption]
     OPEN: _ClassVar[OpenTimesOption]
 
 class AvailabilityOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AVAILABLE: _ClassVar[AvailabilityOption]
     NOT_AVAILABLE: _ClassVar[AvailabilityOption]
     PREFER_NOT_AVAILABLE: _ClassVar[AvailabilityOption]
 
 class DayOfWeek(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MON: _ClassVar[DayOfWeek]
     TUE: _ClassVar[DayOfWeek]
     WED: _ClassVar[DayOfWeek]
@@ -98,13 +98,13 @@ class DayOfWeek(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SUN: _ClassVar[DayOfWeek]
 
 class ConfigRelationshipType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     IS_ASSOCIATED_WITH: _ClassVar[ConfigRelationshipType]
     IS_NOT_ASSOCIATED_WITH: _ClassVar[ConfigRelationshipType]
     IS_MEMBER_OF: _ClassVar[ConfigRelationshipType]
 
 class DiagnosticLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     INFORMATION: _ClassVar[DiagnosticLevel]
     SUGGESTION: _ClassVar[DiagnosticLevel]
     WARNING: _ClassVar[DiagnosticLevel]
@@ -112,7 +112,7 @@ class DiagnosticLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     INTERNAL_ERROR: _ClassVar[DiagnosticLevel]
 
 class DiagnosticCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     GENERAL: _ClassVar[DiagnosticCode]
     OK: _ClassVar[DiagnosticCode]
     NO_SKILLS_IN_DICTIONARY: _ClassVar[DiagnosticCode]
@@ -182,7 +182,7 @@ class DiagnosticCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ATTEMPT_TO_BUILD_SCHEDULES_FOR_INVALID_PARENT_NODE: _ClassVar[DiagnosticCode]
 
 class PerformanceMetricType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FTE_REQUIRED_VS_ACHIEVED_SIMPLE: _ClassVar[PerformanceMetricType]
     FTE_REQUIRED_VS_ACHIEVED_EXTENDED: _ClassVar[PerformanceMetricType]
     SERVICE_LEVEL_ANALYSIS: _ClassVar[PerformanceMetricType]
@@ -191,26 +191,33 @@ class PerformanceMetricType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LOAD_FORECAST: _ClassVar[PerformanceMetricType]
 
 class ScheduleShouldInclude(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ONLY_SHIFT_INSTANCES: _ClassVar[ScheduleShouldInclude]
     ONLY_PERFORMANCE_METRICS: _ClassVar[ScheduleShouldInclude]
     SHIFT_INSTANCES_AND_PERFORMANCE_METRICS: _ClassVar[ScheduleShouldInclude]
 
 class ScheduleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DRAFT: _ClassVar[ScheduleType]
     PUBLISHED: _ClassVar[ScheduleType]
 
 class SchedulingTargetType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     COVERAGE: _ClassVar[SchedulingTargetType]
     SERVICE_LEVEL: _ClassVar[SchedulingTargetType]
 
 class BitmapType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     COMPLETE: _ClassVar[BitmapType]
     ONLY_WEEKMAPS: _ClassVar[BitmapType]
     ONLY_CALENDAR_ITEMS: _ClassVar[BitmapType]
+
+class HistoryCacheState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    NOT_LOADED: _ClassVar[HistoryCacheState]
+    LOADING: _ClassVar[HistoryCacheState]
+    LOADING_COMPLETE: _ClassVar[HistoryCacheState]
+    LOADING_FAILED: _ClassVar[HistoryCacheState]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -365,11 +372,15 @@ SERVICE_LEVEL: SchedulingTargetType
 COMPLETE: BitmapType
 ONLY_WEEKMAPS: BitmapType
 ONLY_CALENDAR_ITEMS: BitmapType
+NOT_LOADED: HistoryCacheState
+LOADING: HistoryCacheState
+LOADING_COMPLETE: HistoryCacheState
+LOADING_FAILED: HistoryCacheState
 
 class SkillType(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         AGENT_SKILL: _ClassVar[SkillType.Enum]
         HUNT_GROUP: _ClassVar[SkillType.Enum]
         AGENT_PBX: _ClassVar[SkillType.Enum]
@@ -385,7 +396,7 @@ class SkillType(_message.Message):
     def __init__(self) -> None: ...
 
 class DatetimeRange(_message.Message):
-    __slots__ = ["start_datetime", "end_datetime"]
+    __slots__ = ("start_datetime", "end_datetime")
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     END_DATETIME_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
@@ -393,7 +404,7 @@ class DatetimeRange(_message.Message):
     def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ForecastingParameters(_message.Message):
-    __slots__ = ["interval_width_in_minutes", "historical_data_range_in_months", "historical_data_range_start_datetime", "forecast_test_range_in_weeks", "forecast_range_in_weeks", "forecast_datetime_range", "training_data_range_in_months", "training_data_datetime_range", "averages_calculation_range_in_months"]
+    __slots__ = ("interval_width_in_minutes", "historical_data_range_in_months", "historical_data_range_start_datetime", "forecast_test_range_in_weeks", "forecast_range_in_weeks", "forecast_datetime_range", "training_data_range_in_months", "training_data_datetime_range", "averages_calculation_range_in_months")
     INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
     HISTORICAL_DATA_RANGE_IN_MONTHS_FIELD_NUMBER: _ClassVar[int]
     HISTORICAL_DATA_RANGE_START_DATETIME_FIELD_NUMBER: _ClassVar[int]
@@ -415,7 +426,7 @@ class ForecastingParameters(_message.Message):
     def __init__(self, interval_width_in_minutes: _Optional[int] = ..., historical_data_range_in_months: _Optional[int] = ..., historical_data_range_start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., forecast_test_range_in_weeks: _Optional[int] = ..., forecast_range_in_weeks: _Optional[int] = ..., forecast_datetime_range: _Optional[_Union[DatetimeRange, _Mapping]] = ..., training_data_range_in_months: _Optional[int] = ..., training_data_datetime_range: _Optional[_Union[DatetimeRange, _Mapping]] = ..., averages_calculation_range_in_months: _Optional[int] = ...) -> None: ...
 
 class ProfileTOD(_message.Message):
-    __slots__ = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    __slots__ = ("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
     SUNDAY_FIELD_NUMBER: _ClassVar[int]
     MONDAY_FIELD_NUMBER: _ClassVar[int]
     TUESDAY_FIELD_NUMBER: _ClassVar[int]
@@ -433,7 +444,7 @@ class ProfileTOD(_message.Message):
     def __init__(self, sunday: _Optional[_Iterable[float]] = ..., monday: _Optional[_Iterable[float]] = ..., tuesday: _Optional[_Iterable[float]] = ..., wednesday: _Optional[_Iterable[float]] = ..., thursday: _Optional[_Iterable[float]] = ..., friday: _Optional[_Iterable[float]] = ..., saturday: _Optional[_Iterable[float]] = ...) -> None: ...
 
 class ProfileWOMS(_message.Message):
-    __slots__ = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+    __slots__ = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
     JANUARY_FIELD_NUMBER: _ClassVar[int]
     FEBRUARY_FIELD_NUMBER: _ClassVar[int]
     MARCH_FIELD_NUMBER: _ClassVar[int]
@@ -461,7 +472,7 @@ class ProfileWOMS(_message.Message):
     def __init__(self, january: _Optional[_Iterable[float]] = ..., february: _Optional[_Iterable[float]] = ..., march: _Optional[_Iterable[float]] = ..., april: _Optional[_Iterable[float]] = ..., may: _Optional[_Iterable[float]] = ..., june: _Optional[_Iterable[float]] = ..., july: _Optional[_Iterable[float]] = ..., august: _Optional[_Iterable[float]] = ..., september: _Optional[_Iterable[float]] = ..., october: _Optional[_Iterable[float]] = ..., november: _Optional[_Iterable[float]] = ..., december: _Optional[_Iterable[float]] = ...) -> None: ...
 
 class ProfileDOW(_message.Message):
-    __slots__ = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    __slots__ = ("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
     SUNDAY_FIELD_NUMBER: _ClassVar[int]
     MONDAY_FIELD_NUMBER: _ClassVar[int]
     TUESDAY_FIELD_NUMBER: _ClassVar[int]
@@ -479,7 +490,7 @@ class ProfileDOW(_message.Message):
     def __init__(self, sunday: _Optional[float] = ..., monday: _Optional[float] = ..., tuesday: _Optional[float] = ..., wednesday: _Optional[float] = ..., thursday: _Optional[float] = ..., friday: _Optional[float] = ..., saturday: _Optional[float] = ...) -> None: ...
 
 class ProfileMOY(_message.Message):
-    __slots__ = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
+    __slots__ = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
     JANUARY_FIELD_NUMBER: _ClassVar[int]
     FEBRUARY_FIELD_NUMBER: _ClassVar[int]
     MARCH_FIELD_NUMBER: _ClassVar[int]
@@ -507,7 +518,7 @@ class ProfileMOY(_message.Message):
     def __init__(self, january: _Optional[float] = ..., february: _Optional[float] = ..., march: _Optional[float] = ..., april: _Optional[float] = ..., may: _Optional[float] = ..., june: _Optional[float] = ..., july: _Optional[float] = ..., august: _Optional[float] = ..., september: _Optional[float] = ..., october: _Optional[float] = ..., november: _Optional[float] = ..., december: _Optional[float] = ...) -> None: ...
 
 class DistributionProfile(_message.Message):
-    __slots__ = ["profile_tod", "profile_woms", "profile_dow", "profile_moy"]
+    __slots__ = ("profile_tod", "profile_woms", "profile_dow", "profile_moy")
     PROFILE_TOD_FIELD_NUMBER: _ClassVar[int]
     PROFILE_WOMS_FIELD_NUMBER: _ClassVar[int]
     PROFILE_DOW_FIELD_NUMBER: _ClassVar[int]
@@ -519,7 +530,7 @@ class DistributionProfile(_message.Message):
     def __init__(self, profile_tod: _Optional[_Union[ProfileTOD, _Mapping]] = ..., profile_woms: _Optional[_Union[ProfileWOMS, _Mapping]] = ..., profile_dow: _Optional[_Union[ProfileDOW, _Mapping]] = ..., profile_moy: _Optional[_Union[ProfileMOY, _Mapping]] = ...) -> None: ...
 
 class CallProfileGroupCalls(_message.Message):
-    __slots__ = ["total_calls", "distribution_profile"]
+    __slots__ = ("total_calls", "distribution_profile")
     TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
     DISTRIBUTION_PROFILE_FIELD_NUMBER: _ClassVar[int]
     total_calls: int
@@ -527,7 +538,7 @@ class CallProfileGroupCalls(_message.Message):
     def __init__(self, total_calls: _Optional[int] = ..., distribution_profile: _Optional[_Union[DistributionProfile, _Mapping]] = ...) -> None: ...
 
 class CallProfileGroupAvgs(_message.Message):
-    __slots__ = ["min_average", "max_average", "distribution_profile"]
+    __slots__ = ("min_average", "max_average", "distribution_profile")
     MIN_AVERAGE_FIELD_NUMBER: _ClassVar[int]
     MAX_AVERAGE_FIELD_NUMBER: _ClassVar[int]
     DISTRIBUTION_PROFILE_FIELD_NUMBER: _ClassVar[int]
@@ -537,7 +548,7 @@ class CallProfileGroupAvgs(_message.Message):
     def __init__(self, min_average: _Optional[float] = ..., max_average: _Optional[float] = ..., distribution_profile: _Optional[_Union[DistributionProfile, _Mapping]] = ...) -> None: ...
 
 class OptionTypes(_message.Message):
-    __slots__ = ["open_times_option", "availability_option"]
+    __slots__ = ("open_times_option", "availability_option")
     OPEN_TIMES_OPTION_FIELD_NUMBER: _ClassVar[int]
     AVAILABILITY_OPTION_FIELD_NUMBER: _ClassVar[int]
     open_times_option: OpenTimesOption
@@ -545,7 +556,7 @@ class OptionTypes(_message.Message):
     def __init__(self, open_times_option: _Optional[_Union[OpenTimesOption, str]] = ..., availability_option: _Optional[_Union[AvailabilityOption, str]] = ...) -> None: ...
 
 class ScheduleSelector(_message.Message):
-    __slots__ = ["schedule_sid", "schedule_type"]
+    __slots__ = ("schedule_sid", "schedule_type")
     SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_TYPE_FIELD_NUMBER: _ClassVar[int]
     schedule_sid: int
@@ -553,9 +564,9 @@ class ScheduleSelector(_message.Message):
     def __init__(self, schedule_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[ScheduleType, str]] = ...) -> None: ...
 
 class SkillProfileCategory(_message.Message):
-    __slots__ = ["skill_profile_category_sid", "skill_profile_category_type"]
+    __slots__ = ("skill_profile_category_sid", "skill_profile_category_type")
     class CategoryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         SINGLE_SKILL_PROFILE: _ClassVar[SkillProfileCategory.CategoryType]
         SKILL_PROFILE_GROUP: _ClassVar[SkillProfileCategory.CategoryType]
     SINGLE_SKILL_PROFILE: SkillProfileCategory.CategoryType
@@ -567,7 +578,7 @@ class SkillProfileCategory(_message.Message):
     def __init__(self, skill_profile_category_sid: _Optional[int] = ..., skill_profile_category_type: _Optional[_Union[SkillProfileCategory.CategoryType, str]] = ...) -> None: ...
 
 class SchedulingResultMetric(_message.Message):
-    __slots__ = ["total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result"]
+    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result")
     TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
@@ -581,3 +592,11 @@ class SchedulingResultMetric(_message.Message):
     root_mean_square: float
     has_result: bool
     def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ...) -> None: ...
+
+class ClientHistoryCacheInfo(_message.Message):
+    __slots__ = ("state", "progress_percentage")
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    PROGRESS_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    state: HistoryCacheState
+    progress_percentage: int
+    def __init__(self, state: _Optional[_Union[HistoryCacheState, str]] = ..., progress_percentage: _Optional[int] = ...) -> None: ...

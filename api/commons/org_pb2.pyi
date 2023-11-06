@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TimeZone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TIME_ZONE_AMERICA_PUERTO_RICO: _ClassVar[TimeZone]
     TIME_ZONE_AMERICA_NEW_YORK: _ClassVar[TimeZone]
     TIME_ZONE_AMERICA_INDIANAPOLIS: _ClassVar[TimeZone]
@@ -53,27 +53,27 @@ class TimeZone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TIME_ZONE_ASIA_JAPAN: _ClassVar[TimeZone]
 
 class DisplayLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DISPLAY_LANGUAGE_SPANISH: _ClassVar[DisplayLanguage]
     DISPLAY_LANGUAGE_FRENCH_CANADA: _ClassVar[DisplayLanguage]
     DISPLAY_LANGUAGE_PORTUGUESE: _ClassVar[DisplayLanguage]
     DISPLAY_LANGUAGE_ENGLISH: _ClassVar[DisplayLanguage]
 
 class DefaultDuplicateHandling(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DEFAULT_DUPLICATE_HANDLING_KEEP_RECORD_AND_DISCARD_NUMBER: _ClassVar[DefaultDuplicateHandling]
     DEFAULT_DUPLICATE_HANDLING_DISCARD_RECORD: _ClassVar[DefaultDuplicateHandling]
     DEFAULT_DUPLICATE_HANDLING_ALLOW_DUPLICATES: _ClassVar[DefaultDuplicateHandling]
     DEFAULT_DUPLICATE_HANDLING_CREATE_DUPLICATES_LIST: _ClassVar[DefaultDuplicateHandling]
 
 class StandardImportFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     STANDARD_IMPORT_FORMAT_TAB_DELIMITED: _ClassVar[StandardImportFormat]
     STANDARD_IMPORT_FORMAT_EXCEL_COMMA_SEPARATED: _ClassVar[StandardImportFormat]
     STANDARD_IMPORT_FORMAT_COMMA_SEPARATED: _ClassVar[StandardImportFormat]
 
 class AgentInfoSortBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_INFO_SORT_BY_NONE: _ClassVar[AgentInfoSortBy]
     AGENT_INFO_SORT_BY_AGENT: _ClassVar[AgentInfoSortBy]
     AGENT_INFO_SORT_BY_AGENT_LAST_NAME: _ClassVar[AgentInfoSortBy]
@@ -88,7 +88,7 @@ class AgentInfoSortBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AGENT_INFO_SORT_BY_HOLD_COUNT: _ClassVar[AgentInfoSortBy]
 
 class QueueInfoSortBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     QUEUE_INFO_SORT_BY_NONE: _ClassVar[QueueInfoSortBy]
     QUEUE_INFO_SORT_BY_AVERAGE_LENGTH: _ClassVar[QueueInfoSortBy]
     QUEUE_INFO_SORT_BY_CALL_COUNT: _ClassVar[QueueInfoSortBy]
@@ -98,7 +98,7 @@ class QueueInfoSortBy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QUEUE_INFO_SORT_BY_QUEUED_NOTIFICATION_TYPE: _ClassVar[QueueInfoSortBy]
 
 class ClientSkin(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CLIENT_SKIN_DEFAULT: _ClassVar[ClientSkin]
     CLIENT_SKIN_TCN_BLUE: _ClassVar[ClientSkin]
     CLIENT_SKIN_TCN_SEA_GREEN: _ClassVar[ClientSkin]
@@ -125,21 +125,21 @@ class ClientSkin(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CLIENT_SKIN_EXPERIAN: _ClassVar[ClientSkin]
 
 class AutomaticSystemCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AUTOMATIC_SYSTEM_CODE_ADVANCE_STATUS: _ClassVar[AutomaticSystemCode]
     AUTOMATIC_SYSTEM_CODE_CHANGE_PASSWORD: _ClassVar[AutomaticSystemCode]
     AUTOMATIC_SYSTEM_CODE_CHECK_VOICE_MAIL: _ClassVar[AutomaticSystemCode]
     AUTOMATIC_SYSTEM_CODE_MANUALLY_APPROVE_CALLS: _ClassVar[AutomaticSystemCode]
 
 class AdvanceStatusType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ADVANCE_STATUS_TYPE_PAUSED: _ClassVar[AdvanceStatusType]
     ADVANCE_STATUS_TYPE_WAITING: _ClassVar[AdvanceStatusType]
     ADVANCE_STATUS_TYPE_WRAP_UP: _ClassVar[AdvanceStatusType]
     ADVANCE_STATUS_TYPE_ON_CALL: _ClassVar[AdvanceStatusType]
 
 class AgentFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_FIELD_OPTION_AGENT_FIRST_NAME: _ClassVar[AgentFieldOption]
     AGENT_FIELD_OPTION_AGENT_ID: _ClassVar[AgentFieldOption]
     AGENT_FIELD_OPTION_AGENT_LAST_NAME: _ClassVar[AgentFieldOption]
@@ -154,7 +154,7 @@ class AgentFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AGENT_FIELD_OPTION_PARTNER_AGENT_ID: _ClassVar[AgentFieldOption]
 
 class PostalFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     POSTAL_FIELD_OPTION_ADMIN_CODE_1: _ClassVar[PostalFieldOption]
     POSTAL_FIELD_OPTION_ADMIN_CODE_2: _ClassVar[PostalFieldOption]
     POSTAL_FIELD_OPTION_ADMIN_CODE_3: _ClassVar[PostalFieldOption]
@@ -184,7 +184,7 @@ class PostalFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     POSTAL_FIELD_OPTION_UTC_OFFSET: _ClassVar[PostalFieldOption]
 
 class PhoneFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     PHONE_FIELD_OPTION_AREA_CODE: _ClassVar[PhoneFieldOption]
     PHONE_FIELD_OPTION_CARRIER: _ClassVar[PhoneFieldOption]
     PHONE_FIELD_OPTION_CENTRAL_OFFICE_CODE_TYPE: _ClassVar[PhoneFieldOption]
@@ -215,7 +215,7 @@ class PhoneFieldOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PHONE_FIELD_OPTION_UTC_OFFSET: _ClassVar[PhoneFieldOption]
 
 class PhonePostalDisplayOptions(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DISPLAY_OPTION_ADMIN_CODE_1: _ClassVar[PhonePostalDisplayOptions]
     DISPLAY_OPTION_ADMIN_CODE_2: _ClassVar[PhonePostalDisplayOptions]
     DISPLAY_OPTION_ADMIN_CODE_3: _ClassVar[PhonePostalDisplayOptions]
@@ -263,7 +263,7 @@ class PhonePostalDisplayOptions(int, metaclass=_enum_type_wrapper.EnumTypeWrappe
     DISPLAY_OPTION_UTC_OFFSET: _ClassVar[PhonePostalDisplayOptions]
 
 class OperatorApplications(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_APP: _ClassVar[OperatorApplications]
     ORGANIZATION_MANAGEMENT_APP: _ClassVar[OperatorApplications]
     CUSTOMER_JOURNEY_SERVICES_APP: _ClassVar[OperatorApplications]
@@ -289,18 +289,18 @@ class OperatorApplications(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NEWSROOM_APP: _ClassVar[OperatorApplications]
 
 class AnnouncementMixingOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ANNOUNCEMENT_MIXING_OPTION_MUTE_HOLD_MUSIC: _ClassVar[AnnouncementMixingOption]
     ANNOUNCEMENT_MIXING_OPTION_PLAY_OVER_HOLD_MUSIC: _ClassVar[AnnouncementMixingOption]
 
 class InboundOverrideOption(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     INBOUND_OVERRIDE_OPTION_DO_NOTHING: _ClassVar[InboundOverrideOption]
     INBOUND_OVERRIDE_OPTION_OVERRIDE: _ClassVar[InboundOverrideOption]
     INBOUND_OVERRIDE_OPTION_HANG_UP: _ClassVar[InboundOverrideOption]
 
 class Digit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DIGIT_ZERO: _ClassVar[Digit]
     DIGIT_ONE: _ClassVar[Digit]
     DIGIT_TWO: _ClassVar[Digit]
@@ -313,12 +313,12 @@ class Digit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DIGIT_NINE: _ClassVar[Digit]
 
 class IntercomConnection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     INTERCOM_CONNECTION_AUTOMATIC: _ClassVar[IntercomConnection]
     INTERCOM_CONNECTION_REQUIRE_ACCEPTANCE: _ClassVar[IntercomConnection]
 
 class ConfigSound(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CONFIG_SOUND_ONE: _ClassVar[ConfigSound]
     CONFIG_SOUND_NUMBER_1: _ClassVar[ConfigSound]
     CONFIG_SOUND_NUMBER_2: _ClassVar[ConfigSound]
@@ -577,7 +577,7 @@ class ConfigSound(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONFIG_SOUND_CALLBACK_QUEUED_ALREADY: _ClassVar[ConfigSound]
 
 class SoundLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SOUND_LANGUAGE_ENGLISH: _ClassVar[SoundLanguage]
     SOUND_LANGUAGE_FRENCH: _ClassVar[SoundLanguage]
     SOUND_LANGUAGE_PORTUGUESE: _ClassVar[SoundLanguage]
@@ -585,12 +585,12 @@ class SoundLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SOUND_LANGUAGE_AU_ENGLISH: _ClassVar[SoundLanguage]
 
 class SoundGender(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SOUND_GENDER_MALE: _ClassVar[SoundGender]
     SOUND_GENDER_FEMALE: _ClassVar[SoundGender]
 
 class IdentityProvider(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CONNECTION_TYPE_NONE: _ClassVar[IdentityProvider]
     CONNECTION_TYPE_OKTA: _ClassVar[IdentityProvider]
     CONNECTION_TYPE_AZURE: _ClassVar[IdentityProvider]
@@ -598,35 +598,35 @@ class IdentityProvider(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CONNECTION_TYPE_OIDC: _ClassVar[IdentityProvider]
 
 class RecordingFileType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RECORDING_FILE_TYPE_WAV: _ClassVar[RecordingFileType]
     RECORDING_FILE_TYPE_MP3: _ClassVar[RecordingFileType]
 
 class InitialAgentStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     INITIAL_AGENT_STATUS_READY: _ClassVar[InitialAgentStatus]
     INITIAL_AGENT_STATUS_PAUSED: _ClassVar[InitialAgentStatus]
 
 class AgentRouting(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_ROUTING_ANY_AGENT: _ClassVar[AgentRouting]
     AGENT_ROUTING_ORIGINAL_AGENT_PREFERRED: _ClassVar[AgentRouting]
     AGENT_ROUTING_ORIGINAL_AGENT_REQUIRED: _ClassVar[AgentRouting]
 
 class AlphanumericKeypadDelimiter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ALPHANUMERIC_KEYPAD_DELIMITER_ASTERISK: _ClassVar[AlphanumericKeypadDelimiter]
     ALPHANUMERIC_KEYPAD_DELIMITER_POUND: _ClassVar[AlphanumericKeypadDelimiter]
     ALPHANUMERIC_KEYPAD_DELIMITER_SPACE: _ClassVar[AlphanumericKeypadDelimiter]
 
 class AgentCallHistoryScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_CALL_HISTORY_SCOPE_NONE: _ClassVar[AgentCallHistoryScope]
     AGENT_CALL_HISTORY_SCOPE_AGENT_SESSION_STATISTICS: _ClassVar[AgentCallHistoryScope]
     AGENT_CALL_HISTORY_SCOPE_TODAYS_STATISTICS: _ClassVar[AgentCallHistoryScope]
 
 class CommunicationExpiration(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     COMMUNICATION_EXPIRATION_NEVER: _ClassVar[CommunicationExpiration]
     COMMUNICATION_EXPIRATION_ONE_HOUR: _ClassVar[CommunicationExpiration]
     COMMUNICATION_EXPIRATION_TWO_HOURS: _ClassVar[CommunicationExpiration]
@@ -663,13 +663,13 @@ class CommunicationExpiration(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     COMMUNICATION_EXPIRATION_THIRTEEN_MONTHS: _ClassVar[CommunicationExpiration]
 
 class DefaultCallbackRouting(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DEFAULT_CALLBACK_ROUTING_NONE: _ClassVar[DefaultCallbackRouting]
     DEFAULT_CALLBACK_ROUTING_TO_AGENT: _ClassVar[DefaultCallbackRouting]
     DEFAULT_CALLBACK_ROUTING_AGENT_SKILLSET: _ClassVar[DefaultCallbackRouting]
 
 class XMLPropertyKey(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     XML_PROPERTY_KEY_NONE: _ClassVar[XMLPropertyKey]
     XML_PROPERTY_KEY_AGENT_DISPOSITION_CONDITIONAL_DNCL: _ClassVar[XMLPropertyKey]
     XML_PROPERTY_KEY_AGENT_LOGIN_GUI_STATISTICS_TEMPLATE: _ClassVar[XMLPropertyKey]
@@ -696,76 +696,76 @@ class XMLPropertyKey(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     XML_PROPERTY_KEY_TASK_GROUP_REPORT_FILTER: _ClassVar[XMLPropertyKey]
 
 class DefaultManualCallRecording(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DEFAULT_MANUAL_CALL_RECORDING_ORG_DEFAULT: _ClassVar[DefaultManualCallRecording]
     DEFAULT_MANUAL_CALL_RECORDING_ENABLED: _ClassVar[DefaultManualCallRecording]
     DEFAULT_MANUAL_CALL_RECORDING_DISABLED: _ClassVar[DefaultManualCallRecording]
 
 class HuntGroupOrgDefaultCustom(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     HUNT_GROUP_USE_ORG_DEFAULT: _ClassVar[HuntGroupOrgDefaultCustom]
     HUNT_GROUP_CUSTOM_ENABLED: _ClassVar[HuntGroupOrgDefaultCustom]
     HUNT_GROUP_CUSTOM_DISABLED: _ClassVar[HuntGroupOrgDefaultCustom]
 
 class ManualDialTimeZoneValidation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MANUAL_DIAL_TIME_ZONE_VALIDATION_DISABLED: _ClassVar[ManualDialTimeZoneValidation]
     MANUAL_DIAL_TIME_ZONE_VALIDATION_OPTIONAL: _ClassVar[ManualDialTimeZoneValidation]
     MANUAL_DIAL_TIME_ZONE_VALIDATION_REQUIRED: _ClassVar[ManualDialTimeZoneValidation]
 
 class TransferRecordingStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TRANSFER_RECORDING_STATUS_KEEP_STATUS: _ClassVar[TransferRecordingStatus]
     TRANSFER_RECORDING_STATUS_START_RECORDING: _ClassVar[TransferRecordingStatus]
     TRANSFER_RECORDING_STATUS_STOP_RECORDING: _ClassVar[TransferRecordingStatus]
 
 class RequeueTransferQueueConfig(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     REQUEUE_TRANSFER_QUEUE_CONFIG_CURRENT: _ClassVar[RequeueTransferQueueConfig]
     REQUEUE_TRANSFER_QUEUE_CONFIG_DEFAULT: _ClassVar[RequeueTransferQueueConfig]
     REQUEUE_TRANSFER_QUEUE_CONFIG_CUSTOM: _ClassVar[RequeueTransferQueueConfig]
 
 class DefaultTransferCallerId(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DEFAULT_CALLER_ID_NONE: _ClassVar[DefaultTransferCallerId]
     DEFAULT_CALLER_ID_CUSTOM: _ClassVar[DefaultTransferCallerId]
     DEFAULT_CALLER_ID_3RD_PARTY_NUMBER: _ClassVar[DefaultTransferCallerId]
 
 class DefaultManualDialCallerId(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DEFAULT_MANUAL_DIAL_CALLER_ID_NONE: _ClassVar[DefaultManualDialCallerId]
     DEFAULT_MANUAL_DIAL_CALLER_ID_CUSTOM: _ClassVar[DefaultManualDialCallerId]
     DEFAULT_MANUAL_DIAL_CALLER_ID_AGENT_CALLER_ID: _ClassVar[DefaultManualDialCallerId]
 
 class ManualDialDataDipScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MANUAL_DIAL_DATA_DIP_SCOPE_DISABLED: _ClassVar[ManualDialDataDipScope]
     MANUAL_DIAL_DATA_DIP_SCOPE_STANDARD_CALLS: _ClassVar[ManualDialDataDipScope]
     MANUAL_DIAL_DATA_DIP_SCOPE_SCHEDULED_CALLBACKS: _ClassVar[ManualDialDataDipScope]
     MANUAL_DIAL_DATA_DIP_SCOPE_ALL: _ClassVar[ManualDialDataDipScope]
 
 class ManualDialDataDipHandling(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MANUAL_DIAL_DATA_DIP_HANDLING_CANCEL: _ClassVar[ManualDialDataDipHandling]
     MANUAL_DIAL_DATA_DIP_HANDLING_NOTIFY_AND_CANCEL: _ClassVar[ManualDialDataDipHandling]
     MANUAL_DIAL_DATA_DIP_HANDLING_NOTIFY_AND_CALL: _ClassVar[ManualDialDataDipHandling]
     MANUAL_DIAL_DATA_DIP_HANDLING_CALL_WITH_ORIGINAL_VALUES: _ClassVar[ManualDialDataDipHandling]
 
 class ManualDialDataDipIntegration(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MANUAL_DIAL_DATA_DIP_INTEGRATION_UNSPECIFIED: _ClassVar[ManualDialDataDipIntegration]
     MANUAL_DIAL_DATA_DIP_INTEGRATION_NUMBER: _ClassVar[ManualDialDataDipIntegration]
     MANUAL_DIAL_DATA_DIP_INTEGRATION_CALLER_ID: _ClassVar[ManualDialDataDipIntegration]
     MANUAL_DIAL_DATA_DIP_INTEGRATION_CONTACT_FIELD_DESCRIPTION: _ClassVar[ManualDialDataDipIntegration]
 
 class DataDipTemplateFilterType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DATA_DIP_TEMPLATE_FILTER_TYPE_NONE: _ClassVar[DataDipTemplateFilterType]
     DATA_DIP_TEMPLATE_FILTER_TYPE_BROADCAST: _ClassVar[DataDipTemplateFilterType]
     DATA_DIP_TEMPLATE_FILTER_TYPE_MANUAL_DIAL: _ClassVar[DataDipTemplateFilterType]
 
 class OrganizationArchivedStateFilter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ORGANIZATION_ARCHIVED_STATE_FILTER_UNARCHIVED: _ClassVar[OrganizationArchivedStateFilter]
     ORGANIZATION_ARCHIVED_STATE_FILTER_ARCHIVED: _ClassVar[OrganizationArchivedStateFilter]
     ORGANIZATION_ARCHIVED_STATE_FILTER_ALL: _ClassVar[OrganizationArchivedStateFilter]
@@ -1410,13 +1410,13 @@ ORGANIZATION_ARCHIVED_STATE_FILTER_ARCHIVED: OrganizationArchivedStateFilter
 ORGANIZATION_ARCHIVED_STATE_FILTER_ALL: OrganizationArchivedStateFilter
 
 class TimeZoneWrapper(_message.Message):
-    __slots__ = ["value"]
+    __slots__ = ("value",)
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: TimeZone
     def __init__(self, value: _Optional[_Union[TimeZone, str]] = ...) -> None: ...
 
 class DigitWrapper(_message.Message):
-    __slots__ = ["value"]
+    __slots__ = ("value",)
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: Digit
     def __init__(self, value: _Optional[_Union[Digit, str]] = ...) -> None: ...

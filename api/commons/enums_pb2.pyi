@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Month(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MONTH_JANUARY: _ClassVar[Month]
     MONTH_FEBRUARY: _ClassVar[Month]
     MONTH_MARCH: _ClassVar[Month]
@@ -33,9 +33,9 @@ MONTH_NOVEMBER: Month
 MONTH_DECEMBER: Month
 
 class Weekday(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         SUNDAY: _ClassVar[Weekday.Enum]
         MONDAY: _ClassVar[Weekday.Enum]
         TUESDAY: _ClassVar[Weekday.Enum]
@@ -53,9 +53,9 @@ class Weekday(_message.Message):
     def __init__(self) -> None: ...
 
 class CronRequestType(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         INVALID: _ClassVar[CronRequestType.Enum]
         SFTP: _ClassVar[CronRequestType.Enum]
     INVALID: CronRequestType.Enum

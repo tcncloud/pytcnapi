@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class EmailResult(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     EMAIL_RESULT_UNKNOWN: _ClassVar[EmailResult]
     EMAIL_TASK_WAITING: _ClassVar[EmailResult]
     EMAIL_TASK_PROCESSING: _ClassVar[EmailResult]
@@ -25,7 +25,7 @@ class EmailResult(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EMAIL_TASK_BLOCKED: _ClassVar[EmailResult]
 
 class EmailStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     EMAIL_STATUS_UNKKNOWN: _ClassVar[EmailStatus]
     EMAIL_PREPARING: _ClassVar[EmailStatus]
     EMAIL_SCHEDULED: _ClassVar[EmailStatus]
@@ -40,7 +40,7 @@ class EmailStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EMAIL_PAUSED: _ClassVar[EmailStatus]
 
 class EmailIBGroupStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     IB_EMAIL_GROUP_UNKNOWN: _ClassVar[EmailIBGroupStatus]
     IB_EMAIL_GROUP_PREPARING: _ClassVar[EmailIBGroupStatus]
     IB_EMAIL_GROUP_SCHEDULED: _ClassVar[EmailIBGroupStatus]
@@ -57,7 +57,7 @@ class EmailIBGroupStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     IB_EMAIL_GROUP_SUMMED_CANCELLED_ADMIN: _ClassVar[EmailIBGroupStatus]
 
 class EmailIBReplyStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     IB_EMAIL_REPLY_UNKNOWN: _ClassVar[EmailIBReplyStatus]
     IB_EMAIL_REPLY_RECEIVED: _ClassVar[EmailIBReplyStatus]
     IB_EMAIL_AGENT_REPLY_SENDING: _ClassVar[EmailIBReplyStatus]
@@ -77,7 +77,7 @@ class EmailIBReplyStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     IB_EMAIL_REPLY_CANCELLED: _ClassVar[EmailIBReplyStatus]
 
 class EmailIBGroupEvent(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     IB_EMAIL_GROUP_EVENT_PREPARED: _ClassVar[EmailIBGroupEvent]
     IB_EMAIL_GROUP_EVENT_SCHEDULED: _ClassVar[EmailIBGroupEvent]
     IB_EMAIL_GROUP_EVENT_STARTED: _ClassVar[EmailIBGroupEvent]
@@ -93,7 +93,7 @@ class EmailIBGroupEvent(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     IB_EMAIL_GROUP_EVENT_COMPLETED: _ClassVar[EmailIBGroupEvent]
 
 class EmailIBReplyType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     REPLY_UNKNOWN: _ClassVar[EmailIBReplyType]
     EXISTING_CONV: _ClassVar[EmailIBReplyType]
     OUTBOUND_REPLY: _ClassVar[EmailIBReplyType]

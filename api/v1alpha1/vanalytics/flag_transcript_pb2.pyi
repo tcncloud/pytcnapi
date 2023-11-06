@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FlagReviewStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ANY: _ClassVar[FlagReviewStatus]
     TODO: _ClassVar[FlagReviewStatus]
     DONE: _ClassVar[FlagReviewStatus]
@@ -20,7 +20,7 @@ DONE: FlagReviewStatus
 NONE: FlagReviewStatus
 
 class CreateFlagTranscriptRequest(_message.Message):
-    __slots__ = ["transcript_sids", "flag"]
+    __slots__ = ("transcript_sids", "flag")
     TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
     FLAG_FIELD_NUMBER: _ClassVar[int]
     transcript_sids: _containers.RepeatedScalarFieldContainer[int]
@@ -28,20 +28,20 @@ class CreateFlagTranscriptRequest(_message.Message):
     def __init__(self, transcript_sids: _Optional[_Iterable[int]] = ..., flag: _Optional[_Union[_flag_pb2.Flag, _Mapping]] = ...) -> None: ...
 
 class CreateFlagTranscriptResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class SearchFlagTranscriptsRequest(_message.Message):
-    __slots__ = ["page_size", "page_token", "flag_sid", "flag_review_status", "notify_group_id", "review_group_id", "start_transcript_sid", "end_transcript_sid", "order_by"]
+    __slots__ = ("page_size", "page_token", "flag_sid", "flag_review_status", "notify_group_id", "review_group_id", "start_transcript_sid", "end_transcript_sid", "order_by")
     class FlagSid(_message.Message):
-        __slots__ = ["filter", "match"]
+        __slots__ = ("filter", "match")
         FILTER_FIELD_NUMBER: _ClassVar[int]
         MATCH_FIELD_NUMBER: _ClassVar[int]
         filter: _containers.RepeatedScalarFieldContainer[int]
         match: int
         def __init__(self, filter: _Optional[_Iterable[int]] = ..., match: _Optional[int] = ...) -> None: ...
     class NotifyGroupId(_message.Message):
-        __slots__ = ["is_null", "filter", "match"]
+        __slots__ = ("is_null", "filter", "match")
         IS_NULL_FIELD_NUMBER: _ClassVar[int]
         FILTER_FIELD_NUMBER: _ClassVar[int]
         MATCH_FIELD_NUMBER: _ClassVar[int]
@@ -50,7 +50,7 @@ class SearchFlagTranscriptsRequest(_message.Message):
         match: int
         def __init__(self, is_null: bool = ..., filter: _Optional[_Iterable[str]] = ..., match: _Optional[int] = ...) -> None: ...
     class ReviewGroupId(_message.Message):
-        __slots__ = ["is_null", "filter", "match"]
+        __slots__ = ("is_null", "filter", "match")
         IS_NULL_FIELD_NUMBER: _ClassVar[int]
         FILTER_FIELD_NUMBER: _ClassVar[int]
         MATCH_FIELD_NUMBER: _ClassVar[int]
@@ -79,11 +79,11 @@ class SearchFlagTranscriptsRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., flag_sid: _Optional[_Union[SearchFlagTranscriptsRequest.FlagSid, _Mapping]] = ..., flag_review_status: _Optional[_Union[FlagReviewStatus, str]] = ..., notify_group_id: _Optional[_Union[SearchFlagTranscriptsRequest.NotifyGroupId, _Mapping]] = ..., review_group_id: _Optional[_Union[SearchFlagTranscriptsRequest.ReviewGroupId, _Mapping]] = ..., start_transcript_sid: _Optional[int] = ..., end_transcript_sid: _Optional[int] = ..., order_by: _Optional[str] = ...) -> None: ...
 
 class SearchFlagTranscriptsResponse(_message.Message):
-    __slots__ = ["next_page_token", "hits", "total"]
+    __slots__ = ("next_page_token", "hits", "total")
     class Hit(_message.Message):
-        __slots__ = ["transcript", "flag_snapshot_sids", "reviewed", "flag_sids"]
+        __slots__ = ("transcript", "flag_snapshot_sids", "reviewed", "flag_sids")
         class ReviewedEntry(_message.Message):
-            __slots__ = ["key", "value"]
+            __slots__ = ("key", "value")
             KEY_FIELD_NUMBER: _ClassVar[int]
             VALUE_FIELD_NUMBER: _ClassVar[int]
             key: int

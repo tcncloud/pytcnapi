@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ClientLibraryOrganization(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED: _ClassVar[ClientLibraryOrganization]
     CLOUD: _ClassVar[ClientLibraryOrganization]
     ADS: _ClassVar[ClientLibraryOrganization]
@@ -21,7 +21,7 @@ class ClientLibraryOrganization(int, metaclass=_enum_type_wrapper.EnumTypeWrappe
     GENERATIVE_AI: _ClassVar[ClientLibraryOrganization]
 
 class ClientLibraryDestination(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CLIENT_LIBRARY_DESTINATION_UNSPECIFIED: _ClassVar[ClientLibraryDestination]
     GITHUB: _ClassVar[ClientLibraryDestination]
     PACKAGE_MANAGER: _ClassVar[ClientLibraryDestination]
@@ -44,7 +44,7 @@ OAUTH_SCOPES_FIELD_NUMBER: _ClassVar[int]
 oauth_scopes: _descriptor.FieldDescriptor
 
 class CommonLanguageSettings(_message.Message):
-    __slots__ = ["reference_docs_uri", "destinations"]
+    __slots__ = ("reference_docs_uri", "destinations")
     REFERENCE_DOCS_URI_FIELD_NUMBER: _ClassVar[int]
     DESTINATIONS_FIELD_NUMBER: _ClassVar[int]
     reference_docs_uri: str
@@ -52,7 +52,7 @@ class CommonLanguageSettings(_message.Message):
     def __init__(self, reference_docs_uri: _Optional[str] = ..., destinations: _Optional[_Iterable[_Union[ClientLibraryDestination, str]]] = ...) -> None: ...
 
 class ClientLibrarySettings(_message.Message):
-    __slots__ = ["version", "launch_stage", "rest_numeric_enums", "java_settings", "cpp_settings", "php_settings", "python_settings", "node_settings", "dotnet_settings", "ruby_settings", "go_settings"]
+    __slots__ = ("version", "launch_stage", "rest_numeric_enums", "java_settings", "cpp_settings", "php_settings", "python_settings", "node_settings", "dotnet_settings", "ruby_settings", "go_settings")
     VERSION_FIELD_NUMBER: _ClassVar[int]
     LAUNCH_STAGE_FIELD_NUMBER: _ClassVar[int]
     REST_NUMERIC_ENUMS_FIELD_NUMBER: _ClassVar[int]
@@ -78,7 +78,7 @@ class ClientLibrarySettings(_message.Message):
     def __init__(self, version: _Optional[str] = ..., launch_stage: _Optional[_Union[_launch_stage_pb2.LaunchStage, str]] = ..., rest_numeric_enums: bool = ..., java_settings: _Optional[_Union[JavaSettings, _Mapping]] = ..., cpp_settings: _Optional[_Union[CppSettings, _Mapping]] = ..., php_settings: _Optional[_Union[PhpSettings, _Mapping]] = ..., python_settings: _Optional[_Union[PythonSettings, _Mapping]] = ..., node_settings: _Optional[_Union[NodeSettings, _Mapping]] = ..., dotnet_settings: _Optional[_Union[DotnetSettings, _Mapping]] = ..., ruby_settings: _Optional[_Union[RubySettings, _Mapping]] = ..., go_settings: _Optional[_Union[GoSettings, _Mapping]] = ...) -> None: ...
 
 class Publishing(_message.Message):
-    __slots__ = ["method_settings", "new_issue_uri", "documentation_uri", "api_short_name", "github_label", "codeowner_github_teams", "doc_tag_prefix", "organization", "library_settings", "proto_reference_documentation_uri"]
+    __slots__ = ("method_settings", "new_issue_uri", "documentation_uri", "api_short_name", "github_label", "codeowner_github_teams", "doc_tag_prefix", "organization", "library_settings", "proto_reference_documentation_uri")
     METHOD_SETTINGS_FIELD_NUMBER: _ClassVar[int]
     NEW_ISSUE_URI_FIELD_NUMBER: _ClassVar[int]
     DOCUMENTATION_URI_FIELD_NUMBER: _ClassVar[int]
@@ -102,9 +102,9 @@ class Publishing(_message.Message):
     def __init__(self, method_settings: _Optional[_Iterable[_Union[MethodSettings, _Mapping]]] = ..., new_issue_uri: _Optional[str] = ..., documentation_uri: _Optional[str] = ..., api_short_name: _Optional[str] = ..., github_label: _Optional[str] = ..., codeowner_github_teams: _Optional[_Iterable[str]] = ..., doc_tag_prefix: _Optional[str] = ..., organization: _Optional[_Union[ClientLibraryOrganization, str]] = ..., library_settings: _Optional[_Iterable[_Union[ClientLibrarySettings, _Mapping]]] = ..., proto_reference_documentation_uri: _Optional[str] = ...) -> None: ...
 
 class JavaSettings(_message.Message):
-    __slots__ = ["library_package", "service_class_names", "common"]
+    __slots__ = ("library_package", "service_class_names", "common")
     class ServiceClassNamesEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -119,40 +119,40 @@ class JavaSettings(_message.Message):
     def __init__(self, library_package: _Optional[str] = ..., service_class_names: _Optional[_Mapping[str, str]] = ..., common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ...) -> None: ...
 
 class CppSettings(_message.Message):
-    __slots__ = ["common"]
+    __slots__ = ("common",)
     COMMON_FIELD_NUMBER: _ClassVar[int]
     common: CommonLanguageSettings
     def __init__(self, common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ...) -> None: ...
 
 class PhpSettings(_message.Message):
-    __slots__ = ["common"]
+    __slots__ = ("common",)
     COMMON_FIELD_NUMBER: _ClassVar[int]
     common: CommonLanguageSettings
     def __init__(self, common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ...) -> None: ...
 
 class PythonSettings(_message.Message):
-    __slots__ = ["common"]
+    __slots__ = ("common",)
     COMMON_FIELD_NUMBER: _ClassVar[int]
     common: CommonLanguageSettings
     def __init__(self, common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ...) -> None: ...
 
 class NodeSettings(_message.Message):
-    __slots__ = ["common"]
+    __slots__ = ("common",)
     COMMON_FIELD_NUMBER: _ClassVar[int]
     common: CommonLanguageSettings
     def __init__(self, common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ...) -> None: ...
 
 class DotnetSettings(_message.Message):
-    __slots__ = ["common", "renamed_services", "renamed_resources", "ignored_resources", "forced_namespace_aliases", "handwritten_signatures"]
+    __slots__ = ("common", "renamed_services", "renamed_resources", "ignored_resources", "forced_namespace_aliases", "handwritten_signatures")
     class RenamedServicesEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
         def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class RenamedResourcesEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -173,21 +173,21 @@ class DotnetSettings(_message.Message):
     def __init__(self, common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ..., renamed_services: _Optional[_Mapping[str, str]] = ..., renamed_resources: _Optional[_Mapping[str, str]] = ..., ignored_resources: _Optional[_Iterable[str]] = ..., forced_namespace_aliases: _Optional[_Iterable[str]] = ..., handwritten_signatures: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class RubySettings(_message.Message):
-    __slots__ = ["common"]
+    __slots__ = ("common",)
     COMMON_FIELD_NUMBER: _ClassVar[int]
     common: CommonLanguageSettings
     def __init__(self, common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ...) -> None: ...
 
 class GoSettings(_message.Message):
-    __slots__ = ["common"]
+    __slots__ = ("common",)
     COMMON_FIELD_NUMBER: _ClassVar[int]
     common: CommonLanguageSettings
     def __init__(self, common: _Optional[_Union[CommonLanguageSettings, _Mapping]] = ...) -> None: ...
 
 class MethodSettings(_message.Message):
-    __slots__ = ["selector", "long_running"]
+    __slots__ = ("selector", "long_running")
     class LongRunning(_message.Message):
-        __slots__ = ["initial_poll_delay", "poll_delay_multiplier", "max_poll_delay", "total_poll_timeout"]
+        __slots__ = ("initial_poll_delay", "poll_delay_multiplier", "max_poll_delay", "total_poll_timeout")
         INITIAL_POLL_DELAY_FIELD_NUMBER: _ClassVar[int]
         POLL_DELAY_MULTIPLIER_FIELD_NUMBER: _ClassVar[int]
         MAX_POLL_DELAY_FIELD_NUMBER: _ClassVar[int]

@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BroadcastType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TYPE_UNKNOWN: _ClassVar[BroadcastType]
     TYPE_OUTBOUND: _ClassVar[BroadcastType]
     TYPE_OUTBOUND_PREVIEW_ONLY: _ClassVar[BroadcastType]
@@ -35,9 +35,9 @@ TYPE_INBOUND_MANUAL: BroadcastType
 TYPE_OUTBOUND_INBOUND_MANUAL: BroadcastType
 
 class TemplateType(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         UNKNOWN: _ClassVar[TemplateType.Enum]
         STANDARD: _ClassVar[TemplateType.Enum]
         LAYERED: _ClassVar[TemplateType.Enum]

@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateRoomRequest(_message.Message):
-    __slots__ = ["name", "type", "members"]
+    __slots__ = ("name", "type", "members")
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     MEMBERS_FIELD_NUMBER: _ClassVar[int]
@@ -20,33 +20,33 @@ class CreateRoomRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_room303_pb2.RoomType, str]] = ..., members: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetRoomRequest(_message.Message):
-    __slots__ = ["room_id"]
+    __slots__ = ("room_id",)
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     def __init__(self, room_id: _Optional[str] = ...) -> None: ...
 
 class ListAllRoomsRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListRoomsForMemberRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListRoomsResponse(_message.Message):
-    __slots__ = ["rooms"]
+    __slots__ = ("rooms",)
     ROOMS_FIELD_NUMBER: _ClassVar[int]
     rooms: _containers.RepeatedCompositeFieldContainer[_room303_pb2.Room]
     def __init__(self, rooms: _Optional[_Iterable[_Union[_room303_pb2.Room, _Mapping]]] = ...) -> None: ...
 
 class ArchiveRoomRequest(_message.Message):
-    __slots__ = ["room_id"]
+    __slots__ = ("room_id",)
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     def __init__(self, room_id: _Optional[str] = ...) -> None: ...
 
 class ListUsersNamesRequest(_message.Message):
-    __slots__ = ["org_id", "agent", "archived_filter"]
+    __slots__ = ("org_id", "agent", "archived_filter")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AGENT_FIELD_NUMBER: _ClassVar[int]
     ARCHIVED_FILTER_FIELD_NUMBER: _ClassVar[int]
@@ -56,13 +56,13 @@ class ListUsersNamesRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., agent: bool = ..., archived_filter: _Optional[_Union[_user_pb2.UserArchivedStateFilter, str]] = ...) -> None: ...
 
 class ListUsersNamesResponse(_message.Message):
-    __slots__ = ["user_details"]
+    __slots__ = ("user_details",)
     USER_DETAILS_FIELD_NUMBER: _ClassVar[int]
     user_details: _containers.RepeatedCompositeFieldContainer[UserDetails]
     def __init__(self, user_details: _Optional[_Iterable[_Union[UserDetails, _Mapping]]] = ...) -> None: ...
 
 class UserDetails(_message.Message):
-    __slots__ = ["user_id", "user_name", "first_name", "last_name"]
+    __slots__ = ("user_id", "user_name", "first_name", "last_name")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USER_NAME_FIELD_NUMBER: _ClassVar[int]
     FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -74,7 +74,7 @@ class UserDetails(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
 
 class UpdateRoomConfigRequest(_message.Message):
-    __slots__ = ["room_id", "config", "field_mask"]
+    __slots__ = ("room_id", "config", "field_mask")
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -84,7 +84,7 @@ class UpdateRoomConfigRequest(_message.Message):
     def __init__(self, room_id: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.RoomConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateGlobalConfigRequest(_message.Message):
-    __slots__ = ["config", "field_mask"]
+    __slots__ = ("config", "field_mask")
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     config: _room303_pb2.GlobalConfig
@@ -92,7 +92,7 @@ class UpdateGlobalConfigRequest(_message.Message):
     def __init__(self, config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateGlobalConfigResponse(_message.Message):
-    __slots__ = ["edited_by", "config", "date_created", "last_edited"]
+    __slots__ = ("edited_by", "config", "date_created", "last_edited")
     EDITED_BY_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
@@ -104,11 +104,11 @@ class UpdateGlobalConfigResponse(_message.Message):
     def __init__(self, edited_by: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GetGlobalConfigRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class GetGlobalConfigResponse(_message.Message):
-    __slots__ = ["edited_by", "config", "date_created", "last_edited"]
+    __slots__ = ("edited_by", "config", "date_created", "last_edited")
     EDITED_BY_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]

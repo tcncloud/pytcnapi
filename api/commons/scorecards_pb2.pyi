@@ -9,30 +9,30 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CategoryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     INVALID: _ClassVar[CategoryType]
     SKILL_CALLS: _ClassVar[CategoryType]
     MANUAL_DIAL: _ClassVar[CategoryType]
 
 class EvaluationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     EVALUATE_MANUAL: _ClassVar[EvaluationType]
     EVALUATE_AUTO: _ClassVar[EvaluationType]
 
 class ScoreType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SCORE_SIMPLE_SUM: _ClassVar[ScoreType]
     SCORE_WEIGHTED_SUM: _ClassVar[ScoreType]
     SCORE_EVEN_WEIGHTED_SUM: _ClassVar[ScoreType]
 
 class FailType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     FAIL_QUESTION: _ClassVar[FailType]
     FAIL_SECTION: _ClassVar[FailType]
     FAIL_SCORECARD: _ClassVar[FailType]
 
 class ScorecardState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SCORECARD_IS_DRAFT: _ClassVar[ScorecardState]
     SCORECARD_IS_READY: _ClassVar[ScorecardState]
     SCORECARD_IS_IN_USE: _ClassVar[ScorecardState]
@@ -41,13 +41,13 @@ class ScorecardState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SCORECARD_IS_IN_USE_DISABLED: _ClassVar[ScorecardState]
 
 class EvaluationState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     EVALUATION_IN_PROGRESS: _ClassVar[EvaluationState]
     EVALUATION_PASSED: _ClassVar[EvaluationState]
     EVALUATION_FAILED: _ClassVar[EvaluationState]
 
 class RiskLevel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     RISK_LEVEL_NONE: _ClassVar[RiskLevel]
     RISK_LEVEL_LOW: _ClassVar[RiskLevel]
     RISK_LEVEL_MEDIUM: _ClassVar[RiskLevel]
@@ -80,7 +80,7 @@ RISK_LEVEL_HIGH: RiskLevel
 RISK_LEVEL_RISK_FREE: RiskLevel
 
 class TimeFilter(_message.Message):
-    __slots__ = ["eq", "gte", "lte", "gt", "lt"]
+    __slots__ = ("eq", "gte", "lte", "gt", "lt")
     EQ_FIELD_NUMBER: _ClassVar[int]
     GTE_FIELD_NUMBER: _ClassVar[int]
     LTE_FIELD_NUMBER: _ClassVar[int]
@@ -94,7 +94,7 @@ class TimeFilter(_message.Message):
     def __init__(self, eq: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., gte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., gt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Category(_message.Message):
-    __slots__ = ["category_id", "author_id", "title", "description", "skill_profiles", "version", "call_types", "is_system", "category_type"]
+    __slots__ = ("category_id", "author_id", "title", "description", "skill_profiles", "version", "call_types", "is_system", "category_type")
     CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -116,9 +116,9 @@ class Category(_message.Message):
     def __init__(self, category_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., skill_profiles: _Optional[_Iterable[int]] = ..., version: _Optional[int] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., is_system: bool = ..., category_type: _Optional[_Union[CategoryType, str]] = ...) -> None: ...
 
 class Evaluation(_message.Message):
-    __slots__ = ["evaluation_id", "scorecard_id", "scorer_id", "call_sid", "score", "evaluation_state", "evaluation_sections", "completed_at", "agent_user_id", "call_type", "transcript_sid", "custom_fields"]
+    __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "call_sid", "score", "evaluation_state", "evaluation_sections", "completed_at", "agent_user_id", "call_type", "transcript_sid", "custom_fields")
     class CustomField(_message.Message):
-        __slots__ = ["key", "field"]
+        __slots__ = ("key", "field")
         KEY_FIELD_NUMBER: _ClassVar[int]
         FIELD_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -151,7 +151,7 @@ class Evaluation(_message.Message):
     def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., scorer_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., score: _Optional[float] = ..., evaluation_state: _Optional[_Union[EvaluationState, str]] = ..., evaluation_sections: _Optional[_Iterable[_Union[EvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_user_id: _Optional[str] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., custom_fields: _Optional[_Iterable[_Union[Evaluation.CustomField, _Mapping]]] = ...) -> None: ...
 
 class EvaluationSection(_message.Message):
-    __slots__ = ["evaluation_section_id", "evaluation_id", "section_id", "points", "possible_points", "sort_order", "deleted_at", "created_at", "evaluation_questions", "auto_evaluation_questions"]
+    __slots__ = ("evaluation_section_id", "evaluation_id", "section_id", "points", "possible_points", "sort_order", "deleted_at", "created_at", "evaluation_questions", "auto_evaluation_questions")
     EVALUATION_SECTION_ID_FIELD_NUMBER: _ClassVar[int]
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SECTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -175,9 +175,9 @@ class EvaluationSection(_message.Message):
     def __init__(self, evaluation_section_id: _Optional[int] = ..., evaluation_id: _Optional[int] = ..., section_id: _Optional[int] = ..., points: _Optional[int] = ..., possible_points: _Optional[int] = ..., sort_order: _Optional[int] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., evaluation_questions: _Optional[_Iterable[_Union[EvaluationQuestion, _Mapping]]] = ..., auto_evaluation_questions: _Optional[_Iterable[_Union[AutoEvaluationQuestion, _Mapping]]] = ...) -> None: ...
 
 class EvaluationQuestion(_message.Message):
-    __slots__ = ["evaluation_question_id", "evaluation_id", "scorecard_question_id", "skipped", "points", "answers", "evaluation_section_id", "comment", "sort_order"]
+    __slots__ = ("evaluation_question_id", "evaluation_id", "scorecard_question_id", "skipped", "points", "answers", "evaluation_section_id", "comment", "sort_order")
     class Answer(_message.Message):
-        __slots__ = ["answer_option", "points", "fail_type"]
+        __slots__ = ("answer_option", "points", "fail_type")
         ANSWER_OPTION_FIELD_NUMBER: _ClassVar[int]
         POINTS_FIELD_NUMBER: _ClassVar[int]
         FAIL_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -206,7 +206,7 @@ class EvaluationQuestion(_message.Message):
     def __init__(self, evaluation_question_id: _Optional[int] = ..., evaluation_id: _Optional[int] = ..., scorecard_question_id: _Optional[int] = ..., skipped: bool = ..., points: _Optional[int] = ..., answers: _Optional[_Iterable[_Union[EvaluationQuestion.Answer, _Mapping]]] = ..., evaluation_section_id: _Optional[int] = ..., comment: _Optional[str] = ..., sort_order: _Optional[int] = ...) -> None: ...
 
 class AutoEvaluation(_message.Message):
-    __slots__ = ["auto_evaluation_id", "scorecard_id", "call_sid", "agent_user_id", "auto_evaluation_sections", "completed_at", "deleted_at", "call_type", "transcript_sid", "expression_matched", "risk_level", "call_length"]
+    __slots__ = ("auto_evaluation_id", "scorecard_id", "call_sid", "agent_user_id", "auto_evaluation_sections", "completed_at", "deleted_at", "call_type", "transcript_sid", "expression_matched", "risk_level", "call_length")
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
@@ -234,7 +234,7 @@ class AutoEvaluation(_message.Message):
     def __init__(self, auto_evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., call_sid: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., auto_evaluation_sections: _Optional[_Iterable[_Union[AutoEvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., expression_matched: bool = ..., risk_level: _Optional[_Union[RiskLevel, str]] = ..., call_length: _Optional[int] = ...) -> None: ...
 
 class AutoEvaluationQuestion(_message.Message):
-    __slots__ = ["auto_evaluation_question_id", "auto_evaluation_id", "auto_evaluation_section_id", "auto_question_id", "flagged", "passed", "sort_order", "risk_level", "expression_matched"]
+    __slots__ = ("auto_evaluation_question_id", "auto_evaluation_id", "auto_evaluation_section_id", "auto_question_id", "flagged", "passed", "sort_order", "risk_level", "expression_matched")
     AUTO_EVALUATION_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_EVALUATION_SECTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -256,7 +256,7 @@ class AutoEvaluationQuestion(_message.Message):
     def __init__(self, auto_evaluation_question_id: _Optional[int] = ..., auto_evaluation_id: _Optional[int] = ..., auto_evaluation_section_id: _Optional[int] = ..., auto_question_id: _Optional[int] = ..., flagged: _Optional[_Iterable[int]] = ..., passed: bool = ..., sort_order: _Optional[int] = ..., risk_level: _Optional[_Union[RiskLevel, str]] = ..., expression_matched: bool = ...) -> None: ...
 
 class AutoEvaluationSection(_message.Message):
-    __slots__ = ["auto_evaluation_section_id", "auto_evaluation_id", "section_id", "sort_order", "deleted_at", "created_at", "auto_evaluation_questions", "risk_level"]
+    __slots__ = ("auto_evaluation_section_id", "auto_evaluation_id", "section_id", "sort_order", "deleted_at", "created_at", "auto_evaluation_questions", "risk_level")
     AUTO_EVALUATION_SECTION_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SECTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -276,7 +276,7 @@ class AutoEvaluationSection(_message.Message):
     def __init__(self, auto_evaluation_section_id: _Optional[int] = ..., auto_evaluation_id: _Optional[int] = ..., section_id: _Optional[int] = ..., sort_order: _Optional[int] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., auto_evaluation_questions: _Optional[_Iterable[_Union[AutoEvaluationQuestion, _Mapping]]] = ..., risk_level: _Optional[_Union[RiskLevel, str]] = ...) -> None: ...
 
 class Question(_message.Message):
-    __slots__ = ["question_id", "author_id", "question", "description", "categories"]
+    __slots__ = ("question_id", "author_id", "question", "description", "categories")
     QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_FIELD_NUMBER: _ClassVar[int]
@@ -290,9 +290,9 @@ class Question(_message.Message):
     def __init__(self, question_id: _Optional[int] = ..., author_id: _Optional[str] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., categories: _Optional[_Iterable[_Union[Category, _Mapping]]] = ...) -> None: ...
 
 class ScorecardQuestion(_message.Message):
-    __slots__ = ["scorecard_question_id", "question", "description", "question_id", "allow_skip", "answers", "multi_select", "scorecard_id", "section_id", "version", "sort_order"]
+    __slots__ = ("scorecard_question_id", "question", "description", "question_id", "allow_skip", "answers", "multi_select", "scorecard_id", "section_id", "version", "sort_order")
     class Answer(_message.Message):
-        __slots__ = ["answer_option", "points", "fail_type"]
+        __slots__ = ("answer_option", "points", "fail_type")
         ANSWER_OPTION_FIELD_NUMBER: _ClassVar[int]
         POINTS_FIELD_NUMBER: _ClassVar[int]
         FAIL_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -301,7 +301,7 @@ class ScorecardQuestion(_message.Message):
         fail_type: FailType
         def __init__(self, answer_option: _Optional[str] = ..., points: _Optional[int] = ..., fail_type: _Optional[_Union[FailType, str]] = ...) -> None: ...
     class MultiSelect(_message.Message):
-        __slots__ = ["max_points"]
+        __slots__ = ("max_points",)
         MAX_POINTS_FIELD_NUMBER: _ClassVar[int]
         max_points: int
         def __init__(self, max_points: _Optional[int] = ...) -> None: ...
@@ -330,7 +330,7 @@ class ScorecardQuestion(_message.Message):
     def __init__(self, scorecard_question_id: _Optional[int] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., question_id: _Optional[int] = ..., allow_skip: bool = ..., answers: _Optional[_Iterable[_Union[ScorecardQuestion.Answer, _Mapping]]] = ..., multi_select: _Optional[_Union[ScorecardQuestion.MultiSelect, _Mapping]] = ..., scorecard_id: _Optional[int] = ..., section_id: _Optional[int] = ..., version: _Optional[int] = ..., sort_order: _Optional[int] = ...) -> None: ...
 
 class Section(_message.Message):
-    __slots__ = ["section_id", "scorecard_id", "title", "description", "weight", "questions", "version", "sort_order", "auto_questions"]
+    __slots__ = ("section_id", "scorecard_id", "title", "description", "weight", "questions", "version", "sort_order", "auto_questions")
     SECTION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -352,7 +352,7 @@ class Section(_message.Message):
     def __init__(self, section_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., questions: _Optional[_Iterable[_Union[ScorecardQuestion, _Mapping]]] = ..., version: _Optional[int] = ..., sort_order: _Optional[int] = ..., auto_questions: _Optional[_Iterable[_Union[AutoQuestion, _Mapping]]] = ...) -> None: ...
 
 class Scorecard(_message.Message):
-    __slots__ = ["scorecard_id", "author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "distribute_weights", "category", "sections", "version", "state", "is_ad_hoc", "custom_field_keys", "call_types"]
+    __slots__ = ("scorecard_id", "author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "distribute_weights", "category", "sections", "version", "state", "is_ad_hoc", "custom_field_keys", "call_types")
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -388,11 +388,11 @@ class Scorecard(_message.Message):
     def __init__(self, scorecard_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[ScoreType, str]] = ..., evaluation_type: _Optional[_Union[EvaluationType, str]] = ..., allow_feedback: bool = ..., distribute_weights: bool = ..., category: _Optional[_Union[Category, _Mapping]] = ..., sections: _Optional[_Iterable[_Union[Section, _Mapping]]] = ..., version: _Optional[int] = ..., state: _Optional[_Union[ScorecardState, str]] = ..., is_ad_hoc: bool = ..., custom_field_keys: _Optional[_Iterable[str]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ...) -> None: ...
 
 class AutoQuestion(_message.Message):
-    __slots__ = ["auto_question_id", "flag_sid", "scorecard_id", "auto_section_id", "sort_order", "flag_expression", "question", "description", "question_id", "risk_level"]
+    __slots__ = ("auto_question_id", "flag_sid", "scorecard_id", "auto_section_id", "sort_order", "flag_expression", "question", "description", "question_id", "risk_level")
     class FlagExpr(_message.Message):
-        __slots__ = ["flag"]
+        __slots__ = ("flag",)
         class Flag(_message.Message):
-            __slots__ = ["flag_sid"]
+            __slots__ = ("flag_sid",)
             FLAG_SID_FIELD_NUMBER: _ClassVar[int]
             flag_sid: int
             def __init__(self, flag_sid: _Optional[int] = ...) -> None: ...

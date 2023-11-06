@@ -9,9 +9,9 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DownloadSpecifiedMessagesRequest(_message.Message):
-    __slots__ = ["messages"]
+    __slots__ = ("messages",)
     class MessageRequest(_message.Message):
-        __slots__ = ["mail_box", "caller_sid", "caller_type"]
+        __slots__ = ("mail_box", "caller_sid", "caller_type")
         MAIL_BOX_FIELD_NUMBER: _ClassVar[int]
         CALLER_SID_FIELD_NUMBER: _ClassVar[int]
         CALLER_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -24,7 +24,7 @@ class DownloadSpecifiedMessagesRequest(_message.Message):
     def __init__(self, messages: _Optional[_Iterable[_Union[DownloadSpecifiedMessagesRequest.MessageRequest, _Mapping]]] = ...) -> None: ...
 
 class DownloadSpecifiedMessagesResponse(_message.Message):
-    __slots__ = ["url"]
+    __slots__ = ("url",)
     URL_FIELD_NUMBER: _ClassVar[int]
     url: str
     def __init__(self, url: _Optional[str] = ...) -> None: ...

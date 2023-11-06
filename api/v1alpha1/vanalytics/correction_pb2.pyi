@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpdateCorrectionRequest(_message.Message):
-    __slots__ = ["correction", "update_mask"]
+    __slots__ = ("correction", "update_mask")
     CORRECTION_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     correction: Correction
@@ -16,56 +16,56 @@ class UpdateCorrectionRequest(_message.Message):
     def __init__(self, correction: _Optional[_Union[Correction, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateCorrectionResponse(_message.Message):
-    __slots__ = ["correction"]
+    __slots__ = ("correction",)
     CORRECTION_FIELD_NUMBER: _ClassVar[int]
     correction: Correction
     def __init__(self, correction: _Optional[_Union[Correction, _Mapping]] = ...) -> None: ...
 
 class CreateCorrectionRequest(_message.Message):
-    __slots__ = ["correction"]
+    __slots__ = ("correction",)
     CORRECTION_FIELD_NUMBER: _ClassVar[int]
     correction: Correction
     def __init__(self, correction: _Optional[_Union[Correction, _Mapping]] = ...) -> None: ...
 
 class CreateCorrectionResponse(_message.Message):
-    __slots__ = ["correction"]
+    __slots__ = ("correction",)
     CORRECTION_FIELD_NUMBER: _ClassVar[int]
     correction: Correction
     def __init__(self, correction: _Optional[_Union[Correction, _Mapping]] = ...) -> None: ...
 
 class GetCorrectionRequest(_message.Message):
-    __slots__ = ["correction_sid"]
+    __slots__ = ("correction_sid",)
     CORRECTION_SID_FIELD_NUMBER: _ClassVar[int]
     correction_sid: int
     def __init__(self, correction_sid: _Optional[int] = ...) -> None: ...
 
 class ListCorrectionsRequest(_message.Message):
-    __slots__ = ["transcript_sid"]
+    __slots__ = ("transcript_sid",)
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: int
     def __init__(self, transcript_sid: _Optional[int] = ...) -> None: ...
 
 class ListCorrectionsResponse(_message.Message):
-    __slots__ = ["corrections"]
+    __slots__ = ("corrections",)
     CORRECTIONS_FIELD_NUMBER: _ClassVar[int]
     corrections: _containers.RepeatedCompositeFieldContainer[Correction]
     def __init__(self, corrections: _Optional[_Iterable[_Union[Correction, _Mapping]]] = ...) -> None: ...
 
 class DeleteCorrectionRequest(_message.Message):
-    __slots__ = ["correction_sid"]
+    __slots__ = ("correction_sid",)
     CORRECTION_SID_FIELD_NUMBER: _ClassVar[int]
     RETURN_FIELD_NUMBER: _ClassVar[int]
     correction_sid: int
     def __init__(self, correction_sid: _Optional[int] = ..., **kwargs) -> None: ...
 
 class DeleteCorrectionResponse(_message.Message):
-    __slots__ = ["correction"]
+    __slots__ = ("correction",)
     CORRECTION_FIELD_NUMBER: _ClassVar[int]
     correction: Correction
     def __init__(self, correction: _Optional[_Union[Correction, _Mapping]] = ...) -> None: ...
 
 class Correction(_message.Message):
-    __slots__ = ["correction_sid", "transcript_sid", "start_offset", "end_offset", "proposed_text", "channel"]
+    __slots__ = ("correction_sid", "transcript_sid", "start_offset", "end_offset", "proposed_text", "channel")
     CORRECTION_SID_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     START_OFFSET_FIELD_NUMBER: _ClassVar[int]

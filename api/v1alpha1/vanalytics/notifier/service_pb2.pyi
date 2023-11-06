@@ -8,13 +8,13 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetNotifyRequest(_message.Message):
-    __slots__ = ["notify_id"]
+    __slots__ = ("notify_id",)
     NOTIFY_ID_FIELD_NUMBER: _ClassVar[int]
     notify_id: str
     def __init__(self, notify_id: _Optional[str] = ...) -> None: ...
 
 class Notify(_message.Message):
-    __slots__ = ["notify_id", "start_transcript_sid", "end_transcript_sid", "flag_sid", "create_time"]
+    __slots__ = ("notify_id", "start_transcript_sid", "end_transcript_sid", "flag_sid", "create_time")
     NOTIFY_ID_FIELD_NUMBER: _ClassVar[int]
     START_TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     END_TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]

@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Label(_message.Message):
-    __slots__ = ["name", "description", "color", "label_id", "deleted"]
+    __slots__ = ("name", "description", "color", "label_id", "deleted")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
@@ -22,61 +22,61 @@ class Label(_message.Message):
     def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., color: _Optional[str] = ..., label_id: _Optional[str] = ..., deleted: bool = ...) -> None: ...
 
 class CreateLabelRequest(_message.Message):
-    __slots__ = ["label"]
+    __slots__ = ("label",)
     LABEL_FIELD_NUMBER: _ClassVar[int]
     label: Label
     def __init__(self, label: _Optional[_Union[Label, _Mapping]] = ...) -> None: ...
 
 class CreateLabelResponse(_message.Message):
-    __slots__ = ["label_id"]
+    __slots__ = ("label_id",)
     LABEL_ID_FIELD_NUMBER: _ClassVar[int]
     label_id: str
     def __init__(self, label_id: _Optional[str] = ...) -> None: ...
 
 class DeleteLabelRequest(_message.Message):
-    __slots__ = ["label_id"]
+    __slots__ = ("label_id",)
     LABEL_ID_FIELD_NUMBER: _ClassVar[int]
     label_id: str
     def __init__(self, label_id: _Optional[str] = ...) -> None: ...
 
 class DeleteLabelResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListLabelsRequest(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListLabelsResponse(_message.Message):
-    __slots__ = ["labels"]
+    __slots__ = ("labels",)
     LABELS_FIELD_NUMBER: _ClassVar[int]
     labels: _containers.RepeatedCompositeFieldContainer[Label]
     def __init__(self, labels: _Optional[_Iterable[_Union[Label, _Mapping]]] = ...) -> None: ...
 
 class GetLabelRequest(_message.Message):
-    __slots__ = ["label_id"]
+    __slots__ = ("label_id",)
     LABEL_ID_FIELD_NUMBER: _ClassVar[int]
     label_id: str
     def __init__(self, label_id: _Optional[str] = ...) -> None: ...
 
 class GetLabelResponse(_message.Message):
-    __slots__ = ["label"]
+    __slots__ = ("label",)
     LABEL_FIELD_NUMBER: _ClassVar[int]
     label: Label
     def __init__(self, label: _Optional[_Union[Label, _Mapping]] = ...) -> None: ...
 
 class UpdateLabelRequest(_message.Message):
-    __slots__ = ["label"]
+    __slots__ = ("label",)
     LABEL_FIELD_NUMBER: _ClassVar[int]
     label: Label
     def __init__(self, label: _Optional[_Union[Label, _Mapping]] = ...) -> None: ...
 
 class UpdateLabelResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class LabelAssignment(_message.Message):
-    __slots__ = ["label_id", "type", "entity_id", "label"]
+    __slots__ = ("label_id", "type", "entity_id", "label")
     LABEL_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ENTITY_ID_FIELD_NUMBER: _ClassVar[int]
@@ -88,35 +88,35 @@ class LabelAssignment(_message.Message):
     def __init__(self, label_id: _Optional[str] = ..., type: _Optional[_Union[_labels_pb2.EntityType, str]] = ..., entity_id: _Optional[str] = ..., label: _Optional[_Union[Label, _Mapping]] = ...) -> None: ...
 
 class AssignLabelRequest(_message.Message):
-    __slots__ = ["assignments"]
+    __slots__ = ("assignments",)
     ASSIGNMENTS_FIELD_NUMBER: _ClassVar[int]
     assignments: _containers.RepeatedCompositeFieldContainer[LabelAssignment]
     def __init__(self, assignments: _Optional[_Iterable[_Union[LabelAssignment, _Mapping]]] = ...) -> None: ...
 
 class AssignLabelResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class UnassignLabelRequest(_message.Message):
-    __slots__ = ["assignments"]
+    __slots__ = ("assignments",)
     ASSIGNMENTS_FIELD_NUMBER: _ClassVar[int]
     assignments: _containers.RepeatedCompositeFieldContainer[LabelAssignment]
     def __init__(self, assignments: _Optional[_Iterable[_Union[LabelAssignment, _Mapping]]] = ...) -> None: ...
 
 class UnassignLabelResponse(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     def __init__(self) -> None: ...
 
 class GetAssignmentCountsRequest(_message.Message):
-    __slots__ = ["label_id"]
+    __slots__ = ("label_id",)
     LABEL_ID_FIELD_NUMBER: _ClassVar[int]
     label_id: str
     def __init__(self, label_id: _Optional[str] = ...) -> None: ...
 
 class GetAssignmentCountsResponse(_message.Message):
-    __slots__ = ["counts"]
+    __slots__ = ("counts",)
     class CountsEntry(_message.Message):
-        __slots__ = ["key", "value"]
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: int
@@ -127,13 +127,13 @@ class GetAssignmentCountsResponse(_message.Message):
     def __init__(self, counts: _Optional[_Mapping[int, int]] = ...) -> None: ...
 
 class GetAssignableLabelsRequest(_message.Message):
-    __slots__ = ["permission"]
+    __slots__ = ("permission",)
     PERMISSION_FIELD_NUMBER: _ClassVar[int]
     permission: _perms_pb2.Permission
     def __init__(self, permission: _Optional[_Union[_perms_pb2.Permission, str]] = ...) -> None: ...
 
 class GetAssignableLabelsResponse(_message.Message):
-    __slots__ = ["labels"]
+    __slots__ = ("labels",)
     LABELS_FIELD_NUMBER: _ClassVar[int]
     labels: _containers.RepeatedCompositeFieldContainer[Label]
     def __init__(self, labels: _Optional[_Iterable[_Union[Label, _Mapping]]] = ...) -> None: ...

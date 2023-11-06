@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ManualDialGroupStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     MDG_UNKNOWN: _ClassVar[ManualDialGroupStatus]
     MDG_PREPARE: _ClassVar[ManualDialGroupStatus]
     MDG_SCHEDULED: _ClassVar[ManualDialGroupStatus]

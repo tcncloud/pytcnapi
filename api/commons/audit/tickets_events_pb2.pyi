@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TicketEvent(_message.Message):
-    __slots__ = ["editticket", "created_by_id"]
+    __slots__ = ("editticket", "created_by_id")
     EDITTICKET_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     editticket: _tickets_pb2.EditTicket

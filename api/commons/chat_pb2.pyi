@@ -7,13 +7,13 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ChatMessageSenderType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CHAT_MESSAGE_SENDER_TYPE_AGENT: _ClassVar[ChatMessageSenderType]
     CHAT_MESSAGE_SENDER_TYPE_CUSTOMER: _ClassVar[ChatMessageSenderType]
     CHAT_MESSAGE_SENDER_TYPE_MANAGER: _ClassVar[ChatMessageSenderType]
 
 class ChatCampaignStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CHAT_CAMPAIGN_UNKNOWN: _ClassVar[ChatCampaignStatus]
     CHAT_CAMPAIGN_RUNNING: _ClassVar[ChatCampaignStatus]
     CHAT_CAMPAIGN_STOPPED: _ClassVar[ChatCampaignStatus]
@@ -21,7 +21,7 @@ class ChatCampaignStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CHAT_CAMPAIGN_PAUSED: _ClassVar[ChatCampaignStatus]
 
 class ChatCampaignEvent(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CHAT_CAMPAIGN_EVENT_UNKNOWN: _ClassVar[ChatCampaignEvent]
     CHAT_CAMPAIGN_EVENT_SCHEDULED: _ClassVar[ChatCampaignEvent]
     CHAT_CAMPAIGN_EVENT_STOPPED: _ClassVar[ChatCampaignEvent]
@@ -29,7 +29,7 @@ class ChatCampaignEvent(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CHAT_CAMPAIGN_EVENT_PAUSED: _ClassVar[ChatCampaignEvent]
 
 class ChatMessageType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CHAT_REPLY_FROM_CUSTOMER: _ClassVar[ChatMessageType]
     CHAT_REPLY_FROM_AGENT: _ClassVar[ChatMessageType]
 CHAT_MESSAGE_SENDER_TYPE_AGENT: ChatMessageSenderType
@@ -49,7 +49,7 @@ CHAT_REPLY_FROM_CUSTOMER: ChatMessageType
 CHAT_REPLY_FROM_AGENT: ChatMessageType
 
 class ChatColorProperties(_message.Message):
-    __slots__ = ["primary_color", "header_text_color", "paragraph_text_color"]
+    __slots__ = ("primary_color", "header_text_color", "paragraph_text_color")
     PRIMARY_COLOR_FIELD_NUMBER: _ClassVar[int]
     HEADER_TEXT_COLOR_FIELD_NUMBER: _ClassVar[int]
     PARAGRAPH_TEXT_COLOR_FIELD_NUMBER: _ClassVar[int]
@@ -59,7 +59,7 @@ class ChatColorProperties(_message.Message):
     def __init__(self, primary_color: _Optional[str] = ..., header_text_color: _Optional[str] = ..., paragraph_text_color: _Optional[str] = ...) -> None: ...
 
 class ChatHeader(_message.Message):
-    __slots__ = ["header", "subheader"]
+    __slots__ = ("header", "subheader")
     HEADER_FIELD_NUMBER: _ClassVar[int]
     SUBHEADER_FIELD_NUMBER: _ClassVar[int]
     header: str
@@ -67,7 +67,7 @@ class ChatHeader(_message.Message):
     def __init__(self, header: _Optional[str] = ..., subheader: _Optional[str] = ...) -> None: ...
 
 class HoursOfOperation(_message.Message):
-    __slots__ = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    __slots__ = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
     MONDAY_FIELD_NUMBER: _ClassVar[int]
     TUESDAY_FIELD_NUMBER: _ClassVar[int]
     WEDNESDAY_FIELD_NUMBER: _ClassVar[int]
@@ -85,7 +85,7 @@ class HoursOfOperation(_message.Message):
     def __init__(self, monday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., tuesday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., wednesday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., thursday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., friday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., saturday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., sunday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ...) -> None: ...
 
 class HoursOfOperationRange(_message.Message):
-    __slots__ = ["start_hour", "start_minute", "end_hour", "end_minute"]
+    __slots__ = ("start_hour", "start_minute", "end_hour", "end_minute")
     START_HOUR_FIELD_NUMBER: _ClassVar[int]
     START_MINUTE_FIELD_NUMBER: _ClassVar[int]
     END_HOUR_FIELD_NUMBER: _ClassVar[int]

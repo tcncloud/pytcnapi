@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     NO_PERMISSION: _ClassVar[Permission]
     VIEW_LIST_MANAGER: _ClassVar[Permission]
     CREATE_LIST_MANAGER: _ClassVar[Permission]

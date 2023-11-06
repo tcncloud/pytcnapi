@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ComplianceRndQueryEvent(_message.Message):
-    __slots__ = ["org_id", "phone_number", "result", "date_last_contact"]
+    __slots__ = ("org_id", "phone_number", "result", "date_last_contact")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
     RESULT_FIELD_NUMBER: _ClassVar[int]

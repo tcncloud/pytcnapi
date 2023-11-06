@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GhostNotification(_message.Message):
-    __slots__ = ["reference_id", "any", "status", "omni_conversation", "backoffice_message", "directed_call_ringing", "directed_call_hangup", "agent_queued_calls_notification"]
+    __slots__ = ("reference_id", "any", "status", "omni_conversation", "backoffice_message", "directed_call_ringing", "directed_call_hangup", "agent_queued_calls_notification")
     REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     ANY_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -30,7 +30,7 @@ class GhostNotification(_message.Message):
     def __init__(self, reference_id: _Optional[str] = ..., any: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., status: _Optional[_Union[Status, _Mapping]] = ..., omni_conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., backoffice_message: _Optional[_Union[_acd_pb2.AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[_acd_pb2.AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[_acd_pb2.AgentDirectedCallHangupAlert, _Mapping]] = ..., agent_queued_calls_notification: _Optional[_Union[AgentQueuedCallsNotification, _Mapping]] = ...) -> None: ...
 
 class Status(_message.Message):
-    __slots__ = ["code", "message"]
+    __slots__ = ("code", "message")
     CODE_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     code: int
@@ -38,9 +38,9 @@ class Status(_message.Message):
     def __init__(self, code: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
 
 class AgentQueuedCallsNotification(_message.Message):
-    __slots__ = ["agent_queue_calls", "on_hold_calls", "hqm_calls"]
+    __slots__ = ("agent_queue_calls", "on_hold_calls", "hqm_calls")
     class QueuedCallData(_message.Message):
-        __slots__ = ["call_sid", "phone_number", "caller_id", "call_type", "start_date", "hold_date", "skills", "agent_specific", "queued_notification_type"]
+        __slots__ = ("call_sid", "phone_number", "caller_id", "call_type", "start_date", "hold_date", "skills", "agent_specific", "queued_notification_type")
         CALL_SID_FIELD_NUMBER: _ClassVar[int]
         PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
         CALLER_ID_FIELD_NUMBER: _ClassVar[int]

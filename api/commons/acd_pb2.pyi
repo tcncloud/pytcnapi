@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ACDStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     ACD_UNKNOWN: _ClassVar[ACDStatus]
     AGENT_SESSION_LOGGING_IN: _ClassVar[ACDStatus]
     AGENT_SESSION_LOGGED_IN: _ClassVar[ACDStatus]
@@ -17,7 +17,7 @@ class ACDStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     AGENT_SESSION_ACCOUNTINGEXPORT: _ClassVar[ACDStatus]
 
 class AgentCallLogCallEnded(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     AGENT_CANCELLED: _ClassVar[AgentCallLogCallEnded]
     CALLER_DISCONNECTED: _ClassVar[AgentCallLogCallEnded]
     NOT_CONNECTED: _ClassVar[AgentCallLogCallEnded]
@@ -27,13 +27,13 @@ class AgentCallLogCallEnded(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CALL_END_ESTIMATE: _ClassVar[AgentCallLogCallEnded]
 
 class HoldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     UNKNOWN: _ClassVar[HoldType]
     SIMPLE: _ClassVar[HoldType]
     MULTI: _ClassVar[HoldType]
 
 class QueuedNotificationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     QueuedNotificationType_GENERAL_INITIAL: _ClassVar[QueuedNotificationType]
     QueuedNotificationType_PBX_INITIAL: _ClassVar[QueuedNotificationType]
     QueuedNotificationType_AGENT_BOUND_INITIAL: _ClassVar[QueuedNotificationType]
@@ -41,13 +41,13 @@ class QueuedNotificationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     QueuedNotificationType_AGENT_BOUND_REQUEUED: _ClassVar[QueuedNotificationType]
 
 class TransferMemberType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     TransferMemberType_AGENT: _ClassVar[TransferMemberType]
     TransferMemberType_CALLER: _ClassVar[TransferMemberType]
     TransferMemberType_OUTBOUND: _ClassVar[TransferMemberType]
 
 class DTMFDigit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DTMFDigit_0: _ClassVar[DTMFDigit]
     DTMFDigit_1: _ClassVar[DTMFDigit]
     DTMFDigit_2: _ClassVar[DTMFDigit]
@@ -106,7 +106,7 @@ DTMFDigit_STAR: DTMFDigit
 DTMFDigit_POUND: DTMFDigit
 
 class AgentSession(_message.Message):
-    __slots__ = ["agent_sid", "tenant_sid", "session_sid", "asm_session_sid", "org_id", "region_id", "user_id"]
+    __slots__ = ("agent_sid", "tenant_sid", "session_sid", "asm_session_sid", "org_id", "region_id", "user_id")
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     TENANT_SID_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -124,7 +124,7 @@ class AgentSession(_message.Message):
     def __init__(self, agent_sid: _Optional[int] = ..., tenant_sid: _Optional[int] = ..., session_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class CallerSid(_message.Message):
-    __slots__ = ["caller_sid", "type", "tenant_sid", "org_id"]
+    __slots__ = ("caller_sid", "type", "tenant_sid", "org_id")
     CALLER_SID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     TENANT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -136,9 +136,9 @@ class CallerSid(_message.Message):
     def __init__(self, caller_sid: _Optional[int] = ..., type: _Optional[_Union[CallType.Enum, str]] = ..., tenant_sid: _Optional[int] = ..., org_id: _Optional[str] = ...) -> None: ...
 
 class AgentStatus(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         UNAVALIABLE: _ClassVar[AgentStatus.Enum]
         IDLE: _ClassVar[AgentStatus.Enum]
         READY: _ClassVar[AgentStatus.Enum]
@@ -222,9 +222,9 @@ class AgentStatus(_message.Message):
     def __init__(self) -> None: ...
 
 class CallerStatus(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         UNAVALIABLE: _ClassVar[CallerStatus.Enum]
         IDLE: _ClassVar[CallerStatus.Enum]
         READY: _ClassVar[CallerStatus.Enum]
@@ -268,9 +268,9 @@ class CallerStatus(_message.Message):
     def __init__(self) -> None: ...
 
 class CallType(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         INBOUND: _ClassVar[CallType.Enum]
         OUTBOUND: _ClassVar[CallType.Enum]
         PREVIEW: _ClassVar[CallType.Enum]
@@ -284,9 +284,9 @@ class CallType(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentDialIn(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         TOLL_FREE: _ClassVar[AgentDialIn.Enum]
         SOFTPHONE: _ClassVar[AgentDialIn.Enum]
         LOCAL: _ClassVar[AgentDialIn.Enum]
@@ -296,9 +296,9 @@ class AgentDialIn(_message.Message):
     def __init__(self) -> None: ...
 
 class HuntGroupType(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         UNCONNECTED: _ClassVar[HuntGroupType.Enum]
         CONNECTED: _ClassVar[HuntGroupType.Enum]
         SOFTPHONE: _ClassVar[HuntGroupType.Enum]
@@ -308,9 +308,9 @@ class HuntGroupType(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentSessionLogActionKey(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         AGENT_PAUSE_START: _ClassVar[AgentSessionLogActionKey.Enum]
         AGENT_PAUSE_STOP: _ClassVar[AgentSessionLogActionKey.Enum]
         AGENT_SKILLS_INITIAL: _ClassVar[AgentSessionLogActionKey.Enum]
@@ -426,9 +426,9 @@ class AgentSessionLogActionKey(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentCallLogActionKey(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         DNCL_ADD: _ClassVar[AgentCallLogActionKey.Enum]
         CALL_ENDED: _ClassVar[AgentCallLogActionKey.Enum]
         CALL_DISCONNECT: _ClassVar[AgentCallLogActionKey.Enum]
@@ -518,9 +518,9 @@ class AgentCallLogActionKey(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentCallLogActionValue(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         UNSPECIFIED: _ClassVar[AgentCallLogActionValue.Enum]
         DNCL_RESULT_FAILED: _ClassVar[AgentCallLogActionValue.Enum]
         CALL_ENDED_CALLER_DISCONNECTED: _ClassVar[AgentCallLogActionValue.Enum]
@@ -530,9 +530,9 @@ class AgentCallLogActionValue(_message.Message):
     def __init__(self) -> None: ...
 
 class HuntGroupParamKey(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         AGENT_DIAL_IN_NUMBER: _ClassVar[HuntGroupParamKey.Enum]
         AGENT_LOGIN_GUI_STATISTICS_TEMPLATE: _ClassVar[HuntGroupParamKey.Enum]
         AGENT_PASSWORD_REQUIRES_LETTER: _ClassVar[HuntGroupParamKey.Enum]
@@ -732,9 +732,9 @@ class HuntGroupParamKey(_message.Message):
     def __init__(self) -> None: ...
 
 class ReplaceConfig(_message.Message):
-    __slots__ = []
+    __slots__ = ()
     class Enum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-        __slots__ = []
+        __slots__ = ()
         NO_CHANGE: _ClassVar[ReplaceConfig.Enum]
         TENANT: _ClassVar[ReplaceConfig.Enum]
         REPLACE: _ClassVar[ReplaceConfig.Enum]
@@ -744,7 +744,7 @@ class ReplaceConfig(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferMember(_message.Message):
-    __slots__ = ["identifier", "display_label", "member_type"]
+    __slots__ = ("identifier", "display_label", "member_type")
     IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_LABEL_FIELD_NUMBER: _ClassVar[int]
     MEMBER_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -754,7 +754,7 @@ class TransferMember(_message.Message):
     def __init__(self, identifier: _Optional[str] = ..., display_label: _Optional[str] = ..., member_type: _Optional[_Union[TransferMemberType, str]] = ...) -> None: ...
 
 class AgentAlert(_message.Message):
-    __slots__ = ["backoffice_message", "directed_call_ringing", "directed_call_hangup"]
+    __slots__ = ("backoffice_message", "directed_call_ringing", "directed_call_hangup")
     BACKOFFICE_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     DIRECTED_CALL_RINGING_FIELD_NUMBER: _ClassVar[int]
     DIRECTED_CALL_HANGUP_FIELD_NUMBER: _ClassVar[int]
@@ -764,7 +764,7 @@ class AgentAlert(_message.Message):
     def __init__(self, backoffice_message: _Optional[_Union[AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[AgentDirectedCallHangupAlert, _Mapping]] = ...) -> None: ...
 
 class AgentBackofficeMessageAlert(_message.Message):
-    __slots__ = ["expire_duration", "timestamp", "target_agent_session", "message", "id"]
+    __slots__ = ("expire_duration", "timestamp", "target_agent_session", "message", "id")
     EXPIRE_DURATION_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     TARGET_AGENT_SESSION_FIELD_NUMBER: _ClassVar[int]
@@ -778,7 +778,7 @@ class AgentBackofficeMessageAlert(_message.Message):
     def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., message: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class AgentDirectedCallRingingAlert(_message.Message):
-    __slots__ = ["expire_duration", "timestamp", "target_agent_session", "caller_sid", "caller_id", "destination_number", "id"]
+    __slots__ = ("expire_duration", "timestamp", "target_agent_session", "caller_sid", "caller_id", "destination_number", "id")
     EXPIRE_DURATION_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     TARGET_AGENT_SESSION_FIELD_NUMBER: _ClassVar[int]
@@ -796,7 +796,7 @@ class AgentDirectedCallRingingAlert(_message.Message):
     def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., caller_id: _Optional[str] = ..., destination_number: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class AgentDirectedCallHangupAlert(_message.Message):
-    __slots__ = ["expire_duration", "timestamp", "target_agent_session", "caller_sid", "id"]
+    __slots__ = ("expire_duration", "timestamp", "target_agent_session", "caller_sid", "id")
     EXPIRE_DURATION_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     TARGET_AGENT_SESSION_FIELD_NUMBER: _ClassVar[int]
@@ -810,7 +810,7 @@ class AgentDirectedCallHangupAlert(_message.Message):
     def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., id: _Optional[str] = ...) -> None: ...
 
 class AgentState(_message.Message):
-    __slots__ = ["status", "status_desc", "paused", "queue", "current_session_id", "last_status_change", "monitoring", "calls_count", "last_sip_code", "agent_peer_is_lost_call", "disabled", "caller_was_suspended", "transfer_members", "agent_peer_is_direct_to_agent", "user_id", "agent_sid", "asm_session_sid", "agent_is_muted"]
+    __slots__ = ("status", "status_desc", "paused", "queue", "current_session_id", "last_status_change", "monitoring", "calls_count", "last_sip_code", "agent_peer_is_lost_call", "disabled", "caller_was_suspended", "transfer_members", "agent_peer_is_direct_to_agent", "user_id", "agent_sid", "asm_session_sid", "agent_is_muted")
     STATUS_FIELD_NUMBER: _ClassVar[int]
     STATUS_DESC_FIELD_NUMBER: _ClassVar[int]
     PAUSED_FIELD_NUMBER: _ClassVar[int]
