@@ -680,6 +680,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.FromString,
                 )
+        self.GetTourPatternWithMembers = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetTourPatternWithMembers',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersRes.FromString,
+                )
         self.DeleteTourPattern = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteTourPattern',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternReq.SerializeToString,
@@ -2761,6 +2766,20 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTourPatternWithMembers(self, request, context):
+        """Gets the Tour Pattern belonging to @shift_template_sid and the org sending the request.
+        The @tour_pattern will be returned with all member entities.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: the requested Tour Pattern does not exist.
+        - grpc.Internal: error occurs when getting the data.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteTourPattern(self, request, context):
         """Deletes the Tour Pattern belonging to @tour_pattern_sid and the org sending the request.
         Any member Tour Week Patterns or Agent Collections will be deleted as well.
@@ -3700,6 +3719,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.GetTourPattern,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.SerializeToString,
+            ),
+            'GetTourPatternWithMembers': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTourPatternWithMembers,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersRes.SerializeToString,
             ),
             'DeleteTourPattern': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteTourPattern,
@@ -6070,6 +6094,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetTourPattern',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTourPatternWithMembers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetTourPatternWithMembers',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

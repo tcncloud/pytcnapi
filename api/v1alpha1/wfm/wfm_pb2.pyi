@@ -2972,6 +2972,18 @@ class GetTourPatternRes(_message.Message):
     tour_pattern: TourPattern
     def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
 
+class GetTourPatternWithMembersReq(_message.Message):
+    __slots__ = ("shift_template_sid",)
+    SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    shift_template_sid: int
+    def __init__(self, shift_template_sid: _Optional[int] = ...) -> None: ...
+
+class GetTourPatternWithMembersRes(_message.Message):
+    __slots__ = ("tour_pattern",)
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+
 class DeleteTourPatternReq(_message.Message):
     __slots__ = ("tour_pattern_sid",)
     TOUR_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
