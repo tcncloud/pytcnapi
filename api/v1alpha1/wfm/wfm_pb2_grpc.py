@@ -55,11 +55,6 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersRes.FromString,
                 )
-        self.GetClientHistoryCacheInfo = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/GetClientHistoryCacheInfo',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoRes.FromString,
-                )
         self.ListHistoricalData = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListHistoricalData',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListHistoricalDataReq.SerializeToString,
@@ -888,18 +883,6 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Internal: error occurs when getting the parameters.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetClientHistoryCacheInfo(self, request, context):
-        """Gets the state of the cache for the given @org_id, and if the cache's state is not_loaded, or loading_failed,
-        it will start the loading task before returning the current state.
-        Required permissions:
-        NONE
-        Errors:
-        -grpc.Internal: error occurs when getting the cache info.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3093,11 +3076,6 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersRes.SerializeToString,
             ),
-            'GetClientHistoryCacheInfo': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetClientHistoryCacheInfo,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoRes.SerializeToString,
-            ),
             'ListHistoricalData': grpc.unary_unary_rpc_method_handler(
                     servicer.ListHistoricalData,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListHistoricalDataReq.FromString,
@@ -3967,23 +3945,6 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetForecastingParameters',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetClientHistoryCacheInfo(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetClientHistoryCacheInfo',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoReq.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
