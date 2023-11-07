@@ -295,6 +295,11 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.SampleRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.GetAvailableEHRFields = channel.unary_unary(
+                '/api.v0alpha.LMS/GetAvailableEHRFields',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.EHREntityType.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.Fields.FromString,
+                )
         self.GetQueuedEventsStatusByElementId = channel.unary_unary(
                 '/api.v0alpha.LMS/GetQueuedEventsStatusByElementId',
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
@@ -662,6 +667,13 @@ class LMSServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAvailableEHRFields(self, request, context):
+        """returns all fields possible that an ehr entity type could return (that we know of)
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetQueuedEventsStatusByElementId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -950,6 +962,11 @@ def add_LMSServicer_to_server(servicer, server):
                     servicer.SampleEndpoint,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.SampleRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'GetAvailableEHRFields': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAvailableEHRFields,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.EHREntityType.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.Fields.SerializeToString,
             ),
             'GetQueuedEventsStatusByElementId': grpc.unary_unary_rpc_method_handler(
                     servicer.GetQueuedEventsStatusByElementId,
@@ -1915,6 +1932,23 @@ class LMS(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/SampleEndpoint',
             api_dot_v0alpha_dot_lms__pb2.SampleRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAvailableEHRFields(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/GetAvailableEHRFields',
+            api_dot_v0alpha_dot_lms__pb2.EHREntityType.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.Fields.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
