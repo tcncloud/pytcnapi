@@ -347,14 +347,16 @@ class ListUsersResponse(_message.Message):
     def __init__(self, users: _Optional[_Iterable[_Union[User, _Mapping]]] = ...) -> None: ...
 
 class User(_message.Message):
-    __slots__ = ("user_id", "first_name", "last_name")
+    __slots__ = ("user_id", "first_name", "last_name", "is_active")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
     LAST_NAME_FIELD_NUMBER: _ClassVar[int]
+    IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     first_name: str
     last_name: str
-    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
+    is_active: bool
+    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., is_active: bool = ...) -> None: ...
 
 class CreateTicketActionRequest(_message.Message):
     __slots__ = ("ticket_action",)
