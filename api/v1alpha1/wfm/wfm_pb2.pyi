@@ -1289,18 +1289,6 @@ class CreateAgentGroupRes(_message.Message):
     agent_group_sid: int
     def __init__(self, agent_group_sid: _Optional[int] = ...) -> None: ...
 
-class ListAgentScheduleGroupsRequest(_message.Message):
-    __slots__ = ("entity",)
-    ENTITY_FIELD_NUMBER: _ClassVar[int]
-    entity: ParentEntity
-    def __init__(self, entity: _Optional[_Union[ParentEntity, _Mapping]] = ...) -> None: ...
-
-class ListAgentScheduleGroupsResponse(_message.Message):
-    __slots__ = ("agent_groups",)
-    AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
-    agent_groups: _containers.RepeatedCompositeFieldContainer[AgentGroup]
-    def __init__(self, agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ...) -> None: ...
-
 class UpdateAgentGroupReq(_message.Message):
     __slots__ = ("agent_group",)
     AGENT_GROUP_FIELD_NUMBER: _ClassVar[int]
