@@ -330,6 +330,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupRes.FromString,
                 )
+        self.ListAgentScheduleGroups = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAgentScheduleGroups',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsResponse.FromString,
+                )
         self.UpdateAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/UpdateAgentGroup',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupReq.SerializeToString,
@@ -1706,6 +1711,13 @@ class WFMServicer(object):
         - grpc.Invalid: the @name, or @parent_entity are invalid.
         - grpc.NotFound: @parent_entity doesn't exist
         - grpc.Internal: error occurs when creating the agent group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAgentScheduleGroups(self, request, context):
+        """Lists all schedulable AgentGroups on or under the given Node or ShiftTemplate.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3387,6 +3399,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupRes.SerializeToString,
             ),
+            'ListAgentScheduleGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentScheduleGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsResponse.SerializeToString,
+            ),
             'UpdateAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateAgentGroup,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupReq.FromString,
@@ -4926,6 +4943,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAgentGroup',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentScheduleGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAgentScheduleGroups',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
