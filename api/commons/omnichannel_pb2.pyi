@@ -1029,7 +1029,7 @@ class OmniTaskConfig(_message.Message):
     def __init__(self, skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., absolute_timeout_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., agent_timeout_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
 
 class OmniTaskState(_message.Message):
-    __slots__ = ("destinations", "sources", "rule_set")
+    __slots__ = ("destinations", "sources", "rule_set", "scrub_list_id")
     class Entry(_message.Message):
         __slots__ = ("address", "times_used", "last_used")
         ADDRESS_FIELD_NUMBER: _ClassVar[int]
@@ -1042,10 +1042,12 @@ class OmniTaskState(_message.Message):
     DESTINATIONS_FIELD_NUMBER: _ClassVar[int]
     SOURCES_FIELD_NUMBER: _ClassVar[int]
     RULE_SET_FIELD_NUMBER: _ClassVar[int]
+    SCRUB_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     destinations: _containers.RepeatedCompositeFieldContainer[OmniTaskState.Entry]
     sources: _containers.RepeatedCompositeFieldContainer[OmniTaskState.Entry]
     rule_set: ComplianceRuleSet
-    def __init__(self, destinations: _Optional[_Iterable[_Union[OmniTaskState.Entry, _Mapping]]] = ..., sources: _Optional[_Iterable[_Union[OmniTaskState.Entry, _Mapping]]] = ..., rule_set: _Optional[_Union[ComplianceRuleSet, _Mapping]] = ...) -> None: ...
+    scrub_list_id: _wrappers_pb2.StringValue
+    def __init__(self, destinations: _Optional[_Iterable[_Union[OmniTaskState.Entry, _Mapping]]] = ..., sources: _Optional[_Iterable[_Union[OmniTaskState.Entry, _Mapping]]] = ..., rule_set: _Optional[_Union[ComplianceRuleSet, _Mapping]] = ..., scrub_list_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class ComplianceRuleSet(_message.Message):
     __slots__ = ("id", "name", "sha", "rules")
