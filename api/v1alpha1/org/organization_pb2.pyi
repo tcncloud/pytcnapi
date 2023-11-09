@@ -207,18 +207,22 @@ class ListArchivedOrganizationsRequest(_message.Message):
 class ListArchivedOrganizationsResponse(_message.Message):
     __slots__ = ("organization_details",)
     class OrganizationDetails(_message.Message):
-        __slots__ = ("org_id", "name", "billing_id", "add_date", "last_scheduled_date")
+        __slots__ = ("org_id", "name", "billing_id", "add_date", "last_scheduled_date", "client_sid", "region_id")
         ORG_ID_FIELD_NUMBER: _ClassVar[int]
         NAME_FIELD_NUMBER: _ClassVar[int]
         BILLING_ID_FIELD_NUMBER: _ClassVar[int]
         ADD_DATE_FIELD_NUMBER: _ClassVar[int]
         LAST_SCHEDULED_DATE_FIELD_NUMBER: _ClassVar[int]
+        CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
+        REGION_ID_FIELD_NUMBER: _ClassVar[int]
         org_id: str
         name: str
         billing_id: str
         add_date: _timestamp_pb2.Timestamp
         last_scheduled_date: _timestamp_pb2.Timestamp
-        def __init__(self, org_id: _Optional[str] = ..., name: _Optional[str] = ..., billing_id: _Optional[str] = ..., add_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_scheduled_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+        client_sid: int
+        region_id: str
+        def __init__(self, org_id: _Optional[str] = ..., name: _Optional[str] = ..., billing_id: _Optional[str] = ..., add_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_scheduled_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., client_sid: _Optional[int] = ..., region_id: _Optional[str] = ...) -> None: ...
     ORGANIZATION_DETAILS_FIELD_NUMBER: _ClassVar[int]
     organization_details: _containers.RepeatedCompositeFieldContainer[ListArchivedOrganizationsResponse.OrganizationDetails]
     def __init__(self, organization_details: _Optional[_Iterable[_Union[ListArchivedOrganizationsResponse.OrganizationDetails, _Mapping]]] = ...) -> None: ...
