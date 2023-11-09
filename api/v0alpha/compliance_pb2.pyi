@@ -16,7 +16,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ProcessOutboundCallReq(_message.Message):
-    __slots__ = ("rule_set_name", "country_code", "phone_number", "call_metadata", "source_id", "source_field", "caller_id")
+    __slots__ = ("rule_set_name", "country_code", "phone_number", "call_metadata", "source_id", "source_field", "caller_id", "client_sid", "comm_type", "call_type", "org_id", "region_id", "email", "zip_code")
     class CallMetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -31,6 +31,13 @@ class ProcessOutboundCallReq(_message.Message):
     SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     SOURCE_FIELD_FIELD_NUMBER: _ClassVar[int]
     CALLER_ID_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
+    COMM_TYPE_FIELD_NUMBER: _ClassVar[int]
+    CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    REGION_ID_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    ZIP_CODE_FIELD_NUMBER: _ClassVar[int]
     rule_set_name: str
     country_code: str
     phone_number: str
@@ -38,7 +45,14 @@ class ProcessOutboundCallReq(_message.Message):
     source_id: int
     source_field: str
     caller_id: str
-    def __init__(self, rule_set_name: _Optional[str] = ..., country_code: _Optional[str] = ..., phone_number: _Optional[str] = ..., call_metadata: _Optional[_Mapping[str, str]] = ..., source_id: _Optional[int] = ..., source_field: _Optional[str] = ..., caller_id: _Optional[str] = ...) -> None: ...
+    client_sid: int
+    comm_type: _communication_pb2.CommType
+    call_type: str
+    org_id: str
+    region_id: str
+    email: str
+    zip_code: str
+    def __init__(self, rule_set_name: _Optional[str] = ..., country_code: _Optional[str] = ..., phone_number: _Optional[str] = ..., call_metadata: _Optional[_Mapping[str, str]] = ..., source_id: _Optional[int] = ..., source_field: _Optional[str] = ..., caller_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., comm_type: _Optional[_Union[_communication_pb2.CommType, _Mapping]] = ..., call_type: _Optional[str] = ..., org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., email: _Optional[str] = ..., zip_code: _Optional[str] = ...) -> None: ...
 
 class ProcessRes(_message.Message):
     __slots__ = ("permit", "rule_responses")
