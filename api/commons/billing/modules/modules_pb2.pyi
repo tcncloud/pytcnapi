@@ -6,13 +6,13 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BasicConfig(_message.Message):
-    __slots__ = ["rate"]
+    __slots__ = ("rate",)
     RATE_FIELD_NUMBER: _ClassVar[int]
     rate: float
     def __init__(self, rate: _Optional[float] = ...) -> None: ...
 
 class BasicAmountConfig(_message.Message):
-    __slots__ = ["amount", "rate", "min_increment", "max_increment"]
+    __slots__ = ("amount", "rate", "min_increment", "max_increment")
     AMOUNT_FIELD_NUMBER: _ClassVar[int]
     RATE_FIELD_NUMBER: _ClassVar[int]
     MIN_INCREMENT_FIELD_NUMBER: _ClassVar[int]

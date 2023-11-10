@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BroadcastTemplateOrdering(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     BY_NAME_ASC: _ClassVar[BroadcastTemplateOrdering]
     BY_NAME_DESC: _ClassVar[BroadcastTemplateOrdering]
     BY_TEMPLATE_NUMBER_ASC: _ClassVar[BroadcastTemplateOrdering]
@@ -14,25 +14,25 @@ class BroadcastTemplateOrdering(int, metaclass=_enum_type_wrapper.EnumTypeWrappe
     BY_MODIFIED_DATE_DESC: _ClassVar[BroadcastTemplateOrdering]
 
 class ScheduleByTimeZoneScope(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     BOTH: _ClassVar[ScheduleByTimeZoneScope]
     STOP_DATE: _ClassVar[ScheduleByTimeZoneScope]
     START_DATE: _ClassVar[ScheduleByTimeZoneScope]
 
 class AnsweringMachineDetection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     OPTIMIZE_MACHINE_DETECTION: _ClassVar[AnsweringMachineDetection]
     OPTIMIZE_MACHINE_DETECTION_SLOW_LIVE: _ClassVar[AnsweringMachineDetection]
     OPTIMIZE_MACHINE_DELIVERY: _ClassVar[AnsweringMachineDetection]
     BALANCED_DETECTION_AND_DELIVERY: _ClassVar[AnsweringMachineDetection]
 
 class DialListPenetrationStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     DEPTH_FIRST: _ClassVar[DialListPenetrationStrategy]
     BREADTH_FIRST: _ClassVar[DialListPenetrationStrategy]
 
 class StandardReportFilter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     NO_PREFERENCE: _ClassVar[StandardReportFilter]
     FILTER_BY_ANSWERED_CALLS: _ClassVar[StandardReportFilter]
     FILTER_BY_ANSWERED_HANGUPS: _ClassVar[StandardReportFilter]

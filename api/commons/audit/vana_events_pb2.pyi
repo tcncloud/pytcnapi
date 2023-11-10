@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class VanaFlagEvent(_message.Message):
-    __slots__ = ["flag_name", "flag_sid", "url", "num_transcripts", "priority"]
+    __slots__ = ("flag_name", "flag_sid", "url", "num_transcripts", "priority")
     FLAG_NAME_FIELD_NUMBER: _ClassVar[int]
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
@@ -22,7 +22,7 @@ class VanaFlagEvent(_message.Message):
     def __init__(self, flag_name: _Optional[str] = ..., flag_sid: _Optional[int] = ..., url: _Optional[str] = ..., num_transcripts: _Optional[int] = ..., priority: _Optional[int] = ...) -> None: ...
 
 class VanaFlagReviewEvent(_message.Message):
-    __slots__ = ["flag_name", "flag_sid", "url", "num_transcripts", "priority"]
+    __slots__ = ("flag_name", "flag_sid", "url", "num_transcripts", "priority")
     FLAG_NAME_FIELD_NUMBER: _ClassVar[int]
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
@@ -36,7 +36,7 @@ class VanaFlagReviewEvent(_message.Message):
     def __init__(self, flag_name: _Optional[str] = ..., flag_sid: _Optional[int] = ..., url: _Optional[str] = ..., num_transcripts: _Optional[int] = ..., priority: _Optional[int] = ...) -> None: ...
 
 class VanaBillingReportEvent(_message.Message):
-    __slots__ = ["start_time", "end_time", "url"]
+    __slots__ = ("start_time", "end_time", "url")
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     END_TIME_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
@@ -46,9 +46,9 @@ class VanaBillingReportEvent(_message.Message):
     def __init__(self, start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., url: _Optional[str] = ...) -> None: ...
 
 class VanaFlagSummaryEvent(_message.Message):
-    __slots__ = ["start_time", "end_time", "flag_summaries"]
+    __slots__ = ("start_time", "end_time", "flag_summaries")
     class FlagSummary(_message.Message):
-        __slots__ = ["transcript_sid", "flag_sids"]
+        __slots__ = ("transcript_sid", "flag_sids")
         TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
         FLAG_SIDS_FIELD_NUMBER: _ClassVar[int]
         transcript_sid: int
@@ -63,7 +63,7 @@ class VanaFlagSummaryEvent(_message.Message):
     def __init__(self, start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summaries: _Optional[_Iterable[_Union[VanaFlagSummaryEvent.FlagSummary, _Mapping]]] = ...) -> None: ...
 
 class VanaPhraseCorrectionEvent(_message.Message):
-    __slots__ = ["start_offset", "end_offset", "original_text", "proposed_text", "url", "channel"]
+    __slots__ = ("start_offset", "end_offset", "original_text", "proposed_text", "url", "channel")
     START_OFFSET_FIELD_NUMBER: _ClassVar[int]
     END_OFFSET_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_TEXT_FIELD_NUMBER: _ClassVar[int]

@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Invoice(_message.Message):
-    __slots__ = ["invoice_id", "billing_cycle", "create_time", "update_time", "delete_time", "items", "url"]
+    __slots__ = ("invoice_id", "billing_cycle", "create_time", "update_time", "delete_time", "items", "url")
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -27,7 +27,7 @@ class Invoice(_message.Message):
     def __init__(self, invoice_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., url: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ["invoice_item_id", "product", "price", "create_time", "update_time"]
+    __slots__ = ("invoice_item_id", "product", "price", "create_time", "update_time")
     INVOICE_ITEM_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     PRICE_FIELD_NUMBER: _ClassVar[int]

@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SMSStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SMS_UNKWNON: _ClassVar[SMSStatus]
     SMS_PREPARING: _ClassVar[SMSStatus]
     SMS_SCHEDULED: _ClassVar[SMSStatus]
@@ -31,7 +31,7 @@ class SMSStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SMS_TASK_CANCELED: _ClassVar[SMSStatus]
 
 class SMSIBGroupStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     IB_SMS_GROUP_UNKNOWN: _ClassVar[SMSIBGroupStatus]
     IB_SMS_GROUP_PREPARING: _ClassVar[SMSIBGroupStatus]
     IB_SMS_GROUP_SCHEDULED: _ClassVar[SMSIBGroupStatus]
@@ -46,12 +46,12 @@ class SMSIBGroupStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     IB_SMS_GROUP_SUMMED_CANCELLED_ADMIN: _ClassVar[SMSIBGroupStatus]
 
 class SMSIBTaskStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     IB_SMS_TASK_UNKNOWN: _ClassVar[SMSIBTaskStatus]
     IB_SMS_TASK_COMPLETED: _ClassVar[SMSIBTaskStatus]
 
 class SMSConversationAuditAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     SMS_AUDIT_ACTION_CONVERSATION_START: _ClassVar[SMSConversationAuditAction]
     SMS_AUDIT_ACTION_CONVERSATION_MSG_SENT: _ClassVar[SMSConversationAuditAction]
     SMS_AUDIT_ACTION_CONVERSATION_MSG_READ: _ClassVar[SMSConversationAuditAction]
@@ -60,7 +60,7 @@ class SMSConversationAuditAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapp
     SMS_AUDIT_ACTION_CONVERSATION_TRANSFERRED: _ClassVar[SMSConversationAuditAction]
 
 class SMSMamStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     QUEUED: _ClassVar[SMSMamStatus]
     APPROVED: _ClassVar[SMSMamStatus]
     REJECTED: _ClassVar[SMSMamStatus]
@@ -110,7 +110,7 @@ APPROVED: SMSMamStatus
 REJECTED: SMSMamStatus
 
 class SimpleSmsMamData(_message.Message):
-    __slots__ = ["src", "dst", "msg", "sms_group_sid", "sms_task_sid", "is_toll_free", "is_time_zone", "provider_name", "hunt_group_sid", "client_sid", "simple_sms_mam_meta_data", "dst_country_code"]
+    __slots__ = ("src", "dst", "msg", "sms_group_sid", "sms_task_sid", "is_toll_free", "is_time_zone", "provider_name", "hunt_group_sid", "client_sid", "simple_sms_mam_meta_data", "dst_country_code")
     SRC_FIELD_NUMBER: _ClassVar[int]
     DST_FIELD_NUMBER: _ClassVar[int]
     MSG_FIELD_NUMBER: _ClassVar[int]
@@ -138,7 +138,7 @@ class SimpleSmsMamData(_message.Message):
     def __init__(self, src: _Optional[str] = ..., dst: _Optional[str] = ..., msg: _Optional[str] = ..., sms_group_sid: _Optional[int] = ..., sms_task_sid: _Optional[int] = ..., is_toll_free: _Optional[str] = ..., is_time_zone: _Optional[str] = ..., provider_name: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., client_sid: _Optional[int] = ..., simple_sms_mam_meta_data: _Optional[_Iterable[_Union[SimpleSmsMamKeyValue, _Mapping]]] = ..., dst_country_code: _Optional[int] = ...) -> None: ...
 
 class SimpleSmsMamKeyValue(_message.Message):
-    __slots__ = ["key", "value"]
+    __slots__ = ("key", "value")
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     key: str

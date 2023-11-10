@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Uint32Expr(_message.Message):
-    __slots__ = ["gt", "gte", "lt", "lte", "eq", "not_eq", "range"]
+    __slots__ = ("gt", "gte", "lt", "lte", "eq", "not_eq", "range")
     GT_FIELD_NUMBER: _ClassVar[int]
     GTE_FIELD_NUMBER: _ClassVar[int]
     LT_FIELD_NUMBER: _ClassVar[int]
@@ -25,7 +25,7 @@ class Uint32Expr(_message.Message):
     def __init__(self, gt: _Optional[int] = ..., gte: _Optional[int] = ..., lt: _Optional[int] = ..., lte: _Optional[int] = ..., eq: _Optional[int] = ..., not_eq: _Optional[int] = ..., range: _Optional[_Union[Uint32Range, _Mapping]] = ...) -> None: ...
 
 class Uint32Range(_message.Message):
-    __slots__ = ["to", "include_from", "include_to"]
+    __slots__ = ("to", "include_from", "include_to")
     FROM_FIELD_NUMBER: _ClassVar[int]
     TO_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_FROM_FIELD_NUMBER: _ClassVar[int]
@@ -36,7 +36,7 @@ class Uint32Range(_message.Message):
     def __init__(self, to: _Optional[int] = ..., include_from: bool = ..., include_to: bool = ..., **kwargs) -> None: ...
 
 class TimestampExpr(_message.Message):
-    __slots__ = ["range", "moment"]
+    __slots__ = ("range", "moment")
     RANGE_FIELD_NUMBER: _ClassVar[int]
     MOMENT_FIELD_NUMBER: _ClassVar[int]
     range: TimestampRange
@@ -44,7 +44,7 @@ class TimestampExpr(_message.Message):
     def __init__(self, range: _Optional[_Union[TimestampRange, _Mapping]] = ..., moment: _Optional[_Union[Moment, _Mapping]] = ...) -> None: ...
 
 class Moment(_message.Message):
-    __slots__ = ["time_zone", "interval"]
+    __slots__ = ("time_zone", "interval")
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_FIELD_NUMBER: _ClassVar[int]
     time_zone: str
@@ -52,7 +52,7 @@ class Moment(_message.Message):
     def __init__(self, time_zone: _Optional[str] = ..., interval: _Optional[_Union[_vanalytics_pb2.Interval, str]] = ...) -> None: ...
 
 class TimestampRange(_message.Message):
-    __slots__ = ["to", "include_from", "include_to"]
+    __slots__ = ("to", "include_from", "include_to")
     FROM_FIELD_NUMBER: _ClassVar[int]
     TO_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_FROM_FIELD_NUMBER: _ClassVar[int]

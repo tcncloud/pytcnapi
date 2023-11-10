@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Product(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     PRODUCT_UNSPECIFIED: _ClassVar[Product]
     PRODUCT_AGENT_SEATS: _ClassVar[Product]
     PRODUCT_OMNI: _ClassVar[Product]

@@ -8,13 +8,13 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateFlagRequest(_message.Message):
-    __slots__ = ["flag"]
+    __slots__ = ("flag",)
     FLAG_FIELD_NUMBER: _ClassVar[int]
     flag: Flag
     def __init__(self, flag: _Optional[_Union[Flag, _Mapping]] = ...) -> None: ...
 
 class ListFlagsRequest(_message.Message):
-    __slots__ = ["page_size", "order_by", "page_token", "filter_sid", "flag_sids", "read_mask", "names", "priorities", "must_review", "must_notify"]
+    __slots__ = ("page_size", "order_by", "page_token", "filter_sid", "flag_sids", "read_mask", "names", "priorities", "must_review", "must_notify")
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -38,7 +38,7 @@ class ListFlagsRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., filter_sid: _Optional[int] = ..., flag_sids: _Optional[_Iterable[int]] = ..., read_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., names: _Optional[_Iterable[str]] = ..., priorities: _Optional[_Iterable[int]] = ..., must_review: _Optional[_Iterable[bool]] = ..., must_notify: _Optional[_Iterable[bool]] = ...) -> None: ...
 
 class ListFlagsResponse(_message.Message):
-    __slots__ = ["next_page_token", "flags", "total"]
+    __slots__ = ("next_page_token", "flags", "total")
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     FLAGS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
@@ -48,7 +48,7 @@ class ListFlagsResponse(_message.Message):
     def __init__(self, next_page_token: _Optional[str] = ..., flags: _Optional[_Iterable[_Union[Flag, _Mapping]]] = ..., total: _Optional[int] = ...) -> None: ...
 
 class UpdateFlagRequest(_message.Message):
-    __slots__ = ["flag_sid", "flag", "update_mask"]
+    __slots__ = ("flag_sid", "flag", "update_mask")
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
     FLAG_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -58,20 +58,20 @@ class UpdateFlagRequest(_message.Message):
     def __init__(self, flag_sid: _Optional[int] = ..., flag: _Optional[_Union[Flag, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class DeleteFlagRequest(_message.Message):
-    __slots__ = ["flag_sid"]
+    __slots__ = ("flag_sid",)
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
     RETURN_FIELD_NUMBER: _ClassVar[int]
     flag_sid: int
     def __init__(self, flag_sid: _Optional[int] = ..., **kwargs) -> None: ...
 
 class DeleteFlagResponse(_message.Message):
-    __slots__ = ["flag"]
+    __slots__ = ("flag",)
     FLAG_FIELD_NUMBER: _ClassVar[int]
     flag: Flag
     def __init__(self, flag: _Optional[_Union[Flag, _Mapping]] = ...) -> None: ...
 
 class GetFlagRequest(_message.Message):
-    __slots__ = ["name", "flag_sid"]
+    __slots__ = ("name", "flag_sid")
     NAME_FIELD_NUMBER: _ClassVar[int]
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -79,11 +79,11 @@ class GetFlagRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., flag_sid: _Optional[int] = ...) -> None: ...
 
 class Flag(_message.Message):
-    __slots__ = ["flag_sid", "name", "review_group_id", "notify_group_id", "priority", "version", "filters", "must_review", "must_notify", "bool_expr"]
+    __slots__ = ("flag_sid", "name", "review_group_id", "notify_group_id", "priority", "version", "filters", "must_review", "must_notify", "bool_expr")
     class BoolExpr(_message.Message):
-        __slots__ = ["filter"]
+        __slots__ = ("filter",)
         class Filter(_message.Message):
-            __slots__ = ["filter_sid"]
+            __slots__ = ("filter_sid",)
             FILTER_SID_FIELD_NUMBER: _ClassVar[int]
             filter_sid: int
             def __init__(self, filter_sid: _Optional[int] = ...) -> None: ...

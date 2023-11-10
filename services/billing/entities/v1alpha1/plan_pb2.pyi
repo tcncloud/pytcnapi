@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BillingPlan(_message.Message):
-    __slots__ = ["billing_plan_id", "create_time", "update_time", "start_time", "end_time", "delete_time", "rate_definition_ids"]
+    __slots__ = ("billing_plan_id", "create_time", "update_time", "start_time", "end_time", "delete_time", "rate_definition_ids")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]

@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class LaunchStage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     LAUNCH_STAGE_UNSPECIFIED: _ClassVar[LaunchStage]
     UNIMPLEMENTED: _ClassVar[LaunchStage]
     PRELAUNCH: _ClassVar[LaunchStage]

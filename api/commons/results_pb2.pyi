@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CallResult(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = []
+    __slots__ = ()
     CALL_RESULT_UNKNOWN: _ClassVar[CallResult]
     CALL_RESULT_PENDING: _ClassVar[CallResult]
     CALL_RESULT_ANSWERED: _ClassVar[CallResult]
