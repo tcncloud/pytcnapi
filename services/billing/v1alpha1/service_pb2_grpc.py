@@ -16,6 +16,16 @@ class BillingServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.CommitBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/CommitBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitBillingPlanResponse.FromString,
+                )
+        self.CommitDefaultBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/CommitDefaultBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitDefaultBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitDefaultBillingPlanResponse.FromString,
+                )
         self.CreateBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/CreateBillingPlan',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CreateBillingPlanRequest.SerializeToString,
@@ -135,6 +145,41 @@ class BillingServiceStub(object):
 
 class BillingServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def CommitBillingPlan(self, request, context):
+        """Commits a billing plan for the ORG, finalizing it's creation and allowing it
+        to become active.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.FailedPrecondition: The billing plan is already committed.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CommitDefaultBillingPlan(self, request, context):
+        """Commits a default billing plan for the REGION, finalizing it's creation and allowing it
+        to become active.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.FailedPrecondition: The default billing plan is already committed.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified default billing plan doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def CreateBillingPlan(self, request, context):
         """Creates a billing plan for the ORG.
@@ -502,6 +547,16 @@ class BillingServiceServicer(object):
 
 def add_BillingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'CommitBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.CommitBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitBillingPlanResponse.SerializeToString,
+            ),
+            'CommitDefaultBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.CommitDefaultBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitDefaultBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitDefaultBillingPlanResponse.SerializeToString,
+            ),
             'CreateBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateBillingPlan,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.CreateBillingPlanRequest.FromString,
@@ -626,6 +681,40 @@ def add_BillingServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class BillingService(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def CommitBillingPlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/CommitBillingPlan',
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitBillingPlanResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CommitDefaultBillingPlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/CommitDefaultBillingPlan',
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitDefaultBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.CommitDefaultBillingPlanResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def CreateBillingPlan(request,

@@ -9,6 +9,26 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class CommitBillingPlanRequest(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
+class CommitBillingPlanResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CommitDefaultBillingPlanRequest(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
+class CommitDefaultBillingPlanResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class CreateBillingPlanRequest(_message.Message):
     __slots__ = ("billing_plan_id", "billing_plan")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
