@@ -118,3 +118,7 @@ class GetGlobalConfigResponse(_message.Message):
     date_created: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
     def __init__(self, edited_by: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class CreateNewsRoomRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
