@@ -18,7 +18,7 @@ from services.billing.entities.v1alpha1 import plan_pb2 as services_dot_billing_
 from services.billing.entities.v1alpha1 import rates_pb2 as services_dot_billing_dot_entities_dot_v1alpha1_dot_rates__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/commons/audit/billing_events.proto\x12\x11\x61pi.commons.audit\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x30services/billing/entities/v1alpha1/invoice.proto\x1a-services/billing/entities/v1alpha1/plan.proto\x1a.services/billing/entities/v1alpha1/rates.proto\"\x8c\x01\n\x1d\x42illingCreateBillingPlanEvent\x12R\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32/.services.billing.entities.v1alpha1.BillingPlanR\x0b\x62illingPlan\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"{\n\x19\x42illingCreateInvoiceEvent\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x98\x01\n BillingCreateRateDefinitionEvent\x12[\n\x0frate_definition\x18\x01 \x01(\x0b\x32\x32.services.billing.entities.v1alpha1.RateDefinitionR\x0erateDefinition\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"~\n\x1d\x42illingDeleteBillingPlanEvent\x12\x44\n\x0f\x62illing_plan_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rbillingPlanId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"q\n\x19\x42illingDeleteInvoiceEvent\x12;\n\ninvoice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\tinvoiceId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x87\x01\n BillingDeleteRateDefinitionEvent\x12J\n\x12rate_definition_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x10rateDefinitionId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"{\n\x19\x42illingExportInvoiceEvent\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x8c\x01\n\x1d\x42illingUpdateBillingPlanEvent\x12R\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32/.services.billing.entities.v1alpha1.BillingPlanR\x0b\x62illingPlan\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"{\n\x19\x42illingUpdateInvoiceEvent\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x98\x01\n BillingUpdateRateDefinitionEvent\x12[\n\x0frate_definition\x18\x01 \x01(\x0b\x32\x32.services.billing.entities.v1alpha1.RateDefinitionR\x0erateDefinition\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userIdB\x91\x01\n\x15\x63om.api.commons.auditB\x12\x42illingEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/commons/audit/billing_events.proto\x12\x11\x61pi.commons.audit\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x30services/billing/entities/v1alpha1/invoice.proto\x1a-services/billing/entities/v1alpha1/plan.proto\x1a.services/billing/entities/v1alpha1/rates.proto\"\x8c\x01\n\x1d\x42illingCreateBillingPlanEvent\x12R\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32/.services.billing.entities.v1alpha1.BillingPlanR\x0b\x62illingPlan\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"{\n\x19\x42illingCreateInvoiceEvent\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"i\n BillingCreateRateDefinitionEvent\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"~\n\x1d\x42illingDeleteBillingPlanEvent\x12\x44\n\x0f\x62illing_plan_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\rbillingPlanId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"q\n\x19\x42illingDeleteInvoiceEvent\x12;\n\ninvoice_id\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\tinvoiceId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"i\n BillingDeleteRateDefinitionEvent\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"{\n\x19\x42illingExportInvoiceEvent\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x8c\x01\n\x1d\x42illingUpdateBillingPlanEvent\x12R\n\x0c\x62illing_plan\x18\x01 \x01(\x0b\x32/.services.billing.entities.v1alpha1.BillingPlanR\x0b\x62illingPlan\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"{\n\x19\x42illingUpdateInvoiceEvent\x12\x45\n\x07invoice\x18\x01 \x01(\x0b\x32+.services.billing.entities.v1alpha1.InvoiceR\x07invoice\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"i\n BillingUpdateRateDefinitionEvent\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userIdB\x91\x01\n\x15\x63om.api.commons.auditB\x12\x42illingEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -30,20 +30,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_BILLINGCREATEBILLINGPLANEVENT']._serialized_end=379
   _globals['_BILLINGCREATEINVOICEEVENT']._serialized_start=381
   _globals['_BILLINGCREATEINVOICEEVENT']._serialized_end=504
-  _globals['_BILLINGCREATERATEDEFINITIONEVENT']._serialized_start=507
-  _globals['_BILLINGCREATERATEDEFINITIONEVENT']._serialized_end=659
-  _globals['_BILLINGDELETEBILLINGPLANEVENT']._serialized_start=661
-  _globals['_BILLINGDELETEBILLINGPLANEVENT']._serialized_end=787
-  _globals['_BILLINGDELETEINVOICEEVENT']._serialized_start=789
-  _globals['_BILLINGDELETEINVOICEEVENT']._serialized_end=902
-  _globals['_BILLINGDELETERATEDEFINITIONEVENT']._serialized_start=905
-  _globals['_BILLINGDELETERATEDEFINITIONEVENT']._serialized_end=1040
-  _globals['_BILLINGEXPORTINVOICEEVENT']._serialized_start=1042
-  _globals['_BILLINGEXPORTINVOICEEVENT']._serialized_end=1165
-  _globals['_BILLINGUPDATEBILLINGPLANEVENT']._serialized_start=1168
-  _globals['_BILLINGUPDATEBILLINGPLANEVENT']._serialized_end=1308
-  _globals['_BILLINGUPDATEINVOICEEVENT']._serialized_start=1310
-  _globals['_BILLINGUPDATEINVOICEEVENT']._serialized_end=1433
-  _globals['_BILLINGUPDATERATEDEFINITIONEVENT']._serialized_start=1436
-  _globals['_BILLINGUPDATERATEDEFINITIONEVENT']._serialized_end=1588
+  _globals['_BILLINGCREATERATEDEFINITIONEVENT']._serialized_start=506
+  _globals['_BILLINGCREATERATEDEFINITIONEVENT']._serialized_end=611
+  _globals['_BILLINGDELETEBILLINGPLANEVENT']._serialized_start=613
+  _globals['_BILLINGDELETEBILLINGPLANEVENT']._serialized_end=739
+  _globals['_BILLINGDELETEINVOICEEVENT']._serialized_start=741
+  _globals['_BILLINGDELETEINVOICEEVENT']._serialized_end=854
+  _globals['_BILLINGDELETERATEDEFINITIONEVENT']._serialized_start=856
+  _globals['_BILLINGDELETERATEDEFINITIONEVENT']._serialized_end=961
+  _globals['_BILLINGEXPORTINVOICEEVENT']._serialized_start=963
+  _globals['_BILLINGEXPORTINVOICEEVENT']._serialized_end=1086
+  _globals['_BILLINGUPDATEBILLINGPLANEVENT']._serialized_start=1089
+  _globals['_BILLINGUPDATEBILLINGPLANEVENT']._serialized_end=1229
+  _globals['_BILLINGUPDATEINVOICEEVENT']._serialized_start=1231
+  _globals['_BILLINGUPDATEINVOICEEVENT']._serialized_end=1354
+  _globals['_BILLINGUPDATERATEDEFINITIONEVENT']._serialized_start=1356
+  _globals['_BILLINGUPDATERATEDEFINITIONEVENT']._serialized_end=1461
 # @@protoc_insertion_point(module_scope)

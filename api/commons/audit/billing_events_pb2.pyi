@@ -25,12 +25,12 @@ class BillingCreateInvoiceEvent(_message.Message):
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class BillingCreateRateDefinitionEvent(_message.Message):
-    __slots__ = ("rate_definition", "user_id")
-    RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("rate_definition_id", "user_id")
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    rate_definition: _rates_pb2.RateDefinition
+    rate_definition_id: str
     user_id: str
-    def __init__(self, rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, rate_definition_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class BillingDeleteBillingPlanEvent(_message.Message):
     __slots__ = ("billing_plan_id", "user_id")
@@ -52,9 +52,9 @@ class BillingDeleteRateDefinitionEvent(_message.Message):
     __slots__ = ("rate_definition_id", "user_id")
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    rate_definition_id: _wrappers_pb2.StringValue
+    rate_definition_id: str
     user_id: str
-    def __init__(self, rate_definition_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, rate_definition_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class BillingExportInvoiceEvent(_message.Message):
     __slots__ = ("invoice", "user_id")
@@ -81,9 +81,9 @@ class BillingUpdateInvoiceEvent(_message.Message):
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class BillingUpdateRateDefinitionEvent(_message.Message):
-    __slots__ = ("rate_definition", "user_id")
-    RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("rate_definition_id", "user_id")
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    rate_definition: _rates_pb2.RateDefinition
+    rate_definition_id: str
     user_id: str
-    def __init__(self, rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, rate_definition_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
