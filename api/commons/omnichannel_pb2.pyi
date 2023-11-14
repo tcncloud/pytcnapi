@@ -200,6 +200,18 @@ class CampaignDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     CAMPAIGN_DIRECTION_INBOUND: _ClassVar[CampaignDirection]
     CAMPAIGN_DIRECTION_OUTBOUND: _ClassVar[CampaignDirection]
+
+class WhatsAppType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    WHATSAPP_AUDIO_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_CONTACT_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_DOCUMENT_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_IMAGE_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_INTERACTIVE_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_LOCATION_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_STICKER_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_TEMPLATE_TYPE: _ClassVar[WhatsAppType]
+    WHATSAPP_TEXT_TYPE: _ClassVar[WhatsAppType]
 SMS_SHORT_CODE_TYPE: SmsNumberType
 SMS_ALPHANUMERIC_TYPE: SmsNumberType
 SMS_NUMBER_TYPE: SmsNumberType
@@ -324,6 +336,15 @@ CAMPAIGN_STATUS_CANCELED: CampaignStatus
 CAMPAIGN_STATUS_ERROR_PAUSED: CampaignStatus
 CAMPAIGN_DIRECTION_INBOUND: CampaignDirection
 CAMPAIGN_DIRECTION_OUTBOUND: CampaignDirection
+WHATSAPP_AUDIO_TYPE: WhatsAppType
+WHATSAPP_CONTACT_TYPE: WhatsAppType
+WHATSAPP_DOCUMENT_TYPE: WhatsAppType
+WHATSAPP_IMAGE_TYPE: WhatsAppType
+WHATSAPP_INTERACTIVE_TYPE: WhatsAppType
+WHATSAPP_LOCATION_TYPE: WhatsAppType
+WHATSAPP_STICKER_TYPE: WhatsAppType
+WHATSAPP_TEMPLATE_TYPE: WhatsAppType
+WHATSAPP_TEXT_TYPE: WhatsAppType
 
 class OmniCampaign(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url", "compliance_config")
@@ -1198,3 +1219,81 @@ class OmniComplianceConfig(_message.Message):
     scrub_list_id: str
     rule_set_id: _wrappers_pb2.StringValue
     def __init__(self, opt_in: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., opt_out: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., help: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., information: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., scrub_list_id: _Optional[str] = ..., rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
+
+class WhatsAppMessage(_message.Message):
+    __slots__ = ("message_sid", "user_id", "type", "messaging_product", "preview_url", "text_message", "sent_from", "sent_to", "channel_type", "reference_id", "ui_reference_id", "conversation_sid", "status", "date_created", "date_modified", "campaign_sid", "sender_type", "status_message")
+    MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGING_PRODUCT_FIELD_NUMBER: _ClassVar[int]
+    PREVIEW_URL_FIELD_NUMBER: _ClassVar[int]
+    TEXT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    SENT_FROM_FIELD_NUMBER: _ClassVar[int]
+    SENT_TO_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    UI_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
+    SENDER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    STATUS_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    message_sid: int
+    user_id: _wrappers_pb2.StringValue
+    type: WhatsAppType
+    messaging_product: str
+    preview_url: bool
+    text_message: WhatsAppTextMessage
+    sent_from: str
+    sent_to: str
+    channel_type: ChannelType
+    reference_id: _wrappers_pb2.StringValue
+    ui_reference_id: str
+    conversation_sid: _types_pb2.Int64Id
+    status: OmniMessageStatus
+    date_created: _timestamp_pb2.Timestamp
+    date_modified: _timestamp_pb2.Timestamp
+    campaign_sid: int
+    sender_type: OmniSenderType
+    status_message: _wrappers_pb2.StringValue
+    def __init__(self, message_sid: _Optional[int] = ..., user_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., type: _Optional[_Union[WhatsAppType, str]] = ..., messaging_product: _Optional[str] = ..., preview_url: bool = ..., text_message: _Optional[_Union[WhatsAppTextMessage, _Mapping]] = ..., sent_from: _Optional[str] = ..., sent_to: _Optional[str] = ..., channel_type: _Optional[_Union[ChannelType, str]] = ..., reference_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., conversation_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., status: _Optional[_Union[OmniMessageStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., campaign_sid: _Optional[int] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ..., status_message: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
+
+class WhatsAppTextMessage(_message.Message):
+    __slots__ = ("message", "attachments", "primary_asm_session_sid")
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    ATTACHMENTS_FIELD_NUMBER: _ClassVar[int]
+    PRIMARY_ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    message: str
+    attachments: _containers.RepeatedCompositeFieldContainer[WhatsAppAttachment]
+    primary_asm_session_sid: _wrappers_pb2.Int64Value
+    def __init__(self, message: _Optional[str] = ..., attachments: _Optional[_Iterable[_Union[WhatsAppAttachment, _Mapping]]] = ..., primary_asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+
+class WhatsAppAttachment(_message.Message):
+    __slots__ = ("whatsapp_attachment_sid", "name", "file_type", "file_size", "path", "temp_id", "download_url", "date_created", "date_modified", "content_id", "width", "height")
+    WHATSAPP_ATTACHMENT_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    FILE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FILE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    PATH_FIELD_NUMBER: _ClassVar[int]
+    TEMP_ID_FIELD_NUMBER: _ClassVar[int]
+    DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_ID_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_FIELD_NUMBER: _ClassVar[int]
+    HEIGHT_FIELD_NUMBER: _ClassVar[int]
+    whatsapp_attachment_sid: int
+    name: str
+    file_type: str
+    file_size: int
+    path: str
+    temp_id: _wrappers_pb2.StringValue
+    download_url: str
+    date_created: _timestamp_pb2.Timestamp
+    date_modified: _timestamp_pb2.Timestamp
+    content_id: _wrappers_pb2.StringValue
+    width: _wrappers_pb2.StringValue
+    height: _wrappers_pb2.StringValue
+    def __init__(self, whatsapp_attachment_sid: _Optional[int] = ..., name: _Optional[str] = ..., file_type: _Optional[str] = ..., file_size: _Optional[int] = ..., path: _Optional[str] = ..., temp_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., download_url: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., content_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., width: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., height: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
