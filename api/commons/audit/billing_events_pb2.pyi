@@ -4,6 +4,14 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class BillingCommitBillingPlanEvent(_message.Message):
+    __slots__ = ("billing_plan", "user_id")
+    BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan: str
+    user_id: str
+    def __init__(self, billing_plan: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+
 class BillingCreateBillingPlanEvent(_message.Message):
     __slots__ = ("billing_plan", "user_id")
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
