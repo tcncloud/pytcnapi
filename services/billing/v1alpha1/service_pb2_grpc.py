@@ -76,6 +76,16 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionResponse.FromString,
                 )
+        self.DuplicateBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/DuplicateBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateBillingPlanResponse.FromString,
+                )
+        self.DuplicateDefaultBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/DuplicateDefaultBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateDefaultBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateDefaultBillingPlanResponse.FromString,
+                )
         self.ExportInvoice = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/ExportInvoice',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ExportInvoiceRequest.SerializeToString,
@@ -335,6 +345,38 @@ class BillingServiceServicer(object):
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.NotFound: The specified billing plan or rate definition group doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DuplicateBillingPlan(self, request, context):
+        """Duplicates a billing plan. This copies the billing plan and all of its rate definitions.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DuplicateDefaultBillingPlan(self, request, context):
+        """Duplicates a default billing plan. This copies the billing plan, all of its rate definitions,
+        and all of its rate definition groups and features.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified billing plan doesn't exist.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
         - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
@@ -606,6 +648,16 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.DeleteRateDefinition,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionResponse.SerializeToString,
+            ),
+            'DuplicateBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.DuplicateBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateBillingPlanResponse.SerializeToString,
+            ),
+            'DuplicateDefaultBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.DuplicateDefaultBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateDefaultBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateDefaultBillingPlanResponse.SerializeToString,
             ),
             'ExportInvoice': grpc.unary_unary_rpc_method_handler(
                     servicer.ExportInvoice,
@@ -883,6 +935,40 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DeleteRateDefinition',
             services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_rates__pb2.DeleteRateDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DuplicateBillingPlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DuplicateBillingPlan',
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateBillingPlanResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DuplicateDefaultBillingPlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/DuplicateDefaultBillingPlan',
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateDefaultBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.DuplicateDefaultBillingPlanResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -77,6 +77,30 @@ class DeleteDefaultBillingPlanResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class DuplicateBillingPlanRequest(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
+class DuplicateBillingPlanResponse(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
+class DuplicateDefaultBillingPlanRequest(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
+class DuplicateDefaultBillingPlanResponse(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
 class GetActiveBillingPlanRequest(_message.Message):
     __slots__ = ("org_id", "effective_time")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
