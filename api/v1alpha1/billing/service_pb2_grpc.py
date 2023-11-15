@@ -6,8 +6,7 @@ from api.v1alpha1.billing import entities_pb2 as api_dot_v1alpha1_dot_billing_do
 
 
 class BillingStub(object):
-    """Billing service for handling billing requests.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
         """Constructor.
@@ -38,50 +37,28 @@ class BillingStub(object):
 
 
 class BillingServicer(object):
-    """Billing service for handling billing requests.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def GetBillingPlan(self, request, context):
-        """GetBillingPlan - returns the billing plan for the provided organization.
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateBillingPlan(self, request, context):
-        """UpdateBillingPlan - updates the provided billing plan and it's details.
-        If some details are not provided, they will be left as is. However, if
-        deletion is desired, the DeleteBillingDetails method should be used. The
-        billing plan still follows the constraint of only having one billing detail
-        with a specific config type and event type, and so if the request contains
-        more than one billing detail with a config type and event type, the request
-        is malformed and will result in potentially unexpected behavior.
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetInvoice(self, request, context):
-        """GetInvoice - returns the invoice for the organization.
-        If a date is provided, this will return the invoice for the
-        organization that corresponds to the billing cycle that contains
-        the provided date. If no date is provided, this will return the
-        invoice as it currently stands for the current billing cycle.
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ExportGeneratedInvoice(self, request, context):
-        """ExportGeneratedInvoice - returns the invoice for the organization.
-        If a date is provided, this will return the invoice for the
-        organization that corresponds to the billing cycle that contains
-        the provided date. If no date is provided, this will return the
-        invoice, as it has been last generated, for the current billing cycle.
-        This differs from GetInvoice in that it returns the invoice as
-        it was last generated. It will not take into account new billing
-        events since the last generation.
-        """
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -117,8 +94,7 @@ def add_BillingServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Billing(object):
-    """Billing service for handling billing requests.
-    """
+    """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def GetBillingPlan(request,
