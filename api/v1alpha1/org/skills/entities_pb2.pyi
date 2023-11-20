@@ -57,12 +57,10 @@ class GetSkillGroupResponse(_message.Message):
     def __init__(self, skill_group: _Optional[_Union[_skill_group_pb2.SkillGroup, _Mapping]] = ...) -> None: ...
 
 class DeleteSkillGroupRequest(_message.Message):
-    __slots__ = ("org_id", "skill_group_id")
-    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("skill_group_id",)
     SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
-    org_id: str
     skill_group_id: str
-    def __init__(self, org_id: _Optional[str] = ..., skill_group_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, skill_group_id: _Optional[str] = ...) -> None: ...
 
 class DeleteSkillGroupResponse(_message.Message):
     __slots__ = ()
