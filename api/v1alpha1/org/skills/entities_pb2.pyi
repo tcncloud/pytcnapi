@@ -66,27 +66,27 @@ class DeleteSkillGroupResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class AssignSkillGroupRequest(_message.Message):
-    __slots__ = ("skill_group_id", "user_id")
-    SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+class AssignSkillGroupsRequest(_message.Message):
+    __slots__ = ("skill_group_ids", "user_id")
+    SKILL_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    skill_group_id: str
+    skill_group_ids: _containers.RepeatedScalarFieldContainer[str]
     user_id: str
-    def __init__(self, skill_group_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, skill_group_ids: _Optional[_Iterable[str]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
-class AssignSkillGroupResponse(_message.Message):
+class AssignSkillGroupsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class RevokeSkillGroupRequest(_message.Message):
-    __slots__ = ("skill_group_id", "user_id")
-    SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+class RevokeSkillGroupsRequest(_message.Message):
+    __slots__ = ("skill_group_ids", "user_id")
+    SKILL_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    skill_group_id: str
+    skill_group_ids: _containers.RepeatedScalarFieldContainer[str]
     user_id: str
-    def __init__(self, skill_group_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, skill_group_ids: _Optional[_Iterable[str]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
-class RevokeSkillGroupResponse(_message.Message):
+class RevokeSkillGroupsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
