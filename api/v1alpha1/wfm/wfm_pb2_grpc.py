@@ -55,6 +55,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersRes.FromString,
                 )
+        self.GetClientHistoryCacheInfo = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetClientHistoryCacheInfo',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoRes.FromString,
+                )
         self.ListHistoricalData = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListHistoricalData',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListHistoricalDataReq.SerializeToString,
@@ -324,6 +329,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/CreateAgentGroup',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupRes.FromString,
+                )
+        self.ListAgentScheduleGroups = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAgentScheduleGroups',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsResponse.FromString,
                 )
         self.UpdateAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/UpdateAgentGroup',
@@ -680,6 +690,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.FromString,
                 )
+        self.GetTourPatternWithMembers = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetTourPatternWithMembers',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersRes.FromString,
+                )
         self.DeleteTourPattern = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteTourPattern',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternReq.SerializeToString,
@@ -883,6 +898,18 @@ class WFMServicer(object):
         NONE
         Errors:
         - grpc.Internal: error occurs when getting the parameters.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetClientHistoryCacheInfo(self, request, context):
+        """Gets the state of the cache for the given @org_id, and if the cache's state is not_loaded, or loading_failed,
+        it will start the loading task before returning the current state.
+        Required permissions:
+        NONE
+        Errors:
+        -grpc.Internal: error occurs when getting the cache info.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1684,6 +1711,13 @@ class WFMServicer(object):
         - grpc.Invalid: the @name, or @parent_entity are invalid.
         - grpc.NotFound: @parent_entity doesn't exist
         - grpc.Internal: error occurs when creating the agent group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAgentScheduleGroups(self, request, context):
+        """Lists all schedulable AgentGroups on or under the given Node or ShiftTemplate.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2761,6 +2795,20 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetTourPatternWithMembers(self, request, context):
+        """Gets the Tour Pattern belonging to @shift_template_sid and the org sending the request.
+        The @tour_pattern will be returned with all member entities.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.NotFound: the requested Tour Pattern does not exist.
+        - grpc.Internal: error occurs when getting the data.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteTourPattern(self, request, context):
         """Deletes the Tour Pattern belonging to @tour_pattern_sid and the org sending the request.
         Any member Tour Week Patterns or Agent Collections will be deleted as well.
@@ -3076,6 +3124,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersRes.SerializeToString,
             ),
+            'GetClientHistoryCacheInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetClientHistoryCacheInfo,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoRes.SerializeToString,
+            ),
             'ListHistoricalData': grpc.unary_unary_rpc_method_handler(
                     servicer.ListHistoricalData,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListHistoricalDataReq.FromString,
@@ -3345,6 +3398,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.CreateAgentGroup,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupRes.SerializeToString,
+            ),
+            'ListAgentScheduleGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentScheduleGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsResponse.SerializeToString,
             ),
             'UpdateAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateAgentGroup,
@@ -3701,6 +3759,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.SerializeToString,
             ),
+            'GetTourPatternWithMembers': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTourPatternWithMembers,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersRes.SerializeToString,
+            ),
             'DeleteTourPattern': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteTourPattern,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteTourPatternReq.FromString,
@@ -3945,6 +4008,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetForecastingParameters',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetForecastingParametersRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetClientHistoryCacheInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetClientHistoryCacheInfo',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetClientHistoryCacheInfoRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -4863,6 +4943,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAgentGroup',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentScheduleGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAgentScheduleGroups',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentScheduleGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -6070,6 +6167,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetTourPattern',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTourPatternWithMembers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetTourPatternWithMembers',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTourPatternWithMembersRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

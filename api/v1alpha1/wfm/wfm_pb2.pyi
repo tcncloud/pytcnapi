@@ -242,6 +242,16 @@ class HistoricalDataInterval(_message.Message):
     skill_profile_category: _wfm_pb2.SkillProfileCategory
     def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., total_calls: _Optional[int] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., original_average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_total_calls: _Optional[int] = ..., original_total_abandoned_calls: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
+class GetClientHistoryCacheInfoReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetClientHistoryCacheInfoRes(_message.Message):
+    __slots__ = ("cache_info",)
+    CACHE_INFO_FIELD_NUMBER: _ClassVar[int]
+    cache_info: _wfm_pb2.ClientHistoryCacheInfo
+    def __init__(self, cache_info: _Optional[_Union[_wfm_pb2.ClientHistoryCacheInfo, _Mapping]] = ...) -> None: ...
+
 class ListHistoricalDataReq(_message.Message):
     __slots__ = ("skill_profile_sid", "skill_profile_category")
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -1278,6 +1288,18 @@ class CreateAgentGroupRes(_message.Message):
     AGENT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     agent_group_sid: int
     def __init__(self, agent_group_sid: _Optional[int] = ...) -> None: ...
+
+class ListAgentScheduleGroupsRequest(_message.Message):
+    __slots__ = ("entity",)
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: ParentEntity
+    def __init__(self, entity: _Optional[_Union[ParentEntity, _Mapping]] = ...) -> None: ...
+
+class ListAgentScheduleGroupsResponse(_message.Message):
+    __slots__ = ("agent_groups",)
+    AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    agent_groups: _containers.RepeatedCompositeFieldContainer[AgentGroup]
+    def __init__(self, agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ...) -> None: ...
 
 class UpdateAgentGroupReq(_message.Message):
     __slots__ = ("agent_group",)
@@ -2967,6 +2989,18 @@ class GetTourPatternReq(_message.Message):
     def __init__(self, shift_template_sid: _Optional[int] = ...) -> None: ...
 
 class GetTourPatternRes(_message.Message):
+    __slots__ = ("tour_pattern",)
+    TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
+    tour_pattern: TourPattern
+    def __init__(self, tour_pattern: _Optional[_Union[TourPattern, _Mapping]] = ...) -> None: ...
+
+class GetTourPatternWithMembersReq(_message.Message):
+    __slots__ = ("shift_template_sid",)
+    SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    shift_template_sid: int
+    def __init__(self, shift_template_sid: _Optional[int] = ...) -> None: ...
+
+class GetTourPatternWithMembersRes(_message.Message):
     __slots__ = ("tour_pattern",)
     TOUR_PATTERN_FIELD_NUMBER: _ClassVar[int]
     tour_pattern: TourPattern
