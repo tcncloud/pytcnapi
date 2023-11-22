@@ -472,6 +472,8 @@ class AgentCallLogActionKey(_message.Message):
         WARM_CALLER_TRANSFER_INVITE_CALLER_INITIAL: _ClassVar[AgentCallLogActionKey.Enum]
         WARM_CALLER_TRANSFER_INVITE_CALLER: _ClassVar[AgentCallLogActionKey.Enum]
         WARM_CALLER_TRANSFER_END: _ClassVar[AgentCallLogActionKey.Enum]
+        BARGE_IN_START: _ClassVar[AgentCallLogActionKey.Enum]
+        BARGE_IN_STOP: _ClassVar[AgentCallLogActionKey.Enum]
     DNCL_ADD: AgentCallLogActionKey.Enum
     CALL_ENDED: AgentCallLogActionKey.Enum
     CALL_DISCONNECT: AgentCallLogActionKey.Enum
@@ -515,6 +517,8 @@ class AgentCallLogActionKey(_message.Message):
     WARM_CALLER_TRANSFER_INVITE_CALLER_INITIAL: AgentCallLogActionKey.Enum
     WARM_CALLER_TRANSFER_INVITE_CALLER: AgentCallLogActionKey.Enum
     WARM_CALLER_TRANSFER_END: AgentCallLogActionKey.Enum
+    BARGE_IN_START: AgentCallLogActionKey.Enum
+    BARGE_IN_STOP: AgentCallLogActionKey.Enum
     def __init__(self) -> None: ...
 
 class AgentCallLogActionValue(_message.Message):

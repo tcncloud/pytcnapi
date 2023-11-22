@@ -201,18 +201,6 @@ class CampaignDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     CAMPAIGN_DIRECTION_INBOUND: _ClassVar[CampaignDirection]
     CAMPAIGN_DIRECTION_OUTBOUND: _ClassVar[CampaignDirection]
-
-class WhatsAppMsgType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    WHATSAPP_AUDIO_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_CONTACT_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_DOCUMENT_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_IMAGE_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_INTERACTIVE_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_LOCATION_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_STICKER_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_TEMPLATE_TYPE: _ClassVar[WhatsAppMsgType]
-    WHATSAPP_TEXT_TYPE: _ClassVar[WhatsAppMsgType]
 SMS_SHORT_CODE_TYPE: SmsNumberType
 SMS_ALPHANUMERIC_TYPE: SmsNumberType
 SMS_NUMBER_TYPE: SmsNumberType
@@ -338,15 +326,6 @@ CAMPAIGN_STATUS_CANCELED: CampaignStatus
 CAMPAIGN_STATUS_ERROR_PAUSED: CampaignStatus
 CAMPAIGN_DIRECTION_INBOUND: CampaignDirection
 CAMPAIGN_DIRECTION_OUTBOUND: CampaignDirection
-WHATSAPP_AUDIO_TYPE: WhatsAppMsgType
-WHATSAPP_CONTACT_TYPE: WhatsAppMsgType
-WHATSAPP_DOCUMENT_TYPE: WhatsAppMsgType
-WHATSAPP_IMAGE_TYPE: WhatsAppMsgType
-WHATSAPP_INTERACTIVE_TYPE: WhatsAppMsgType
-WHATSAPP_LOCATION_TYPE: WhatsAppMsgType
-WHATSAPP_STICKER_TYPE: WhatsAppMsgType
-WHATSAPP_TEMPLATE_TYPE: WhatsAppMsgType
-WHATSAPP_TEXT_TYPE: WhatsAppMsgType
 
 class OmniCampaign(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url", "compliance_config")
@@ -630,18 +609,14 @@ class OmniMessagePayload(_message.Message):
     def __init__(self, text_message: _Optional[_Union[OmniTextMessage, _Mapping]] = ..., typing_notification: _Optional[_Union[OmniTypingNotification, _Mapping]] = ..., reassignment: _Optional[_Union[OmniReassignmentNotification, _Mapping]] = ..., request_attachment_upload_url: _Optional[_Union[OmniRequestAttachmentUploadURL, _Mapping]] = ..., attachment_upload_url: _Optional[_Union[OmniAttachmentUploadURL, _Mapping]] = ..., attachment: _Optional[_Union[OmniAttachment, _Mapping]] = ..., close_conversation: _Optional[_Union[OmniCloseConversation, _Mapping]] = ..., assign_conversation: _Optional[_Union[OmniAssignConversation, _Mapping]] = ..., unassign_conversation: _Optional[_Union[OmniUnassignConversation, _Mapping]] = ..., finish_wrap_up: _Optional[_Union[OmniFinishWrapUp, _Mapping]] = ..., suspend: _Optional[_Union[OmniSuspend, _Mapping]] = ..., start_wrap_up: _Optional[_Union[OmniStartWrapUp, _Mapping]] = ..., queue_information: _Optional[_Union[OmniQueueInformation, _Mapping]] = ..., request_queue_information: _Optional[_Union[OmniRequestQueueInformation, _Mapping]] = ..., off_loaded_text_message: _Optional[_Union[OmniOffLoadedTextMessage, _Mapping]] = ..., canned_message: _Optional[_Union[OmniCannedMessage, _Mapping]] = ...) -> None: ...
 
 class OmniTextMessage(_message.Message):
-    __slots__ = ("message", "attachments", "primary_asm_session_sid", "type", "preview_url")
+    __slots__ = ("message", "attachments", "primary_asm_session_sid")
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     ATTACHMENTS_FIELD_NUMBER: _ClassVar[int]
     PRIMARY_ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
-    TYPE_FIELD_NUMBER: _ClassVar[int]
-    PREVIEW_URL_FIELD_NUMBER: _ClassVar[int]
     message: str
     attachments: _containers.RepeatedCompositeFieldContainer[OmniAttachment]
     primary_asm_session_sid: _wrappers_pb2.Int64Value
-    type: WhatsAppMsgType
-    preview_url: bool
-    def __init__(self, message: _Optional[str] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., primary_asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., type: _Optional[_Union[WhatsAppMsgType, str]] = ..., preview_url: bool = ...) -> None: ...
+    def __init__(self, message: _Optional[str] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., primary_asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class OmniOffLoadedTextMessage(_message.Message):
     __slots__ = ("location", "attachments")
