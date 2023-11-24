@@ -126,12 +126,22 @@ class ListTemplate(_message.Message):
     def __init__(self, ticket_template_id: _Optional[int] = ..., template_name: _Optional[str] = ..., project_id: _Optional[int] = ..., template: _Optional[str] = ..., template_entity_version: _Optional[str] = ..., is_active: bool = ..., created_by_id: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., project_title: _Optional[str] = ..., assigned_project: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class AssignProjectTemplate(_message.Message):
-    __slots__ = ("ticket_template_id", "project_id")
+    __slots__ = ("ticket_template_id", "project_id", "template_details")
     TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     ticket_template_id: _containers.RepeatedScalarFieldContainer[int]
     project_id: int
-    def __init__(self, ticket_template_id: _Optional[_Iterable[int]] = ..., project_id: _Optional[int] = ...) -> None: ...
+    template_details: _containers.RepeatedCompositeFieldContainer[TemplateDetail]
+    def __init__(self, ticket_template_id: _Optional[_Iterable[int]] = ..., project_id: _Optional[int] = ..., template_details: _Optional[_Iterable[_Union[TemplateDetail, _Mapping]]] = ...) -> None: ...
+
+class TemplateDetail(_message.Message):
+    __slots__ = ("ticket_template_id", "ticket_template_title")
+    TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_TEMPLATE_TITLE_FIELD_NUMBER: _ClassVar[int]
+    ticket_template_id: int
+    ticket_template_title: str
+    def __init__(self, ticket_template_id: _Optional[int] = ..., ticket_template_title: _Optional[str] = ...) -> None: ...
 
 class Duration(_message.Message):
     __slots__ = ("value", "scale")
@@ -178,6 +188,30 @@ class CallbackContext(_message.Message):
     caller_name: str
     caller_country_code: str
     def __init__(self, caller_id: _Optional[str] = ..., phone_no: _Optional[str] = ..., country_code: _Optional[str] = ..., caller_name: _Optional[str] = ..., caller_country_code: _Optional[str] = ...) -> None: ...
+
+class SmsbackContext(_message.Message):
+    __slots__ = ("contact_name", "to_sms", "from_sms", "to_country_code", "from_country_code")
+    CONTACT_NAME_FIELD_NUMBER: _ClassVar[int]
+    TO_SMS_FIELD_NUMBER: _ClassVar[int]
+    FROM_SMS_FIELD_NUMBER: _ClassVar[int]
+    TO_COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    FROM_COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    contact_name: str
+    to_sms: str
+    from_sms: str
+    to_country_code: str
+    from_country_code: str
+    def __init__(self, contact_name: _Optional[str] = ..., to_sms: _Optional[str] = ..., from_sms: _Optional[str] = ..., to_country_code: _Optional[str] = ..., from_country_code: _Optional[str] = ...) -> None: ...
+
+class EmailbackContext(_message.Message):
+    __slots__ = ("contact_name", "to_email", "from_email")
+    CONTACT_NAME_FIELD_NUMBER: _ClassVar[int]
+    TO_EMAIL_FIELD_NUMBER: _ClassVar[int]
+    FROM_EMAIL_FIELD_NUMBER: _ClassVar[int]
+    contact_name: str
+    to_email: str
+    from_email: str
+    def __init__(self, contact_name: _Optional[str] = ..., to_email: _Optional[str] = ..., from_email: _Optional[str] = ...) -> None: ...
 
 class Metadata(_message.Message):
     __slots__ = ("name", "value")
