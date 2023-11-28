@@ -1718,7 +1718,14 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListAgentScheduleGroups(self, request, context):
-        """Lists all schedulable AgentGroups on or under the given Node or ShiftTemplate.
+        """ListAgentScheduleGroups lists all schedulable agent groups for the given @entity and @org_id, filled with @member_wfm_agents.
+        The given @entity must be either a Node or a ShiftTemplate.
+
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when getting the agent groups.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
