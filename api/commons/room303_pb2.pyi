@@ -29,6 +29,7 @@ class ConfigPermissionEnum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LIMITED: _ClassVar[ConfigPermissionEnum]
     ROOM303_MEMBER: _ClassVar[ConfigPermissionEnum]
     ROOM303_SUPERVISOR: _ClassVar[ConfigPermissionEnum]
+    ROOM303_LIMITED: _ClassVar[ConfigPermissionEnum]
 ROOM_TYPE_DIRECT: RoomType
 ROOM_TYPE_MULTI: RoomType
 ROOM_TYPE_SYSTEM: RoomType
@@ -41,6 +42,7 @@ ROOM_STATUS_DELETED: RoomStatus
 LIMITED: ConfigPermissionEnum
 ROOM303_MEMBER: ConfigPermissionEnum
 ROOM303_SUPERVISOR: ConfigPermissionEnum
+ROOM303_LIMITED: ConfigPermissionEnum
 
 class UserSid(_message.Message):
     __slots__ = ("user_id", "full_name", "display_name")
