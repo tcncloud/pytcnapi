@@ -116,7 +116,7 @@ class GetVfsSchemaRequest(_message.Message):
     def __init__(self, alias_name: _Optional[str] = ...) -> None: ...
 
 class GetVfsSchemaResponse(_message.Message):
-    __slots__ = ("fields", "vfs_description")
+    __slots__ = ("fields", "vfs_description", "alias_name")
     class Field(_message.Message):
         __slots__ = ("column_name", "column_type", "column_description")
         COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -128,9 +128,11 @@ class GetVfsSchemaResponse(_message.Message):
         def __init__(self, column_name: _Optional[str] = ..., column_type: _Optional[_Union[_insights_pb2.InsightVfsSchemaType, str]] = ..., column_description: _Optional[str] = ...) -> None: ...
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     VFS_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    ALIAS_NAME_FIELD_NUMBER: _ClassVar[int]
     fields: _containers.RepeatedCompositeFieldContainer[GetVfsSchemaResponse.Field]
     vfs_description: str
-    def __init__(self, fields: _Optional[_Iterable[_Union[GetVfsSchemaResponse.Field, _Mapping]]] = ..., vfs_description: _Optional[str] = ...) -> None: ...
+    alias_name: str
+    def __init__(self, fields: _Optional[_Iterable[_Union[GetVfsSchemaResponse.Field, _Mapping]]] = ..., vfs_description: _Optional[str] = ..., alias_name: _Optional[str] = ...) -> None: ...
 
 class ListVfsesRequest(_message.Message):
     __slots__ = ()
@@ -141,3 +143,13 @@ class ListVfsesResponse(_message.Message):
     ALIASES_FIELD_NUMBER: _ClassVar[int]
     aliases: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, aliases: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class ListVfsSchemasRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListVfsSchemasResponse(_message.Message):
+    __slots__ = ("vfs_schemas",)
+    VFS_SCHEMAS_FIELD_NUMBER: _ClassVar[int]
+    vfs_schemas: _containers.RepeatedCompositeFieldContainer[GetVfsSchemaResponse]
+    def __init__(self, vfs_schemas: _Optional[_Iterable[_Union[GetVfsSchemaResponse, _Mapping]]] = ...) -> None: ...

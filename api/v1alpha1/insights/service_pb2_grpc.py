@@ -64,6 +64,11 @@ class InsightsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesResponse.FromString,
                 )
+        self.ListVfsSchemas = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/ListVfsSchemas',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsSchemasRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsSchemasResponse.FromString,
+                )
         self.PublishInsight = channel.unary_unary(
                 '/api.v1alpha1.insights.Insights/PublishInsight',
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightRequest.SerializeToString,
@@ -144,6 +149,13 @@ class InsightsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListVfsSchemas(self, request, context):
+        """ListVfses lists exported vfs aliases
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def PublishInsight(self, request, context):
         """PublishInsight publishes an insight
         """
@@ -203,6 +215,11 @@ def add_InsightsServicer_to_server(servicer, server):
                     servicer.ListVfses,
                     request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesResponse.SerializeToString,
+            ),
+            'ListVfsSchemas': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListVfsSchemas,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsSchemasRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsSchemasResponse.SerializeToString,
             ),
             'PublishInsight': grpc.unary_unary_rpc_method_handler(
                     servicer.PublishInsight,
@@ -386,6 +403,23 @@ class Insights(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/ListVfses',
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesRequest.SerializeToString,
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListVfsSchemas(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/ListVfsSchemas',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsSchemasRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListVfsSchemasResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
