@@ -78,7 +78,7 @@ class Ticket(_message.Message):
     def __init__(self, ticket_sid: _Optional[int] = ..., project_sid: _Optional[int] = ..., project_title: _Optional[str] = ..., ticket_code: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., org_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assignee_list: _Optional[str] = ..., metadata: _Optional[_Iterable[_Union[Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., assignee: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[TicketAction, _Mapping]]] = ..., ticket_status: _Optional[_Union[TicketStatus, str]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., ticket_participant: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class TicketTemplate(_message.Message):
-    __slots__ = ("ticket_template_id", "org_id", "template", "template_entity_version", "template_name", "created_by_id", "modified_by", "created_date", "modified_date", "is_active")
+    __slots__ = ("ticket_template_id", "org_id", "template", "template_entity_version", "template_name", "created_by_id", "modified_by", "created_date", "modified_date", "is_active", "template_id")
     TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_FIELD_NUMBER: _ClassVar[int]
@@ -89,6 +89,7 @@ class TicketTemplate(_message.Message):
     CREATED_DATE_FIELD_NUMBER: _ClassVar[int]
     MODIFIED_DATE_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     ticket_template_id: int
     org_id: str
     template: str
@@ -99,7 +100,24 @@ class TicketTemplate(_message.Message):
     created_date: _timestamp_pb2.Timestamp
     modified_date: _timestamp_pb2.Timestamp
     is_active: bool
-    def __init__(self, ticket_template_id: _Optional[int] = ..., org_id: _Optional[str] = ..., template: _Optional[str] = ..., template_entity_version: _Optional[str] = ..., template_name: _Optional[str] = ..., created_by_id: _Optional[str] = ..., modified_by: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., modified_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_active: bool = ...) -> None: ...
+    template_id: int
+    def __init__(self, ticket_template_id: _Optional[int] = ..., org_id: _Optional[str] = ..., template: _Optional[str] = ..., template_entity_version: _Optional[str] = ..., template_name: _Optional[str] = ..., created_by_id: _Optional[str] = ..., modified_by: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., modified_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_active: bool = ..., template_id: _Optional[int] = ...) -> None: ...
+
+class TicketProjectTemplate(_message.Message):
+    __slots__ = ("ticket_template", "project_description")
+    TICKET_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    ticket_template: TicketTemplate
+    project_description: _containers.RepeatedCompositeFieldContainer[ProjectDescription]
+    def __init__(self, ticket_template: _Optional[_Union[TicketTemplate, _Mapping]] = ..., project_description: _Optional[_Iterable[_Union[ProjectDescription, _Mapping]]] = ...) -> None: ...
+
+class ProjectDescription(_message.Message):
+    __slots__ = ("project_id", "project_title")
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_TITLE_FIELD_NUMBER: _ClassVar[int]
+    project_id: int
+    project_title: str
+    def __init__(self, project_id: _Optional[int] = ..., project_title: _Optional[str] = ...) -> None: ...
 
 class ListTemplate(_message.Message):
     __slots__ = ("ticket_template_id", "template_name", "project_id", "template", "template_entity_version", "is_active", "created_by_id", "created_date", "project_title", "assigned_project")

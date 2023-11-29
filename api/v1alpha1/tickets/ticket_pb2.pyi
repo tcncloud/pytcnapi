@@ -73,26 +73,36 @@ class EditTicketTemplateResponse(_message.Message):
     def __init__(self, is_edited: bool = ...) -> None: ...
 
 class ListTicketTemplateRequest(_message.Message):
-    __slots__ = ("ticket_template_id", "project_id", "request_mask")
+    __slots__ = ("ticket_template_id", "project_id", "request_mask", "template_id", "template_project_id")
     TICKET_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     REQUEST_MASK_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     ticket_template_id: int
     project_id: int
     request_mask: _field_mask_pb2.FieldMask
-    def __init__(self, ticket_template_id: _Optional[int] = ..., project_id: _Optional[int] = ..., request_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    template_id: int
+    template_project_id: int
+    def __init__(self, ticket_template_id: _Optional[int] = ..., project_id: _Optional[int] = ..., request_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., template_id: _Optional[int] = ..., template_project_id: _Optional[int] = ...) -> None: ...
 
 class ListTicketTemplateResponse(_message.Message):
-    __slots__ = ("enabled_templates",)
+    __slots__ = ("enabled_templates", "ticket_project_template")
     ENABLED_TEMPLATES_FIELD_NUMBER: _ClassVar[int]
+    TICKET_PROJECT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     enabled_templates: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.ListTemplate]
-    def __init__(self, enabled_templates: _Optional[_Iterable[_Union[_tickets_pb2.ListTemplate, _Mapping]]] = ...) -> None: ...
+    ticket_project_template: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.TicketProjectTemplate]
+    def __init__(self, enabled_templates: _Optional[_Iterable[_Union[_tickets_pb2.ListTemplate, _Mapping]]] = ..., ticket_project_template: _Optional[_Iterable[_Union[_tickets_pb2.TicketProjectTemplate, _Mapping]]] = ...) -> None: ...
 
 class AssignProjectTemplateRequest(_message.Message):
-    __slots__ = ("project_template",)
+    __slots__ = ("project_template", "project_id", "template_description")
     PROJECT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     project_template: _tickets_pb2.AssignProjectTemplate
-    def __init__(self, project_template: _Optional[_Union[_tickets_pb2.AssignProjectTemplate, _Mapping]] = ...) -> None: ...
+    project_id: int
+    template_description: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.TemplateDescription]
+    def __init__(self, project_template: _Optional[_Union[_tickets_pb2.AssignProjectTemplate, _Mapping]] = ..., project_id: _Optional[int] = ..., template_description: _Optional[_Iterable[_Union[_tickets_pb2.TemplateDescription, _Mapping]]] = ...) -> None: ...
 
 class AssignProjectTemplateResponse(_message.Message):
     __slots__ = ("is_assigned",)
