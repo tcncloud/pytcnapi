@@ -600,3 +600,9 @@ class ClientHistoryCacheInfo(_message.Message):
     state: HistoryCacheState
     progress_percentage: int
     def __init__(self, state: _Optional[_Union[HistoryCacheState, str]] = ..., progress_percentage: _Optional[int] = ...) -> None: ...
+
+class ErrorTrace(_message.Message):
+    __slots__ = ("grpc_trace_bin",)
+    GRPC_TRACE_BIN_FIELD_NUMBER: _ClassVar[int]
+    grpc_trace_bin: str
+    def __init__(self, grpc_trace_bin: _Optional[str] = ...) -> None: ...
