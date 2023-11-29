@@ -42,6 +42,7 @@ class ChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CHANNEL_TYPE_SMS: _ClassVar[ChannelType]
     CHANNEL_TYPE_CHAT: _ClassVar[ChannelType]
     CHANNEL_TYPE_VOICE: _ClassVar[ChannelType]
+    CHANNEL_TYPE_WHATSAPP: _ClassVar[ChannelType]
 
 class OmniCampaignDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -217,6 +218,7 @@ CHANNEL_TYPE_EMAIL: ChannelType
 CHANNEL_TYPE_SMS: ChannelType
 CHANNEL_TYPE_CHAT: ChannelType
 CHANNEL_TYPE_VOICE: ChannelType
+CHANNEL_TYPE_WHATSAPP: ChannelType
 INBOUND: OmniCampaignDirection
 OUTBOUND: OmniCampaignDirection
 SCHEDULING: OmniCampaignStatus
