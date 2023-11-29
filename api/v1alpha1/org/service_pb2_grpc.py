@@ -3,6 +3,7 @@
 import grpc
 
 from api.v1alpha1.org import agent_profile_group_pb2 as api_dot_v1alpha1_dot_org_dot_agent__profile__group__pb2
+from api.v1alpha1.org import auth_token_pb2 as api_dot_v1alpha1_dot_org_dot_auth__token__pb2
 from api.v1alpha1.org import huntgroup_pb2 as api_dot_v1alpha1_dot_org_dot_huntgroup__pb2
 from api.v1alpha1.org import labels_pb2 as api_dot_v1alpha1_dot_org_dot_labels__pb2
 from api.v1alpha1.org import notifications_pb2 as api_dot_v1alpha1_dot_org_dot_notifications__pb2
@@ -498,6 +499,46 @@ class OrgStub(object):
                 '/api.v1alpha1.org.Org/ListOrgSubscriptions',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_notifications__pb2.ListOrgSubscriptionsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_notifications__pb2.ListOrgSubscriptionsResponse.FromString,
+                )
+        self.CreateAuthToken = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CreateAuthToken',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenResponse.FromString,
+                )
+        self.CreateAuthTokenByUserId = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CreateAuthTokenByUserId',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenByUserIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenByUserIdResponse.FromString,
+                )
+        self.ListAuthTokens = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListAuthTokens',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensResponse.FromString,
+                )
+        self.ListAuthTokensByUserId = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListAuthTokensByUserId',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensByUserIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensByUserIdResponse.FromString,
+                )
+        self.SetAuthTokenExpiration = channel.unary_unary(
+                '/api.v1alpha1.org.Org/SetAuthTokenExpiration',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationResponse.FromString,
+                )
+        self.SetAuthTokenExpirationByUserId = channel.unary_unary(
+                '/api.v1alpha1.org.Org/SetAuthTokenExpirationByUserId',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationByUserIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationByUserIdResponse.FromString,
+                )
+        self.DeleteAuthToken = channel.unary_unary(
+                '/api.v1alpha1.org.Org/DeleteAuthToken',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenResponse.FromString,
+                )
+        self.DeleteAuthTokenByUserId = channel.unary_unary(
+                '/api.v1alpha1.org.Org/DeleteAuthTokenByUserId',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenByUserIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenByUserIdResponse.FromString,
                 )
         self.GetHuntGroupSettings = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetHuntGroupSettings',
@@ -1498,6 +1539,63 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateAuthToken(self, request, context):
+        """AUTH TOKEN
+        CreateAuthToken creates an auth token for the current user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateAuthTokenByUserId(self, request, context):
+        """CreateAuthTokenByUserId creates an auth token for the given user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAuthTokens(self, request, context):
+        """ListAuthTokens list tokens of current user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAuthTokensByUserId(self, request, context):
+        """ListAuthTokensByUserId list tokens of given user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetAuthTokenExpiration(self, request, context):
+        """SetAuthTokenExpiration sets expiration back one year for current user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetAuthTokenExpirationByUserId(self, request, context):
+        """SetAuthTokenExpirationByUserId sets expiration back one year for given user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAuthToken(self, request, context):
+        """DeleteAuthToken deletes a given auth token for the current user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAuthTokenByUserId(self, request, context):
+        """DeleteAuthTokenByUserId deletes a given auth token for the given user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetHuntGroupSettings(self, request, context):
         """HUNT GROUP
 
@@ -2411,6 +2509,46 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.ListOrgSubscriptions,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_notifications__pb2.ListOrgSubscriptionsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_notifications__pb2.ListOrgSubscriptionsResponse.SerializeToString,
+            ),
+            'CreateAuthToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAuthToken,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenResponse.SerializeToString,
+            ),
+            'CreateAuthTokenByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAuthTokenByUserId,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenByUserIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenByUserIdResponse.SerializeToString,
+            ),
+            'ListAuthTokens': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAuthTokens,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensResponse.SerializeToString,
+            ),
+            'ListAuthTokensByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAuthTokensByUserId,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensByUserIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensByUserIdResponse.SerializeToString,
+            ),
+            'SetAuthTokenExpiration': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetAuthTokenExpiration,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationResponse.SerializeToString,
+            ),
+            'SetAuthTokenExpirationByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetAuthTokenExpirationByUserId,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationByUserIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationByUserIdResponse.SerializeToString,
+            ),
+            'DeleteAuthToken': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAuthToken,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenResponse.SerializeToString,
+            ),
+            'DeleteAuthTokenByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAuthTokenByUserId,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenByUserIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenByUserIdResponse.SerializeToString,
             ),
             'GetHuntGroupSettings': grpc.unary_unary_rpc_method_handler(
                     servicer.GetHuntGroupSettings,
@@ -4325,6 +4463,142 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListOrgSubscriptions',
             api_dot_v1alpha1_dot_org_dot_notifications__pb2.ListOrgSubscriptionsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_notifications__pb2.ListOrgSubscriptionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAuthToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateAuthToken',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAuthTokenByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateAuthTokenByUserId',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenByUserIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.CreateAuthTokenByUserIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAuthTokens(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListAuthTokens',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAuthTokensByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListAuthTokensByUserId',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensByUserIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.ListAuthTokensByUserIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetAuthTokenExpiration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/SetAuthTokenExpiration',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetAuthTokenExpirationByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/SetAuthTokenExpirationByUserId',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationByUserIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.SetAuthTokenExpirationByUserIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAuthToken(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteAuthToken',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAuthTokenByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteAuthTokenByUserId',
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenByUserIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_auth__token__pb2.DeleteAuthTokenByUserIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -1,5 +1,6 @@
 from annotations import authz_pb2 as _authz_pb2
 from api.v1alpha1.org import agent_profile_group_pb2 as _agent_profile_group_pb2
+from api.v1alpha1.org import auth_token_pb2 as _auth_token_pb2
 from api.v1alpha1.org import huntgroup_pb2 as _huntgroup_pb2
 from api.v1alpha1.org import labels_pb2 as _labels_pb2
 from api.v1alpha1.org import notifications_pb2 as _notifications_pb2
