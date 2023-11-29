@@ -112,14 +112,12 @@ class TicketProjectTemplate(_message.Message):
     def __init__(self, ticket_template: _Optional[_Union[TicketTemplate, _Mapping]] = ..., project_description: _Optional[_Iterable[_Union[ProjectDescription, _Mapping]]] = ...) -> None: ...
 
 class ProjectDescription(_message.Message):
-    __slots__ = ("project_id", "project_code", "project_title")
+    __slots__ = ("project_id", "project_title")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
-    PROJECT_CODE_FIELD_NUMBER: _ClassVar[int]
     PROJECT_TITLE_FIELD_NUMBER: _ClassVar[int]
     project_id: int
-    project_code: str
     project_title: str
-    def __init__(self, project_id: _Optional[int] = ..., project_code: _Optional[str] = ..., project_title: _Optional[str] = ...) -> None: ...
+    def __init__(self, project_id: _Optional[int] = ..., project_title: _Optional[str] = ...) -> None: ...
 
 class ListTemplate(_message.Message):
     __slots__ = ("ticket_template_id", "template_name", "project_id", "template", "template_entity_version", "is_active", "created_by_id", "created_date", "project_title", "assigned_project")
