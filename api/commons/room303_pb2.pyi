@@ -11,6 +11,7 @@ class RoomType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     ROOM_TYPE_DIRECT: _ClassVar[RoomType]
     ROOM_TYPE_MULTI: _ClassVar[RoomType]
     ROOM_TYPE_SYSTEM: _ClassVar[RoomType]
+    ROOM_TYPE_GLOBAL_SYSTEM: _ClassVar[RoomType]
 
 class MessageStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -32,6 +33,7 @@ class ConfigPermissionEnum(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
 ROOM_TYPE_DIRECT: RoomType
 ROOM_TYPE_MULTI: RoomType
 ROOM_TYPE_SYSTEM: RoomType
+ROOM_TYPE_GLOBAL_SYSTEM: RoomType
 MESSAGE_STATUS_ACTIVE: MessageStatus
 MESSAGE_STATUS_EDITED: MessageStatus
 MESSAGE_STATUS_ARCHIVED: MessageStatus

@@ -674,12 +674,14 @@ class SFTPTransport(_message.Message):
     def __init__(self, host: _Optional[str] = ..., port: _Optional[int] = ..., password: _Optional[_Union[PasswordRef, _Mapping]] = ..., ssh_key: _Optional[_Union[SSHKeyRef, _Mapping]] = ..., username: _Optional[str] = ..., base_dir: _Optional[str] = ...) -> None: ...
 
 class EmailTransport(_message.Message):
-    __slots__ = ("from_address", "to_address")
+    __slots__ = ("from_address", "to_address", "cc_addresses")
     FROM_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     TO_ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    CC_ADDRESSES_FIELD_NUMBER: _ClassVar[int]
     from_address: str
     to_address: str
-    def __init__(self, from_address: _Optional[str] = ..., to_address: _Optional[str] = ...) -> None: ...
+    cc_addresses: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, from_address: _Optional[str] = ..., to_address: _Optional[str] = ..., cc_addresses: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Room303Transport(_message.Message):
     __slots__ = ("system_message",)
@@ -698,8 +700,12 @@ class Room303SystemMessage(_message.Message):
     def __init__(self, room: _Optional[str] = ..., username: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class SMSTransport(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("destination_phone", "source_phone")
+    DESTINATION_PHONE_FIELD_NUMBER: _ClassVar[int]
+    SOURCE_PHONE_FIELD_NUMBER: _ClassVar[int]
+    destination_phone: str
+    source_phone: str
+    def __init__(self, destination_phone: _Optional[str] = ..., source_phone: _Optional[str] = ...) -> None: ...
 
 class AESEncryptionRef(_message.Message):
     __slots__ = ("aes_sid",)
