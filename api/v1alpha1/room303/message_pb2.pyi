@@ -132,3 +132,25 @@ class BulkMarkMessageReadResponse(_message.Message):
     MESSAGES_FIELD_NUMBER: _ClassVar[int]
     messages: _containers.RepeatedCompositeFieldContainer[_room303_pb2.Message]
     def __init__(self, messages: _Optional[_Iterable[_Union[_room303_pb2.Message, _Mapping]]] = ...) -> None: ...
+
+class ListNewsRoomGlobalMessagesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListNewsRoomGlobalMessagesResponse(_message.Message):
+    __slots__ = ("messages",)
+    MESSAGES_FIELD_NUMBER: _ClassVar[int]
+    messages: _containers.RepeatedCompositeFieldContainer[_room303_pb2.GlobalSystemMessage]
+    def __init__(self, messages: _Optional[_Iterable[_Union[_room303_pb2.GlobalSystemMessage, _Mapping]]] = ...) -> None: ...
+
+class SendNewsRoomGlobalMessageRequest(_message.Message):
+    __slots__ = ("message",)
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    message: _room303_pb2.GlobalSystemMessage
+    def __init__(self, message: _Optional[_Union[_room303_pb2.GlobalSystemMessage, _Mapping]] = ...) -> None: ...
+
+class SendNewsRoomGlobalMessageResponse(_message.Message):
+    __slots__ = ("room_id",)
+    ROOM_ID_FIELD_NUMBER: _ClassVar[int]
+    room_id: str
+    def __init__(self, room_id: _Optional[str] = ...) -> None: ...

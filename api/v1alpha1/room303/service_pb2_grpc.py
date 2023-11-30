@@ -137,6 +137,16 @@ class Room303APIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigResponse.FromString,
                 )
+        self.ListNewsRoomGlobalMessages = channel.unary_unary(
+                '/api.v1alpha1.room303.Room303API/ListNewsRoomGlobalMessages',
+                request_serializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.ListNewsRoomGlobalMessagesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.ListNewsRoomGlobalMessagesResponse.FromString,
+                )
+        self.SendNewsRoomGlobalMessage = channel.unary_unary(
+                '/api.v1alpha1.room303.Room303API/SendNewsRoomGlobalMessage',
+                request_serializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.SendNewsRoomGlobalMessageRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.SendNewsRoomGlobalMessageResponse.FromString,
+                )
 
 
 class Room303APIServicer(object):
@@ -309,6 +319,20 @@ class Room303APIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListNewsRoomGlobalMessages(self, request, context):
+        """ListNewsRoomGlobalMessages returns a list of global messages for newsroom
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SendNewsRoomGlobalMessage(self, request, context):
+        """SendNewsRoomGlobalMessage - send global message for newsroom to be added
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_Room303APIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -431,6 +455,16 @@ def add_Room303APIServicer_to_server(servicer, server):
                     servicer.GetGlobalConfig,
                     request_deserializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigResponse.SerializeToString,
+            ),
+            'ListNewsRoomGlobalMessages': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListNewsRoomGlobalMessages,
+                    request_deserializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.ListNewsRoomGlobalMessagesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.ListNewsRoomGlobalMessagesResponse.SerializeToString,
+            ),
+            'SendNewsRoomGlobalMessage': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendNewsRoomGlobalMessage,
+                    request_deserializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.SendNewsRoomGlobalMessageRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_room303_dot_message__pb2.SendNewsRoomGlobalMessageResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -847,5 +881,39 @@ class Room303API(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/GetGlobalConfig',
             api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigRequest.SerializeToString,
             api_dot_v1alpha1_dot_room303_dot_room__pb2.GetGlobalConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListNewsRoomGlobalMessages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/ListNewsRoomGlobalMessages',
+            api_dot_v1alpha1_dot_room303_dot_message__pb2.ListNewsRoomGlobalMessagesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_room303_dot_message__pb2.ListNewsRoomGlobalMessagesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendNewsRoomGlobalMessage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.room303.Room303API/SendNewsRoomGlobalMessage',
+            api_dot_v1alpha1_dot_room303_dot_message__pb2.SendNewsRoomGlobalMessageRequest.SerializeToString,
+            api_dot_v1alpha1_dot_room303_dot_message__pb2.SendNewsRoomGlobalMessageResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

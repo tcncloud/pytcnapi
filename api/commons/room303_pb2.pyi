@@ -149,3 +149,23 @@ class RoomConfig(_message.Message):
     send_message: ConfigPermissionEnum
     archive_room: ConfigPermissionEnum
     def __init__(self, add_user: _Optional[_Union[ConfigPermissionEnum, str]] = ..., remove_user: _Optional[_Union[ConfigPermissionEnum, str]] = ..., promote_to_admin: _Optional[_Union[ConfigPermissionEnum, str]] = ..., read_messages: _Optional[_Union[ConfigPermissionEnum, str]] = ..., send_message: _Optional[_Union[ConfigPermissionEnum, str]] = ..., archive_room: _Optional[_Union[ConfigPermissionEnum, str]] = ...) -> None: ...
+
+class GlobalSystemMessage(_message.Message):
+    __slots__ = ("message_id", "room_id", "status", "received_at", "updated_at", "payload", "unread", "config")
+    MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
+    ROOM_ID_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    RECEIVED_AT_FIELD_NUMBER: _ClassVar[int]
+    UPDATED_AT_FIELD_NUMBER: _ClassVar[int]
+    PAYLOAD_FIELD_NUMBER: _ClassVar[int]
+    UNREAD_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_FIELD_NUMBER: _ClassVar[int]
+    message_id: str
+    room_id: str
+    status: MessageStatus
+    received_at: _timestamp_pb2.Timestamp
+    updated_at: _timestamp_pb2.Timestamp
+    payload: str
+    unread: bool
+    config: RoomConfig
+    def __init__(self, message_id: _Optional[str] = ..., room_id: _Optional[str] = ..., status: _Optional[_Union[MessageStatus, str]] = ..., received_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., payload: _Optional[str] = ..., unread: bool = ..., config: _Optional[_Union[RoomConfig, _Mapping]] = ...) -> None: ...
