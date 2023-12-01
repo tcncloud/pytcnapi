@@ -327,6 +327,20 @@ class UpdateBusinessPreferencesResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class UpdateAdminBusinessPreferencesRequest(_message.Message):
+    __slots__ = ("org_id", "business_preferences", "field_mask")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    BUSINESS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    business_preferences: _preferences_pb2.BusinessPreferences
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, org_id: _Optional[str] = ..., business_preferences: _Optional[_Union[_preferences_pb2.BusinessPreferences, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateAdminBusinessPreferencesResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class GetScorecardsPreferencesRequest(_message.Message):
     __slots__ = ("org_id", "field_mask")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]

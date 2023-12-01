@@ -210,6 +210,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessPreferencesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessPreferencesResponse.FromString,
                 )
+        self.UpdateAdminBusinessPreferences = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateAdminBusinessPreferences',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminBusinessPreferencesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminBusinessPreferencesResponse.FromString,
+                )
         self.GetScorecardsPreferences = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetScorecardsPreferences',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetScorecardsPreferencesRequest.SerializeToString,
@@ -1109,6 +1114,13 @@ class OrgServicer(object):
 
     def UpdateBusinessPreferences(self, request, context):
         """UpdateBusinessPreferences updates preferences for business intelligence.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateAdminBusinessPreferences(self, request, context):
+        """UpdateAdminBusinessPreferences updates preferences for business intelligence.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2219,6 +2231,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.UpdateBusinessPreferences,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessPreferencesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessPreferencesResponse.SerializeToString,
+            ),
+            'UpdateAdminBusinessPreferences': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateAdminBusinessPreferences,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminBusinessPreferencesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminBusinessPreferencesResponse.SerializeToString,
             ),
             'GetScorecardsPreferences': grpc.unary_unary_rpc_method_handler(
                     servicer.GetScorecardsPreferences,
@@ -3477,6 +3494,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateBusinessPreferences',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessPreferencesRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessPreferencesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateAdminBusinessPreferences(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateAdminBusinessPreferences',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminBusinessPreferencesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminBusinessPreferencesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
