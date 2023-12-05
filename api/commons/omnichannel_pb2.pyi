@@ -1088,7 +1088,7 @@ class OmniDataField(_message.Message):
     def __init__(self, field_sid: _Optional[int] = ..., parent_sid: _Optional[int] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[_Union[_lms_pb2.FieldType, str]] = ...) -> None: ...
 
 class ConnectedInbox(_message.Message):
-    __slots__ = ("connected_inbox_sid", "email_address", "username", "password", "check_frequency_minutes", "server_name", "server_port", "last_scheduled_time", "last_checked", "purge_threshold", "email_salt", "num_consecutive_failures", "last_error", "standby_error_time", "last_updated", "max_message_size", "max_messages", "google_xoauth2_refresh_token", "google_xoauth2_access_token", "google_xoauth2_access_token_expiration", "authentication_type")
+    __slots__ = ("connected_inbox_sid", "email_address", "username", "password", "check_frequency_minutes", "server_name", "server_port", "last_scheduled_time", "last_checked", "purge_threshold", "email_salt", "num_consecutive_failures", "last_error", "standby_error_time", "last_updated", "max_message_size", "max_messages", "google_xoauth2_refresh_token", "google_xoauth2_access_token", "google_xoauth2_access_token_expiration", "authentication_type", "oauth_reference_id")
     CONNECTED_INBOX_SID_FIELD_NUMBER: _ClassVar[int]
     EMAIL_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
@@ -1110,6 +1110,7 @@ class ConnectedInbox(_message.Message):
     GOOGLE_XOAUTH2_ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
     GOOGLE_XOAUTH2_ACCESS_TOKEN_EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     AUTHENTICATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    OAUTH_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     connected_inbox_sid: int
     email_address: str
     username: str
@@ -1131,7 +1132,20 @@ class ConnectedInbox(_message.Message):
     google_xoauth2_access_token: _wrappers_pb2.StringValue
     google_xoauth2_access_token_expiration: _timestamp_pb2.Timestamp
     authentication_type: ConnectedInboxAuthenticationType
-    def __init__(self, connected_inbox_sid: _Optional[int] = ..., email_address: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ..., check_frequency_minutes: _Optional[int] = ..., server_name: _Optional[str] = ..., server_port: _Optional[int] = ..., last_scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_checked: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., purge_threshold: _Optional[int] = ..., email_salt: _Optional[str] = ..., num_consecutive_failures: _Optional[int] = ..., last_error: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., standby_error_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., max_message_size: _Optional[int] = ..., max_messages: _Optional[int] = ..., google_xoauth2_refresh_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., authentication_type: _Optional[_Union[ConnectedInboxAuthenticationType, str]] = ...) -> None: ...
+    oauth_reference_id: ConnectedInboxOAuthConfig
+    def __init__(self, connected_inbox_sid: _Optional[int] = ..., email_address: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ..., check_frequency_minutes: _Optional[int] = ..., server_name: _Optional[str] = ..., server_port: _Optional[int] = ..., last_scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_checked: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., purge_threshold: _Optional[int] = ..., email_salt: _Optional[str] = ..., num_consecutive_failures: _Optional[int] = ..., last_error: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., standby_error_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., max_message_size: _Optional[int] = ..., max_messages: _Optional[int] = ..., google_xoauth2_refresh_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., authentication_type: _Optional[_Union[ConnectedInboxAuthenticationType, str]] = ..., oauth_reference_id: _Optional[_Union[ConnectedInboxOAuthConfig, _Mapping]] = ...) -> None: ...
+
+class ConnectedInboxOAuthConfig(_message.Message):
+    __slots__ = ("access_token", "refresh_token", "expires_at", "reference_id")
+    ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    REFRESH_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
+    REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    access_token: str
+    refresh_token: str
+    expires_at: int
+    reference_id: str
+    def __init__(self, access_token: _Optional[str] = ..., refresh_token: _Optional[str] = ..., expires_at: _Optional[int] = ..., reference_id: _Optional[str] = ...) -> None: ...
 
 class VerifiedEmail(_message.Message):
     __slots__ = ("verified_email_sid", "email_address", "verified", "created_on", "verified_on", "deleted", "description")
