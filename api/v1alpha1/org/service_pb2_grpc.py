@@ -390,6 +390,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetUserPasswordResetLinkByOrgIdRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetUserPasswordResetLinkByOrgIdResponse.FromString,
                 )
+        self.CreatePasswordResetLink = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CreatePasswordResetLink',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.CreatePasswordResetLinkRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.CreatePasswordResetLinkResponse.FromString,
+                )
         self.GetUserLoginInfo = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetUserLoginInfo',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetUserLoginInfoRequest.SerializeToString,
@@ -1376,6 +1381,13 @@ class OrgServicer(object):
 
     def GetUserPasswordResetLinkByOrgId(self, request, context):
         """GetUserPasswordResetLinkByOrgId gets a link to update a user's password.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreatePasswordResetLink(self, request, context):
+        """CreatePasswordResetLink creates a password reset link for the given user id.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2411,6 +2423,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.GetUserPasswordResetLinkByOrgId,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetUserPasswordResetLinkByOrgIdRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetUserPasswordResetLinkByOrgIdResponse.SerializeToString,
+            ),
+            'CreatePasswordResetLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePasswordResetLink,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.CreatePasswordResetLinkRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.CreatePasswordResetLinkResponse.SerializeToString,
             ),
             'GetUserLoginInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserLoginInfo,
@@ -4106,6 +4123,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetUserPasswordResetLinkByOrgId',
             api_dot_v1alpha1_dot_org_dot_user__pb2.GetUserPasswordResetLinkByOrgIdRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_user__pb2.GetUserPasswordResetLinkByOrgIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreatePasswordResetLink(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreatePasswordResetLink',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.CreatePasswordResetLinkRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.CreatePasswordResetLinkResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

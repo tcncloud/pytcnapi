@@ -604,6 +604,20 @@ class GetUserPasswordResetLinkByOrgIdResponse(_message.Message):
     url: str
     def __init__(self, url: _Optional[str] = ...) -> None: ...
 
+class CreatePasswordResetLinkRequest(_message.Message):
+    __slots__ = ("user_id", "expiration")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    EXPIRATION_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    expiration: _timestamp_pb2.Timestamp
+    def __init__(self, user_id: _Optional[str] = ..., expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class CreatePasswordResetLinkResponse(_message.Message):
+    __slots__ = ("url",)
+    URL_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    def __init__(self, url: _Optional[str] = ...) -> None: ...
+
 class GetUserLoginInfoRequest(_message.Message):
     __slots__ = ("user_id", "org_id")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
