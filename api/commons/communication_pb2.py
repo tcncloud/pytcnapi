@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from api.commons import acd_pb2 as api_dot_commons_dot_acd__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/commons/communication.proto\x12\x0b\x61pi.commons\x1a\x15\x61pi/commons/acd.proto\"\xc3\x01\n\x08\x43ommType\x12\x39\n\tcall_type\x18\x01 \x01(\x0e\x32\x1a.api.commons.CallType.EnumH\x00R\x08\x63\x61llType\x12<\n\nemail_type\x18\x02 \x01(\x0e\x32\x1b.api.commons.EmailType.EnumH\x00R\temailType\x12\x36\n\x08sms_type\x18\x03 \x01(\x0e\x32\x19.api.commons.SmsType.EnumH\x00R\x07smsTypeB\x06\n\x04type\"!\n\tEmailType\"\x14\n\x04\x45num\x12\x0c\n\x08OUTBOUND\x10\x00\"\x1f\n\x07SmsType\"\x14\n\x04\x45num\x12\x0c\n\x08OUTBOUND\x10\x00\x42r\n\x0f\x63om.api.commonsB\x12\x43ommunicationProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1f\x61pi/commons/communication.proto\x12\x0b\x61pi.commons\x1a\x15\x61pi/commons/acd.proto\"\x8a\x02\n\x08\x43ommType\x12\x39\n\tcall_type\x18\x01 \x01(\x0e\x32\x1a.api.commons.CallType.EnumH\x00R\x08\x63\x61llType\x12<\n\nemail_type\x18\x02 \x01(\x0e\x32\x1b.api.commons.EmailType.EnumH\x00R\temailType\x12\x36\n\x08sms_type\x18\x03 \x01(\x0e\x32\x19.api.commons.SmsType.EnumH\x00R\x07smsType\x12\x45\n\rwhatsapp_type\x18\x04 \x01(\x0e\x32\x1e.api.commons.WhatsAppType.EnumH\x00R\x0cwhatsappTypeB\x06\n\x04type\"!\n\tEmailType\"\x14\n\x04\x45num\x12\x0c\n\x08OUTBOUND\x10\x00\"\x1f\n\x07SmsType\"\x14\n\x04\x45num\x12\x0c\n\x08OUTBOUND\x10\x00\"$\n\x0cWhatsAppType\"\x14\n\x04\x45num\x12\x0c\n\x08OUTBOUND\x10\x00\x42r\n\x0f\x63om.api.commonsB\x12\x43ommunicationProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,13 +24,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.commonsB\022CommunicationProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
   _globals['_COMMTYPE']._serialized_start=72
-  _globals['_COMMTYPE']._serialized_end=267
-  _globals['_EMAILTYPE']._serialized_start=269
-  _globals['_EMAILTYPE']._serialized_end=302
-  _globals['_EMAILTYPE_ENUM']._serialized_start=282
-  _globals['_EMAILTYPE_ENUM']._serialized_end=302
-  _globals['_SMSTYPE']._serialized_start=304
-  _globals['_SMSTYPE']._serialized_end=335
-  _globals['_SMSTYPE_ENUM']._serialized_start=282
-  _globals['_SMSTYPE_ENUM']._serialized_end=302
+  _globals['_COMMTYPE']._serialized_end=338
+  _globals['_EMAILTYPE']._serialized_start=340
+  _globals['_EMAILTYPE']._serialized_end=373
+  _globals['_EMAILTYPE_ENUM']._serialized_start=353
+  _globals['_EMAILTYPE_ENUM']._serialized_end=373
+  _globals['_SMSTYPE']._serialized_start=375
+  _globals['_SMSTYPE']._serialized_end=406
+  _globals['_SMSTYPE_ENUM']._serialized_start=353
+  _globals['_SMSTYPE_ENUM']._serialized_end=373
+  _globals['_WHATSAPPTYPE']._serialized_start=408
+  _globals['_WHATSAPPTYPE']._serialized_end=444
+  _globals['_WHATSAPPTYPE_ENUM']._serialized_start=353
+  _globals['_WHATSAPPTYPE_ENUM']._serialized_end=373
 # @@protoc_insertion_point(module_scope)

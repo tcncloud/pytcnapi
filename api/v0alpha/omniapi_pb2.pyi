@@ -52,7 +52,7 @@ class ContactListDataSource(_message.Message):
     def __init__(self, contact_list_sid: _Optional[int] = ...) -> None: ...
 
 class ListCampaignsReq(_message.Message):
-    __slots__ = ("statuses", "field_mask", "by_ids", "by_project", "by_time", "by_unsubscribe_link", "by_connected_inbox", "by_verified_email", "by_sms_number")
+    __slots__ = ("statuses", "field_mask", "by_ids", "by_project", "by_time", "by_unsubscribe_link", "by_connected_inbox", "by_verified_email", "by_sms_number", "by_whatsapp_number")
     class ByConnectedInbox(_message.Message):
         __slots__ = ("inbox_sid",)
         INBOX_SID_FIELD_NUMBER: _ClassVar[int]
@@ -90,6 +90,11 @@ class ListCampaignsReq(_message.Message):
         NUMBER_FIELD_NUMBER: _ClassVar[int]
         number: str
         def __init__(self, number: _Optional[str] = ...) -> None: ...
+    class ByWhatsAppNumber(_message.Message):
+        __slots__ = ("number",)
+        NUMBER_FIELD_NUMBER: _ClassVar[int]
+        number: str
+        def __init__(self, number: _Optional[str] = ...) -> None: ...
     STATUSES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     BY_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -99,6 +104,7 @@ class ListCampaignsReq(_message.Message):
     BY_CONNECTED_INBOX_FIELD_NUMBER: _ClassVar[int]
     BY_VERIFIED_EMAIL_FIELD_NUMBER: _ClassVar[int]
     BY_SMS_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    BY_WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
     statuses: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.OmniCampaignStatus]
     field_mask: _field_mask_pb2.FieldMask
     by_ids: ListCampaignsReq.ByIds
@@ -108,7 +114,8 @@ class ListCampaignsReq(_message.Message):
     by_connected_inbox: ListCampaignsReq.ByConnectedInbox
     by_verified_email: ListCampaignsReq.ByVerifiedEmail
     by_sms_number: ListCampaignsReq.BySmsNumber
-    def __init__(self, statuses: _Optional[_Iterable[_Union[_omnichannel_pb2.OmniCampaignStatus, str]]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., by_ids: _Optional[_Union[ListCampaignsReq.ByIds, _Mapping]] = ..., by_project: _Optional[_Union[ListCampaignsReq.ByProject, _Mapping]] = ..., by_time: _Optional[_Union[ListCampaignsReq.ByTime, _Mapping]] = ..., by_unsubscribe_link: _Optional[_Union[ListCampaignsReq.ByUnsubscribeLink, _Mapping]] = ..., by_connected_inbox: _Optional[_Union[ListCampaignsReq.ByConnectedInbox, _Mapping]] = ..., by_verified_email: _Optional[_Union[ListCampaignsReq.ByVerifiedEmail, _Mapping]] = ..., by_sms_number: _Optional[_Union[ListCampaignsReq.BySmsNumber, _Mapping]] = ...) -> None: ...
+    by_whatsapp_number: ListCampaignsReq.ByWhatsAppNumber
+    def __init__(self, statuses: _Optional[_Iterable[_Union[_omnichannel_pb2.OmniCampaignStatus, str]]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., by_ids: _Optional[_Union[ListCampaignsReq.ByIds, _Mapping]] = ..., by_project: _Optional[_Union[ListCampaignsReq.ByProject, _Mapping]] = ..., by_time: _Optional[_Union[ListCampaignsReq.ByTime, _Mapping]] = ..., by_unsubscribe_link: _Optional[_Union[ListCampaignsReq.ByUnsubscribeLink, _Mapping]] = ..., by_connected_inbox: _Optional[_Union[ListCampaignsReq.ByConnectedInbox, _Mapping]] = ..., by_verified_email: _Optional[_Union[ListCampaignsReq.ByVerifiedEmail, _Mapping]] = ..., by_sms_number: _Optional[_Union[ListCampaignsReq.BySmsNumber, _Mapping]] = ..., by_whatsapp_number: _Optional[_Union[ListCampaignsReq.ByWhatsAppNumber, _Mapping]] = ...) -> None: ...
 
 class ListCampaignsRes(_message.Message):
     __slots__ = ("campaigns", "modules")
@@ -1052,3 +1059,13 @@ class OmniSkill(_message.Message):
     description: str
     type: _wfm_pb2.SkillType.Enum
     def __init__(self, region: _Optional[str] = ..., p3_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_wfm_pb2.SkillType.Enum, str]] = ...) -> None: ...
+
+class ListWhatsAppNumbersReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListWhatsAppNumbersRes(_message.Message):
+    __slots__ = ("whatsapp_numbers",)
+    WHATSAPP_NUMBERS_FIELD_NUMBER: _ClassVar[int]
+    whatsapp_numbers: _containers.RepeatedCompositeFieldContainer[_omnichannel_pb2.WhatsAppNumber]
+    def __init__(self, whatsapp_numbers: _Optional[_Iterable[_Union[_omnichannel_pb2.WhatsAppNumber, _Mapping]]] = ...) -> None: ...

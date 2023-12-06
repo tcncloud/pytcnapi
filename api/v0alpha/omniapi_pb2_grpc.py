@@ -364,6 +364,11 @@ class OmniApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListUserSkillsReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListUserSkillsRes.FromString,
                 )
+        self.ListWhatsAppNumbers = channel.unary_unary(
+                '/api.v0alpha.OmniApi/ListWhatsAppNumbers',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersRes.FromString,
+                )
 
 
 class OmniApiServicer(object):
@@ -990,6 +995,13 @@ class OmniApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListWhatsAppNumbers(self, request, context):
+        """List whatsapp numbers for the client
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OmniApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1337,6 +1349,11 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.ListUserSkills,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListUserSkillsReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListUserSkillsRes.SerializeToString,
+            ),
+            'ListWhatsAppNumbers': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListWhatsAppNumbers,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2521,5 +2538,22 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ListUserSkills',
             api_dot_v0alpha_dot_omniapi__pb2.ListUserSkillsReq.SerializeToString,
             api_dot_v0alpha_dot_omniapi__pb2.ListUserSkillsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListWhatsAppNumbers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ListWhatsAppNumbers',
+            api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersReq.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

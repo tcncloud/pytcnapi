@@ -201,6 +201,11 @@ class CampaignDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     CAMPAIGN_DIRECTION_INBOUND: _ClassVar[CampaignDirection]
     CAMPAIGN_DIRECTION_OUTBOUND: _ClassVar[CampaignDirection]
+
+class WhatsAppNumberProvider(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    UNKNOWN_WHATSAPP_PROVIDER: _ClassVar[WhatsAppNumberProvider]
+    WHATSAPP_SMS_PROVIDER: _ClassVar[WhatsAppNumberProvider]
 SMS_SHORT_CODE_TYPE: SmsNumberType
 SMS_ALPHANUMERIC_TYPE: SmsNumberType
 SMS_NUMBER_TYPE: SmsNumberType
@@ -326,6 +331,8 @@ CAMPAIGN_STATUS_CANCELED: CampaignStatus
 CAMPAIGN_STATUS_ERROR_PAUSED: CampaignStatus
 CAMPAIGN_DIRECTION_INBOUND: CampaignDirection
 CAMPAIGN_DIRECTION_OUTBOUND: CampaignDirection
+UNKNOWN_WHATSAPP_PROVIDER: WhatsAppNumberProvider
+WHATSAPP_SMS_PROVIDER: WhatsAppNumberProvider
 
 class OmniCampaign(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url", "compliance_config")
@@ -403,7 +410,7 @@ class OmniCampaignModule(_message.Message):
     def __init__(self, campaign_module_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., module_type: _Optional[_Union[OmniCampaignModuleType, str]] = ..., status: _Optional[_Union[OmniCampaignModuleStatus, str]] = ..., config: _Optional[_Union[OmniCampaignModuleConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., scheduled_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., actual_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., hours_of_operation: _Optional[_Union[WeekdayTimeRange, _Mapping]] = ..., details: _Optional[_Union[OmniCampaignModule.Details, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ...) -> None: ...
 
 class OmniCampaignModuleConfig(_message.Message):
-    __slots__ = ("api_key_primary", "api_key_secondary", "color_properties", "connected_inbox_sid", "dispositions", "email", "message_body", "email_subject", "sms_number", "header", "sla_timeouts", "sends_per_hour", "unsubscribe_link_sid", "verified_email_sid", "stop_on_task_deplete", "attachments", "compliance_rule_set_id", "payment_portal_ids", "flow_id", "skills")
+    __slots__ = ("api_key_primary", "api_key_secondary", "color_properties", "connected_inbox_sid", "dispositions", "email", "message_body", "email_subject", "sms_number", "header", "sla_timeouts", "sends_per_hour", "unsubscribe_link_sid", "verified_email_sid", "stop_on_task_deplete", "attachments", "compliance_rule_set_id", "payment_portal_ids", "flow_id", "skills", "whatsapp_number")
     API_KEY_PRIMARY_FIELD_NUMBER: _ClassVar[int]
     API_KEY_SECONDARY_FIELD_NUMBER: _ClassVar[int]
     COLOR_PROPERTIES_FIELD_NUMBER: _ClassVar[int]
@@ -424,6 +431,7 @@ class OmniCampaignModuleConfig(_message.Message):
     PAYMENT_PORTAL_IDS_FIELD_NUMBER: _ClassVar[int]
     FLOW_ID_FIELD_NUMBER: _ClassVar[int]
     SKILLS_FIELD_NUMBER: _ClassVar[int]
+    WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
     api_key_primary: _wrappers_pb2.StringValue
     api_key_secondary: _wrappers_pb2.StringValue
     color_properties: _chat_pb2.ChatColorProperties
@@ -444,7 +452,8 @@ class OmniCampaignModuleConfig(_message.Message):
     payment_portal_ids: _containers.RepeatedScalarFieldContainer[str]
     flow_id: _types_pb2.Int64Id
     skills: OmniConversationSkills
-    def __init__(self, api_key_primary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., api_key_secondary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., color_properties: _Optional[_Union[_chat_pb2.ChatColorProperties, _Mapping]] = ..., connected_inbox_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., dispositions: _Optional[_Iterable[_Union[Disposition, _Mapping]]] = ..., email: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., message_body: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., email_subject: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sms_number: _Optional[_Union[SmsNumber, _Mapping]] = ..., header: _Optional[_Union[_chat_pb2.ChatHeader, _Mapping]] = ..., sla_timeouts: _Optional[_Union[SLATimeouts, _Mapping]] = ..., sends_per_hour: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., unsubscribe_link_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., verified_email_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., stop_on_task_deplete: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., compliance_rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., payment_portal_ids: _Optional[_Iterable[str]] = ..., flow_id: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ...) -> None: ...
+    whatsapp_number: WhatsAppNumber
+    def __init__(self, api_key_primary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., api_key_secondary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., color_properties: _Optional[_Union[_chat_pb2.ChatColorProperties, _Mapping]] = ..., connected_inbox_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., dispositions: _Optional[_Iterable[_Union[Disposition, _Mapping]]] = ..., email: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., message_body: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., email_subject: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sms_number: _Optional[_Union[SmsNumber, _Mapping]] = ..., header: _Optional[_Union[_chat_pb2.ChatHeader, _Mapping]] = ..., sla_timeouts: _Optional[_Union[SLATimeouts, _Mapping]] = ..., sends_per_hour: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., unsubscribe_link_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., verified_email_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., stop_on_task_deplete: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., compliance_rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., payment_portal_ids: _Optional[_Iterable[str]] = ..., flow_id: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., whatsapp_number: _Optional[_Union[WhatsAppNumber, _Mapping]] = ...) -> None: ...
 
 class SmsNumber(_message.Message):
     __slots__ = ("number", "type", "provider", "country_code")
@@ -1088,7 +1097,7 @@ class OmniDataField(_message.Message):
     def __init__(self, field_sid: _Optional[int] = ..., parent_sid: _Optional[int] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[_Union[_lms_pb2.FieldType, str]] = ...) -> None: ...
 
 class ConnectedInbox(_message.Message):
-    __slots__ = ("connected_inbox_sid", "email_address", "username", "password", "check_frequency_minutes", "server_name", "server_port", "last_scheduled_time", "last_checked", "purge_threshold", "email_salt", "num_consecutive_failures", "last_error", "standby_error_time", "last_updated", "max_message_size", "max_messages", "google_xoauth2_refresh_token", "google_xoauth2_access_token", "google_xoauth2_access_token_expiration", "authentication_type")
+    __slots__ = ("connected_inbox_sid", "email_address", "username", "password", "check_frequency_minutes", "server_name", "server_port", "last_scheduled_time", "last_checked", "purge_threshold", "email_salt", "num_consecutive_failures", "last_error", "standby_error_time", "last_updated", "max_message_size", "max_messages", "google_xoauth2_refresh_token", "google_xoauth2_access_token", "google_xoauth2_access_token_expiration", "authentication_type", "oauth_reference_id")
     CONNECTED_INBOX_SID_FIELD_NUMBER: _ClassVar[int]
     EMAIL_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
@@ -1110,6 +1119,7 @@ class ConnectedInbox(_message.Message):
     GOOGLE_XOAUTH2_ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
     GOOGLE_XOAUTH2_ACCESS_TOKEN_EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     AUTHENTICATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    OAUTH_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     connected_inbox_sid: int
     email_address: str
     username: str
@@ -1131,7 +1141,20 @@ class ConnectedInbox(_message.Message):
     google_xoauth2_access_token: _wrappers_pb2.StringValue
     google_xoauth2_access_token_expiration: _timestamp_pb2.Timestamp
     authentication_type: ConnectedInboxAuthenticationType
-    def __init__(self, connected_inbox_sid: _Optional[int] = ..., email_address: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ..., check_frequency_minutes: _Optional[int] = ..., server_name: _Optional[str] = ..., server_port: _Optional[int] = ..., last_scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_checked: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., purge_threshold: _Optional[int] = ..., email_salt: _Optional[str] = ..., num_consecutive_failures: _Optional[int] = ..., last_error: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., standby_error_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., max_message_size: _Optional[int] = ..., max_messages: _Optional[int] = ..., google_xoauth2_refresh_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., authentication_type: _Optional[_Union[ConnectedInboxAuthenticationType, str]] = ...) -> None: ...
+    oauth_reference_id: ConnectedInboxOAuthConfig
+    def __init__(self, connected_inbox_sid: _Optional[int] = ..., email_address: _Optional[str] = ..., username: _Optional[str] = ..., password: _Optional[str] = ..., check_frequency_minutes: _Optional[int] = ..., server_name: _Optional[str] = ..., server_port: _Optional[int] = ..., last_scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_checked: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., purge_threshold: _Optional[int] = ..., email_salt: _Optional[str] = ..., num_consecutive_failures: _Optional[int] = ..., last_error: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., standby_error_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., max_message_size: _Optional[int] = ..., max_messages: _Optional[int] = ..., google_xoauth2_refresh_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., google_xoauth2_access_token_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., authentication_type: _Optional[_Union[ConnectedInboxAuthenticationType, str]] = ..., oauth_reference_id: _Optional[_Union[ConnectedInboxOAuthConfig, _Mapping]] = ...) -> None: ...
+
+class ConnectedInboxOAuthConfig(_message.Message):
+    __slots__ = ("access_token", "refresh_token", "expires_at", "reference_id")
+    ACCESS_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    REFRESH_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    EXPIRES_AT_FIELD_NUMBER: _ClassVar[int]
+    REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    access_token: str
+    refresh_token: str
+    expires_at: int
+    reference_id: str
+    def __init__(self, access_token: _Optional[str] = ..., refresh_token: _Optional[str] = ..., expires_at: _Optional[int] = ..., reference_id: _Optional[str] = ...) -> None: ...
 
 class VerifiedEmail(_message.Message):
     __slots__ = ("verified_email_sid", "email_address", "verified", "created_on", "verified_on", "deleted", "description")
@@ -1170,12 +1193,14 @@ class Signature(_message.Message):
     def __init__(self, signature_sid: _Optional[int] = ..., signature: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class OmniProjectComplianceConfig(_message.Message):
-    __slots__ = ("email", "sms")
+    __slots__ = ("email", "sms", "whatsapp")
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     SMS_FIELD_NUMBER: _ClassVar[int]
+    WHATSAPP_FIELD_NUMBER: _ClassVar[int]
     email: OmniComplianceConfig
     sms: OmniComplianceConfig
-    def __init__(self, email: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., sms: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ...) -> None: ...
+    whatsapp: OmniComplianceConfig
+    def __init__(self, email: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., sms: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., whatsapp: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ...) -> None: ...
 
 class OmniComplianceAction(_message.Message):
     __slots__ = ("keywords", "confirmation_message")
@@ -1200,3 +1225,13 @@ class OmniComplianceConfig(_message.Message):
     scrub_list_id: str
     rule_set_id: _wrappers_pb2.StringValue
     def __init__(self, opt_in: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., opt_out: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., help: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., information: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., scrub_list_id: _Optional[str] = ..., rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
+
+class WhatsAppNumber(_message.Message):
+    __slots__ = ("number", "provider", "country_code")
+    NUMBER_FIELD_NUMBER: _ClassVar[int]
+    PROVIDER_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    number: str
+    provider: WhatsAppNumberProvider
+    country_code: int
+    def __init__(self, number: _Optional[str] = ..., provider: _Optional[_Union[WhatsAppNumberProvider, str]] = ..., country_code: _Optional[int] = ...) -> None: ...

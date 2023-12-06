@@ -808,7 +808,7 @@ class InvoiceFlow(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[InvoiceExperianQueryBalance, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[InvoiceAuthorizeNetLinkData, _Mapping]] = ..., authorize_net_custom_http: _Optional[_Union[InvoiceAuthorizeNetCustomHttp, _Mapping]] = ..., journey: _Optional[_Union[InvoiceJourney, _Mapping]] = ..., dynamic_journey: _Optional[_Union[InvoiceDynamicJourney, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[InvoiceNewzwareAccountInquiry, _Mapping]] = ..., invoice_template: _Optional[_Union[InvoiceTemplate, _Mapping]] = ...) -> None: ...
 
 class PaymentFlow(_message.Message):
-    __slots__ = ("plugin_instance_id", "experian_cc", "experian_ach", "authorize_net_cc", "authorize_net_ach", "authorize_net_paypal", "authorize_net_apple_pay", "authorize_net_google_pay", "payway_submit_card_sale_request", "payway_submit_ach_alert_request", "newzware_cc", "newzware_ach", "priocommerce_cc", "priocommerce_ach", "payment_fields")
+    __slots__ = ("plugin_instance_id", "experian_cc", "experian_ach", "authorize_net_cc", "authorize_net_ach", "authorize_net_paypal", "authorize_net_apple_pay", "authorize_net_google_pay", "payway_submit_card_sale_request", "payway_submit_ach_alert_request", "newzware_cc", "newzware_ach", "priocommerce_cc", "priocommerce_ach", "paymentvision_cc", "paymentvision_ach", "payment_fields")
     PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_CC_FIELD_NUMBER: _ClassVar[int]
     EXPERIAN_ACH_FIELD_NUMBER: _ClassVar[int]
@@ -823,6 +823,8 @@ class PaymentFlow(_message.Message):
     NEWZWARE_ACH_FIELD_NUMBER: _ClassVar[int]
     PRIOCOMMERCE_CC_FIELD_NUMBER: _ClassVar[int]
     PRIOCOMMERCE_ACH_FIELD_NUMBER: _ClassVar[int]
+    PAYMENTVISION_CC_FIELD_NUMBER: _ClassVar[int]
+    PAYMENTVISION_ACH_FIELD_NUMBER: _ClassVar[int]
     PAYMENT_FIELDS_FIELD_NUMBER: _ClassVar[int]
     plugin_instance_id: str
     experian_cc: PaymentExperianCC
@@ -838,8 +840,10 @@ class PaymentFlow(_message.Message):
     newzware_ach: PaymentNewzwareAch
     priocommerce_cc: PaymentPriocommerceCc
     priocommerce_ach: PaymentPriocommerceAch
+    paymentvision_cc: PaymentVisionCC
+    paymentvision_ach: PaymentVisionACH
     payment_fields: _containers.RepeatedCompositeFieldContainer[FieldDefinition]
-    def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_cc: _Optional[_Union[PaymentExperianCC, _Mapping]] = ..., experian_ach: _Optional[_Union[PaymentExperianACH, _Mapping]] = ..., authorize_net_cc: _Optional[_Union[PaymentAuthorizeNetCC, _Mapping]] = ..., authorize_net_ach: _Optional[_Union[PaymentAuthorizeNetACH, _Mapping]] = ..., authorize_net_paypal: _Optional[_Union[PaymentAuthorizeNetPaypal, _Mapping]] = ..., authorize_net_apple_pay: _Optional[_Union[PaymentAuthorizeNetApplePay, _Mapping]] = ..., authorize_net_google_pay: _Optional[_Union[PaymentAuthorizeNetGooglePay, _Mapping]] = ..., payway_submit_card_sale_request: _Optional[_Union[PaymentPaywaySubmitCardSaleRequest, _Mapping]] = ..., payway_submit_ach_alert_request: _Optional[_Union[PaymentPaywaySubmitACHAlertRequest, _Mapping]] = ..., newzware_cc: _Optional[_Union[PaymentNewzwareCc, _Mapping]] = ..., newzware_ach: _Optional[_Union[PaymentNewzwareAch, _Mapping]] = ..., priocommerce_cc: _Optional[_Union[PaymentPriocommerceCc, _Mapping]] = ..., priocommerce_ach: _Optional[_Union[PaymentPriocommerceAch, _Mapping]] = ..., payment_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
+    def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_cc: _Optional[_Union[PaymentExperianCC, _Mapping]] = ..., experian_ach: _Optional[_Union[PaymentExperianACH, _Mapping]] = ..., authorize_net_cc: _Optional[_Union[PaymentAuthorizeNetCC, _Mapping]] = ..., authorize_net_ach: _Optional[_Union[PaymentAuthorizeNetACH, _Mapping]] = ..., authorize_net_paypal: _Optional[_Union[PaymentAuthorizeNetPaypal, _Mapping]] = ..., authorize_net_apple_pay: _Optional[_Union[PaymentAuthorizeNetApplePay, _Mapping]] = ..., authorize_net_google_pay: _Optional[_Union[PaymentAuthorizeNetGooglePay, _Mapping]] = ..., payway_submit_card_sale_request: _Optional[_Union[PaymentPaywaySubmitCardSaleRequest, _Mapping]] = ..., payway_submit_ach_alert_request: _Optional[_Union[PaymentPaywaySubmitACHAlertRequest, _Mapping]] = ..., newzware_cc: _Optional[_Union[PaymentNewzwareCc, _Mapping]] = ..., newzware_ach: _Optional[_Union[PaymentNewzwareAch, _Mapping]] = ..., priocommerce_cc: _Optional[_Union[PaymentPriocommerceCc, _Mapping]] = ..., priocommerce_ach: _Optional[_Union[PaymentPriocommerceAch, _Mapping]] = ..., paymentvision_cc: _Optional[_Union[PaymentVisionCC, _Mapping]] = ..., paymentvision_ach: _Optional[_Union[PaymentVisionACH, _Mapping]] = ..., payment_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class VerificationFlow(_message.Message):
     __slots__ = ("plugin_instance_id", "experian_query_balance", "experian_link_data", "experian_zip_dob", "authorize_net_customer_profile", "authorize_net_link_data", "journey", "newzware_lookup_phone", "newzware_account_inquiry", "verification_fields")
@@ -1437,6 +1441,14 @@ class PaymentPriocommerceCc(_message.Message):
     def __init__(self) -> None: ...
 
 class PaymentPriocommerceAch(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class PaymentVisionCC(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class PaymentVisionACH(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 

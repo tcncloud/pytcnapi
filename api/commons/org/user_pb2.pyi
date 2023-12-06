@@ -107,3 +107,15 @@ class Skill(_message.Message):
     description: str
     skill_sid: int
     def __init__(self, level: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., skill_sid: _Optional[int] = ...) -> None: ...
+
+class PasswordResetLink(_message.Message):
+    __slots__ = ("link_id", "user_id", "org_id", "expiration")
+    LINK_ID_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    EXPIRATION_FIELD_NUMBER: _ClassVar[int]
+    link_id: str
+    user_id: str
+    org_id: str
+    expiration: _timestamp_pb2.Timestamp
+    def __init__(self, link_id: _Optional[str] = ..., user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

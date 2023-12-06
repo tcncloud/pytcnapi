@@ -367,6 +367,10 @@ class AgentSessionLogActionKey(_message.Message):
         WARM_CALLER_TRANSFER_INVITE_CALLER_INITIAL: _ClassVar[AgentSessionLogActionKey.Enum]
         WARM_CALLER_TRANSFER_INVITE_CALLER: _ClassVar[AgentSessionLogActionKey.Enum]
         WARM_CALLER_TRANSFER_END: _ClassVar[AgentSessionLogActionKey.Enum]
+        BARGE_IN_START: _ClassVar[AgentSessionLogActionKey.Enum]
+        BARGE_IN_STOP: _ClassVar[AgentSessionLogActionKey.Enum]
+        BargeInCallJoined: _ClassVar[AgentSessionLogActionKey.Enum]
+        BargeInCallLeft: _ClassVar[AgentSessionLogActionKey.Enum]
     AGENT_PAUSE_START: AgentSessionLogActionKey.Enum
     AGENT_PAUSE_STOP: AgentSessionLogActionKey.Enum
     AGENT_SKILLS_INITIAL: AgentSessionLogActionKey.Enum
@@ -423,6 +427,10 @@ class AgentSessionLogActionKey(_message.Message):
     WARM_CALLER_TRANSFER_INVITE_CALLER_INITIAL: AgentSessionLogActionKey.Enum
     WARM_CALLER_TRANSFER_INVITE_CALLER: AgentSessionLogActionKey.Enum
     WARM_CALLER_TRANSFER_END: AgentSessionLogActionKey.Enum
+    BARGE_IN_START: AgentSessionLogActionKey.Enum
+    BARGE_IN_STOP: AgentSessionLogActionKey.Enum
+    BargeInCallJoined: AgentSessionLogActionKey.Enum
+    BargeInCallLeft: AgentSessionLogActionKey.Enum
     def __init__(self) -> None: ...
 
 class AgentCallLogActionKey(_message.Message):
