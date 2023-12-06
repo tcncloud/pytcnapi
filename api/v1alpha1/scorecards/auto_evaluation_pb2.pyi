@@ -19,18 +19,49 @@ class GetAutoEvaluationResponse(_message.Message):
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
 
 class ListAutoEvaluationsRequest(_message.Message):
-    __slots__ = ("scorecard_ids", "completed_at")
+    __slots__ = ("scorecard_ids", "completed_at", "category_ids", "call_sid", "agent_user_ids", "page_size", "order_by", "page_token", "risk_levels")
+    class CallSidFilter(_message.Message):
+        __slots__ = ("any_of", "eq", "gte", "lte", "gt", "lt")
+        ANY_OF_FIELD_NUMBER: _ClassVar[int]
+        EQ_FIELD_NUMBER: _ClassVar[int]
+        GTE_FIELD_NUMBER: _ClassVar[int]
+        LTE_FIELD_NUMBER: _ClassVar[int]
+        GT_FIELD_NUMBER: _ClassVar[int]
+        LT_FIELD_NUMBER: _ClassVar[int]
+        any_of: _containers.RepeatedScalarFieldContainer[int]
+        eq: int
+        gte: int
+        lte: int
+        gt: int
+        lt: int
+        def __init__(self, any_of: _Optional[_Iterable[int]] = ..., eq: _Optional[int] = ..., gte: _Optional[int] = ..., lte: _Optional[int] = ..., gt: _Optional[int] = ..., lt: _Optional[int] = ...) -> None: ...
     SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
+    CALL_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    ORDER_BY_FIELD_NUMBER: _ClassVar[int]
+    PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    RISK_LEVELS_FIELD_NUMBER: _ClassVar[int]
     scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
     completed_at: _scorecards_pb2.TimeFilter
-    def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
+    category_ids: _containers.RepeatedScalarFieldContainer[int]
+    call_sid: ListAutoEvaluationsRequest.CallSidFilter
+    agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
+    page_size: int
+    order_by: str
+    page_token: str
+    risk_levels: _containers.RepeatedScalarFieldContainer[_scorecards_pb2.RiskLevel]
+    def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., call_sid: _Optional[_Union[ListAutoEvaluationsRequest.CallSidFilter, _Mapping]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., risk_levels: _Optional[_Iterable[_Union[_scorecards_pb2.RiskLevel, str]]] = ...) -> None: ...
 
 class ListAutoEvaluationsResponse(_message.Message):
-    __slots__ = ("auto_evaluations",)
+    __slots__ = ("auto_evaluations", "next_page_token")
     AUTO_EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     auto_evaluations: _containers.RepeatedCompositeFieldContainer[_scorecards_pb2.AutoEvaluation]
-    def __init__(self, auto_evaluations: _Optional[_Iterable[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]]] = ...) -> None: ...
+    next_page_token: str
+    def __init__(self, auto_evaluations: _Optional[_Iterable[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
 
 class DeleteAutoEvaluationRequest(_message.Message):
     __slots__ = ("auto_evaluation_id",)
