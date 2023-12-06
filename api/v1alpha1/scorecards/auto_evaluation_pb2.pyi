@@ -19,7 +19,7 @@ class GetAutoEvaluationResponse(_message.Message):
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
 
 class ListAutoEvaluationsRequest(_message.Message):
-    __slots__ = ("scorecard_ids", "completed_at", "category_ids", "call_sid", "agent_user_ids", "page_size", "order_by", "page_token")
+    __slots__ = ("scorecard_ids", "completed_at", "category_ids", "call_sid", "agent_user_ids", "page_size", "order_by", "page_token", "risk_levels")
     class CallSidFilter(_message.Message):
         __slots__ = ("any_of", "eq", "gte", "lte", "gt", "lt")
         ANY_OF_FIELD_NUMBER: _ClassVar[int]
@@ -43,6 +43,7 @@ class ListAutoEvaluationsRequest(_message.Message):
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    RISK_LEVELS_FIELD_NUMBER: _ClassVar[int]
     scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
     completed_at: _scorecards_pb2.TimeFilter
     category_ids: _containers.RepeatedScalarFieldContainer[int]
@@ -51,7 +52,8 @@ class ListAutoEvaluationsRequest(_message.Message):
     page_size: int
     order_by: str
     page_token: str
-    def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., call_sid: _Optional[_Union[ListAutoEvaluationsRequest.CallSidFilter, _Mapping]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ...) -> None: ...
+    risk_levels: _containers.RepeatedScalarFieldContainer[_scorecards_pb2.RiskLevel]
+    def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., call_sid: _Optional[_Union[ListAutoEvaluationsRequest.CallSidFilter, _Mapping]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., risk_levels: _Optional[_Iterable[_Union[_scorecards_pb2.RiskLevel, str]]] = ...) -> None: ...
 
 class ListAutoEvaluationsResponse(_message.Message):
     __slots__ = ("auto_evaluations", "next_page_token")
