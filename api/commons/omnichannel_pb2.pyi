@@ -202,17 +202,10 @@ class CampaignDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CAMPAIGN_DIRECTION_INBOUND: _ClassVar[CampaignDirection]
     CAMPAIGN_DIRECTION_OUTBOUND: _ClassVar[CampaignDirection]
 
-class WhatsAppNumberType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    WHATSAPP_NUMBER_TYPE: _ClassVar[WhatsAppNumberType]
-    WHATSAPP_ALPHANUMERIC_TYPE: _ClassVar[WhatsAppNumberType]
-    WHATSAPP_SHORT_CODE_TYPE: _ClassVar[WhatsAppNumberType]
-
 class WhatsAppNumberProvider(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     UNKNOWN_WHATSAPP_PROVIDER: _ClassVar[WhatsAppNumberProvider]
     WHATSAPP_SMS_PROVIDER: _ClassVar[WhatsAppNumberProvider]
-    WHATSAPP_VOICE_PROVIDER: _ClassVar[WhatsAppNumberProvider]
 SMS_SHORT_CODE_TYPE: SmsNumberType
 SMS_ALPHANUMERIC_TYPE: SmsNumberType
 SMS_NUMBER_TYPE: SmsNumberType
@@ -338,12 +331,8 @@ CAMPAIGN_STATUS_CANCELED: CampaignStatus
 CAMPAIGN_STATUS_ERROR_PAUSED: CampaignStatus
 CAMPAIGN_DIRECTION_INBOUND: CampaignDirection
 CAMPAIGN_DIRECTION_OUTBOUND: CampaignDirection
-WHATSAPP_NUMBER_TYPE: WhatsAppNumberType
-WHATSAPP_ALPHANUMERIC_TYPE: WhatsAppNumberType
-WHATSAPP_SHORT_CODE_TYPE: WhatsAppNumberType
 UNKNOWN_WHATSAPP_PROVIDER: WhatsAppNumberProvider
 WHATSAPP_SMS_PROVIDER: WhatsAppNumberProvider
-WHATSAPP_VOICE_PROVIDER: WhatsAppNumberProvider
 
 class OmniCampaign(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url", "compliance_config")
@@ -1224,13 +1213,11 @@ class OmniComplianceConfig(_message.Message):
     def __init__(self, opt_in: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., opt_out: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., help: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., information: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., scrub_list_id: _Optional[str] = ..., rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class WhatsAppNumber(_message.Message):
-    __slots__ = ("number", "type", "provider", "country_code")
+    __slots__ = ("number", "provider", "country_code")
     NUMBER_FIELD_NUMBER: _ClassVar[int]
-    TYPE_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     number: str
-    type: WhatsAppNumberType
     provider: WhatsAppNumberProvider
     country_code: int
-    def __init__(self, number: _Optional[str] = ..., type: _Optional[_Union[WhatsAppNumberType, str]] = ..., provider: _Optional[_Union[WhatsAppNumberProvider, str]] = ..., country_code: _Optional[int] = ...) -> None: ...
+    def __init__(self, number: _Optional[str] = ..., provider: _Optional[_Union[WhatsAppNumberProvider, str]] = ..., country_code: _Optional[int] = ...) -> None: ...
