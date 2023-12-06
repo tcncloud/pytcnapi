@@ -24,6 +24,7 @@ class Entity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     E_CALL: _ClassVar[Entity]
     E_EMAIL: _ClassVar[Entity]
     E_SMS: _ClassVar[Entity]
+    E_WHATSAPP: _ClassVar[Entity]
 
 class SubEntity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -48,12 +49,14 @@ class ContentType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CT_SMS: _ClassVar[ContentType]
     CT_OTHER: _ClassVar[ContentType]
     CT_ACCOUNT_NUMBER: _ClassVar[ContentType]
+    CT_WHATSAPP: _ClassVar[ContentType]
 
 class Channel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     CHANNEL_CALL: _ClassVar[Channel]
     CHANNEL_EMAIL: _ClassVar[Channel]
     CHANNEL_SMS: _ClassVar[Channel]
+    CHANNEL_WHATSAPP: _ClassVar[Channel]
 
 class PluginType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -81,6 +84,7 @@ E_UNKNOWN: Entity
 E_CALL: Entity
 E_EMAIL: Entity
 E_SMS: Entity
+E_WHATSAPP: Entity
 SE_ALL: SubEntity
 SE_INBOUND: SubEntity
 SE_OUTBOUND: SubEntity
@@ -96,9 +100,11 @@ CT_EMAIL: ContentType
 CT_SMS: ContentType
 CT_OTHER: ContentType
 CT_ACCOUNT_NUMBER: ContentType
+CT_WHATSAPP: ContentType
 CHANNEL_CALL: Channel
 CHANNEL_EMAIL: Channel
 CHANNEL_SMS: Channel
+CHANNEL_WHATSAPP: Channel
 UNKNOWN_PLUGIN: PluginType
 GRYPHON: PluginType
 TCN_CONSENT: PluginType
