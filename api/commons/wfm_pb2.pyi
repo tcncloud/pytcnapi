@@ -218,6 +218,13 @@ class HistoryCacheState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LOADING: _ClassVar[HistoryCacheState]
     LOADING_COMPLETE: _ClassVar[HistoryCacheState]
     LOADING_FAILED: _ClassVar[HistoryCacheState]
+
+class InitialSetupState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    NOT_SETUP: _ClassVar[InitialSetupState]
+    SETTING_UP: _ClassVar[InitialSetupState]
+    SETUP_COMPLETE: _ClassVar[InitialSetupState]
+    FAILURE: _ClassVar[InitialSetupState]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -376,6 +383,10 @@ NOT_LOADED: HistoryCacheState
 LOADING: HistoryCacheState
 LOADING_COMPLETE: HistoryCacheState
 LOADING_FAILED: HistoryCacheState
+NOT_SETUP: InitialSetupState
+SETTING_UP: InitialSetupState
+SETUP_COMPLETE: InitialSetupState
+FAILURE: InitialSetupState
 
 class SkillType(_message.Message):
     __slots__ = ()
@@ -606,3 +617,13 @@ class ErrorTrace(_message.Message):
     GRPC_TRACE_BIN_FIELD_NUMBER: _ClassVar[int]
     grpc_trace_bin: str
     def __init__(self, grpc_trace_bin: _Optional[str] = ...) -> None: ...
+
+class InitialSetupStatus(_message.Message):
+    __slots__ = ("state", "progress_percentage", "message")
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    PROGRESS_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    state: InitialSetupState
+    progress_percentage: int
+    message: str
+    def __init__(self, state: _Optional[_Union[InitialSetupState, str]] = ..., progress_percentage: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
