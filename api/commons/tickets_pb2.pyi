@@ -160,7 +160,7 @@ class Duration(_message.Message):
     def __init__(self, value: _Optional[int] = ..., scale: _Optional[_Union[TimeScale, str]] = ...) -> None: ...
 
 class TicketAction(_message.Message):
-    __slots__ = ("ticket_action_id", "action_id", "callback_context", "ticket_id", "start_ts", "expiry_ts", "state", "action_skills", "action_sla_id", "work_done_by", "voice_context", "sms_context", "email_context")
+    __slots__ = ("ticket_action_id", "action_id", "callback_context", "ticket_id", "start_ts", "expiry_ts", "state", "action_skills", "action_sla_id", "work_done_by", "voice_context", "sms_context", "email_context", "action_type")
     TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     CALLBACK_CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -174,6 +174,7 @@ class TicketAction(_message.Message):
     VOICE_CONTEXT_FIELD_NUMBER: _ClassVar[int]
     SMS_CONTEXT_FIELD_NUMBER: _ClassVar[int]
     EMAIL_CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
     ticket_action_id: int
     action_id: int
     callback_context: CallbackContext
@@ -187,7 +188,8 @@ class TicketAction(_message.Message):
     voice_context: CallbackContext
     sms_context: SmsbackContext
     email_context: EmailbackContext
-    def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., callback_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., ticket_id: _Optional[int] = ..., start_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state: _Optional[int] = ..., action_skills: _Optional[_Iterable[str]] = ..., action_sla_id: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., work_done_by: _Optional[str] = ..., voice_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., sms_context: _Optional[_Union[SmsbackContext, _Mapping]] = ..., email_context: _Optional[_Union[EmailbackContext, _Mapping]] = ...) -> None: ...
+    action_type: ActionType
+    def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., callback_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., ticket_id: _Optional[int] = ..., start_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state: _Optional[int] = ..., action_skills: _Optional[_Iterable[str]] = ..., action_sla_id: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., work_done_by: _Optional[str] = ..., voice_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., sms_context: _Optional[_Union[SmsbackContext, _Mapping]] = ..., email_context: _Optional[_Union[EmailbackContext, _Mapping]] = ..., action_type: _Optional[_Union[ActionType, _Mapping]] = ...) -> None: ...
 
 class CallbackContext(_message.Message):
     __slots__ = ("caller_id", "phone_no", "country_code", "caller_name", "caller_country_code")
@@ -216,6 +218,14 @@ class SmsbackContext(_message.Message):
     to_country_code: str
     from_country_code: str
     def __init__(self, contact_name: _Optional[str] = ..., to_sms: _Optional[str] = ..., from_sms: _Optional[str] = ..., to_country_code: _Optional[str] = ..., from_country_code: _Optional[str] = ...) -> None: ...
+
+class ActionType(_message.Message):
+    __slots__ = ("action_type_id", "action_name")
+    ACTION_TYPE_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTION_NAME_FIELD_NUMBER: _ClassVar[int]
+    action_type_id: int
+    action_name: str
+    def __init__(self, action_type_id: _Optional[int] = ..., action_name: _Optional[str] = ...) -> None: ...
 
 class EmailbackContext(_message.Message):
     __slots__ = ("contact_name", "to_email", "from_email")
