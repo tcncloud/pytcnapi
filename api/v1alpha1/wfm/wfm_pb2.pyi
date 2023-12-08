@@ -331,12 +331,10 @@ class CallProfileTemplate(_message.Message):
     def __init__(self, call_profile_template_sid: _Optional[int] = ..., name: _Optional[str] = ..., total_calls_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupCalls, _Mapping]] = ..., total_abandoned_calls_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupCalls, _Mapping]] = ..., average_speed_of_answer_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_handle_time_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_after_call_work_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_time_to_abort_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., fixed_average_speed_of_answer: _Optional[float] = ..., fixed_average_handle_time: _Optional[float] = ..., fixed_average_after_call_work: _Optional[float] = ..., fixed_average_time_to_abort: _Optional[float] = ..., default_to_fixed_averages_forecast: bool = ..., time_zone: _Optional[str] = ...) -> None: ...
 
 class BuildCallProfileTemplateForSkillProfileReq(_message.Message):
-    __slots__ = ("skill_profile_sid", "time_zone")
+    __slots__ = ("skill_profile_sid",)
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
-    TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
-    time_zone: str
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., time_zone: _Optional[str] = ...) -> None: ...
+    def __init__(self, skill_profile_sid: _Optional[int] = ...) -> None: ...
 
 class BuildCallProfileTemplateForSkillProfileRes(_message.Message):
     __slots__ = ("call_profile_template",)
@@ -345,12 +343,10 @@ class BuildCallProfileTemplateForSkillProfileRes(_message.Message):
     def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ...) -> None: ...
 
 class BuildCallProfileTemplateReq(_message.Message):
-    __slots__ = ("skill_profile_category", "time_zone")
+    __slots__ = ("skill_profile_category",)
     SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
-    TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     skill_profile_category: _wfm_pb2.SkillProfileCategory
-    time_zone: str
-    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., time_zone: _Optional[str] = ...) -> None: ...
+    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class BuildCallProfileTemplateRes(_message.Message):
     __slots__ = ("call_profile_template",)
