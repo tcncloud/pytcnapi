@@ -116,6 +116,16 @@ class CreateTicketRes(_message.Message):
     ticket: _tickets_pb2.Ticket
     def __init__(self, ticket: _Optional[_Union[_tickets_pb2.Ticket, _Mapping]] = ...) -> None: ...
 
+class GetActionTypeRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetActionTypeResponse(_message.Message):
+    __slots__ = ("action_type",)
+    ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    action_type: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.ActionType]
+    def __init__(self, action_type: _Optional[_Iterable[_Union[_tickets_pb2.ActionType, _Mapping]]] = ...) -> None: ...
+
 class EditTicketReq(_message.Message):
     __slots__ = ("ticket_sid", "edit_value")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
