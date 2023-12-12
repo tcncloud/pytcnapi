@@ -85,3 +85,13 @@ class UpdateAuthConnectionGroupsRequest(_message.Message):
 class UpdateAuthConnectionGroupsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListAuthConnectionIdsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAuthConnectionIdsResponse(_message.Message):
+    __slots__ = ("auth_connetion_ids",)
+    AUTH_CONNETION_IDS_FIELD_NUMBER: _ClassVar[int]
+    auth_connetion_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, auth_connetion_ids: _Optional[_Iterable[str]] = ...) -> None: ...

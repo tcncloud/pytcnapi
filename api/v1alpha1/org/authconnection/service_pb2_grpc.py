@@ -19,6 +19,11 @@ class AuthConnectionServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionResponse.FromString,
                 )
+        self.ListAuthConnectionIds = channel.unary_unary(
+                '/api.v1alpha1.org.authconnection.AuthConnectionService/ListAuthConnectionIds',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.ListAuthConnectionIdsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.ListAuthConnectionIdsResponse.FromString,
+                )
         self.GetAuthConnectionSettings = channel.unary_unary(
                 '/api.v1alpha1.org.authconnection.AuthConnectionService/GetAuthConnectionSettings',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.GetAuthConnectionSettingsRequest.SerializeToString,
@@ -51,6 +56,13 @@ class AuthConnectionServiceServicer(object):
 
     def CreateAuthConnection(self, request, context):
         """CreateAuthConnection creates a new auth0 connection.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAuthConnectionIds(self, request, context):
+        """ListAuthConnectionIds returns the IDs of all authconnections belonging to the current org.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -99,6 +111,11 @@ def add_AuthConnectionServiceServicer_to_server(servicer, server):
                     servicer.CreateAuthConnection,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionResponse.SerializeToString,
+            ),
+            'ListAuthConnectionIds': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAuthConnectionIds,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.ListAuthConnectionIdsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.ListAuthConnectionIdsResponse.SerializeToString,
             ),
             'GetAuthConnectionSettings': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAuthConnectionSettings,
@@ -149,6 +166,23 @@ class AuthConnectionService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnectionService/CreateAuthConnection',
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.CreateAuthConnectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAuthConnectionIds(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.authconnection.AuthConnectionService/ListAuthConnectionIds',
+            api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.ListAuthConnectionIdsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_authconnection_dot_entities__pb2.ListAuthConnectionIdsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
