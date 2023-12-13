@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from services.omnichannel.oauth.entities.v1alpha1 import entities_pb2 as services_dot_omnichannel_dot_oauth_dot_entities_dot_v1alpha1_dot_entities__pb2
+from services.omnichannel.oauth.v1alpha1 import entities_pb2 as services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2
 
 
 class OauthServiceStub(object):
@@ -16,8 +16,8 @@ class OauthServiceStub(object):
         """
         self.GetConnectedInboxOAuthSpecifications = channel.unary_unary(
                 '/services.omnichannel.oauth.v1alpha1.OauthService/GetConnectedInboxOAuthSpecifications',
-                request_serializer=services_dot_omnichannel_dot_oauth_dot_entities_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_oauth_dot_entities_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.FromString,
+                request_serializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_OauthServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'GetConnectedInboxOAuthSpecifications': grpc.unary_unary_rpc_method_handler(
                     servicer.GetConnectedInboxOAuthSpecifications,
-                    request_deserializer=services_dot_omnichannel_dot_oauth_dot_entities_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.FromString,
-                    response_serializer=services_dot_omnichannel_dot_oauth_dot_entities_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.SerializeToString,
+                    request_deserializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +60,7 @@ class OauthService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.oauth.v1alpha1.OauthService/GetConnectedInboxOAuthSpecifications',
-            services_dot_omnichannel_dot_oauth_dot_entities_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.SerializeToString,
-            services_dot_omnichannel_dot_oauth_dot_entities_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.FromString,
+            services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.SerializeToString,
+            services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
