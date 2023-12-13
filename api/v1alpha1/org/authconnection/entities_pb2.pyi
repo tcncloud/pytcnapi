@@ -91,7 +91,14 @@ class ListAuthConnectionIdsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAuthConnectionIdsResponse(_message.Message):
-    __slots__ = ("auth_connetion_ids",)
-    AUTH_CONNETION_IDS_FIELD_NUMBER: _ClassVar[int]
-    auth_connetion_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, auth_connetion_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    __slots__ = ("connections",)
+    class Connection(_message.Message):
+        __slots__ = ("auth_connection_id", "name")
+        AUTH_CONNECTION_ID_FIELD_NUMBER: _ClassVar[int]
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        auth_connection_id: str
+        name: str
+        def __init__(self, auth_connection_id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
+    CONNECTIONS_FIELD_NUMBER: _ClassVar[int]
+    connections: _containers.RepeatedCompositeFieldContainer[ListAuthConnectionIdsResponse.Connection]
+    def __init__(self, connections: _Optional[_Iterable[_Union[ListAuthConnectionIdsResponse.Connection, _Mapping]]] = ...) -> None: ...
