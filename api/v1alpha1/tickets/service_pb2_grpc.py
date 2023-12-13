@@ -161,6 +161,11 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateResponse.FromString,
                 )
+        self.GetAllActionType = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/GetAllActionType',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeResponse.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -345,28 +350,35 @@ class TicketsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateTicketTemplate(self, request, context):
-        """Public method to change the Status of a ticket
+        """Public method to create a Ticket Template
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def EditTicketTemplate(self, request, context):
-        """Public method to change the Status of a ticket
+        """Public method to Edit a Ticket Template
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListTicketTemplate(self, request, context):
-        """Public method to change the Status of a ticket
+        """Public method to all Ticket Templates
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AssignTicketTemplate(self, request, context):
-        """Public method to change the Status of a ticket
+        """Public method to assign a Template To a Project
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetAllActionType(self, request, context):
+        """Public method to list all Action Types
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -519,6 +531,11 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.AssignTicketTemplate,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateResponse.SerializeToString,
+            ),
+            'GetAllActionType': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAllActionType,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1021,5 +1038,22 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/AssignTicketTemplate',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AssignProjectTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAllActionType(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/GetAllActionType',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
