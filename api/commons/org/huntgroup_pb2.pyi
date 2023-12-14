@@ -1,11 +1,171 @@
 from api.commons import country_pb2 as _country_pb2
 from api.commons import org_pb2 as _org_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class ParameterSourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    PARAMETER_SOURCE_TYPE_UNSPECIFIED: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_STATIC_TEXT: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_CFD_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_AGENT_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_AGENT_FIRST_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_AGENT_LAST_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_AGENT_USERNAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PARTNER_AGENT_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_HG_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_HG_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_HG_TYPE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_CONSUMER_PHONE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_CALLER_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_CALL_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_GROUP_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_AGENT_SESSION_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_DATA_DIP: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_IVR_DATA: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_DATA_COLLECT: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_AREA_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_CARRIER: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_CENTRAL_OFFICE_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_CITY: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_COUNTRY_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_SUBSCRIBER_NUMBER: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_ISO_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_INTERNATIONAL_PREFIX: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_LANGUAGE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_LATITUDE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_LONGITUDE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_MAXIMUM_BLOCK_NUMBER: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_MINIMUM_BLOCK_NUMBER: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_NATIONAL_DESTINATION: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_NATIONAL_PREFIX: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_NUMBER_BLOCK_ID: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_NUMBER_TYPE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_USES_NDC: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_DAYLIGHT_SAVINGS: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_PREFIX: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_REGION_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_REGION_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_1: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_2: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_3: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_4: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_TIME_ZONE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_PHONE_METADATA_UTC_OFFSET: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_CODE_1: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_CODE_2: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_CODE_3: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_NAME_1: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_NAME_2: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_NAME_3: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_AREA_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_CITY_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_CITY_TYPE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_COUNTRY_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_ISO_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_COUNTRY_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_COUNTRY_FPS_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_LATITUDE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSITION_ACCURACY: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_LONGITUDE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_METROPOLITAN_AREA: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_DAYLIGHT_SAVINGS: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_PLACE_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSTAL_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSTAL_CODE_KEY: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSTAL_TYPE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_PROVICE_ABBREVIATION: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_PROVINCE_NAME: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_STATE_FPS_CODE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_TIME_ZONE: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_ZIP_METADATA_UTC_OFFSET: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_CUSTOM_ACCOUNT_DATA: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_SIP_HEADER_DATA: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_INTEGRATION_DATA: _ClassVar[ParameterSourceType]
+    PARAMETER_SOURCE_TYPE_JOURNEY_DATA: _ClassVar[ParameterSourceType]
+PARAMETER_SOURCE_TYPE_UNSPECIFIED: ParameterSourceType
+PARAMETER_SOURCE_TYPE_STATIC_TEXT: ParameterSourceType
+PARAMETER_SOURCE_TYPE_CFD_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_AGENT_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_AGENT_FIRST_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_AGENT_LAST_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_AGENT_USERNAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PARTNER_AGENT_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_HG_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_HG_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_HG_TYPE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_CONSUMER_PHONE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_CALLER_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_CALL_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_GROUP_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_AGENT_SESSION_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_DATA_DIP: ParameterSourceType
+PARAMETER_SOURCE_TYPE_IVR_DATA: ParameterSourceType
+PARAMETER_SOURCE_TYPE_DATA_COLLECT: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_AREA_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_CARRIER: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_CENTRAL_OFFICE_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_CITY: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_COUNTRY_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_SUBSCRIBER_NUMBER: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_ISO_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_INTERNATIONAL_PREFIX: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_LANGUAGE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_LATITUDE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_LONGITUDE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_MAXIMUM_BLOCK_NUMBER: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_MINIMUM_BLOCK_NUMBER: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_NATIONAL_DESTINATION: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_NATIONAL_PREFIX: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_NUMBER_BLOCK_ID: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_NUMBER_TYPE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_USES_NDC: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_DAYLIGHT_SAVINGS: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_PREFIX: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_REGION_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_REGION_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_1: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_2: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_3: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_SPECIAL_SERVICE_CODE_4: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_TIME_ZONE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_PHONE_METADATA_UTC_OFFSET: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_CODE_1: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_CODE_2: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_CODE_3: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_NAME_1: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_NAME_2: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_ADMIN_NAME_3: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_AREA_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_CITY_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_CITY_TYPE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_COUNTRY_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_ISO_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_COUNTRY_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_COUNTRY_FPS_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_LATITUDE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSITION_ACCURACY: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_LONGITUDE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_METROPOLITAN_AREA: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_DAYLIGHT_SAVINGS: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_PLACE_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSTAL_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSTAL_CODE_KEY: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_POSTAL_TYPE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_PROVICE_ABBREVIATION: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_PROVINCE_NAME: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_STATE_FPS_CODE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_TIME_ZONE: ParameterSourceType
+PARAMETER_SOURCE_TYPE_ZIP_METADATA_UTC_OFFSET: ParameterSourceType
+PARAMETER_SOURCE_TYPE_CUSTOM_ACCOUNT_DATA: ParameterSourceType
+PARAMETER_SOURCE_TYPE_SIP_HEADER_DATA: ParameterSourceType
+PARAMETER_SOURCE_TYPE_INTEGRATION_DATA: ParameterSourceType
+PARAMETER_SOURCE_TYPE_JOURNEY_DATA: ParameterSourceType
 
 class HuntGroupSettings(_message.Message):
     __slots__ = ("general_settings", "communication_settings", "callback_settings", "preview_dial_settings", "manual_dial_settings", "transfer_call_settings", "number_history_settings")
@@ -642,3 +802,47 @@ class DataDipConfig(_message.Message):
     xml_client_property_sid: int
     headers: _containers.RepeatedCompositeFieldContainer[DataDipConfig.Header]
     def __init__(self, config_name: _Optional[str] = ..., config_type: _Optional[str] = ..., remote_url: _Optional[str] = ..., param_type_value_tuples: _Optional[_Iterable[_Union[DataDipConfig.ParamTypeValueTuple, _Mapping]]] = ..., params: _Optional[_Iterable[_Union[DataDipConfig.Param, _Mapping]]] = ..., data: _Optional[_Iterable[_Union[DataDipConfig.ReturnData, _Mapping]]] = ..., request_method: _Optional[str] = ..., xml_client_property_sid: _Optional[int] = ..., headers: _Optional[_Iterable[_Union[DataDipConfig.Header, _Mapping]]] = ...) -> None: ...
+
+class IntegrationLink(_message.Message):
+    __slots__ = ("integration_id", "parameter_sid", "name", "description", "method_id", "order", "parameters")
+    INTEGRATION_ID_FIELD_NUMBER: _ClassVar[int]
+    PARAMETER_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    METHOD_ID_FIELD_NUMBER: _ClassVar[int]
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    PARAMETERS_FIELD_NUMBER: _ClassVar[int]
+    integration_id: int
+    parameter_sid: int
+    name: str
+    description: str
+    method_id: int
+    order: int
+    parameters: _containers.RepeatedCompositeFieldContainer[IntegrationLinkParameter]
+    def __init__(self, integration_id: _Optional[int] = ..., parameter_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., method_id: _Optional[int] = ..., order: _Optional[int] = ..., parameters: _Optional[_Iterable[_Union[IntegrationLinkParameter, _Mapping]]] = ...) -> None: ...
+
+class IntegrationLinkParameter(_message.Message):
+    __slots__ = ("key", "sub_parameters")
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    SUB_PARAMETERS_FIELD_NUMBER: _ClassVar[int]
+    key: str
+    sub_parameters: _containers.RepeatedCompositeFieldContainer[IntegrationLinkSubParameter]
+    def __init__(self, key: _Optional[str] = ..., sub_parameters: _Optional[_Iterable[_Union[IntegrationLinkSubParameter, _Mapping]]] = ...) -> None: ...
+
+class IntegrationLinkSubParameter(_message.Message):
+    __slots__ = ("key", "parts")
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    PARTS_FIELD_NUMBER: _ClassVar[int]
+    key: str
+    parts: _containers.RepeatedCompositeFieldContainer[IntegrationLinkSubParameterPart]
+    def __init__(self, key: _Optional[str] = ..., parts: _Optional[_Iterable[_Union[IntegrationLinkSubParameterPart, _Mapping]]] = ...) -> None: ...
+
+class IntegrationLinkSubParameterPart(_message.Message):
+    __slots__ = ("contact_field_sid", "helper_value", "parameter_source_type")
+    CONTACT_FIELD_SID_FIELD_NUMBER: _ClassVar[int]
+    HELPER_VALUE_FIELD_NUMBER: _ClassVar[int]
+    PARAMETER_SOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    contact_field_sid: int
+    helper_value: str
+    parameter_source_type: ParameterSourceType
+    def __init__(self, contact_field_sid: _Optional[int] = ..., helper_value: _Optional[str] = ..., parameter_source_type: _Optional[_Union[ParameterSourceType, str]] = ...) -> None: ...
