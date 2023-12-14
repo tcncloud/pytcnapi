@@ -14,17 +14,17 @@ class OauthServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetConnectedInboxOAuthSpecifications = channel.unary_unary(
-                '/services.omnichannel.oauth.v1alpha1.OauthService/GetConnectedInboxOAuthSpecifications',
-                request_serializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.FromString,
+        self.GetConnectedInboxOAuthURL = channel.unary_unary(
+                '/services.omnichannel.oauth.v1alpha1.OauthService/GetConnectedInboxOAuthURL',
+                request_serializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthURLRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthURLResponse.FromString,
                 )
 
 
 class OauthServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def GetConnectedInboxOAuthSpecifications(self, request, context):
+    def GetConnectedInboxOAuthURL(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -33,10 +33,10 @@ class OauthServiceServicer(object):
 
 def add_OauthServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetConnectedInboxOAuthSpecifications': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetConnectedInboxOAuthSpecifications,
-                    request_deserializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.FromString,
-                    response_serializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.SerializeToString,
+            'GetConnectedInboxOAuthURL': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetConnectedInboxOAuthURL,
+                    request_deserializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthURLRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthURLResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -49,7 +49,7 @@ class OauthService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetConnectedInboxOAuthSpecifications(request,
+    def GetConnectedInboxOAuthURL(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +59,8 @@ class OauthService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.omnichannel.oauth.v1alpha1.OauthService/GetConnectedInboxOAuthSpecifications',
-            services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsRequest.SerializeToString,
-            services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthSpecificationsResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.omnichannel.oauth.v1alpha1.OauthService/GetConnectedInboxOAuthURL',
+            services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthURLRequest.SerializeToString,
+            services_dot_omnichannel_dot_oauth_dot_v1alpha1_dot_entities__pb2.GetConnectedInboxOAuthURLResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
