@@ -18,7 +18,7 @@ BILLING_PLAN_STATUS_CREATING: BillingPlanStatus
 BILLING_PLAN_STATUS_CREATED: BillingPlanStatus
 
 class BillingPlan(_message.Message):
-    __slots__ = ("billing_plan_id", "create_time", "update_time", "start_time", "end_time", "delete_time", "rate_definition_ids", "status", "actual_start_time")
+    __slots__ = ("billing_plan_id", "create_time", "update_time", "start_time", "end_time", "delete_time", "rate_definition_ids", "status")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -27,7 +27,6 @@ class BillingPlan(_message.Message):
     DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
     RATE_DEFINITION_IDS_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
-    ACTUAL_START_TIME_FIELD_NUMBER: _ClassVar[int]
     billing_plan_id: str
     create_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
@@ -36,5 +35,4 @@ class BillingPlan(_message.Message):
     delete_time: _timestamp_pb2.Timestamp
     rate_definition_ids: _containers.RepeatedScalarFieldContainer[str]
     status: BillingPlanStatus
-    actual_start_time: _timestamp_pb2.Timestamp
-    def __init__(self, billing_plan_id: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., rate_definition_ids: _Optional[_Iterable[str]] = ..., status: _Optional[_Union[BillingPlanStatus, str]] = ..., actual_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, billing_plan_id: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., rate_definition_ids: _Optional[_Iterable[str]] = ..., status: _Optional[_Union[BillingPlanStatus, str]] = ...) -> None: ...
