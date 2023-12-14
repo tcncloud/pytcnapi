@@ -646,6 +646,16 @@ class GetUserLoginInfoResponse(_message.Message):
     has_blocked_ips: bool
     def __init__(self, blocked: bool = ..., last_ip: _Optional[str] = ..., last_login: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_password_reset: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., logins_count: _Optional[int] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., has_blocked_ips: bool = ...) -> None: ...
 
+class SendUserEmailPasswordResetRequest(_message.Message):
+    __slots__ = ("email",)
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    email: str
+    def __init__(self, email: _Optional[str] = ...) -> None: ...
+
+class SendUserEmailPasswordResetResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class GetUserEmailVerifiedRequest(_message.Message):
     __slots__ = ("user_id",)
     USER_ID_FIELD_NUMBER: _ClassVar[int]

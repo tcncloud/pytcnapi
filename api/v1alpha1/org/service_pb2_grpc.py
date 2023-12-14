@@ -415,6 +415,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailVerificationRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailVerificationResponse.FromString,
                 )
+        self.SendUserEmailPasswordReset = channel.unary_unary(
+                '/api.v1alpha1.org.Org/SendUserEmailPasswordReset',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailPasswordResetRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailPasswordResetResponse.FromString,
+                )
         self.SendUserEmailVerificationByOrgId = channel.unary_unary(
                 '/api.v1alpha1.org.Org/SendUserEmailVerificationByOrgId',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailVerificationByOrgIdRequest.SerializeToString,
@@ -1417,6 +1422,13 @@ class OrgServicer(object):
 
     def SendUserEmailVerification(self, request, context):
         """SendUserEmailVerification sends a verification email to the user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SendUserEmailPasswordReset(self, request, context):
+        """SendUserEmailPasswordReset sends a verification email to the user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2448,6 +2460,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.SendUserEmailVerification,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailVerificationRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailVerificationResponse.SerializeToString,
+            ),
+            'SendUserEmailPasswordReset': grpc.unary_unary_rpc_method_handler(
+                    servicer.SendUserEmailPasswordReset,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailPasswordResetRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailPasswordResetResponse.SerializeToString,
             ),
             'SendUserEmailVerificationByOrgId': grpc.unary_unary_rpc_method_handler(
                     servicer.SendUserEmailVerificationByOrgId,
@@ -4208,6 +4225,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/SendUserEmailVerification',
             api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailVerificationRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailVerificationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SendUserEmailPasswordReset(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/SendUserEmailPasswordReset',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailPasswordResetRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.SendUserEmailPasswordResetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
