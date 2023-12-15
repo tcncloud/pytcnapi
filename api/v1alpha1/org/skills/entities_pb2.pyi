@@ -125,3 +125,21 @@ class GetSkillGroupMembersResponse(_message.Message):
     USER_IDS_FIELD_NUMBER: _ClassVar[int]
     user_ids: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class ListSkillGroupsMembersRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListSkillGroupsMembersResponse(_message.Message):
+    __slots__ = ("skill_group_members",)
+    SKILL_GROUP_MEMBERS_FIELD_NUMBER: _ClassVar[int]
+    skill_group_members: _containers.RepeatedCompositeFieldContainer[SkillGroupMembers]
+    def __init__(self, skill_group_members: _Optional[_Iterable[_Union[SkillGroupMembers, _Mapping]]] = ...) -> None: ...
+
+class SkillGroupMembers(_message.Message):
+    __slots__ = ("skill_group_id", "user_ids")
+    SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    skill_group_id: str
+    user_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, skill_group_id: _Optional[str] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...

@@ -64,6 +64,11 @@ class SkillsServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetSkillGroupMembersRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetSkillGroupMembersResponse.FromString,
                 )
+        self.ListSkillGroupsMembers = channel.unary_unary(
+                '/api.v1alpha1.org.skills.SkillsService/ListSkillGroupsMembers',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersResponse.FromString,
+                )
 
 
 class SkillsServiceServicer(object):
@@ -139,6 +144,13 @@ class SkillsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListSkillGroupsMembers(self, request, context):
+        """ListSkillGroupsMembers gets the members of a skill group for each skill group in an Org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SkillsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -191,6 +203,11 @@ def add_SkillsServiceServicer_to_server(servicer, server):
                     servicer.GetSkillGroupMembers,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetSkillGroupMembersRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetSkillGroupMembersResponse.SerializeToString,
+            ),
+            'ListSkillGroupsMembers': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSkillGroupsMembers,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -369,5 +386,22 @@ class SkillsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/GetSkillGroupMembers',
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetSkillGroupMembersRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetSkillGroupMembersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSkillGroupsMembers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/ListSkillGroupsMembers',
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
