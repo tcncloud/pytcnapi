@@ -15,6 +15,11 @@ class WFMStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.PerformInitialClientSetup = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/PerformInitialClientSetup',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupResponse.FromString,
+                )
         self.ListSkillProfiles = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListSkillProfiles',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfilesReq.SerializeToString,
@@ -801,6 +806,19 @@ class WFMServicer(object):
     """WFM is responsible for call prediction and call volume calculations based on call skills and other parameters.
     """
 
+    def PerformInitialClientSetup(self, request, context):
+        """Starts the tasks to perform the initial setup on wfm services for the org sending the request.
+        It will then report the state of their setup task.
+        A new setup task will only be started if the client hasn't done one before, or their setup failed previously.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when performing the initial setup.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListSkillProfiles(self, request, context):
         """Retrieves all the skill profiles of the org sending the request.
         Also it can return the skills of each of the returned profiles.
@@ -906,6 +924,7 @@ class WFMServicer(object):
     def GetClientHistoryCacheInfo(self, request, context):
         """Gets the state of the cache for the given @org_id, and if the cache's state is not_loaded, or loading_failed,
         it will start the loading task before returning the current state.
+        DEPRECATED as of Dec/13/2023 - Use PerformInitialClientSetup instead.
         Required permissions:
         NONE
         Errors:
@@ -3091,6 +3110,11 @@ class WFMServicer(object):
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'PerformInitialClientSetup': grpc.unary_unary_rpc_method_handler(
+                    servicer.PerformInitialClientSetup,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupResponse.SerializeToString,
+            ),
             'ListSkillProfiles': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSkillProfiles,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfilesReq.FromString,
@@ -3881,6 +3905,23 @@ def add_WFMServicer_to_server(servicer, server):
 class WFM(object):
     """WFM is responsible for call prediction and call volume calculations based on call skills and other parameters.
     """
+
+    @staticmethod
+    def PerformInitialClientSetup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/PerformInitialClientSetup',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def ListSkillProfiles(request,

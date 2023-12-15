@@ -620,6 +620,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesResponse.FromString,
                 )
+        self.ListHuntGroupIntegrationLinks = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListHuntGroupIntegrationLinks',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.FromString,
+                )
         self.CreateTrust = channel.unary_unary(
                 '/api.v1alpha1.org.Org/CreateTrust',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_trusts__pb2.CreateTrustRequest.SerializeToString,
@@ -1723,6 +1728,13 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListHuntGroupIntegrationLinks(self, request, context):
+        """ListHuntGroupIntegrationLinks returns all integration links for a hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateTrust(self, request, context):
         """TRUSTS
 
@@ -2653,6 +2665,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.DeleteAgentResponseAutoRules,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesResponse.SerializeToString,
+            ),
+            'ListHuntGroupIntegrationLinks': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListHuntGroupIntegrationLinks,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.SerializeToString,
             ),
             'CreateTrust': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTrust,
@@ -4905,6 +4922,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteAgentResponseAutoRules',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListHuntGroupIntegrationLinks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListHuntGroupIntegrationLinks',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

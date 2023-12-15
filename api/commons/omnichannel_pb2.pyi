@@ -154,6 +154,7 @@ class ConnectedInboxAuthenticationType(int, metaclass=_enum_type_wrapper.EnumTyp
     __slots__ = ()
     CONNECTED_INBOX_AUTHENTICATION_TYPE_PASSWORD: _ClassVar[ConnectedInboxAuthenticationType]
     CONNECTED_INBOX_AUTHENTICATION_TYPE_GOOGLE_XOAUTH2: _ClassVar[ConnectedInboxAuthenticationType]
+    CONNECTED_INBOX_AUTHENTICATION_TYPE_MICROSOFT_365: _ClassVar[ConnectedInboxAuthenticationType]
 
 class ConversationStateChangeTimerName(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -299,6 +300,7 @@ OMNI_SENDER_TYPE_MANAGER: OmniSenderType
 OMNI_SENDER_TYPE_FLOW: OmniSenderType
 CONNECTED_INBOX_AUTHENTICATION_TYPE_PASSWORD: ConnectedInboxAuthenticationType
 CONNECTED_INBOX_AUTHENTICATION_TYPE_GOOGLE_XOAUTH2: ConnectedInboxAuthenticationType
+CONNECTED_INBOX_AUTHENTICATION_TYPE_MICROSOFT_365: ConnectedInboxAuthenticationType
 CONVERSATION_STATE_CHANGE_TIMER_NAME_WAIT: ConversationStateChangeTimerName
 CONVERSATION_STATE_CHANGE_TIMER_NAME_TALK: ConversationStateChangeTimerName
 CONVERSATION_STATE_CHANGE_TIMER_NAME_TALK_INITIAL_AGENT_RESPONSE: ConversationStateChangeTimerName
