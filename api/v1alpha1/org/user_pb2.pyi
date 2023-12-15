@@ -618,6 +618,20 @@ class CreatePasswordResetLinkResponse(_message.Message):
     url: str
     def __init__(self, url: _Optional[str] = ...) -> None: ...
 
+class CreatePasswordResetLinkByOrgIdRequest(_message.Message):
+    __slots__ = ("user_id", "org_id")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    org_id: str
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
+
+class CreatePasswordResetLinkByOrgIdResponse(_message.Message):
+    __slots__ = ("url",)
+    URL_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    def __init__(self, url: _Optional[str] = ...) -> None: ...
+
 class GetUserLoginInfoRequest(_message.Message):
     __slots__ = ("user_id", "org_id")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -645,6 +659,64 @@ class GetUserLoginInfoResponse(_message.Message):
     updated_at: _timestamp_pb2.Timestamp
     has_blocked_ips: bool
     def __init__(self, blocked: bool = ..., last_ip: _Optional[str] = ..., last_login: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_password_reset: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., logins_count: _Optional[int] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., has_blocked_ips: bool = ...) -> None: ...
+
+class SendPasswordResetRequest(_message.Message):
+    __slots__ = ("email",)
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    email: str
+    def __init__(self, email: _Optional[str] = ...) -> None: ...
+
+class SendPasswordResetResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class SendPasswordResetByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "email")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    email: str
+    def __init__(self, org_id: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
+
+class SendPasswordResetByOrgIdResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ResetMyPasswordRequest(_message.Message):
+    __slots__ = ("password",)
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    password: str
+    def __init__(self, password: _Optional[str] = ...) -> None: ...
+
+class ResetMyPasswordResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ResetUserPasswordRequest(_message.Message):
+    __slots__ = ("password", "user_id")
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    password: str
+    user_id: str
+    def __init__(self, password: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+
+class ResetUserPasswordResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ResetUserPasswordByOrgIdRequest(_message.Message):
+    __slots__ = ("password", "user_id", "org_id")
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    password: str
+    user_id: str
+    org_id: str
+    def __init__(self, password: _Optional[str] = ..., user_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
+
+class ResetUserPasswordByOrgIdResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class GetUserEmailVerifiedRequest(_message.Message):
     __slots__ = ("user_id",)

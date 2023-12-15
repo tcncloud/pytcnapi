@@ -203,3 +203,17 @@ class DeleteAgentResponseAutoRulesRequest(_message.Message):
 class DeleteAgentResponseAutoRulesResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListHuntGroupIntegrationLinksRequest(_message.Message):
+    __slots__ = ("org_id", "hunt_group_sid")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    hunt_group_sid: int
+    def __init__(self, org_id: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class ListHuntGroupIntegrationLinksResponse(_message.Message):
+    __slots__ = ("links",)
+    LINKS_FIELD_NUMBER: _ClassVar[int]
+    links: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.IntegrationLink]
+    def __init__(self, links: _Optional[_Iterable[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]]] = ...) -> None: ...
