@@ -204,6 +204,56 @@ class DeleteAgentResponseAutoRulesResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class GetHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class GetHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ("template",)
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CreateHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "template")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CreateHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ("template_sid",)
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    def __init__(self, template_sid: _Optional[int] = ...) -> None: ...
+
+class UpdateHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "template")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class UpdateHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "template_sid")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    template_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., template_sid: _Optional[int] = ...) -> None: ...
+
+class DeleteHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class ListHuntGroupIntegrationLinksRequest(_message.Message):
     __slots__ = ("org_id", "hunt_group_sid")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]

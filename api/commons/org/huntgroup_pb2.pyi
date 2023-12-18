@@ -8,6 +8,12 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class TemplateCategory(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    TEMPLATE_CATEGORY_UNSPECIFIED: _ClassVar[TemplateCategory]
+    TEMPLATE_CATEGORY_HUNT_GROUP: _ClassVar[TemplateCategory]
+    TEMPLATE_CATEGORY_CAMPAIGN: _ClassVar[TemplateCategory]
+
 class ParameterSourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     PARAMETER_SOURCE_TYPE_UNSPECIFIED: _ClassVar[ParameterSourceType]
@@ -88,6 +94,9 @@ class ParameterSourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PARAMETER_SOURCE_TYPE_SIP_HEADER_DATA: _ClassVar[ParameterSourceType]
     PARAMETER_SOURCE_TYPE_INTEGRATION_DATA: _ClassVar[ParameterSourceType]
     PARAMETER_SOURCE_TYPE_JOURNEY_DATA: _ClassVar[ParameterSourceType]
+TEMPLATE_CATEGORY_UNSPECIFIED: TemplateCategory
+TEMPLATE_CATEGORY_HUNT_GROUP: TemplateCategory
+TEMPLATE_CATEGORY_CAMPAIGN: TemplateCategory
 PARAMETER_SOURCE_TYPE_UNSPECIFIED: ParameterSourceType
 PARAMETER_SOURCE_TYPE_STATIC_TEXT: ParameterSourceType
 PARAMETER_SOURCE_TYPE_CFD_ID: ParameterSourceType
@@ -744,6 +753,50 @@ class AgentResponseComparitors(_message.Message):
     value: str
     expiration: int
     def __init__(self, value: _Optional[str] = ..., expiration: _Optional[int] = ...) -> None: ...
+
+class ClientInfoDisplayTemplate(_message.Message):
+    __slots__ = ("template_sid", "name", "description", "display_all_fields", "dialed_number_field_style", "contact_field_styles", "template_category")
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_ALL_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    DIALED_NUMBER_FIELD_STYLE_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_FIELD_STYLES_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    template_sid: str
+    name: str
+    description: str
+    display_all_fields: bool
+    dialed_number_field_style: DialedNumberFieldStyle
+    contact_field_styles: _containers.RepeatedCompositeFieldContainer[ContactFieldStyle]
+    template_category: TemplateCategory
+    def __init__(self, template_sid: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., display_all_fields: bool = ..., dialed_number_field_style: _Optional[_Union[DialedNumberFieldStyle, _Mapping]] = ..., contact_field_styles: _Optional[_Iterable[_Union[ContactFieldStyle, _Mapping]]] = ..., template_category: _Optional[_Union[TemplateCategory, str]] = ...) -> None: ...
+
+class FieldStyle(_message.Message):
+    __slots__ = ("text_color", "background_color", "allow_agent_copy")
+    TEXT_COLOR_FIELD_NUMBER: _ClassVar[int]
+    BACKGROUND_COLOR_FIELD_NUMBER: _ClassVar[int]
+    ALLOW_AGENT_COPY_FIELD_NUMBER: _ClassVar[int]
+    text_color: str
+    background_color: str
+    allow_agent_copy: bool
+    def __init__(self, text_color: _Optional[str] = ..., background_color: _Optional[str] = ..., allow_agent_copy: bool = ...) -> None: ...
+
+class ContactFieldStyle(_message.Message):
+    __slots__ = ("description_id", "field_style")
+    DESCRIPTION_ID_FIELD_NUMBER: _ClassVar[int]
+    FIELD_STYLE_FIELD_NUMBER: _ClassVar[int]
+    description_id: int
+    field_style: FieldStyle
+    def __init__(self, description_id: _Optional[int] = ..., field_style: _Optional[_Union[FieldStyle, _Mapping]] = ...) -> None: ...
+
+class DialedNumberFieldStyle(_message.Message):
+    __slots__ = ("field_style", "display_to_agent")
+    FIELD_STYLE_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_TO_AGENT_FIELD_NUMBER: _ClassVar[int]
+    field_style: FieldStyle
+    display_to_agent: bool
+    def __init__(self, field_style: _Optional[_Union[FieldStyle, _Mapping]] = ..., display_to_agent: bool = ...) -> None: ...
 
 class DataDipConfig(_message.Message):
     __slots__ = ("config_name", "config_type", "remote_url", "param_type_value_tuples", "params", "data", "request_method", "xml_client_property_sid", "headers")
