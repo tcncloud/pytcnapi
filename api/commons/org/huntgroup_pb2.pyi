@@ -804,7 +804,7 @@ class DataDipConfig(_message.Message):
     def __init__(self, config_name: _Optional[str] = ..., config_type: _Optional[str] = ..., remote_url: _Optional[str] = ..., param_type_value_tuples: _Optional[_Iterable[_Union[DataDipConfig.ParamTypeValueTuple, _Mapping]]] = ..., params: _Optional[_Iterable[_Union[DataDipConfig.Param, _Mapping]]] = ..., data: _Optional[_Iterable[_Union[DataDipConfig.ReturnData, _Mapping]]] = ..., request_method: _Optional[str] = ..., xml_client_property_sid: _Optional[int] = ..., headers: _Optional[_Iterable[_Union[DataDipConfig.Header, _Mapping]]] = ...) -> None: ...
 
 class IntegrationLink(_message.Message):
-    __slots__ = ("integration_id", "parameter_sid", "name", "description", "method_id", "order", "parameters")
+    __slots__ = ("integration_id", "parameter_sid", "name", "description", "method_id", "order", "parameters", "configuration_name")
     INTEGRATION_ID_FIELD_NUMBER: _ClassVar[int]
     PARAMETER_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -812,6 +812,7 @@ class IntegrationLink(_message.Message):
     METHOD_ID_FIELD_NUMBER: _ClassVar[int]
     ORDER_FIELD_NUMBER: _ClassVar[int]
     PARAMETERS_FIELD_NUMBER: _ClassVar[int]
+    CONFIGURATION_NAME_FIELD_NUMBER: _ClassVar[int]
     integration_id: int
     parameter_sid: int
     name: str
@@ -819,7 +820,8 @@ class IntegrationLink(_message.Message):
     method_id: int
     order: int
     parameters: _containers.RepeatedCompositeFieldContainer[IntegrationLinkParameter]
-    def __init__(self, integration_id: _Optional[int] = ..., parameter_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., method_id: _Optional[int] = ..., order: _Optional[int] = ..., parameters: _Optional[_Iterable[_Union[IntegrationLinkParameter, _Mapping]]] = ...) -> None: ...
+    configuration_name: str
+    def __init__(self, integration_id: _Optional[int] = ..., parameter_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., method_id: _Optional[int] = ..., order: _Optional[int] = ..., parameters: _Optional[_Iterable[_Union[IntegrationLinkParameter, _Mapping]]] = ..., configuration_name: _Optional[str] = ...) -> None: ...
 
 class IntegrationLinkParameter(_message.Message):
     __slots__ = ("key", "sub_parameters")
