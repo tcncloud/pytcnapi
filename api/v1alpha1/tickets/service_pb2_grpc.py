@@ -166,6 +166,11 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeResponse.FromString,
                 )
+        self.GetPhoneNumberType = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/GetPhoneNumberType',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeResponse.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -384,6 +389,13 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetPhoneNumberType(self, request, context):
+        """Public method to list all Action Types
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -536,6 +548,11 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.GetAllActionType,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeResponse.SerializeToString,
+            ),
+            'GetPhoneNumberType': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPhoneNumberType,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1055,5 +1072,22 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/GetAllActionType',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetActionTypeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPhoneNumberType(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/GetPhoneNumberType',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
