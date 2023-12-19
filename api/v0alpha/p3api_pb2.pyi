@@ -1562,14 +1562,18 @@ class GetConditionalDNCLRulesRes(_message.Message):
     def __init__(self, disposition_rules: _Optional[_Iterable[_Union[AgentDispositionConditionalDncl.DispositionRulesTable, _Mapping]]] = ...) -> None: ...
 
 class ManualDialStartReq(_message.Message):
-    __slots__ = ("simple_call_data", "hunt_group_sid", "agent_session_sid")
+    __slots__ = ("simple_call_data", "hunt_group_sid", "agent_session_sid", "bucket_id", "bucket_region_data")
     SIMPLE_CALL_DATA_FIELD_NUMBER: _ClassVar[int]
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    BUCKET_ID_FIELD_NUMBER: _ClassVar[int]
+    BUCKET_REGION_DATA_FIELD_NUMBER: _ClassVar[int]
     simple_call_data: _call_pb2.SimpleCallData
     hunt_group_sid: int
     agent_session_sid: int
-    def __init__(self, simple_call_data: _Optional[_Union[_call_pb2.SimpleCallData, _Mapping]] = ..., hunt_group_sid: _Optional[int] = ..., agent_session_sid: _Optional[int] = ...) -> None: ...
+    bucket_id: int
+    bucket_region_data: str
+    def __init__(self, simple_call_data: _Optional[_Union[_call_pb2.SimpleCallData, _Mapping]] = ..., hunt_group_sid: _Optional[int] = ..., agent_session_sid: _Optional[int] = ..., bucket_id: _Optional[int] = ..., bucket_region_data: _Optional[str] = ...) -> None: ...
 
 class ManualDialStartRes(_message.Message):
     __slots__ = ()
