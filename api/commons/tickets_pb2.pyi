@@ -21,6 +21,12 @@ class TicketStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TICKET_STATUS_NEW: _ClassVar[TicketStatus]
     TICKET_STATUS_OPEN: _ClassVar[TicketStatus]
     TICKET_STATUS_CLOSE: _ClassVar[TicketStatus]
+
+class PhoneNumberType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    MOBILE: _ClassVar[PhoneNumberType]
+    OTHER: _ClassVar[PhoneNumberType]
+    INVALID_ERROR: _ClassVar[PhoneNumberType]
 TIME_SCALE_MINUTE: TimeScale
 TIME_SCALE_HOUR: TimeScale
 TIME_SCALE_DAY: TimeScale
@@ -30,6 +36,9 @@ TIME_SCALE_YEAR: TimeScale
 TICKET_STATUS_NEW: TicketStatus
 TICKET_STATUS_OPEN: TicketStatus
 TICKET_STATUS_CLOSE: TicketStatus
+MOBILE: PhoneNumberType
+OTHER: PhoneNumberType
+INVALID_ERROR: PhoneNumberType
 
 class Ticket(_message.Message):
     __slots__ = ("ticket_sid", "project_sid", "project_title", "ticket_code", "title", "description", "org_id", "created_by_id", "created_by_name", "created_by_date", "due_date", "assignee_list", "metadata", "ticket_skills", "status", "ticket_sla", "assignee", "ticket_action", "ticket_status", "ticket_assignee", "ticket_participant")

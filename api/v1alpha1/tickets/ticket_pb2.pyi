@@ -126,6 +126,18 @@ class GetActionTypeResponse(_message.Message):
     action_type: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.ActionType]
     def __init__(self, action_type: _Optional[_Iterable[_Union[_tickets_pb2.ActionType, _Mapping]]] = ...) -> None: ...
 
+class GetPhoneNumberTypeRequest(_message.Message):
+    __slots__ = ("phone_number",)
+    PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    phone_number: str
+    def __init__(self, phone_number: _Optional[str] = ...) -> None: ...
+
+class GetPhoneNumberTypeResponse(_message.Message):
+    __slots__ = ("phone_type",)
+    PHONE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    phone_type: _tickets_pb2.PhoneNumberType
+    def __init__(self, phone_type: _Optional[_Union[_tickets_pb2.PhoneNumberType, str]] = ...) -> None: ...
+
 class EditTicketReq(_message.Message):
     __slots__ = ("ticket_sid", "edit_value")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
