@@ -371,6 +371,7 @@ class AgentSessionLogActionKey(_message.Message):
         BARGE_IN_STOP: _ClassVar[AgentSessionLogActionKey.Enum]
         BargeInCallJoined: _ClassVar[AgentSessionLogActionKey.Enum]
         BargeInCallLeft: _ClassVar[AgentSessionLogActionKey.Enum]
+        EXECUTED_AGENT_INTEGRATIONLINK: _ClassVar[AgentSessionLogActionKey.Enum]
     AGENT_PAUSE_START: AgentSessionLogActionKey.Enum
     AGENT_PAUSE_STOP: AgentSessionLogActionKey.Enum
     AGENT_SKILLS_INITIAL: AgentSessionLogActionKey.Enum
@@ -431,6 +432,7 @@ class AgentSessionLogActionKey(_message.Message):
     BARGE_IN_STOP: AgentSessionLogActionKey.Enum
     BargeInCallJoined: AgentSessionLogActionKey.Enum
     BargeInCallLeft: AgentSessionLogActionKey.Enum
+    EXECUTED_AGENT_INTEGRATIONLINK: AgentSessionLogActionKey.Enum
     def __init__(self) -> None: ...
 
 class AgentCallLogActionKey(_message.Message):
