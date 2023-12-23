@@ -70,18 +70,20 @@ class ScoreEvaluationResponse(_message.Message):
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class ListEvaluationsRequest(_message.Message):
-    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids")
+    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields")
     SCORER_ID_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
     AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
+    RETURN_FIELDS_FIELD_NUMBER: _ClassVar[int]
     scorer_id: _containers.RepeatedScalarFieldContainer[str]
     completed_at: _scorecards_pb2.TimeFilter
     category_ids: _containers.RepeatedScalarFieldContainer[int]
     agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
     scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ...) -> None: ...
+    return_fields: _field_mask_pb2.FieldMask
+    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class ListEvaluationsResponse(_message.Message):
     __slots__ = ("evaluations",)
