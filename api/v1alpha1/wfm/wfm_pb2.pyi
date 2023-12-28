@@ -2286,8 +2286,24 @@ class ShiftInstance(_message.Message):
     shift_template: ShiftTemplate
     def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_locked: bool = ..., width_in_minutes: _Optional[int] = ..., shift_template_sid: _Optional[int] = ..., originating_program_node_sid: _Optional[int] = ..., schedule_sid: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ..., shift_segments: _Optional[_Iterable[_Union[ShiftSegment, _Mapping]]] = ..., shift_template: _Optional[_Union[ShiftTemplate, _Mapping]] = ...) -> None: ...
 
+class ShiftSegmentCallStat(_message.Message):
+    __slots__ = ("num_calls", "percent_fit")
+    NUM_CALLS_FIELD_NUMBER: _ClassVar[int]
+    PERCENT_FIT_FIELD_NUMBER: _ClassVar[int]
+    num_calls: float
+    percent_fit: float
+    def __init__(self, num_calls: _Optional[float] = ..., percent_fit: _Optional[float] = ...) -> None: ...
+
+class ShiftSegmentCallStatKeyValue(_message.Message):
+    __slots__ = ("key", "value")
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    key: _wfm_pb2.SkillProfileCategory
+    value: ShiftSegmentCallStat
+    def __init__(self, key: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., value: _Optional[_Union[ShiftSegmentCallStat, _Mapping]] = ...) -> None: ...
+
 class ShiftSegment(_message.Message):
-    __slots__ = ("shift_segment_sid", "shift_instance_sid", "order_in_shift_instance", "width_in_minutes", "start_minute_in_shift", "scheduling_activity_sid", "scheduling_activity")
+    __slots__ = ("shift_segment_sid", "shift_instance_sid", "order_in_shift_instance", "width_in_minutes", "start_minute_in_shift", "scheduling_activity_sid", "scheduling_activity", "call_stats")
     SHIFT_SEGMENT_SID_FIELD_NUMBER: _ClassVar[int]
     SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
     ORDER_IN_SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
@@ -2295,6 +2311,7 @@ class ShiftSegment(_message.Message):
     START_MINUTE_IN_SHIFT_FIELD_NUMBER: _ClassVar[int]
     SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    CALL_STATS_FIELD_NUMBER: _ClassVar[int]
     shift_segment_sid: int
     shift_instance_sid: int
     order_in_shift_instance: int
@@ -2302,7 +2319,8 @@ class ShiftSegment(_message.Message):
     start_minute_in_shift: int
     scheduling_activity_sid: int
     scheduling_activity: SchedulingActivity
-    def __init__(self, shift_segment_sid: _Optional[int] = ..., shift_instance_sid: _Optional[int] = ..., order_in_shift_instance: _Optional[int] = ..., width_in_minutes: _Optional[int] = ..., start_minute_in_shift: _Optional[int] = ..., scheduling_activity_sid: _Optional[int] = ..., scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ...) -> None: ...
+    call_stats: _containers.RepeatedCompositeFieldContainer[ShiftSegmentCallStatKeyValue]
+    def __init__(self, shift_segment_sid: _Optional[int] = ..., shift_instance_sid: _Optional[int] = ..., order_in_shift_instance: _Optional[int] = ..., width_in_minutes: _Optional[int] = ..., start_minute_in_shift: _Optional[int] = ..., scheduling_activity_sid: _Optional[int] = ..., scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ..., call_stats: _Optional[_Iterable[_Union[ShiftSegmentCallStatKeyValue, _Mapping]]] = ...) -> None: ...
 
 class GetPublishedScheduleReq(_message.Message):
     __slots__ = ("datetime_range", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "node_selector")
@@ -3258,3 +3276,35 @@ class GenerateTourWeekPatternsRes(_message.Message):
     tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class BasicSchedulingResultMetric(_message.Message):
+    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result")
+    TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
+    COVERAGE_FIELD_NUMBER: _ClassVar[int]
+    ROOT_MEAN_SQUARE_FIELD_NUMBER: _ClassVar[int]
+    HAS_RESULT_FIELD_NUMBER: _ClassVar[int]
+    total_internal_intervals: int
+    total_intervals_with_fte_required: int
+    total_intervals_with_ftes_remaining: int
+    coverage: float
+    root_mean_square: float
+    has_result: bool
+    def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ...) -> None: ...
+
+class SchedulingResultMetricKeyValue(_message.Message):
+    __slots__ = ("key", "value")
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    key: _wfm_pb2.SkillProfileCategory
+    value: BasicSchedulingResultMetric
+    def __init__(self, key: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., value: _Optional[_Union[BasicSchedulingResultMetric, _Mapping]] = ...) -> None: ...
+
+class SchedulingResultMetric(_message.Message):
+    __slots__ = ("metrics_all_skills", "metrics_by_skill_collection")
+    METRICS_ALL_SKILLS_FIELD_NUMBER: _ClassVar[int]
+    METRICS_BY_SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    metrics_all_skills: BasicSchedulingResultMetric
+    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[SchedulingResultMetricKeyValue]
+    def __init__(self, metrics_all_skills: _Optional[_Union[BasicSchedulingResultMetric, _Mapping]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[SchedulingResultMetricKeyValue, _Mapping]]] = ...) -> None: ...
