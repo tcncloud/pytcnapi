@@ -2554,6 +2554,16 @@ class BuildDraftScheduleRes(_message.Message):
     scheduling_result_metric: _wfm_pb2.SchedulingResultMetric
     def __init__(self, draft_schedule: _Optional[_Union[DraftSchedule, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ..., scheduling_result_metric: _Optional[_Union[_wfm_pb2.SchedulingResultMetric, _Mapping]] = ...) -> None: ...
 
+class BuildDraftScheduleV2Res(_message.Message):
+    __slots__ = ("draft_schedule", "diagnostics", "scheduling_result_metric")
+    DRAFT_SCHEDULE_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULING_RESULT_METRIC_FIELD_NUMBER: _ClassVar[int]
+    draft_schedule: DraftSchedule
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    scheduling_result_metric: SchedulingResultMetric
+    def __init__(self, draft_schedule: _Optional[_Union[DraftSchedule, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ..., scheduling_result_metric: _Optional[_Union[SchedulingResultMetric, _Mapping]] = ...) -> None: ...
+
 class PublishDraftScheduleReq(_message.Message):
     __slots__ = ("draft_schedule_sid", "node_selector", "datetime_range", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "ignore_diagnostics_errors")
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
