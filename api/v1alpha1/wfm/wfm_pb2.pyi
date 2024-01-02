@@ -3258,3 +3258,25 @@ class GenerateTourWeekPatternsRes(_message.Message):
     tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class RemoveAgentFromScheduleRequest(_message.Message):
+    __slots__ = ("datetime_range", "wfm_agent_sid", "schedule_selector", "node_selector", "schedule_scenario_sid")
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    wfm_agent_sid: int
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    node_selector: ParentEntity
+    schedule_scenario_sid: int
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., wfm_agent_sid: _Optional[int] = ..., schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+
+class RemoveAgentFromScheduleResponse(_message.Message):
+    __slots__ = ("unassigned_wfm_agent_sid", "updated_shifts")
+    UNASSIGNED_WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    UPDATED_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    unassigned_wfm_agent_sid: int
+    updated_shifts: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    def __init__(self, unassigned_wfm_agent_sid: _Optional[int] = ..., updated_shifts: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
