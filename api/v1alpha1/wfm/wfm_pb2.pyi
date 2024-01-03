@@ -2206,8 +2206,38 @@ class DraftSchedule(_message.Message):
     schedule_scenario_sid: int
     def __init__(self, draft_schedule_sid: _Optional[int] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., created_by_user_id: _Optional[str] = ..., shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., performance_metrics: _Optional[_Iterable[_Union[PerformanceMetric, _Mapping]]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
+class PerformanceMetricForSkillCollection(_message.Message):
+    __slots__ = ("date_range", "total_calls_required", "total_ftes_achieved", "num_intervals_with_required_calls", "num_intervals_with_ftes_but_no_schedules", "num_intervals_with_ftes_but_no_forecasted_calls", "total_unscheduled_calls", "total_unnecessary_ftes", "interval_width_in_minutes", "metric_type", "fte_intervals", "service_level_intervals", "skill_collection")
+    DATE_RANGE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_CALLS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FTES_ACHIEVED_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_REQUIRED_CALLS_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_FTES_BUT_NO_SCHEDULES_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_FTES_BUT_NO_FORECASTED_CALLS_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_UNSCHEDULED_CALLS_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_UNNECESSARY_FTES_FIELD_NUMBER: _ClassVar[int]
+    INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    METRIC_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FTE_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_LEVEL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    date_range: _wfm_pb2.DatetimeRange
+    total_calls_required: int
+    total_ftes_achieved: int
+    num_intervals_with_required_calls: int
+    num_intervals_with_ftes_but_no_schedules: int
+    num_intervals_with_ftes_but_no_forecasted_calls: int
+    total_unscheduled_calls: int
+    total_unnecessary_ftes: int
+    interval_width_in_minutes: int
+    metric_type: _wfm_pb2.PerformanceMetricType
+    fte_intervals: _containers.RepeatedCompositeFieldContainer[FTERequiredVsAchievedInterval]
+    service_level_intervals: _containers.RepeatedCompositeFieldContainer[ServiceLevelInterval]
+    skill_collection: _wfm_pb2.SkillProfileCategory
+    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_calls_required: _Optional[int] = ..., total_ftes_achieved: _Optional[int] = ..., num_intervals_with_required_calls: _Optional[int] = ..., num_intervals_with_ftes_but_no_schedules: _Optional[int] = ..., num_intervals_with_ftes_but_no_forecasted_calls: _Optional[int] = ..., total_unscheduled_calls: _Optional[int] = ..., total_unnecessary_ftes: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ..., skill_collection: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
+
 class PerformanceMetric(_message.Message):
-    __slots__ = ("date_range", "total_calls_required", "total_ftes_achieved", "num_intervals_with_required_calls", "num_intervals_with_ftes_but_no_schedules", "num_intervals_with_ftes_but_no_forecasted_calls", "total_unscheduled_calls", "total_unnecessary_ftes", "interval_width_in_minutes", "metric_type", "fte_intervals", "service_level_intervals")
+    __slots__ = ("date_range", "total_calls_required", "total_ftes_achieved", "num_intervals_with_required_calls", "num_intervals_with_ftes_but_no_schedules", "num_intervals_with_ftes_but_no_forecasted_calls", "total_unscheduled_calls", "total_unnecessary_ftes", "interval_width_in_minutes", "metric_type", "fte_intervals", "service_level_intervals", "metrics_by_skill_collection")
     DATE_RANGE_FIELD_NUMBER: _ClassVar[int]
     TOTAL_CALLS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FTES_ACHIEVED_FIELD_NUMBER: _ClassVar[int]
@@ -2220,66 +2250,24 @@ class PerformanceMetric(_message.Message):
     METRIC_TYPE_FIELD_NUMBER: _ClassVar[int]
     FTE_INTERVALS_FIELD_NUMBER: _ClassVar[int]
     SERVICE_LEVEL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
-    date_range: _wfm_pb2.DatetimeRange
-    total_calls_required: int
-    total_ftes_achieved: int
-    num_intervals_with_required_calls: int
-    num_intervals_with_ftes_but_no_schedules: int
-    num_intervals_with_ftes_but_no_forecasted_calls: int
-    total_unscheduled_calls: int
-    total_unnecessary_ftes: int
-    interval_width_in_minutes: int
-    metric_type: _wfm_pb2.PerformanceMetricType
-    fte_intervals: _containers.RepeatedCompositeFieldContainer[FTERequiredVsAchievedInterval]
-    service_level_intervals: _containers.RepeatedCompositeFieldContainer[ServiceLevelInterval]
-    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_calls_required: _Optional[int] = ..., total_ftes_achieved: _Optional[int] = ..., num_intervals_with_required_calls: _Optional[int] = ..., num_intervals_with_ftes_but_no_schedules: _Optional[int] = ..., num_intervals_with_ftes_but_no_forecasted_calls: _Optional[int] = ..., total_unscheduled_calls: _Optional[int] = ..., total_unnecessary_ftes: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ...) -> None: ...
-
-class BasicPerformanceMetricV1(_message.Message):
-    __slots__ = ("date_range", "total_calls_required", "total_ftes_achieved", "num_intervals_with_required_calls", "num_intervals_with_ftes_but_no_schedules", "num_intervals_with_ftes_but_no_forecasted_calls", "total_unscheduled_calls", "total_unnecessary_ftes", "interval_width_in_minutes", "metric_type", "fte_intervals", "service_level_intervals")
-    DATE_RANGE_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_CALLS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_FTES_ACHIEVED_FIELD_NUMBER: _ClassVar[int]
-    NUM_INTERVALS_WITH_REQUIRED_CALLS_FIELD_NUMBER: _ClassVar[int]
-    NUM_INTERVALS_WITH_FTES_BUT_NO_SCHEDULES_FIELD_NUMBER: _ClassVar[int]
-    NUM_INTERVALS_WITH_FTES_BUT_NO_FORECASTED_CALLS_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_UNSCHEDULED_CALLS_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_UNNECESSARY_FTES_FIELD_NUMBER: _ClassVar[int]
-    INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
-    METRIC_TYPE_FIELD_NUMBER: _ClassVar[int]
-    FTE_INTERVALS_FIELD_NUMBER: _ClassVar[int]
-    SERVICE_LEVEL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
-    date_range: _wfm_pb2.DatetimeRange
-    total_calls_required: int
-    total_ftes_achieved: int
-    num_intervals_with_required_calls: int
-    num_intervals_with_ftes_but_no_schedules: int
-    num_intervals_with_ftes_but_no_forecasted_calls: int
-    total_unscheduled_calls: int
-    total_unnecessary_ftes: int
-    interval_width_in_minutes: int
-    metric_type: _wfm_pb2.PerformanceMetricType
-    fte_intervals: _containers.RepeatedCompositeFieldContainer[FTERequiredVsAchievedInterval]
-    service_level_intervals: _containers.RepeatedCompositeFieldContainer[ServiceLevelInterval]
-    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_calls_required: _Optional[int] = ..., total_ftes_achieved: _Optional[int] = ..., num_intervals_with_required_calls: _Optional[int] = ..., num_intervals_with_ftes_but_no_schedules: _Optional[int] = ..., num_intervals_with_ftes_but_no_forecasted_calls: _Optional[int] = ..., total_unscheduled_calls: _Optional[int] = ..., total_unnecessary_ftes: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ...) -> None: ...
-
-class PerformanceMetricV1KeyValue(_message.Message):
-    __slots__ = ("key", "value")
-    KEY_FIELD_NUMBER: _ClassVar[int]
-    VALUE_FIELD_NUMBER: _ClassVar[int]
-    key: _wfm_pb2.SkillProfileCategory
-    value: BasicPerformanceMetricV1
-    def __init__(self, key: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., value: _Optional[_Union[BasicPerformanceMetricV1, _Mapping]] = ...) -> None: ...
-
-class PerformanceMetricV1(_message.Message):
-    __slots__ = ("metrics_all_skills", "metrics_by_skill_collection")
-    METRICS_ALL_SKILLS_FIELD_NUMBER: _ClassVar[int]
     METRICS_BY_SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
-    metrics_all_skills: BasicPerformanceMetricV1
-    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[PerformanceMetricV1KeyValue]
-    def __init__(self, metrics_all_skills: _Optional[_Union[BasicPerformanceMetricV1, _Mapping]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[PerformanceMetricV1KeyValue, _Mapping]]] = ...) -> None: ...
+    date_range: _wfm_pb2.DatetimeRange
+    total_calls_required: int
+    total_ftes_achieved: int
+    num_intervals_with_required_calls: int
+    num_intervals_with_ftes_but_no_schedules: int
+    num_intervals_with_ftes_but_no_forecasted_calls: int
+    total_unscheduled_calls: int
+    total_unnecessary_ftes: int
+    interval_width_in_minutes: int
+    metric_type: _wfm_pb2.PerformanceMetricType
+    fte_intervals: _containers.RepeatedCompositeFieldContainer[FTERequiredVsAchievedInterval]
+    service_level_intervals: _containers.RepeatedCompositeFieldContainer[ServiceLevelInterval]
+    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[PerformanceMetricForSkillCollection]
+    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_calls_required: _Optional[int] = ..., total_ftes_achieved: _Optional[int] = ..., num_intervals_with_required_calls: _Optional[int] = ..., num_intervals_with_ftes_but_no_schedules: _Optional[int] = ..., num_intervals_with_ftes_but_no_forecasted_calls: _Optional[int] = ..., total_unscheduled_calls: _Optional[int] = ..., total_unnecessary_ftes: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[PerformanceMetricForSkillCollection, _Mapping]]] = ...) -> None: ...
 
-class BasicPerformanceMetricV2(_message.Message):
-    __slots__ = ("date_range", "total_fte_intervals_required", "total_fte_intervals_achieved", "num_intervals_with_call_ftes", "num_intervals_with_shift_ftes", "num_intervals_with_call_ftes_but_no_shifts", "num_intervals_with_shifts_but_no_call_ftes", "total_underscheduled_call_ftes", "total_overscheduled_call_ftes", "interval_width_in_minutes", "metric_type", "fte_occupancy_intervals", "service_level_intervals")
+class PerformanceMetricForSkillCollectionV2(_message.Message):
+    __slots__ = ("date_range", "total_fte_intervals_required", "total_fte_intervals_achieved", "num_intervals_with_call_ftes", "num_intervals_with_shift_ftes", "num_intervals_with_call_ftes_but_no_shifts", "num_intervals_with_shifts_but_no_call_ftes", "total_underscheduled_call_ftes", "total_overscheduled_call_ftes", "interval_width_in_minutes", "metric_type", "fte_occupancy_intervals", "service_level_intervals", "skill_collection")
     DATE_RANGE_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FTE_INTERVALS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FTE_INTERVALS_ACHIEVED_FIELD_NUMBER: _ClassVar[int]
@@ -2293,6 +2281,7 @@ class BasicPerformanceMetricV2(_message.Message):
     METRIC_TYPE_FIELD_NUMBER: _ClassVar[int]
     FTE_OCCUPANCY_INTERVALS_FIELD_NUMBER: _ClassVar[int]
     SERVICE_LEVEL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
     date_range: _wfm_pb2.DatetimeRange
     total_fte_intervals_required: float
     total_fte_intervals_achieved: float
@@ -2306,23 +2295,40 @@ class BasicPerformanceMetricV2(_message.Message):
     metric_type: _wfm_pb2.PerformanceMetricType
     fte_occupancy_intervals: _containers.RepeatedCompositeFieldContainer[FTERequiredVsAchievedOccupancyInterval]
     service_level_intervals: _containers.RepeatedCompositeFieldContainer[ServiceLevelInterval]
-    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_fte_intervals_required: _Optional[float] = ..., total_fte_intervals_achieved: _Optional[float] = ..., num_intervals_with_call_ftes: _Optional[int] = ..., num_intervals_with_shift_ftes: _Optional[int] = ..., num_intervals_with_call_ftes_but_no_shifts: _Optional[int] = ..., num_intervals_with_shifts_but_no_call_ftes: _Optional[int] = ..., total_underscheduled_call_ftes: _Optional[float] = ..., total_overscheduled_call_ftes: _Optional[float] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_occupancy_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedOccupancyInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ...) -> None: ...
-
-class PerformanceMetricV2KeyValue(_message.Message):
-    __slots__ = ("key", "value")
-    KEY_FIELD_NUMBER: _ClassVar[int]
-    VALUE_FIELD_NUMBER: _ClassVar[int]
-    key: _wfm_pb2.SkillProfileCategory
-    value: BasicPerformanceMetricV2
-    def __init__(self, key: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., value: _Optional[_Union[BasicPerformanceMetricV2, _Mapping]] = ...) -> None: ...
+    skill_collection: _wfm_pb2.SkillProfileCategory
+    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_fte_intervals_required: _Optional[float] = ..., total_fte_intervals_achieved: _Optional[float] = ..., num_intervals_with_call_ftes: _Optional[int] = ..., num_intervals_with_shift_ftes: _Optional[int] = ..., num_intervals_with_call_ftes_but_no_shifts: _Optional[int] = ..., num_intervals_with_shifts_but_no_call_ftes: _Optional[int] = ..., total_underscheduled_call_ftes: _Optional[float] = ..., total_overscheduled_call_ftes: _Optional[float] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_occupancy_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedOccupancyInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ..., skill_collection: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class PerformanceMetricV2(_message.Message):
-    __slots__ = ("metrics_all_skills", "metrics_by_skill_collection")
-    METRICS_ALL_SKILLS_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("date_range", "total_fte_intervals_required", "total_fte_intervals_achieved", "num_intervals_with_call_ftes", "num_intervals_with_shift_ftes", "num_intervals_with_call_ftes_but_no_shifts", "num_intervals_with_shifts_but_no_call_ftes", "total_underscheduled_call_ftes", "total_overscheduled_call_ftes", "interval_width_in_minutes", "metric_type", "fte_occupancy_intervals", "service_level_intervals", "metrics_by_skill_collection")
+    DATE_RANGE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FTE_INTERVALS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FTE_INTERVALS_ACHIEVED_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_SHIFT_FTES_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_CALL_FTES_BUT_NO_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_SHIFTS_BUT_NO_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_UNDERSCHEDULED_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_OVERSCHEDULED_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    METRIC_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FTE_OCCUPANCY_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_LEVEL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
     METRICS_BY_SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
-    metrics_all_skills: BasicPerformanceMetricV2
-    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[PerformanceMetricV2KeyValue]
-    def __init__(self, metrics_all_skills: _Optional[_Union[BasicPerformanceMetricV2, _Mapping]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[PerformanceMetricV2KeyValue, _Mapping]]] = ...) -> None: ...
+    date_range: _wfm_pb2.DatetimeRange
+    total_fte_intervals_required: float
+    total_fte_intervals_achieved: float
+    num_intervals_with_call_ftes: int
+    num_intervals_with_shift_ftes: int
+    num_intervals_with_call_ftes_but_no_shifts: int
+    num_intervals_with_shifts_but_no_call_ftes: int
+    total_underscheduled_call_ftes: float
+    total_overscheduled_call_ftes: float
+    interval_width_in_minutes: int
+    metric_type: _wfm_pb2.PerformanceMetricType
+    fte_occupancy_intervals: _containers.RepeatedCompositeFieldContainer[FTERequiredVsAchievedOccupancyInterval]
+    service_level_intervals: _containers.RepeatedCompositeFieldContainer[ServiceLevelInterval]
+    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[PerformanceMetricForSkillCollectionV2]
+    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_fte_intervals_required: _Optional[float] = ..., total_fte_intervals_achieved: _Optional[float] = ..., num_intervals_with_call_ftes: _Optional[int] = ..., num_intervals_with_shift_ftes: _Optional[int] = ..., num_intervals_with_call_ftes_but_no_shifts: _Optional[int] = ..., num_intervals_with_shifts_but_no_call_ftes: _Optional[int] = ..., total_underscheduled_call_ftes: _Optional[float] = ..., total_overscheduled_call_ftes: _Optional[float] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_occupancy_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedOccupancyInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[PerformanceMetricForSkillCollectionV2, _Mapping]]] = ...) -> None: ...
 
 class ServiceLevelInterval(_message.Message):
     __slots__ = ("start_datetime", "service_level_achieved")
