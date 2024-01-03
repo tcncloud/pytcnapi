@@ -2548,16 +2548,6 @@ class BuildDraftScheduleRes(_message.Message):
     scheduling_result_metric: _wfm_pb2.SchedulingResultMetric
     def __init__(self, draft_schedule: _Optional[_Union[DraftSchedule, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ..., scheduling_result_metric: _Optional[_Union[_wfm_pb2.SchedulingResultMetric, _Mapping]] = ...) -> None: ...
 
-class BuildDraftScheduleV2Res(_message.Message):
-    __slots__ = ("draft_schedule", "diagnostics", "scheduling_result_metric")
-    DRAFT_SCHEDULE_FIELD_NUMBER: _ClassVar[int]
-    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
-    SCHEDULING_RESULT_METRIC_FIELD_NUMBER: _ClassVar[int]
-    draft_schedule: DraftSchedule
-    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
-    scheduling_result_metric: SchedulingResultMetric
-    def __init__(self, draft_schedule: _Optional[_Union[DraftSchedule, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ..., scheduling_result_metric: _Optional[_Union[SchedulingResultMetric, _Mapping]] = ...) -> None: ...
-
 class PublishDraftScheduleReq(_message.Message):
     __slots__ = ("draft_schedule_sid", "node_selector", "datetime_range", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "ignore_diagnostics_errors")
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -3380,35 +3370,3 @@ class GenerateTourWeekPatternsRes(_message.Message):
     tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
-
-class BasicSchedulingResultMetric(_message.Message):
-    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result")
-    TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
-    COVERAGE_FIELD_NUMBER: _ClassVar[int]
-    ROOT_MEAN_SQUARE_FIELD_NUMBER: _ClassVar[int]
-    HAS_RESULT_FIELD_NUMBER: _ClassVar[int]
-    total_internal_intervals: int
-    total_intervals_with_fte_required: int
-    total_intervals_with_ftes_remaining: int
-    coverage: float
-    root_mean_square: float
-    has_result: bool
-    def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ...) -> None: ...
-
-class SchedulingResultMetricKeyValue(_message.Message):
-    __slots__ = ("key", "value")
-    KEY_FIELD_NUMBER: _ClassVar[int]
-    VALUE_FIELD_NUMBER: _ClassVar[int]
-    key: _wfm_pb2.SkillProfileCategory
-    value: BasicSchedulingResultMetric
-    def __init__(self, key: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., value: _Optional[_Union[BasicSchedulingResultMetric, _Mapping]] = ...) -> None: ...
-
-class SchedulingResultMetric(_message.Message):
-    __slots__ = ("metrics_all_skills", "metrics_by_skill_collection")
-    METRICS_ALL_SKILLS_FIELD_NUMBER: _ClassVar[int]
-    METRICS_BY_SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
-    metrics_all_skills: BasicSchedulingResultMetric
-    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[SchedulingResultMetricKeyValue]
-    def __init__(self, metrics_all_skills: _Optional[_Union[BasicSchedulingResultMetric, _Mapping]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[SchedulingResultMetricKeyValue, _Mapping]]] = ...) -> None: ...
