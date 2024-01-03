@@ -3258,3 +3258,53 @@ class GenerateTourWeekPatternsRes(_message.Message):
     tour_week_patterns: _containers.RepeatedCompositeFieldContainer[TourWeekPattern]
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, tour_week_patterns: _Optional[_Iterable[_Union[TourWeekPattern, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class ListValidAgentsForReplacementReq(_message.Message):
+    __slots__ = ("schedule_scenario_sid", "datetime_range", "schedule_selector", "node_selector", "wfm_agent_sid_to_replace", "skip_skill_proficiency_sort", "include_skill_mismatches", "skip_force_same_agent_groups")
+    SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_TO_REPLACE_FIELD_NUMBER: _ClassVar[int]
+    SKIP_SKILL_PROFICIENCY_SORT_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_SKILL_MISMATCHES_FIELD_NUMBER: _ClassVar[int]
+    SKIP_FORCE_SAME_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    schedule_scenario_sid: int
+    datetime_range: _wfm_pb2.DatetimeRange
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    node_selector: ParentEntity
+    wfm_agent_sid_to_replace: int
+    skip_skill_proficiency_sort: bool
+    include_skill_mismatches: bool
+    skip_force_same_agent_groups: bool
+    def __init__(self, schedule_scenario_sid: _Optional[int] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., wfm_agent_sid_to_replace: _Optional[int] = ..., skip_skill_proficiency_sort: bool = ..., include_skill_mismatches: bool = ..., skip_force_same_agent_groups: bool = ...) -> None: ...
+
+class ListValidAgentsForReplacementRes(_message.Message):
+    __slots__ = ("wfm_agent_sids",)
+    WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class ReplaceAgentOnScheduleReq(_message.Message):
+    __slots__ = ("datetime_range", "schedule_selector", "node_selector", "wfm_agent_sid_to_remove", "wfm_agent_sid_to_add", "skip_overlapping_shifts")
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_TO_REMOVE_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_TO_ADD_FIELD_NUMBER: _ClassVar[int]
+    SKIP_OVERLAPPING_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    node_selector: ParentEntity
+    wfm_agent_sid_to_remove: int
+    wfm_agent_sid_to_add: int
+    skip_overlapping_shifts: bool
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., wfm_agent_sid_to_remove: _Optional[int] = ..., wfm_agent_sid_to_add: _Optional[int] = ..., skip_overlapping_shifts: bool = ...) -> None: ...
+
+class ReplaceAgentOnScheduleRes(_message.Message):
+    __slots__ = ("updated_shift_instances", "diagnostics")
+    UPDATED_SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    updated_shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
