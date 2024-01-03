@@ -143,15 +143,3 @@ class SkillGroupMembers(_message.Message):
     skill_group_id: str
     user_ids: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, skill_group_id: _Optional[str] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
-
-class AssignUsersRequest(_message.Message):
-    __slots__ = ("skill_group_id", "user_ids")
-    SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
-    USER_IDS_FIELD_NUMBER: _ClassVar[int]
-    skill_group_id: str
-    user_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, skill_group_id: _Optional[str] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
-
-class AssignUsersResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
