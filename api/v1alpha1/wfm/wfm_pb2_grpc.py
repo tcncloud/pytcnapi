@@ -800,6 +800,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsRes.FromString,
                 )
+        self.ListValidAgentsForReplacement = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListValidAgentsForReplacement',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListValidAgentsForReplacementReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListValidAgentsForReplacementRes.FromString,
+                )
+        self.ReplaceAgentOnSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ReplaceAgentOnSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
+                )
 
 
 class WFMServicer(object):
@@ -3107,6 +3117,36 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListValidAgentsForReplacement(self, request, context):
+        """Returns a list of @wfm_agent_sids that are suitable for replacing @wfm_agent_sid_to_replace for the given parameters and the org sending the request.
+        Only enforces that skill proficiencies are covered by the individual wfm agents, does not enforce constraint rules.
+        If @skip_skill_proficiency_sort is False, the agents will be returned in order of cumulative skill proficiency towards the required skills.
+        If @include_skill_mismatches is True, the agents will be included even if they do not include all of the required skills for the shifts being replaced.
+        If @skip_force_same_agent_groups is False, the agents will only be returned if they belong to every agent group that @wfm_agent_sid_to_replace is a member of. Otherwise, this check will be skipped.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when determinining which agents are valid.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReplaceAgentOnSchedule(self, request, context):
+        """Replaces @wfm_agent_sid_to_remove with @wfm_agent_sid_to_add for the given parameters and the org sending the request.
+        If @skip_overlapping_shifts, shifts with an overlap conflict will be skipped, otherwise overlap conflicts will cause a diagnostic to be returned.
+        Does not enforce skill proficiencies. To check skill proficiencies for shift replacement use ListValidAgentsForReplacement.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when replacing the @wfm_agent_sid_to_remove.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -3894,6 +3934,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.GenerateTourWeekPatterns,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsRes.SerializeToString,
+            ),
+            'ListValidAgentsForReplacement': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListValidAgentsForReplacement,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListValidAgentsForReplacementReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListValidAgentsForReplacementRes.SerializeToString,
+            ),
+            'ReplaceAgentOnSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReplaceAgentOnSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -6572,5 +6622,39 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GenerateTourWeekPatterns',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GenerateTourWeekPatternsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListValidAgentsForReplacement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListValidAgentsForReplacement',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListValidAgentsForReplacementReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListValidAgentsForReplacementRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReplaceAgentOnSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ReplaceAgentOnSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
