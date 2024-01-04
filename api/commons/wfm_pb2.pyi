@@ -588,41 +588,21 @@ class SkillProfileCategory(_message.Message):
     skill_profile_category_type: SkillProfileCategory.CategoryType
     def __init__(self, skill_profile_category_sid: _Optional[int] = ..., skill_profile_category_type: _Optional[_Union[SkillProfileCategory.CategoryType, str]] = ...) -> None: ...
 
-class SchedulingResultMetricForSkillCollection(_message.Message):
-    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result", "skill_collection")
-    TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
-    COVERAGE_FIELD_NUMBER: _ClassVar[int]
-    ROOT_MEAN_SQUARE_FIELD_NUMBER: _ClassVar[int]
-    HAS_RESULT_FIELD_NUMBER: _ClassVar[int]
-    SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
-    total_internal_intervals: int
-    total_intervals_with_fte_required: int
-    total_intervals_with_ftes_remaining: int
-    coverage: float
-    root_mean_square: float
-    has_result: bool
-    skill_collection: SkillProfileCategory
-    def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ..., skill_collection: _Optional[_Union[SkillProfileCategory, _Mapping]] = ...) -> None: ...
-
 class SchedulingResultMetric(_message.Message):
-    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result", "metrics_by_skill_collection")
+    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result")
     TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
     COVERAGE_FIELD_NUMBER: _ClassVar[int]
     ROOT_MEAN_SQUARE_FIELD_NUMBER: _ClassVar[int]
     HAS_RESULT_FIELD_NUMBER: _ClassVar[int]
-    METRICS_BY_SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
     total_internal_intervals: int
     total_intervals_with_fte_required: int
     total_intervals_with_ftes_remaining: int
     coverage: float
     root_mean_square: float
     has_result: bool
-    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[SchedulingResultMetricForSkillCollection]
-    def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[SchedulingResultMetricForSkillCollection, _Mapping]]] = ...) -> None: ...
+    def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: bool = ...) -> None: ...
 
 class ClientHistoryCacheInfo(_message.Message):
     __slots__ = ("state", "progress_percentage")
