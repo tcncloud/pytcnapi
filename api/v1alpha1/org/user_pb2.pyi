@@ -337,6 +337,22 @@ class ListAgentsResponse(_message.Message):
     agents: _containers.RepeatedCompositeFieldContainer[ListAgentsResponse.AgentDetails]
     def __init__(self, agents: _Optional[_Iterable[_Union[ListAgentsResponse.AgentDetails, _Mapping]]] = ...) -> None: ...
 
+class ListPublicUsersRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListPublicUsersResponse(_message.Message):
+    __slots__ = ("user_id", "org_id", "first_name", "last_name")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+    LAST_NAME_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    org_id: str
+    first_name: str
+    last_name: str
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
+
 class ListUsersRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
