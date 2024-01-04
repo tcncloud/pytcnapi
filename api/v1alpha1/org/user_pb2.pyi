@@ -338,18 +338,24 @@ class ListAgentsResponse(_message.Message):
     def __init__(self, agents: _Optional[_Iterable[_Union[ListAgentsResponse.AgentDetails, _Mapping]]] = ...) -> None: ...
 
 class ListPublicUsersRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("agent_filter", "archived_filter")
+    AGENT_FILTER_FIELD_NUMBER: _ClassVar[int]
+    ARCHIVED_FILTER_FIELD_NUMBER: _ClassVar[int]
+    agent_filter: bool
+    archived_filter: _user_pb2_1.UserArchivedStateFilter
+    def __init__(self, agent_filter: bool = ..., archived_filter: _Optional[_Union[_user_pb2_1.UserArchivedStateFilter, str]] = ...) -> None: ...
 
 class ListPublicUsersResponse(_message.Message):
-    __slots__ = ("user_id", "first_name", "last_name")
+    __slots__ = ("user_id", "first_name", "last_name", "username")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
     LAST_NAME_FIELD_NUMBER: _ClassVar[int]
+    USERNAME_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     first_name: str
     last_name: str
-    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ...) -> None: ...
+    username: str
+    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ...) -> None: ...
 
 class ListUsersRequest(_message.Message):
     __slots__ = ()
