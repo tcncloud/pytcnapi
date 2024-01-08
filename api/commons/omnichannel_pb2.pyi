@@ -35,6 +35,7 @@ class OmniCampaignModuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MODULE_TYPE_INBOUND: _ClassVar[OmniCampaignModuleType]
     MODULE_TYPE_OUTBOUND: _ClassVar[OmniCampaignModuleType]
     MODULE_TYPE_MANUAL_APPROVAL: _ClassVar[OmniCampaignModuleType]
+    MODULE_TYPE_MANUAL: _ClassVar[OmniCampaignModuleType]
 
 class ChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -220,6 +221,7 @@ MEDIASAT_SMS_PROVIDER: SmsNumberProvider
 MODULE_TYPE_INBOUND: OmniCampaignModuleType
 MODULE_TYPE_OUTBOUND: OmniCampaignModuleType
 MODULE_TYPE_MANUAL_APPROVAL: OmniCampaignModuleType
+MODULE_TYPE_MANUAL: OmniCampaignModuleType
 CHANNEL_TYPE_EMAIL: ChannelType
 CHANNEL_TYPE_SMS: ChannelType
 CHANNEL_TYPE_CHAT: ChannelType
