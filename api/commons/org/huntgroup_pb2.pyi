@@ -755,7 +755,7 @@ class AgentResponseComparitors(_message.Message):
     def __init__(self, value: _Optional[str] = ..., expiration: _Optional[int] = ...) -> None: ...
 
 class ClientInfoDisplayTemplate(_message.Message):
-    __slots__ = ("template_sid", "name", "description", "display_all_fields", "dialed_number_field_style", "contact_field_styles", "template_category")
+    __slots__ = ("template_sid", "name", "description", "display_all_fields", "dialed_number_field_style", "contact_field_styles", "template_category", "client_info_display_template_sid")
     TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -763,6 +763,7 @@ class ClientInfoDisplayTemplate(_message.Message):
     DIALED_NUMBER_FIELD_STYLE_FIELD_NUMBER: _ClassVar[int]
     CONTACT_FIELD_STYLES_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_INFO_DISPLAY_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
     template_sid: str
     name: str
     description: str
@@ -770,7 +771,8 @@ class ClientInfoDisplayTemplate(_message.Message):
     dialed_number_field_style: DialedNumberFieldStyle
     contact_field_styles: _containers.RepeatedCompositeFieldContainer[ContactFieldStyle]
     template_category: TemplateCategory
-    def __init__(self, template_sid: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., display_all_fields: bool = ..., dialed_number_field_style: _Optional[_Union[DialedNumberFieldStyle, _Mapping]] = ..., contact_field_styles: _Optional[_Iterable[_Union[ContactFieldStyle, _Mapping]]] = ..., template_category: _Optional[_Union[TemplateCategory, str]] = ...) -> None: ...
+    client_info_display_template_sid: int
+    def __init__(self, template_sid: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., display_all_fields: bool = ..., dialed_number_field_style: _Optional[_Union[DialedNumberFieldStyle, _Mapping]] = ..., contact_field_styles: _Optional[_Iterable[_Union[ContactFieldStyle, _Mapping]]] = ..., template_category: _Optional[_Union[TemplateCategory, str]] = ..., client_info_display_template_sid: _Optional[int] = ...) -> None: ...
 
 class FieldStyle(_message.Message):
     __slots__ = ("text_color", "background_color", "allow_agent_copy")
