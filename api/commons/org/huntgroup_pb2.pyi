@@ -14,6 +14,28 @@ class TemplateCategory(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TEMPLATE_CATEGORY_HUNT_GROUP: _ClassVar[TemplateCategory]
     TEMPLATE_CATEGORY_CAMPAIGN: _ClassVar[TemplateCategory]
 
+class WebLinkType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    WEB_LINK_TYPE_UNSPECIFIED: _ClassVar[WebLinkType]
+    WEB_LINK_STANDARD: _ClassVar[WebLinkType]
+    WEB_LINK_JAVASCRIPT: _ClassVar[WebLinkType]
+
+class WebLinkComponentKeyType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    WEB_LINK_COMPONENT_KEY_TYPE_UNSPECIFIED: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_STATIC_TEXT: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_TTS_FIELD: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_AGENT_INFO: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_DATA_DIP: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_IVR_DATA: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_DATA_COLLECT: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_PHONE_METADATA: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_ZIP_POSTAL_METADATA: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_CUSTOM_ACCOUNT_DATA_KEY: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_SIP_HEADER_DATA: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_INTEGRATION_DATA: _ClassVar[WebLinkComponentKeyType]
+    WEB_LINK_COMPONENT_KEY_TYPE_JOURNEY_DATA: _ClassVar[WebLinkComponentKeyType]
+
 class ParameterSourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     PARAMETER_SOURCE_TYPE_UNSPECIFIED: _ClassVar[ParameterSourceType]
@@ -97,6 +119,22 @@ class ParameterSourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
 TEMPLATE_CATEGORY_UNSPECIFIED: TemplateCategory
 TEMPLATE_CATEGORY_HUNT_GROUP: TemplateCategory
 TEMPLATE_CATEGORY_CAMPAIGN: TemplateCategory
+WEB_LINK_TYPE_UNSPECIFIED: WebLinkType
+WEB_LINK_STANDARD: WebLinkType
+WEB_LINK_JAVASCRIPT: WebLinkType
+WEB_LINK_COMPONENT_KEY_TYPE_UNSPECIFIED: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_STATIC_TEXT: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_TTS_FIELD: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_AGENT_INFO: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_DATA_DIP: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_IVR_DATA: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_DATA_COLLECT: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_PHONE_METADATA: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_ZIP_POSTAL_METADATA: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_CUSTOM_ACCOUNT_DATA_KEY: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_SIP_HEADER_DATA: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_INTEGRATION_DATA: WebLinkComponentKeyType
+WEB_LINK_COMPONENT_KEY_TYPE_JOURNEY_DATA: WebLinkComponentKeyType
 PARAMETER_SOURCE_TYPE_UNSPECIFIED: ParameterSourceType
 PARAMETER_SOURCE_TYPE_STATIC_TEXT: ParameterSourceType
 PARAMETER_SOURCE_TYPE_CFD_ID: ParameterSourceType
@@ -797,6 +835,40 @@ class DialedNumberFieldStyle(_message.Message):
     field_style: FieldStyle
     display_to_agent: bool
     def __init__(self, field_style: _Optional[_Union[FieldStyle, _Mapping]] = ..., display_to_agent: bool = ...) -> None: ...
+
+class WebLink(_message.Message):
+    __slots__ = ("web_link_sid", "name", "description", "link_type", "order", "base_url", "parameters")
+    WEB_LINK_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    LINK_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    BASE_URL_FIELD_NUMBER: _ClassVar[int]
+    PARAMETERS_FIELD_NUMBER: _ClassVar[int]
+    web_link_sid: int
+    name: str
+    description: str
+    link_type: WebLinkType
+    order: int
+    base_url: _containers.RepeatedCompositeFieldContainer[WebLinkComponent]
+    parameters: _containers.RepeatedCompositeFieldContainer[WebLinkParameter]
+    def __init__(self, web_link_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., link_type: _Optional[_Union[WebLinkType, str]] = ..., order: _Optional[int] = ..., base_url: _Optional[_Iterable[_Union[WebLinkComponent, _Mapping]]] = ..., parameters: _Optional[_Iterable[_Union[WebLinkParameter, _Mapping]]] = ...) -> None: ...
+
+class WebLinkComponent(_message.Message):
+    __slots__ = ("key_type", "value")
+    KEY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    key_type: WebLinkComponentKeyType
+    value: str
+    def __init__(self, key_type: _Optional[_Union[WebLinkComponentKeyType, str]] = ..., value: _Optional[str] = ...) -> None: ...
+
+class WebLinkParameter(_message.Message):
+    __slots__ = ("key", "components")
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    COMPONENTS_FIELD_NUMBER: _ClassVar[int]
+    key: str
+    components: _containers.RepeatedCompositeFieldContainer[WebLinkComponent]
+    def __init__(self, key: _Optional[str] = ..., components: _Optional[_Iterable[_Union[WebLinkComponent, _Mapping]]] = ...) -> None: ...
 
 class DataDipConfig(_message.Message):
     __slots__ = ("config_name", "config_type", "remote_url", "param_type_value_tuples", "params", "data", "request_method", "xml_client_property_sid", "headers")
