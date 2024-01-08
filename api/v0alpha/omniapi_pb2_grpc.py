@@ -369,6 +369,16 @@ class OmniApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersRes.FromString,
                 )
+        self.CreateWhatsAppNumber = channel.unary_unary(
+                '/api.v0alpha.OmniApi/CreateWhatsAppNumber',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRes.FromString,
+                )
+        self.UpdateWhatsAppNumber = channel.unary_unary(
+                '/api.v0alpha.OmniApi/UpdateWhatsAppNumber',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRes.FromString,
+                )
 
 
 class OmniApiServicer(object):
@@ -1002,6 +1012,20 @@ class OmniApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateWhatsAppNumber(self, request, context):
+        """Create whatsapp number for the client
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateWhatsAppNumber(self, request, context):
+        """Update whatsapp number for the client
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OmniApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1354,6 +1378,16 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.ListWhatsAppNumbers,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersRes.SerializeToString,
+            ),
+            'CreateWhatsAppNumber': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateWhatsAppNumber,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRes.SerializeToString,
+            ),
+            'UpdateWhatsAppNumber': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateWhatsAppNumber,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2555,5 +2589,39 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/ListWhatsAppNumbers',
             api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersReq.SerializeToString,
             api_dot_v0alpha_dot_omniapi__pb2.ListWhatsAppNumbersRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateWhatsAppNumber(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/CreateWhatsAppNumber',
+            api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberReq.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateWhatsAppNumber(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/UpdateWhatsAppNumber',
+            api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberReq.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
