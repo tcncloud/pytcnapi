@@ -371,13 +371,13 @@ class OmniApiStub(object):
                 )
         self.CreateWhatsAppNumber = channel.unary_unary(
                 '/api.v0alpha.OmniApi/CreateWhatsAppNumber',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRes.FromString,
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberResponse.FromString,
                 )
         self.UpdateWhatsAppNumber = channel.unary_unary(
                 '/api.v0alpha.OmniApi/UpdateWhatsAppNumber',
-                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRes.FromString,
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberResponse.FromString,
                 )
 
 
@@ -1381,13 +1381,13 @@ def add_OmniApiServicer_to_server(servicer, server):
             ),
             'CreateWhatsAppNumber': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateWhatsAppNumber,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRes.SerializeToString,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberResponse.SerializeToString,
             ),
             'UpdateWhatsAppNumber': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateWhatsAppNumber,
-                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRes.SerializeToString,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2604,8 +2604,8 @@ class OmniApi(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/CreateWhatsAppNumber',
-            api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberReq.SerializeToString,
-            api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRes.FromString,
+            api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.CreateWhatsAppNumberResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -2621,7 +2621,7 @@ class OmniApi(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/UpdateWhatsAppNumber',
-            api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberReq.SerializeToString,
-            api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRes.FromString,
+            api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.UpdateWhatsAppNumberResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
