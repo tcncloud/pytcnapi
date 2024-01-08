@@ -266,7 +266,7 @@ class ListHuntGroupWebLinksResponse(_message.Message):
     web_links: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.WebLink]
     def __init__(self, web_links: _Optional[_Iterable[_Union[_huntgroup_pb2.WebLink, _Mapping]]] = ...) -> None: ...
 
-class CopyHuntGroupWebLinkRequest(_message.Message):
+class AssignHuntGroupWebLinkRequest(_message.Message):
     __slots__ = ("from_hunt_group_sid", "to_hunt_group_sid", "web_link")
     FROM_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -276,7 +276,7 @@ class CopyHuntGroupWebLinkRequest(_message.Message):
     web_link: _huntgroup_pb2.WebLink
     def __init__(self, from_hunt_group_sid: _Optional[int] = ..., to_hunt_group_sid: _Optional[int] = ..., web_link: _Optional[_Union[_huntgroup_pb2.WebLink, _Mapping]] = ...) -> None: ...
 
-class CopyHuntGroupWebLinkResponse(_message.Message):
+class AssignHuntGroupWebLinkResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 

@@ -655,10 +655,10 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksResponse.FromString,
                 )
-        self.CopyHuntGroupWebLink = channel.unary_unary(
-                '/api.v1alpha1.org.Org/CopyHuntGroupWebLink',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkResponse.FromString,
+        self.AssignHuntGroupWebLink = channel.unary_unary(
+                '/api.v1alpha1.org.Org/AssignHuntGroupWebLink',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignHuntGroupWebLinkRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignHuntGroupWebLinkResponse.FromString,
                 )
         self.UpdateHuntGroupWebLinks = channel.unary_unary(
                 '/api.v1alpha1.org.Org/UpdateHuntGroupWebLinks',
@@ -1822,8 +1822,8 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CopyHuntGroupWebLink(self, request, context):
-        """Copies a web link from one hunt group to another
+    def AssignHuntGroupWebLink(self, request, context):
+        """Assigns a web link from one hunt group to another
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2809,10 +2809,10 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksResponse.SerializeToString,
             ),
-            'CopyHuntGroupWebLink': grpc.unary_unary_rpc_method_handler(
-                    servicer.CopyHuntGroupWebLink,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkResponse.SerializeToString,
+            'AssignHuntGroupWebLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignHuntGroupWebLink,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignHuntGroupWebLinkRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignHuntGroupWebLinkResponse.SerializeToString,
             ),
             'UpdateHuntGroupWebLinks': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateHuntGroupWebLinks,
@@ -5198,7 +5198,7 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CopyHuntGroupWebLink(request,
+    def AssignHuntGroupWebLink(request,
             target,
             options=(),
             channel_credentials=None,
@@ -5208,9 +5208,9 @@ class Org(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CopyHuntGroupWebLink',
-            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/AssignHuntGroupWebLink',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignHuntGroupWebLinkRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignHuntGroupWebLinkResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
