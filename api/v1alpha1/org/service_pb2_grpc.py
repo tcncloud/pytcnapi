@@ -1828,25 +1828,29 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetHuntGroupClientInfoDisplayTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """GetHuntGroupClientInfoDisplayTemplate returns the client info display template for a given hunt group.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateHuntGroupClientInfoDisplayTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """CreateHuntGroupClientInfoDisplayTemplate creates a new client info display template for a givne hunt group.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateHuntGroupClientInfoDisplayTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """UpdateHuntGroupClientInfoDisplayTemplate updates a client info display template for a given hunt group.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteHuntGroupClientInfoDisplayTemplate(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """DeleteHuntGroupClientInfoDisplayTemplate deletes a client info display template for a given hunt group.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
