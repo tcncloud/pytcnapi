@@ -1076,29 +1076,3 @@ class ListWhatsAppNumbersRes(_message.Message):
     WHATSAPP_NUMBERS_FIELD_NUMBER: _ClassVar[int]
     whatsapp_numbers: _containers.RepeatedCompositeFieldContainer[_omnichannel_pb2.WhatsAppNumber]
     def __init__(self, whatsapp_numbers: _Optional[_Iterable[_Union[_omnichannel_pb2.WhatsAppNumber, _Mapping]]] = ...) -> None: ...
-
-class CreateWhatsAppNumberRequest(_message.Message):
-    __slots__ = ("whatsapp_number",)
-    WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
-    whatsapp_number: _omnichannel_pb2.WhatsAppNumber
-    def __init__(self, whatsapp_number: _Optional[_Union[_omnichannel_pb2.WhatsAppNumber, _Mapping]] = ...) -> None: ...
-
-class CreateWhatsAppNumberResponse(_message.Message):
-    __slots__ = ("whatsapp_number",)
-    WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
-    whatsapp_number: _omnichannel_pb2.WhatsAppNumber
-    def __init__(self, whatsapp_number: _Optional[_Union[_omnichannel_pb2.WhatsAppNumber, _Mapping]] = ...) -> None: ...
-
-class UpdateWhatsAppNumberRequest(_message.Message):
-    __slots__ = ("whatsapp_number", "field_mask")
-    WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
-    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
-    whatsapp_number: _omnichannel_pb2.WhatsAppNumber
-    field_mask: _field_mask_pb2.FieldMask
-    def __init__(self, whatsapp_number: _Optional[_Union[_omnichannel_pb2.WhatsAppNumber, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
-
-class UpdateWhatsAppNumberResponse(_message.Message):
-    __slots__ = ("whatsapp_number",)
-    WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
-    whatsapp_number: _omnichannel_pb2.WhatsAppNumber
-    def __init__(self, whatsapp_number: _Optional[_Union[_omnichannel_pb2.WhatsAppNumber, _Mapping]] = ...) -> None: ...
