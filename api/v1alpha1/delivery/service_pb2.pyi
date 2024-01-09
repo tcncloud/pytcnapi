@@ -480,14 +480,16 @@ class SmsDestination(_message.Message):
     def __init__(self, destination_phone: _Optional[str] = ..., source_phone: _Optional[str] = ...) -> None: ...
 
 class EmailDestination(_message.Message):
-    __slots__ = ("to_addr", "cc_addrs", "from_addr")
+    __slots__ = ("to_addr", "cc_addrs", "from_addr", "to_addrs")
     TO_ADDR_FIELD_NUMBER: _ClassVar[int]
     CC_ADDRS_FIELD_NUMBER: _ClassVar[int]
     FROM_ADDR_FIELD_NUMBER: _ClassVar[int]
+    TO_ADDRS_FIELD_NUMBER: _ClassVar[int]
     to_addr: str
     cc_addrs: _containers.RepeatedScalarFieldContainer[str]
     from_addr: str
-    def __init__(self, to_addr: _Optional[str] = ..., cc_addrs: _Optional[_Iterable[str]] = ..., from_addr: _Optional[str] = ...) -> None: ...
+    to_addrs: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, to_addr: _Optional[str] = ..., cc_addrs: _Optional[_Iterable[str]] = ..., from_addr: _Optional[str] = ..., to_addrs: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CredentialData(_message.Message):
     __slots__ = ("user_password", "password", "ssh_key_pair", "pgp_key_pair", "aes_password")
