@@ -330,6 +330,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListAgentsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListAgentsResponse.FromString,
                 )
+        self.ListPublicUsers = channel.unary_stream(
+                '/api.v1alpha1.org.Org/ListPublicUsers',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListPublicUsersRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListPublicUsersResponse.FromString,
+                )
         self.ListUsers = channel.unary_stream(
                 '/api.v1alpha1.org.Org/ListUsers',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersRequest.SerializeToString,
@@ -1367,6 +1372,13 @@ class OrgServicer(object):
 
     def ListAgents(self, request, context):
         """ListAgents returns a list of Agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPublicUsers(self, request, context):
+        """ListPublicUsers returns a list of users with limited data for most applications.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2531,6 +2543,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.ListAgents,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListAgentsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListAgentsResponse.SerializeToString,
+            ),
+            'ListPublicUsers': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListPublicUsers,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListPublicUsersRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListPublicUsersResponse.SerializeToString,
             ),
             'ListUsers': grpc.unary_stream_rpc_method_handler(
                     servicer.ListUsers,
@@ -4157,6 +4174,23 @@ class Org(object):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.org.Org/ListAgents',
             api_dot_v1alpha1_dot_org_dot_user__pb2.ListAgentsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_user__pb2.ListAgentsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPublicUsers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.org.Org/ListPublicUsers',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.ListPublicUsersRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.ListPublicUsersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
