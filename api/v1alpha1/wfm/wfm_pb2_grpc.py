@@ -810,6 +810,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
                 )
+        self.RemoveAgentFromSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
+                )
 
 
 class WFMServicer(object):
@@ -3147,6 +3152,20 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def RemoveAgentFromSchedule(self, request, context):
+        """Removes the @wfm_agent_sid from @schedule_selector over @datetime_range for the org sending the request.
+        Creates a new unassigned agent with the same active agent group associations as @wfm_agent_sid for @schedule_scenario_sid.
+        The unassigned agent will be assigned to shifts belonging to @wfm_agent_sid, returning newly created unassigned agent's SID and the updated shifts.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when creating the unassigned agent or updating the shifts.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -3944,6 +3963,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ReplaceAgentOnSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
+            ),
+            'RemoveAgentFromSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveAgentFromSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -6656,5 +6680,22 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ReplaceAgentOnSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveAgentFromSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
