@@ -35,6 +35,7 @@ class OmniCampaignModuleType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MODULE_TYPE_INBOUND: _ClassVar[OmniCampaignModuleType]
     MODULE_TYPE_OUTBOUND: _ClassVar[OmniCampaignModuleType]
     MODULE_TYPE_MANUAL_APPROVAL: _ClassVar[OmniCampaignModuleType]
+    MODULE_TYPE_MANUAL: _ClassVar[OmniCampaignModuleType]
 
 class ChannelType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -220,6 +221,7 @@ MEDIASAT_SMS_PROVIDER: SmsNumberProvider
 MODULE_TYPE_INBOUND: OmniCampaignModuleType
 MODULE_TYPE_OUTBOUND: OmniCampaignModuleType
 MODULE_TYPE_MANUAL_APPROVAL: OmniCampaignModuleType
+MODULE_TYPE_MANUAL: OmniCampaignModuleType
 CHANNEL_TYPE_EMAIL: ChannelType
 CHANNEL_TYPE_SMS: ChannelType
 CHANNEL_TYPE_CHAT: ChannelType
@@ -1229,11 +1231,19 @@ class OmniComplianceConfig(_message.Message):
     def __init__(self, opt_in: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., opt_out: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., help: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., information: _Optional[_Union[OmniComplianceAction, _Mapping]] = ..., scrub_list_id: _Optional[str] = ..., rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class WhatsAppNumber(_message.Message):
-    __slots__ = ("number", "provider", "country_code")
+    __slots__ = ("number", "provider", "country_code", "whatsapp_number_sid", "display_name", "date_created", "date_modified")
     NUMBER_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    WHATSAPP_NUMBER_SID_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
     number: str
     provider: WhatsAppNumberProvider
     country_code: int
-    def __init__(self, number: _Optional[str] = ..., provider: _Optional[_Union[WhatsAppNumberProvider, str]] = ..., country_code: _Optional[int] = ...) -> None: ...
+    whatsapp_number_sid: int
+    display_name: str
+    date_created: _timestamp_pb2.Timestamp
+    date_modified: _timestamp_pb2.Timestamp
+    def __init__(self, number: _Optional[str] = ..., provider: _Optional[_Union[WhatsAppNumberProvider, str]] = ..., country_code: _Optional[int] = ..., whatsapp_number_sid: _Optional[int] = ..., display_name: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
