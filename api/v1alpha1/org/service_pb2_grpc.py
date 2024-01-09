@@ -650,10 +650,45 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesResponse.FromString,
                 )
+        self.ListHuntGroupWebLinks = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListHuntGroupWebLinks',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksResponse.FromString,
+                )
+        self.CopyHuntGroupWebLink = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CopyHuntGroupWebLink',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkResponse.FromString,
+                )
+        self.UpdateHuntGroupWebLinks = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateHuntGroupWebLinks',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupWebLinksRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupWebLinksResponse.FromString,
+                )
         self.ListHuntGroupIntegrationLinks = channel.unary_unary(
                 '/api.v1alpha1.org.Org/ListHuntGroupIntegrationLinks',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.FromString,
+                )
+        self.GetHuntGroupClientInfoDisplayTemplate = channel.unary_unary(
+                '/api.v1alpha1.org.Org/GetHuntGroupClientInfoDisplayTemplate',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupClientInfoDisplayTemplateResponse.FromString,
+                )
+        self.CreateHuntGroupClientInfoDisplayTemplate = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CreateHuntGroupClientInfoDisplayTemplate',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupClientInfoDisplayTemplateResponse.FromString,
+                )
+        self.UpdateHuntGroupClientInfoDisplayTemplate = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateHuntGroupClientInfoDisplayTemplate',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupClientInfoDisplayTemplateResponse.FromString,
+                )
+        self.DeleteHuntGroupClientInfoDisplayTemplate = channel.unary_unary(
+                '/api.v1alpha1.org.Org/DeleteHuntGroupClientInfoDisplayTemplate',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateResponse.FromString,
                 )
         self.CreateTrust = channel.unary_unary(
                 '/api.v1alpha1.org.Org/CreateTrust',
@@ -1800,8 +1835,57 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListHuntGroupWebLinks(self, request, context):
+        """Lists all web links for a given hunt group
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyHuntGroupWebLink(self, request, context):
+        """Copies a web link from one hunt group to another
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateHuntGroupWebLinks(self, request, context):
+        """Updates the list of web links in a hunt group to be the given list
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListHuntGroupIntegrationLinks(self, request, context):
         """ListHuntGroupIntegrationLinks returns all integration links for a hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetHuntGroupClientInfoDisplayTemplate(self, request, context):
+        """GetHuntGroupClientInfoDisplayTemplate returns the client info display template for a given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateHuntGroupClientInfoDisplayTemplate(self, request, context):
+        """CreateHuntGroupClientInfoDisplayTemplate creates a new client info display template for a givne hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateHuntGroupClientInfoDisplayTemplate(self, request, context):
+        """UpdateHuntGroupClientInfoDisplayTemplate updates a client info display template for a given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteHuntGroupClientInfoDisplayTemplate(self, request, context):
+        """DeleteHuntGroupClientInfoDisplayTemplate deletes a client info display template for a given hunt group.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2768,10 +2852,45 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteAgentResponseAutoRulesResponse.SerializeToString,
             ),
+            'ListHuntGroupWebLinks': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListHuntGroupWebLinks,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksResponse.SerializeToString,
+            ),
+            'CopyHuntGroupWebLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyHuntGroupWebLink,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkResponse.SerializeToString,
+            ),
+            'UpdateHuntGroupWebLinks': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateHuntGroupWebLinks,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupWebLinksRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupWebLinksResponse.SerializeToString,
+            ),
             'ListHuntGroupIntegrationLinks': grpc.unary_unary_rpc_method_handler(
                     servicer.ListHuntGroupIntegrationLinks,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.SerializeToString,
+            ),
+            'GetHuntGroupClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetHuntGroupClientInfoDisplayTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupClientInfoDisplayTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupClientInfoDisplayTemplateResponse.SerializeToString,
+            ),
+            'CreateHuntGroupClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateHuntGroupClientInfoDisplayTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupClientInfoDisplayTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupClientInfoDisplayTemplateResponse.SerializeToString,
+            ),
+            'UpdateHuntGroupClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateHuntGroupClientInfoDisplayTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupClientInfoDisplayTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupClientInfoDisplayTemplateResponse.SerializeToString,
+            ),
+            'DeleteHuntGroupClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteHuntGroupClientInfoDisplayTemplate,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateResponse.SerializeToString,
             ),
             'CreateTrust': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTrust,
@@ -5130,6 +5249,57 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListHuntGroupWebLinks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListHuntGroupWebLinks',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupWebLinksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyHuntGroupWebLink(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CopyHuntGroupWebLink',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupWebLinkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateHuntGroupWebLinks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateHuntGroupWebLinks',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupWebLinksRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupWebLinksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListHuntGroupIntegrationLinks(request,
             target,
             options=(),
@@ -5143,6 +5313,74 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListHuntGroupIntegrationLinks',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetHuntGroupClientInfoDisplayTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetHuntGroupClientInfoDisplayTemplate',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupClientInfoDisplayTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateHuntGroupClientInfoDisplayTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateHuntGroupClientInfoDisplayTemplate',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupClientInfoDisplayTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateHuntGroupClientInfoDisplayTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateHuntGroupClientInfoDisplayTemplate',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupClientInfoDisplayTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteHuntGroupClientInfoDisplayTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteHuntGroupClientInfoDisplayTemplate',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

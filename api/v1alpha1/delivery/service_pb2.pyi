@@ -488,8 +488,8 @@ class EmailDestination(_message.Message):
     to_addr: str
     cc_addrs: _containers.RepeatedScalarFieldContainer[str]
     from_addr: str
-    to_addrs: str
-    def __init__(self, to_addr: _Optional[str] = ..., cc_addrs: _Optional[_Iterable[str]] = ..., from_addr: _Optional[str] = ..., to_addrs: _Optional[str] = ...) -> None: ...
+    to_addrs: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, to_addr: _Optional[str] = ..., cc_addrs: _Optional[_Iterable[str]] = ..., from_addr: _Optional[str] = ..., to_addrs: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CredentialData(_message.Message):
     __slots__ = ("user_password", "password", "ssh_key_pair", "pgp_key_pair", "aes_password")

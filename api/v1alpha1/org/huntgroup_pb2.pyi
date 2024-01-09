@@ -254,6 +254,44 @@ class DeleteHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class ListHuntGroupWebLinksRequest(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class ListHuntGroupWebLinksResponse(_message.Message):
+    __slots__ = ("web_links",)
+    WEB_LINKS_FIELD_NUMBER: _ClassVar[int]
+    web_links: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.WebLink]
+    def __init__(self, web_links: _Optional[_Iterable[_Union[_huntgroup_pb2.WebLink, _Mapping]]] = ...) -> None: ...
+
+class CopyHuntGroupWebLinkRequest(_message.Message):
+    __slots__ = ("from_hunt_group_sid", "to_hunt_group_sid", "web_link")
+    FROM_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    WEB_LINK_FIELD_NUMBER: _ClassVar[int]
+    from_hunt_group_sid: int
+    to_hunt_group_sid: int
+    web_link: _huntgroup_pb2.WebLink
+    def __init__(self, from_hunt_group_sid: _Optional[int] = ..., to_hunt_group_sid: _Optional[int] = ..., web_link: _Optional[_Union[_huntgroup_pb2.WebLink, _Mapping]] = ...) -> None: ...
+
+class CopyHuntGroupWebLinkResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class UpdateHuntGroupWebLinksRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "web_links")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    WEB_LINKS_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    web_links: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.WebLink]
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., web_links: _Optional[_Iterable[_Union[_huntgroup_pb2.WebLink, _Mapping]]] = ...) -> None: ...
+
+class UpdateHuntGroupWebLinksResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class ListHuntGroupIntegrationLinksRequest(_message.Message):
     __slots__ = ("org_id", "hunt_group_sid")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
