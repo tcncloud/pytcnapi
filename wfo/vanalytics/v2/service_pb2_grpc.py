@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from wfo.vanalytics.v2 import filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_filter__pb2
 from wfo.vanalytics.v2 import transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__pb2
 
 
@@ -20,11 +19,6 @@ class VanalyticsStub(object):
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
                 )
-        self.CreateFilter = channel.unary_unary(
-                '/wfo.vanalytics.v2.Vanalytics/CreateFilter',
-                request_serializer=wfo_dot_vanalytics_dot_v2_dot_filter__pb2.CreateFilterRequest.SerializeToString,
-                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_filter__pb2.CreateFilterResponse.FromString,
-                )
 
 
 class VanalyticsServicer(object):
@@ -39,14 +33,6 @@ class VanalyticsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateFilter(self, request, context):
-        """CreateFilter creates a new filter. The filter contains a
-        transcript query to filter transcripts.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_VanalyticsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -54,11 +40,6 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     servicer.SearchTranscripts,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.SerializeToString,
-            ),
-            'CreateFilter': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateFilter,
-                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_filter__pb2.CreateFilterRequest.FromString,
-                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_filter__pb2.CreateFilterResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -84,22 +65,5 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateFilter(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateFilter',
-            wfo_dot_vanalytics_dot_v2_dot_filter__pb2.CreateFilterRequest.SerializeToString,
-            wfo_dot_vanalytics_dot_v2_dot_filter__pb2.CreateFilterResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
