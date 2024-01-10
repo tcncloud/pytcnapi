@@ -159,47 +159,19 @@ class Call(_message.Message):
     threads: _containers.RepeatedCompositeFieldContainer[Call.Thread]
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ...) -> None: ...
 
-class CreateTranscriptRequest(_message.Message):
-    __slots__ = ("transcript",)
-    TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
-    transcript: Transcript
-    def __init__(self, transcript: _Optional[_Union[Transcript, _Mapping]] = ...) -> None: ...
-
-class CreateTranscriptResponse(_message.Message):
-    __slots__ = ("transcript",)
-    TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
-    transcript: Transcript
-    def __init__(self, transcript: _Optional[_Union[Transcript, _Mapping]] = ...) -> None: ...
-
-class UpdateTranscriptRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
-
-class UpdateTranscriptResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
-
 class SearchTranscriptsRequest(_message.Message):
-    __slots__ = ("org_id", "page_size", "order_by", "read_mask", "bool_query", "page_token")
-    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("page_size", "order_by", "read_mask", "bool_query", "page_token")
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     READ_MASK_FIELD_NUMBER: _ClassVar[int]
     BOOL_QUERY_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
-    org_id: str
     page_size: int
     order_by: str
     read_mask: _field_mask_pb2.FieldMask
     bool_query: TranscriptBoolQuery
     page_token: str
-    def __init__(self, org_id: _Optional[str] = ..., page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., read_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., bool_query: _Optional[_Union[TranscriptBoolQuery, _Mapping]] = ..., page_token: _Optional[str] = ...) -> None: ...
-
-class SearchTranscriptsPageToken(_message.Message):
-    __slots__ = ("search_after",)
-    SEARCH_AFTER_FIELD_NUMBER: _ClassVar[int]
-    search_after: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, search_after: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., read_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., bool_query: _Optional[_Union[TranscriptBoolQuery, _Mapping]] = ..., page_token: _Optional[str] = ...) -> None: ...
 
 class SearchTranscriptsResponse(_message.Message):
     __slots__ = ("hits", "next_page_token")

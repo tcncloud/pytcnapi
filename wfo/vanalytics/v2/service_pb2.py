@@ -18,7 +18,7 @@ from wfo.vanalytics.v2 import filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_filter
 from wfo.vanalytics.v2 import transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fwfo/vanalytics/v2/service.proto\x12\x11wfo.vanalytics.v2\x1a\x17\x61nnotations/authz.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1ewfo/vanalytics/v2/filter.proto\x1a\"wfo/vanalytics/v2/transcript.proto2\xa0\x05\n\nVanalytics\x12\xa5\x01\n\x10\x43reateTranscript\x12*.wfo.vanalytics.v2.CreateTranscriptRequest\x1a+.wfo.vanalytics.v2.CreateTranscriptResponse\"8\xba\xb8\x91\x02\x05\n\x03\x08\xf4\x03\x82\xd3\xe4\x93\x02(\"#/wfo/vanalytics/v2/createtranscript:\x01*\x12\xa5\x01\n\x10UpdateTranscript\x12*.wfo.vanalytics.v2.UpdateTranscriptRequest\x1a+.wfo.vanalytics.v2.UpdateTranscriptResponse\"8\xba\xb8\x91\x02\x05\n\x03\x08\xf4\x03\x82\xd3\xe4\x93\x02(\"#/wfo/vanalytics/v2/updatetranscript:\x01*\x12\xa9\x01\n\x11SearchTranscripts\x12+.wfo.vanalytics.v2.SearchTranscriptsRequest\x1a,.wfo.vanalytics.v2.SearchTranscriptsResponse\"9\xba\xb8\x91\x02\x05\n\x03\x08\xf4\x03\x82\xd3\xe4\x93\x02)\"$/wfo/vanalytics/v2/searchtranscripts:\x01*\x12\x95\x01\n\x0c\x43reateFilter\x12&.wfo.vanalytics.v2.CreateFilterRequest\x1a\'.wfo.vanalytics.v2.CreateFilterResponse\"4\xba\xb8\x91\x02\x05\n\x03\x08\xf4\x03\x82\xd3\xe4\x93\x02$\"\x1f/wfo/vanalytics/v2/createfilter:\x01*B\x8b\x01\n\x15\x63om.wfo.vanalytics.v2B\x0cServiceProtoP\x01\xa2\x02\x03WVX\xaa\x02\x11Wfo.Vanalytics.V2\xca\x02\x11Wfo\\Vanalytics\\V2\xe2\x02\x1dWfo\\Vanalytics\\V2\\GPBMetadata\xea\x02\x13Wfo::Vanalytics::V2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1fwfo/vanalytics/v2/service.proto\x12\x11wfo.vanalytics.v2\x1a\x17\x61nnotations/authz.proto\x1a\x1cgoogle/api/annotations.proto\x1a\x1ewfo/vanalytics/v2/filter.proto\x1a\"wfo/vanalytics/v2/transcript.proto2\xd0\x02\n\nVanalytics\x12\xa9\x01\n\x11SearchTranscripts\x12+.wfo.vanalytics.v2.SearchTranscriptsRequest\x1a,.wfo.vanalytics.v2.SearchTranscriptsResponse\"9\xba\xb8\x91\x02\x05\n\x03\x08\xf4\x03\x82\xd3\xe4\x93\x02)\"$/wfo/vanalytics/v2/searchtranscripts:\x01*\x12\x95\x01\n\x0c\x43reateFilter\x12&.wfo.vanalytics.v2.CreateFilterRequest\x1a\'.wfo.vanalytics.v2.CreateFilterResponse\"4\xba\xb8\x91\x02\x05\n\x03\x08\xf4\x03\x82\xd3\xe4\x93\x02$\"\x1f/wfo/vanalytics/v2/createfilter:\x01*B\x8b\x01\n\x15\x63om.wfo.vanalytics.v2B\x0cServiceProtoP\x01\xa2\x02\x03WVX\xaa\x02\x11Wfo.Vanalytics.V2\xca\x02\x11Wfo\\Vanalytics\\V2\xe2\x02\x1dWfo\\Vanalytics\\V2\\GPBMetadata\xea\x02\x13Wfo::Vanalytics::V2b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,14 +26,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'wfo.vanalytics.v2.service_p
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.wfo.vanalytics.v2B\014ServiceProtoP\001\242\002\003WVX\252\002\021Wfo.Vanalytics.V2\312\002\021Wfo\\Vanalytics\\V2\342\002\035Wfo\\Vanalytics\\V2\\GPBMetadata\352\002\023Wfo::Vanalytics::V2'
-  _globals['_VANALYTICS'].methods_by_name['CreateTranscript']._options = None
-  _globals['_VANALYTICS'].methods_by_name['CreateTranscript']._serialized_options = b'\272\270\221\002\005\n\003\010\364\003\202\323\344\223\002(\"#/wfo/vanalytics/v2/createtranscript:\001*'
-  _globals['_VANALYTICS'].methods_by_name['UpdateTranscript']._options = None
-  _globals['_VANALYTICS'].methods_by_name['UpdateTranscript']._serialized_options = b'\272\270\221\002\005\n\003\010\364\003\202\323\344\223\002(\"#/wfo/vanalytics/v2/updatetranscript:\001*'
   _globals['_VANALYTICS'].methods_by_name['SearchTranscripts']._options = None
   _globals['_VANALYTICS'].methods_by_name['SearchTranscripts']._serialized_options = b'\272\270\221\002\005\n\003\010\364\003\202\323\344\223\002)\"$/wfo/vanalytics/v2/searchtranscripts:\001*'
   _globals['_VANALYTICS'].methods_by_name['CreateFilter']._options = None
   _globals['_VANALYTICS'].methods_by_name['CreateFilter']._serialized_options = b'\272\270\221\002\005\n\003\010\364\003\202\323\344\223\002$\"\037/wfo/vanalytics/v2/createfilter:\001*'
   _globals['_VANALYTICS']._serialized_start=178
-  _globals['_VANALYTICS']._serialized_end=850
+  _globals['_VANALYTICS']._serialized_end=514
 # @@protoc_insertion_point(module_scope)

@@ -15,16 +15,6 @@ class VanalyticsStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.CreateTranscript = channel.unary_unary(
-                '/wfo.vanalytics.v2.Vanalytics/CreateTranscript',
-                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.CreateTranscriptRequest.SerializeToString,
-                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.CreateTranscriptResponse.FromString,
-                )
-        self.UpdateTranscript = channel.unary_unary(
-                '/wfo.vanalytics.v2.Vanalytics/UpdateTranscript',
-                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.UpdateTranscriptRequest.SerializeToString,
-                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.UpdateTranscriptResponse.FromString,
-                )
         self.SearchTranscripts = channel.unary_unary(
                 '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
@@ -40,29 +30,19 @@ class VanalyticsStub(object):
 class VanalyticsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def CreateTranscript(self, request, context):
-        """CreateTranscript audits the used transcription audio time for a client. The window
-        of time to audit can be widened or narrowed using the request since and
-        until fields.
+    def SearchTranscripts(self, request, context):
+        """SearchTranscripts searches transcripts by search criteria. The search response
+        contains one page of transcript hits. Traversing the paginated hits is
+        achieved through subsequent requests using the response sort field.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateTranscript(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def SearchTranscripts(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def CreateFilter(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """CreateFilter creates a new filter. The filter contains a
+        transcript query to filter transcripts.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -70,16 +50,6 @@ class VanalyticsServicer(object):
 
 def add_VanalyticsServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'CreateTranscript': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateTranscript,
-                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.CreateTranscriptRequest.FromString,
-                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.CreateTranscriptResponse.SerializeToString,
-            ),
-            'UpdateTranscript': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateTranscript,
-                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.UpdateTranscriptRequest.FromString,
-                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.UpdateTranscriptResponse.SerializeToString,
-            ),
             'SearchTranscripts': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchTranscripts,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.FromString,
@@ -99,40 +69,6 @@ def add_VanalyticsServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class Vanalytics(object):
     """Missing associated documentation comment in .proto file."""
-
-    @staticmethod
-    def CreateTranscript(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateTranscript',
-            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.CreateTranscriptRequest.SerializeToString,
-            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.CreateTranscriptResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateTranscript(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/UpdateTranscript',
-            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.UpdateTranscriptRequest.SerializeToString,
-            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.UpdateTranscriptResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SearchTranscripts(request,
