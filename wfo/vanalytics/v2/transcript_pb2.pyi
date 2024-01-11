@@ -26,12 +26,11 @@ REVIEW_STATUS_DONE: ReviewStatus
 REVIEW_STATUS_NONE: ReviewStatus
 
 class Transcript(_message.Message):
-    __slots__ = ("call", "sms", "channel", "start_time", "create_time", "delete_time", "flag_summary", "transcript_sid")
+    __slots__ = ("call", "sms", "channel", "start_time", "delete_time", "flag_summary", "transcript_sid")
     CALL_FIELD_NUMBER: _ClassVar[int]
     SMS_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
-    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
     FLAG_SUMMARY_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -39,11 +38,10 @@ class Transcript(_message.Message):
     sms: Sms
     channel: Channel
     start_time: _timestamp_pb2.Timestamp
-    create_time: _timestamp_pb2.Timestamp
     delete_time: _timestamp_pb2.Timestamp
     flag_summary: FlagSummary
     transcript_sid: int
-    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., channel: _Optional[_Union[Channel, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ...) -> None: ...
+    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., channel: _Optional[_Union[Channel, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ...) -> None: ...
 
 class FlagSummary(_message.Message):
     __slots__ = ("count", "priority_sum", "priority_max", "need_review", "flags", "review_status")
