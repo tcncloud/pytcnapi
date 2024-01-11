@@ -174,14 +174,10 @@ class SearchTranscriptsRequest(_message.Message):
 class SearchTranscriptsResponse(_message.Message):
     __slots__ = ("hits", "next_page_token")
     class Hit(_message.Message):
-        __slots__ = ("transcript", "index", "version")
+        __slots__ = ("transcript",)
         TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
-        INDEX_FIELD_NUMBER: _ClassVar[int]
-        VERSION_FIELD_NUMBER: _ClassVar[int]
         transcript: Transcript
-        index: str
-        version: int
-        def __init__(self, transcript: _Optional[_Union[Transcript, _Mapping]] = ..., index: _Optional[str] = ..., version: _Optional[int] = ...) -> None: ...
+        def __init__(self, transcript: _Optional[_Union[Transcript, _Mapping]] = ...) -> None: ...
     HITS_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     hits: _containers.RepeatedCompositeFieldContainer[SearchTranscriptsResponse.Hit]
