@@ -346,16 +346,29 @@ class ListPublicUsersRequest(_message.Message):
     def __init__(self, agent_filter: bool = ..., archived_filter: _Optional[_Union[_user_pb2_1.UserArchivedStateFilter, str]] = ...) -> None: ...
 
 class ListPublicUsersResponse(_message.Message):
-    __slots__ = ("user_id", "first_name", "last_name", "username")
+    __slots__ = ("user_id", "first_name", "last_name", "username", "users")
+    class User(_message.Message):
+        __slots__ = ("user_id", "first_name", "last_name", "username")
+        USER_ID_FIELD_NUMBER: _ClassVar[int]
+        FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+        LAST_NAME_FIELD_NUMBER: _ClassVar[int]
+        USERNAME_FIELD_NUMBER: _ClassVar[int]
+        user_id: str
+        first_name: str
+        last_name: str
+        username: str
+        def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ...) -> None: ...
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
     LAST_NAME_FIELD_NUMBER: _ClassVar[int]
     USERNAME_FIELD_NUMBER: _ClassVar[int]
+    USERS_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     first_name: str
     last_name: str
     username: str
-    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ...) -> None: ...
+    users: _containers.RepeatedCompositeFieldContainer[ListPublicUsersResponse.User]
+    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., users: _Optional[_Iterable[_Union[ListPublicUsersResponse.User, _Mapping]]] = ...) -> None: ...
 
 class ListUsersRequest(_message.Message):
     __slots__ = ()
