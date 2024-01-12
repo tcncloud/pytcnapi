@@ -305,3 +305,41 @@ class ListHuntGroupIntegrationLinksResponse(_message.Message):
     LINKS_FIELD_NUMBER: _ClassVar[int]
     links: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.IntegrationLink]
     def __init__(self, links: _Optional[_Iterable[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]]] = ...) -> None: ...
+
+class ListAgentTriggersRequest(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class ListAgentTriggersResponse(_message.Message):
+    __slots__ = ("agent_triggers",)
+    AGENT_TRIGGERS_FIELD_NUMBER: _ClassVar[int]
+    agent_triggers: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.AgentTrigger]
+    def __init__(self, agent_triggers: _Optional[_Iterable[_Union[_huntgroup_pb2.AgentTrigger, _Mapping]]] = ...) -> None: ...
+
+class CopyAgentTriggerRequest(_message.Message):
+    __slots__ = ("from_hunt_group_sid", "to_hunt_group_sid", "agent_trigger")
+    FROM_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_TRIGGER_FIELD_NUMBER: _ClassVar[int]
+    from_hunt_group_sid: int
+    to_hunt_group_sid: int
+    agent_trigger: _huntgroup_pb2.AgentTrigger
+    def __init__(self, from_hunt_group_sid: _Optional[int] = ..., to_hunt_group_sid: _Optional[int] = ..., agent_trigger: _Optional[_Union[_huntgroup_pb2.AgentTrigger, _Mapping]] = ...) -> None: ...
+
+class CopyAgentTriggerResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class UpdateAgentTriggersRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "agent_triggers")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_TRIGGERS_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    agent_triggers: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.AgentTrigger]
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., agent_triggers: _Optional[_Iterable[_Union[_huntgroup_pb2.AgentTrigger, _Mapping]]] = ...) -> None: ...
+
+class UpdateAgentTriggersResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
