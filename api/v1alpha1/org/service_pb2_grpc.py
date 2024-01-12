@@ -695,6 +695,21 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateResponse.FromString,
                 )
+        self.ListAgentTriggers = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListAgentTriggers',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentTriggersRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentTriggersResponse.FromString,
+                )
+        self.CopyAgentTrigger = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CopyAgentTrigger',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyAgentTriggerRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyAgentTriggerResponse.FromString,
+                )
+        self.UpdateAgentTriggers = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateAgentTriggers',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersResponse.FromString,
+                )
         self.CreateTrust = channel.unary_unary(
                 '/api.v1alpha1.org.Org/CreateTrust',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_trusts__pb2.CreateTrustRequest.SerializeToString,
@@ -1903,6 +1918,27 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAgentTriggers(self, request, context):
+        """ListAgentTriggers returns a list of agent triggers for the given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyAgentTrigger(self, request, context):
+        """CopyAgentTrigger copys an agent trigger to the given hunt group in the same org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateAgentTriggers(self, request, context):
+        """UpdateAgentTriggers updates all agent triggers for the given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateTrust(self, request, context):
         """TRUSTS
 
@@ -2908,6 +2944,21 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.DeleteHuntGroupClientInfoDisplayTemplate,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateResponse.SerializeToString,
+            ),
+            'ListAgentTriggers': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentTriggers,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentTriggersRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentTriggersResponse.SerializeToString,
+            ),
+            'CopyAgentTrigger': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyAgentTrigger,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyAgentTriggerRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyAgentTriggerResponse.SerializeToString,
+            ),
+            'UpdateAgentTriggers': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateAgentTriggers,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersResponse.SerializeToString,
             ),
             'CreateTrust': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTrust,
@@ -5415,6 +5466,57 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteHuntGroupClientInfoDisplayTemplate',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupClientInfoDisplayTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentTriggers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListAgentTriggers',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentTriggersRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentTriggersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyAgentTrigger(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CopyAgentTrigger',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyAgentTriggerRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyAgentTriggerResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateAgentTriggers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateAgentTriggers',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
