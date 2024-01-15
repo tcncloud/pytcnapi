@@ -64,6 +64,7 @@ class PluginType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     GRYPHON: _ClassVar[PluginType]
     TCN_CONSENT: _ClassVar[PluginType]
     RND: _ClassVar[PluginType]
+    MRS_COMPLIANCE: _ClassVar[PluginType]
 
 class Environment(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -109,6 +110,7 @@ UNKNOWN_PLUGIN: PluginType
 GRYPHON: PluginType
 TCN_CONSENT: PluginType
 RND: PluginType
+MRS_COMPLIANCE: PluginType
 INVALID_ENV: Environment
 TEST: Environment
 PRODUCTION: Environment
@@ -272,7 +274,7 @@ class MetaFieldExp(_message.Message):
     def __init__(self, field: _Optional[str] = ...) -> None: ...
 
 class PluginExp(_message.Message):
-    __slots__ = ("type", "tcn_strict", "license_id", "reference_key", "from_number", "env", "profile_name", "content_field", "topic", "absent_action", "date_last_contact")
+    __slots__ = ("type", "tcn_strict", "license_id", "reference_key", "from_number", "env", "profile_name", "content_field", "topic", "absent_action", "date_last_contact", "lu", "account", "master", "client")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     TCN_STRICT_FIELD_NUMBER: _ClassVar[int]
     LICENSE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -284,6 +286,10 @@ class PluginExp(_message.Message):
     TOPIC_FIELD_NUMBER: _ClassVar[int]
     ABSENT_ACTION_FIELD_NUMBER: _ClassVar[int]
     DATE_LAST_CONTACT_FIELD_NUMBER: _ClassVar[int]
+    LU_FIELD_NUMBER: _ClassVar[int]
+    ACCOUNT_FIELD_NUMBER: _ClassVar[int]
+    MASTER_FIELD_NUMBER: _ClassVar[int]
+    CLIENT_FIELD_NUMBER: _ClassVar[int]
     type: PluginType
     tcn_strict: bool
     license_id: str
@@ -295,7 +301,11 @@ class PluginExp(_message.Message):
     topic: str
     absent_action: ConsentAbsentAction
     date_last_contact: str
-    def __init__(self, type: _Optional[_Union[PluginType, str]] = ..., tcn_strict: bool = ..., license_id: _Optional[str] = ..., reference_key: _Optional[str] = ..., from_number: _Optional[str] = ..., env: _Optional[_Union[Environment, str]] = ..., profile_name: _Optional[str] = ..., content_field: _Optional[str] = ..., topic: _Optional[str] = ..., absent_action: _Optional[_Union[ConsentAbsentAction, str]] = ..., date_last_contact: _Optional[str] = ...) -> None: ...
+    lu: str
+    account: str
+    master: str
+    client: str
+    def __init__(self, type: _Optional[_Union[PluginType, str]] = ..., tcn_strict: bool = ..., license_id: _Optional[str] = ..., reference_key: _Optional[str] = ..., from_number: _Optional[str] = ..., env: _Optional[_Union[Environment, str]] = ..., profile_name: _Optional[str] = ..., content_field: _Optional[str] = ..., topic: _Optional[str] = ..., absent_action: _Optional[_Union[ConsentAbsentAction, str]] = ..., date_last_contact: _Optional[str] = ..., lu: _Optional[str] = ..., account: _Optional[str] = ..., master: _Optional[str] = ..., client: _Optional[str] = ...) -> None: ...
 
 class EntityExp(_message.Message):
     __slots__ = ("sub_entity", "entity")
