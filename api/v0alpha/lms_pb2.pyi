@@ -1408,12 +1408,16 @@ class CFSExportReq(_message.Message):
     def __init__(self, header: _Optional[_Union[CFSExportReqHeader, _Mapping]] = ..., record: _Optional[_Union[RecordProto, _Mapping]] = ...) -> None: ...
 
 class DeDupCriteria(_message.Message):
-    __slots__ = ("action", "fields")
+    __slots__ = ("action", "fields", "unless", "disjunct_keys")
     ACTION_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
+    UNLESS_FIELD_NUMBER: _ClassVar[int]
+    DISJUNCT_KEYS_FIELD_NUMBER: _ClassVar[int]
     action: _lms_pb2.DeDupActions
     fields: _containers.RepeatedCompositeFieldContainer[FieldIndex]
-    def __init__(self, action: _Optional[_Union[_lms_pb2.DeDupActions, str]] = ..., fields: _Optional[_Iterable[_Union[FieldIndex, _Mapping]]] = ...) -> None: ...
+    unless: FilterCheck
+    disjunct_keys: bool
+    def __init__(self, action: _Optional[_Union[_lms_pb2.DeDupActions, str]] = ..., fields: _Optional[_Iterable[_Union[FieldIndex, _Mapping]]] = ..., unless: _Optional[_Union[FilterCheck, _Mapping]] = ..., disjunct_keys: bool = ...) -> None: ...
 
 class SortCriteria(_message.Message):
     __slots__ = ("ordering", "field_order")
