@@ -1,6 +1,7 @@
 from api.commons import acd_pb2 as _acd_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -156,18 +157,28 @@ class Call(_message.Message):
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ...) -> None: ...
 
 class SearchTranscriptsRequest(_message.Message):
-    __slots__ = ("page_size", "order_by", "read_mask", "bool_query", "page_token")
+    __slots__ = ("page_size", "order_by", "read_mask", "bool_query", "page_token", "highlight")
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     READ_MASK_FIELD_NUMBER: _ClassVar[int]
     BOOL_QUERY_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    HIGHLIGHT_FIELD_NUMBER: _ClassVar[int]
     page_size: int
     order_by: str
     read_mask: _field_mask_pb2.FieldMask
     bool_query: TranscriptBoolQuery
     page_token: str
-    def __init__(self, page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., read_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., bool_query: _Optional[_Union[TranscriptBoolQuery, _Mapping]] = ..., page_token: _Optional[str] = ...) -> None: ...
+    highlight: Highlight
+    def __init__(self, page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., read_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., bool_query: _Optional[_Union[TranscriptBoolQuery, _Mapping]] = ..., page_token: _Optional[str] = ..., highlight: _Optional[_Union[Highlight, _Mapping]] = ...) -> None: ...
+
+class Highlight(_message.Message):
+    __slots__ = ("prefix", "suffix")
+    PREFIX_FIELD_NUMBER: _ClassVar[int]
+    SUFFIX_FIELD_NUMBER: _ClassVar[int]
+    prefix: str
+    suffix: str
+    def __init__(self, prefix: _Optional[str] = ..., suffix: _Optional[str] = ...) -> None: ...
 
 class SearchTranscriptsResponse(_message.Message):
     __slots__ = ("hits", "next_page_token")
@@ -208,15 +219,35 @@ class TranscriptQuery(_message.Message):
         sms: TranscriptQuery.Sms
         def __init__(self, call: _Optional[_Union[TranscriptQuery.Call, _Mapping]] = ..., sms: _Optional[_Union[TranscriptQuery.Sms, _Mapping]] = ...) -> None: ...
     class Call(_message.Message):
-        __slots__ = ("call_sid",)
+        __slots__ = ("call_sid", "audio_time", "call_type")
+        class CallType(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[_acd_pb2.CallType.Enum]
+            def __init__(self, any: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ...) -> None: ...
         class CallSid(_message.Message):
             __slots__ = ("any",)
             ANY_FIELD_NUMBER: _ClassVar[int]
             any: _containers.RepeatedScalarFieldContainer[int]
             def __init__(self, any: _Optional[_Iterable[int]] = ...) -> None: ...
+        class AudioTime(_message.Message):
+            __slots__ = ("gte", "lte", "gt", "lt")
+            GTE_FIELD_NUMBER: _ClassVar[int]
+            LTE_FIELD_NUMBER: _ClassVar[int]
+            GT_FIELD_NUMBER: _ClassVar[int]
+            LT_FIELD_NUMBER: _ClassVar[int]
+            gte: _wrappers_pb2.Int32Value
+            lte: _wrappers_pb2.Int32Value
+            gt: _wrappers_pb2.Int32Value
+            lt: _wrappers_pb2.Int32Value
+            def __init__(self, gte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...) -> None: ...
         CALL_SID_FIELD_NUMBER: _ClassVar[int]
+        AUDIO_TIME_FIELD_NUMBER: _ClassVar[int]
+        CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
         call_sid: TranscriptQuery.Call.CallSid
-        def __init__(self, call_sid: _Optional[_Union[TranscriptQuery.Call.CallSid, _Mapping]] = ...) -> None: ...
+        audio_time: TranscriptQuery.Call.AudioTime
+        call_type: TranscriptQuery.Call.CallType
+        def __init__(self, call_sid: _Optional[_Union[TranscriptQuery.Call.CallSid, _Mapping]] = ..., audio_time: _Optional[_Union[TranscriptQuery.Call.AudioTime, _Mapping]] = ..., call_type: _Optional[_Union[TranscriptQuery.Call.CallType, _Mapping]] = ...) -> None: ...
     class Sms(_message.Message):
         __slots__ = ("conversation_sid",)
         class ConversationSid(_message.Message):
