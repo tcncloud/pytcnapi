@@ -36,6 +36,11 @@ class WorkflowDefinitionPersistServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionResponse.FromString,
                 )
+        self.DeleteWorkflowDefinition = channel.unary_unary(
+                '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/DeleteWorkflowDefinition',
+                request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.DeleteWorkflowDefinitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.DeleteWorkflowDefinitionResponse.FromString,
+                )
         self.ValidateWorkflowDefinition = channel.unary_unary(
                 '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/ValidateWorkflowDefinition',
                 request_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.ValidateWorkflowDefinitionRequest.SerializeToString,
@@ -77,6 +82,13 @@ class WorkflowDefinitionPersistServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteWorkflowDefinition(self, request, context):
+        """DeleteWorkflowDefinition deletes a flow definition from the database
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ValidateWorkflowDefinition(self, request, context):
         """ValidateWorkflowDefinition validates a flow definition in the database. Only the name, description and definition graph itself are updated
         """
@@ -106,6 +118,11 @@ def add_WorkflowDefinitionPersistServiceServicer_to_server(servicer, server):
                     servicer.UpdateWorkflowDefinition,
                     request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionResponse.SerializeToString,
+            ),
+            'DeleteWorkflowDefinition': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteWorkflowDefinition,
+                    request_deserializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.DeleteWorkflowDefinitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_workflows_dot_service__pb2.DeleteWorkflowDefinitionResponse.SerializeToString,
             ),
             'ValidateWorkflowDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.ValidateWorkflowDefinition,
@@ -189,6 +206,23 @@ class WorkflowDefinitionPersistService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/UpdateWorkflowDefinition',
             api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_workflows_dot_service__pb2.UpdateWorkflowDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteWorkflowDefinition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.workflows.WorkflowDefinitionPersistService/DeleteWorkflowDefinition',
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.DeleteWorkflowDefinitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_workflows_dot_service__pb2.DeleteWorkflowDefinitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
