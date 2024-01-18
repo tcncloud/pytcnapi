@@ -1,5 +1,6 @@
 from annotations import authz_pb2 as _authz_pb2
 from api.commons import delivery_pb2 as _delivery_pb2
+from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from api.commons import org_pb2 as _org_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
@@ -676,14 +677,16 @@ class SFTPTransport(_message.Message):
     def __init__(self, host: _Optional[str] = ..., port: _Optional[int] = ..., password: _Optional[_Union[PasswordRef, _Mapping]] = ..., ssh_key: _Optional[_Union[SSHKeyRef, _Mapping]] = ..., username: _Optional[str] = ..., base_dir: _Optional[str] = ...) -> None: ...
 
 class EmailTransport(_message.Message):
-    __slots__ = ("from_address", "to_address", "cc_addresses")
+    __slots__ = ("from_address", "to_address", "cc_addresses", "to_addresses")
     FROM_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     TO_ADDRESS_FIELD_NUMBER: _ClassVar[int]
     CC_ADDRESSES_FIELD_NUMBER: _ClassVar[int]
+    TO_ADDRESSES_FIELD_NUMBER: _ClassVar[int]
     from_address: str
     to_address: str
     cc_addresses: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, from_address: _Optional[str] = ..., to_address: _Optional[str] = ..., cc_addresses: _Optional[_Iterable[str]] = ...) -> None: ...
+    to_addresses: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, from_address: _Optional[str] = ..., to_address: _Optional[str] = ..., cc_addresses: _Optional[_Iterable[str]] = ..., to_addresses: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Room303Transport(_message.Message):
     __slots__ = ("system_message",)
@@ -752,3 +755,13 @@ class Encryption(_message.Message):
     created_on: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
     def __init__(self, encryption_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., pgp_key_pair: _Optional[_Union[PGPKeyPair, _Mapping]] = ..., aes_password: _Optional[_Union[AESPassword, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class ListSMSNumbersReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListSMSNumbersRes(_message.Message):
+    __slots__ = ("sms_numbers",)
+    SMS_NUMBERS_FIELD_NUMBER: _ClassVar[int]
+    sms_numbers: _containers.RepeatedCompositeFieldContainer[_omnichannel_pb2.SmsNumber]
+    def __init__(self, sms_numbers: _Optional[_Iterable[_Union[_omnichannel_pb2.SmsNumber, _Mapping]]] = ...) -> None: ...
