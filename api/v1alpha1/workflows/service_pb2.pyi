@@ -57,12 +57,14 @@ class GetWorkflowDefinitionResponse(_message.Message):
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class ListWorkflowDefinitionsRequest(_message.Message):
-    __slots__ = ("org_id", "application")
+    __slots__ = ("org_id", "application", "labels")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     APPLICATION_FIELD_NUMBER: _ClassVar[int]
+    LABELS_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     application: str
-    def __init__(self, org_id: _Optional[str] = ..., application: _Optional[str] = ...) -> None: ...
+    labels: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, org_id: _Optional[str] = ..., application: _Optional[str] = ..., labels: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ListWorkflowDefinitionsResponse(_message.Message):
     __slots__ = ("workflow_definition",)
