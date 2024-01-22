@@ -810,6 +810,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
                 )
+        self.ReplaceAgentOnScheduleV1 = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ReplaceAgentOnScheduleV1',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
+                )
         self.RemoveAgentFromSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
@@ -3142,6 +3147,21 @@ class WFMServicer(object):
         """Replaces @wfm_agent_sid_to_remove with @wfm_agent_sid_to_add for the given parameters and the org sending the request.
         If @skip_overlapping_shifts, shifts with an overlap conflict will be skipped, otherwise overlap conflicts will cause a diagnostic to be returned.
         Does not enforce skill proficiencies. To check skill proficiencies for shift replacement use ListValidAgentsForReplacement.
+        DEPRECATED as of Jan/22/2024 - Use ReplaceAgentOnScheduleV1 instead.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when replacing the @wfm_agent_sid_to_remove.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReplaceAgentOnScheduleV1(self, request, context):
+        """Replaces @wfm_agent_sid_to_remove with @wfm_agent_sid_to_add for the given parameters and the org sending the request.
+        If @skip_overlapping_shifts, shifts with an overlap conflict will be skipped, otherwise overlap conflicts will cause a diagnostic to be returned.
+        Does not enforce skill proficiencies. To check skill proficiencies for shift replacement use ListValidAgentsForReplacement.
         Required permissions:
         NONE
         Errors:
@@ -3962,6 +3982,11 @@ def add_WFMServicer_to_server(servicer, server):
             'ReplaceAgentOnSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.ReplaceAgentOnSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
+            ),
+            'ReplaceAgentOnScheduleV1': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReplaceAgentOnScheduleV1,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
             ),
             'RemoveAgentFromSchedule': grpc.unary_unary_rpc_method_handler(
@@ -6679,6 +6704,23 @@ class WFM(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ReplaceAgentOnSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReplaceAgentOnScheduleV1(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ReplaceAgentOnScheduleV1',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnScheduleRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
