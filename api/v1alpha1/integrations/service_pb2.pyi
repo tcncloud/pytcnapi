@@ -1258,3 +1258,31 @@ class GetPortalLinksByDateRangeRes(_message.Message):
     ROWS_FIELD_NUMBER: _ClassVar[int]
     rows: _containers.RepeatedCompositeFieldContainer[PortalLinkTransactionRow]
     def __init__(self, rows: _Optional[_Iterable[_Union[PortalLinkTransactionRow, _Mapping]]] = ...) -> None: ...
+
+class CallEpicPatientReq(_message.Message):
+    __slots__ = ("PhoneAgentID", "OriginPhoneExtension", "PhoneNumber", "EpicCallID")
+    PHONEAGENTID_FIELD_NUMBER: _ClassVar[int]
+    ORIGINPHONEEXTENSION_FIELD_NUMBER: _ClassVar[int]
+    PHONENUMBER_FIELD_NUMBER: _ClassVar[int]
+    EPICCALLID_FIELD_NUMBER: _ClassVar[int]
+    PhoneAgentID: str
+    OriginPhoneExtension: str
+    PhoneNumber: str
+    EpicCallID: str
+    def __init__(self, PhoneAgentID: _Optional[str] = ..., OriginPhoneExtension: _Optional[str] = ..., PhoneNumber: _Optional[str] = ..., EpicCallID: _Optional[str] = ...) -> None: ...
+
+class CallEpicPatientRes(_message.Message):
+    __slots__ = ("PhoneSystemCallID",)
+    PHONESYSTEMCALLID_FIELD_NUMBER: _ClassVar[int]
+    PhoneSystemCallID: str
+    def __init__(self, PhoneSystemCallID: _Optional[str] = ...) -> None: ...
+
+class HangUpEpicPatientCallReq(_message.Message):
+    __slots__ = ("PhoneAgentID", "OriginPhoneExtension", "EpicCallID")
+    PHONEAGENTID_FIELD_NUMBER: _ClassVar[int]
+    ORIGINPHONEEXTENSION_FIELD_NUMBER: _ClassVar[int]
+    EPICCALLID_FIELD_NUMBER: _ClassVar[int]
+    PhoneAgentID: str
+    OriginPhoneExtension: str
+    EpicCallID: str
+    def __init__(self, PhoneAgentID: _Optional[str] = ..., OriginPhoneExtension: _Optional[str] = ..., EpicCallID: _Optional[str] = ...) -> None: ...
