@@ -144,6 +144,16 @@ class IntegrationsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationTemplatesByConfigReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationTemplatesByConfigRes.FromString,
                 )
+        self.CallEpicPatient = channel.unary_unary(
+                '/api.v1alpha1.integrations.Integrations/CallEpicPatient',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.CallEpicPatientReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.CallEpicPatientRes.FromString,
+                )
+        self.HangUpEpicPatientCall = channel.unary_unary(
+                '/api.v1alpha1.integrations.Integrations/HangUpEpicPatientCall',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.HangUpEpicPatientCallReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.Empty.FromString,
+                )
 
 
 class IntegrationsServicer(object):
@@ -331,6 +341,20 @@ class IntegrationsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CallEpicPatient(self, request, context):
+        """CallEpicPatient initiates a call to the specified number from the agent using the click to call button within epic
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def HangUpEpicPatientCall(self, request, context):
+        """CallEpicPatient initiates a call to the specified number from the agent using the click to call button within epic
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IntegrationsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -463,6 +487,16 @@ def add_IntegrationsServicer_to_server(servicer, server):
                     servicer.ListIntegrationTemplatesByConfig,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationTemplatesByConfigReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationTemplatesByConfigRes.SerializeToString,
+            ),
+            'CallEpicPatient': grpc.unary_unary_rpc_method_handler(
+                    servicer.CallEpicPatient,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.CallEpicPatientReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.CallEpicPatientRes.SerializeToString,
+            ),
+            'HangUpEpicPatientCall': grpc.unary_unary_rpc_method_handler(
+                    servicer.HangUpEpicPatientCall,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.HangUpEpicPatientCallReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -913,5 +947,39 @@ class Integrations(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/ListIntegrationTemplatesByConfig',
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationTemplatesByConfigReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.ListIntegrationTemplatesByConfigRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CallEpicPatient(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/CallEpicPatient',
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.CallEpicPatientReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.CallEpicPatientRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def HangUpEpicPatientCall(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/HangUpEpicPatientCall',
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.HangUpEpicPatientCallReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
