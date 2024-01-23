@@ -595,6 +595,26 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupSettingsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupSettingsResponse.FromString,
                 )
+        self.CreateHuntGroup = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CreateHuntGroup',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupResponse.FromString,
+                )
+        self.UpdateHuntGroupGeneralDetails = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateHuntGroupGeneralDetails',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupGeneralDetailsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupGeneralDetailsResponse.FromString,
+                )
+        self.DeleteHuntGroup = channel.unary_unary(
+                '/api.v1alpha1.org.Org/DeleteHuntGroup',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupResponse.FromString,
+                )
+        self.GetHuntGroupDetails = channel.unary_unary(
+                '/api.v1alpha1.org.Org/GetHuntGroupDetails',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupDetailsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupDetailsResponse.FromString,
+                )
         self.ListCallerIdBuckets = channel.unary_unary(
                 '/api.v1alpha1.org.Org/ListCallerIdBuckets',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListCallerIdBucketsRequest.SerializeToString,
@@ -1777,6 +1797,35 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateHuntGroup(self, request, context):
+        """CreateHuntGroup is the RPC method for creating a hunt group.
+        It will create a hunt group with the given general details.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateHuntGroupGeneralDetails(self, request, context):
+        """UpdateHuntGroupGeneralDetails is the RPC method for updating the general details of a hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteHuntGroup(self, request, context):
+        """DeleteHuntGroup is the RPC method for deleting a hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetHuntGroupDetails(self, request, context):
+        """GetHuntGroupDetails returns the hunt group details for the given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListCallerIdBuckets(self, request, context):
         """Lists caller id numbers with their associated region codes for the given
         bucket.
@@ -2844,6 +2893,26 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.UpdateHuntGroupSettings,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupSettingsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupSettingsResponse.SerializeToString,
+            ),
+            'CreateHuntGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateHuntGroup,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupResponse.SerializeToString,
+            ),
+            'UpdateHuntGroupGeneralDetails': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateHuntGroupGeneralDetails,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupGeneralDetailsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupGeneralDetailsResponse.SerializeToString,
+            ),
+            'DeleteHuntGroup': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteHuntGroup,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupResponse.SerializeToString,
+            ),
+            'GetHuntGroupDetails': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetHuntGroupDetails,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupDetailsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupDetailsResponse.SerializeToString,
             ),
             'ListCallerIdBuckets': grpc.unary_unary_rpc_method_handler(
                     servicer.ListCallerIdBuckets,
@@ -5126,6 +5195,74 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateHuntGroupSettings',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupSettingsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupSettingsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateHuntGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateHuntGroup',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateHuntGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateHuntGroupGeneralDetails(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateHuntGroupGeneralDetails',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupGeneralDetailsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupGeneralDetailsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteHuntGroup(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteHuntGroup',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetHuntGroupDetails(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetHuntGroupDetails',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupDetailsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupDetailsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

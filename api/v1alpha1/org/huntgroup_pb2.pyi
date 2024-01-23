@@ -60,6 +60,60 @@ class UpdateHuntGroupSettingsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class CreateHuntGroupRequest(_message.Message):
+    __slots__ = ("name", "description", "type")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    description: str
+    type: _huntgroup_pb2.HuntGroupType
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_huntgroup_pb2.HuntGroupType, str]] = ...) -> None: ...
+
+class CreateHuntGroupResponse(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class UpdateHuntGroupGeneralDetailsRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "name", "description", "type")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    name: str
+    description: str
+    type: _huntgroup_pb2.HuntGroupType
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_huntgroup_pb2.HuntGroupType, str]] = ...) -> None: ...
+
+class UpdateHuntGroupGeneralDetailsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteHuntGroupRequest(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class DeleteHuntGroupResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetHuntGroupDetailsRequest(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class GetHuntGroupDetailsResponse(_message.Message):
+    __slots__ = ("hunt_group_details",)
+    HUNT_GROUP_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_details: _huntgroup_pb2.HuntGroupDetails
+    def __init__(self, hunt_group_details: _Optional[_Union[_huntgroup_pb2.HuntGroupDetails, _Mapping]] = ...) -> None: ...
+
 class ListCallerIdBucketsRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...

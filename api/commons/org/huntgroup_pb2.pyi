@@ -1,5 +1,6 @@
 from api.commons import country_pb2 as _country_pb2
 from api.commons import org_pb2 as _org_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -7,6 +8,12 @@ from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class HuntGroupType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    HUNT_GROUP_TYPE_UNSPECIFIED: _ClassVar[HuntGroupType]
+    HUNT_GROUP_TYPE_CONNECTED: _ClassVar[HuntGroupType]
+    HUNT_GROUP_TYPE_SOFTPHONE: _ClassVar[HuntGroupType]
 
 class TemplateCategory(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -147,6 +154,9 @@ class TriggerAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TRIGGER_ACTION_EJECT_AGENT: _ClassVar[TriggerAction]
     TRIGGER_ACTION_EXECUTE_WEB_LINK: _ClassVar[TriggerAction]
     TRIGGER_ACTION_EXECUTE_INTEGRATION_LINK: _ClassVar[TriggerAction]
+HUNT_GROUP_TYPE_UNSPECIFIED: HuntGroupType
+HUNT_GROUP_TYPE_CONNECTED: HuntGroupType
+HUNT_GROUP_TYPE_SOFTPHONE: HuntGroupType
 TEMPLATE_CATEGORY_UNSPECIFIED: TemplateCategory
 TEMPLATE_CATEGORY_HUNT_GROUP: TemplateCategory
 TEMPLATE_CATEGORY_CAMPAIGN: TemplateCategory
@@ -461,6 +471,73 @@ class GeneralSettings(_message.Message):
     enable_agent_intercom: bool
     prepare_state_call_delivery: GeneralSettings.PrepareStateCallDelivery
     def __init__(self, enable_agent_gateway_title_bar: bool = ..., default_agent_dial_in: _Optional[str] = ..., require_end_call_confirmation: bool = ..., enable_authorization_by_ip: bool = ..., authorized_ip_addresses: _Optional[_Iterable[str]] = ..., initial_agent_status: _Optional[_Union[_org_pb2.InitialAgentStatus, str]] = ..., enable_agent_pause: bool = ..., agent_pause_option_set: _Optional[_Union[GeneralSettings.PauseOptionSet, _Mapping]] = ..., default_agent_pause_option: _Optional[str] = ..., enable_pause_option_reset: bool = ..., display_recording_indicator: bool = ..., enable_call_recording_pause: bool = ..., call_recording_pause_confirmation: bool = ..., call_recording_delay: _Optional[int] = ..., enable_pause_recording_on_hold: bool = ..., enable_envision_screen_recording: bool = ..., enable_agent_simple_hold: bool = ..., enable_agent_multi_accept: bool = ..., pause_agent_after_multi_accept: bool = ..., hold_queue_monitoring: _Optional[_Union[GeneralSettings.HoldQueueMonitoring, _Mapping]] = ..., display_machine_deliver: bool = ..., display_linkback_hunt_group: bool = ..., display_sip_header_data: bool = ..., display_ivr_navigation_keys: bool = ..., display_data_collect_data: bool = ..., display_data_dipped_data: _Optional[_Union[GeneralSettings.DataDipDataDisplay, _Mapping]] = ..., integration_data_display: _Optional[_Union[GeneralSettings.IntegrationDataDisplay, _Mapping]] = ..., journey_data_display: _Optional[_Union[GeneralSettings.JourneyDataDisplay, _Mapping]] = ..., agent_call_history_scope: _Optional[_Union[_org_pb2.AgentCallHistoryScope, str]] = ..., agent_login_gui_statistics_display: _Optional[_Union[GeneralSettings.AgentLoginGuiStatisticsDisplay, _Mapping]] = ..., phone_zip_metadata_display: _Optional[_Union[GeneralSettings.PhoneZipMetadataDisplay, _Mapping]] = ..., display_skills: bool = ..., display_web_links: bool = ..., enable_agent_hunt_group_reassignment: bool = ..., disallowed_hunt_groups: _Optional[_Union[GeneralSettings.DisallowedHuntGroups, _Mapping]] = ..., enable_manual_approval_of_calls: bool = ..., require_manual_approval_number: bool = ..., enable_manual_approval_of_sms: bool = ..., require_manual_approval_number_sms: bool = ..., disable_reject_option_for_approvers: bool = ..., alphanumeric_keypad: _Optional[_Union[GeneralSettings.AlphanumericKeypad, _Mapping]] = ..., enable_call_desktop_notifications: bool = ..., inbound_compliance_metadata: _Optional[_Union[GeneralSettings.InboundComplianceMetadata, _Mapping]] = ..., enable_agent_intercom: bool = ..., prepare_state_call_delivery: _Optional[_Union[GeneralSettings.PrepareStateCallDelivery, _Mapping]] = ...) -> None: ...
+
+class HuntGroupDetails(_message.Message):
+    __slots__ = ("general_details", "template_details", "web_link_details", "trigger_details", "integration_link_details")
+    class GeneralDetails(_message.Message):
+        __slots__ = ("name", "description", "type", "modify_date", "agent_count")
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        TYPE_FIELD_NUMBER: _ClassVar[int]
+        MODIFY_DATE_FIELD_NUMBER: _ClassVar[int]
+        AGENT_COUNT_FIELD_NUMBER: _ClassVar[int]
+        name: str
+        description: str
+        type: HuntGroupType
+        modify_date: _timestamp_pb2.Timestamp
+        agent_count: int
+        def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[HuntGroupType, str]] = ..., modify_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_count: _Optional[int] = ...) -> None: ...
+    class ClientInfoDisplayTemplateDetails(_message.Message):
+        __slots__ = ("name", "description", "display_all_fields", "defined_field_count")
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        DISPLAY_ALL_FIELDS_FIELD_NUMBER: _ClassVar[int]
+        DEFINED_FIELD_COUNT_FIELD_NUMBER: _ClassVar[int]
+        name: str
+        description: str
+        display_all_fields: bool
+        defined_field_count: int
+        def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., display_all_fields: bool = ..., defined_field_count: _Optional[int] = ...) -> None: ...
+    class WebLinkDetails(_message.Message):
+        __slots__ = ("name", "description", "base_url", "parameter_count")
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        BASE_URL_FIELD_NUMBER: _ClassVar[int]
+        PARAMETER_COUNT_FIELD_NUMBER: _ClassVar[int]
+        name: str
+        description: str
+        base_url: str
+        parameter_count: int
+        def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., base_url: _Optional[str] = ..., parameter_count: _Optional[int] = ...) -> None: ...
+    class TriggerDetails(_message.Message):
+        __slots__ = ("description", "status", "duration", "action")
+        DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        STATUS_FIELD_NUMBER: _ClassVar[int]
+        DURATION_FIELD_NUMBER: _ClassVar[int]
+        ACTION_FIELD_NUMBER: _ClassVar[int]
+        description: str
+        status: AgentStatus
+        duration: int
+        action: TriggerAction
+        def __init__(self, description: _Optional[str] = ..., status: _Optional[_Union[AgentStatus, str]] = ..., duration: _Optional[int] = ..., action: _Optional[_Union[TriggerAction, str]] = ...) -> None: ...
+    class IntegrationLinkDetails(_message.Message):
+        __slots__ = ("name", "description")
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        name: str
+        description: str
+        def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    GENERAL_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    WEB_LINK_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    TRIGGER_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    INTEGRATION_LINK_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    general_details: HuntGroupDetails.GeneralDetails
+    template_details: HuntGroupDetails.ClientInfoDisplayTemplateDetails
+    web_link_details: _containers.RepeatedCompositeFieldContainer[HuntGroupDetails.WebLinkDetails]
+    trigger_details: _containers.RepeatedCompositeFieldContainer[HuntGroupDetails.TriggerDetails]
+    integration_link_details: _containers.RepeatedCompositeFieldContainer[HuntGroupDetails.IntegrationLinkDetails]
+    def __init__(self, general_details: _Optional[_Union[HuntGroupDetails.GeneralDetails, _Mapping]] = ..., template_details: _Optional[_Union[HuntGroupDetails.ClientInfoDisplayTemplateDetails, _Mapping]] = ..., web_link_details: _Optional[_Iterable[_Union[HuntGroupDetails.WebLinkDetails, _Mapping]]] = ..., trigger_details: _Optional[_Iterable[_Union[HuntGroupDetails.TriggerDetails, _Mapping]]] = ..., integration_link_details: _Optional[_Iterable[_Union[HuntGroupDetails.IntegrationLinkDetails, _Mapping]]] = ...) -> None: ...
 
 class CommunicationSettings(_message.Message):
     __slots__ = ("enable_scrub_list_adding", "scrub_lists", "enable_scrub_list_removal", "scrub_lists_removal_allowed", "compliance_default_country", "display_options_in_wrapup", "inbound_scrub_list_expiration", "manual_scrub_list_expiration", "outbound_scrub_list_expiration", "preview_scrub_list_expiration", "automate_manually_dialed_scrub_list", "automate_preview_dialed_scrub_list", "automate_response_rules", "automate_scrub_list_call_data")
