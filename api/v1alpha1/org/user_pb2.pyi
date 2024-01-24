@@ -891,3 +891,15 @@ class GetUserSessionDataResponse(_message.Message):
     permission_groups: _containers.RepeatedCompositeFieldContainer[_permissions_pb2.PermissionGroup]
     labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
     def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ...) -> None: ...
+
+class Refresh2FALockoutRequest(_message.Message):
+    __slots__ = ("user_id",)
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+
+class Refresh2FALockoutResponse(_message.Message):
+    __slots__ = ("timeout",)
+    TIMEOUT_FIELD_NUMBER: _ClassVar[int]
+    timeout: _timestamp_pb2.Timestamp
+    def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
