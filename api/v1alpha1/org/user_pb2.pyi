@@ -903,3 +903,17 @@ class Refresh2FALockoutResponse(_message.Message):
     TIMEOUT_FIELD_NUMBER: _ClassVar[int]
     timeout: _timestamp_pb2.Timestamp
     def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class Refresh2FALockoutByOrgIdRequest(_message.Message):
+    __slots__ = ("user_id", "org_id")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    org_id: str
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
+
+class Refresh2FALockoutByOrgIdResponse(_message.Message):
+    __slots__ = ("timeout",)
+    TIMEOUT_FIELD_NUMBER: _ClassVar[int]
+    timeout: _timestamp_pb2.Timestamp
+    def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
