@@ -2760,6 +2760,22 @@ class CreateShiftInstanceV2Res(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
+class CreateShiftInstanceWithSegmentsRequest(_message.Message):
+    __slots__ = ("shift_instance", "ignore_diagnostics_errors")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    IGNORE_DIAGNOSTICS_ERRORS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    ignore_diagnostics_errors: bool
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., ignore_diagnostics_errors: bool = ...) -> None: ...
+
+class CreateShiftInstanceWithSegmentsResponse(_message.Message):
+    __slots__ = ("shift_instance", "diagnostics")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class SplitShiftInstanceReq(_message.Message):
     __slots__ = ("shift_instance_sid", "time_to_split")
     SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
