@@ -950,15 +950,15 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.FromString,
                 )
-        self.Refresh2FALockout = channel.unary_unary(
-                '/api.v1alpha1.org.Org/Refresh2FALockout',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutResponse.FromString,
+        self.RefreshMfaLockout = channel.unary_unary(
+                '/api.v1alpha1.org.Org/RefreshMfaLockout',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutResponse.FromString,
                 )
-        self.Refresh2FALockoutByOrgId = channel.unary_unary(
-                '/api.v1alpha1.org.Org/Refresh2FALockoutByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutByOrgIdResponse.FromString,
+        self.RefreshMfaLockoutByOrgId = channel.unary_unary(
+                '/api.v1alpha1.org.Org/RefreshMfaLockoutByOrgId',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutByOrgIdResponse.FromString,
                 )
 
 
@@ -2331,15 +2331,15 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Refresh2FALockout(self, request, context):
-        """Refresh2FALockout resets the lockout timer for the given user.
+    def RefreshMfaLockout(self, request, context):
+        """RefreshMfaLockout resets the lockout timer for the given user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Refresh2FALockoutByOrgId(self, request, context):
-        """Refresh2FALockoutByOrgId resets the lockout timer for the given user and org id.
+    def RefreshMfaLockoutByOrgId(self, request, context):
+        """RefreshMfaLockoutByOrgId resets the lockout timer for the given user and org id.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3273,15 +3273,15 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_p3__permissions__pb2.RevokeUsersP3PermissionGroupResponse.SerializeToString,
             ),
-            'Refresh2FALockout': grpc.unary_unary_rpc_method_handler(
-                    servicer.Refresh2FALockout,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutResponse.SerializeToString,
+            'RefreshMfaLockout': grpc.unary_unary_rpc_method_handler(
+                    servicer.RefreshMfaLockout,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutResponse.SerializeToString,
             ),
-            'Refresh2FALockoutByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.Refresh2FALockoutByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutByOrgIdResponse.SerializeToString,
+            'RefreshMfaLockoutByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.RefreshMfaLockoutByOrgId,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutByOrgIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -6440,7 +6440,7 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Refresh2FALockout(request,
+    def RefreshMfaLockout(request,
             target,
             options=(),
             channel_credentials=None,
@@ -6450,14 +6450,14 @@ class Org(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/Refresh2FALockout',
-            api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RefreshMfaLockout',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def Refresh2FALockoutByOrgId(request,
+    def RefreshMfaLockoutByOrgId(request,
             target,
             options=(),
             channel_credentials=None,
@@ -6467,8 +6467,8 @@ class Org(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/Refresh2FALockoutByOrgId',
-            api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_user__pb2.Refresh2FALockoutByOrgIdResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RefreshMfaLockoutByOrgId',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutByOrgIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.RefreshMfaLockoutByOrgIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

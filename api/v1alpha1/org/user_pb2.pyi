@@ -892,19 +892,19 @@ class GetUserSessionDataResponse(_message.Message):
     labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
     def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ...) -> None: ...
 
-class Refresh2FALockoutRequest(_message.Message):
+class RefreshMfaLockoutRequest(_message.Message):
     __slots__ = ("user_id",)
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     def __init__(self, user_id: _Optional[str] = ...) -> None: ...
 
-class Refresh2FALockoutResponse(_message.Message):
+class RefreshMfaLockoutResponse(_message.Message):
     __slots__ = ("timeout",)
     TIMEOUT_FIELD_NUMBER: _ClassVar[int]
     timeout: _timestamp_pb2.Timestamp
     def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
-class Refresh2FALockoutByOrgIdRequest(_message.Message):
+class RefreshMfaLockoutByOrgIdRequest(_message.Message):
     __slots__ = ("user_id", "org_id")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
@@ -912,8 +912,52 @@ class Refresh2FALockoutByOrgIdRequest(_message.Message):
     org_id: str
     def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
 
-class Refresh2FALockoutByOrgIdResponse(_message.Message):
+class RefreshMfaLockoutByOrgIdResponse(_message.Message):
     __slots__ = ("timeout",)
     TIMEOUT_FIELD_NUMBER: _ClassVar[int]
     timeout: _timestamp_pb2.Timestamp
     def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class SetMfaTypeRequest(_message.Message):
+    __slots__ = ("otp",)
+    OTP_FIELD_NUMBER: _ClassVar[int]
+    otp: _user_pb2.MfaInfo.OtpType
+    def __init__(self, otp: _Optional[_Union[_user_pb2.MfaInfo.OtpType, _Mapping]] = ...) -> None: ...
+
+class SetMfaTypeResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class EnableMfaRequest(_message.Message):
+    __slots__ = ("user_id", "enabled")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ENABLED_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    enabled: bool
+    def __init__(self, user_id: _Optional[str] = ..., enabled: bool = ...) -> None: ...
+
+class EnableMfaResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetUserMfaInfoRequest(_message.Message):
+    __slots__ = ("user_id",)
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+
+class GetUserMfaInfoResponse(_message.Message):
+    __slots__ = ("info",)
+    INFO_FIELD_NUMBER: _ClassVar[int]
+    info: _user_pb2.MfaInfo
+    def __init__(self, info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
+
+class GetMyUserMfaInfoRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetMyUserMfaInfoResponse(_message.Message):
+    __slots__ = ("info",)
+    INFO_FIELD_NUMBER: _ClassVar[int]
+    info: _user_pb2.MfaInfo
+    def __init__(self, info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
