@@ -965,10 +965,15 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeResponse.FromString,
                 )
-        self.EnableMfa = channel.unary_unary(
-                '/api.v1alpha1.org.Org/EnableMfa',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMfaRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMfaResponse.FromString,
+        self.EnableUserMfa = channel.unary_unary(
+                '/api.v1alpha1.org.Org/EnableUserMfa',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableUserMfaRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableUserMfaResponse.FromString,
+                )
+        self.EnableMyUserMfa = channel.unary_unary(
+                '/api.v1alpha1.org.Org/EnableMyUserMfa',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMyUserMfaRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMyUserMfaResponse.FromString,
                 )
         self.GetUserMfaInfo = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetUserMfaInfo',
@@ -2372,8 +2377,15 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def EnableMfa(self, request, context):
-        """EnableMfa enables or disables mfa for the given user
+    def EnableUserMfa(self, request, context):
+        """EnableUserMfa enables or disables mfa for the given user
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def EnableMyUserMfa(self, request, context):
+        """EnableMyUserMfa enables mfa for the current user
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3336,10 +3348,15 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeResponse.SerializeToString,
             ),
-            'EnableMfa': grpc.unary_unary_rpc_method_handler(
-                    servicer.EnableMfa,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMfaRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMfaResponse.SerializeToString,
+            'EnableUserMfa': grpc.unary_unary_rpc_method_handler(
+                    servicer.EnableUserMfa,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableUserMfaRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableUserMfaResponse.SerializeToString,
+            ),
+            'EnableMyUserMfa': grpc.unary_unary_rpc_method_handler(
+                    servicer.EnableMyUserMfa,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMyUserMfaRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMyUserMfaResponse.SerializeToString,
             ),
             'GetUserMfaInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.GetUserMfaInfo,
@@ -6559,7 +6576,7 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def EnableMfa(request,
+    def EnableUserMfa(request,
             target,
             options=(),
             channel_credentials=None,
@@ -6569,9 +6586,26 @@ class Org(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/EnableMfa',
-            api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMfaRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMfaResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/EnableUserMfa',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.EnableUserMfaRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.EnableUserMfaResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EnableMyUserMfa(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/EnableMyUserMfa',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMyUserMfaRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.EnableMyUserMfaResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -928,7 +928,7 @@ class SetMfaTypeResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class EnableMfaRequest(_message.Message):
+class EnableUserMfaRequest(_message.Message):
     __slots__ = ("user_id", "enabled")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ENABLED_FIELD_NUMBER: _ClassVar[int]
@@ -936,7 +936,15 @@ class EnableMfaRequest(_message.Message):
     enabled: bool
     def __init__(self, user_id: _Optional[str] = ..., enabled: bool = ...) -> None: ...
 
-class EnableMfaResponse(_message.Message):
+class EnableUserMfaResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class EnableMyUserMfaRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class EnableMyUserMfaResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
