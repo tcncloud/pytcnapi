@@ -32,16 +32,18 @@ class ContentReq(_message.Message):
     def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
 
 class ContentRes(_message.Message):
-    __slots__ = ("content", "last_edited_timestamp", "images", "title")
+    __slots__ = ("content", "last_edited_timestamp", "images", "title", "total_view_count")
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     IMAGES_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_VIEW_COUNT_FIELD_NUMBER: _ClassVar[int]
     content: str
     last_edited_timestamp: _timestamp_pb2.Timestamp
     images: _containers.RepeatedCompositeFieldContainer[LearnImage]
     title: str
-    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., title: _Optional[str] = ...) -> None: ...
+    total_view_count: int
+    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., title: _Optional[str] = ..., total_view_count: _Optional[int] = ...) -> None: ...
 
 class ContentEditorDataReq(_message.Message):
     __slots__ = ("url", "locale")
