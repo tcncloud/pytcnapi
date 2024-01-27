@@ -2856,6 +2856,22 @@ class UpdateShiftInstanceV2Res(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
+class UpdateShiftInstanceWithSegmentsRequest(_message.Message):
+    __slots__ = ("shift_instance", "ignore_diagnostics_errors")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    IGNORE_DIAGNOSTICS_ERRORS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    ignore_diagnostics_errors: bool
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., ignore_diagnostics_errors: bool = ...) -> None: ...
+
+class UpdateShiftInstanceWithSegmentsResponse(_message.Message):
+    __slots__ = ("shift_instance", "diagnostics")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class CopyShiftInstancesToScheduleReq(_message.Message):
     __slots__ = ("destination_schedule", "shift_instance_sids", "overlap_as_warning")
     DESTINATION_SCHEDULE_FIELD_NUMBER: _ClassVar[int]
