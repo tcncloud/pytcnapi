@@ -66,6 +66,16 @@ class DeleteSkillGroupResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class RemoveSkillFromAllGroupsRequest(_message.Message):
+    __slots__ = ("skill_sid",)
+    SKILL_SID_FIELD_NUMBER: _ClassVar[int]
+    skill_sid: int
+    def __init__(self, skill_sid: _Optional[int] = ...) -> None: ...
+
+class RemoveSkillFromAllGroupsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class AssignSkillGroupsRequest(_message.Message):
     __slots__ = ("skill_group_ids", "user_id")
     SKILL_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]

@@ -39,6 +39,11 @@ class SkillsServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.DeleteSkillGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.DeleteSkillGroupResponse.FromString,
                 )
+        self.RemoveSkillFromAllGroups = channel.unary_unary(
+                '/api.v1alpha1.org.skills.SkillsService/RemoveSkillFromAllGroups',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RemoveSkillFromAllGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RemoveSkillFromAllGroupsResponse.FromString,
+                )
         self.AssignSkillGroups = channel.unary_unary(
                 '/api.v1alpha1.org.skills.SkillsService/AssignSkillGroups',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.AssignSkillGroupsRequest.SerializeToString,
@@ -109,6 +114,13 @@ class SkillsServiceServicer(object):
 
     def DeleteSkillGroup(self, request, context):
         """DeleteSkillGroup deletes a skill group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveSkillFromAllGroups(self, request, context):
+        """RemoveSkillFromAllGroups removes a skill from all skill groups which contain it.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -190,6 +202,11 @@ def add_SkillsServiceServicer_to_server(servicer, server):
                     servicer.DeleteSkillGroup,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.DeleteSkillGroupRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.DeleteSkillGroupResponse.SerializeToString,
+            ),
+            'RemoveSkillFromAllGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveSkillFromAllGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RemoveSkillFromAllGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RemoveSkillFromAllGroupsResponse.SerializeToString,
             ),
             'AssignSkillGroups': grpc.unary_unary_rpc_method_handler(
                     servicer.AssignSkillGroups,
@@ -318,6 +335,23 @@ class SkillsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/DeleteSkillGroup',
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.DeleteSkillGroupRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.DeleteSkillGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveSkillFromAllGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/RemoveSkillFromAllGroups',
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RemoveSkillFromAllGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RemoveSkillFromAllGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
