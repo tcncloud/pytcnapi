@@ -605,6 +605,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.FromString,
                 )
+        self.CreateShiftInstanceWithSegments = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateShiftInstanceWithSegments',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceWithSegmentsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceWithSegmentsResponse.FromString,
+                )
         self.SplitShiftInstance = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/SplitShiftInstance',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceReq.SerializeToString,
@@ -624,6 +629,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceV2',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
+                )
+        self.UpdateShiftInstanceWithSegments = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceWithSegments',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceWithSegmentsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceWithSegmentsResponse.FromString,
                 )
         self.CopyShiftInstancesToSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CopyShiftInstancesToSchedule',
@@ -2592,6 +2602,21 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateShiftInstanceWithSegments(self, request, context):
+        """Creates the @shift_instance with any member shift segments and shift segment call stats for the org sending the request.
+        If @ignore_diagnostics_errors any diagnostics encountered will be returned as warnings, and the shift will still be created.
+        Otherwise, any diagnostics triggered by the given @shift_instance will be returned and the shift will not be created.
+        Required permissions:
+        NONE
+        Errors:
+        -grpc.Invalid: one or more fields in the request have invalid values.
+        -grpc.NotFound: the fields referenced in @shift_instance or its member shift segments don't exist for the org.
+        -grpc.Internal: error occurs when creating the shift instance or its members.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SplitShiftInstance(self, request, context):
         """Splits the @shift_instance_sid into two, at the given @time_to_split, returning the updated and new @shift_instances.
         Any shift segments will be split between the two shift instances at @time_to_split.
@@ -2644,6 +2669,24 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when updating the shift instance.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateShiftInstanceWithSegments(self, request, context):
+        """Runs diagnostics on the given @shift_instance for the org sending the request.
+        If @ignore_diagnostics_errors is True, the shift will be updated regardless of diagnostic errors and any diagnostics will be returned as warnings.
+        Otherwise, the shift will only be updated if there are no diagnostic errors.
+        Only the @start_datetime, @is_locked, @width_in_minutes and @wfm_agent_sid fields of the shift will be updated.
+
+        Any existing shift segments belonging to @shift_instance will be deleted and replaced with the ones in the given @shift_instance.
+        If no segments are provided, the existing segments will still be deleted and the instances will be left without any.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when updating the @shift_instance or replacing their member shift segments.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3779,6 +3822,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Req.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceV2Res.SerializeToString,
             ),
+            'CreateShiftInstanceWithSegments': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateShiftInstanceWithSegments,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceWithSegmentsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceWithSegmentsResponse.SerializeToString,
+            ),
             'SplitShiftInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.SplitShiftInstance,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitShiftInstanceReq.FromString,
@@ -3798,6 +3846,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.UpdateShiftInstanceV2,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.SerializeToString,
+            ),
+            'UpdateShiftInstanceWithSegments': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateShiftInstanceWithSegments,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceWithSegmentsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceWithSegmentsResponse.SerializeToString,
             ),
             'CopyShiftInstancesToSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.CopyShiftInstancesToSchedule,
@@ -6012,6 +6065,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateShiftInstanceWithSegments(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateShiftInstanceWithSegments',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceWithSegmentsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateShiftInstanceWithSegmentsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def SplitShiftInstance(request,
             target,
             options=(),
@@ -6076,6 +6146,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceV2',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Req.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceV2Res.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateShiftInstanceWithSegments(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateShiftInstanceWithSegments',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceWithSegmentsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateShiftInstanceWithSegmentsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

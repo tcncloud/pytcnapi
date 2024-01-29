@@ -34,6 +34,16 @@ class PBXServiceStub(object):
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupRequest.SerializeToString,
                 response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupResponse.FromString,
                 )
+        self.GetSIPAccount = channel.unary_unary(
+                '/services.pbx.v2.PBXService/GetSIPAccount',
+                request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountResponse.FromString,
+                )
+        self.ListSIPAccounts = channel.unary_unary(
+                '/services.pbx.v2.PBXService/ListSIPAccounts',
+                request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsResponse.FromString,
+                )
         self.UpdateSIPAccount = channel.unary_unary(
                 '/services.pbx.v2.PBXService/UpdateSIPAccount',
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.UpdateSIPAccountRequest.SerializeToString,
@@ -114,6 +124,34 @@ class PBXServiceServicer(object):
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
         - grpc.Internal: An internal error occurred.
         - grpc.NotFound: The group does not exist or is not in the caller's ORG.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSIPAccount(self, request, context):
+        """Returns details of the SIP Account associated with the sip_id
+        Required permissions:
+        PBX-MANAGER
+        Errors:
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Internal: An internal error occurred.
+        - grpc.NotFound: The group does not exist or is not in the caller's ORG.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSIPAccounts(self, request, context):
+        """Returns details of all SIP Accounts associated with the authenticated callers ORG
+        Required permissions:
+        PBX-MANAGER
+        Errors:
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Internal: An internal error occurred.
         - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -222,6 +260,16 @@ def add_PBXServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupRequest.FromString,
                     response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupResponse.SerializeToString,
             ),
+            'GetSIPAccount': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSIPAccount,
+                    request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountResponse.SerializeToString,
+            ),
+            'ListSIPAccounts': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSIPAccounts,
+                    request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsResponse.SerializeToString,
+            ),
             'UpdateSIPAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateSIPAccount,
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.UpdateSIPAccountRequest.FromString,
@@ -322,6 +370,40 @@ class PBXService(object):
         return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/GetRingGroup',
             services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupRequest.SerializeToString,
             services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSIPAccount(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/GetSIPAccount',
+            services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountRequest.SerializeToString,
+            services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSIPAccounts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/ListSIPAccounts',
+            services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.SerializeToString,
+            services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -33,16 +33,18 @@ class PBXUser(_message.Message):
     def __init__(self, pbx_user_id: _Optional[str] = ..., org_user_id: _Optional[str] = ..., sip_account_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class SIPAccount(_message.Message):
-    __slots__ = ("sip_id", "is_active", "extension", "ring_group_ids")
+    __slots__ = ("sip_id", "is_active", "extension", "ring_group_ids", "org_user_id")
     SIP_ID_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTENSION_FIELD_NUMBER: _ClassVar[int]
     RING_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+    ORG_USER_ID_FIELD_NUMBER: _ClassVar[int]
     sip_id: str
     is_active: bool
     extension: str
     ring_group_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, sip_id: _Optional[str] = ..., is_active: bool = ..., extension: _Optional[str] = ..., ring_group_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    org_user_id: str
+    def __init__(self, sip_id: _Optional[str] = ..., is_active: bool = ..., extension: _Optional[str] = ..., ring_group_ids: _Optional[_Iterable[str]] = ..., org_user_id: _Optional[str] = ...) -> None: ...
 
 class RingGroup(_message.Message):
     __slots__ = ("id", "name", "description", "extension", "ring_strategy", "sip_account_ids")
@@ -69,6 +71,26 @@ class ListPBXUsersResponse(_message.Message):
     USERS_FIELD_NUMBER: _ClassVar[int]
     users: _containers.RepeatedCompositeFieldContainer[PBXUser]
     def __init__(self, users: _Optional[_Iterable[_Union[PBXUser, _Mapping]]] = ...) -> None: ...
+
+class ListSIPAccountsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListSIPAccountsResponse(_message.Message):
+    __slots__ = ("sip_accounts",)
+    SIP_ACCOUNTS_FIELD_NUMBER: _ClassVar[int]
+    sip_accounts: _containers.RepeatedCompositeFieldContainer[SIPAccount]
+    def __init__(self, sip_accounts: _Optional[_Iterable[_Union[SIPAccount, _Mapping]]] = ...) -> None: ...
+
+class GetSIPAccountRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetSIPAccountResponse(_message.Message):
+    __slots__ = ("sip_account",)
+    SIP_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
+    sip_account: _containers.RepeatedCompositeFieldContainer[SIPAccount]
+    def __init__(self, sip_account: _Optional[_Iterable[_Union[SIPAccount, _Mapping]]] = ...) -> None: ...
 
 class GetPBXUserRequest(_message.Message):
     __slots__ = ("pbx_user_id",)
