@@ -923,12 +923,24 @@ class RefreshMfaLockoutByOrgIdResponse(_message.Message):
     def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class SetMfaTypeRequest(_message.Message):
+    __slots__ = ("otp", "user_id")
+    OTP_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    otp: _user_pb2.MfaInfo.OtpType
+    user_id: str
+    def __init__(self, otp: _Optional[_Union[_user_pb2.MfaInfo.OtpType, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
+
+class SetMfaTypeResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class SetMyMfaTypeRequest(_message.Message):
     __slots__ = ("otp",)
     OTP_FIELD_NUMBER: _ClassVar[int]
     otp: _user_pb2.MfaInfo.OtpType
     def __init__(self, otp: _Optional[_Union[_user_pb2.MfaInfo.OtpType, _Mapping]] = ...) -> None: ...
 
-class SetMfaTypeResponse(_message.Message):
+class SetMyMfaTypeResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 

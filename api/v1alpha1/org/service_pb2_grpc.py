@@ -965,6 +965,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeResponse.FromString,
                 )
+        self.SetMyMfaType = channel.unary_unary(
+                '/api.v1alpha1.org.Org/SetMyMfaType',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMyMfaTypeRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMyMfaTypeResponse.FromString,
+                )
         self.EnableUserMfa = channel.unary_unary(
                 '/api.v1alpha1.org.Org/EnableUserMfa',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.EnableUserMfaRequest.SerializeToString,
@@ -2371,7 +2376,14 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def SetMfaType(self, request, context):
-        """SetMfaType sets the current user's mfa type.
+        """SetMfaType sets the given user's mfa type.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetMyMfaType(self, request, context):
+        """SetMyMfaType sets the current user's mfa type.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3347,6 +3359,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.SetMfaType,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeResponse.SerializeToString,
+            ),
+            'SetMyMfaType': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetMyMfaType,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMyMfaTypeRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.SetMyMfaTypeResponse.SerializeToString,
             ),
             'EnableUserMfa': grpc.unary_unary_rpc_method_handler(
                     servicer.EnableUserMfa,
@@ -6572,6 +6589,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/SetMfaType',
             api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_user__pb2.SetMfaTypeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetMyMfaType(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/SetMyMfaType',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.SetMyMfaTypeRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.SetMyMfaTypeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
