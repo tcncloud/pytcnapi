@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from api.commons.org import skill_group_pb2 as api_dot_commons_dot_org_dot_skill__group__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/v1alpha1/org/skills/entities.proto\x12\x17\x61pi.v1alpha1.org.skills\x1a!api/commons/org/skill_group.proto\"W\n\x17\x43reateSkillGroupRequest\x12<\n\x0bskill_group\x18\x01 \x01(\x0b\x32\x1b.api.commons.org.SkillGroupR\nskillGroup\"@\n\x18\x43reateSkillGroupResponse\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\"7\n\x16ListSkillGroupsRequest\x12\x1d\n\nfield_mask\x18\x01 \x03(\tR\tfieldMask\"Y\n\x17ListSkillGroupsResponse\x12>\n\x0cskill_groups\x18\x01 \x03(\x0b\x32\x1b.api.commons.org.SkillGroupR\x0bskillGroups\"v\n\x17UpdateSkillGroupRequest\x12<\n\x0bskill_group\x18\x01 \x01(\x0b\x32\x1b.api.commons.org.SkillGroupR\nskillGroup\x12\x1d\n\nfield_mask\x18\x02 \x03(\tR\tfieldMask\"\x1a\n\x18UpdateSkillGroupResponse\"[\n\x14GetSkillGroupRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\x12\x1d\n\nfield_mask\x18\x02 \x03(\tR\tfieldMask\"U\n\x15GetSkillGroupResponse\x12<\n\x0bskill_group\x18\x01 \x01(\x0b\x32\x1b.api.commons.org.SkillGroupR\nskillGroup\"?\n\x17\x44\x65leteSkillGroupRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\"\x1a\n\x18\x44\x65leteSkillGroupResponse\"[\n\x18\x41ssignSkillGroupsRequest\x12&\n\x0fskill_group_ids\x18\x01 \x03(\tR\rskillGroupIds\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x1b\n\x19\x41ssignSkillGroupsResponse\"[\n\x18RevokeSkillGroupsRequest\x12&\n\x0fskill_group_ids\x18\x01 \x03(\tR\rskillGroupIds\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x1b\n\x19RevokeSkillGroupsResponse\"4\n\x19GetUserSkillGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\"D\n\x1aGetUserSkillGroupsResponse\x12&\n\x0fskill_group_ids\x18\x01 \x03(\tR\rskillGroupIds\"/\n\x14GetUserSkillsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\"Q\n\x15GetUserSkillsResponse\x12\x38\n\nskill_sets\x18\x01 \x03(\x0b\x32\x19.api.commons.org.SkillSetR\tskillSets\"C\n\x1bGetSkillGroupMembersRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\"9\n\x1cGetSkillGroupMembersResponse\x12\x19\n\x08user_ids\x18\x01 \x03(\tR\x07userIds\"\x1f\n\x1dListSkillGroupsMembersRequest\"|\n\x1eListSkillGroupsMembersResponse\x12Z\n\x13skill_group_members\x18\x01 \x03(\x0b\x32*.api.v1alpha1.org.skills.SkillGroupMembersR\x11skillGroupMembers\"T\n\x11SkillGroupMembers\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\x12\x19\n\x08user_ids\x18\x02 \x03(\tR\x07userIds\"a\n\x1eUpdateUsersOnSkillGroupRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\x12\x19\n\x08user_ids\x18\x02 \x03(\tR\x07userIds\"!\n\x1fUpdateUsersOnSkillGroupResponseB\xac\x01\n\x1b\x63om.api.v1alpha1.org.skillsB\rEntitiesProtoP\x01\xa2\x02\x04\x41VOS\xaa\x02\x17\x41pi.V1alpha1.Org.Skills\xca\x02\x17\x41pi\\V1alpha1\\Org\\Skills\xe2\x02#Api\\V1alpha1\\Org\\Skills\\GPBMetadata\xea\x02\x1a\x41pi::V1alpha1::Org::Skillsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/v1alpha1/org/skills/entities.proto\x12\x17\x61pi.v1alpha1.org.skills\x1a!api/commons/org/skill_group.proto\"W\n\x17\x43reateSkillGroupRequest\x12<\n\x0bskill_group\x18\x01 \x01(\x0b\x32\x1b.api.commons.org.SkillGroupR\nskillGroup\"@\n\x18\x43reateSkillGroupResponse\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\"7\n\x16ListSkillGroupsRequest\x12\x1d\n\nfield_mask\x18\x01 \x03(\tR\tfieldMask\"Y\n\x17ListSkillGroupsResponse\x12>\n\x0cskill_groups\x18\x01 \x03(\x0b\x32\x1b.api.commons.org.SkillGroupR\x0bskillGroups\"v\n\x17UpdateSkillGroupRequest\x12<\n\x0bskill_group\x18\x01 \x01(\x0b\x32\x1b.api.commons.org.SkillGroupR\nskillGroup\x12\x1d\n\nfield_mask\x18\x02 \x03(\tR\tfieldMask\"\x1a\n\x18UpdateSkillGroupResponse\"[\n\x14GetSkillGroupRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\x12\x1d\n\nfield_mask\x18\x02 \x03(\tR\tfieldMask\"U\n\x15GetSkillGroupResponse\x12<\n\x0bskill_group\x18\x01 \x01(\x0b\x32\x1b.api.commons.org.SkillGroupR\nskillGroup\"?\n\x17\x44\x65leteSkillGroupRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\"\x1a\n\x18\x44\x65leteSkillGroupResponse\">\n\x1fRemoveSkillFromAllGroupsRequest\x12\x1b\n\tskill_sid\x18\x01 \x01(\x03R\x08skillSid\"\"\n RemoveSkillFromAllGroupsResponse\"[\n\x18\x41ssignSkillGroupsRequest\x12&\n\x0fskill_group_ids\x18\x01 \x03(\tR\rskillGroupIds\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x1b\n\x19\x41ssignSkillGroupsResponse\"[\n\x18RevokeSkillGroupsRequest\x12&\n\x0fskill_group_ids\x18\x01 \x03(\tR\rskillGroupIds\x12\x17\n\x07user_id\x18\x02 \x01(\tR\x06userId\"\x1b\n\x19RevokeSkillGroupsResponse\"4\n\x19GetUserSkillGroupsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\"D\n\x1aGetUserSkillGroupsResponse\x12&\n\x0fskill_group_ids\x18\x01 \x03(\tR\rskillGroupIds\"/\n\x14GetUserSkillsRequest\x12\x17\n\x07user_id\x18\x01 \x01(\tR\x06userId\"Q\n\x15GetUserSkillsResponse\x12\x38\n\nskill_sets\x18\x01 \x03(\x0b\x32\x19.api.commons.org.SkillSetR\tskillSets\"C\n\x1bGetSkillGroupMembersRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\"9\n\x1cGetSkillGroupMembersResponse\x12\x19\n\x08user_ids\x18\x01 \x03(\tR\x07userIds\"\x1f\n\x1dListSkillGroupsMembersRequest\"|\n\x1eListSkillGroupsMembersResponse\x12Z\n\x13skill_group_members\x18\x01 \x03(\x0b\x32*.api.v1alpha1.org.skills.SkillGroupMembersR\x11skillGroupMembers\"T\n\x11SkillGroupMembers\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\x12\x19\n\x08user_ids\x18\x02 \x03(\tR\x07userIds\"a\n\x1eUpdateUsersOnSkillGroupRequest\x12$\n\x0eskill_group_id\x18\x01 \x01(\tR\x0cskillGroupId\x12\x19\n\x08user_ids\x18\x02 \x03(\tR\x07userIds\"!\n\x1fUpdateUsersOnSkillGroupResponseB\xac\x01\n\x1b\x63om.api.v1alpha1.org.skillsB\rEntitiesProtoP\x01\xa2\x02\x04\x41VOS\xaa\x02\x17\x41pi.V1alpha1.Org.Skills\xca\x02\x17\x41pi\\V1alpha1\\Org\\Skills\xe2\x02#Api\\V1alpha1\\Org\\Skills\\GPBMetadata\xea\x02\x1a\x41pi::V1alpha1::Org::Skillsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -43,34 +43,38 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_DELETESKILLGROUPREQUEST']._serialized_end=796
   _globals['_DELETESKILLGROUPRESPONSE']._serialized_start=798
   _globals['_DELETESKILLGROUPRESPONSE']._serialized_end=824
-  _globals['_ASSIGNSKILLGROUPSREQUEST']._serialized_start=826
-  _globals['_ASSIGNSKILLGROUPSREQUEST']._serialized_end=917
-  _globals['_ASSIGNSKILLGROUPSRESPONSE']._serialized_start=919
-  _globals['_ASSIGNSKILLGROUPSRESPONSE']._serialized_end=946
-  _globals['_REVOKESKILLGROUPSREQUEST']._serialized_start=948
-  _globals['_REVOKESKILLGROUPSREQUEST']._serialized_end=1039
-  _globals['_REVOKESKILLGROUPSRESPONSE']._serialized_start=1041
-  _globals['_REVOKESKILLGROUPSRESPONSE']._serialized_end=1068
-  _globals['_GETUSERSKILLGROUPSREQUEST']._serialized_start=1070
-  _globals['_GETUSERSKILLGROUPSREQUEST']._serialized_end=1122
-  _globals['_GETUSERSKILLGROUPSRESPONSE']._serialized_start=1124
-  _globals['_GETUSERSKILLGROUPSRESPONSE']._serialized_end=1192
-  _globals['_GETUSERSKILLSREQUEST']._serialized_start=1194
-  _globals['_GETUSERSKILLSREQUEST']._serialized_end=1241
-  _globals['_GETUSERSKILLSRESPONSE']._serialized_start=1243
-  _globals['_GETUSERSKILLSRESPONSE']._serialized_end=1324
-  _globals['_GETSKILLGROUPMEMBERSREQUEST']._serialized_start=1326
-  _globals['_GETSKILLGROUPMEMBERSREQUEST']._serialized_end=1393
-  _globals['_GETSKILLGROUPMEMBERSRESPONSE']._serialized_start=1395
-  _globals['_GETSKILLGROUPMEMBERSRESPONSE']._serialized_end=1452
-  _globals['_LISTSKILLGROUPSMEMBERSREQUEST']._serialized_start=1454
-  _globals['_LISTSKILLGROUPSMEMBERSREQUEST']._serialized_end=1485
-  _globals['_LISTSKILLGROUPSMEMBERSRESPONSE']._serialized_start=1487
-  _globals['_LISTSKILLGROUPSMEMBERSRESPONSE']._serialized_end=1611
-  _globals['_SKILLGROUPMEMBERS']._serialized_start=1613
-  _globals['_SKILLGROUPMEMBERS']._serialized_end=1697
-  _globals['_UPDATEUSERSONSKILLGROUPREQUEST']._serialized_start=1699
-  _globals['_UPDATEUSERSONSKILLGROUPREQUEST']._serialized_end=1796
-  _globals['_UPDATEUSERSONSKILLGROUPRESPONSE']._serialized_start=1798
-  _globals['_UPDATEUSERSONSKILLGROUPRESPONSE']._serialized_end=1831
+  _globals['_REMOVESKILLFROMALLGROUPSREQUEST']._serialized_start=826
+  _globals['_REMOVESKILLFROMALLGROUPSREQUEST']._serialized_end=888
+  _globals['_REMOVESKILLFROMALLGROUPSRESPONSE']._serialized_start=890
+  _globals['_REMOVESKILLFROMALLGROUPSRESPONSE']._serialized_end=924
+  _globals['_ASSIGNSKILLGROUPSREQUEST']._serialized_start=926
+  _globals['_ASSIGNSKILLGROUPSREQUEST']._serialized_end=1017
+  _globals['_ASSIGNSKILLGROUPSRESPONSE']._serialized_start=1019
+  _globals['_ASSIGNSKILLGROUPSRESPONSE']._serialized_end=1046
+  _globals['_REVOKESKILLGROUPSREQUEST']._serialized_start=1048
+  _globals['_REVOKESKILLGROUPSREQUEST']._serialized_end=1139
+  _globals['_REVOKESKILLGROUPSRESPONSE']._serialized_start=1141
+  _globals['_REVOKESKILLGROUPSRESPONSE']._serialized_end=1168
+  _globals['_GETUSERSKILLGROUPSREQUEST']._serialized_start=1170
+  _globals['_GETUSERSKILLGROUPSREQUEST']._serialized_end=1222
+  _globals['_GETUSERSKILLGROUPSRESPONSE']._serialized_start=1224
+  _globals['_GETUSERSKILLGROUPSRESPONSE']._serialized_end=1292
+  _globals['_GETUSERSKILLSREQUEST']._serialized_start=1294
+  _globals['_GETUSERSKILLSREQUEST']._serialized_end=1341
+  _globals['_GETUSERSKILLSRESPONSE']._serialized_start=1343
+  _globals['_GETUSERSKILLSRESPONSE']._serialized_end=1424
+  _globals['_GETSKILLGROUPMEMBERSREQUEST']._serialized_start=1426
+  _globals['_GETSKILLGROUPMEMBERSREQUEST']._serialized_end=1493
+  _globals['_GETSKILLGROUPMEMBERSRESPONSE']._serialized_start=1495
+  _globals['_GETSKILLGROUPMEMBERSRESPONSE']._serialized_end=1552
+  _globals['_LISTSKILLGROUPSMEMBERSREQUEST']._serialized_start=1554
+  _globals['_LISTSKILLGROUPSMEMBERSREQUEST']._serialized_end=1585
+  _globals['_LISTSKILLGROUPSMEMBERSRESPONSE']._serialized_start=1587
+  _globals['_LISTSKILLGROUPSMEMBERSRESPONSE']._serialized_end=1711
+  _globals['_SKILLGROUPMEMBERS']._serialized_start=1713
+  _globals['_SKILLGROUPMEMBERS']._serialized_end=1797
+  _globals['_UPDATEUSERSONSKILLGROUPREQUEST']._serialized_start=1799
+  _globals['_UPDATEUSERSONSKILLGROUPREQUEST']._serialized_end=1896
+  _globals['_UPDATEUSERSONSKILLGROUPRESPONSE']._serialized_start=1898
+  _globals['_UPDATEUSERSONSKILLGROUPRESPONSE']._serialized_end=1931
 # @@protoc_insertion_point(module_scope)
