@@ -804,9 +804,9 @@ class GetUserSessionDataRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetUserSessionDataResponse(_message.Message):
-    __slots__ = ("user", "org_name", "p3_permissions", "permission_groups", "labels")
+    __slots__ = ("user", "org_name", "p3_permissions", "permission_groups", "labels", "org_allowed_mfa")
     class User(_message.Message):
-        __slots__ = ("user_id", "org_id", "username", "p3_permission_group_id", "partner_agent_id", "region_sid_map", "default_region", "api_key", "email", "login_disabled", "caller_ids", "linkback_numbers", "auth_user_id", "enable_mfa", "first_name", "last_name", "created", "last_updated", "password_reset_required", "connection_id", "time_zone_override", "permission_group_ids", "trust_ids", "default_application", "user_caller_id", "agent_profile_group_id", "agent", "account_owner")
+        __slots__ = ("user_id", "org_id", "username", "p3_permission_group_id", "partner_agent_id", "region_sid_map", "default_region", "api_key", "email", "login_disabled", "caller_ids", "linkback_numbers", "auth_user_id", "enable_mfa", "first_name", "last_name", "created", "last_updated", "password_reset_required", "connection_id", "time_zone_override", "permission_group_ids", "trust_ids", "default_application", "user_caller_id", "agent_profile_group_id", "agent", "account_owner", "mfa_timestamp")
         class RegionSids(_message.Message):
             __slots__ = ("login_sid", "agent_sid", "client_sid")
             LOGIN_SID_FIELD_NUMBER: _ClassVar[int]
@@ -851,6 +851,7 @@ class GetUserSessionDataResponse(_message.Message):
         AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
         AGENT_FIELD_NUMBER: _ClassVar[int]
         ACCOUNT_OWNER_FIELD_NUMBER: _ClassVar[int]
+        MFA_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
         user_id: str
         org_id: str
         username: str
@@ -879,15 +880,96 @@ class GetUserSessionDataResponse(_message.Message):
         agent_profile_group_id: str
         agent: bool
         account_owner: bool
-        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., region_sid_map: _Optional[_Mapping[str, GetUserSessionDataResponse.User.RegionSids]] = ..., default_region: _Optional[str] = ..., api_key: _Optional[str] = ..., email: _Optional[str] = ..., login_disabled: bool = ..., caller_ids: _Optional[_Iterable[str]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., auth_user_id: _Optional[str] = ..., enable_mfa: bool = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: bool = ..., connection_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., trust_ids: _Optional[_Iterable[str]] = ..., default_application: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., agent_profile_group_id: _Optional[str] = ..., agent: bool = ..., account_owner: bool = ...) -> None: ...
+        mfa_timestamp: _timestamp_pb2.Timestamp
+        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., region_sid_map: _Optional[_Mapping[str, GetUserSessionDataResponse.User.RegionSids]] = ..., default_region: _Optional[str] = ..., api_key: _Optional[str] = ..., email: _Optional[str] = ..., login_disabled: bool = ..., caller_ids: _Optional[_Iterable[str]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., auth_user_id: _Optional[str] = ..., enable_mfa: bool = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: bool = ..., connection_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., trust_ids: _Optional[_Iterable[str]] = ..., default_application: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., agent_profile_group_id: _Optional[str] = ..., agent: bool = ..., account_owner: bool = ..., mfa_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
     USER_FIELD_NUMBER: _ClassVar[int]
     ORG_NAME_FIELD_NUMBER: _ClassVar[int]
     P3_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     PERMISSION_GROUPS_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
+    ORG_ALLOWED_MFA_FIELD_NUMBER: _ClassVar[int]
     user: GetUserSessionDataResponse.User
     org_name: str
     p3_permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
     permission_groups: _containers.RepeatedCompositeFieldContainer[_permissions_pb2.PermissionGroup]
     labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
-    def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ...) -> None: ...
+    org_allowed_mfa: bool
+    def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., org_allowed_mfa: bool = ...) -> None: ...
+
+class RefreshMfaLockoutRequest(_message.Message):
+    __slots__ = ("user_id",)
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+
+class RefreshMfaLockoutResponse(_message.Message):
+    __slots__ = ("timeout",)
+    TIMEOUT_FIELD_NUMBER: _ClassVar[int]
+    timeout: _timestamp_pb2.Timestamp
+    def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class RefreshMfaLockoutByOrgIdRequest(_message.Message):
+    __slots__ = ("user_id", "org_id")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    org_id: str
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
+
+class RefreshMfaLockoutByOrgIdResponse(_message.Message):
+    __slots__ = ("timeout",)
+    TIMEOUT_FIELD_NUMBER: _ClassVar[int]
+    timeout: _timestamp_pb2.Timestamp
+    def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class SetMfaTypeRequest(_message.Message):
+    __slots__ = ("otp",)
+    OTP_FIELD_NUMBER: _ClassVar[int]
+    otp: _user_pb2.MfaInfo.OtpType
+    def __init__(self, otp: _Optional[_Union[_user_pb2.MfaInfo.OtpType, _Mapping]] = ...) -> None: ...
+
+class SetMfaTypeResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class EnableUserMfaRequest(_message.Message):
+    __slots__ = ("user_id", "enabled")
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ENABLED_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    enabled: bool
+    def __init__(self, user_id: _Optional[str] = ..., enabled: bool = ...) -> None: ...
+
+class EnableUserMfaResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class EnableMyUserMfaRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class EnableMyUserMfaResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetUserMfaInfoRequest(_message.Message):
+    __slots__ = ("user_id",)
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+
+class GetUserMfaInfoResponse(_message.Message):
+    __slots__ = ("info",)
+    INFO_FIELD_NUMBER: _ClassVar[int]
+    info: _user_pb2.MfaInfo
+    def __init__(self, info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
+
+class GetMyUserMfaInfoRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetMyUserMfaInfoResponse(_message.Message):
+    __slots__ = ("info",)
+    INFO_FIELD_NUMBER: _ClassVar[int]
+    info: _user_pb2.MfaInfo
+    def __init__(self, info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
