@@ -232,3 +232,39 @@ class DeleteLearnPagesReq(_message.Message):
 class DeleteLearnPagesRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class CreateEditVersionReq(_message.Message):
+    __slots__ = ("src_version", "dest_version")
+    SRC_VERSION_FIELD_NUMBER: _ClassVar[int]
+    DEST_VERSION_FIELD_NUMBER: _ClassVar[int]
+    src_version: str
+    dest_version: str
+    def __init__(self, src_version: _Optional[str] = ..., dest_version: _Optional[str] = ...) -> None: ...
+
+class CreateEditVersionRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class PublishVersionReq(_message.Message):
+    __slots__ = ("publish_version",)
+    PUBLISH_VERSION_FIELD_NUMBER: _ClassVar[int]
+    publish_version: str
+    def __init__(self, publish_version: _Optional[str] = ...) -> None: ...
+
+class PublishVersionRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ReviewVersionReq(_message.Message):
+    __slots__ = ("current_version",)
+    CURRENT_VERSION_FIELD_NUMBER: _ClassVar[int]
+    current_version: str
+    def __init__(self, current_version: _Optional[str] = ...) -> None: ...
+
+class ReviewVersionRes(_message.Message):
+    __slots__ = ("download_url", "contents")
+    DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
+    CONTENTS_FIELD_NUMBER: _ClassVar[int]
+    download_url: str
+    contents: str
+    def __init__(self, download_url: _Optional[str] = ..., contents: _Optional[str] = ...) -> None: ...
