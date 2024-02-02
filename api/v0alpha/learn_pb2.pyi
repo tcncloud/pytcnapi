@@ -254,17 +254,3 @@ class PublishVersionReq(_message.Message):
 class PublishVersionRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
-
-class ReviewVersionReq(_message.Message):
-    __slots__ = ("current_version",)
-    CURRENT_VERSION_FIELD_NUMBER: _ClassVar[int]
-    current_version: str
-    def __init__(self, current_version: _Optional[str] = ...) -> None: ...
-
-class ReviewVersionRes(_message.Message):
-    __slots__ = ("download_url", "contents")
-    DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
-    CONTENTS_FIELD_NUMBER: _ClassVar[int]
-    download_url: str
-    contents: str
-    def __init__(self, download_url: _Optional[str] = ..., contents: _Optional[str] = ...) -> None: ...
