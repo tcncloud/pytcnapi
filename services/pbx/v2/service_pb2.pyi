@@ -83,8 +83,10 @@ class ListSIPAccountsResponse(_message.Message):
     def __init__(self, sip_accounts: _Optional[_Iterable[_Union[SIPAccount, _Mapping]]] = ...) -> None: ...
 
 class GetSIPAccountRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("sip_account_id",)
+    SIP_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
+    sip_account_id: str
+    def __init__(self, sip_account_id: _Optional[str] = ...) -> None: ...
 
 class GetSIPAccountResponse(_message.Message):
     __slots__ = ("sip_account",)
