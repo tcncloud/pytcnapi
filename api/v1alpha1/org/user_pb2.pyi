@@ -89,7 +89,7 @@ class GetMyUserRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetMyUserResponse(_message.Message):
-    __slots__ = ("user_id", "org_id", "username", "delegated", "org_name", "hunt_group", "labels", "skills", "permission_groups", "p3_permission_group", "agent_profile_group", "trusts", "account_owner")
+    __slots__ = ("user_id", "org_id", "username", "delegated", "org_name", "hunt_group", "labels", "skills", "permission_groups", "p3_permission_group", "agent_profile_group", "trusts", "account_owner", "email_verified")
     class HuntGroup(_message.Message):
         __slots__ = ("hunt_group_sid", "hunt_group_name")
         HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -117,6 +117,7 @@ class GetMyUserResponse(_message.Message):
     AGENT_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
     TRUSTS_FIELD_NUMBER: _ClassVar[int]
     ACCOUNT_OWNER_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_VERIFIED_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     org_id: str
     username: str
@@ -130,7 +131,8 @@ class GetMyUserResponse(_message.Message):
     agent_profile_group: GetMyUserResponse.AgentProfileGroup
     trusts: _containers.RepeatedCompositeFieldContainer[_trusts_pb2.Trust]
     account_owner: bool
-    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., delegated: bool = ..., org_name: _Optional[str] = ..., hunt_group: _Optional[_Union[GetMyUserResponse.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., p3_permission_group: _Optional[_Union[_permissions_pb2.P3PermissionGroup, _Mapping]] = ..., agent_profile_group: _Optional[_Union[GetMyUserResponse.AgentProfileGroup, _Mapping]] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ..., account_owner: bool = ...) -> None: ...
+    email_verified: bool
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., delegated: bool = ..., org_name: _Optional[str] = ..., hunt_group: _Optional[_Union[GetMyUserResponse.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., p3_permission_group: _Optional[_Union[_permissions_pb2.P3PermissionGroup, _Mapping]] = ..., agent_profile_group: _Optional[_Union[GetMyUserResponse.AgentProfileGroup, _Mapping]] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ..., account_owner: bool = ..., email_verified: bool = ...) -> None: ...
 
 class GetUserRequest(_message.Message):
     __slots__ = ("user_id",)
@@ -139,7 +141,7 @@ class GetUserRequest(_message.Message):
     def __init__(self, user_id: _Optional[str] = ...) -> None: ...
 
 class GetUserResponse(_message.Message):
-    __slots__ = ("user_id", "org_id", "delegated", "time_zone_override", "hunt_group", "labels", "skills", "permission_groups", "p3_permission_group", "agent_profile_group", "org_name", "first_name", "username", "last_name", "login_disabled", "partner_agent_id", "user_caller_id", "linkback_numbers", "caller_ids", "default_app", "login_sid", "agent_sid", "trusts", "email", "default_region", "created_at", "last_updated", "password_reset_required", "account_owner")
+    __slots__ = ("user_id", "org_id", "delegated", "time_zone_override", "hunt_group", "labels", "skills", "permission_groups", "p3_permission_group", "agent_profile_group", "org_name", "first_name", "username", "last_name", "login_disabled", "partner_agent_id", "user_caller_id", "linkback_numbers", "caller_ids", "default_app", "login_sid", "agent_sid", "trusts", "email", "default_region", "created_at", "last_updated", "password_reset_required", "account_owner", "email_verified")
     class HuntGroup(_message.Message):
         __slots__ = ("hunt_group_sid", "hunt_group_name")
         HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -183,6 +185,7 @@ class GetUserResponse(_message.Message):
     LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_RESET_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     ACCOUNT_OWNER_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_VERIFIED_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     org_id: str
     delegated: bool
@@ -212,7 +215,8 @@ class GetUserResponse(_message.Message):
     last_updated: _timestamp_pb2.Timestamp
     password_reset_required: bool
     account_owner: bool
-    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., delegated: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hunt_group: _Optional[_Union[GetUserResponse.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., p3_permission_group: _Optional[_Union[_permissions_pb2.P3PermissionGroup, _Mapping]] = ..., agent_profile_group: _Optional[_Union[GetUserResponse.AgentProfileGroup, _Mapping]] = ..., org_name: _Optional[str] = ..., first_name: _Optional[str] = ..., username: _Optional[str] = ..., last_name: _Optional[str] = ..., login_disabled: bool = ..., partner_agent_id: _Optional[str] = ..., user_caller_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., login_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ..., email: _Optional[str] = ..., default_region: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: bool = ..., account_owner: bool = ...) -> None: ...
+    email_verified: bool
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., delegated: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hunt_group: _Optional[_Union[GetUserResponse.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., p3_permission_group: _Optional[_Union[_permissions_pb2.P3PermissionGroup, _Mapping]] = ..., agent_profile_group: _Optional[_Union[GetUserResponse.AgentProfileGroup, _Mapping]] = ..., org_name: _Optional[str] = ..., first_name: _Optional[str] = ..., username: _Optional[str] = ..., last_name: _Optional[str] = ..., login_disabled: bool = ..., partner_agent_id: _Optional[str] = ..., user_caller_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., login_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ..., email: _Optional[str] = ..., default_region: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: bool = ..., account_owner: bool = ..., email_verified: bool = ...) -> None: ...
 
 class GetUserByOrgIdRequest(_message.Message):
     __slots__ = ("user_id", "org_id")
@@ -223,7 +227,7 @@ class GetUserByOrgIdRequest(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
 
 class GetUserByOrgIdResponse(_message.Message):
-    __slots__ = ("user_id", "org_id", "username", "delegated", "org_name", "hunt_group", "labels", "skills", "permission_groups", "p3_permission_group", "agent_profile_group", "trusts", "account_owner")
+    __slots__ = ("user_id", "org_id", "username", "delegated", "org_name", "hunt_group", "labels", "skills", "permission_groups", "p3_permission_group", "agent_profile_group", "trusts", "account_owner", "email_verified")
     class HuntGroup(_message.Message):
         __slots__ = ("hunt_group_sid", "hunt_group_name")
         HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -251,6 +255,7 @@ class GetUserByOrgIdResponse(_message.Message):
     AGENT_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
     TRUSTS_FIELD_NUMBER: _ClassVar[int]
     ACCOUNT_OWNER_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_VERIFIED_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     org_id: str
     username: str
@@ -264,7 +269,8 @@ class GetUserByOrgIdResponse(_message.Message):
     agent_profile_group: GetUserByOrgIdResponse.AgentProfileGroup
     trusts: _containers.RepeatedCompositeFieldContainer[_trusts_pb2.Trust]
     account_owner: bool
-    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., delegated: bool = ..., org_name: _Optional[str] = ..., hunt_group: _Optional[_Union[GetUserByOrgIdResponse.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., p3_permission_group: _Optional[_Union[_permissions_pb2.P3PermissionGroup, _Mapping]] = ..., agent_profile_group: _Optional[_Union[GetUserByOrgIdResponse.AgentProfileGroup, _Mapping]] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ..., account_owner: bool = ...) -> None: ...
+    email_verified: bool
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., delegated: bool = ..., org_name: _Optional[str] = ..., hunt_group: _Optional[_Union[GetUserByOrgIdResponse.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., p3_permission_group: _Optional[_Union[_permissions_pb2.P3PermissionGroup, _Mapping]] = ..., agent_profile_group: _Optional[_Union[GetUserByOrgIdResponse.AgentProfileGroup, _Mapping]] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ..., account_owner: bool = ..., email_verified: bool = ...) -> None: ...
 
 class ListAgentsRequest(_message.Message):
     __slots__ = ()
@@ -923,22 +929,20 @@ class RefreshMfaLockoutByOrgIdResponse(_message.Message):
     def __init__(self, timeout: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class SetMfaTypeRequest(_message.Message):
-    __slots__ = ("otp", "user_id")
-    OTP_FIELD_NUMBER: _ClassVar[int]
-    USER_ID_FIELD_NUMBER: _ClassVar[int]
-    otp: _user_pb2.MfaInfo.OtpType
-    user_id: str
-    def __init__(self, otp: _Optional[_Union[_user_pb2.MfaInfo.OtpType, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
+    __slots__ = ("info",)
+    INFO_FIELD_NUMBER: _ClassVar[int]
+    info: _user_pb2.MfaInfo
+    def __init__(self, info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
 
 class SetMfaTypeResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class SetMyMfaTypeRequest(_message.Message):
-    __slots__ = ("otp",)
-    OTP_FIELD_NUMBER: _ClassVar[int]
-    otp: _user_pb2.MfaInfo.OtpType
-    def __init__(self, otp: _Optional[_Union[_user_pb2.MfaInfo.OtpType, _Mapping]] = ...) -> None: ...
+    __slots__ = ("info",)
+    INFO_FIELD_NUMBER: _ClassVar[int]
+    info: _user_pb2.MfaInfo
+    def __init__(self, info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
 
 class SetMyMfaTypeResponse(_message.Message):
     __slots__ = ()

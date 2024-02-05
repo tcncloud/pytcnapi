@@ -32,18 +32,20 @@ class ContentReq(_message.Message):
     def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
 
 class ContentRes(_message.Message):
-    __slots__ = ("content", "last_edited_timestamp", "images", "title", "total_view_count")
+    __slots__ = ("content", "last_edited_timestamp", "images", "title", "total_view_count", "last_edited_user")
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     IMAGES_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     TOTAL_VIEW_COUNT_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_USER_FIELD_NUMBER: _ClassVar[int]
     content: str
     last_edited_timestamp: _timestamp_pb2.Timestamp
     images: _containers.RepeatedCompositeFieldContainer[LearnImage]
     title: str
     total_view_count: int
-    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., title: _Optional[str] = ..., total_view_count: _Optional[int] = ...) -> None: ...
+    last_edited_user: str
+    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., title: _Optional[str] = ..., total_view_count: _Optional[int] = ..., last_edited_user: _Optional[str] = ...) -> None: ...
 
 class ContentEditorDataReq(_message.Message):
     __slots__ = ("url", "locale")
@@ -230,5 +232,27 @@ class DeleteLearnPagesReq(_message.Message):
     def __init__(self, locale: _Optional[str] = ..., url: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class DeleteLearnPagesRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateEditVersionReq(_message.Message):
+    __slots__ = ("src_version", "dest_version")
+    SRC_VERSION_FIELD_NUMBER: _ClassVar[int]
+    DEST_VERSION_FIELD_NUMBER: _ClassVar[int]
+    src_version: str
+    dest_version: str
+    def __init__(self, src_version: _Optional[str] = ..., dest_version: _Optional[str] = ...) -> None: ...
+
+class CreateEditVersionRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class PublishVersionReq(_message.Message):
+    __slots__ = ("publish_version",)
+    PUBLISH_VERSION_FIELD_NUMBER: _ClassVar[int]
+    publish_version: str
+    def __init__(self, publish_version: _Optional[str] = ...) -> None: ...
+
+class PublishVersionRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
