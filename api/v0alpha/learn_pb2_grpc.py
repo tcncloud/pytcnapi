@@ -80,6 +80,16 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesRes.FromString,
                 )
+        self.CreateEditVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/CreateEditVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionRes.FromString,
+                )
+        self.PublishVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/PublishVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionRes.FromString,
+                )
 
 
 class LearnServicer(object):
@@ -181,6 +191,20 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateEditVersion(self, request, context):
+        """create edit version
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def PublishVersion(self, request, context):
+        """publish version
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -248,6 +272,16 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.DeleteLearnPages,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesRes.SerializeToString,
+            ),
+            'CreateEditVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateEditVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionRes.SerializeToString,
+            ),
+            'PublishVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.PublishVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -478,5 +512,39 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/DeleteLearnPages',
             api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateEditVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/CreateEditVersion',
+            api_dot_v0alpha_dot_learn__pb2.CreateEditVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.CreateEditVersionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PublishVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/PublishVersion',
+            api_dot_v0alpha_dot_learn__pb2.PublishVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.PublishVersionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
