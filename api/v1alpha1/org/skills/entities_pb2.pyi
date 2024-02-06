@@ -186,10 +186,8 @@ class ListSkillsForCurrentAgentResponse(_message.Message):
     def __init__(self, skills: _Optional[_Iterable[_Union[ListSkillsForCurrentAgentResponse.AgentSkill, _Mapping]]] = ...) -> None: ...
 
 class GetAgentSkillsRequest(_message.Message):
-    __slots__ = ("hunt_group_sid",)
-    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
-    hunt_group_sid: int
-    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class GetAgentSkillsResponse(_message.Message):
     __slots__ = ("skills",)
