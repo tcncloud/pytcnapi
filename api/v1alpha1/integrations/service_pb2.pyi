@@ -1286,3 +1286,19 @@ class HangUpEpicPatientCallReq(_message.Message):
     OriginPhoneExtension: str
     EpicCallID: str
     def __init__(self, PhoneAgentID: _Optional[str] = ..., OriginPhoneExtension: _Optional[str] = ..., EpicCallID: _Optional[str] = ...) -> None: ...
+
+class GenerateEpicKeyPairReq(_message.Message):
+    __slots__ = ("org_id", "server")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    SERVER_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    server: str
+    def __init__(self, org_id: _Optional[str] = ..., server: _Optional[str] = ...) -> None: ...
+
+class GenerateEpicKeyPairRes(_message.Message):
+    __slots__ = ("production_public_key", "non_production_public_key")
+    PRODUCTION_PUBLIC_KEY_FIELD_NUMBER: _ClassVar[int]
+    NON_PRODUCTION_PUBLIC_KEY_FIELD_NUMBER: _ClassVar[int]
+    production_public_key: str
+    non_production_public_key: str
+    def __init__(self, production_public_key: _Optional[str] = ..., non_production_public_key: _Optional[str] = ...) -> None: ...
