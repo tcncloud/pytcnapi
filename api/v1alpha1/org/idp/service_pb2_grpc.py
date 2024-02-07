@@ -16,23 +16,23 @@ class IdpServiceStub(object):
         """
         self.CreateClient = channel.unary_unary(
                 '/api.v1alpha1.org.idp.IdpService/CreateClient',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientResp.FromString,
+                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientResponse.FromString,
                 )
         self.UpdateClient = channel.unary_unary(
                 '/api.v1alpha1.org.idp.IdpService/UpdateClient',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientResp.FromString,
+                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientResponse.FromString,
                 )
         self.DeleteClient = channel.unary_unary(
                 '/api.v1alpha1.org.idp.IdpService/DeleteClient',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientResp.FromString,
+                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientResponse.FromString,
                 )
         self.ListClients = channel.unary_unary(
                 '/api.v1alpha1.org.idp.IdpService/ListClients',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsResp.FromString,
+                request_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsResponse.FromString,
                 )
 
 
@@ -72,23 +72,23 @@ def add_IdpServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateClient': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateClient,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientResp.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientResponse.SerializeToString,
             ),
             'UpdateClient': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateClient,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientResp.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientResponse.SerializeToString,
             ),
             'DeleteClient': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteClient,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientResp.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientResponse.SerializeToString,
             ),
             'ListClients': grpc.unary_unary_rpc_method_handler(
                     servicer.ListClients,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsResp.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -112,8 +112,8 @@ class IdpService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.idp.IdpService/CreateClient',
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientResp.FromString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.CreateClientResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -129,8 +129,8 @@ class IdpService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.idp.IdpService/UpdateClient',
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientResp.FromString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.UpdateClientResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -146,8 +146,8 @@ class IdpService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.idp.IdpService/DeleteClient',
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientResp.FromString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.DeleteClientResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -163,7 +163,7 @@ class IdpService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.idp.IdpService/ListClients',
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsReq.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsResp.FromString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_idp_dot_entities__pb2.ListClientsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
