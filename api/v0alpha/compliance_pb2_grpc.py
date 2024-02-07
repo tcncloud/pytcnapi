@@ -326,10 +326,10 @@ class ComplianceStub(object):
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessOutboundCallReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_compliance__pb2.ProcessRes.FromString,
                 )
-        self.QueryHolidays = channel.unary_stream(
+        self.QueryHolidays = channel.unary_unary(
                 '/api.v0alpha.Compliance/QueryHolidays',
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.Query.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_compliance__pb2.Row.FromString,
+                response_deserializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.FromString,
                 )
 
 
@@ -1183,10 +1183,10 @@ def add_ComplianceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ProcessOutboundCallReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessRes.SerializeToString,
             ),
-            'QueryHolidays': grpc.unary_stream_rpc_method_handler(
+            'QueryHolidays': grpc.unary_unary_rpc_method_handler(
                     servicer.QueryHolidays,
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.Query.FromString,
-                    response_serializer=api_dot_v0alpha_dot_compliance__pb2.Row.SerializeToString,
+                    response_serializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2263,8 +2263,8 @@ class Compliance(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Compliance/QueryHolidays',
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/QueryHolidays',
             api_dot_v0alpha_dot_compliance__pb2.Query.SerializeToString,
-            api_dot_v0alpha_dot_compliance__pb2.Row.FromString,
+            api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

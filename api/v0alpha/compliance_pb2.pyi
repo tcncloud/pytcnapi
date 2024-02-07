@@ -1102,6 +1102,12 @@ class ProcessConsentListDeleteUploadMeta(_message.Message):
     time_started: _timestamp_pb2.Timestamp
     def __init__(self, time_started: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
+class QueryHolidaysResponse(_message.Message):
+    __slots__ = ("rows",)
+    ROWS_FIELD_NUMBER: _ClassVar[int]
+    rows: _containers.RepeatedCompositeFieldContainer[Row]
+    def __init__(self, rows: _Optional[_Iterable[_Union[Row, _Mapping]]] = ...) -> None: ...
+
 class Row(_message.Message):
     __slots__ = ("date", "name", "year", "month", "day", "weekday", "types", "is_observed", "country", "states")
     DATE_FIELD_NUMBER: _ClassVar[int]
