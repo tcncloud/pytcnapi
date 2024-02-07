@@ -864,7 +864,7 @@ class ComplianceServicer(object):
         """Return the holidays that match the Query.
         The method will return a stream of the matching holidays as Rows.
         Required permissions:
-        COMPLIANCE
+        none
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
