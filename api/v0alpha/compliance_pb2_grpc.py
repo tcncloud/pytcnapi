@@ -326,11 +326,6 @@ class ComplianceStub(object):
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessOutboundCallReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_compliance__pb2.ProcessRes.FromString,
                 )
-        self.QueryHolidays = channel.unary_unary(
-                '/api.v0alpha.Compliance/QueryHolidays',
-                request_serializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysRequest.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.FromString,
-                )
 
 
 class ComplianceServicer(object):
@@ -860,16 +855,6 @@ class ComplianceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def QueryHolidays(self, request, context):
-        """Return the holidays that match the request.
-        The method will return a stream of the matching holidays.
-        Required permissions:
-        none
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ComplianceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1182,11 +1167,6 @@ def add_ComplianceServicer_to_server(servicer, server):
                     servicer.ProcessOutboundCall,
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ProcessOutboundCallReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessRes.SerializeToString,
-            ),
-            'QueryHolidays': grpc.unary_unary_rpc_method_handler(
-                    servicer.QueryHolidays,
-                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysRequest.FromString,
-                    response_serializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2249,22 +2229,5 @@ class Compliance(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/ProcessOutboundCall',
             api_dot_v0alpha_dot_compliance__pb2.ProcessOutboundCallReq.SerializeToString,
             api_dot_v0alpha_dot_compliance__pb2.ProcessRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def QueryHolidays(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/QueryHolidays',
-            api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysRequest.SerializeToString,
-            api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
