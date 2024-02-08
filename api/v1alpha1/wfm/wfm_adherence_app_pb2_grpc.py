@@ -23,7 +23,7 @@ def add_WfmAdherenceAppServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'api.v1alph1.wfm.WfmAdherenceAppService', rpc_method_handlers)
+            'api.v1alpha1.wfm.WfmAdherenceAppService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
