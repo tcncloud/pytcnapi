@@ -154,6 +154,45 @@ class TriggerAction(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TRIGGER_ACTION_EJECT_AGENT: _ClassVar[TriggerAction]
     TRIGGER_ACTION_EXECUTE_WEB_LINK: _ClassVar[TriggerAction]
     TRIGGER_ACTION_EXECUTE_INTEGRATION_LINK: _ClassVar[TriggerAction]
+
+class ScriptCategory(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    SCRIPT_CATEGORY_UNSPECIFIED: _ClassVar[ScriptCategory]
+    SCRIPT_CATEGORY_HUNT_GROUP: _ClassVar[ScriptCategory]
+    SCRIPT_CATEGORY_CAMPAIGN: _ClassVar[ScriptCategory]
+
+class ScriptResponseType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    SCRIPT_RESPONSE_TYPE_UNSPECIFIED: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_DROP_DOWN_SELECT_MENU: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_MULTIPLE_SELECT_MENU: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_CHECK_BOXES: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_RADIO_BUTTONS: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_TEXT_BOX: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_TEXT_BOX_ALPHANUMERIC: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_TEXT_BOX_NUMERICAL: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_TEXT_VERIFICATION_FIELD: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_TEXT_AREA: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_REGULAR_EXPRESSION_FIELD: _ClassVar[ScriptResponseType]
+    SCRIPT_RESPONSE_TYPE_REGULAR_EXPRESSION_AREA: _ClassVar[ScriptResponseType]
+
+class CompareOperatorType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    COMPARE_OPERATOR_TYPE_UNSPECIFIED: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_EQUALS: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_NOT_EQUALS: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_GREATER_THAN: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_LESS_THAN: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_GREATER_THAN_OR_EQUAL_TO: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_LESS_THAN_OR_EQUAL_TO: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_CONTAINS: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_DOES_NOT_CONTAIN: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_BLANK: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_NOT_BALNK: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_STARTS_WITH: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_DOES_NOT_START_WITH: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_ENDS_WITH: _ClassVar[CompareOperatorType]
+    COMPARE_OPERATOR_TYPE_DOES_NOT_END_WITH: _ClassVar[CompareOperatorType]
 HUNT_GROUP_TYPE_UNSPECIFIED: HuntGroupType
 HUNT_GROUP_TYPE_CONNECTED: HuntGroupType
 HUNT_GROUP_TYPE_SOFTPHONE: HuntGroupType
@@ -276,6 +315,36 @@ TRIGGER_ACTION_DISPLAY_MESSAGE: TriggerAction
 TRIGGER_ACTION_EJECT_AGENT: TriggerAction
 TRIGGER_ACTION_EXECUTE_WEB_LINK: TriggerAction
 TRIGGER_ACTION_EXECUTE_INTEGRATION_LINK: TriggerAction
+SCRIPT_CATEGORY_UNSPECIFIED: ScriptCategory
+SCRIPT_CATEGORY_HUNT_GROUP: ScriptCategory
+SCRIPT_CATEGORY_CAMPAIGN: ScriptCategory
+SCRIPT_RESPONSE_TYPE_UNSPECIFIED: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_DROP_DOWN_SELECT_MENU: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_MULTIPLE_SELECT_MENU: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_CHECK_BOXES: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_RADIO_BUTTONS: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_TEXT_BOX: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_TEXT_BOX_ALPHANUMERIC: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_TEXT_BOX_NUMERICAL: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_TEXT_VERIFICATION_FIELD: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_TEXT_AREA: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_REGULAR_EXPRESSION_FIELD: ScriptResponseType
+SCRIPT_RESPONSE_TYPE_REGULAR_EXPRESSION_AREA: ScriptResponseType
+COMPARE_OPERATOR_TYPE_UNSPECIFIED: CompareOperatorType
+COMPARE_OPERATOR_TYPE_EQUALS: CompareOperatorType
+COMPARE_OPERATOR_TYPE_NOT_EQUALS: CompareOperatorType
+COMPARE_OPERATOR_TYPE_GREATER_THAN: CompareOperatorType
+COMPARE_OPERATOR_TYPE_LESS_THAN: CompareOperatorType
+COMPARE_OPERATOR_TYPE_GREATER_THAN_OR_EQUAL_TO: CompareOperatorType
+COMPARE_OPERATOR_TYPE_LESS_THAN_OR_EQUAL_TO: CompareOperatorType
+COMPARE_OPERATOR_TYPE_CONTAINS: CompareOperatorType
+COMPARE_OPERATOR_TYPE_DOES_NOT_CONTAIN: CompareOperatorType
+COMPARE_OPERATOR_TYPE_BLANK: CompareOperatorType
+COMPARE_OPERATOR_TYPE_NOT_BALNK: CompareOperatorType
+COMPARE_OPERATOR_TYPE_STARTS_WITH: CompareOperatorType
+COMPARE_OPERATOR_TYPE_DOES_NOT_START_WITH: CompareOperatorType
+COMPARE_OPERATOR_TYPE_ENDS_WITH: CompareOperatorType
+COMPARE_OPERATOR_TYPE_DOES_NOT_END_WITH: CompareOperatorType
 
 class HuntGroupSettings(_message.Message):
     __slots__ = ("general_settings", "communication_settings", "callback_settings", "preview_dial_settings", "manual_dial_settings", "transfer_call_settings", "number_history_settings")
@@ -1165,3 +1234,105 @@ class TriggerActionOption(_message.Message):
     web_link_sid: int
     integration_link_sid: int
     def __init__(self, action: _Optional[_Union[TriggerAction, str]] = ..., display_message: _Optional[str] = ..., advance_to_status: _Optional[_Union[AgentStatus, str]] = ..., web_link_sid: _Optional[int] = ..., integration_link_sid: _Optional[int] = ...) -> None: ...
+
+class HuntGroupScript(_message.Message):
+    __slots__ = ("script_sid", "name", "description", "auto_script_progression", "script_category", "acts")
+    SCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    AUTO_SCRIPT_PROGRESSION_FIELD_NUMBER: _ClassVar[int]
+    SCRIPT_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    ACTS_FIELD_NUMBER: _ClassVar[int]
+    script_sid: int
+    name: str
+    description: str
+    auto_script_progression: bool
+    script_category: ScriptCategory
+    acts: _containers.RepeatedCompositeFieldContainer[Act]
+    def __init__(self, script_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., auto_script_progression: bool = ..., script_category: _Optional[_Union[ScriptCategory, str]] = ..., acts: _Optional[_Iterable[_Union[Act, _Mapping]]] = ...) -> None: ...
+
+class Act(_message.Message):
+    __slots__ = ("dispositions", "verbiages", "conditional_navigations", "default_conditional_navigation_target", "page_arrival_recording_control", "page_exit_recording_control")
+    DISPOSITIONS_FIELD_NUMBER: _ClassVar[int]
+    VERBIAGES_FIELD_NUMBER: _ClassVar[int]
+    CONDITIONAL_NAVIGATIONS_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_CONDITIONAL_NAVIGATION_TARGET_FIELD_NUMBER: _ClassVar[int]
+    PAGE_ARRIVAL_RECORDING_CONTROL_FIELD_NUMBER: _ClassVar[int]
+    PAGE_EXIT_RECORDING_CONTROL_FIELD_NUMBER: _ClassVar[int]
+    dispositions: _containers.RepeatedCompositeFieldContainer[Disposition]
+    verbiages: _containers.RepeatedCompositeFieldContainer[Verbiage]
+    conditional_navigations: _containers.RepeatedCompositeFieldContainer[ConditionalNavigation]
+    default_conditional_navigation_target: int
+    page_arrival_recording_control: int
+    page_exit_recording_control: int
+    def __init__(self, dispositions: _Optional[_Iterable[_Union[Disposition, _Mapping]]] = ..., verbiages: _Optional[_Iterable[_Union[Verbiage, _Mapping]]] = ..., conditional_navigations: _Optional[_Iterable[_Union[ConditionalNavigation, _Mapping]]] = ..., default_conditional_navigation_target: _Optional[int] = ..., page_arrival_recording_control: _Optional[int] = ..., page_exit_recording_control: _Optional[int] = ...) -> None: ...
+
+class Disposition(_message.Message):
+    __slots__ = ("response_options", "header", "prompt", "order", "required", "default_value", "bypass_auto_script_progression", "response_type", "response_evaluator")
+    RESPONSE_OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    PROMPT_FIELD_NUMBER: _ClassVar[int]
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    REQUIRED_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    BYPASS_AUTO_SCRIPT_PROGRESSION_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_EVALUATOR_FIELD_NUMBER: _ClassVar[int]
+    response_options: _containers.RepeatedScalarFieldContainer[str]
+    header: str
+    prompt: str
+    order: int
+    required: bool
+    default_value: str
+    bypass_auto_script_progression: bool
+    response_type: ScriptResponseType
+    response_evaluator: int
+    def __init__(self, response_options: _Optional[_Iterable[str]] = ..., header: _Optional[str] = ..., prompt: _Optional[str] = ..., order: _Optional[int] = ..., required: bool = ..., default_value: _Optional[str] = ..., bypass_auto_script_progression: bool = ..., response_type: _Optional[_Union[ScriptResponseType, str]] = ..., response_evaluator: _Optional[int] = ...) -> None: ...
+
+class Verbiage(_message.Message):
+    __slots__ = ("order", "header", "body")
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    HEADER_FIELD_NUMBER: _ClassVar[int]
+    BODY_FIELD_NUMBER: _ClassVar[int]
+    order: int
+    header: str
+    body: str
+    def __init__(self, order: _Optional[int] = ..., header: _Optional[str] = ..., body: _Optional[str] = ...) -> None: ...
+
+class ConditionalNavigation(_message.Message):
+    __slots__ = ("target_act_index", "complex_boolean_expression_list")
+    TARGET_ACT_INDEX_FIELD_NUMBER: _ClassVar[int]
+    COMPLEX_BOOLEAN_EXPRESSION_LIST_FIELD_NUMBER: _ClassVar[int]
+    target_act_index: int
+    complex_boolean_expression_list: ComplexBooleanExpressionList
+    def __init__(self, target_act_index: _Optional[int] = ..., complex_boolean_expression_list: _Optional[_Union[ComplexBooleanExpressionList, _Mapping]] = ...) -> None: ...
+
+class ComplexBooleanExpressionList(_message.Message):
+    __slots__ = ("complex_boolean_expressions",)
+    COMPLEX_BOOLEAN_EXPRESSIONS_FIELD_NUMBER: _ClassVar[int]
+    complex_boolean_expressions: _containers.RepeatedCompositeFieldContainer[ComplexBooleanExpression]
+    def __init__(self, complex_boolean_expressions: _Optional[_Iterable[_Union[ComplexBooleanExpression, _Mapping]]] = ...) -> None: ...
+
+class ComplexBooleanExpression(_message.Message):
+    __slots__ = ("compare_expression_list",)
+    COMPARE_EXPRESSION_LIST_FIELD_NUMBER: _ClassVar[int]
+    compare_expression_list: CompareExpressionList
+    def __init__(self, compare_expression_list: _Optional[_Union[CompareExpressionList, _Mapping]] = ...) -> None: ...
+
+class CompareExpressionList(_message.Message):
+    __slots__ = ("simple_compare_expression",)
+    SIMPLE_COMPARE_EXPRESSION_FIELD_NUMBER: _ClassVar[int]
+    simple_compare_expression: _containers.RepeatedCompositeFieldContainer[SimpleCompareExpression]
+    def __init__(self, simple_compare_expression: _Optional[_Iterable[_Union[SimpleCompareExpression, _Mapping]]] = ...) -> None: ...
+
+class SimpleCompareExpression(_message.Message):
+    __slots__ = ("operator_type", "act_index", "disposition_header", "compare_value")
+    OPERATOR_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ACT_INDEX_FIELD_NUMBER: _ClassVar[int]
+    DISPOSITION_HEADER_FIELD_NUMBER: _ClassVar[int]
+    COMPARE_VALUE_FIELD_NUMBER: _ClassVar[int]
+    operator_type: CompareOperatorType
+    act_index: int
+    disposition_header: str
+    compare_value: str
+    def __init__(self, operator_type: _Optional[_Union[CompareOperatorType, str]] = ..., act_index: _Optional[int] = ..., disposition_header: _Optional[str] = ..., compare_value: _Optional[str] = ...) -> None: ...
