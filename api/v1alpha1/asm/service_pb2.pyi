@@ -15,7 +15,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateSessionReq(_message.Message):
-    __slots__ = ("hunt_group_sid", "skills", "subsession_type")
+    __slots__ = ("hunt_group_sid", "skills", "subsession_type", "enable_voice")
     class SkillsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -26,20 +26,24 @@ class CreateSessionReq(_message.Message):
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     SUBSESSION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ENABLE_VOICE_FIELD_NUMBER: _ClassVar[int]
     hunt_group_sid: int
     skills: _containers.ScalarMap[str, int]
     subsession_type: _asm_pb2.AsmSubsessionType
-    def __init__(self, hunt_group_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, int]] = ..., subsession_type: _Optional[_Union[_asm_pb2.AsmSubsessionType, str]] = ...) -> None: ...
+    enable_voice: bool
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, int]] = ..., subsession_type: _Optional[_Union[_asm_pb2.AsmSubsessionType, str]] = ..., enable_voice: bool = ...) -> None: ...
 
 class CreateSessionRes(_message.Message):
-    __slots__ = ("asm_session_sid", "voice_session_sid", "voice_registration")
+    __slots__ = ("asm_session_sid", "voice_session_sid", "voice_registration", "enable_voice")
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     VOICE_REGISTRATION_FIELD_NUMBER: _ClassVar[int]
+    ENABLE_VOICE_FIELD_NUMBER: _ClassVar[int]
     asm_session_sid: int
     voice_session_sid: int
     voice_registration: VoiceRegistration
-    def __init__(self, asm_session_sid: _Optional[int] = ..., voice_session_sid: _Optional[int] = ..., voice_registration: _Optional[_Union[VoiceRegistration, _Mapping]] = ...) -> None: ...
+    enable_voice: bool
+    def __init__(self, asm_session_sid: _Optional[int] = ..., voice_session_sid: _Optional[int] = ..., voice_registration: _Optional[_Union[VoiceRegistration, _Mapping]] = ..., enable_voice: bool = ...) -> None: ...
 
 class VoiceRegistration(_message.Message):
     __slots__ = ("username", "password", "dial_url", "pstn_phone", "default_time_zone", "expiration_timestamp")
