@@ -1036,14 +1036,18 @@ class OmniTask(_message.Message):
     def __init__(self, task_sid: _Optional[int] = ..., status: _Optional[_Union[OmniTaskStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., campaign_module_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., contact_entry_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., state: _Optional[_Union[OmniTaskState, _Mapping]] = ..., data_fields: _Optional[_Iterable[_Union[OmniDataField, _Mapping]]] = ..., details: _Optional[_Union[OmniTask.Details, _Mapping]] = ..., name: _Optional[str] = ..., status_message: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., task_config: _Optional[_Union[OmniTaskConfig, _Mapping]] = ...) -> None: ...
 
 class OmniTaskConfig(_message.Message):
-    __slots__ = ("skills", "absolute_timeout_duration", "agent_timeout_duration")
+    __slots__ = ("skills", "absolute_timeout_duration", "agent_timeout_duration", "subject", "message")
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     ABSOLUTE_TIMEOUT_DURATION_FIELD_NUMBER: _ClassVar[int]
     AGENT_TIMEOUT_DURATION_FIELD_NUMBER: _ClassVar[int]
+    SUBJECT_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
     skills: OmniConversationSkills
     absolute_timeout_duration: _duration_pb2.Duration
     agent_timeout_duration: _duration_pb2.Duration
-    def __init__(self, skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., absolute_timeout_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., agent_timeout_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    subject: str
+    message: OmniMessagePayload
+    def __init__(self, skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., absolute_timeout_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., agent_timeout_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., subject: _Optional[str] = ..., message: _Optional[_Union[OmniMessagePayload, _Mapping]] = ...) -> None: ...
 
 class OmniTaskState(_message.Message):
     __slots__ = ("destinations", "sources", "rule_set", "scrub_list_id")

@@ -256,3 +256,41 @@ class PublishVersionReq(_message.Message):
 class PublishVersionRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ContentByVersionReq(_message.Message):
+    __slots__ = ("url", "locale", "version")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    locale: str
+    version: str
+    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., version: _Optional[str] = ...) -> None: ...
+
+class UpdateByVersionReq(_message.Message):
+    __slots__ = ("url", "locale", "content", "version", "message", "title")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    locale: str
+    content: str
+    version: str
+    message: str
+    title: str
+    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., content: _Optional[str] = ..., version: _Optional[str] = ..., message: _Optional[str] = ..., title: _Optional[str] = ...) -> None: ...
+
+class SearchContentByVersionReq(_message.Message):
+    __slots__ = ("search_content", "locale", "field_mask", "version")
+    SEARCH_CONTENT_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    search_content: str
+    locale: str
+    field_mask: _field_mask_pb2.FieldMask
+    version: str
+    def __init__(self, search_content: _Optional[str] = ..., locale: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., version: _Optional[str] = ...) -> None: ...
