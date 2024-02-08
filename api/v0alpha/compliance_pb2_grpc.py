@@ -328,7 +328,7 @@ class ComplianceStub(object):
                 )
         self.QueryHolidays = channel.unary_unary(
                 '/api.v0alpha.Compliance/QueryHolidays',
-                request_serializer=api_dot_v0alpha_dot_compliance__pb2.Query.SerializeToString,
+                request_serializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.FromString,
                 )
 
@@ -861,8 +861,8 @@ class ComplianceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def QueryHolidays(self, request, context):
-        """Return the holidays that match the Query.
-        The method will return a stream of the matching holidays as Rows.
+        """Return the holidays that match the request.
+        The method will return a stream of the matching holidays.
         Required permissions:
         none
         """
@@ -1185,7 +1185,7 @@ def add_ComplianceServicer_to_server(servicer, server):
             ),
             'QueryHolidays': grpc.unary_unary_rpc_method_handler(
                     servicer.QueryHolidays,
-                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.Query.FromString,
+                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.SerializeToString,
             ),
     }
@@ -2264,7 +2264,7 @@ class Compliance(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/QueryHolidays',
-            api_dot_v0alpha_dot_compliance__pb2.Query.SerializeToString,
+            api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysRequest.SerializeToString,
             api_dot_v0alpha_dot_compliance__pb2.QueryHolidaysResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -79,6 +79,16 @@ class SkillsServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersResponse.FromString,
                 )
+        self.GetAgentSkills = channel.unary_unary(
+                '/api.v1alpha1.org.skills.SkillsService/GetAgentSkills',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetAgentSkillsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetAgentSkillsResponse.FromString,
+                )
+        self.ListSkillsForCurrentAgent = channel.unary_unary(
+                '/api.v1alpha1.org.skills.SkillsService/ListSkillsForCurrentAgent',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentResponse.FromString,
+                )
 
 
 class SkillsServiceServicer(object):
@@ -175,6 +185,29 @@ class SkillsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetAgentSkills(self, request, context):
+        """Gets the skills of the requesting agent. This includes agent skills, hunt group skills, and extension skills(PBX).
+        Skills will be returned as a value pair (name, level).
+        For agent skills, the name of each skill will be the agent_skill_sid.
+        All other skills' names (hunt group and PBX) will be given special formats.
+        The requesting agent and hunt_group_sid skills will be defaulted to the max level (1000 and 100 respectively).
+
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the hunt_group_sid in the request in invalid.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSkillsForCurrentAgent(self, request, context):
+        """Returns a list of skills for the current agent.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SkillsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -242,6 +275,16 @@ def add_SkillsServiceServicer_to_server(servicer, server):
                     servicer.ListSkillGroupsMembers,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersResponse.SerializeToString,
+            ),
+            'GetAgentSkills': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAgentSkills,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetAgentSkillsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetAgentSkillsResponse.SerializeToString,
+            ),
+            'ListSkillsForCurrentAgent': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSkillsForCurrentAgent,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -471,5 +514,39 @@ class SkillsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/ListSkillGroupsMembers',
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillGroupsMembersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetAgentSkills(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/GetAgentSkills',
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetAgentSkillsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.GetAgentSkillsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSkillsForCurrentAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/ListSkillsForCurrentAgent',
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

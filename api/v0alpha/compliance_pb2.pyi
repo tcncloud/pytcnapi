@@ -1105,10 +1105,10 @@ class ProcessConsentListDeleteUploadMeta(_message.Message):
 class QueryHolidaysResponse(_message.Message):
     __slots__ = ("rows",)
     ROWS_FIELD_NUMBER: _ClassVar[int]
-    rows: _containers.RepeatedCompositeFieldContainer[Row]
-    def __init__(self, rows: _Optional[_Iterable[_Union[Row, _Mapping]]] = ...) -> None: ...
+    rows: _containers.RepeatedCompositeFieldContainer[HolidayData]
+    def __init__(self, rows: _Optional[_Iterable[_Union[HolidayData, _Mapping]]] = ...) -> None: ...
 
-class Row(_message.Message):
+class HolidayData(_message.Message):
     __slots__ = ("date", "name", "year", "month", "day", "weekday", "types", "is_observed", "country", "states")
     DATE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -1132,7 +1132,7 @@ class Row(_message.Message):
     states: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, date: _Optional[str] = ..., name: _Optional[str] = ..., year: _Optional[str] = ..., month: _Optional[str] = ..., day: _Optional[str] = ..., weekday: _Optional[str] = ..., types: _Optional[_Iterable[str]] = ..., is_observed: _Optional[str] = ..., country: _Optional[str] = ..., states: _Optional[_Iterable[str]] = ...) -> None: ...
 
-class Query(_message.Message):
+class QueryHolidaysRequest(_message.Message):
     __slots__ = ("date", "name", "year", "month", "day", "weekday", "type", "is_observed", "country", "state")
     DATE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
