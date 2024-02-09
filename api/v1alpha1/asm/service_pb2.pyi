@@ -34,16 +34,14 @@ class CreateSessionReq(_message.Message):
     def __init__(self, hunt_group_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, int]] = ..., subsession_type: _Optional[_Union[_asm_pb2.AsmSubsessionType, str]] = ..., enable_voice: bool = ...) -> None: ...
 
 class CreateSessionRes(_message.Message):
-    __slots__ = ("asm_session_sid", "voice_session_sid", "voice_registration", "enable_voice")
+    __slots__ = ("asm_session_sid", "voice_session_sid", "voice_registration")
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     VOICE_REGISTRATION_FIELD_NUMBER: _ClassVar[int]
-    ENABLE_VOICE_FIELD_NUMBER: _ClassVar[int]
     asm_session_sid: int
     voice_session_sid: int
     voice_registration: VoiceRegistration
-    enable_voice: bool
-    def __init__(self, asm_session_sid: _Optional[int] = ..., voice_session_sid: _Optional[int] = ..., voice_registration: _Optional[_Union[VoiceRegistration, _Mapping]] = ..., enable_voice: bool = ...) -> None: ...
+    def __init__(self, asm_session_sid: _Optional[int] = ..., voice_session_sid: _Optional[int] = ..., voice_registration: _Optional[_Union[VoiceRegistration, _Mapping]] = ...) -> None: ...
 
 class VoiceRegistration(_message.Message):
     __slots__ = ("username", "password", "dial_url", "pstn_phone", "default_time_zone", "expiration_timestamp")
