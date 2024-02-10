@@ -1102,3 +1102,17 @@ class UpdateWhatsAppNumberResponse(_message.Message):
     WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
     whatsapp_number: _omnichannel_pb2.WhatsAppNumber
     def __init__(self, whatsapp_number: _Optional[_Union[_omnichannel_pb2.WhatsAppNumber, _Mapping]] = ...) -> None: ...
+
+class CreateManualTaskReq(_message.Message):
+    __slots__ = ("campaign_sid", "campaign_module_sid")
+    CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
+    CAMPAIGN_MODULE_SID_FIELD_NUMBER: _ClassVar[int]
+    campaign_sid: int
+    campaign_module_sid: int
+    def __init__(self, campaign_sid: _Optional[int] = ..., campaign_module_sid: _Optional[int] = ...) -> None: ...
+
+class CreateManualTaskRes(_message.Message):
+    __slots__ = ("reference_id",)
+    REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    reference_id: str
+    def __init__(self, reference_id: _Optional[str] = ...) -> None: ...
