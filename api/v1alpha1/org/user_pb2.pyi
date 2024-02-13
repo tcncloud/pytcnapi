@@ -412,12 +412,14 @@ class ListUsersResponse(_message.Message):
     def __init__(self, users: _Optional[_Iterable[_Union[ListUsersResponse.UserDetails, _Mapping]]] = ...) -> None: ...
 
 class ListUsersByOrgIdRequest(_message.Message):
-    __slots__ = ("org_id", "archived_filter")
+    __slots__ = ("org_id", "archived_filter", "permission_filter")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ARCHIVED_FILTER_FIELD_NUMBER: _ClassVar[int]
+    PERMISSION_FILTER_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     archived_filter: _user_pb2_1.UserArchivedStateFilter
-    def __init__(self, org_id: _Optional[str] = ..., archived_filter: _Optional[_Union[_user_pb2_1.UserArchivedStateFilter, str]] = ...) -> None: ...
+    permission_filter: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
+    def __init__(self, org_id: _Optional[str] = ..., archived_filter: _Optional[_Union[_user_pb2_1.UserArchivedStateFilter, str]] = ..., permission_filter: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ...) -> None: ...
 
 class ListUsersByOrgIdResponse(_message.Message):
     __slots__ = ("users",)
