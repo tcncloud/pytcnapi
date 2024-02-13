@@ -227,16 +227,18 @@ class OmnichannelAgentSuspendEvent(_message.Message):
     def __init__(self, message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class OmnichannelCloseConversationEvent(_message.Message):
-    __slots__ = ("message", "conversation", "asm_session_sid", "user_id")
+    __slots__ = ("message", "conversation", "asm_session_sid", "user_id", "transcript_path")
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     CONVERSATION_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_PATH_FIELD_NUMBER: _ClassVar[int]
     message: _omnichannel_pb2.OmniMessage
     conversation: _omnichannel_pb2.OmniConversation
     asm_session_sid: _wrappers_pb2.Int64Value
     user_id: str
-    def __init__(self, message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
+    transcript_path: str
+    def __init__(self, message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., user_id: _Optional[str] = ..., transcript_path: _Optional[str] = ...) -> None: ...
 
 class OmnichannelUpdateCampaignEvent(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "channel_type", "omni_campaign")
