@@ -1,3 +1,4 @@
+from api.v1alpha1.vanalytics import dncl_list_pb2 as _dncl_list_pb2
 from api.v1alpha1.vanalytics import filter_pb2 as _filter_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
@@ -79,7 +80,7 @@ class GetFlagRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., flag_sid: _Optional[int] = ...) -> None: ...
 
 class Flag(_message.Message):
-    __slots__ = ("flag_sid", "name", "review_group_id", "notify_group_id", "priority", "version", "filters", "must_review", "must_notify", "bool_expr")
+    __slots__ = ("flag_sid", "name", "review_group_id", "notify_group_id", "priority", "version", "filters", "must_review", "must_notify", "bool_expr", "dncl_list")
     class BoolExpr(_message.Message):
         __slots__ = ("filter",)
         class Filter(_message.Message):
@@ -103,6 +104,7 @@ class Flag(_message.Message):
     MUST_REVIEW_FIELD_NUMBER: _ClassVar[int]
     MUST_NOTIFY_FIELD_NUMBER: _ClassVar[int]
     BOOL_EXPR_FIELD_NUMBER: _ClassVar[int]
+    DNCL_LIST_FIELD_NUMBER: _ClassVar[int]
     flag_sid: int
     name: str
     review_group_id: str
@@ -113,4 +115,5 @@ class Flag(_message.Message):
     must_review: bool
     must_notify: bool
     bool_expr: Flag.BoolExpr
-    def __init__(self, flag_sid: _Optional[int] = ..., name: _Optional[str] = ..., review_group_id: _Optional[str] = ..., notify_group_id: _Optional[str] = ..., priority: _Optional[int] = ..., version: _Optional[int] = ..., filters: _Optional[_Iterable[_Union[_filter_pb2.Filter, _Mapping]]] = ..., must_review: bool = ..., must_notify: bool = ..., bool_expr: _Optional[_Union[Flag.BoolExpr, _Mapping]] = ...) -> None: ...
+    dncl_list: _containers.RepeatedCompositeFieldContainer[_dncl_list_pb2.DnclList]
+    def __init__(self, flag_sid: _Optional[int] = ..., name: _Optional[str] = ..., review_group_id: _Optional[str] = ..., notify_group_id: _Optional[str] = ..., priority: _Optional[int] = ..., version: _Optional[int] = ..., filters: _Optional[_Iterable[_Union[_filter_pb2.Filter, _Mapping]]] = ..., must_review: bool = ..., must_notify: bool = ..., bool_expr: _Optional[_Union[Flag.BoolExpr, _Mapping]] = ..., dncl_list: _Optional[_Iterable[_Union[_dncl_list_pb2.DnclList, _Mapping]]] = ...) -> None: ...
