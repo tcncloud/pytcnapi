@@ -654,15 +654,3 @@ class Range(_message.Message):
     end_hour: int
     end_minute: int
     def __init__(self, start_hour: _Optional[int] = ..., start_minute: _Optional[int] = ..., end_hour: _Optional[int] = ..., end_minute: _Optional[int] = ...) -> None: ...
-
-class CreateBusinessHoursRequest(_message.Message):
-    __slots__ = ("org_id", "business_hours")
-    ORG_ID_FIELD_NUMBER: _ClassVar[int]
-    BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
-    org_id: str
-    business_hours: BusinessHours
-    def __init__(self, org_id: _Optional[str] = ..., business_hours: _Optional[_Union[BusinessHours, _Mapping]] = ...) -> None: ...
-
-class CreateBusinessHoursResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
