@@ -1101,3 +1101,57 @@ class ProcessConsentListDeleteUploadMeta(_message.Message):
     TIME_STARTED_FIELD_NUMBER: _ClassVar[int]
     time_started: _timestamp_pb2.Timestamp
     def __init__(self, time_started: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class QueryHolidaysResponse(_message.Message):
+    __slots__ = ("rows",)
+    ROWS_FIELD_NUMBER: _ClassVar[int]
+    rows: _containers.RepeatedCompositeFieldContainer[HolidayData]
+    def __init__(self, rows: _Optional[_Iterable[_Union[HolidayData, _Mapping]]] = ...) -> None: ...
+
+class HolidayData(_message.Message):
+    __slots__ = ("date", "name", "year", "month", "day", "weekday", "types", "is_observed", "country", "states")
+    DATE_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    YEAR_FIELD_NUMBER: _ClassVar[int]
+    MONTH_FIELD_NUMBER: _ClassVar[int]
+    DAY_FIELD_NUMBER: _ClassVar[int]
+    WEEKDAY_FIELD_NUMBER: _ClassVar[int]
+    TYPES_FIELD_NUMBER: _ClassVar[int]
+    IS_OBSERVED_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_FIELD_NUMBER: _ClassVar[int]
+    STATES_FIELD_NUMBER: _ClassVar[int]
+    date: str
+    name: str
+    year: str
+    month: str
+    day: str
+    weekday: str
+    types: _containers.RepeatedScalarFieldContainer[str]
+    is_observed: str
+    country: str
+    states: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, date: _Optional[str] = ..., name: _Optional[str] = ..., year: _Optional[str] = ..., month: _Optional[str] = ..., day: _Optional[str] = ..., weekday: _Optional[str] = ..., types: _Optional[_Iterable[str]] = ..., is_observed: _Optional[str] = ..., country: _Optional[str] = ..., states: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class QueryHolidaysRequest(_message.Message):
+    __slots__ = ("date", "name", "year", "month", "day", "weekday", "type", "is_observed", "country", "state")
+    DATE_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    YEAR_FIELD_NUMBER: _ClassVar[int]
+    MONTH_FIELD_NUMBER: _ClassVar[int]
+    DAY_FIELD_NUMBER: _ClassVar[int]
+    WEEKDAY_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    IS_OBSERVED_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_FIELD_NUMBER: _ClassVar[int]
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    date: str
+    name: str
+    year: str
+    month: str
+    day: str
+    weekday: str
+    type: str
+    is_observed: str
+    country: str
+    state: str
+    def __init__(self, date: _Optional[str] = ..., name: _Optional[str] = ..., year: _Optional[str] = ..., month: _Optional[str] = ..., day: _Optional[str] = ..., weekday: _Optional[str] = ..., type: _Optional[str] = ..., is_observed: _Optional[str] = ..., country: _Optional[str] = ..., state: _Optional[str] = ...) -> None: ...
