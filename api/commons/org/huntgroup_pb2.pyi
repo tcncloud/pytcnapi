@@ -1039,6 +1039,23 @@ class DialedNumberFieldStyle(_message.Message):
     display_to_agent: bool
     def __init__(self, field_style: _Optional[_Union[FieldStyle, _Mapping]] = ..., display_to_agent: bool = ...) -> None: ...
 
+class HuntGroupWithClientInfoTemplateData(_message.Message):
+    __slots__ = ("hunt_group", "template")
+    class HuntGroup(_message.Message):
+        __slots__ = ("client_sid", "hunt_group_sid", "hunt_group_name")
+        CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
+        HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+        HUNT_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
+        client_sid: int
+        hunt_group_sid: int
+        hunt_group_name: str
+        def __init__(self, client_sid: _Optional[int] = ..., hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ...) -> None: ...
+    HUNT_GROUP_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    hunt_group: HuntGroupWithClientInfoTemplateData.HuntGroup
+    template: ClientInfoDisplayTemplate
+    def __init__(self, hunt_group: _Optional[_Union[HuntGroupWithClientInfoTemplateData.HuntGroup, _Mapping]] = ..., template: _Optional[_Union[ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
 class WebLink(_message.Message):
     __slots__ = ("web_link_sid", "name", "description", "link_type", "order", "base_url", "parameters")
     WEB_LINK_SID_FIELD_NUMBER: _ClassVar[int]

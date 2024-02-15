@@ -725,6 +725,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateCampaignClientInfoDisplayTemplateRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateCampaignClientInfoDisplayTemplateResponse.FromString,
                 )
+        self.ListHuntGroupsWithClientInfoTemplateData = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListHuntGroupsWithClientInfoTemplateData',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupsWithClientInfoTemplateDataRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupsWithClientInfoTemplateDataResponse.FromString,
+                )
         self.ListAgentTriggers = channel.unary_unary(
                 '/api.v1alpha1.org.Org/ListAgentTriggers',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListAgentTriggersRequest.SerializeToString,
@@ -2054,6 +2059,14 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListHuntGroupsWithClientInfoTemplateData(self, request, context):
+        """ListHuntGroupsWithClientInfoTemplateData lists the hunt groups in an organization
+        with their client info display template data based on the filter.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListAgentTriggers(self, request, context):
         """ListAgentTriggers returns a list of agent triggers for the given hunt group.
         """
@@ -3196,6 +3209,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.CreateCampaignClientInfoDisplayTemplate,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateCampaignClientInfoDisplayTemplateRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateCampaignClientInfoDisplayTemplateResponse.SerializeToString,
+            ),
+            'ListHuntGroupsWithClientInfoTemplateData': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListHuntGroupsWithClientInfoTemplateData,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupsWithClientInfoTemplateDataRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupsWithClientInfoTemplateDataResponse.SerializeToString,
             ),
             'ListAgentTriggers': grpc.unary_unary_rpc_method_handler(
                     servicer.ListAgentTriggers,
@@ -5880,6 +5898,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateCampaignClientInfoDisplayTemplate',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateCampaignClientInfoDisplayTemplateRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateCampaignClientInfoDisplayTemplateResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListHuntGroupsWithClientInfoTemplateData(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListHuntGroupsWithClientInfoTemplateData',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupsWithClientInfoTemplateDataRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupsWithClientInfoTemplateDataResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
