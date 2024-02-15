@@ -445,3 +445,27 @@ class DeleteHuntGroupScriptRequest(_message.Message):
 class DeleteHuntGroupScriptResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class CopyHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("to_hunt_group_sid", "template")
+    TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    to_hunt_group_sid: int
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, to_hunt_group_sid: _Optional[int] = ..., template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CopyHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateCampaignClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("template",)
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CreateCampaignClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ("template_sid",)
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    def __init__(self, template_sid: _Optional[int] = ...) -> None: ...
