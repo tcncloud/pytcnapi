@@ -1,4 +1,5 @@
 from api.commons import acd_pb2 as _acd_pb2
+from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
@@ -115,17 +116,21 @@ class FlagSummary(_message.Message):
 class Sms(_message.Message):
     __slots__ = ("conversation_sid", "threads")
     class Thread(_message.Message):
-        __slots__ = ("id", "segments")
+        __slots__ = ("id", "segments", "user_id")
         ID_FIELD_NUMBER: _ClassVar[int]
         SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+        USER_ID_FIELD_NUMBER: _ClassVar[int]
         id: int
         segments: _containers.RepeatedCompositeFieldContainer[Sms.Segment]
-        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Sms.Segment, _Mapping]]] = ...) -> None: ...
+        user_id: str
+        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Sms.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
     class Segment(_message.Message):
-        __slots__ = ("text",)
+        __slots__ = ("text", "offset")
         TEXT_FIELD_NUMBER: _ClassVar[int]
+        OFFSET_FIELD_NUMBER: _ClassVar[int]
         text: str
-        def __init__(self, text: _Optional[str] = ...) -> None: ...
+        offset: _duration_pb2.Duration
+        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     THREADS_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
@@ -133,28 +138,88 @@ class Sms(_message.Message):
     def __init__(self, conversation_sid: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Sms.Thread, _Mapping]]] = ...) -> None: ...
 
 class Call(_message.Message):
-    __slots__ = ("call_sid", "call_type", "audio_time", "threads")
+    __slots__ = ("call_sid", "call_type", "audio_time", "threads", "silence", "talk_over", "talk_time", "caller_id", "group_name")
     class Thread(_message.Message):
-        __slots__ = ("id", "segments")
+        __slots__ = ("id", "segments", "user_id")
         ID_FIELD_NUMBER: _ClassVar[int]
         SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+        USER_ID_FIELD_NUMBER: _ClassVar[int]
         id: int
         segments: _containers.RepeatedCompositeFieldContainer[Call.Segment]
-        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Call.Segment, _Mapping]]] = ...) -> None: ...
+        user_id: str
+        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Call.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
     class Segment(_message.Message):
-        __slots__ = ("text",)
+        __slots__ = ("text", "offset")
         TEXT_FIELD_NUMBER: _ClassVar[int]
+        OFFSET_FIELD_NUMBER: _ClassVar[int]
         text: str
-        def __init__(self, text: _Optional[str] = ...) -> None: ...
+        offset: _duration_pb2.Duration
+        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    class TalkOver(_message.Message):
+        __slots__ = ("duration", "occurrence", "threshold")
+        class Duration(_message.Message):
+            __slots__ = ("total", "max", "percentage")
+            TOTAL_FIELD_NUMBER: _ClassVar[int]
+            MAX_FIELD_NUMBER: _ClassVar[int]
+            PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+            total: _duration_pb2.Duration
+            max: _duration_pb2.Duration
+            percentage: int
+            def __init__(self, total: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., max: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., percentage: _Optional[int] = ...) -> None: ...
+        class Occurrence(_message.Message):
+            __slots__ = ("total",)
+            TOTAL_FIELD_NUMBER: _ClassVar[int]
+            total: int
+            def __init__(self, total: _Optional[int] = ...) -> None: ...
+        DURATION_FIELD_NUMBER: _ClassVar[int]
+        OCCURRENCE_FIELD_NUMBER: _ClassVar[int]
+        THRESHOLD_FIELD_NUMBER: _ClassVar[int]
+        duration: Call.TalkOver.Duration
+        occurrence: Call.TalkOver.Occurrence
+        threshold: int
+        def __init__(self, duration: _Optional[_Union[Call.TalkOver.Duration, _Mapping]] = ..., occurrence: _Optional[_Union[Call.TalkOver.Occurrence, _Mapping]] = ..., threshold: _Optional[int] = ...) -> None: ...
+    class Silence(_message.Message):
+        __slots__ = ("duration", "occurrence", "threshold")
+        class Duration(_message.Message):
+            __slots__ = ("total", "max", "percentage")
+            TOTAL_FIELD_NUMBER: _ClassVar[int]
+            MAX_FIELD_NUMBER: _ClassVar[int]
+            PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+            total: _duration_pb2.Duration
+            max: _duration_pb2.Duration
+            percentage: int
+            def __init__(self, total: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., max: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., percentage: _Optional[int] = ...) -> None: ...
+        class Occurrence(_message.Message):
+            __slots__ = ("total",)
+            TOTAL_FIELD_NUMBER: _ClassVar[int]
+            total: int
+            def __init__(self, total: _Optional[int] = ...) -> None: ...
+        DURATION_FIELD_NUMBER: _ClassVar[int]
+        OCCURRENCE_FIELD_NUMBER: _ClassVar[int]
+        THRESHOLD_FIELD_NUMBER: _ClassVar[int]
+        duration: Call.Silence.Duration
+        occurrence: Call.Silence.Occurrence
+        threshold: int
+        def __init__(self, duration: _Optional[_Union[Call.Silence.Duration, _Mapping]] = ..., occurrence: _Optional[_Union[Call.Silence.Occurrence, _Mapping]] = ..., threshold: _Optional[int] = ...) -> None: ...
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     AUDIO_TIME_FIELD_NUMBER: _ClassVar[int]
     THREADS_FIELD_NUMBER: _ClassVar[int]
+    SILENCE_FIELD_NUMBER: _ClassVar[int]
+    TALK_OVER_FIELD_NUMBER: _ClassVar[int]
+    TALK_TIME_FIELD_NUMBER: _ClassVar[int]
+    CALLER_ID_FIELD_NUMBER: _ClassVar[int]
+    GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
     audio_time: int
     threads: _containers.RepeatedCompositeFieldContainer[Call.Thread]
-    def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ...) -> None: ...
+    silence: Call.Silence
+    talk_over: Call.TalkOver
+    talk_time: _duration_pb2.Duration
+    caller_id: str
+    group_name: str
+    def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ..., silence: _Optional[_Union[Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., caller_id: _Optional[str] = ..., group_name: _Optional[str] = ...) -> None: ...
 
 class SearchTranscriptsRequest(_message.Message):
     __slots__ = ("page_size", "order_by", "read_mask", "bool_query", "page_token", "highlight")
@@ -200,7 +265,7 @@ class TranscriptBoolQuery(_message.Message):
     def __init__(self, transcript: _Optional[_Union[TranscriptQuery, _Mapping]] = ...) -> None: ...
 
 class TranscriptQuery(_message.Message):
-    __slots__ = ("transcript_sid", "channel", "metadata", "threads")
+    __slots__ = ("transcript_sid", "channel", "metadata", "threads", "flag_summary", "start_time", "delete_time")
     class TranscriptSid(_message.Message):
         __slots__ = ("any",)
         ANY_FIELD_NUMBER: _ClassVar[int]
@@ -219,17 +284,27 @@ class TranscriptQuery(_message.Message):
         sms: TranscriptQuery.Sms
         def __init__(self, call: _Optional[_Union[TranscriptQuery.Call, _Mapping]] = ..., sms: _Optional[_Union[TranscriptQuery.Sms, _Mapping]] = ...) -> None: ...
     class Call(_message.Message):
-        __slots__ = ("call_sid", "audio_time", "call_type")
+        __slots__ = ("call_sid", "audio_time", "call_type", "silence", "talk_over", "talk_time", "caller_id", "group_name")
         class CallType(_message.Message):
             __slots__ = ("any",)
             ANY_FIELD_NUMBER: _ClassVar[int]
             any: _containers.RepeatedScalarFieldContainer[_acd_pb2.CallType.Enum]
             def __init__(self, any: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ...) -> None: ...
+        class GroupName(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
         class CallSid(_message.Message):
             __slots__ = ("any",)
             ANY_FIELD_NUMBER: _ClassVar[int]
             any: _containers.RepeatedScalarFieldContainer[int]
             def __init__(self, any: _Optional[_Iterable[int]] = ...) -> None: ...
+        class CallerId(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
         class AudioTime(_message.Message):
             __slots__ = ("gte", "lte", "gt", "lt")
             GTE_FIELD_NUMBER: _ClassVar[int]
@@ -241,13 +316,144 @@ class TranscriptQuery(_message.Message):
             gt: _wrappers_pb2.Int32Value
             lt: _wrappers_pb2.Int32Value
             def __init__(self, gte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...) -> None: ...
+        class TalkTime(_message.Message):
+            __slots__ = ("gte", "lte", "gt", "lt")
+            GTE_FIELD_NUMBER: _ClassVar[int]
+            LTE_FIELD_NUMBER: _ClassVar[int]
+            GT_FIELD_NUMBER: _ClassVar[int]
+            LT_FIELD_NUMBER: _ClassVar[int]
+            gte: _duration_pb2.Duration
+            lte: _duration_pb2.Duration
+            gt: _duration_pb2.Duration
+            lt: _duration_pb2.Duration
+            def __init__(self, gte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., gt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+        class TalkOver(_message.Message):
+            __slots__ = ("duration_total", "duration_max", "occurrence_total", "duration_percentage")
+            class DurationTotal(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _duration_pb2.Duration
+                lte: _duration_pb2.Duration
+                gt: _duration_pb2.Duration
+                lt: _duration_pb2.Duration
+                def __init__(self, gte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., gt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+            class DurationMax(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _duration_pb2.Duration
+                lte: _duration_pb2.Duration
+                gt: _duration_pb2.Duration
+                lt: _duration_pb2.Duration
+                def __init__(self, gte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., gt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+            class OccurrenceTotal(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _wrappers_pb2.UInt32Value
+                lte: _wrappers_pb2.UInt32Value
+                gt: _wrappers_pb2.UInt32Value
+                lt: _wrappers_pb2.UInt32Value
+                def __init__(self, gte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ...) -> None: ...
+            class DurationPercentage(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _wrappers_pb2.UInt32Value
+                lte: _wrappers_pb2.UInt32Value
+                gt: _wrappers_pb2.UInt32Value
+                lt: _wrappers_pb2.UInt32Value
+                def __init__(self, gte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ...) -> None: ...
+            DURATION_TOTAL_FIELD_NUMBER: _ClassVar[int]
+            DURATION_MAX_FIELD_NUMBER: _ClassVar[int]
+            OCCURRENCE_TOTAL_FIELD_NUMBER: _ClassVar[int]
+            DURATION_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+            duration_total: TranscriptQuery.Call.TalkOver.DurationTotal
+            duration_max: TranscriptQuery.Call.TalkOver.DurationMax
+            occurrence_total: TranscriptQuery.Call.TalkOver.OccurrenceTotal
+            duration_percentage: TranscriptQuery.Call.TalkOver.DurationPercentage
+            def __init__(self, duration_total: _Optional[_Union[TranscriptQuery.Call.TalkOver.DurationTotal, _Mapping]] = ..., duration_max: _Optional[_Union[TranscriptQuery.Call.TalkOver.DurationMax, _Mapping]] = ..., occurrence_total: _Optional[_Union[TranscriptQuery.Call.TalkOver.OccurrenceTotal, _Mapping]] = ..., duration_percentage: _Optional[_Union[TranscriptQuery.Call.TalkOver.DurationPercentage, _Mapping]] = ...) -> None: ...
+        class Silence(_message.Message):
+            __slots__ = ("duration_total", "duration_max", "occurrence_total", "duration_percentage")
+            class DurationTotal(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _duration_pb2.Duration
+                lte: _duration_pb2.Duration
+                gt: _duration_pb2.Duration
+                lt: _duration_pb2.Duration
+                def __init__(self, gte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., gt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+            class DurationMax(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _duration_pb2.Duration
+                lte: _duration_pb2.Duration
+                gt: _duration_pb2.Duration
+                lt: _duration_pb2.Duration
+                def __init__(self, gte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lte: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., gt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., lt: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+            class OccurrenceTotal(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _wrappers_pb2.UInt32Value
+                lte: _wrappers_pb2.UInt32Value
+                gt: _wrappers_pb2.UInt32Value
+                lt: _wrappers_pb2.UInt32Value
+                def __init__(self, gte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ...) -> None: ...
+            class DurationPercentage(_message.Message):
+                __slots__ = ("gte", "lte", "gt", "lt")
+                GTE_FIELD_NUMBER: _ClassVar[int]
+                LTE_FIELD_NUMBER: _ClassVar[int]
+                GT_FIELD_NUMBER: _ClassVar[int]
+                LT_FIELD_NUMBER: _ClassVar[int]
+                gte: _wrappers_pb2.UInt32Value
+                lte: _wrappers_pb2.UInt32Value
+                gt: _wrappers_pb2.UInt32Value
+                lt: _wrappers_pb2.UInt32Value
+                def __init__(self, gte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.UInt32Value, _Mapping]] = ...) -> None: ...
+            DURATION_TOTAL_FIELD_NUMBER: _ClassVar[int]
+            DURATION_MAX_FIELD_NUMBER: _ClassVar[int]
+            OCCURRENCE_TOTAL_FIELD_NUMBER: _ClassVar[int]
+            DURATION_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+            duration_total: TranscriptQuery.Call.Silence.DurationTotal
+            duration_max: TranscriptQuery.Call.Silence.DurationMax
+            occurrence_total: TranscriptQuery.Call.Silence.OccurrenceTotal
+            duration_percentage: TranscriptQuery.Call.Silence.DurationPercentage
+            def __init__(self, duration_total: _Optional[_Union[TranscriptQuery.Call.Silence.DurationTotal, _Mapping]] = ..., duration_max: _Optional[_Union[TranscriptQuery.Call.Silence.DurationMax, _Mapping]] = ..., occurrence_total: _Optional[_Union[TranscriptQuery.Call.Silence.OccurrenceTotal, _Mapping]] = ..., duration_percentage: _Optional[_Union[TranscriptQuery.Call.Silence.DurationPercentage, _Mapping]] = ...) -> None: ...
         CALL_SID_FIELD_NUMBER: _ClassVar[int]
         AUDIO_TIME_FIELD_NUMBER: _ClassVar[int]
         CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        SILENCE_FIELD_NUMBER: _ClassVar[int]
+        TALK_OVER_FIELD_NUMBER: _ClassVar[int]
+        TALK_TIME_FIELD_NUMBER: _ClassVar[int]
+        CALLER_ID_FIELD_NUMBER: _ClassVar[int]
+        GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
         call_sid: TranscriptQuery.Call.CallSid
         audio_time: TranscriptQuery.Call.AudioTime
         call_type: TranscriptQuery.Call.CallType
-        def __init__(self, call_sid: _Optional[_Union[TranscriptQuery.Call.CallSid, _Mapping]] = ..., audio_time: _Optional[_Union[TranscriptQuery.Call.AudioTime, _Mapping]] = ..., call_type: _Optional[_Union[TranscriptQuery.Call.CallType, _Mapping]] = ...) -> None: ...
+        silence: TranscriptQuery.Call.Silence
+        talk_over: TranscriptQuery.Call.TalkOver
+        talk_time: TranscriptQuery.Call.TalkTime
+        caller_id: TranscriptQuery.Call.CallerId
+        group_name: TranscriptQuery.Call.GroupName
+        def __init__(self, call_sid: _Optional[_Union[TranscriptQuery.Call.CallSid, _Mapping]] = ..., audio_time: _Optional[_Union[TranscriptQuery.Call.AudioTime, _Mapping]] = ..., call_type: _Optional[_Union[TranscriptQuery.Call.CallType, _Mapping]] = ..., silence: _Optional[_Union[TranscriptQuery.Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[TranscriptQuery.Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[TranscriptQuery.Call.TalkTime, _Mapping]] = ..., caller_id: _Optional[_Union[TranscriptQuery.Call.CallerId, _Mapping]] = ..., group_name: _Optional[_Union[TranscriptQuery.Call.GroupName, _Mapping]] = ...) -> None: ...
     class Sms(_message.Message):
         __slots__ = ("conversation_sid",)
         class ConversationSid(_message.Message):
@@ -259,33 +465,131 @@ class TranscriptQuery(_message.Message):
         conversation_sid: TranscriptQuery.Sms.ConversationSid
         def __init__(self, conversation_sid: _Optional[_Union[TranscriptQuery.Sms.ConversationSid, _Mapping]] = ...) -> None: ...
     class Threads(_message.Message):
-        __slots__ = ("id", "text")
+        __slots__ = ("id", "text", "user_id")
+        class UserId(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
         class Id(_message.Message):
             __slots__ = ("any",)
             ANY_FIELD_NUMBER: _ClassVar[int]
             any: _containers.RepeatedScalarFieldContainer[int]
             def __init__(self, any: _Optional[_Iterable[int]] = ...) -> None: ...
         class Text(_message.Message):
-            __slots__ = ("match", "span_near")
+            __slots__ = ("match", "span_near", "timespan")
+            class Timespan(_message.Message):
+                __slots__ = ("head", "tail")
+                HEAD_FIELD_NUMBER: _ClassVar[int]
+                TAIL_FIELD_NUMBER: _ClassVar[int]
+                head: _duration_pb2.Duration
+                tail: _duration_pb2.Duration
+                def __init__(self, head: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., tail: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
             MATCH_FIELD_NUMBER: _ClassVar[int]
             SPAN_NEAR_FIELD_NUMBER: _ClassVar[int]
+            TIMESPAN_FIELD_NUMBER: _ClassVar[int]
+            NOT_FIELD_NUMBER: _ClassVar[int]
             match: Match
             span_near: SpanNear
-            def __init__(self, match: _Optional[_Union[Match, _Mapping]] = ..., span_near: _Optional[_Union[SpanNear, _Mapping]] = ...) -> None: ...
+            timespan: TranscriptQuery.Threads.Text.Timespan
+            def __init__(self, match: _Optional[_Union[Match, _Mapping]] = ..., span_near: _Optional[_Union[SpanNear, _Mapping]] = ..., timespan: _Optional[_Union[TranscriptQuery.Threads.Text.Timespan, _Mapping]] = ..., **kwargs) -> None: ...
+        AND_FIELD_NUMBER: _ClassVar[int]
+        OR_FIELD_NUMBER: _ClassVar[int]
         ID_FIELD_NUMBER: _ClassVar[int]
         TEXT_FIELD_NUMBER: _ClassVar[int]
+        USER_ID_FIELD_NUMBER: _ClassVar[int]
         id: TranscriptQuery.Threads.Id
         text: TranscriptQuery.Threads.Text
-        def __init__(self, id: _Optional[_Union[TranscriptQuery.Threads.Id, _Mapping]] = ..., text: _Optional[_Union[TranscriptQuery.Threads.Text, _Mapping]] = ...) -> None: ...
+        user_id: TranscriptQuery.Threads.UserId
+        def __init__(self, id: _Optional[_Union[TranscriptQuery.Threads.Id, _Mapping]] = ..., text: _Optional[_Union[TranscriptQuery.Threads.Text, _Mapping]] = ..., user_id: _Optional[_Union[TranscriptQuery.Threads.UserId, _Mapping]] = ..., **kwargs) -> None: ...
+    class FlagSummary(_message.Message):
+        __slots__ = ("need_review", "review_status", "flags", "count")
+        class NeedReview(_message.Message):
+            __slots__ = ("flag_sids",)
+            class FlagSids(_message.Message):
+                __slots__ = ("any",)
+                ANY_FIELD_NUMBER: _ClassVar[int]
+                any: _containers.RepeatedScalarFieldContainer[int]
+                def __init__(self, any: _Optional[_Iterable[int]] = ...) -> None: ...
+            FLAG_SIDS_FIELD_NUMBER: _ClassVar[int]
+            flag_sids: TranscriptQuery.FlagSummary.NeedReview.FlagSids
+            def __init__(self, flag_sids: _Optional[_Union[TranscriptQuery.FlagSummary.NeedReview.FlagSids, _Mapping]] = ...) -> None: ...
+        class ReviewStatus(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[ReviewStatus]
+            def __init__(self, any: _Optional[_Iterable[_Union[ReviewStatus, str]]] = ...) -> None: ...
+        class Flags(_message.Message):
+            __slots__ = ("flag_sid",)
+            class FlagSid(_message.Message):
+                __slots__ = ("any", "all")
+                ANY_FIELD_NUMBER: _ClassVar[int]
+                ALL_FIELD_NUMBER: _ClassVar[int]
+                any: _containers.RepeatedScalarFieldContainer[int]
+                all: _containers.RepeatedScalarFieldContainer[int]
+                def __init__(self, any: _Optional[_Iterable[int]] = ..., all: _Optional[_Iterable[int]] = ...) -> None: ...
+            FLAG_SID_FIELD_NUMBER: _ClassVar[int]
+            flag_sid: TranscriptQuery.FlagSummary.Flags.FlagSid
+            def __init__(self, flag_sid: _Optional[_Union[TranscriptQuery.FlagSummary.Flags.FlagSid, _Mapping]] = ...) -> None: ...
+        class Count(_message.Message):
+            __slots__ = ("gte", "lte", "gt", "lt", "eq")
+            GTE_FIELD_NUMBER: _ClassVar[int]
+            LTE_FIELD_NUMBER: _ClassVar[int]
+            GT_FIELD_NUMBER: _ClassVar[int]
+            LT_FIELD_NUMBER: _ClassVar[int]
+            EQ_FIELD_NUMBER: _ClassVar[int]
+            gte: _wrappers_pb2.Int32Value
+            lte: _wrappers_pb2.Int32Value
+            gt: _wrappers_pb2.Int32Value
+            lt: _wrappers_pb2.Int32Value
+            eq: _wrappers_pb2.Int32Value
+            def __init__(self, gte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., eq: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...) -> None: ...
+        NEED_REVIEW_FIELD_NUMBER: _ClassVar[int]
+        REVIEW_STATUS_FIELD_NUMBER: _ClassVar[int]
+        FLAGS_FIELD_NUMBER: _ClassVar[int]
+        COUNT_FIELD_NUMBER: _ClassVar[int]
+        need_review: TranscriptQuery.FlagSummary.NeedReview
+        review_status: TranscriptQuery.FlagSummary.ReviewStatus
+        flags: TranscriptQuery.FlagSummary.Flags
+        count: TranscriptQuery.FlagSummary.Count
+        def __init__(self, need_review: _Optional[_Union[TranscriptQuery.FlagSummary.NeedReview, _Mapping]] = ..., review_status: _Optional[_Union[TranscriptQuery.FlagSummary.ReviewStatus, _Mapping]] = ..., flags: _Optional[_Union[TranscriptQuery.FlagSummary.Flags, _Mapping]] = ..., count: _Optional[_Union[TranscriptQuery.FlagSummary.Count, _Mapping]] = ...) -> None: ...
+    class StartTime(_message.Message):
+        __slots__ = ("gte", "lte", "gt", "lt")
+        GTE_FIELD_NUMBER: _ClassVar[int]
+        LTE_FIELD_NUMBER: _ClassVar[int]
+        GT_FIELD_NUMBER: _ClassVar[int]
+        LT_FIELD_NUMBER: _ClassVar[int]
+        gte: _timestamp_pb2.Timestamp
+        lte: _timestamp_pb2.Timestamp
+        gt: _timestamp_pb2.Timestamp
+        lt: _timestamp_pb2.Timestamp
+        def __init__(self, gte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., gt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    class DeleteTime(_message.Message):
+        __slots__ = ("gte", "lte", "gt", "lt")
+        GTE_FIELD_NUMBER: _ClassVar[int]
+        LTE_FIELD_NUMBER: _ClassVar[int]
+        GT_FIELD_NUMBER: _ClassVar[int]
+        LT_FIELD_NUMBER: _ClassVar[int]
+        gte: _timestamp_pb2.Timestamp
+        lte: _timestamp_pb2.Timestamp
+        gt: _timestamp_pb2.Timestamp
+        lt: _timestamp_pb2.Timestamp
+        def __init__(self, gte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., gt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_FIELD_NUMBER: _ClassVar[int]
     METADATA_FIELD_NUMBER: _ClassVar[int]
     THREADS_FIELD_NUMBER: _ClassVar[int]
+    FLAG_SUMMARY_FIELD_NUMBER: _ClassVar[int]
+    START_TIME_FIELD_NUMBER: _ClassVar[int]
+    DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: TranscriptQuery.TranscriptSid
     channel: TranscriptQuery.Channel
     metadata: TranscriptQuery.Metadata
     threads: TranscriptQuery.Threads
-    def __init__(self, transcript_sid: _Optional[_Union[TranscriptQuery.TranscriptSid, _Mapping]] = ..., channel: _Optional[_Union[TranscriptQuery.Channel, _Mapping]] = ..., metadata: _Optional[_Union[TranscriptQuery.Metadata, _Mapping]] = ..., threads: _Optional[_Union[TranscriptQuery.Threads, _Mapping]] = ...) -> None: ...
+    flag_summary: TranscriptQuery.FlagSummary
+    start_time: TranscriptQuery.StartTime
+    delete_time: TranscriptQuery.DeleteTime
+    def __init__(self, transcript_sid: _Optional[_Union[TranscriptQuery.TranscriptSid, _Mapping]] = ..., channel: _Optional[_Union[TranscriptQuery.Channel, _Mapping]] = ..., metadata: _Optional[_Union[TranscriptQuery.Metadata, _Mapping]] = ..., threads: _Optional[_Union[TranscriptQuery.Threads, _Mapping]] = ..., flag_summary: _Optional[_Union[TranscriptQuery.FlagSummary, _Mapping]] = ..., start_time: _Optional[_Union[TranscriptQuery.StartTime, _Mapping]] = ..., delete_time: _Optional[_Union[TranscriptQuery.DeleteTime, _Mapping]] = ...) -> None: ...
 
 class FuzzinessAuto(_message.Message):
     __slots__ = ("low", "high")

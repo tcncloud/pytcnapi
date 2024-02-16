@@ -10,6 +10,7 @@ from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from api.commons import org_pb2 as _org_pb2
 from api.commons.org import agent_profile_group_pb2 as _agent_profile_group_pb2
 from api.commons.org import trusts_pb2 as _trusts_pb2
+from api.commons.org import user_pb2 as _user_pb2
 from api.commons import org_preferences_pb2 as _org_preferences_pb2
 from api.commons import perms_pb2 as _perms_pb2_1
 from google.api import annotations_pb2 as _annotations_pb2
@@ -199,7 +200,7 @@ class ListOrganizationDescriptionsResponse(_message.Message):
     def __init__(self, organization_descriptions: _Optional[_Iterable[_Union[OrganizationDescription, _Mapping]]] = ...) -> None: ...
 
 class UserDescription(_message.Message):
-    __slots__ = ("user_id", "org_id", "user_name", "login_disabled", "account_owner", "org_name", "org_billing_id", "linkback_numbers", "caller_ids", "login_sid", "permission_groups", "agent_sid", "agent_profile_group_id", "agent_profile_group_name", "p3_permission_group_id", "p3_permission_group_name", "first_name", "last_name", "strike_count", "created", "last_updated", "label_entities", "delegated", "time_zone_override", "email", "hunt_group_sid", "hunt_group_name", "trusts")
+    __slots__ = ("user_id", "org_id", "user_name", "login_disabled", "account_owner", "org_name", "org_billing_id", "linkback_numbers", "caller_ids", "login_sid", "permission_groups", "agent_sid", "agent_profile_group_id", "agent_profile_group_name", "p3_permission_group_id", "p3_permission_group_name", "first_name", "last_name", "strike_count", "created", "last_updated", "label_entities", "delegated", "time_zone_override", "email", "hunt_group_sid", "hunt_group_name", "trusts", "mfa_info", "email_verified")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     USER_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -228,6 +229,8 @@ class UserDescription(_message.Message):
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     HUNT_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
     TRUSTS_FIELD_NUMBER: _ClassVar[int]
+    MFA_INFO_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_VERIFIED_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     org_id: str
     user_name: str
@@ -256,7 +259,9 @@ class UserDescription(_message.Message):
     hunt_group_sid: int
     hunt_group_name: str
     trusts: _containers.RepeatedCompositeFieldContainer[_trusts_pb2.Trust]
-    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., user_name: _Optional[str] = ..., login_disabled: bool = ..., account_owner: bool = ..., org_name: _Optional[str] = ..., org_billing_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., login_sid: _Optional[int] = ..., permission_groups: _Optional[_Iterable[_Union[PermissionGroup, _Mapping]]] = ..., agent_sid: _Optional[int] = ..., agent_profile_group_id: _Optional[str] = ..., agent_profile_group_name: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., p3_permission_group_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., strike_count: _Optional[int] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., delegated: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ...) -> None: ...
+    mfa_info: _user_pb2.MfaInfo
+    email_verified: bool
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., user_name: _Optional[str] = ..., login_disabled: bool = ..., account_owner: bool = ..., org_name: _Optional[str] = ..., org_billing_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., login_sid: _Optional[int] = ..., permission_groups: _Optional[_Iterable[_Union[PermissionGroup, _Mapping]]] = ..., agent_sid: _Optional[int] = ..., agent_profile_group_id: _Optional[str] = ..., agent_profile_group_name: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., p3_permission_group_name: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., strike_count: _Optional[int] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., delegated: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ..., mfa_info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ..., email_verified: bool = ...) -> None: ...
 
 class ListOrganizationUserDescriptionsRequest(_message.Message):
     __slots__ = ()

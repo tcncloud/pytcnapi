@@ -397,3 +397,51 @@ class UpdateAgentTriggersRequest(_message.Message):
 class UpdateAgentTriggersResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class GetHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class GetHuntGroupScriptResponse(_message.Message):
+    __slots__ = ("hunt_group_script",)
+    HUNT_GROUP_SCRIPT_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_script: _huntgroup_pb2.HuntGroupScript
+    def __init__(self, hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ...) -> None: ...
+
+class CreateHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "hunt_group_script")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SCRIPT_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    hunt_group_script: _huntgroup_pb2.HuntGroupScript
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ...) -> None: ...
+
+class CreateHuntGroupScriptResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class UpdateHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "hunt_group_script")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SCRIPT_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    hunt_group_script: _huntgroup_pb2.HuntGroupScript
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ...) -> None: ...
+
+class UpdateHuntGroupScriptResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "script_sid")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    SCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    script_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., script_sid: _Optional[int] = ...) -> None: ...
+
+class DeleteHuntGroupScriptResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
