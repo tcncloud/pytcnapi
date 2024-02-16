@@ -12,6 +12,7 @@ from api.v1alpha1.vanalytics import flag_transcript_filter_pb2 as api_dot_v1alph
 from api.v1alpha1.vanalytics import flag_transcript_pb2 as api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2
 from api.v1alpha1.vanalytics import service_pb2 as api_dot_v1alpha1_dot_vanalytics_dot_service__pb2
 from api.v1alpha1.vanalytics import transcript_pb2 as api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2
+from api.v1alpha1.vanalytics import transcript_summary_pb2 as api_dot_v1alpha1_dot_vanalytics_dot_transcript__summary__pb2
 
 
 class VanalyticsStub(object):
@@ -62,6 +63,11 @@ class VanalyticsStub(object):
                 '/api.v1alpha1.vanalytics.Vanalytics/ListAgentResponseValues',
                 request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListAgentResponseValuesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListAgentResponseValuesResponse.FromString,
+                )
+        self.GetTranscriptSummary = channel.unary_unary(
+                '/api.v1alpha1.vanalytics.Vanalytics/GetTranscriptSummary',
+                request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.FromString,
                 )
         self.CreateFilter = channel.unary_unary(
                 '/api.v1alpha1.vanalytics.Vanalytics/CreateFilter',
@@ -250,6 +256,15 @@ class VanalyticsServicer(object):
 
     def ListAgentResponseValues(self, request, context):
         """ListAgentResponseValues lists transcript agent response values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTranscriptSummary(self, request, context):
+        """[TRANSCRIPT_SUMMARY] ======================================================
+
+        GetTranscriptSummary gets a transcript summary for a provided transcript.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -489,6 +504,11 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     servicer.ListAgentResponseValues,
                     request_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListAgentResponseValuesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListAgentResponseValuesResponse.SerializeToString,
+            ),
+            'GetTranscriptSummary': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTranscriptSummary,
+                    request_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.SerializeToString,
             ),
             'CreateFilter': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateFilter,
@@ -758,6 +778,23 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.vanalytics.Vanalytics/ListAgentResponseValues',
             api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListAgentResponseValuesRequest.SerializeToString,
             api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListAgentResponseValuesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTranscriptSummary(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.vanalytics.Vanalytics/GetTranscriptSummary',
+            api_dot_v1alpha1_dot_vanalytics_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.SerializeToString,
+            api_dot_v1alpha1_dot_vanalytics_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
