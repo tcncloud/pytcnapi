@@ -2605,6 +2605,7 @@ class WFMServicer(object):
         NONE
         Errors:
         -grpc.Invalid: one or more fields in the request have invalid values.
+        -grpc.NotFound: the fields referenced in @shift_instance or its member shift segments don't exist for the org.
         -grpc.Internal: error occurs when creating the shift instance or its members.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
