@@ -630,18 +630,32 @@ class AdminClientPreferences(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., use_reserved_carrier: bool = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., email_key: _Optional[str] = ..., email_id: _Optional[str] = ..., email_name: _Optional[str] = ..., whitelist_ips: _Optional[_Iterable[str]] = ..., whitelist_domains: _Optional[_Iterable[str]] = ..., callbacks_service_id: _Optional[str] = ..., agent_screen_recording: bool = ..., allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ...) -> None: ...
 
 class BusinessHours(_message.Message):
-    __slots__ = ("org_id", "id", "name", "description", "ranges")
+    __slots__ = ("org_id", "id", "name", "description", "ranges", "sunday_ranges", "monday_ranges", "tuesday_ranges", "wednesday_ranges", "thursday_ranges", "friday_ranges", "saturday_ranges")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     RANGES_FIELD_NUMBER: _ClassVar[int]
+    SUNDAY_RANGES_FIELD_NUMBER: _ClassVar[int]
+    MONDAY_RANGES_FIELD_NUMBER: _ClassVar[int]
+    TUESDAY_RANGES_FIELD_NUMBER: _ClassVar[int]
+    WEDNESDAY_RANGES_FIELD_NUMBER: _ClassVar[int]
+    THURSDAY_RANGES_FIELD_NUMBER: _ClassVar[int]
+    FRIDAY_RANGES_FIELD_NUMBER: _ClassVar[int]
+    SATURDAY_RANGES_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     id: str
     name: str
     description: str
     ranges: _containers.RepeatedCompositeFieldContainer[Range]
-    def __init__(self, org_id: _Optional[str] = ..., id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ...) -> None: ...
+    sunday_ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    monday_ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    tuesday_ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    wednesday_ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    thursday_ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    friday_ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    saturday_ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    def __init__(self, org_id: _Optional[str] = ..., id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., sunday_ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., monday_ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., tuesday_ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., wednesday_ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., thursday_ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., friday_ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., saturday_ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ...) -> None: ...
 
 class Range(_message.Message):
     __slots__ = ("start_hour", "start_minute", "end_hour", "end_minute")
