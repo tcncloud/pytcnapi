@@ -16,33 +16,33 @@ class AsmServiceStub(object):
         """
         self.CreateSession = channel.unary_unary(
                 '/services.omnichannel.asm.v1alpha1.AsmService/CreateSession',
-                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionReq.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionRes.FromString,
+                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionResponse.FromString,
                 )
         self.EndSession = channel.unary_unary(
                 '/services.omnichannel.asm.v1alpha1.AsmService/EndSession',
-                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionReq.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionRes.FromString,
+                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionResponse.FromString,
                 )
         self.GetCurrentSession = channel.unary_unary(
                 '/services.omnichannel.asm.v1alpha1.AsmService/GetCurrentSession',
-                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionReq.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionRes.FromString,
+                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionResponse.FromString,
                 )
         self.EnableVoice = channel.unary_unary(
                 '/services.omnichannel.asm.v1alpha1.AsmService/EnableVoice',
-                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceReq.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceRes.FromString,
+                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceResponse.FromString,
                 )
         self.DisableVoice = channel.unary_unary(
                 '/services.omnichannel.asm.v1alpha1.AsmService/DisableVoice',
-                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceReq.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceRes.FromString,
+                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceResponse.FromString,
                 )
         self.ListAsmUserDetails = channel.unary_unary(
                 '/services.omnichannel.asm.v1alpha1.AsmService/ListAsmUserDetails',
-                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsReq.SerializeToString,
-                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRes.FromString,
+                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsResponse.FromString,
                 )
 
 
@@ -95,33 +95,33 @@ def add_AsmServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateSession': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateSession,
-                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionReq.FromString,
-                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionRes.SerializeToString,
+                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionResponse.SerializeToString,
             ),
             'EndSession': grpc.unary_unary_rpc_method_handler(
                     servicer.EndSession,
-                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionReq.FromString,
-                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionRes.SerializeToString,
+                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionResponse.SerializeToString,
             ),
             'GetCurrentSession': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCurrentSession,
-                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionReq.FromString,
-                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionRes.SerializeToString,
+                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionResponse.SerializeToString,
             ),
             'EnableVoice': grpc.unary_unary_rpc_method_handler(
                     servicer.EnableVoice,
-                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceReq.FromString,
-                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceRes.SerializeToString,
+                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceResponse.SerializeToString,
             ),
             'DisableVoice': grpc.unary_unary_rpc_method_handler(
                     servicer.DisableVoice,
-                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceReq.FromString,
-                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceRes.SerializeToString,
+                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceResponse.SerializeToString,
             ),
             'ListAsmUserDetails': grpc.unary_unary_rpc_method_handler(
                     servicer.ListAsmUserDetails,
-                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsReq.FromString,
-                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRes.SerializeToString,
+                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -145,8 +145,8 @@ class AsmService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/CreateSession',
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionReq.SerializeToString,
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionRes.FromString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionRequest.SerializeToString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.CreateSessionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -162,8 +162,8 @@ class AsmService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/EndSession',
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionReq.SerializeToString,
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionRes.FromString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionRequest.SerializeToString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EndSessionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -179,8 +179,8 @@ class AsmService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/GetCurrentSession',
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionReq.SerializeToString,
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionRes.FromString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionRequest.SerializeToString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.GetCurrentSessionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -196,8 +196,8 @@ class AsmService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/EnableVoice',
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceReq.SerializeToString,
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceRes.FromString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceRequest.SerializeToString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.EnableVoiceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -213,8 +213,8 @@ class AsmService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/DisableVoice',
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceReq.SerializeToString,
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceRes.FromString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceRequest.SerializeToString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.DisableVoiceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -230,7 +230,7 @@ class AsmService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/ListAsmUserDetails',
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsReq.SerializeToString,
-            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRes.FromString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRequest.SerializeToString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
