@@ -12,11 +12,10 @@ from google.protobuf.internal import builder as _builder
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from services.omnichannel.asm.entities.v1alpha1 import session_pb2 as services_dot_omnichannel_dot_asm_dot_entities_dot_v1alpha1_dot_session__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/omnichannel/asm/v1alpha1/entities.proto\x12!services.omnichannel.asm.v1alpha1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x38services/omnichannel/asm/entities/v1alpha1/session.proto\"\x16\n\x14\x43reateSessionRequest\"p\n\x15\x43reateSessionResponse\x12W\n\x0b\x61sm_session\x18\x01 \x01(\x0b\x32\x36.services.omnichannel.asm.entities.v1alpha1.AsmSessionR\nasmSession\"S\n\x11\x45ndSessionRequest\x12&\n\x0f\x61sm_session_sid\x18\x01 \x01(\x03R\rasmSessionSid\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\"\x14\n\x12\x45ndSessionResponse\"\x1a\n\x18GetCurrentSessionRequest\"t\n\x19GetCurrentSessionResponse\x12W\n\x0b\x61sm_session\x18\x01 \x01(\x0b\x32\x36.services.omnichannel.asm.entities.v1alpha1.AsmSessionR\nasmSession\"\xf8\x01\n\x12\x45nableVoiceRequest\x12&\n\x0f\x61sm_session_sid\x18\x01 \x01(\x03R\rasmSessionSid\x12$\n\x0ehunt_group_sid\x18\x02 \x01(\x03R\x0chuntGroupSid\x12Y\n\x06skills\x18\x03 \x03(\x0b\x32\x41.services.omnichannel.asm.v1alpha1.EnableVoiceRequest.SkillsEntryR\x06skills\x1a\x39\n\x0bSkillsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\x03R\x05value:\x02\x38\x01\"\xe2\x01\n\x13\x45nableVoiceResponse\x12]\n\rvoice_session\x18\x01 \x01(\x0b\x32\x38.services.omnichannel.asm.entities.v1alpha1.VoiceSessionR\x0cvoiceSession\x12l\n\x12voice_registration\x18\x02 \x01(\x0b\x32=.services.omnichannel.asm.entities.v1alpha1.VoiceRegistrationR\x11voiceRegistration\"=\n\x13\x44isableVoiceRequest\x12&\n\x0f\x61sm_session_sid\x18\x01 \x01(\x03R\rasmSessionSid\"\x16\n\x14\x44isableVoiceResponse\"\x1b\n\x19ListAsmUserDetailsRequest\"t\n\x1aListAsmUserDetailsResponse\x12V\n\x08sessions\x18\x01 \x03(\x0b\x32:.services.omnichannel.asm.entities.v1alpha1.AsmUserDetailsR\x08sessionsB\xdd\x01\n%com.services.omnichannel.asm.v1alpha1B\rEntitiesProtoP\x01\xa2\x02\x03SOA\xaa\x02!Services.Omnichannel.Asm.V1alpha1\xca\x02!Services\\Omnichannel\\Asm\\V1alpha1\xe2\x02-Services\\Omnichannel\\Asm\\V1alpha1\\GPBMetadata\xea\x02$Services::Omnichannel::Asm::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/omnichannel/asm/v1alpha1/entities.proto\x12!services.omnichannel.asm.v1alpha1\x1a\x38services/omnichannel/asm/entities/v1alpha1/session.proto\"\x16\n\x14\x43reateSessionRequest\"p\n\x15\x43reateSessionResponse\x12W\n\x0b\x61sm_session\x18\x01 \x01(\x0b\x32\x36.services.omnichannel.asm.entities.v1alpha1.AsmSessionR\nasmSession\"S\n\x11\x45ndSessionRequest\x12&\n\x0f\x61sm_session_sid\x18\x01 \x01(\x03R\rasmSessionSid\x12\x16\n\x06reason\x18\x02 \x01(\tR\x06reason\"\x14\n\x12\x45ndSessionResponse\"\x1a\n\x18GetCurrentSessionRequest\"t\n\x19GetCurrentSessionResponse\x12W\n\x0b\x61sm_session\x18\x01 \x01(\x0b\x32\x36.services.omnichannel.asm.entities.v1alpha1.AsmSessionR\nasmSession\"\xf8\x01\n\x12\x45nableVoiceRequest\x12&\n\x0f\x61sm_session_sid\x18\x01 \x01(\x03R\rasmSessionSid\x12$\n\x0ehunt_group_sid\x18\x02 \x01(\x03R\x0chuntGroupSid\x12Y\n\x06skills\x18\x03 \x03(\x0b\x32\x41.services.omnichannel.asm.v1alpha1.EnableVoiceRequest.SkillsEntryR\x06skills\x1a\x39\n\x0bSkillsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\x03R\x05value:\x02\x38\x01\"\xe2\x01\n\x13\x45nableVoiceResponse\x12]\n\rvoice_session\x18\x01 \x01(\x0b\x32\x38.services.omnichannel.asm.entities.v1alpha1.VoiceSessionR\x0cvoiceSession\x12l\n\x12voice_registration\x18\x02 \x01(\x0b\x32=.services.omnichannel.asm.entities.v1alpha1.VoiceRegistrationR\x11voiceRegistration\"=\n\x13\x44isableVoiceRequest\x12&\n\x0f\x61sm_session_sid\x18\x01 \x01(\x03R\rasmSessionSid\"\x16\n\x14\x44isableVoiceResponse\"\x1b\n\x19ListAsmUserDetailsRequest\"t\n\x1aListAsmUserDetailsResponse\x12V\n\x08sessions\x18\x01 \x03(\x0b\x32:.services.omnichannel.asm.entities.v1alpha1.AsmUserDetailsR\x08sessionsB\xdd\x01\n%com.services.omnichannel.asm.v1alpha1B\rEntitiesProtoP\x01\xa2\x02\x03SOA\xaa\x02!Services.Omnichannel.Asm.V1alpha1\xca\x02!Services\\Omnichannel\\Asm\\V1alpha1\xe2\x02-Services\\Omnichannel\\Asm\\V1alpha1\\GPBMetadata\xea\x02$Services::Omnichannel::Asm::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,30 +25,30 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._serialized_options = b'\n%com.services.omnichannel.asm.v1alpha1B\rEntitiesProtoP\001\242\002\003SOA\252\002!Services.Omnichannel.Asm.V1alpha1\312\002!Services\\Omnichannel\\Asm\\V1alpha1\342\002-Services\\Omnichannel\\Asm\\V1alpha1\\GPBMetadata\352\002$Services::Omnichannel::Asm::V1alpha1'
   _globals['_ENABLEVOICEREQUEST_SKILLSENTRY']._options = None
   _globals['_ENABLEVOICEREQUEST_SKILLSENTRY']._serialized_options = b'8\001'
-  _globals['_CREATESESSIONREQUEST']._serialized_start=178
-  _globals['_CREATESESSIONREQUEST']._serialized_end=200
-  _globals['_CREATESESSIONRESPONSE']._serialized_start=202
-  _globals['_CREATESESSIONRESPONSE']._serialized_end=314
-  _globals['_ENDSESSIONREQUEST']._serialized_start=316
-  _globals['_ENDSESSIONREQUEST']._serialized_end=399
-  _globals['_ENDSESSIONRESPONSE']._serialized_start=401
-  _globals['_ENDSESSIONRESPONSE']._serialized_end=421
-  _globals['_GETCURRENTSESSIONREQUEST']._serialized_start=423
-  _globals['_GETCURRENTSESSIONREQUEST']._serialized_end=449
-  _globals['_GETCURRENTSESSIONRESPONSE']._serialized_start=451
-  _globals['_GETCURRENTSESSIONRESPONSE']._serialized_end=567
-  _globals['_ENABLEVOICEREQUEST']._serialized_start=570
-  _globals['_ENABLEVOICEREQUEST']._serialized_end=818
-  _globals['_ENABLEVOICEREQUEST_SKILLSENTRY']._serialized_start=761
-  _globals['_ENABLEVOICEREQUEST_SKILLSENTRY']._serialized_end=818
-  _globals['_ENABLEVOICERESPONSE']._serialized_start=821
-  _globals['_ENABLEVOICERESPONSE']._serialized_end=1047
-  _globals['_DISABLEVOICEREQUEST']._serialized_start=1049
-  _globals['_DISABLEVOICEREQUEST']._serialized_end=1110
-  _globals['_DISABLEVOICERESPONSE']._serialized_start=1112
-  _globals['_DISABLEVOICERESPONSE']._serialized_end=1134
-  _globals['_LISTASMUSERDETAILSREQUEST']._serialized_start=1136
-  _globals['_LISTASMUSERDETAILSREQUEST']._serialized_end=1163
-  _globals['_LISTASMUSERDETAILSRESPONSE']._serialized_start=1165
-  _globals['_LISTASMUSERDETAILSRESPONSE']._serialized_end=1281
+  _globals['_CREATESESSIONREQUEST']._serialized_start=145
+  _globals['_CREATESESSIONREQUEST']._serialized_end=167
+  _globals['_CREATESESSIONRESPONSE']._serialized_start=169
+  _globals['_CREATESESSIONRESPONSE']._serialized_end=281
+  _globals['_ENDSESSIONREQUEST']._serialized_start=283
+  _globals['_ENDSESSIONREQUEST']._serialized_end=366
+  _globals['_ENDSESSIONRESPONSE']._serialized_start=368
+  _globals['_ENDSESSIONRESPONSE']._serialized_end=388
+  _globals['_GETCURRENTSESSIONREQUEST']._serialized_start=390
+  _globals['_GETCURRENTSESSIONREQUEST']._serialized_end=416
+  _globals['_GETCURRENTSESSIONRESPONSE']._serialized_start=418
+  _globals['_GETCURRENTSESSIONRESPONSE']._serialized_end=534
+  _globals['_ENABLEVOICEREQUEST']._serialized_start=537
+  _globals['_ENABLEVOICEREQUEST']._serialized_end=785
+  _globals['_ENABLEVOICEREQUEST_SKILLSENTRY']._serialized_start=728
+  _globals['_ENABLEVOICEREQUEST_SKILLSENTRY']._serialized_end=785
+  _globals['_ENABLEVOICERESPONSE']._serialized_start=788
+  _globals['_ENABLEVOICERESPONSE']._serialized_end=1014
+  _globals['_DISABLEVOICEREQUEST']._serialized_start=1016
+  _globals['_DISABLEVOICEREQUEST']._serialized_end=1077
+  _globals['_DISABLEVOICERESPONSE']._serialized_start=1079
+  _globals['_DISABLEVOICERESPONSE']._serialized_end=1101
+  _globals['_LISTASMUSERDETAILSREQUEST']._serialized_start=1103
+  _globals['_LISTASMUSERDETAILSREQUEST']._serialized_end=1130
+  _globals['_LISTASMUSERDETAILSRESPONSE']._serialized_start=1132
+  _globals['_LISTASMUSERDETAILSRESPONSE']._serialized_end=1248
 # @@protoc_insertion_point(module_scope)
