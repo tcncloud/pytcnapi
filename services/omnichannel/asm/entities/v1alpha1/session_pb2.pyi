@@ -43,6 +43,6 @@ class VoiceRegistration(_message.Message):
     expiration_timestamp: int
     def __init__(self, username: _Optional[str] = ..., password: _Optional[str] = ..., dial_url: _Optional[str] = ..., pstn_phone: _Optional[str] = ..., default_time_zone: _Optional[str] = ..., expiration_timestamp: _Optional[int] = ...) -> None: ...
 
-class ListAsmUserDetails(_message.Message):
+class AsmUserDetails(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...

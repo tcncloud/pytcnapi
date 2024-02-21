@@ -81,5 +81,5 @@ class ListAsmUserDetailsRequest(_message.Message):
 class ListAsmUserDetailsResponse(_message.Message):
     __slots__ = ("sessions",)
     SESSIONS_FIELD_NUMBER: _ClassVar[int]
-    sessions: _containers.RepeatedCompositeFieldContainer[_session_pb2.ListAsmUserDetails]
-    def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.ListAsmUserDetails, _Mapping]]] = ...) -> None: ...
+    sessions: _containers.RepeatedCompositeFieldContainer[_session_pb2.AsmUserDetails]
+    def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ...) -> None: ...
