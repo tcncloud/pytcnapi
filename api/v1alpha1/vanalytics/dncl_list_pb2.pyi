@@ -11,10 +11,12 @@ class DnclExpirePeriod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DNCL_EXPIRE_PERIOD_HOUR: _ClassVar[DnclExpirePeriod]
     DNCL_EXPIRE_PERIOD_DAY: _ClassVar[DnclExpirePeriod]
     DNCL_EXPIRE_PERIOD_WEEK: _ClassVar[DnclExpirePeriod]
+    DNCL_EXPIRE_PERIOD_NEVER: _ClassVar[DnclExpirePeriod]
     DNCL_EXPIRE_PERIOD_MONTH: _ClassVar[DnclExpirePeriod]
 DNCL_EXPIRE_PERIOD_HOUR: DnclExpirePeriod
 DNCL_EXPIRE_PERIOD_DAY: DnclExpirePeriod
 DNCL_EXPIRE_PERIOD_WEEK: DnclExpirePeriod
+DNCL_EXPIRE_PERIOD_NEVER: DnclExpirePeriod
 DNCL_EXPIRE_PERIOD_MONTH: DnclExpirePeriod
 
 class DnclList(_message.Message):
