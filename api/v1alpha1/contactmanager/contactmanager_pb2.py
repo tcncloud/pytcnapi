@@ -17,7 +17,7 @@ from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mas
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0api/v1alpha1/contactmanager/contactmanager.proto\x12\x1b\x61pi.v1alpha1.contactmanager\x1a api/commons/contactmanager.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8c\x01\n\x15GetContactListRequest\x12=\n\x0crequest_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0brequestMask\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12\x1d\n\nproject_id\x18\x03 \x01(\tR\tprojectId\"\\\n\x16GetContactListResponse\x12\x42\n\x0c\x63ontact_list\x18\x01 \x03(\x0b\x32\x1f.api.commons.ContactManagerListR\x0b\x63ontactList\"\x8a\x01\n\x1bListContactEntryListRequest\x12\x35\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12\x1d\n\nproject_id\x18\x03 \x01(\tR\tprojectId\"e\n\x1cListContactEntryListResponse\x12\x45\n\rcontact_entry\x18\x01 \x03(\x0b\x32 .api.commons.ContactManagerEntryR\x0c\x63ontactEntry\"T\n\x19GetEncContactEntryRequest\x12\x37\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03R\x15\x63ontactManagerEntryId\"c\n\x1aGetEncContactEntryResponse\x12\x45\n\rcontact_entry\x18\x01 \x03(\x0b\x32 .api.commons.ContactManagerEntryR\x0c\x63ontactEntryB\xc4\x01\n\x1f\x63om.api.v1alpha1.contactmanagerB\x13\x43ontactmanagerProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x1b\x41pi.V1alpha1.Contactmanager\xca\x02\x1b\x41pi\\V1alpha1\\Contactmanager\xe2\x02\'Api\\V1alpha1\\Contactmanager\\GPBMetadata\xea\x02\x1d\x41pi::V1alpha1::Contactmanagerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0api/v1alpha1/contactmanager/contactmanager.proto\x12\x1b\x61pi.v1alpha1.contactmanager\x1a api/commons/contactmanager.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x90\x01\n\x15GetContactListRequest\x12=\n\x0crequest_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0brequestMask\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12!\n\nproject_id\x18\x03 \x01(\x03\x42\x02\x30\x01R\tprojectId\"\\\n\x16GetContactListResponse\x12\x42\n\x0c\x63ontact_list\x18\x01 \x03(\x0b\x32\x1f.api.commons.ContactManagerListR\x0b\x63ontactList\"\x8e\x01\n\x1bListContactEntryListRequest\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12\x1d\n\nproject_id\x18\x03 \x01(\tR\tprojectId\"e\n\x1cListContactEntryListResponse\x12\x45\n\rcontact_entry\x18\x01 \x03(\x0b\x32 .api.commons.ContactManagerEntryR\x0c\x63ontactEntry\"X\n\x19GetEncContactEntryRequest\x12;\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x15\x63ontactManagerEntryId\"c\n\x1aGetEncContactEntryResponse\x12\x45\n\rcontact_entry\x18\x01 \x03(\x0b\x32 .api.commons.ContactManagerEntryR\x0c\x63ontactEntryB\xc4\x01\n\x1f\x63om.api.v1alpha1.contactmanagerB\x13\x43ontactmanagerProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x1b\x41pi.V1alpha1.Contactmanager\xca\x02\x1b\x41pi\\V1alpha1\\Contactmanager\xe2\x02\'Api\\V1alpha1\\Contactmanager\\GPBMetadata\xea\x02\x1d\x41pi::V1alpha1::Contactmanagerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,16 +25,22 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.contactmanager
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\037com.api.v1alpha1.contactmanagerB\023ContactmanagerProtoP\001\242\002\003AVC\252\002\033Api.V1alpha1.Contactmanager\312\002\033Api\\V1alpha1\\Contactmanager\342\002\'Api\\V1alpha1\\Contactmanager\\GPBMetadata\352\002\035Api::V1alpha1::Contactmanager'
+  _globals['_GETCONTACTLISTREQUEST'].fields_by_name['project_id']._options = None
+  _globals['_GETCONTACTLISTREQUEST'].fields_by_name['project_id']._serialized_options = b'0\001'
+  _globals['_LISTCONTACTENTRYLISTREQUEST'].fields_by_name['contact_manager_list_id']._options = None
+  _globals['_LISTCONTACTENTRYLISTREQUEST'].fields_by_name['contact_manager_list_id']._serialized_options = b'0\001'
+  _globals['_GETENCCONTACTENTRYREQUEST'].fields_by_name['contact_manager_entry_id']._options = None
+  _globals['_GETENCCONTACTENTRYREQUEST'].fields_by_name['contact_manager_entry_id']._serialized_options = b'0\001'
   _globals['_GETCONTACTLISTREQUEST']._serialized_start=183
-  _globals['_GETCONTACTLISTREQUEST']._serialized_end=323
-  _globals['_GETCONTACTLISTRESPONSE']._serialized_start=325
-  _globals['_GETCONTACTLISTRESPONSE']._serialized_end=417
-  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_start=420
-  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_end=558
-  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_start=560
-  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_end=661
-  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_start=663
-  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_end=747
-  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_start=749
-  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_end=848
+  _globals['_GETCONTACTLISTREQUEST']._serialized_end=327
+  _globals['_GETCONTACTLISTRESPONSE']._serialized_start=329
+  _globals['_GETCONTACTLISTRESPONSE']._serialized_end=421
+  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_start=424
+  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_end=566
+  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_start=568
+  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_end=669
+  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_start=671
+  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_end=759
+  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_start=761
+  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_end=860
 # @@protoc_insertion_point(module_scope)

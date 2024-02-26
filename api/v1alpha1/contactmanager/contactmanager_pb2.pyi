@@ -15,8 +15,8 @@ class GetContactListRequest(_message.Message):
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     request_mask: _field_mask_pb2.FieldMask
     org_id: str
-    project_id: str
-    def __init__(self, request_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., org_id: _Optional[str] = ..., project_id: _Optional[str] = ...) -> None: ...
+    project_id: int
+    def __init__(self, request_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., org_id: _Optional[str] = ..., project_id: _Optional[int] = ...) -> None: ...
 
 class GetContactListResponse(_message.Message):
     __slots__ = ("contact_list",)

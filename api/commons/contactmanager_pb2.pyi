@@ -34,10 +34,10 @@ class ContactManagerList(_message.Message):
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     contact_manager_list_id: int
     org_id: str
-    project_id: str
+    project_id: int
     file_name: str
     description: str
     list_details: _containers.RepeatedScalarFieldContainer[str]
     ttl: int
     date_created: _timestamp_pb2.Timestamp
-    def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[str] = ..., file_name: _Optional[str] = ..., description: _Optional[str] = ..., list_details: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[int] = ..., file_name: _Optional[str] = ..., description: _Optional[str] = ..., list_details: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
