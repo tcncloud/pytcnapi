@@ -3481,31 +3481,31 @@ class ReplaceAgentOnScheduleRes(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
-class HelloWorldAdminRequest(_message.Message):
+class HelloWorldAdherenceAdminRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class HelloWorldAdminResponse(_message.Message):
+class HelloWorldAdherenceAdminResponse(_message.Message):
     __slots__ = ("hello_message",)
     HELLO_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     hello_message: str
     def __init__(self, hello_message: _Optional[str] = ...) -> None: ...
 
-class HelloWorldManagerRequest(_message.Message):
+class HelloWorldAdherenceManagerRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class HelloWorldManagerResponse(_message.Message):
+class HelloWorldAdherenceManagerResponse(_message.Message):
     __slots__ = ("hello_message",)
     HELLO_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     hello_message: str
     def __init__(self, hello_message: _Optional[str] = ...) -> None: ...
 
-class HelloWorldMonitorRequest(_message.Message):
+class HelloWorldAdherenceMonitorRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class HelloWorldMonitorResponse(_message.Message):
+class HelloWorldAdherenceMonitorResponse(_message.Message):
     __slots__ = ("hello_message",)
     HELLO_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     hello_message: str

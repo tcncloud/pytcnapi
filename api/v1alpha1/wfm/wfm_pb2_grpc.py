@@ -830,20 +830,20 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
                 )
-        self.HelloWorldAdmin = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/HelloWorldAdmin',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdminRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdminResponse.FromString,
+        self.HelloWorldAdherenceAdmin = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/HelloWorldAdherenceAdmin',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceAdminRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceAdminResponse.FromString,
                 )
-        self.HelloWorldManager = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/HelloWorldManager',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldManagerRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldManagerResponse.FromString,
+        self.HelloWorldAdherenceManager = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/HelloWorldAdherenceManager',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceManagerRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceManagerResponse.FromString,
                 )
-        self.HelloWorldMonitor = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/HelloWorldMonitor',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldMonitorRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldMonitorResponse.FromString,
+        self.HelloWorldAdherenceMonitor = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/HelloWorldAdherenceMonitor',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceMonitorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceMonitorResponse.FromString,
                 )
 
 
@@ -3244,7 +3244,7 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def HelloWorldAdmin(self, request, context):
+    def HelloWorldAdherenceAdmin(self, request, context):
         """**************************************************************************************************************************************************
 
         **************************************************************************************************************************************************
@@ -3264,7 +3264,7 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def HelloWorldManager(self, request, context):
+    def HelloWorldAdherenceManager(self, request, context):
         """A hello world endpoint to test the PERMISSION_ADHERENCE_MANAGER permission.
         Returns a string with a hello world message.
         Required permissions:
@@ -3274,7 +3274,7 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def HelloWorldMonitor(self, request, context):
+    def HelloWorldAdherenceMonitor(self, request, context):
         """A hello world endpoint to test the PERMISSION_ADHERENCE_MONITOR permission.
         Returns a string with a hello world message.
         Required permissions:
@@ -4102,20 +4102,20 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.SerializeToString,
             ),
-            'HelloWorldAdmin': grpc.unary_unary_rpc_method_handler(
-                    servicer.HelloWorldAdmin,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdminRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdminResponse.SerializeToString,
+            'HelloWorldAdherenceAdmin': grpc.unary_unary_rpc_method_handler(
+                    servicer.HelloWorldAdherenceAdmin,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceAdminRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceAdminResponse.SerializeToString,
             ),
-            'HelloWorldManager': grpc.unary_unary_rpc_method_handler(
-                    servicer.HelloWorldManager,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldManagerRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldManagerResponse.SerializeToString,
+            'HelloWorldAdherenceManager': grpc.unary_unary_rpc_method_handler(
+                    servicer.HelloWorldAdherenceManager,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceManagerRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceManagerResponse.SerializeToString,
             ),
-            'HelloWorldMonitor': grpc.unary_unary_rpc_method_handler(
-                    servicer.HelloWorldMonitor,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldMonitorRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldMonitorResponse.SerializeToString,
+            'HelloWorldAdherenceMonitor': grpc.unary_unary_rpc_method_handler(
+                    servicer.HelloWorldAdherenceMonitor,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceMonitorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceMonitorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -6900,7 +6900,7 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def HelloWorldAdmin(request,
+    def HelloWorldAdherenceAdmin(request,
             target,
             options=(),
             channel_credentials=None,
@@ -6910,14 +6910,14 @@ class WFM(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldAdmin',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdminRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdminResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldAdherenceAdmin',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceAdminRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceAdminResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def HelloWorldManager(request,
+    def HelloWorldAdherenceManager(request,
             target,
             options=(),
             channel_credentials=None,
@@ -6927,14 +6927,14 @@ class WFM(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldManager',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldManagerRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldManagerResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldAdherenceManager',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceManagerRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceManagerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def HelloWorldMonitor(request,
+    def HelloWorldAdherenceMonitor(request,
             target,
             options=(),
             channel_credentials=None,
@@ -6944,8 +6944,8 @@ class WFM(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldMonitor',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldMonitorRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldMonitorResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldAdherenceMonitor',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceMonitorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldAdherenceMonitorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
