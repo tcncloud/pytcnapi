@@ -99,6 +99,7 @@ class Permission(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     PERMISSION_NEWSROOM_VIEW: _ClassVar[Permission]
     PERMISSION_NEWSROOM_EDIT: _ClassVar[Permission]
     PERMISSION_NEWSROOM_PUBLISH: _ClassVar[Permission]
+    PERMISSION_CONTACTMANAGER_APP: _ClassVar[Permission]
 PERMISSION_UNSPECIFIED: Permission
 PERMISSION_DEV: Permission
 PERMISSION_LEARN_EDIT: Permission
@@ -191,3 +192,4 @@ PERMISSION_PBX_SOFTPHONE_WIDGET: Permission
 PERMISSION_NEWSROOM_VIEW: Permission
 PERMISSION_NEWSROOM_EDIT: Permission
 PERMISSION_NEWSROOM_PUBLISH: Permission
+PERMISSION_CONTACTMANAGER_APP: Permission
