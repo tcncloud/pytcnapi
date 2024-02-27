@@ -59,20 +59,6 @@ class DisplayLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DISPLAY_LANGUAGE_PORTUGUESE: _ClassVar[DisplayLanguage]
     DISPLAY_LANGUAGE_ENGLISH: _ClassVar[DisplayLanguage]
 
-class OperatorDisplayLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    OPERATOR_DISPLAY_LANGUAGE_UNSPECIFIED: _ClassVar[OperatorDisplayLanguage]
-    OPERATOR_DISPLAY_LANGUAGE_SPANISH: _ClassVar[OperatorDisplayLanguage]
-    OPERATOR_DISPLAY_LANGUAGE_FRENCH_CANADA: _ClassVar[OperatorDisplayLanguage]
-    OPERATOR_DISPLAY_LANGUAGE_PORTUGUESE: _ClassVar[OperatorDisplayLanguage]
-    OPERATOR_DISPLAY_LANGUAGE_ENGLISH: _ClassVar[OperatorDisplayLanguage]
-
-class OperatorScriptDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    OPERATOR_SCRIPT_DIRECTION_UNSPECIFIED: _ClassVar[OperatorScriptDirection]
-    OPERATOR_SCRIPT_DIRECTION_LEFT_TO_RIGHT: _ClassVar[OperatorScriptDirection]
-    OPERATOR_SCRIPT_DIRECTION_RIGHT_TO_LEFT: _ClassVar[OperatorScriptDirection]
-
 class DefaultDuplicateHandling(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     DEFAULT_DUPLICATE_HANDLING_KEEP_RECORD_AND_DISCARD_NUMBER: _ClassVar[DefaultDuplicateHandling]
@@ -831,14 +817,6 @@ DISPLAY_LANGUAGE_SPANISH: DisplayLanguage
 DISPLAY_LANGUAGE_FRENCH_CANADA: DisplayLanguage
 DISPLAY_LANGUAGE_PORTUGUESE: DisplayLanguage
 DISPLAY_LANGUAGE_ENGLISH: DisplayLanguage
-OPERATOR_DISPLAY_LANGUAGE_UNSPECIFIED: OperatorDisplayLanguage
-OPERATOR_DISPLAY_LANGUAGE_SPANISH: OperatorDisplayLanguage
-OPERATOR_DISPLAY_LANGUAGE_FRENCH_CANADA: OperatorDisplayLanguage
-OPERATOR_DISPLAY_LANGUAGE_PORTUGUESE: OperatorDisplayLanguage
-OPERATOR_DISPLAY_LANGUAGE_ENGLISH: OperatorDisplayLanguage
-OPERATOR_SCRIPT_DIRECTION_UNSPECIFIED: OperatorScriptDirection
-OPERATOR_SCRIPT_DIRECTION_LEFT_TO_RIGHT: OperatorScriptDirection
-OPERATOR_SCRIPT_DIRECTION_RIGHT_TO_LEFT: OperatorScriptDirection
 DEFAULT_DUPLICATE_HANDLING_KEEP_RECORD_AND_DISCARD_NUMBER: DefaultDuplicateHandling
 DEFAULT_DUPLICATE_HANDLING_DISCARD_RECORD: DefaultDuplicateHandling
 DEFAULT_DUPLICATE_HANDLING_ALLOW_DUPLICATES: DefaultDuplicateHandling
