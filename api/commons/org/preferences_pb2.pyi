@@ -12,20 +12,20 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrganizationPreferences(_message.Message):
-    __slots__ = ("org_id", "default_country", "time_zone", "display_language", "operator_display_language", "script_direction_RTL")
+    __slots__ = ("org_id", "default_country", "time_zone", "display_language", "operator_display_language", "use_script_direction_RTL")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_COUNTRY_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_LANGUAGE_FIELD_NUMBER: _ClassVar[int]
     OPERATOR_DISPLAY_LANGUAGE_FIELD_NUMBER: _ClassVar[int]
-    SCRIPT_DIRECTION_RTL_FIELD_NUMBER: _ClassVar[int]
+    USE_SCRIPT_DIRECTION_RTL_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     default_country: _country_pb2.Country
     time_zone: _org_pb2.TimeZone
     display_language: _org_pb2.DisplayLanguage
     operator_display_language: str
-    script_direction_RTL: bool
-    def __init__(self, org_id: _Optional[str] = ..., default_country: _Optional[_Union[_country_pb2.Country, str]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., display_language: _Optional[_Union[_org_pb2.DisplayLanguage, str]] = ..., operator_display_language: _Optional[str] = ..., script_direction_RTL: bool = ...) -> None: ...
+    use_script_direction_RTL: bool
+    def __init__(self, org_id: _Optional[str] = ..., default_country: _Optional[_Union[_country_pb2.Country, str]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., display_language: _Optional[_Union[_org_pb2.DisplayLanguage, str]] = ..., operator_display_language: _Optional[str] = ..., use_script_direction_RTL: bool = ...) -> None: ...
 
 class AgentPreferences(_message.Message):
     __slots__ = ("org_id", "default_agent_dial_in", "pbx_extension_length", "default_softphone_volume_in", "default_softphone_volume_out", "config_dial_in_numbers", "client_dial_in_numbers", "manual_dial_caller_id_privacy", "use_manual_dial_caller_id_privacy")
