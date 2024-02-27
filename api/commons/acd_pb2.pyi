@@ -124,20 +124,16 @@ class AgentSession(_message.Message):
     def __init__(self, agent_sid: _Optional[int] = ..., tenant_sid: _Optional[int] = ..., session_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class CallerSid(_message.Message):
-    __slots__ = ("caller_sid", "type", "tenant_sid", "org_id", "caller_id", "destination_number")
+    __slots__ = ("caller_sid", "type", "tenant_sid", "org_id")
     CALLER_SID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     TENANT_SID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
-    CALLER_ID_FIELD_NUMBER: _ClassVar[int]
-    DESTINATION_NUMBER_FIELD_NUMBER: _ClassVar[int]
     caller_sid: int
     type: CallType.Enum
     tenant_sid: int
     org_id: str
-    caller_id: str
-    destination_number: str
-    def __init__(self, caller_sid: _Optional[int] = ..., type: _Optional[_Union[CallType.Enum, str]] = ..., tenant_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., caller_id: _Optional[str] = ..., destination_number: _Optional[str] = ...) -> None: ...
+    def __init__(self, caller_sid: _Optional[int] = ..., type: _Optional[_Union[CallType.Enum, str]] = ..., tenant_sid: _Optional[int] = ..., org_id: _Optional[str] = ...) -> None: ...
 
 class AgentStatus(_message.Message):
     __slots__ = ()
