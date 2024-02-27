@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ReportJob(_message.Message):
-    __slots__ = ("report_job_id", "name", "description", "dashboard_id", "time_zone", "time_period", "delivery_times", "day_filter", "months", "format_options", "delivery_options", "is_active", "send_empty_report", "dashboard_resource_id", "time_zone_wrapper")
+    __slots__ = ("report_job_id", "name", "description", "dashboard_id", "time_zone", "time_period", "delivery_times", "day_filter", "months", "format_options", "delivery_options", "is_active", "send_empty_report", "dashboard_resource_id", "time_zone_wrapper", "hide_csv_footer")
     REPORT_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -25,6 +25,7 @@ class ReportJob(_message.Message):
     SEND_EMPTY_REPORT_FIELD_NUMBER: _ClassVar[int]
     DASHBOARD_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_WRAPPER_FIELD_NUMBER: _ClassVar[int]
+    HIDE_CSV_FOOTER_FIELD_NUMBER: _ClassVar[int]
     report_job_id: str
     name: str
     description: str
@@ -40,4 +41,5 @@ class ReportJob(_message.Message):
     send_empty_report: bool
     dashboard_resource_id: str
     time_zone_wrapper: _org_pb2.TimeZoneWrapper
-    def __init__(self, report_job_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., dashboard_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., delivery_times: _Optional[_Union[_bireportgenerator_pb2.DeliveryTimes, _Mapping]] = ..., day_filter: _Optional[_Union[_bireportgenerator_pb2.DayFilter, _Mapping]] = ..., months: _Optional[_Iterable[_Union[_enums_pb2.Month, str]]] = ..., format_options: _Optional[_Union[_bireportgenerator_pb2.FormatOptions, _Mapping]] = ..., delivery_options: _Optional[_Union[_bireportgenerator_pb2.DeliveryOptions, _Mapping]] = ..., is_active: bool = ..., send_empty_report: bool = ..., dashboard_resource_id: _Optional[str] = ..., time_zone_wrapper: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ...) -> None: ...
+    hide_csv_footer: bool
+    def __init__(self, report_job_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., dashboard_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., delivery_times: _Optional[_Union[_bireportgenerator_pb2.DeliveryTimes, _Mapping]] = ..., day_filter: _Optional[_Union[_bireportgenerator_pb2.DayFilter, _Mapping]] = ..., months: _Optional[_Iterable[_Union[_enums_pb2.Month, str]]] = ..., format_options: _Optional[_Union[_bireportgenerator_pb2.FormatOptions, _Mapping]] = ..., delivery_options: _Optional[_Union[_bireportgenerator_pb2.DeliveryOptions, _Mapping]] = ..., is_active: bool = ..., send_empty_report: bool = ..., dashboard_resource_id: _Optional[str] = ..., time_zone_wrapper: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hide_csv_footer: bool = ...) -> None: ...
