@@ -152,11 +152,9 @@ class FormatOptions(_message.Message):
     def __init__(self, report_format: _Optional[_Union[ReportFormat, str]] = ..., filename_parts: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class DeliveryOptions(_message.Message):
-    __slots__ = ("transfer_config_sid", "failure_notification_emails", "failure_notification_transfer_config_sid")
+    __slots__ = ("transfer_config_sid", "failure_notification_emails")
     TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
     FAILURE_NOTIFICATION_EMAILS_FIELD_NUMBER: _ClassVar[int]
-    FAILURE_NOTIFICATION_TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
     transfer_config_sid: int
     failure_notification_emails: _containers.RepeatedScalarFieldContainer[str]
-    failure_notification_transfer_config_sid: int
-    def __init__(self, transfer_config_sid: _Optional[int] = ..., failure_notification_emails: _Optional[_Iterable[str]] = ..., failure_notification_transfer_config_sid: _Optional[int] = ...) -> None: ...
+    def __init__(self, transfer_config_sid: _Optional[int] = ..., failure_notification_emails: _Optional[_Iterable[str]] = ...) -> None: ...
