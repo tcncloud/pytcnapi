@@ -289,6 +289,70 @@ class TranscriptQuery(_message.Message):
     __slots__ = ("transcript_sid", "channel", "metadata", "threads", "flag_summary", "start_time", "delete_time", "phone")
     class Phone(_message.Message):
         __slots__ = ("cc", "ndc", "prefix", "city", "iso2", "region_code", "region_name", "time_zone", "type", "utc", "location", "raw")
+        class Cc(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class Ndc(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class Prefix(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class City(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class Iso2(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class RegionCode(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class RegionName(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class TimeZone(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class Type(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class Utc(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[float]
+            def __init__(self, any: _Optional[_Iterable[float]] = ...) -> None: ...
+        class Location(_message.Message):
+            __slots__ = ("zip_code_proximity",)
+            class ZipCodeProximity(_message.Message):
+                __slots__ = ("country_code", "zip_code", "distance")
+                COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+                ZIP_CODE_FIELD_NUMBER: _ClassVar[int]
+                DISTANCE_FIELD_NUMBER: _ClassVar[int]
+                country_code: str
+                zip_code: str
+                distance: str
+                def __init__(self, country_code: _Optional[str] = ..., zip_code: _Optional[str] = ..., distance: _Optional[str] = ...) -> None: ...
+            ZIP_CODE_PROXIMITY_FIELD_NUMBER: _ClassVar[int]
+            zip_code_proximity: TranscriptQuery.Phone.Location.ZipCodeProximity
+            def __init__(self, zip_code_proximity: _Optional[_Union[TranscriptQuery.Phone.Location.ZipCodeProximity, _Mapping]] = ...) -> None: ...
         class Raw(_message.Message):
             __slots__ = ("any",)
             ANY_FIELD_NUMBER: _ClassVar[int]
@@ -306,83 +370,19 @@ class TranscriptQuery(_message.Message):
         UTC_FIELD_NUMBER: _ClassVar[int]
         LOCATION_FIELD_NUMBER: _ClassVar[int]
         RAW_FIELD_NUMBER: _ClassVar[int]
-        cc: TranscriptQuery.Cc
-        ndc: TranscriptQuery.Ndc
-        prefix: TranscriptQuery.Prefix
-        city: TranscriptQuery.City
-        iso2: TranscriptQuery.Iso2
-        region_code: TranscriptQuery.RegionCode
-        region_name: TranscriptQuery.RegionName
-        time_zone: TranscriptQuery.TimeZone
-        type: TranscriptQuery.Type
-        utc: TranscriptQuery.Utc
-        location: TranscriptQuery.Location
+        cc: TranscriptQuery.Phone.Cc
+        ndc: TranscriptQuery.Phone.Ndc
+        prefix: TranscriptQuery.Phone.Prefix
+        city: TranscriptQuery.Phone.City
+        iso2: TranscriptQuery.Phone.Iso2
+        region_code: TranscriptQuery.Phone.RegionCode
+        region_name: TranscriptQuery.Phone.RegionName
+        time_zone: TranscriptQuery.Phone.TimeZone
+        type: TranscriptQuery.Phone.Type
+        utc: TranscriptQuery.Phone.Utc
+        location: TranscriptQuery.Phone.Location
         raw: TranscriptQuery.Phone.Raw
-        def __init__(self, cc: _Optional[_Union[TranscriptQuery.Cc, _Mapping]] = ..., ndc: _Optional[_Union[TranscriptQuery.Ndc, _Mapping]] = ..., prefix: _Optional[_Union[TranscriptQuery.Prefix, _Mapping]] = ..., city: _Optional[_Union[TranscriptQuery.City, _Mapping]] = ..., iso2: _Optional[_Union[TranscriptQuery.Iso2, _Mapping]] = ..., region_code: _Optional[_Union[TranscriptQuery.RegionCode, _Mapping]] = ..., region_name: _Optional[_Union[TranscriptQuery.RegionName, _Mapping]] = ..., time_zone: _Optional[_Union[TranscriptQuery.TimeZone, _Mapping]] = ..., type: _Optional[_Union[TranscriptQuery.Type, _Mapping]] = ..., utc: _Optional[_Union[TranscriptQuery.Utc, _Mapping]] = ..., location: _Optional[_Union[TranscriptQuery.Location, _Mapping]] = ..., raw: _Optional[_Union[TranscriptQuery.Phone.Raw, _Mapping]] = ...) -> None: ...
-    class Cc(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class Ndc(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class Prefix(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class City(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class Iso2(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class RegionCode(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class RegionName(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class TimeZone(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class Type(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
-    class Utc(_message.Message):
-        __slots__ = ("any",)
-        ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[float]
-        def __init__(self, any: _Optional[_Iterable[float]] = ...) -> None: ...
-    class Location(_message.Message):
-        __slots__ = ("zip_code_proximity",)
-        class ZipCodeProximity(_message.Message):
-            __slots__ = ("country_code", "zip_code", "distance")
-            COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
-            ZIP_CODE_FIELD_NUMBER: _ClassVar[int]
-            DISTANCE_FIELD_NUMBER: _ClassVar[int]
-            country_code: str
-            zip_code: str
-            distance: str
-            def __init__(self, country_code: _Optional[str] = ..., zip_code: _Optional[str] = ..., distance: _Optional[str] = ...) -> None: ...
-        ZIP_CODE_PROXIMITY_FIELD_NUMBER: _ClassVar[int]
-        zip_code_proximity: TranscriptQuery.Location.ZipCodeProximity
-        def __init__(self, zip_code_proximity: _Optional[_Union[TranscriptQuery.Location.ZipCodeProximity, _Mapping]] = ...) -> None: ...
+        def __init__(self, cc: _Optional[_Union[TranscriptQuery.Phone.Cc, _Mapping]] = ..., ndc: _Optional[_Union[TranscriptQuery.Phone.Ndc, _Mapping]] = ..., prefix: _Optional[_Union[TranscriptQuery.Phone.Prefix, _Mapping]] = ..., city: _Optional[_Union[TranscriptQuery.Phone.City, _Mapping]] = ..., iso2: _Optional[_Union[TranscriptQuery.Phone.Iso2, _Mapping]] = ..., region_code: _Optional[_Union[TranscriptQuery.Phone.RegionCode, _Mapping]] = ..., region_name: _Optional[_Union[TranscriptQuery.Phone.RegionName, _Mapping]] = ..., time_zone: _Optional[_Union[TranscriptQuery.Phone.TimeZone, _Mapping]] = ..., type: _Optional[_Union[TranscriptQuery.Phone.Type, _Mapping]] = ..., utc: _Optional[_Union[TranscriptQuery.Phone.Utc, _Mapping]] = ..., location: _Optional[_Union[TranscriptQuery.Phone.Location, _Mapping]] = ..., raw: _Optional[_Union[TranscriptQuery.Phone.Raw, _Mapping]] = ...) -> None: ...
     class TranscriptSid(_message.Message):
         __slots__ = ("any",)
         ANY_FIELD_NUMBER: _ClassVar[int]
