@@ -2,6 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from wfo.vanalytics.v2 import correction_pb2 as wfo_dot_vanalytics_dot_v2_dot_correction__pb2
 from wfo.vanalytics.v2 import transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__pb2
 
 
@@ -19,6 +20,11 @@ class VanalyticsStub(object):
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
                 )
+        self.CreateCorrection = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/CreateCorrection',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionResponse.FromString,
+                )
 
 
 class VanalyticsServicer(object):
@@ -33,6 +39,15 @@ class VanalyticsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateCorrection(self, request, context):
+        """[CORRECTION] =========================================================
+
+        CreateCorrection creates a correction.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_VanalyticsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -40,6 +55,11 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     servicer.SearchTranscripts,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.SerializeToString,
+            ),
+            'CreateCorrection': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateCorrection,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -65,5 +85,22 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateCorrection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateCorrection',
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
