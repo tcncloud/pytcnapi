@@ -97,7 +97,7 @@ class User(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., login_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., region_id: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., region_sid_map: _Optional[_Mapping[str, User.RegionSids]] = ..., api_key: _Optional[str] = ..., email: _Optional[str] = ..., login_disabled: bool = ..., caller_ids: _Optional[_Iterable[str]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., auth_user_id: _Optional[str] = ..., enable_mfa: bool = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: bool = ..., connection_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., trust_ids: _Optional[_Iterable[str]] = ..., default_region: _Optional[str] = ..., default_application: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., agent_profile_group_id: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., agent: bool = ..., account_owner: bool = ..., email_verified: bool = ...) -> None: ...
 
 class MfaInfo(_message.Message):
-    __slots__ = ("org_id", "user_id", "mfa_enabled", "none", "otp")
+    __slots__ = ("org_id", "user_id", "mfa_enabled", "none", "otp", "duo")
     class NoneSelected(_message.Message):
         __slots__ = ("timeout",)
         TIMEOUT_FIELD_NUMBER: _ClassVar[int]
@@ -111,17 +111,24 @@ class MfaInfo(_message.Message):
         EMAIL_FIELD_NUMBER: _ClassVar[int]
         email: MfaInfo.OtpType.EmailDeliveryMethod
         def __init__(self, email: _Optional[_Union[MfaInfo.OtpType.EmailDeliveryMethod, _Mapping]] = ...) -> None: ...
+    class Duo(_message.Message):
+        __slots__ = ("duo_username",)
+        DUO_USERNAME_FIELD_NUMBER: _ClassVar[int]
+        duo_username: str
+        def __init__(self, duo_username: _Optional[str] = ...) -> None: ...
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     MFA_ENABLED_FIELD_NUMBER: _ClassVar[int]
     NONE_FIELD_NUMBER: _ClassVar[int]
     OTP_FIELD_NUMBER: _ClassVar[int]
+    DUO_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     user_id: str
     mfa_enabled: bool
     none: MfaInfo.NoneSelected
     otp: MfaInfo.OtpType
-    def __init__(self, org_id: _Optional[str] = ..., user_id: _Optional[str] = ..., mfa_enabled: bool = ..., none: _Optional[_Union[MfaInfo.NoneSelected, _Mapping]] = ..., otp: _Optional[_Union[MfaInfo.OtpType, _Mapping]] = ...) -> None: ...
+    duo: MfaInfo.Duo
+    def __init__(self, org_id: _Optional[str] = ..., user_id: _Optional[str] = ..., mfa_enabled: bool = ..., none: _Optional[_Union[MfaInfo.NoneSelected, _Mapping]] = ..., otp: _Optional[_Union[MfaInfo.OtpType, _Mapping]] = ..., duo: _Optional[_Union[MfaInfo.Duo, _Mapping]] = ...) -> None: ...
 
 class Skill(_message.Message):
     __slots__ = ("level", "name", "description", "skill_sid")
