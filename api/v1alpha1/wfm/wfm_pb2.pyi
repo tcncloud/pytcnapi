@@ -3480,3 +3480,13 @@ class ReplaceAgentOnScheduleRes(_message.Message):
     updated_shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class HelloWorldWFMAdherenceRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class HelloWorldWFMAdherenceResponse(_message.Message):
+    __slots__ = ("hello_message",)
+    HELLO_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    hello_message: str
+    def __init__(self, hello_message: _Optional[str] = ...) -> None: ...
