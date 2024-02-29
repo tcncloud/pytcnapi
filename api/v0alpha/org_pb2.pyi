@@ -1432,16 +1432,18 @@ class UpdateOrganizationPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class OrganizationPreferences(_message.Message):
-    __slots__ = ("allowed_countries", "default_country", "time_zone", "display_language")
+    __slots__ = ("allowed_countries", "default_country", "time_zone", "display_language", "locale_preferences")
     ALLOWED_COUNTRIES_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_COUNTRY_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_LANGUAGE_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     allowed_countries: _containers.RepeatedScalarFieldContainer[_country_pb2.Country]
     default_country: _country_pb2.Country
     time_zone: _org_pb2.TimeZone
     display_language: _org_pb2.DisplayLanguage
-    def __init__(self, allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ..., default_country: _Optional[_Union[_country_pb2.Country, str]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., display_language: _Optional[_Union[_org_pb2.DisplayLanguage, str]] = ...) -> None: ...
+    locale_preferences: _org_preferences_pb2.LocalePreferences
+    def __init__(self, allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ..., default_country: _Optional[_Union[_country_pb2.Country, str]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., display_language: _Optional[_Union[_org_pb2.DisplayLanguage, str]] = ..., locale_preferences: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ...) -> None: ...
 
 class GetAgentPreferencesRequest(_message.Message):
     __slots__ = ("field_mask",)

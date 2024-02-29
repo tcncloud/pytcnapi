@@ -1,6 +1,7 @@
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
-from typing import ClassVar as _ClassVar
+from google.protobuf import message as _message
+from typing import ClassVar as _ClassVar, Optional as _Optional
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -120,3 +121,13 @@ FILTER_BY_STAR_KEY: StandardReportFilter
 FILTER_BY_POUND_KEY: StandardReportFilter
 FILTER_BY_MACHINE_HANGUP_AND_UNCONNECTED: StandardReportFilter
 FILTER_BY_EXCLUDING_CANCELED_AND_INVALID: StandardReportFilter
+
+class LocalePreferences(_message.Message):
+    __slots__ = ("language_tag", "use_script_direction_right_to_left", "default_currency")
+    LANGUAGE_TAG_FIELD_NUMBER: _ClassVar[int]
+    USE_SCRIPT_DIRECTION_RIGHT_TO_LEFT_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_CURRENCY_FIELD_NUMBER: _ClassVar[int]
+    language_tag: str
+    use_script_direction_right_to_left: bool
+    default_currency: str
+    def __init__(self, language_tag: _Optional[str] = ..., use_script_direction_right_to_left: bool = ..., default_currency: _Optional[str] = ...) -> None: ...
