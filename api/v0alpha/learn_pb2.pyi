@@ -296,14 +296,14 @@ class SearchContentByVersionReq(_message.Message):
     def __init__(self, search_content: _Optional[str] = ..., locale: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., version: _Optional[str] = ...) -> None: ...
 
 class ReviewFileVersionsReq(_message.Message):
-    __slots__ = ("url", "compare_with_url", "locale")
+    __slots__ = ("url", "version", "locale")
     URL_FIELD_NUMBER: _ClassVar[int]
-    COMPARE_WITH_URL_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
     LOCALE_FIELD_NUMBER: _ClassVar[int]
     url: str
-    compare_with_url: str
+    version: str
     locale: str
-    def __init__(self, url: _Optional[str] = ..., compare_with_url: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
+    def __init__(self, url: _Optional[str] = ..., version: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
 
 class ReviewFileVersionsRes(_message.Message):
     __slots__ = ("content", "diff_content", "images")
