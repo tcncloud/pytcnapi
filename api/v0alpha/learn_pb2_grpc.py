@@ -248,7 +248,7 @@ class LearnServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ReviewFileVersions(self, request, context):
-        """return diff by comparing file contens in any version
+        """return diff by comparing file contens from any version
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

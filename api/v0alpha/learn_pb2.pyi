@@ -296,25 +296,21 @@ class SearchContentByVersionReq(_message.Message):
     def __init__(self, search_content: _Optional[str] = ..., locale: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., version: _Optional[str] = ...) -> None: ...
 
 class ReviewFileVersionsReq(_message.Message):
-    __slots__ = ("first_url", "second_url", "locale")
-    FIRST_URL_FIELD_NUMBER: _ClassVar[int]
-    SECOND_URL_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("url", "compare_with_url", "locale")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    COMPARE_WITH_URL_FIELD_NUMBER: _ClassVar[int]
     LOCALE_FIELD_NUMBER: _ClassVar[int]
-    first_url: str
-    second_url: str
+    url: str
+    compare_with_url: str
     locale: str
-    def __init__(self, first_url: _Optional[str] = ..., second_url: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
+    def __init__(self, url: _Optional[str] = ..., compare_with_url: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
 
 class ReviewFileVersionsRes(_message.Message):
-    __slots__ = ("first_content", "first_content_images", "second_content", "second_content_images", "diff_content")
-    FIRST_CONTENT_FIELD_NUMBER: _ClassVar[int]
-    FIRST_CONTENT_IMAGES_FIELD_NUMBER: _ClassVar[int]
-    SECOND_CONTENT_FIELD_NUMBER: _ClassVar[int]
-    SECOND_CONTENT_IMAGES_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("content", "diff_content", "images")
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
     DIFF_CONTENT_FIELD_NUMBER: _ClassVar[int]
-    first_content: str
-    first_content_images: _containers.RepeatedCompositeFieldContainer[LearnImage]
-    second_content: str
-    second_content_images: _containers.RepeatedCompositeFieldContainer[LearnImage]
+    IMAGES_FIELD_NUMBER: _ClassVar[int]
+    content: str
     diff_content: str
-    def __init__(self, first_content: _Optional[str] = ..., first_content_images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., second_content: _Optional[str] = ..., second_content_images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., diff_content: _Optional[str] = ...) -> None: ...
+    images: _containers.RepeatedCompositeFieldContainer[LearnImage]
+    def __init__(self, content: _Optional[str] = ..., diff_content: _Optional[str] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ...) -> None: ...
