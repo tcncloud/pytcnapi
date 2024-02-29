@@ -66,3 +66,13 @@ class GetReportJobResponse(_message.Message):
     REPORT_JOB_FIELD_NUMBER: _ClassVar[int]
     report_job: _entities_pb2.ReportJob
     def __init__(self, report_job: _Optional[_Union[_entities_pb2.ReportJob, _Mapping]] = ...) -> None: ...
+
+class GenerateReportRequest(_message.Message):
+    __slots__ = ("report_job",)
+    REPORT_JOB_FIELD_NUMBER: _ClassVar[int]
+    report_job: _entities_pb2.ReportJob
+    def __init__(self, report_job: _Optional[_Union[_entities_pb2.ReportJob, _Mapping]] = ...) -> None: ...
+
+class GenerateReportResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

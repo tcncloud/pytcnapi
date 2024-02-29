@@ -14,9 +14,10 @@ _sym_db = _symbol_database.Default()
 
 from api.commons import bireportgenerator_pb2 as api_dot_commons_dot_bireportgenerator__pb2
 from api.commons import enums_pb2 as api_dot_commons_dot_enums__pb2
+from api.commons import org_pb2 as api_dot_commons_dot_org__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-api/v1alpha1/bireportgenerator/entities.proto\x12\x1e\x61pi.v1alpha1.bireportgenerator\x1a#api/commons/bireportgenerator.proto\x1a\x17\x61pi/commons/enums.proto\"\xda\x04\n\tReportJob\x12\"\n\rreport_job_id\x18\x01 \x01(\tR\x0breportJobId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12!\n\x0c\x64\x61shboard_id\x18\x04 \x01(\tR\x0b\x64\x61shboardId\x12\x1b\n\ttime_zone\x18\x05 \x01(\tR\x08timeZone\x12\x38\n\x0btime_period\x18\x06 \x01(\x0e\x32\x17.api.commons.TimePeriodR\ntimePeriod\x12\x41\n\x0e\x64\x65livery_times\x18\x07 \x01(\x0b\x32\x1a.api.commons.DeliveryTimesR\rdeliveryTimes\x12\x35\n\nday_filter\x18\x08 \x01(\x0b\x32\x16.api.commons.DayFilterR\tdayFilter\x12*\n\x06months\x18\t \x03(\x0e\x32\x12.api.commons.MonthR\x06months\x12\x41\n\x0e\x66ormat_options\x18\n \x01(\x0b\x32\x1a.api.commons.FormatOptionsR\rformatOptions\x12G\n\x10\x64\x65livery_options\x18\x0b \x01(\x0b\x32\x1c.api.commons.DeliveryOptionsR\x0f\x64\x65liveryOptions\x12\x1b\n\tis_active\x18\x0c \x01(\x08R\x08isActive\x12*\n\x11send_empty_report\x18\r \x01(\x08R\x0fsendEmptyReportB\xcd\x01\n\"com.api.v1alpha1.bireportgeneratorB\rEntitiesProtoP\x01\xa2\x02\x03\x41VB\xaa\x02\x1e\x41pi.V1alpha1.Bireportgenerator\xca\x02\x1e\x41pi\\V1alpha1\\Bireportgenerator\xe2\x02*Api\\V1alpha1\\Bireportgenerator\\GPBMetadata\xea\x02 Api::V1alpha1::Bireportgeneratorb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-api/v1alpha1/bireportgenerator/entities.proto\x12\x1e\x61pi.v1alpha1.bireportgenerator\x1a#api/commons/bireportgenerator.proto\x1a\x17\x61pi/commons/enums.proto\x1a\x15\x61pi/commons/org.proto\"\x88\x06\n\tReportJob\x12\"\n\rreport_job_id\x18\x01 \x01(\tR\x0breportJobId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12%\n\x0c\x64\x61shboard_id\x18\x04 \x01(\tB\x02\x18\x01R\x0b\x64\x61shboardId\x12\x1f\n\ttime_zone\x18\x05 \x01(\tB\x02\x18\x01R\x08timeZone\x12\x38\n\x0btime_period\x18\x06 \x01(\x0e\x32\x17.api.commons.TimePeriodR\ntimePeriod\x12\x41\n\x0e\x64\x65livery_times\x18\x07 \x01(\x0b\x32\x1a.api.commons.DeliveryTimesR\rdeliveryTimes\x12\x35\n\nday_filter\x18\x08 \x01(\x0b\x32\x16.api.commons.DayFilterR\tdayFilter\x12*\n\x06months\x18\t \x03(\x0e\x32\x12.api.commons.MonthR\x06months\x12\x41\n\x0e\x66ormat_options\x18\n \x01(\x0b\x32\x1a.api.commons.FormatOptionsR\rformatOptions\x12G\n\x10\x64\x65livery_options\x18\x0b \x01(\x0b\x32\x1c.api.commons.DeliveryOptionsR\x0f\x64\x65liveryOptions\x12\x1b\n\tis_active\x18\x0c \x01(\x08R\x08isActive\x12*\n\x11send_empty_report\x18\r \x01(\x08R\x0fsendEmptyReport\x12\x32\n\x15\x64\x61shboard_resource_id\x18\x0e \x01(\tR\x13\x64\x61shboardResourceId\x12H\n\x11time_zone_wrapper\x18\x0f \x01(\x0b\x32\x1c.api.commons.TimeZoneWrapperR\x0ftimeZoneWrapper\x12&\n\x0fhide_csv_footer\x18\x10 \x01(\x08R\rhideCsvFooterB\xcd\x01\n\"com.api.v1alpha1.bireportgeneratorB\rEntitiesProtoP\x01\xa2\x02\x03\x41VB\xaa\x02\x1e\x41pi.V1alpha1.Bireportgenerator\xca\x02\x1e\x41pi\\V1alpha1\\Bireportgenerator\xe2\x02*Api\\V1alpha1\\Bireportgenerator\\GPBMetadata\xea\x02 Api::V1alpha1::Bireportgeneratorb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,6 +25,10 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.bireportgenera
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\"com.api.v1alpha1.bireportgeneratorB\rEntitiesProtoP\001\242\002\003AVB\252\002\036Api.V1alpha1.Bireportgenerator\312\002\036Api\\V1alpha1\\Bireportgenerator\342\002*Api\\V1alpha1\\Bireportgenerator\\GPBMetadata\352\002 Api::V1alpha1::Bireportgenerator'
-  _globals['_REPORTJOB']._serialized_start=144
-  _globals['_REPORTJOB']._serialized_end=746
+  _globals['_REPORTJOB'].fields_by_name['dashboard_id']._options = None
+  _globals['_REPORTJOB'].fields_by_name['dashboard_id']._serialized_options = b'\030\001'
+  _globals['_REPORTJOB'].fields_by_name['time_zone']._options = None
+  _globals['_REPORTJOB'].fields_by_name['time_zone']._serialized_options = b'\030\001'
+  _globals['_REPORTJOB']._serialized_start=167
+  _globals['_REPORTJOB']._serialized_end=943
 # @@protoc_insertion_point(module_scope)

@@ -40,6 +40,11 @@ class BIReportGeneratorServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GetReportJobRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GetReportJobResponse.FromString,
                 )
+        self.GenerateReport = channel.unary_unary(
+                '/api.v1alpha1.bireportgenerator.BIReportGeneratorService/GenerateReport',
+                request_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportResponse.FromString,
+                )
 
 
 class BIReportGeneratorServiceServicer(object):
@@ -81,6 +86,12 @@ class BIReportGeneratorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GenerateReport(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_BIReportGeneratorServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -108,6 +119,11 @@ def add_BIReportGeneratorServiceServicer_to_server(servicer, server):
                     servicer.GetReportJob,
                     request_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GetReportJobRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GetReportJobResponse.SerializeToString,
+            ),
+            'GenerateReport': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateReport,
+                    request_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,5 +218,22 @@ class BIReportGeneratorService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.bireportgenerator.BIReportGeneratorService/GetReportJob',
             api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GetReportJobRequest.SerializeToString,
             api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GetReportJobResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GenerateReport(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.bireportgenerator.BIReportGeneratorService/GenerateReport',
+            api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportRequest.SerializeToString,
+            api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
