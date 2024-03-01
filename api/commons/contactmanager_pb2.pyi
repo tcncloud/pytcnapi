@@ -41,3 +41,11 @@ class ContactManagerList(_message.Message):
     ttl: int
     date_created: _timestamp_pb2.Timestamp
     def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[int] = ..., file_name: _Optional[str] = ..., description: _Optional[str] = ..., list_details: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class ContactManagerEntryVal(_message.Message):
+    __slots__ = ("type", "value")
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    type: str
+    value: str
+    def __init__(self, type: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...

@@ -830,6 +830,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
                 )
+        self.HelloWorldWFMAdherence = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
+                )
 
 
 class WFMServicer(object):
@@ -1519,7 +1524,6 @@ class WFMServicer(object):
         The @client_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent call center node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        The @origin_sid must be set to nil, since this method can only make an original node.
         Required permissions:
         NONE
         Errors:
@@ -1552,7 +1556,6 @@ class WFMServicer(object):
         The @location_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent client node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        The @origin_sid must be set to nil, since this method can only make an original node.
         Required permissions:
         NONE
         Errors:
@@ -1585,7 +1588,6 @@ class WFMServicer(object):
         The @program_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent location node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        The @origin_sid must be set to nil, since this method can only make an original node.
         Required permissions:
         NONE
         Errors:
@@ -2350,7 +2352,6 @@ class WFMServicer(object):
         """Gets the published schedule for the corresponding @datetime_range for the org sending the request.
         Will create a published schedule if it does not exist already for the org sending the request.
         if @include_shift_instances is true, the shift instances associated within @datetime_range for the published schedule will be returned in the published schedules shift_instances field.
-        if @node_selector is set, then only instances belonging to the origin of @node_selector and its children node will be returned, otherwise all matching shift instances will be included.
         if @include_shift_template is true, any returned shift instances will have their orginating shift template returned in their origin_shift_template field.
         if @include_shift_segments is true, any returned shift instances will have their shift_segments field set, otherwise the field will be left nil.
         if @include_scheduling_activity is true, any returned shift segments will have their scheduling_activity field set, otherwise the field will be left nil.
@@ -2470,7 +2471,6 @@ class WFMServicer(object):
         """Gets the draft schedule with @draft_schedule_sid for the corresponding @datetime_range for the org sending the request.
         The @datetime_range field is optional. If not set, the draft schedule will be obtained with it's default range from it's start to end time.
         if @include_shift_instances is true, the shift instances associated within @datetime_range for the draft schedule will be returned in the draft schedules shift_instances field.
-        if @node_selector is set then only instances belonging to the origin of @node_selector and its children node will be returned, otherwise all matching shift instances will be included.
         @node_selector must be for a node that belongs to the same schedule scenario as @draft_schedule_sid.
         if @include_shift_template is true, any returned shift instances will have their orginating shift template returned in their origin_shift_template field.
         if @include_shift_segments is true, any returned shift instances will have their shift_segments field set, otherwise the field will be left nil.
@@ -3224,6 +3224,26 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when creating the unassigned agent or updating the shifts.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def HelloWorldWFMAdherence(self, request, context):
+        """**************************************************************************************************************************************************
+
+        **************************************************************************************************************************************************
+
+        ***************************************************************ADHERENCE RPCS*********************************************************************
+
+        **************************************************************************************************************************************************
+
+        **************************************************************************************************************************************************
+
+        A hello world endpoint to test the WFM Adherence App.
+        Returns a string with a hello world message.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4046,6 +4066,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.RemoveAgentFromSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.SerializeToString,
+            ),
+            'HelloWorldWFMAdherence': grpc.unary_unary_rpc_method_handler(
+                    servicer.HelloWorldWFMAdherence,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -6826,5 +6851,22 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def HelloWorldWFMAdherence(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
