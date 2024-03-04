@@ -260,7 +260,7 @@ class LearnServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ReviewVersion(self, request, context):
-        """returns list of filenames that are different between any versions
+        """returns differences that are different between any version
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
