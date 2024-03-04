@@ -314,3 +314,19 @@ class ReviewFileVersionsRes(_message.Message):
     diff_content: str
     images: _containers.RepeatedCompositeFieldContainer[LearnImage]
     def __init__(self, content: _Optional[str] = ..., diff_content: _Optional[str] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ...) -> None: ...
+
+class ReviewVersionReq(_message.Message):
+    __slots__ = ("url", "version", "locale")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    version: str
+    locale: str
+    def __init__(self, url: _Optional[str] = ..., version: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
+
+class ReviewVersionRes(_message.Message):
+    __slots__ = ("diff_file_names",)
+    DIFF_FILE_NAMES_FIELD_NUMBER: _ClassVar[int]
+    diff_file_names: str
+    def __init__(self, diff_file_names: _Optional[str] = ...) -> None: ...
