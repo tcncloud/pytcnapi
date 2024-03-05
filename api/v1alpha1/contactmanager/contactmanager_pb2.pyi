@@ -67,3 +67,15 @@ class GetKYCEncContactEntryResponse(_message.Message):
     VERIFIED_FIELD_NUMBER: _ClassVar[int]
     verified: bool
     def __init__(self, verified: bool = ...) -> None: ...
+
+class GetKYCKeysRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetKYCKeysResponse(_message.Message):
+    __slots__ = ("entry_val", "min_kyc_limit")
+    ENTRY_VAL_FIELD_NUMBER: _ClassVar[int]
+    MIN_KYC_LIMIT_FIELD_NUMBER: _ClassVar[int]
+    entry_val: _containers.RepeatedCompositeFieldContainer[_contactmanager_pb2.ContactManagerEntryVal]
+    min_kyc_limit: int
+    def __init__(self, entry_val: _Optional[_Iterable[_Union[_contactmanager_pb2.ContactManagerEntryVal, _Mapping]]] = ..., min_kyc_limit: _Optional[int] = ...) -> None: ...
