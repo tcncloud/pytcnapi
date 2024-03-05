@@ -3,6 +3,7 @@ from api.commons.org import labels_pb2 as _labels_pb2
 from api.commons.org import permissions_pb2 as _permissions_pb2
 from api.commons.org import trusts_pb2 as _trusts_pb2
 from api.commons.org import user_pb2 as _user_pb2
+from api.commons import org_preferences_pb2 as _org_preferences_pb2
 from api.commons import perms_pb2 as _perms_pb2
 from api.commons import user_pb2 as _user_pb2_1
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -279,7 +280,7 @@ class ListAgentsRequest(_message.Message):
 class ListAgentsResponse(_message.Message):
     __slots__ = ("agents",)
     class AgentDetails(_message.Message):
-        __slots__ = ("user_id", "org_id", "first_name", "last_name", "username", "skills", "login_disabled", "hunt_group", "labels", "delegated", "trust_ids", "permission_groups", "agent_sid", "name", "partner_agent_id", "user_caller_id", "created", "last_updated", "agent_profile_group", "agent", "time_zone_override", "email")
+        __slots__ = ("user_id", "org_id", "first_name", "last_name", "username", "skills", "login_disabled", "hunt_group", "labels", "delegated", "trust_ids", "permission_groups", "agent_sid", "name", "partner_agent_id", "user_caller_id", "created", "last_updated", "agent_profile_group", "agent", "time_zone_override", "email", "email_verified", "mfa_info")
         class HuntGroup(_message.Message):
             __slots__ = ("hunt_group_sid", "hunt_group_name")
             HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -316,6 +317,8 @@ class ListAgentsResponse(_message.Message):
         AGENT_FIELD_NUMBER: _ClassVar[int]
         TIME_ZONE_OVERRIDE_FIELD_NUMBER: _ClassVar[int]
         EMAIL_FIELD_NUMBER: _ClassVar[int]
+        EMAIL_VERIFIED_FIELD_NUMBER: _ClassVar[int]
+        MFA_INFO_FIELD_NUMBER: _ClassVar[int]
         user_id: str
         org_id: str
         first_name: str
@@ -338,7 +341,9 @@ class ListAgentsResponse(_message.Message):
         agent: bool
         time_zone_override: _org_pb2.TimeZoneWrapper
         email: str
-        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., login_disabled: bool = ..., hunt_group: _Optional[_Union[ListAgentsResponse.AgentDetails.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., delegated: bool = ..., trust_ids: _Optional[_Iterable[str]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., agent_sid: _Optional[int] = ..., name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., user_caller_id: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_profile_group: _Optional[_Union[ListAgentsResponse.AgentDetails.AgentProfileGroup, _Mapping]] = ..., agent: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ...) -> None: ...
+        email_verified: bool
+        mfa_info: _user_pb2.MfaInfo
+        def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., username: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[_user_pb2.Skill, _Mapping]]] = ..., login_disabled: bool = ..., hunt_group: _Optional[_Union[ListAgentsResponse.AgentDetails.HuntGroup, _Mapping]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., delegated: bool = ..., trust_ids: _Optional[_Iterable[str]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., agent_sid: _Optional[int] = ..., name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., user_caller_id: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_profile_group: _Optional[_Union[ListAgentsResponse.AgentDetails.AgentProfileGroup, _Mapping]] = ..., agent: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ..., email_verified: bool = ..., mfa_info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
     AGENTS_FIELD_NUMBER: _ClassVar[int]
     agents: _containers.RepeatedCompositeFieldContainer[ListAgentsResponse.AgentDetails]
     def __init__(self, agents: _Optional[_Iterable[_Union[ListAgentsResponse.AgentDetails, _Mapping]]] = ...) -> None: ...
@@ -822,7 +827,7 @@ class GetUserSessionDataRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetUserSessionDataResponse(_message.Message):
-    __slots__ = ("user", "org_name", "p3_permissions", "permission_groups", "labels", "org_allowed_mfa")
+    __slots__ = ("user", "org_name", "p3_permissions", "permission_groups", "labels", "org_allowed_mfa", "locale_preferences")
     class User(_message.Message):
         __slots__ = ("user_id", "org_id", "username", "p3_permission_group_id", "partner_agent_id", "region_sid_map", "default_region", "api_key", "email", "login_disabled", "caller_ids", "linkback_numbers", "auth_user_id", "enable_mfa", "first_name", "last_name", "created", "last_updated", "password_reset_required", "connection_id", "time_zone_override", "permission_group_ids", "trust_ids", "default_application", "user_caller_id", "agent_profile_group_id", "agent", "account_owner", "mfa_timestamp")
         class RegionSids(_message.Message):
@@ -906,13 +911,15 @@ class GetUserSessionDataResponse(_message.Message):
     PERMISSION_GROUPS_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
     ORG_ALLOWED_MFA_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     user: GetUserSessionDataResponse.User
     org_name: str
     p3_permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
     permission_groups: _containers.RepeatedCompositeFieldContainer[_permissions_pb2.PermissionGroup]
     labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
     org_allowed_mfa: bool
-    def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., org_allowed_mfa: bool = ...) -> None: ...
+    locale_preferences: _org_preferences_pb2.LocalePreferences
+    def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., org_allowed_mfa: bool = ..., locale_preferences: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ...) -> None: ...
 
 class RefreshMfaLockoutRequest(_message.Message):
     __slots__ = ("user_id",)

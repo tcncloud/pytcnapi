@@ -2,6 +2,7 @@ from api.commons import org_pb2 as _org_pb2
 from api.commons.org import huntgroup_pb2 as _huntgroup_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
@@ -307,6 +308,52 @@ class DeleteHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
 class DeleteHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class CopyHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("to_hunt_group_sid", "template")
+    TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    to_hunt_group_sid: int
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, to_hunt_group_sid: _Optional[int] = ..., template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CopyHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateCampaignClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("template",)
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CreateCampaignClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ("template_sid",)
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    def __init__(self, template_sid: _Optional[int] = ...) -> None: ...
+
+class ListHuntGroupsWithClientInfoTemplateDataRequest(_message.Message):
+    __slots__ = ("filter",)
+    class Filter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        FILTER_UNSPECIFIED: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+        FILTER_ALL: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+        FILTER_HUNT_GROUPS_WITH_TEMPLATE: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+        FILTER_HUNT_GROUPS_WITHOUT_TEMPLATE: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+    FILTER_UNSPECIFIED: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_ALL: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_HUNT_GROUPS_WITH_TEMPLATE: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_HUNT_GROUPS_WITHOUT_TEMPLATE: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_FIELD_NUMBER: _ClassVar[int]
+    filter: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    def __init__(self, filter: _Optional[_Union[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter, str]] = ...) -> None: ...
+
+class ListHuntGroupsWithClientInfoTemplateDataResponse(_message.Message):
+    __slots__ = ("hunt_groups_with_template_data",)
+    HUNT_GROUPS_WITH_TEMPLATE_DATA_FIELD_NUMBER: _ClassVar[int]
+    hunt_groups_with_template_data: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.HuntGroupWithClientInfoTemplateData]
+    def __init__(self, hunt_groups_with_template_data: _Optional[_Iterable[_Union[_huntgroup_pb2.HuntGroupWithClientInfoTemplateData, _Mapping]]] = ...) -> None: ...
 
 class ListHuntGroupWebLinksRequest(_message.Message):
     __slots__ = ("hunt_group_sid",)
