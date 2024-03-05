@@ -73,12 +73,12 @@ class GetKYCKeysRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetKYCKeysResponse(_message.Message):
-    __slots__ = ("entry_val", "kyc_limit")
-    ENTRY_VAL_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("entry_type", "kyc_limit")
+    ENTRY_TYPE_FIELD_NUMBER: _ClassVar[int]
     KYC_LIMIT_FIELD_NUMBER: _ClassVar[int]
-    entry_val: _containers.RepeatedScalarFieldContainer[str]
+    entry_type: _containers.RepeatedScalarFieldContainer[str]
     kyc_limit: int
-    def __init__(self, entry_val: _Optional[_Iterable[str]] = ..., kyc_limit: _Optional[int] = ...) -> None: ...
+    def __init__(self, entry_type: _Optional[_Iterable[str]] = ..., kyc_limit: _Optional[int] = ...) -> None: ...
 
 class ContactManagerEntry(_message.Message):
     __slots__ = ("contact_manager_entry_id", "contact_manager_entry_list_id", "key", "value", "type", "date_created")
