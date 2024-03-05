@@ -417,3 +417,11 @@ class EditAttribute(_message.Message):
     to_val: str
     is_edited: bool
     def __init__(self, col_desc: _Optional[int] = ..., from_val: _Optional[str] = ..., to_val: _Optional[str] = ..., is_edited: bool = ...) -> None: ...
+
+class AvailableTicketsFilter(_message.Message):
+    __slots__ = ("agent_skill_id", "agent_view_limit")
+    AGENT_SKILL_ID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_VIEW_LIMIT_FIELD_NUMBER: _ClassVar[int]
+    agent_skill_id: _containers.RepeatedScalarFieldContainer[str]
+    agent_view_limit: int
+    def __init__(self, agent_skill_id: _Optional[_Iterable[str]] = ..., agent_view_limit: _Optional[int] = ...) -> None: ...
