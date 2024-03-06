@@ -370,6 +370,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
                 )
+        self.ListUnassignedWFMAgents = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.FromString,
+                )
+        self.RemoveAgentFromOrg = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/RemoveAgentFromOrg',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgResponse.FromString,
+                )
         self.ListWFMAgentsAssociatedWithAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListWFMAgentsAssociatedWithAgentGroup',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.SerializeToString,
@@ -1871,6 +1881,31 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the @tcn_agent_sids are invalid.
         - grpc.Internal: error occours while listing the wfm_agent_sids.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListUnassignedWFMAgents(self, request, context):
+        """Lists all wfm agents that don't have a TCN agent assigned to them for the given @orgId.
+        Member entities will not be returned.
+        Required Permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when getting the wfm agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveAgentFromOrg(self, request, context):
+        """Removes the the @wfm_agent_sid_to_remove from all future shifts for the org.
+        If @replace_with_new_unassigned_agent is set to true, a new unassigned agent will be created and it will be assigned to the shifts and agent groups from @wfm_agent_sid_to_remove.
+        If @replace_with_new_unassigned_agent is set to false, the future shifts will just be deleted.
+        Required Permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when deleting the shifts, creating the new unassigned agent, or reassigning the shifts to that agent.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3607,6 +3642,16 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.SerializeToString,
             ),
+            'ListUnassignedWFMAgents': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUnassignedWFMAgents,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.SerializeToString,
+            ),
+            'RemoveAgentFromOrg': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveAgentFromOrg,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgResponse.SerializeToString,
+            ),
             'ListWFMAgentsAssociatedWithAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.ListWFMAgentsAssociatedWithAgentGroup,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.FromString,
@@ -5287,6 +5332,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUnassignedWFMAgents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveAgentFromOrg(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromOrg',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

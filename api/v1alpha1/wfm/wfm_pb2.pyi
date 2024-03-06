@@ -1431,6 +1431,28 @@ class ListWFMAgentSidsRes(_message.Message):
     sids: _containers.ScalarMap[int, int]
     def __init__(self, sids: _Optional[_Mapping[int, int]] = ...) -> None: ...
 
+class ListUnassignedWFMAgentsReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListUnassignedWFMAgentsRes(_message.Message):
+    __slots__ = ("wfm_agents",)
+    WFM_AGENTS_FIELD_NUMBER: _ClassVar[int]
+    wfm_agents: _containers.RepeatedCompositeFieldContainer[WFMAgent]
+    def __init__(self, wfm_agents: _Optional[_Iterable[_Union[WFMAgent, _Mapping]]] = ...) -> None: ...
+
+class RemoveAgentFromOrgRequest(_message.Message):
+    __slots__ = ("wfm_agent_sid_to_remove", "replace_with_new_unassigned_agent")
+    WFM_AGENT_SID_TO_REMOVE_FIELD_NUMBER: _ClassVar[int]
+    REPLACE_WITH_NEW_UNASSIGNED_AGENT_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid_to_remove: int
+    replace_with_new_unassigned_agent: bool
+    def __init__(self, wfm_agent_sid_to_remove: _Optional[int] = ..., replace_with_new_unassigned_agent: bool = ...) -> None: ...
+
+class RemoveAgentFromOrgResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class ListWFMAgentsAssociatedWithAgentGroupReq(_message.Message):
     __slots__ = ("agent_group_sid",)
     AGENT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
