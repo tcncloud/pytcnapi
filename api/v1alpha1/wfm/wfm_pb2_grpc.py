@@ -370,6 +370,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
                 )
+        self.ListUnassignedWFMAgents = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.FromString,
+                )
         self.ListWFMAgentsAssociatedWithAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListWFMAgentsAssociatedWithAgentGroup',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.SerializeToString,
@@ -1871,6 +1876,18 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the @tcn_agent_sids are invalid.
         - grpc.Internal: error occours while listing the wfm_agent_sids.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListUnassignedWFMAgents(self, request, context):
+        """Lists all wfm agents that don't have a TCN agent assigned to them for the given @orgId.
+        Member entities will not be returned.
+        Required Permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when getting the wfm agents.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3607,6 +3624,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.SerializeToString,
             ),
+            'ListUnassignedWFMAgents': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUnassignedWFMAgents,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.SerializeToString,
+            ),
             'ListWFMAgentsAssociatedWithAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.ListWFMAgentsAssociatedWithAgentGroup,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.FromString,
@@ -5287,6 +5309,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListWFMAgentSids',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUnassignedWFMAgents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
