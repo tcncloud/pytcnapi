@@ -110,6 +110,11 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsRes.FromString,
                 )
+        self.ReviewVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/ReviewVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
+                )
 
 
 class LearnServicer(object):
@@ -254,6 +259,13 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ReviewVersion(self, request, context):
+        """returns list of file details after comparing different versions
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -351,6 +363,11 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.ReviewFileVersions,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsRes.SerializeToString,
+            ),
+            'ReviewVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReviewVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -683,5 +700,22 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ReviewFileVersions',
             api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReviewVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ReviewVersion',
+            api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

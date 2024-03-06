@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/contactmanager.proto\x12\x0b\x61pi.commons\x1a\x1fgoogle/protobuf/timestamp.proto\"\x93\x02\n\x13\x43ontactManagerEntry\x12;\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x15\x63ontactManagerEntryId\x12\x44\n\x1d\x63ontact_manager_entry_list_id\x18\x02 \x01(\x03\x42\x02\x30\x01R\x19\x63ontactManagerEntryListId\x12\x10\n\x03key\x18\x03 \x01(\tR\x03key\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\x12\x12\n\x04type\x18\x05 \x01(\tR\x04type\x12=\n\x0c\x64\x61te_created\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\"\xc0\x02\n\x12\x43ontactManagerList\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12!\n\nproject_id\x18\x03 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12\x1b\n\tfile_name\x18\x04 \x01(\tR\x08\x66ileName\x12 \n\x0b\x64\x65scription\x18\x05 \x01(\tR\x0b\x64\x65scription\x12!\n\x0clist_details\x18\x06 \x03(\tR\x0blistDetails\x12\x14\n\x03ttl\x18\x07 \x01(\x03\x42\x02\x30\x01R\x03ttl\x12=\n\x0c\x64\x61te_created\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\"B\n\x16\x43ontactManagerEntryVal\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x14\n\x05value\x18\x02 \x01(\tR\x05valueBs\n\x0f\x63om.api.commonsB\x13\x43ontactmanagerProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/contactmanager.proto\x12\x0b\x61pi.commons\x1a\x1fgoogle/protobuf/timestamp.proto\"\x97\x02\n\x13\x43ontactManagerEntry\x12;\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x15\x63ontactManagerEntryId\x12\x44\n\x1d\x63ontact_manager_entry_list_id\x18\x02 \x01(\x03\x42\x02\x30\x01R\x19\x63ontactManagerEntryListId\x12\x10\n\x03key\x18\x03 \x01(\tR\x03key\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\x12\x12\n\x04type\x18\x05 \x01(\tR\x04type\x12=\n\x0c\x64\x61te_created\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated:\x02\x18\x01\"\xc4\x02\n\x12\x43ontactManagerList\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12!\n\nproject_id\x18\x03 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12\x1b\n\tfile_name\x18\x04 \x01(\tR\x08\x66ileName\x12 \n\x0b\x64\x65scription\x18\x05 \x01(\tR\x0b\x64\x65scription\x12!\n\x0clist_details\x18\x06 \x03(\tR\x0blistDetails\x12\x14\n\x03ttl\x18\x07 \x01(\x03\x42\x02\x30\x01R\x03ttl\x12=\n\x0c\x64\x61te_created\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated:\x02\x18\x01\"F\n\x16\x43ontactManagerEntryVal\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x18\x01\x42s\n\x0f\x63om.api.commonsB\x13\x43ontactmanagerProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -27,16 +27,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['_CONTACTMANAGERENTRY'].fields_by_name['contact_manager_entry_id']._serialized_options = b'0\001'
   _globals['_CONTACTMANAGERENTRY'].fields_by_name['contact_manager_entry_list_id']._options = None
   _globals['_CONTACTMANAGERENTRY'].fields_by_name['contact_manager_entry_list_id']._serialized_options = b'0\001'
+  _globals['_CONTACTMANAGERENTRY']._options = None
+  _globals['_CONTACTMANAGERENTRY']._serialized_options = b'\030\001'
   _globals['_CONTACTMANAGERLIST'].fields_by_name['contact_manager_list_id']._options = None
   _globals['_CONTACTMANAGERLIST'].fields_by_name['contact_manager_list_id']._serialized_options = b'0\001'
   _globals['_CONTACTMANAGERLIST'].fields_by_name['project_id']._options = None
   _globals['_CONTACTMANAGERLIST'].fields_by_name['project_id']._serialized_options = b'0\001'
   _globals['_CONTACTMANAGERLIST'].fields_by_name['ttl']._options = None
   _globals['_CONTACTMANAGERLIST'].fields_by_name['ttl']._serialized_options = b'0\001'
+  _globals['_CONTACTMANAGERLIST']._options = None
+  _globals['_CONTACTMANAGERLIST']._serialized_options = b'\030\001'
+  _globals['_CONTACTMANAGERENTRYVAL']._options = None
+  _globals['_CONTACTMANAGERENTRYVAL']._serialized_options = b'\030\001'
   _globals['_CONTACTMANAGERENTRY']._serialized_start=83
-  _globals['_CONTACTMANAGERENTRY']._serialized_end=358
-  _globals['_CONTACTMANAGERLIST']._serialized_start=361
-  _globals['_CONTACTMANAGERLIST']._serialized_end=681
-  _globals['_CONTACTMANAGERENTRYVAL']._serialized_start=683
-  _globals['_CONTACTMANAGERENTRYVAL']._serialized_end=749
+  _globals['_CONTACTMANAGERENTRY']._serialized_end=362
+  _globals['_CONTACTMANAGERLIST']._serialized_start=365
+  _globals['_CONTACTMANAGERLIST']._serialized_end=689
+  _globals['_CONTACTMANAGERENTRYVAL']._serialized_start=691
+  _globals['_CONTACTMANAGERENTRYVAL']._serialized_end=761
 # @@protoc_insertion_point(module_scope)
