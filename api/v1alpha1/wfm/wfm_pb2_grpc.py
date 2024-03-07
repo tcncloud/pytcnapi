@@ -345,6 +345,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupRes.FromString,
                 )
+        self.CreateUnassignedWFMAgent = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateUnassignedWFMAgent',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentResponse.FromString,
+                )
         self.UpdateWFMAgent = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/UpdateWFMAgent',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateWFMAgentReq.SerializeToString,
@@ -1803,6 +1808,21 @@ class WFMServicer(object):
         - grpc.Internal: error occurs when updating the agent group.
         - grpc.AlreadyExists: an agent group with the given @name already exists.
         - grpc.NotFound: entry to be updated doesn't exist, or the @parent_entity has a different @schedule_scenario_sid than the agent group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateUnassignedWFMAgent(self, request, context):
+        """Creates an agent that is not assigned a tcn agent for the org sending the request.
+        If @wfm_agent_sid_to_copy_agent_group_associations is not set, it will also copy that agent's agent group associations to the new agent.
+        Otherwise only the new agent will be created.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @name, or @wfm_agent_sid_to_copy_agent_group_associations in the request are invalid.
+        - grpc.Internal: error occurs creating the agent or the memberships.
+        - grpc.NotFound: the given @wfm_agent_sid_to_copy_agent_group_associations doesn't exist for the org.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3617,6 +3637,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupRes.SerializeToString,
             ),
+            'CreateUnassignedWFMAgent': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUnassignedWFMAgent,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentResponse.SerializeToString,
+            ),
             'UpdateWFMAgent': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateWFMAgent,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateWFMAgentReq.FromString,
@@ -5247,6 +5272,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateAgentGroup',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateUnassignedWFMAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateUnassignedWFMAgent',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

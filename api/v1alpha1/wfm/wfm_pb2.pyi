@@ -1349,6 +1349,20 @@ class WFMAgent(_message.Message):
     tcn_agent_is_enabled: bool
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., tcn_agent_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., name: _Optional[str] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_skill_proficiencies: _Optional[_Iterable[_Union[SkillProficiency, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., tcn_agent_is_enabled: bool = ...) -> None: ...
 
+class CreateUnassignedWFMAgentRequest(_message.Message):
+    __slots__ = ("wfm_agent_sid_to_copy_agent_group_associations", "name")
+    WFM_AGENT_SID_TO_COPY_AGENT_GROUP_ASSOCIATIONS_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid_to_copy_agent_group_associations: _wrappers_pb2.Int64Value
+    name: str
+    def __init__(self, wfm_agent_sid_to_copy_agent_group_associations: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., name: _Optional[str] = ...) -> None: ...
+
+class CreateUnassignedWFMAgentResponse(_message.Message):
+    __slots__ = ("wfm_agent_sid",)
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid: int
+    def __init__(self, wfm_agent_sid: _Optional[int] = ...) -> None: ...
+
 class UpdateWFMAgentReq(_message.Message):
     __slots__ = ("wfm_agent",)
     WFM_AGENT_FIELD_NUMBER: _ClassVar[int]
