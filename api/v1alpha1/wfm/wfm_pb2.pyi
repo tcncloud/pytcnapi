@@ -1431,11 +1431,11 @@ class ListWFMAgentSidsRes(_message.Message):
     sids: _containers.ScalarMap[int, int]
     def __init__(self, sids: _Optional[_Mapping[int, int]] = ...) -> None: ...
 
-class ListUnassignedWFMAgentsReq(_message.Message):
+class ListUnassignedWFMAgentsRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class ListUnassignedWFMAgentsRes(_message.Message):
+class ListUnassignedWFMAgentsResponse(_message.Message):
     __slots__ = ("wfm_agents",)
     WFM_AGENTS_FIELD_NUMBER: _ClassVar[int]
     wfm_agents: _containers.RepeatedCompositeFieldContainer[WFMAgent]

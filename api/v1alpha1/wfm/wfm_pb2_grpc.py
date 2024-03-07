@@ -372,8 +372,8 @@ class WFMStub(object):
                 )
         self.ListUnassignedWFMAgents = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.FromString,
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsResponse.FromString,
                 )
         self.RemoveAgentFromOrg = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/RemoveAgentFromOrg',
@@ -3644,8 +3644,8 @@ def add_WFMServicer_to_server(servicer, server):
             ),
             'ListUnassignedWFMAgents': grpc.unary_unary_rpc_method_handler(
                     servicer.ListUnassignedWFMAgents,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsResponse.SerializeToString,
             ),
             'RemoveAgentFromOrg': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveAgentFromOrg,
@@ -5347,8 +5347,8 @@ class WFM(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsReq.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRes.FromString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
