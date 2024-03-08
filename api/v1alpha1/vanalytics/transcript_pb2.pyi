@@ -1,6 +1,7 @@
 from api.commons import acd_pb2 as _acd_pb2
 from api.v1alpha1.vanalytics.aclpb import aclpb_pb2 as _aclpb_pb2
 from api.v1alpha1.vanalytics import expr_pb2 as _expr_pb2
+from api.v1alpha1.vanalytics import transcript_summary_pb2 as _transcript_summary_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -547,7 +548,7 @@ class ListAgentResponseValuesResponse(_message.Message):
     def __init__(self, values: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Transcript(_message.Message):
-    __slots__ = ("transcript_sid", "call_sid", "call_type", "results", "silence", "talk_time", "create_time", "call_start_time", "talk_over", "caller_id", "phone_number", "audio_time", "audio_bytes", "group_name", "agent_call_log", "flag_summary", "delete_time", "number_format", "agent_response")
+    __slots__ = ("transcript_sid", "call_sid", "call_type", "results", "silence", "talk_time", "create_time", "call_start_time", "talk_over", "caller_id", "phone_number", "audio_time", "audio_bytes", "group_name", "agent_call_log", "flag_summary", "delete_time", "number_format", "agent_response", "summary")
     class AgentResponseEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -574,6 +575,7 @@ class Transcript(_message.Message):
     DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
     NUMBER_FORMAT_FIELD_NUMBER: _ClassVar[int]
     AGENT_RESPONSE_FIELD_NUMBER: _ClassVar[int]
+    SUMMARY_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: int
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
@@ -593,7 +595,8 @@ class Transcript(_message.Message):
     delete_time: _timestamp_pb2.Timestamp
     number_format: str
     agent_response: _containers.MessageMap[str, AgentResponse]
-    def __init__(self, transcript_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., results: _Optional[_Iterable[_Union[Result, _Mapping]]] = ..., silence: _Optional[_Union[Silence, _Mapping]] = ..., talk_time: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., talk_over: _Optional[_Union[TalkOver, _Mapping]] = ..., caller_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., audio_time: _Optional[int] = ..., audio_bytes: _Optional[int] = ..., group_name: _Optional[str] = ..., agent_call_log: _Optional[_Union[_aclpb_pb2.AgentCallLog, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., number_format: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, AgentResponse]] = ...) -> None: ...
+    summary: _transcript_summary_pb2.TranscriptSummary
+    def __init__(self, transcript_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., results: _Optional[_Iterable[_Union[Result, _Mapping]]] = ..., silence: _Optional[_Union[Silence, _Mapping]] = ..., talk_time: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., talk_over: _Optional[_Union[TalkOver, _Mapping]] = ..., caller_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., audio_time: _Optional[int] = ..., audio_bytes: _Optional[int] = ..., group_name: _Optional[str] = ..., agent_call_log: _Optional[_Union[_aclpb_pb2.AgentCallLog, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., number_format: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, AgentResponse]] = ..., summary: _Optional[_Union[_transcript_summary_pb2.TranscriptSummary, _Mapping]] = ...) -> None: ...
 
 class Result(_message.Message):
     __slots__ = ("channel", "segments", "agent_first_name", "agent_last_name", "agent_user_name", "begin_time", "duration", "text", "hunt_group_sid")
