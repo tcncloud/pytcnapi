@@ -165,3 +165,39 @@ class UpdateUsersOnSkillGroupRequest(_message.Message):
 class UpdateUsersOnSkillGroupResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListSkillsForCurrentAgentRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListSkillsForCurrentAgentResponse(_message.Message):
+    __slots__ = ("skills",)
+    class AgentSkill(_message.Message):
+        __slots__ = ("agent_skill_sid", "name", "description")
+        AGENT_SKILL_SID_FIELD_NUMBER: _ClassVar[int]
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        agent_skill_sid: int
+        name: str
+        description: str
+        def __init__(self, agent_skill_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
+    skills: _containers.RepeatedCompositeFieldContainer[ListSkillsForCurrentAgentResponse.AgentSkill]
+    def __init__(self, skills: _Optional[_Iterable[_Union[ListSkillsForCurrentAgentResponse.AgentSkill, _Mapping]]] = ...) -> None: ...
+
+class GetAgentSkillsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetAgentSkillsResponse(_message.Message):
+    __slots__ = ("skills",)
+    class SkillsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: int
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
+    skills: _containers.ScalarMap[str, int]
+    def __init__(self, skills: _Optional[_Mapping[str, int]] = ...) -> None: ...

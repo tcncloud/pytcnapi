@@ -32,18 +32,20 @@ class ContentReq(_message.Message):
     def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
 
 class ContentRes(_message.Message):
-    __slots__ = ("content", "last_edited_timestamp", "images", "title", "total_view_count")
+    __slots__ = ("content", "last_edited_timestamp", "images", "title", "total_view_count", "last_edited_user")
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     IMAGES_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     TOTAL_VIEW_COUNT_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_USER_FIELD_NUMBER: _ClassVar[int]
     content: str
     last_edited_timestamp: _timestamp_pb2.Timestamp
     images: _containers.RepeatedCompositeFieldContainer[LearnImage]
     title: str
     total_view_count: int
-    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., title: _Optional[str] = ..., total_view_count: _Optional[int] = ...) -> None: ...
+    last_edited_user: str
+    def __init__(self, content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ..., title: _Optional[str] = ..., total_view_count: _Optional[int] = ..., last_edited_user: _Optional[str] = ...) -> None: ...
 
 class ContentEditorDataReq(_message.Message):
     __slots__ = ("url", "locale")
@@ -232,3 +234,99 @@ class DeleteLearnPagesReq(_message.Message):
 class DeleteLearnPagesRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class CreateEditVersionReq(_message.Message):
+    __slots__ = ("src_version", "dest_version")
+    SRC_VERSION_FIELD_NUMBER: _ClassVar[int]
+    DEST_VERSION_FIELD_NUMBER: _ClassVar[int]
+    src_version: str
+    dest_version: str
+    def __init__(self, src_version: _Optional[str] = ..., dest_version: _Optional[str] = ...) -> None: ...
+
+class CreateEditVersionRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class PublishVersionReq(_message.Message):
+    __slots__ = ("publish_version",)
+    PUBLISH_VERSION_FIELD_NUMBER: _ClassVar[int]
+    publish_version: str
+    def __init__(self, publish_version: _Optional[str] = ...) -> None: ...
+
+class PublishVersionRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ContentByVersionReq(_message.Message):
+    __slots__ = ("url", "locale", "version")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    locale: str
+    version: str
+    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., version: _Optional[str] = ...) -> None: ...
+
+class UpdateByVersionReq(_message.Message):
+    __slots__ = ("url", "locale", "content", "version", "message", "title")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    locale: str
+    content: str
+    version: str
+    message: str
+    title: str
+    def __init__(self, url: _Optional[str] = ..., locale: _Optional[str] = ..., content: _Optional[str] = ..., version: _Optional[str] = ..., message: _Optional[str] = ..., title: _Optional[str] = ...) -> None: ...
+
+class SearchContentByVersionReq(_message.Message):
+    __slots__ = ("search_content", "locale", "field_mask", "version")
+    SEARCH_CONTENT_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    search_content: str
+    locale: str
+    field_mask: _field_mask_pb2.FieldMask
+    version: str
+    def __init__(self, search_content: _Optional[str] = ..., locale: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., version: _Optional[str] = ...) -> None: ...
+
+class ReviewFileVersionsReq(_message.Message):
+    __slots__ = ("url", "version", "locale")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    version: str
+    locale: str
+    def __init__(self, url: _Optional[str] = ..., version: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
+
+class ReviewFileVersionsRes(_message.Message):
+    __slots__ = ("content", "diff_content", "images")
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    DIFF_CONTENT_FIELD_NUMBER: _ClassVar[int]
+    IMAGES_FIELD_NUMBER: _ClassVar[int]
+    content: str
+    diff_content: str
+    images: _containers.RepeatedCompositeFieldContainer[LearnImage]
+    def __init__(self, content: _Optional[str] = ..., diff_content: _Optional[str] = ..., images: _Optional[_Iterable[_Union[LearnImage, _Mapping]]] = ...) -> None: ...
+
+class ReviewVersionReq(_message.Message):
+    __slots__ = ("version", "locale")
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    version: str
+    locale: str
+    def __init__(self, version: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
+
+class ReviewVersionRes(_message.Message):
+    __slots__ = ("diff_urls", "diff_file_names")
+    DIFF_URLS_FIELD_NUMBER: _ClassVar[int]
+    DIFF_FILE_NAMES_FIELD_NUMBER: _ClassVar[int]
+    diff_urls: str
+    diff_file_names: str
+    def __init__(self, diff_urls: _Optional[str] = ..., diff_file_names: _Optional[str] = ...) -> None: ...

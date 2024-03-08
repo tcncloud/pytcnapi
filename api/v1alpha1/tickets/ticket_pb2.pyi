@@ -181,8 +181,20 @@ class ListAvailableAgentTicketsResponse(_message.Message):
     def __init__(self, ticket_sid: _Optional[_Iterable[int]] = ..., ticket: _Optional[_Iterable[_Union[_tickets_pb2.Ticket, _Mapping]]] = ...) -> None: ...
 
 class ListAvailableAgentTicketsRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("select_field_mask", "available_filter", "agent_view_limit")
+    SELECT_FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    AVAILABLE_FILTER_FIELD_NUMBER: _ClassVar[int]
+    AGENT_VIEW_LIMIT_FIELD_NUMBER: _ClassVar[int]
+    select_field_mask: _field_mask_pb2.FieldMask
+    available_filter: AvailableTicketsFilter
+    agent_view_limit: int
+    def __init__(self, select_field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., available_filter: _Optional[_Union[AvailableTicketsFilter, _Mapping]] = ..., agent_view_limit: _Optional[int] = ...) -> None: ...
+
+class AvailableTicketsFilter(_message.Message):
+    __slots__ = ("agent_skill_id",)
+    AGENT_SKILL_ID_FIELD_NUMBER: _ClassVar[int]
+    agent_skill_id: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, agent_skill_id: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class EditTicketRes(_message.Message):
     __slots__ = ("is_edited",)

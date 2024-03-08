@@ -80,6 +80,41 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesRes.FromString,
                 )
+        self.CreateEditVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/CreateEditVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionRes.FromString,
+                )
+        self.PublishVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/PublishVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionRes.FromString,
+                )
+        self.ContentByVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/ContentByVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.ContentByVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ContentRes.FromString,
+                )
+        self.UpdateByVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/UpdateByVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.UpdateByVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.UpdateRes.FromString,
+                )
+        self.ListSearchResultsByVersion = channel.unary_stream(
+                '/api.v0alpha.Learn/ListSearchResultsByVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.SearchContentByVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
+                )
+        self.ReviewFileVersions = channel.unary_unary(
+                '/api.v0alpha.Learn/ReviewFileVersions',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsRes.FromString,
+                )
+        self.ReviewVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/ReviewVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
+                )
 
 
 class LearnServicer(object):
@@ -181,6 +216,56 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateEditVersion(self, request, context):
+        """create edit version
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def PublishVersion(self, request, context):
+        """publish version
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ContentByVersion(self, request, context):
+        """retrieve content from learning pages based on version
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateByVersion(self, request, context):
+        """update contents for learning pages by version
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSearchResultsByVersion(self, request, context):
+        """stream search content results in learning pages by version
+        we allow all the logged in agents/admins to view search content
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReviewFileVersions(self, request, context):
+        """return diff by comparing file contens from any version
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReviewVersion(self, request, context):
+        """returns list of file details after comparing different versions
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -248,6 +333,41 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.DeleteLearnPages,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesRes.SerializeToString,
+            ),
+            'CreateEditVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateEditVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.CreateEditVersionRes.SerializeToString,
+            ),
+            'PublishVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.PublishVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.PublishVersionRes.SerializeToString,
+            ),
+            'ContentByVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.ContentByVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ContentByVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ContentRes.SerializeToString,
+            ),
+            'UpdateByVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateByVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.UpdateByVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.UpdateRes.SerializeToString,
+            ),
+            'ListSearchResultsByVersion': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListSearchResultsByVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.SearchContentByVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.SearchRes.SerializeToString,
+            ),
+            'ReviewFileVersions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReviewFileVersions,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsRes.SerializeToString,
+            ),
+            'ReviewVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReviewVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -478,5 +598,124 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/DeleteLearnPages',
             api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.DeleteLearnPagesRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateEditVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/CreateEditVersion',
+            api_dot_v0alpha_dot_learn__pb2.CreateEditVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.CreateEditVersionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PublishVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/PublishVersion',
+            api_dot_v0alpha_dot_learn__pb2.PublishVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.PublishVersionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ContentByVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ContentByVersion',
+            api_dot_v0alpha_dot_learn__pb2.ContentByVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.ContentRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateByVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/UpdateByVersion',
+            api_dot_v0alpha_dot_learn__pb2.UpdateByVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.UpdateRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSearchResultsByVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Learn/ListSearchResultsByVersion',
+            api_dot_v0alpha_dot_learn__pb2.SearchContentByVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.SearchRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReviewFileVersions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ReviewFileVersions',
+            api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.ReviewFileVersionsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReviewVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ReviewVersion',
+            api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

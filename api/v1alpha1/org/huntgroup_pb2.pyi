@@ -2,6 +2,7 @@ from api.commons import org_pb2 as _org_pb2
 from api.commons.org import huntgroup_pb2 as _huntgroup_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
@@ -308,6 +309,52 @@ class DeleteHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class CopyHuntGroupClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("to_hunt_group_sid", "template")
+    TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    to_hunt_group_sid: int
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, to_hunt_group_sid: _Optional[int] = ..., template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CopyHuntGroupClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateCampaignClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("template",)
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CreateCampaignClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ("template_sid",)
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    def __init__(self, template_sid: _Optional[int] = ...) -> None: ...
+
+class ListHuntGroupsWithClientInfoTemplateDataRequest(_message.Message):
+    __slots__ = ("filter",)
+    class Filter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        FILTER_UNSPECIFIED: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+        FILTER_ALL: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+        FILTER_HUNT_GROUPS_WITH_TEMPLATE: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+        FILTER_HUNT_GROUPS_WITHOUT_TEMPLATE: _ClassVar[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter]
+    FILTER_UNSPECIFIED: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_ALL: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_HUNT_GROUPS_WITH_TEMPLATE: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_HUNT_GROUPS_WITHOUT_TEMPLATE: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    FILTER_FIELD_NUMBER: _ClassVar[int]
+    filter: ListHuntGroupsWithClientInfoTemplateDataRequest.Filter
+    def __init__(self, filter: _Optional[_Union[ListHuntGroupsWithClientInfoTemplateDataRequest.Filter, str]] = ...) -> None: ...
+
+class ListHuntGroupsWithClientInfoTemplateDataResponse(_message.Message):
+    __slots__ = ("hunt_groups_with_template_data",)
+    HUNT_GROUPS_WITH_TEMPLATE_DATA_FIELD_NUMBER: _ClassVar[int]
+    hunt_groups_with_template_data: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.HuntGroupWithClientInfoTemplateData]
+    def __init__(self, hunt_groups_with_template_data: _Optional[_Iterable[_Union[_huntgroup_pb2.HuntGroupWithClientInfoTemplateData, _Mapping]]] = ...) -> None: ...
+
 class ListHuntGroupWebLinksRequest(_message.Message):
     __slots__ = ("hunt_group_sid",)
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -395,5 +442,53 @@ class UpdateAgentTriggersRequest(_message.Message):
     def __init__(self, hunt_group_sid: _Optional[int] = ..., agent_triggers: _Optional[_Iterable[_Union[_huntgroup_pb2.AgentTrigger, _Mapping]]] = ...) -> None: ...
 
 class UpdateAgentTriggersResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid",)
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class GetHuntGroupScriptResponse(_message.Message):
+    __slots__ = ("hunt_group_script",)
+    HUNT_GROUP_SCRIPT_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_script: _huntgroup_pb2.HuntGroupScript
+    def __init__(self, hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ...) -> None: ...
+
+class CreateHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "hunt_group_script")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SCRIPT_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    hunt_group_script: _huntgroup_pb2.HuntGroupScript
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ...) -> None: ...
+
+class CreateHuntGroupScriptResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class UpdateHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "hunt_group_script")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SCRIPT_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    hunt_group_script: _huntgroup_pb2.HuntGroupScript
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ...) -> None: ...
+
+class UpdateHuntGroupScriptResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteHuntGroupScriptRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "script_sid")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    SCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    script_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., script_sid: _Optional[int] = ...) -> None: ...
+
+class DeleteHuntGroupScriptResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...

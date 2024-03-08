@@ -92,12 +92,14 @@ class GetAuthenticationPreferencesResponse(_message.Message):
     def __init__(self, authentication_preferences: _Optional[_Union[_preferences_pb2.AuthenticationPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateAuthenticationPreferencesRequest(_message.Message):
-    __slots__ = ("authentication_preferences", "field_mask")
+    __slots__ = ("authentication_preferences", "duo_client_secret", "field_mask")
     AUTHENTICATION_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
+    DUO_CLIENT_SECRET_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     authentication_preferences: _preferences_pb2.AuthenticationPreferences
+    duo_client_secret: str
     field_mask: _field_mask_pb2.FieldMask
-    def __init__(self, authentication_preferences: _Optional[_Union[_preferences_pb2.AuthenticationPreferences, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    def __init__(self, authentication_preferences: _Optional[_Union[_preferences_pb2.AuthenticationPreferences, _Mapping]] = ..., duo_client_secret: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateAuthenticationPreferencesResponse(_message.Message):
     __slots__ = ()
@@ -536,3 +538,57 @@ class ClearEmailUnsubscribeAcknowledgementRequest(_message.Message):
 class ClearEmailUnsubscribeAcknowledgementResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class CreateBusinessHoursRequest(_message.Message):
+    __slots__ = ("business_hours",)
+    BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
+    business_hours: _preferences_pb2.BusinessHours
+    def __init__(self, business_hours: _Optional[_Union[_preferences_pb2.BusinessHours, _Mapping]] = ...) -> None: ...
+
+class CreateBusinessHoursResponse(_message.Message):
+    __slots__ = ("business_hours_id",)
+    BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
+    business_hours_id: str
+    def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
+
+class UpdateBusinessHoursRequest(_message.Message):
+    __slots__ = ("business_hours",)
+    BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
+    business_hours: _preferences_pb2.BusinessHours
+    def __init__(self, business_hours: _Optional[_Union[_preferences_pb2.BusinessHours, _Mapping]] = ...) -> None: ...
+
+class UpdateBusinessHoursResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteBusinessHoursRequest(_message.Message):
+    __slots__ = ("business_hours_id",)
+    BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
+    business_hours_id: str
+    def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
+
+class DeleteBusinessHoursResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListBusinessHoursRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListBusinessHoursResponse(_message.Message):
+    __slots__ = ("business_hours_lists",)
+    BUSINESS_HOURS_LISTS_FIELD_NUMBER: _ClassVar[int]
+    business_hours_lists: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.BusinessHours]
+    def __init__(self, business_hours_lists: _Optional[_Iterable[_Union[_preferences_pb2.BusinessHours, _Mapping]]] = ...) -> None: ...
+
+class GetBusinessHoursRequest(_message.Message):
+    __slots__ = ("business_hours_id",)
+    BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
+    business_hours_id: str
+    def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
+
+class GetBusinessHoursResponse(_message.Message):
+    __slots__ = ("business_hours",)
+    BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
+    business_hours: _preferences_pb2.BusinessHours
+    def __init__(self, business_hours: _Optional[_Union[_preferences_pb2.BusinessHours, _Mapping]] = ...) -> None: ...

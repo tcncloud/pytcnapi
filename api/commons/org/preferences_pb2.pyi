@@ -12,16 +12,18 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrganizationPreferences(_message.Message):
-    __slots__ = ("org_id", "default_country", "time_zone", "display_language")
+    __slots__ = ("org_id", "default_country", "time_zone", "display_language", "locale_preferences")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_COUNTRY_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_LANGUAGE_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     default_country: _country_pb2.Country
     time_zone: _org_pb2.TimeZone
     display_language: _org_pb2.DisplayLanguage
-    def __init__(self, org_id: _Optional[str] = ..., default_country: _Optional[_Union[_country_pb2.Country, str]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., display_language: _Optional[_Union[_org_pb2.DisplayLanguage, str]] = ...) -> None: ...
+    locale_preferences: _org_preferences_pb2.LocalePreferences
+    def __init__(self, org_id: _Optional[str] = ..., default_country: _Optional[_Union[_country_pb2.Country, str]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., display_language: _Optional[_Union[_org_pb2.DisplayLanguage, str]] = ..., locale_preferences: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ...) -> None: ...
 
 class AgentPreferences(_message.Message):
     __slots__ = ("org_id", "default_agent_dial_in", "pbx_extension_length", "default_softphone_volume_in", "default_softphone_volume_out", "config_dial_in_numbers", "client_dial_in_numbers", "manual_dial_caller_id_privacy", "use_manual_dial_caller_id_privacy")
@@ -104,20 +106,38 @@ class ContactFieldDescription(_message.Message):
     def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[str] = ...) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
-    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users")
+    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "email_mfa_settings", "duo_mfa_settings")
+    class DuoMfaSettings(_message.Message):
+        __slots__ = ("duo_client_id", "duo_api_host", "enabled")
+        DUO_CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
+        DUO_API_HOST_FIELD_NUMBER: _ClassVar[int]
+        ENABLED_FIELD_NUMBER: _ClassVar[int]
+        duo_client_id: str
+        duo_api_host: str
+        enabled: bool
+        def __init__(self, duo_client_id: _Optional[str] = ..., duo_api_host: _Optional[str] = ..., enabled: bool = ...) -> None: ...
+    class EmailMfaSettings(_message.Message):
+        __slots__ = ("enabled",)
+        ENABLED_FIELD_NUMBER: _ClassVar[int]
+        enabled: bool
+        def __init__(self, enabled: bool = ...) -> None: ...
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_IPS_FIELD_NUMBER: _ClassVar[int]
     AGENT_API_KEY_FIELD_NUMBER: _ClassVar[int]
     ENABLE_2FA_FIELD_NUMBER: _ClassVar[int]
     BLOCK_UNVERIFIED_USERS_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
+    DUO_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     authorization_via_ip: bool
     allowed_ips: _containers.RepeatedScalarFieldContainer[str]
     agent_api_key: str
     enable_2fa: bool
     block_unverified_users: bool
-    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ...) -> None: ...
+    email_mfa_settings: AuthenticationPreferences.EmailMfaSettings
+    duo_mfa_settings: AuthenticationPreferences.DuoMfaSettings
+    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., email_mfa_settings: _Optional[_Union[AuthenticationPreferences.EmailMfaSettings, _Mapping]] = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ...) -> None: ...
 
 class WebhookPreferences(_message.Message):
     __slots__ = ("org_id", "push_urls_enabled", "call_result_push_url", "agent_response_push_url")
@@ -628,3 +648,29 @@ class AdminClientPreferences(_message.Message):
     agent_screen_recording: bool
     allowed_countries: _containers.RepeatedScalarFieldContainer[_country_pb2.Country]
     def __init__(self, org_id: _Optional[str] = ..., use_reserved_carrier: bool = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., email_key: _Optional[str] = ..., email_id: _Optional[str] = ..., email_name: _Optional[str] = ..., whitelist_ips: _Optional[_Iterable[str]] = ..., whitelist_domains: _Optional[_Iterable[str]] = ..., callbacks_service_id: _Optional[str] = ..., agent_screen_recording: bool = ..., allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ...) -> None: ...
+
+class BusinessHours(_message.Message):
+    __slots__ = ("org_id", "id", "name", "description", "ranges")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    RANGES_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    id: str
+    name: str
+    description: str
+    ranges: _containers.RepeatedCompositeFieldContainer[Range]
+    def __init__(self, org_id: _Optional[str] = ..., id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ...) -> None: ...
+
+class Range(_message.Message):
+    __slots__ = ("start_hour", "start_minute", "end_hour", "end_minute")
+    START_HOUR_FIELD_NUMBER: _ClassVar[int]
+    START_MINUTE_FIELD_NUMBER: _ClassVar[int]
+    END_HOUR_FIELD_NUMBER: _ClassVar[int]
+    END_MINUTE_FIELD_NUMBER: _ClassVar[int]
+    start_hour: int
+    start_minute: int
+    end_hour: int
+    end_minute: int
+    def __init__(self, start_hour: _Optional[int] = ..., start_minute: _Optional[int] = ..., end_hour: _Optional[int] = ..., end_minute: _Optional[int] = ...) -> None: ...
