@@ -390,6 +390,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
                 )
+        self.RemoveAgentFromOrg = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/RemoveAgentFromOrg',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgResponse.FromString,
+                )
         self.BuildAgentDiagnostics = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/BuildAgentDiagnostics',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildAgentDiagnosticsReq.SerializeToString,
@@ -1922,6 +1927,19 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sids are invalid.
         - grpc.Internal: error occurs when deleting the associations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveAgentFromOrg(self, request, context):
+        """Removes the the @wfm_agent_sid_to_remove from all future shifts for the org.
+        If @replace_with_new_unassigned_agent is set to true, a new unassigned agent will be created and it will be assigned to the shifts and agent groups from @wfm_agent_sid_to_remove.
+        If @replace_with_new_unassigned_agent is set to false, the future shifts will just be deleted.
+        Required Permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when deleting the shifts, creating the new unassigned agent, or reassigning the shifts to that agent.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3626,6 +3644,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteWFMAgentsMemberships,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.SerializeToString,
+            ),
+            'RemoveAgentFromOrg': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveAgentFromOrg,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgResponse.SerializeToString,
             ),
             'BuildAgentDiagnostics': grpc.unary_unary_rpc_method_handler(
                     servicer.BuildAgentDiagnostics,
@@ -5355,6 +5378,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteWFMAgentsMemberships',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveAgentFromOrg(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromOrg',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromOrgResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
