@@ -106,20 +106,28 @@ class ContactFieldDescription(_message.Message):
     def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[str] = ...) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
-    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "duo_mfa_settings")
+    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "email_mfa_settings", "duo_mfa_settings")
     class DuoMfaSettings(_message.Message):
-        __slots__ = ("duo_client_id", "duo_api_host")
+        __slots__ = ("duo_client_id", "duo_api_host", "enabled")
         DUO_CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
         DUO_API_HOST_FIELD_NUMBER: _ClassVar[int]
+        ENABLED_FIELD_NUMBER: _ClassVar[int]
         duo_client_id: str
         duo_api_host: str
-        def __init__(self, duo_client_id: _Optional[str] = ..., duo_api_host: _Optional[str] = ...) -> None: ...
+        enabled: bool
+        def __init__(self, duo_client_id: _Optional[str] = ..., duo_api_host: _Optional[str] = ..., enabled: bool = ...) -> None: ...
+    class EmailMfaSettings(_message.Message):
+        __slots__ = ("enabled",)
+        ENABLED_FIELD_NUMBER: _ClassVar[int]
+        enabled: bool
+        def __init__(self, enabled: bool = ...) -> None: ...
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_IPS_FIELD_NUMBER: _ClassVar[int]
     AGENT_API_KEY_FIELD_NUMBER: _ClassVar[int]
     ENABLE_2FA_FIELD_NUMBER: _ClassVar[int]
     BLOCK_UNVERIFIED_USERS_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
     DUO_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     authorization_via_ip: bool
@@ -127,8 +135,9 @@ class AuthenticationPreferences(_message.Message):
     agent_api_key: str
     enable_2fa: bool
     block_unverified_users: bool
+    email_mfa_settings: AuthenticationPreferences.EmailMfaSettings
     duo_mfa_settings: AuthenticationPreferences.DuoMfaSettings
-    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., email_mfa_settings: _Optional[_Union[AuthenticationPreferences.EmailMfaSettings, _Mapping]] = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ...) -> None: ...
 
 class WebhookPreferences(_message.Message):
     __slots__ = ("org_id", "push_urls_enabled", "call_result_push_url", "agent_response_push_url")
