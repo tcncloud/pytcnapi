@@ -29,12 +29,12 @@ class FileTemplate(_message.Message):
     PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
     FOID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
-    file_template_id: str
+    file_template_id: int
     filename: str
     fields: _containers.RepeatedCompositeFieldContainer[Field]
     parse_opts: ParseOpts
     foid: int
-    def __init__(self, org_id: _Optional[str] = ..., file_template_id: _Optional[str] = ..., filename: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[Field, _Mapping]]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., foid: _Optional[int] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., file_template_id: _Optional[int] = ..., filename: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[Field, _Mapping]]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., foid: _Optional[int] = ...) -> None: ...
 
 class Field(_message.Message):
     __slots__ = ("syntax_type", "presi_type", "name", "format", "raw_value")
@@ -119,6 +119,6 @@ class ExistingTemplate(_message.Message):
     __slots__ = ("file_template_id", "parse_opts")
     FILE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
-    file_template_id: str
+    file_template_id: int
     parse_opts: ParseOpts
-    def __init__(self, file_template_id: _Optional[str] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ...) -> None: ...
+    def __init__(self, file_template_id: _Optional[int] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ...) -> None: ...
