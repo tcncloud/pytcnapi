@@ -17,7 +17,7 @@ from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb
 from services.billing.entities.v1alpha1 import product_pb2 as services_dot_billing_dot_entities_dot_v1alpha1_dot_product__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha1/invoice.proto\x12\"services.billing.entities.v1alpha1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x30services/billing/entities/v1alpha1/product.proto\"\xfb\x02\n\x07Invoice\x12\x1d\n\ninvoice_id\x18\x01 \x01(\tR\tinvoiceId\x12#\n\rbilling_cycle\x18\x02 \x01(\tR\x0c\x62illingCycle\x12;\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12;\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nupdateTime\x12;\n\x0b\x64\x65lete_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ndeleteTime\x12\x45\n\x05items\x18\x06 \x03(\x0b\x32/.services.billing.entities.v1alpha1.InvoiceItemR\x05items\x12.\n\x03url\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x03url\"\x8c\x02\n\x0bInvoiceItem\x12&\n\x0finvoice_item_id\x18\x01 \x01(\tR\rinvoiceItemId\x12\x45\n\x07product\x18\x02 \x01(\x0e\x32+.services.billing.entities.v1alpha1.ProductR\x07product\x12\x14\n\x05price\x18\x03 \x01(\x01R\x05price\x12;\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12;\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\nupdateTimeB\xe1\x01\n&com.services.billing.entities.v1alpha1B\x0cInvoiceProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha1\xca\x02\"Services\\Billing\\Entities\\V1alpha1\xe2\x02.Services\\Billing\\Entities\\V1alpha1\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha1/invoice.proto\x12\"services.billing.entities.v1alpha1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x30services/billing/entities/v1alpha1/product.proto\"\xa4\x03\n\x07Invoice\x12!\n\ninvoice_id\x18\x01 \x01(\tB\x02\x18\x01R\tinvoiceId\x12#\n\rbilling_cycle\x18\x02 \x01(\tR\x0c\x62illingCycle\x12;\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12?\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02\x18\x01R\nupdateTime\x12?\n\x0b\x64\x65lete_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02\x18\x01R\ndeleteTime\x12\x45\n\x05items\x18\x06 \x03(\x0b\x32/.services.billing.entities.v1alpha1.InvoiceItemR\x05items\x12.\n\x03url\x18\x07 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x03url\x12\x1b\n\tclient_id\x18\x08 \x01(\tR\x08\x63lientId\"\xbb\x03\n\x0bInvoiceItem\x12*\n\x0finvoice_item_id\x18\x01 \x01(\tB\x02\x18\x01R\rinvoiceItemId\x12\x45\n\x07product\x18\x02 \x01(\x0e\x32+.services.billing.entities.v1alpha1.ProductR\x07product\x12\x14\n\x05price\x18\x03 \x01(\x01R\x05price\x12?\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02\x18\x01R\ncreateTime\x12?\n\x0bupdate_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x02\x18\x01R\nupdateTime\x12 \n\x0b\x64\x65scription\x18\x06 \x01(\tR\x0b\x64\x65scription\x12.\n\x04\x64\x61te\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x04\x64\x61te\x12O\n\x07\x63olumns\x18\x08 \x03(\x0b\x32\x35.services.billing.entities.v1alpha1.InvoiceItemColumnR\x07\x63olumns\"=\n\x11InvoiceItemColumn\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n\x05value\x18\x02 \x01(\x03R\x05valueB\xe1\x01\n&com.services.billing.entities.v1alpha1B\x0cInvoiceProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha1\xca\x02\"Services\\Billing\\Entities\\V1alpha1\xe2\x02.Services\\Billing\\Entities\\V1alpha1\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,8 +25,22 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'services.billing.entities.v
 if _descriptor._USE_C_DESCRIPTORS == False:
   _globals['DESCRIPTOR']._options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n&com.services.billing.entities.v1alpha1B\014InvoiceProtoP\001\242\002\003SBE\252\002\"Services.Billing.Entities.V1alpha1\312\002\"Services\\Billing\\Entities\\V1alpha1\342\002.Services\\Billing\\Entities\\V1alpha1\\GPBMetadata\352\002%Services::Billing::Entities::V1alpha1'
+  _globals['_INVOICE'].fields_by_name['invoice_id']._options = None
+  _globals['_INVOICE'].fields_by_name['invoice_id']._serialized_options = b'\030\001'
+  _globals['_INVOICE'].fields_by_name['update_time']._options = None
+  _globals['_INVOICE'].fields_by_name['update_time']._serialized_options = b'\030\001'
+  _globals['_INVOICE'].fields_by_name['delete_time']._options = None
+  _globals['_INVOICE'].fields_by_name['delete_time']._serialized_options = b'\030\001'
+  _globals['_INVOICEITEM'].fields_by_name['invoice_item_id']._options = None
+  _globals['_INVOICEITEM'].fields_by_name['invoice_item_id']._serialized_options = b'\030\001'
+  _globals['_INVOICEITEM'].fields_by_name['create_time']._options = None
+  _globals['_INVOICEITEM'].fields_by_name['create_time']._serialized_options = b'\030\001'
+  _globals['_INVOICEITEM'].fields_by_name['update_time']._options = None
+  _globals['_INVOICEITEM'].fields_by_name['update_time']._serialized_options = b'\030\001'
   _globals['_INVOICE']._serialized_start=204
-  _globals['_INVOICE']._serialized_end=583
-  _globals['_INVOICEITEM']._serialized_start=586
-  _globals['_INVOICEITEM']._serialized_end=854
+  _globals['_INVOICE']._serialized_end=624
+  _globals['_INVOICEITEM']._serialized_start=627
+  _globals['_INVOICEITEM']._serialized_end=1070
+  _globals['_INVOICEITEMCOLUMN']._serialized_start=1072
+  _globals['_INVOICEITEMCOLUMN']._serialized_end=1133
 # @@protoc_insertion_point(module_scope)
