@@ -2398,7 +2398,7 @@ class SplitByEqualParts(_message.Message):
     def __init__(self, part_size: _Optional[int] = ...) -> None: ...
 
 class EpicEntrypoint(_message.Message):
-    __slots__ = ("cron", "max_wait_time", "entity_types", "group_base_url", "group_fhir_id", "runtime_values", "flush_page_count", "flush_minute_count", "flush_during_check", "timezone", "enabled", "fields", "raw_json", "non_prod", "auth_server")
+    __slots__ = ("cron", "max_wait_time", "entity_types", "group_base_url", "group_fhir_id", "runtime_values", "flush_page_count", "flush_minute_count", "flush_during_check", "timezone", "enabled", "fields", "raw_json")
     CRON_FIELD_NUMBER: _ClassVar[int]
     MAX_WAIT_TIME_FIELD_NUMBER: _ClassVar[int]
     ENTITY_TYPES_FIELD_NUMBER: _ClassVar[int]
@@ -2412,8 +2412,6 @@ class EpicEntrypoint(_message.Message):
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     RAW_JSON_FIELD_NUMBER: _ClassVar[int]
-    NON_PROD_FIELD_NUMBER: _ClassVar[int]
-    AUTH_SERVER_FIELD_NUMBER: _ClassVar[int]
     cron: str
     max_wait_time: float
     entity_types: _containers.RepeatedScalarFieldContainer[EpicEntityType]
@@ -2427,9 +2425,7 @@ class EpicEntrypoint(_message.Message):
     enabled: bool
     fields: _containers.RepeatedCompositeFieldContainer[Field]
     raw_json: bool
-    non_prod: bool
-    auth_server: str
-    def __init__(self, cron: _Optional[str] = ..., max_wait_time: _Optional[float] = ..., entity_types: _Optional[_Iterable[_Union[EpicEntityType, str]]] = ..., group_base_url: _Optional[str] = ..., group_fhir_id: _Optional[str] = ..., runtime_values: _Optional[_Union[RuntimeValues, _Mapping]] = ..., flush_page_count: _Optional[int] = ..., flush_minute_count: _Optional[int] = ..., flush_during_check: bool = ..., timezone: _Optional[str] = ..., enabled: bool = ..., fields: _Optional[_Iterable[_Union[Field, _Mapping]]] = ..., raw_json: bool = ..., non_prod: bool = ..., auth_server: _Optional[str] = ...) -> None: ...
+    def __init__(self, cron: _Optional[str] = ..., max_wait_time: _Optional[float] = ..., entity_types: _Optional[_Iterable[_Union[EpicEntityType, str]]] = ..., group_base_url: _Optional[str] = ..., group_fhir_id: _Optional[str] = ..., runtime_values: _Optional[_Union[RuntimeValues, _Mapping]] = ..., flush_page_count: _Optional[int] = ..., flush_minute_count: _Optional[int] = ..., flush_during_check: bool = ..., timezone: _Optional[str] = ..., enabled: bool = ..., fields: _Optional[_Iterable[_Union[Field, _Mapping]]] = ..., raw_json: bool = ...) -> None: ...
 
 class RuntimeValues(_message.Message):
     __slots__ = ("state", "access_token", "check_url", "data_urls", "current_iteration", "total_seconds_spent", "errors", "total_not_ready_count", "file_ids", "preliminary_vars", "parent_event_ids", "no_more_pages", "total_fts_ids")
