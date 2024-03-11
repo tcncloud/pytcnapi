@@ -416,10 +416,8 @@ class CopyHuntGroupIntegrationLinkRequest(_message.Message):
     def __init__(self, to_hunt_group_sid: _Optional[int] = ..., link: _Optional[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]] = ...) -> None: ...
 
 class CopyHuntGroupIntegrationLinkResponse(_message.Message):
-    __slots__ = ("integration_link_sid",)
-    INTEGRATION_LINK_SID_FIELD_NUMBER: _ClassVar[int]
-    integration_link_sid: int
-    def __init__(self, integration_link_sid: _Optional[int] = ...) -> None: ...
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class UpdateHuntGroupIntegrationLinksRequest(_message.Message):
     __slots__ = ("links",)
