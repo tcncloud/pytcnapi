@@ -407,6 +407,20 @@ class ListHuntGroupIntegrationLinksResponse(_message.Message):
     links: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.IntegrationLink]
     def __init__(self, links: _Optional[_Iterable[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]]] = ...) -> None: ...
 
+class CopyHuntGroupIntegrationLinkRequest(_message.Message):
+    __slots__ = ("to_hunt_group_sid", "link")
+    TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    LINK_FIELD_NUMBER: _ClassVar[int]
+    to_hunt_group_sid: int
+    link: _huntgroup_pb2.IntegrationLink
+    def __init__(self, to_hunt_group_sid: _Optional[int] = ..., link: _Optional[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]] = ...) -> None: ...
+
+class CopyHuntGroupIntegrationLinkResponse(_message.Message):
+    __slots__ = ("integration_link_sid",)
+    INTEGRATION_LINK_SID_FIELD_NUMBER: _ClassVar[int]
+    integration_link_sid: int
+    def __init__(self, integration_link_sid: _Optional[int] = ...) -> None: ...
+
 class ListAgentTriggersRequest(_message.Message):
     __slots__ = ("hunt_group_sid",)
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
