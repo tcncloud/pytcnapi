@@ -387,11 +387,10 @@ class BillingServiceServicer(object):
     def ExportInvoice(self, request, context):
         """Exports an invoice.
         Required permissions:
-        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
         Errors:
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
-        - grpc.NotFound: The specified invoice doesn't exist.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
         - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """

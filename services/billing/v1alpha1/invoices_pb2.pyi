@@ -1,4 +1,5 @@
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from services.billing.entities.v1alpha1 import invoice_pb2 as _invoice_pb2
 from services.billing.v1alpha1 import core_pb2 as _core_pb2
 from google.protobuf.internal import containers as _containers
@@ -41,12 +42,14 @@ class DeleteInvoiceResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class ExportInvoiceRequest(_message.Message):
-    __slots__ = ("invoice_id", "format")
+    __slots__ = ("invoice_id", "format", "invoice_date")
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
+    INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     invoice_id: str
     format: InvoiceFormat
-    def __init__(self, invoice_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ...) -> None: ...
+    invoice_date: _timestamp_pb2.Timestamp
+    def __init__(self, invoice_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ExportInvoiceResponse(_message.Message):
     __slots__ = ("invoice",)
