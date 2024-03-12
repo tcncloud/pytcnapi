@@ -1155,3 +1155,15 @@ class QueryHolidaysRequest(_message.Message):
     country: str
     state: str
     def __init__(self, date: _Optional[str] = ..., name: _Optional[str] = ..., year: _Optional[str] = ..., month: _Optional[str] = ..., day: _Optional[str] = ..., weekday: _Optional[str] = ..., type: _Optional[str] = ..., is_observed: _Optional[str] = ..., country: _Optional[str] = ..., state: _Optional[str] = ...) -> None: ...
+
+class ExportConsentListRequest(_message.Message):
+    __slots__ = ("consent_profile_id",)
+    CONSENT_PROFILE_ID_FIELD_NUMBER: _ClassVar[int]
+    consent_profile_id: str
+    def __init__(self, consent_profile_id: _Optional[str] = ...) -> None: ...
+
+class ExportConsentListResponse(_message.Message):
+    __slots__ = ("url",)
+    URL_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    def __init__(self, url: _Optional[str] = ...) -> None: ...

@@ -296,6 +296,11 @@ class ComplianceStub(object):
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessConsentUploadReq.SerializeToString,
                 response_deserializer=google_dot_longrunning_dot_operations__pb2.Operation.FromString,
                 )
+        self.ExportConsentList = channel.unary_unary(
+                '/api.v0alpha.Compliance/ExportConsentList',
+                request_serializer=api_dot_v0alpha_dot_compliance__pb2.ExportConsentListRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_compliance__pb2.ExportConsentListResponse.FromString,
+                )
         self.ListConsentTopics = channel.unary_unary(
                 '/api.v0alpha.Compliance/ListConsentTopics',
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.ListConsentTopicsReq.SerializeToString,
@@ -795,6 +800,14 @@ class ComplianceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ExportConsentList(self, request, context):
+        """Export consent list defined by ExportConsentListRequest message.
+        The method will create a consent download file in CSV format and return a URL for download.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListConsentTopics(self, request, context):
         """List consent topics defined by ListConsentTopicsReq message.
         Gets all of the unique consent topics.
@@ -1152,6 +1165,11 @@ def add_ComplianceServicer_to_server(servicer, server):
                     servicer.ProcessConsentUpload,
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ProcessConsentUploadReq.FromString,
                     response_serializer=google_dot_longrunning_dot_operations__pb2.Operation.SerializeToString,
+            ),
+            'ExportConsentList': grpc.unary_unary_rpc_method_handler(
+                    servicer.ExportConsentList,
+                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ExportConsentListRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_compliance__pb2.ExportConsentListResponse.SerializeToString,
             ),
             'ListConsentTopics': grpc.unary_unary_rpc_method_handler(
                     servicer.ListConsentTopics,
@@ -2147,6 +2165,23 @@ class Compliance(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/ProcessConsentUpload',
             api_dot_v0alpha_dot_compliance__pb2.ProcessConsentUploadReq.SerializeToString,
             google_dot_longrunning_dot_operations__pb2.Operation.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ExportConsentList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/ExportConsentList',
+            api_dot_v0alpha_dot_compliance__pb2.ExportConsentListRequest.SerializeToString,
+            api_dot_v0alpha_dot_compliance__pb2.ExportConsentListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
