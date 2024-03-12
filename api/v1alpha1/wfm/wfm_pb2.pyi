@@ -1349,6 +1349,20 @@ class WFMAgent(_message.Message):
     tcn_agent_is_enabled: bool
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., tcn_agent_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., name: _Optional[str] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_skill_proficiencies: _Optional[_Iterable[_Union[SkillProficiency, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., tcn_agent_is_enabled: bool = ...) -> None: ...
 
+class CreateUnassignedWFMAgentRequest(_message.Message):
+    __slots__ = ("wfm_agent_sid_to_copy_agent_group_associations", "name")
+    WFM_AGENT_SID_TO_COPY_AGENT_GROUP_ASSOCIATIONS_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid_to_copy_agent_group_associations: _wrappers_pb2.Int64Value
+    name: str
+    def __init__(self, wfm_agent_sid_to_copy_agent_group_associations: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., name: _Optional[str] = ...) -> None: ...
+
+class CreateUnassignedWFMAgentResponse(_message.Message):
+    __slots__ = ("wfm_agent_sid",)
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid: int
+    def __init__(self, wfm_agent_sid: _Optional[int] = ...) -> None: ...
+
 class UpdateWFMAgentReq(_message.Message):
     __slots__ = ("wfm_agent",)
     WFM_AGENT_FIELD_NUMBER: _ClassVar[int]
@@ -1431,6 +1445,16 @@ class ListWFMAgentSidsRes(_message.Message):
     sids: _containers.ScalarMap[int, int]
     def __init__(self, sids: _Optional[_Mapping[int, int]] = ...) -> None: ...
 
+class ListUnassignedWFMAgentsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListUnassignedWFMAgentsResponse(_message.Message):
+    __slots__ = ("wfm_agents",)
+    WFM_AGENTS_FIELD_NUMBER: _ClassVar[int]
+    wfm_agents: _containers.RepeatedCompositeFieldContainer[WFMAgent]
+    def __init__(self, wfm_agents: _Optional[_Iterable[_Union[WFMAgent, _Mapping]]] = ...) -> None: ...
+
 class ListWFMAgentsAssociatedWithAgentGroupReq(_message.Message):
     __slots__ = ("agent_group_sid",)
     AGENT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -1497,7 +1521,7 @@ class DeleteWFMAgentsMembershipsRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class RemoveAgentFromOrgRequest(_message.Message):
+class RemoveAgentFromFutureShiftsRequest(_message.Message):
     __slots__ = ("wfm_agent_sid_to_remove", "replace_with_new_unassigned_agent")
     WFM_AGENT_SID_TO_REMOVE_FIELD_NUMBER: _ClassVar[int]
     REPLACE_WITH_NEW_UNASSIGNED_AGENT_FIELD_NUMBER: _ClassVar[int]
@@ -1505,9 +1529,11 @@ class RemoveAgentFromOrgRequest(_message.Message):
     replace_with_new_unassigned_agent: bool
     def __init__(self, wfm_agent_sid_to_remove: _Optional[int] = ..., replace_with_new_unassigned_agent: bool = ...) -> None: ...
 
-class RemoveAgentFromOrgResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+class RemoveAgentFromFutureShiftsResponse(_message.Message):
+    __slots__ = ("unassigned_agent_sid",)
+    UNASSIGNED_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    unassigned_agent_sid: _wrappers_pb2.Int64Value
+    def __init__(self, unassigned_agent_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class DOWPlacement(_message.Message):
     __slots__ = ("start_minute", "end_minute", "placement_type", "day_of_week", "week_number")
@@ -2941,18 +2967,20 @@ class PerformanceMetricParameter(_message.Message):
     def __init__(self, metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., service_level_target_duration_seconds: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class GetPerformanceMetricsReq(_message.Message):
-    __slots__ = ("schedule_selector", "node_selector", "datetime_range", "metric_params", "interval_width_in_minutes")
+    __slots__ = ("schedule_selector", "node_selector", "datetime_range", "metric_params", "interval_width_in_minutes", "resync_call_stats")
     SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
     NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
     METRIC_PARAMS_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    RESYNC_CALL_STATS_FIELD_NUMBER: _ClassVar[int]
     schedule_selector: _wfm_pb2.ScheduleSelector
     node_selector: ParentEntity
     datetime_range: _wfm_pb2.DatetimeRange
     metric_params: _containers.RepeatedCompositeFieldContainer[PerformanceMetricParameter]
     interval_width_in_minutes: int
-    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., metric_params: _Optional[_Iterable[_Union[PerformanceMetricParameter, _Mapping]]] = ..., interval_width_in_minutes: _Optional[int] = ...) -> None: ...
+    resync_call_stats: bool
+    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., metric_params: _Optional[_Iterable[_Union[PerformanceMetricParameter, _Mapping]]] = ..., interval_width_in_minutes: _Optional[int] = ..., resync_call_stats: bool = ...) -> None: ...
 
 class GetPerformanceMetricsRes(_message.Message):
     __slots__ = ("performance_metrics",)
