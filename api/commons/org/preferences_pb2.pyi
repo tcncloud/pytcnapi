@@ -1,8 +1,10 @@
 from api.commons import ana_pb2 as _ana_pb2
 from api.commons import country_pb2 as _country_pb2
+from api.commons import enums_pb2 as _enums_pb2
 from api.commons import lms_pb2 as _lms_pb2
 from api.commons import org_pb2 as _org_pb2
 from api.commons import org_preferences_pb2 as _org_preferences_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -650,18 +652,28 @@ class AdminClientPreferences(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., use_reserved_carrier: bool = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., email_key: _Optional[str] = ..., email_id: _Optional[str] = ..., email_name: _Optional[str] = ..., whitelist_ips: _Optional[_Iterable[str]] = ..., whitelist_domains: _Optional[_Iterable[str]] = ..., callbacks_service_id: _Optional[str] = ..., agent_screen_recording: bool = ..., allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ...) -> None: ...
 
 class BusinessHours(_message.Message):
-    __slots__ = ("org_id", "id", "name", "description", "ranges")
+    __slots__ = ("org_id", "id", "name", "description", "ranges", "business_hours_id", "business_hours_name", "timezone", "day_intervals", "last_updated")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     RANGES_FIELD_NUMBER: _ClassVar[int]
+    BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
+    BUSINESS_HOURS_NAME_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    DAY_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     id: str
     name: str
     description: str
     ranges: _containers.RepeatedCompositeFieldContainer[Range]
-    def __init__(self, org_id: _Optional[str] = ..., id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ...) -> None: ...
+    business_hours_id: str
+    business_hours_name: str
+    timezone: _org_pb2.TimeZone
+    day_intervals: _containers.RepeatedCompositeFieldContainer[DayInterval]
+    last_updated: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ..., business_hours_id: _Optional[str] = ..., business_hours_name: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., day_intervals: _Optional[_Iterable[_Union[DayInterval, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Range(_message.Message):
     __slots__ = ("start_hour", "start_minute", "end_hour", "end_minute")
@@ -674,3 +686,21 @@ class Range(_message.Message):
     end_hour: int
     end_minute: int
     def __init__(self, start_hour: _Optional[int] = ..., start_minute: _Optional[int] = ..., end_hour: _Optional[int] = ..., end_minute: _Optional[int] = ...) -> None: ...
+
+class TimeOfDay(_message.Message):
+    __slots__ = ("hour", "minute")
+    HOUR_FIELD_NUMBER: _ClassVar[int]
+    MINUTE_FIELD_NUMBER: _ClassVar[int]
+    hour: int
+    minute: int
+    def __init__(self, hour: _Optional[int] = ..., minute: _Optional[int] = ...) -> None: ...
+
+class DayInterval(_message.Message):
+    __slots__ = ("day", "start", "end")
+    DAY_FIELD_NUMBER: _ClassVar[int]
+    START_FIELD_NUMBER: _ClassVar[int]
+    END_FIELD_NUMBER: _ClassVar[int]
+    day: _enums_pb2.Weekday.Enum
+    start: TimeOfDay
+    end: TimeOfDay
+    def __init__(self, day: _Optional[_Union[_enums_pb2.Weekday.Enum, str]] = ..., start: _Optional[_Union[TimeOfDay, _Mapping]] = ..., end: _Optional[_Union[TimeOfDay, _Mapping]] = ...) -> None: ...
