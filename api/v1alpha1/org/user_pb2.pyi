@@ -1008,3 +1008,17 @@ class GetMyUserMfaInfoResponse(_message.Message):
     INFO_FIELD_NUMBER: _ClassVar[int]
     info: _user_pb2.MfaInfo
     def __init__(self, info: _Optional[_Union[_user_pb2.MfaInfo, _Mapping]] = ...) -> None: ...
+
+class GetMyAllowedMfaMethodsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetMyAllowedMfaMethodsResponse(_message.Message):
+    __slots__ = ("mfa_enabled", "email_enabled", "duo_enabled")
+    MFA_ENABLED_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_ENABLED_FIELD_NUMBER: _ClassVar[int]
+    DUO_ENABLED_FIELD_NUMBER: _ClassVar[int]
+    mfa_enabled: bool
+    email_enabled: bool
+    duo_enabled: bool
+    def __init__(self, mfa_enabled: bool = ..., email_enabled: bool = ..., duo_enabled: bool = ...) -> None: ...
