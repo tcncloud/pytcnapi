@@ -390,6 +390,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsRes.FromString,
                 )
+        self.CopyWFMAgentMemberships = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CopyWFMAgentMemberships',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsResponse.FromString,
+                )
         self.DeleteWFMAgentMemberships = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteWFMAgentMemberships',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.SerializeToString,
@@ -1939,6 +1944,21 @@ class WFMServicer(object):
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sid are invalid.
         - grpc.NotFound: the @wfm_agent_sids or @agent_group_sid don't exist for the org or given @schedule_scenario_sid.
         - grpc.Internal: error occurs when creating the association.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyWFMAgentMemberships(self, request, context):
+        """Copies the membership association of @originating_wfm_agent_sid to @target_wfm_agent_sid.
+        The wfm agents must both belong to the org sending the request.
+        Any existing membership associations on @target_wfm_agent_sid with be retained.
+        Any conflicting memberships for @target_wfm_agent_sid will be set with the membership of @originating_wfm_agent_sid.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.NotFound: the @wfm_agent_sids or @agent_group_sid don't exist for the org sending the request.
+        - grpc.Internal: error occurs when creating the associations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3683,6 +3703,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsRes.SerializeToString,
             ),
+            'CopyWFMAgentMemberships': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyWFMAgentMemberships,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsResponse.SerializeToString,
+            ),
             'DeleteWFMAgentMemberships': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteWFMAgentMemberships,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.FromString,
@@ -5426,6 +5451,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateWFMAgentMemberships',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyWFMAgentMemberships(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CopyWFMAgentMemberships',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

@@ -1497,6 +1497,18 @@ class CreateWFMAgentMembershipsRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class CopyWFMAgentMembershipsRequest(_message.Message):
+    __slots__ = ("originating_wfm_agent_sid", "target_wfm_agent_sid")
+    ORIGINATING_WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    TARGET_WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    originating_wfm_agent_sid: int
+    target_wfm_agent_sid: int
+    def __init__(self, originating_wfm_agent_sid: _Optional[int] = ..., target_wfm_agent_sid: _Optional[int] = ...) -> None: ...
+
+class CopyWFMAgentMembershipsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class DeleteWFMAgentMembershipsReq(_message.Message):
     __slots__ = ("wfm_agent_sids", "agent_group_sid")
     WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
