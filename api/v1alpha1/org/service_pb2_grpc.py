@@ -300,6 +300,46 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ClearEmailUnsubscribeAcknowledgementRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ClearEmailUnsubscribeAcknowledgementResponse.FromString,
                 )
+        self.ListBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursResponse.FromString,
+                )
+        self.GetBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/GetBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursResponse.FromString,
+                )
+        self.SetBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/SetBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.SetBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.SetBusinessHoursResponse.FromString,
+                )
+        self.AddIntervalToBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/AddIntervalToBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.AddIntervalToBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.AddIntervalToBusinessHoursResponse.FromString,
+                )
+        self.RemoveIntervalFromBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/RemoveIntervalFromBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RemoveIntervalFromBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RemoveIntervalFromBusinessHoursResponse.FromString,
+                )
+        self.UpdateBusinessHoursInfo = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateBusinessHoursInfo',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursInfoRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursInfoResponse.FromString,
+                )
+        self.DeleteBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/DeleteBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.FromString,
+                )
+        self.EvaluateBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/EvaluateBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursResponse.FromString,
+                )
         self.CreateUser = channel.unary_unary(
                 '/api.v1alpha1.org.Org/CreateUser',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.CreateUserRequest.SerializeToString,
@@ -1040,21 +1080,6 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
                 )
-        self.DeleteBusinessHours = channel.unary_unary(
-                '/api.v1alpha1.org.Org/DeleteBusinessHours',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.FromString,
-                )
-        self.ListBusinessHours = channel.unary_unary(
-                '/api.v1alpha1.org.Org/ListBusinessHours',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursResponse.FromString,
-                )
-        self.GetBusinessHours = channel.unary_unary(
-                '/api.v1alpha1.org.Org/GetBusinessHours',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursResponse.FromString,
-                )
 
 
 class OrgServicer(object):
@@ -1467,6 +1492,62 @@ class OrgServicer(object):
     def ClearEmailUnsubscribeAcknowledgement(self, request, context):
         """ClearEmailUnsubscribeAcknowledgement insert an activity log upon the client
         revoking their responsibility for email unsubscribe links.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBusinessHours(self, request, context):
+        """ListBusinessHours returns all business hours for an Org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetBusinessHours(self, request, context):
+        """GetBusinessHours returns the business hours for the ID.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetBusinessHours(self, request, context):
+        """SetBusinessHours initializes a business hours object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AddIntervalToBusinessHours(self, request, context):
+        """AddIntervalToBusinessHours adds a day interval to a business hours object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveIntervalFromBusinessHours(self, request, context):
+        """RemoveIntervalFromBusinessHours removes a day interval from a business hours object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateBusinessHoursInfo(self, request, context):
+        """UpdateBusinessHoursInfo updates the general info of a business hours object
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteBusinessHours(self, request, context):
+        """DeleteBusinessHours removes business hours.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def EvaluateBusinessHours(self, request, context):
+        """EvaluateBusinessHours determines whether or not the current time is within a business hours day interval
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2558,27 +2639,6 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def DeleteBusinessHours(self, request, context):
-        """DeleteBusinessHours removes business hours.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListBusinessHours(self, request, context):
-        """ListBusinessHours returns all business hours for an Org.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetBusinessHours(self, request, context):
-        """GetBusinessHours returns the business hours for the ID.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_OrgServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -2856,6 +2916,46 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.ClearEmailUnsubscribeAcknowledgement,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ClearEmailUnsubscribeAcknowledgementRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ClearEmailUnsubscribeAcknowledgementResponse.SerializeToString,
+            ),
+            'ListBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursResponse.SerializeToString,
+            ),
+            'GetBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursResponse.SerializeToString,
+            ),
+            'SetBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.SetBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.SetBusinessHoursResponse.SerializeToString,
+            ),
+            'AddIntervalToBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddIntervalToBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.AddIntervalToBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.AddIntervalToBusinessHoursResponse.SerializeToString,
+            ),
+            'RemoveIntervalFromBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveIntervalFromBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RemoveIntervalFromBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RemoveIntervalFromBusinessHoursResponse.SerializeToString,
+            ),
+            'UpdateBusinessHoursInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateBusinessHoursInfo,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursInfoRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursInfoResponse.SerializeToString,
+            ),
+            'DeleteBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.SerializeToString,
+            ),
+            'EvaluateBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.EvaluateBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursResponse.SerializeToString,
             ),
             'CreateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUser,
@@ -3596,21 +3696,6 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.UpdateBusinessHours,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.SerializeToString,
-            ),
-            'DeleteBusinessHours': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteBusinessHours,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.SerializeToString,
-            ),
-            'ListBusinessHours': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListBusinessHours,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursResponse.SerializeToString,
-            ),
-            'GetBusinessHours': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetBusinessHours,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -4555,6 +4640,142 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ClearEmailUnsubscribeAcknowledgement',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.ClearEmailUnsubscribeAcknowledgementRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.ClearEmailUnsubscribeAcknowledgementResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/SetBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.SetBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.SetBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddIntervalToBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/AddIntervalToBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.AddIntervalToBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.AddIntervalToBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveIntervalFromBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RemoveIntervalFromBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.RemoveIntervalFromBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.RemoveIntervalFromBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateBusinessHoursInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateBusinessHoursInfo',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursInfoRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursInfoResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EvaluateBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/EvaluateBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -7071,56 +7292,5 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateBusinessHours',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteBusinessHours(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteBusinessHours',
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListBusinessHours(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListBusinessHours',
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBusinessHoursResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetBusinessHours(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetBusinessHours',
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.GetBusinessHoursResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
