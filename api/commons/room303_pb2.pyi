@@ -1,4 +1,5 @@
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -89,8 +90,8 @@ class Room(_message.Message):
     id: str
     display_name: str
     config: RoomConfig
-    permission_group_id: str
-    def __init__(self, org_id: _Optional[str] = ..., room_id: _Optional[str] = ..., type: _Optional[_Union[RoomType, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[RoomStatus, str]] = ..., id: _Optional[str] = ..., display_name: _Optional[str] = ..., config: _Optional[_Union[RoomConfig, _Mapping]] = ..., permission_group_id: _Optional[str] = ...) -> None: ...
+    permission_group_id: _wrappers_pb2.StringValue
+    def __init__(self, org_id: _Optional[str] = ..., room_id: _Optional[str] = ..., type: _Optional[_Union[RoomType, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[RoomStatus, str]] = ..., id: _Optional[str] = ..., display_name: _Optional[str] = ..., config: _Optional[_Union[RoomConfig, _Mapping]] = ..., permission_group_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class Message(_message.Message):
     __slots__ = ("org_id", "message_id", "room_id", "from_user", "status", "received_at", "updated_at", "payload", "unread", "nonce")
