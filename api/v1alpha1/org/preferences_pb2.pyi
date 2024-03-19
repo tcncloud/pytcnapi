@@ -597,10 +597,10 @@ class SetBusinessHoursRequest(_message.Message):
     def __init__(self, business_hours_name: _Optional[str] = ..., description: _Optional[str] = ..., day_intervals: _Optional[_Iterable[_Union[_preferences_pb2.DayInterval, _Mapping]]] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ...) -> None: ...
 
 class SetBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_horus_id",)
-    BUSINESS_HORUS_ID_FIELD_NUMBER: _ClassVar[int]
-    business_horus_id: str
-    def __init__(self, business_horus_id: _Optional[str] = ...) -> None: ...
+    __slots__ = ("business_hours_id",)
+    BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
+    business_hours_id: str
+    def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class AddIntervalToBusinessHoursRequest(_message.Message):
     __slots__ = ("business_hours_id", "day_interval")
