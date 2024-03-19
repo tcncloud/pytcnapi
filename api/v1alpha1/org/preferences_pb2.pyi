@@ -653,3 +653,15 @@ class DeleteBusinessHoursRequest(_message.Message):
 class DeleteBusinessHoursResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class EvaluateBusinessHoursRequest(_message.Message):
+    __slots__ = ("business_hours_id",)
+    BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
+    business_hours_id: str
+    def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
+
+class EvaluateBusinessHoursResponse(_message.Message):
+    __slots__ = ("within_range",)
+    WITHIN_RANGE_FIELD_NUMBER: _ClassVar[int]
+    within_range: bool
+    def __init__(self, within_range: bool = ...) -> None: ...

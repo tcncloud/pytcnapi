@@ -335,6 +335,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.FromString,
                 )
+        self.EvaluateBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.Org/EvaluateBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursResponse.FromString,
+                )
         self.CreateUser = channel.unary_unary(
                 '/api.v1alpha1.org.Org/CreateUser',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.CreateUserRequest.SerializeToString,
@@ -1531,6 +1536,13 @@ class OrgServicer(object):
 
     def DeleteBusinessHours(self, request, context):
         """DeleteBusinessHours removes business hours.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def EvaluateBusinessHours(self, request, context):
+        """EvaluateBusinessHours determines whether or not the current time is within a business hours day interval
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2927,6 +2939,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.DeleteBusinessHours,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.SerializeToString,
+            ),
+            'EvaluateBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.EvaluateBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursResponse.SerializeToString,
             ),
             'CreateUser': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateUser,
@@ -4725,6 +4742,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteBusinessHours',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EvaluateBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/EvaluateBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.EvaluateBusinessHoursResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
