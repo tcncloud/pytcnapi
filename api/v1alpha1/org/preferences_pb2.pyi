@@ -627,16 +627,18 @@ class RemoveIntervalFromBusinessHoursResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateBusinessHoursInfoRequest(_message.Message):
-    __slots__ = ("business_hours_id", "business_hours_name", "description", "timezone")
+    __slots__ = ("business_hours_id", "business_hours_name", "description", "timezone", "field_mask")
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_HOURS_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     business_hours_name: str
     description: str
     timezone: _org_pb2.TimeZone
-    def __init__(self, business_hours_id: _Optional[str] = ..., business_hours_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ...) -> None: ...
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, business_hours_id: _Optional[str] = ..., business_hours_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateBusinessHoursInfoResponse(_message.Message):
     __slots__ = ()
