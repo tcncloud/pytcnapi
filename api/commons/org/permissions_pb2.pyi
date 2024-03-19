@@ -41,7 +41,7 @@ class P3PermissionGroup(_message.Message):
     def __init__(self, p3_permission_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2_1.Permission, str]]] = ...) -> None: ...
 
 class License(_message.Message):
-    __slots__ = ("app", "cards")
+    __slots__ = ("app", "cards", "name")
     class Card(_message.Message):
         __slots__ = ("type", "permissions")
         TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -60,6 +60,8 @@ class License(_message.Message):
         def __init__(self, permission: _Optional[_Union[_perms_pb2.Permission, str]] = ..., enabled: bool = ..., features: _Optional[_Iterable[str]] = ...) -> None: ...
     APP_FIELD_NUMBER: _ClassVar[int]
     CARDS_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     app: _license_pb2.Application
     cards: _containers.RepeatedCompositeFieldContainer[License.Card]
-    def __init__(self, app: _Optional[_Union[_license_pb2.Application, str]] = ..., cards: _Optional[_Iterable[_Union[License.Card, _Mapping]]] = ...) -> None: ...
+    name: str
+    def __init__(self, app: _Optional[_Union[_license_pb2.Application, str]] = ..., cards: _Optional[_Iterable[_Union[License.Card, _Mapping]]] = ..., name: _Optional[str] = ...) -> None: ...
