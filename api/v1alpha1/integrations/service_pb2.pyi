@@ -1288,12 +1288,12 @@ class HangUpEpicPatientCallReq(_message.Message):
     def __init__(self, PhoneAgentID: _Optional[str] = ..., OriginPhoneExtension: _Optional[str] = ..., EpicCallID: _Optional[str] = ...) -> None: ...
 
 class GenerateEpicKeyPairReq(_message.Message):
-    __slots__ = ("org_id", "server")
+    __slots__ = ("org_id", "servers")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
-    SERVER_FIELD_NUMBER: _ClassVar[int]
+    SERVERS_FIELD_NUMBER: _ClassVar[int]
     org_id: str
-    server: str
-    def __init__(self, org_id: _Optional[str] = ..., server: _Optional[str] = ...) -> None: ...
+    servers: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, org_id: _Optional[str] = ..., servers: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GenerateEpicKeyPairRes(_message.Message):
     __slots__ = ("production_public_key", "non_production_public_key")
