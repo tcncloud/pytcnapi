@@ -1,7 +1,4 @@
-from api.commons.audit import event_types_pb2 as _event_types_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
-from services.billing.entities.v1alpha1 import history_pb2 as _history_pb2
-from services.billing.entities.v1alpha1 import matching_pb2 as _matching_pb2
 from services.billing.entities.v1alpha1 import rates_pb2 as _rates_pb2
 from services.billing.v1alpha1 import core_pb2 as _core_pb2
 from google.protobuf.internal import containers as _containers
@@ -70,24 +67,6 @@ class GetRateDefinitionResponse(_message.Message):
     RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     rate_definition: _rates_pb2.RateDefinition
     def __init__(self, rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ...) -> None: ...
-
-class ListHistoricalRateDefinitionsRequest(_message.Message):
-    __slots__ = ("history_item", "event_types", "config_types", "matching_rules")
-    HISTORY_ITEM_FIELD_NUMBER: _ClassVar[int]
-    EVENT_TYPES_FIELD_NUMBER: _ClassVar[int]
-    CONFIG_TYPES_FIELD_NUMBER: _ClassVar[int]
-    MATCHING_RULES_FIELD_NUMBER: _ClassVar[int]
-    history_item: _history_pb2.RateHistoryItem
-    event_types: _containers.RepeatedScalarFieldContainer[_event_types_pb2.EventType]
-    config_types: _containers.RepeatedScalarFieldContainer[_rates_pb2.RateDefinitionConfigType]
-    matching_rules: _containers.RepeatedScalarFieldContainer[_matching_pb2.MatchingRule]
-    def __init__(self, history_item: _Optional[_Union[_history_pb2.RateHistoryItem, _Mapping]] = ..., event_types: _Optional[_Iterable[_Union[_event_types_pb2.EventType, str]]] = ..., config_types: _Optional[_Iterable[_Union[_rates_pb2.RateDefinitionConfigType, str]]] = ..., matching_rules: _Optional[_Iterable[_Union[_matching_pb2.MatchingRule, str]]] = ...) -> None: ...
-
-class ListHistoricalRateDefinitionsResponse(_message.Message):
-    __slots__ = ("rate_definitions",)
-    RATE_DEFINITIONS_FIELD_NUMBER: _ClassVar[int]
-    rate_definitions: _containers.RepeatedCompositeFieldContainer[_rates_pb2.RateDefinition]
-    def __init__(self, rate_definitions: _Optional[_Iterable[_Union[_rates_pb2.RateDefinition, _Mapping]]] = ...) -> None: ...
 
 class ListRateDefinitionsRequest(_message.Message):
     __slots__ = ("rate_definition_id", "filter", "fields", "sort", "page")

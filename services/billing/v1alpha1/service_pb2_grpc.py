@@ -122,11 +122,6 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansResponse.FromString,
                 )
-        self.ListHistoricalRateDefinitions = channel.unary_unary(
-                '/services.billing.v1alpha1.BillingService/ListHistoricalRateDefinitions',
-                request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListHistoricalRateDefinitionsRequest.SerializeToString,
-                response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListHistoricalRateDefinitionsResponse.FromString,
-                )
         self.ListInvoices = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/ListInvoices',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.ListInvoicesRequest.SerializeToString,
@@ -500,20 +495,6 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListHistoricalRateDefinitions(self, request, context):
-        """List all historical entries for rate definitions given the provided filters.
-        Required permissions:
-        CUSTOMER_SUPPORT
-        Errors:
-        - grpc.Internal: An internal error occurred.
-        - grpc.InvalidArgument: The request is invalid.
-        - grpc.PermissionDenied: Caller doesn't have the required permissions.
-        - grpc.Unavailable: The operation is currently unavailable.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def ListInvoices(self, request, context):
         """Lists invoices.
         Required permissions:
@@ -731,11 +712,6 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.ListBillingPlans,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansResponse.SerializeToString,
-            ),
-            'ListHistoricalRateDefinitions': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListHistoricalRateDefinitions,
-                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListHistoricalRateDefinitionsRequest.FromString,
-                    response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListHistoricalRateDefinitionsResponse.SerializeToString,
             ),
             'ListInvoices': grpc.unary_unary_rpc_method_handler(
                     servicer.ListInvoices,
@@ -1136,23 +1112,6 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ListBillingPlans',
             services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_plans__pb2.ListBillingPlansResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListHistoricalRateDefinitions(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/ListHistoricalRateDefinitions',
-            services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListHistoricalRateDefinitionsRequest.SerializeToString,
-            services_dot_billing_dot_v1alpha1_dot_rates__pb2.ListHistoricalRateDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
