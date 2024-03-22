@@ -18,7 +18,7 @@ from services.billing.entities.v1alpha1 import matching_pb2 as services_dot_bill
 from services.billing.entities.v1alpha1 import rates_pb2 as services_dot_billing_dot_entities_dot_v1alpha1_dot_rates__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'services/billing/v1alpha1/history.proto\x12\x19services.billing.v1alpha1\x1a#api/commons/audit/event_types.proto\x1a\x30services/billing/entities/v1alpha1/history.proto\x1a\x31services/billing/entities/v1alpha1/matching.proto\x1a.services/billing/entities/v1alpha1/rates.proto\"\xcc\x02\n\x15GetRateHistoryRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12=\n\x0b\x65vent_types\x18\x02 \x03(\x0e\x32\x1c.api.commons.audit.EventTypeR\neventTypes\x12_\n\x0c\x63onfig_types\x18\x03 \x03(\x0e\x32<.services.billing.entities.v1alpha1.RateDefinitionConfigTypeR\x0b\x63onfigTypes\x12W\n\x0ematching_rules\x18\x04 \x03(\x0e\x32\x30.services.billing.entities.v1alpha1.MatchingRuleR\rmatchingRules\x12#\n\rmatching_shas\x18\x05 \x03(\tR\x0cmatchingShas\"g\n\x16GetRateHistoryResponse\x12M\n\x07history\x18\x01 \x03(\x0b\x32\x33.services.billing.entities.v1alpha1.RateHistoryItemR\x07historyB\xb3\x01\n\x1d\x63om.services.billing.v1alpha1B\x0cHistoryProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'services/billing/v1alpha1/history.proto\x12\x19services.billing.v1alpha1\x1a#api/commons/audit/event_types.proto\x1a\x30services/billing/entities/v1alpha1/history.proto\x1a\x31services/billing/entities/v1alpha1/matching.proto\x1a.services/billing/entities/v1alpha1/rates.proto\"K\n\x15GetRateHistoryRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x1b\n\tgroup_ids\x18\x02 \x03(\tR\x08groupIds\"g\n\x16GetRateHistoryResponse\x12M\n\x07history\x18\x01 \x03(\x0b\x32\x33.services.billing.entities.v1alpha1.RateHistoryItemR\x07historyB\xb3\x01\n\x1d\x63om.services.billing.v1alpha1B\x0cHistoryProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha1\xca\x02\x19Services\\Billing\\V1alpha1\xe2\x02%Services\\Billing\\V1alpha1\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,8 +26,8 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'services.billing.v1alpha1.h
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\035com.services.billing.v1alpha1B\014HistoryProtoP\001\242\002\003SBX\252\002\031Services.Billing.V1alpha1\312\002\031Services\\Billing\\V1alpha1\342\002%Services\\Billing\\V1alpha1\\GPBMetadata\352\002\033Services::Billing::V1alpha1'
-  _globals['_GETRATEHISTORYREQUEST']._serialized_start=257
-  _globals['_GETRATEHISTORYREQUEST']._serialized_end=589
-  _globals['_GETRATEHISTORYRESPONSE']._serialized_start=591
-  _globals['_GETRATEHISTORYRESPONSE']._serialized_end=694
+  _globals['_GETRATEHISTORYREQUEST']._serialized_start=256
+  _globals['_GETRATEHISTORYREQUEST']._serialized_end=331
+  _globals['_GETRATEHISTORYRESPONSE']._serialized_start=333
+  _globals['_GETRATEHISTORYRESPONSE']._serialized_end=436
 # @@protoc_insertion_point(module_scope)
