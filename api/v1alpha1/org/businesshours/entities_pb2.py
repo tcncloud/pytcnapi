@@ -17,7 +17,7 @@ from api.commons.org import preferences_pb2 as api_dot_commons_dot_org_dot_prefe
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-api/v1alpha1/org/businesshours/entities.proto\x12\x1e\x61pi.v1alpha1.org.businesshours\x1a\x15\x61pi/commons/org.proto\x1a!api/commons/org/preferences.proto\x1a google/protobuf/field_mask.proto\"\x1a\n\x18ListBusinessHoursRequest\"~\n\x19ListBusinessHoursResponse\x12\x45\n\x0e\x62usiness_hours\x18\x02 \x03(\x0b\x32\x1e.api.commons.org.BusinessHoursR\rbusinessHoursJ\x04\x08\x01\x10\x02R\x14\x62usiness_hours_lists\"E\n\x17GetBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"a\n\x18GetBusinessHoursResponse\x12\x45\n\x0e\x62usiness_hours\x18\x01 \x01(\x0b\x32\x1e.api.commons.org.BusinessHoursR\rbusinessHours\"\xe1\x01\n\x17SetBusinessHoursRequest\x12.\n\x13\x62usiness_hours_name\x18\x01 \x01(\tR\x11\x62usinessHoursName\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x41\n\rday_intervals\x18\x03 \x03(\x0b\x32\x1c.api.commons.org.DayIntervalR\x0c\x64\x61yIntervals\x12\x31\n\x08timezone\x18\x04 \x01(\x0e\x32\x15.api.commons.TimeZoneR\x08timezone\"F\n\x18SetBusinessHoursResponse\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"\x90\x01\n!AddIntervalToBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\x12?\n\x0c\x64\x61y_interval\x18\x02 \x01(\x0b\x32\x1c.api.commons.org.DayIntervalR\x0b\x64\x61yInterval\"$\n\"AddIntervalToBusinessHoursResponse\"\x95\x01\n&RemoveIntervalFromBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\x12?\n\x0c\x64\x61y_interval\x18\x02 \x01(\x0b\x32\x1c.api.commons.org.DayIntervalR\x0b\x64\x61yInterval\")\n\'RemoveIntervalFromBusinessHoursResponse\"\x8c\x02\n\x1eUpdateBusinessHoursInfoRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\x12.\n\x13\x62usiness_hours_name\x18\x02 \x01(\tR\x11\x62usinessHoursName\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x31\n\x08timezone\x18\x04 \x01(\x0e\x32\x15.api.commons.TimeZoneR\x08timezone\x12\x39\n\nfield_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"!\n\x1fUpdateBusinessHoursInfoResponse\"H\n\x1a\x44\x65leteBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"\x1d\n\x1b\x44\x65leteBusinessHoursResponse\"J\n\x1c\x45valuateBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"B\n\x1d\x45valuateBusinessHoursResponse\x12!\n\x0cwithin_range\x18\x01 \x01(\x08R\x0bwithinRangeB\xcf\x01\n\"com.api.v1alpha1.org.businesshoursB\rEntitiesProtoP\x01\xa2\x02\x04\x41VOB\xaa\x02\x1e\x41pi.V1alpha1.Org.Businesshours\xca\x02\x1e\x41pi\\V1alpha1\\Org\\Businesshours\xe2\x02*Api\\V1alpha1\\Org\\Businesshours\\GPBMetadata\xea\x02!Api::V1alpha1::Org::Businesshoursb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-api/v1alpha1/org/businesshours/entities.proto\x12\x1e\x61pi.v1alpha1.org.businesshours\x1a\x15\x61pi/commons/org.proto\x1a!api/commons/org/preferences.proto\x1a google/protobuf/field_mask.proto\"\x1a\n\x18ListBusinessHoursRequest\"b\n\x19ListBusinessHoursResponse\x12\x45\n\x0e\x62usiness_hours\x18\x01 \x03(\x0b\x32\x1e.api.commons.org.BusinessHoursR\rbusinessHours\"E\n\x17GetBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"a\n\x18GetBusinessHoursResponse\x12\x45\n\x0e\x62usiness_hours\x18\x01 \x01(\x0b\x32\x1e.api.commons.org.BusinessHoursR\rbusinessHours\"\xe1\x01\n\x17SetBusinessHoursRequest\x12.\n\x13\x62usiness_hours_name\x18\x01 \x01(\tR\x11\x62usinessHoursName\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x41\n\rday_intervals\x18\x03 \x03(\x0b\x32\x1c.api.commons.org.DayIntervalR\x0c\x64\x61yIntervals\x12\x31\n\x08timezone\x18\x04 \x01(\x0e\x32\x15.api.commons.TimeZoneR\x08timezone\"F\n\x18SetBusinessHoursResponse\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"\x90\x01\n!AddIntervalToBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\x12?\n\x0c\x64\x61y_interval\x18\x02 \x01(\x0b\x32\x1c.api.commons.org.DayIntervalR\x0b\x64\x61yInterval\"$\n\"AddIntervalToBusinessHoursResponse\"\x95\x01\n&RemoveIntervalFromBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\x12?\n\x0c\x64\x61y_interval\x18\x02 \x01(\x0b\x32\x1c.api.commons.org.DayIntervalR\x0b\x64\x61yInterval\")\n\'RemoveIntervalFromBusinessHoursResponse\"\x8c\x02\n\x1eUpdateBusinessHoursInfoRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\x12.\n\x13\x62usiness_hours_name\x18\x02 \x01(\tR\x11\x62usinessHoursName\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12\x31\n\x08timezone\x18\x04 \x01(\x0e\x32\x15.api.commons.TimeZoneR\x08timezone\x12\x39\n\nfield_mask\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"!\n\x1fUpdateBusinessHoursInfoResponse\"H\n\x1a\x44\x65leteBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"\x1d\n\x1b\x44\x65leteBusinessHoursResponse\"J\n\x1c\x45valuateBusinessHoursRequest\x12*\n\x11\x62usiness_hours_id\x18\x01 \x01(\tR\x0f\x62usinessHoursId\"B\n\x1d\x45valuateBusinessHoursResponse\x12!\n\x0cwithin_range\x18\x01 \x01(\x08R\x0bwithinRangeB\xcf\x01\n\"com.api.v1alpha1.org.businesshoursB\rEntitiesProtoP\x01\xa2\x02\x04\x41VOB\xaa\x02\x1e\x41pi.V1alpha1.Org.Businesshours\xca\x02\x1e\x41pi\\V1alpha1\\Org\\Businesshours\xe2\x02*Api\\V1alpha1\\Org\\Businesshours\\GPBMetadata\xea\x02!Api::V1alpha1::Org::Businesshoursb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -28,33 +28,33 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_LISTBUSINESSHOURSREQUEST']._serialized_start=173
   _globals['_LISTBUSINESSHOURSREQUEST']._serialized_end=199
   _globals['_LISTBUSINESSHOURSRESPONSE']._serialized_start=201
-  _globals['_LISTBUSINESSHOURSRESPONSE']._serialized_end=327
-  _globals['_GETBUSINESSHOURSREQUEST']._serialized_start=329
-  _globals['_GETBUSINESSHOURSREQUEST']._serialized_end=398
-  _globals['_GETBUSINESSHOURSRESPONSE']._serialized_start=400
-  _globals['_GETBUSINESSHOURSRESPONSE']._serialized_end=497
-  _globals['_SETBUSINESSHOURSREQUEST']._serialized_start=500
-  _globals['_SETBUSINESSHOURSREQUEST']._serialized_end=725
-  _globals['_SETBUSINESSHOURSRESPONSE']._serialized_start=727
-  _globals['_SETBUSINESSHOURSRESPONSE']._serialized_end=797
-  _globals['_ADDINTERVALTOBUSINESSHOURSREQUEST']._serialized_start=800
-  _globals['_ADDINTERVALTOBUSINESSHOURSREQUEST']._serialized_end=944
-  _globals['_ADDINTERVALTOBUSINESSHOURSRESPONSE']._serialized_start=946
-  _globals['_ADDINTERVALTOBUSINESSHOURSRESPONSE']._serialized_end=982
-  _globals['_REMOVEINTERVALFROMBUSINESSHOURSREQUEST']._serialized_start=985
-  _globals['_REMOVEINTERVALFROMBUSINESSHOURSREQUEST']._serialized_end=1134
-  _globals['_REMOVEINTERVALFROMBUSINESSHOURSRESPONSE']._serialized_start=1136
-  _globals['_REMOVEINTERVALFROMBUSINESSHOURSRESPONSE']._serialized_end=1177
-  _globals['_UPDATEBUSINESSHOURSINFOREQUEST']._serialized_start=1180
-  _globals['_UPDATEBUSINESSHOURSINFOREQUEST']._serialized_end=1448
-  _globals['_UPDATEBUSINESSHOURSINFORESPONSE']._serialized_start=1450
-  _globals['_UPDATEBUSINESSHOURSINFORESPONSE']._serialized_end=1483
-  _globals['_DELETEBUSINESSHOURSREQUEST']._serialized_start=1485
-  _globals['_DELETEBUSINESSHOURSREQUEST']._serialized_end=1557
-  _globals['_DELETEBUSINESSHOURSRESPONSE']._serialized_start=1559
-  _globals['_DELETEBUSINESSHOURSRESPONSE']._serialized_end=1588
-  _globals['_EVALUATEBUSINESSHOURSREQUEST']._serialized_start=1590
-  _globals['_EVALUATEBUSINESSHOURSREQUEST']._serialized_end=1664
-  _globals['_EVALUATEBUSINESSHOURSRESPONSE']._serialized_start=1666
-  _globals['_EVALUATEBUSINESSHOURSRESPONSE']._serialized_end=1732
+  _globals['_LISTBUSINESSHOURSRESPONSE']._serialized_end=299
+  _globals['_GETBUSINESSHOURSREQUEST']._serialized_start=301
+  _globals['_GETBUSINESSHOURSREQUEST']._serialized_end=370
+  _globals['_GETBUSINESSHOURSRESPONSE']._serialized_start=372
+  _globals['_GETBUSINESSHOURSRESPONSE']._serialized_end=469
+  _globals['_SETBUSINESSHOURSREQUEST']._serialized_start=472
+  _globals['_SETBUSINESSHOURSREQUEST']._serialized_end=697
+  _globals['_SETBUSINESSHOURSRESPONSE']._serialized_start=699
+  _globals['_SETBUSINESSHOURSRESPONSE']._serialized_end=769
+  _globals['_ADDINTERVALTOBUSINESSHOURSREQUEST']._serialized_start=772
+  _globals['_ADDINTERVALTOBUSINESSHOURSREQUEST']._serialized_end=916
+  _globals['_ADDINTERVALTOBUSINESSHOURSRESPONSE']._serialized_start=918
+  _globals['_ADDINTERVALTOBUSINESSHOURSRESPONSE']._serialized_end=954
+  _globals['_REMOVEINTERVALFROMBUSINESSHOURSREQUEST']._serialized_start=957
+  _globals['_REMOVEINTERVALFROMBUSINESSHOURSREQUEST']._serialized_end=1106
+  _globals['_REMOVEINTERVALFROMBUSINESSHOURSRESPONSE']._serialized_start=1108
+  _globals['_REMOVEINTERVALFROMBUSINESSHOURSRESPONSE']._serialized_end=1149
+  _globals['_UPDATEBUSINESSHOURSINFOREQUEST']._serialized_start=1152
+  _globals['_UPDATEBUSINESSHOURSINFOREQUEST']._serialized_end=1420
+  _globals['_UPDATEBUSINESSHOURSINFORESPONSE']._serialized_start=1422
+  _globals['_UPDATEBUSINESSHOURSINFORESPONSE']._serialized_end=1455
+  _globals['_DELETEBUSINESSHOURSREQUEST']._serialized_start=1457
+  _globals['_DELETEBUSINESSHOURSREQUEST']._serialized_end=1529
+  _globals['_DELETEBUSINESSHOURSRESPONSE']._serialized_start=1531
+  _globals['_DELETEBUSINESSHOURSRESPONSE']._serialized_end=1560
+  _globals['_EVALUATEBUSINESSHOURSREQUEST']._serialized_start=1562
+  _globals['_EVALUATEBUSINESSHOURSREQUEST']._serialized_end=1636
+  _globals['_EVALUATEBUSINESSHOURSRESPONSE']._serialized_start=1638
+  _globals['_EVALUATEBUSINESSHOURSRESPONSE']._serialized_end=1704
 # @@protoc_insertion_point(module_scope)

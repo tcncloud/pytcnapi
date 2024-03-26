@@ -14,6 +14,11 @@ class BusinessHoursServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.ListBusinessHours = channel.unary_unary(
+                '/api.v1alpha1.org.businesshours.BusinessHoursService/ListBusinessHours',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.ListBusinessHoursRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.ListBusinessHoursResponse.FromString,
+                )
         self.GetBusinessHours = channel.unary_unary(
                 '/api.v1alpha1.org.businesshours.BusinessHoursService/GetBusinessHours',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.GetBusinessHoursRequest.SerializeToString,
@@ -53,6 +58,13 @@ class BusinessHoursServiceStub(object):
 
 class BusinessHoursServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
+
+    def ListBusinessHours(self, request, context):
+        """ListBusinessHours returns all business hours for an Org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def GetBusinessHours(self, request, context):
         """GetBusinessHours returns the business hours for the ID.
@@ -106,6 +118,11 @@ class BusinessHoursServiceServicer(object):
 
 def add_BusinessHoursServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'ListBusinessHours': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBusinessHours,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.ListBusinessHoursRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.ListBusinessHoursResponse.SerializeToString,
+            ),
             'GetBusinessHours': grpc.unary_unary_rpc_method_handler(
                     servicer.GetBusinessHours,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.GetBusinessHoursRequest.FromString,
@@ -150,6 +167,23 @@ def add_BusinessHoursServiceServicer_to_server(servicer, server):
  # This class is part of an EXPERIMENTAL API.
 class BusinessHoursService(object):
     """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def ListBusinessHours(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.businesshours.BusinessHoursService/ListBusinessHours',
+            api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.ListBusinessHoursRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_businesshours_dot_entities__pb2.ListBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def GetBusinessHours(request,
