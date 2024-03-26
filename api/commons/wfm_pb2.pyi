@@ -225,6 +225,19 @@ class InitialSetupState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SETTING_UP: _ClassVar[InitialSetupState]
     SETUP_COMPLETE: _ClassVar[InitialSetupState]
     FAILURE: _ClassVar[InitialSetupState]
+
+class RealTimeManagementState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    UNSPECIFIED: _ClassVar[RealTimeManagementState]
+    LOGGED_IN: _ClassVar[RealTimeManagementState]
+    CALL_ON_HOLD: _ClassVar[RealTimeManagementState]
+    OUTBOUND_CALL: _ClassVar[RealTimeManagementState]
+    TRANSFER: _ClassVar[RealTimeManagementState]
+    CONFERENCE: _ClassVar[RealTimeManagementState]
+    READY: _ClassVar[RealTimeManagementState]
+    NOT_READY: _ClassVar[RealTimeManagementState]
+    WRAP_UP: _ClassVar[RealTimeManagementState]
+    LOGGED_OUT: _ClassVar[RealTimeManagementState]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -387,6 +400,16 @@ NOT_SETUP: InitialSetupState
 SETTING_UP: InitialSetupState
 SETUP_COMPLETE: InitialSetupState
 FAILURE: InitialSetupState
+UNSPECIFIED: RealTimeManagementState
+LOGGED_IN: RealTimeManagementState
+CALL_ON_HOLD: RealTimeManagementState
+OUTBOUND_CALL: RealTimeManagementState
+TRANSFER: RealTimeManagementState
+CONFERENCE: RealTimeManagementState
+READY: RealTimeManagementState
+NOT_READY: RealTimeManagementState
+WRAP_UP: RealTimeManagementState
+LOGGED_OUT: RealTimeManagementState
 
 class SkillType(_message.Message):
     __slots__ = ()
