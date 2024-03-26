@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from services.billing.v1alpha1 import history_pb2 as services_dot_billing_dot_v1alpha1_dot_history__pb2
 from services.billing.v1alpha1 import invoices_pb2 as services_dot_billing_dot_v1alpha1_dot_invoices__pb2
 from services.billing.v1alpha1 import plans_pb2 as services_dot_billing_dot_v1alpha1_dot_plans__pb2
 from services.billing.v1alpha1 import rates_pb2 as services_dot_billing_dot_v1alpha1_dot_rates__pb2
@@ -102,6 +101,11 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanResponse.FromString,
                 )
+        self.GetBillingPlanHistory = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/GetBillingPlanHistory',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryResponse.FromString,
+                )
         self.GetInvoice = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/GetInvoice',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceRequest.SerializeToString,
@@ -111,11 +115,6 @@ class BillingServiceStub(object):
                 '/services.billing.v1alpha1.BillingService/GetRateDefinition',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionResponse.FromString,
-                )
-        self.GetRateHistory = channel.unary_unary(
-                '/services.billing.v1alpha1.BillingService/GetRateHistory',
-                request_serializer=services_dot_billing_dot_v1alpha1_dot_history__pb2.GetRateHistoryRequest.SerializeToString,
-                response_deserializer=services_dot_billing_dot_v1alpha1_dot_history__pb2.GetRateHistoryResponse.FromString,
                 )
         self.ListBillingPlans = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/ListBillingPlans',
@@ -437,6 +436,20 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetBillingPlanHistory(self, request, context):
+        """Returns the billing plan history for the ORG or REGION.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetInvoice(self, request, context):
         """Returns the specified invoice.
         Required permissions:
@@ -460,20 +473,6 @@ class BillingServiceServicer(object):
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.NotFound: The specified rate definition doesn't exist.
-        - grpc.PermissionDenied: Caller doesn't have the required permissions.
-        - grpc.Unavailable: The operation is currently unavailable.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetRateHistory(self, request, context):
-        """Returns the rate history for the specified rate definition.
-        Required permissions:
-        CUSTOMER_SUPPORT
-        Errors:
-        - grpc.Internal: An internal error occurred.
-        - grpc.InvalidArgument: The request is invalid.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
         - grpc.Unavailable: The operation is currently unavailable.
         """
@@ -693,6 +692,11 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanResponse.SerializeToString,
             ),
+            'GetBillingPlanHistory': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBillingPlanHistory,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryResponse.SerializeToString,
+            ),
             'GetInvoice': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInvoice,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceRequest.FromString,
@@ -702,11 +706,6 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.GetRateDefinition,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionResponse.SerializeToString,
-            ),
-            'GetRateHistory': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetRateHistory,
-                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_history__pb2.GetRateHistoryRequest.FromString,
-                    response_serializer=services_dot_billing_dot_v1alpha1_dot_history__pb2.GetRateHistoryResponse.SerializeToString,
             ),
             'ListBillingPlans': grpc.unary_unary_rpc_method_handler(
                     servicer.ListBillingPlans,
@@ -1048,6 +1047,23 @@ class BillingService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def GetBillingPlanHistory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetBillingPlanHistory',
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetInvoice(request,
             target,
             options=(),
@@ -1078,23 +1094,6 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetRateDefinition',
             services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_rates__pb2.GetRateDefinitionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetRateHistory(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetRateHistory',
-            services_dot_billing_dot_v1alpha1_dot_history__pb2.GetRateHistoryRequest.SerializeToString,
-            services_dot_billing_dot_v1alpha1_dot_history__pb2.GetRateHistoryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

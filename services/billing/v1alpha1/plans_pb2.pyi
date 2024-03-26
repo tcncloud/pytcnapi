@@ -131,6 +131,20 @@ class GetBillingPlanResponse(_message.Message):
     billing_plan: _plan_pb2.BillingPlan
     def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
 
+class GetBillingPlanHistoryRequest(_message.Message):
+    __slots__ = ("org_id", "group_ids")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    group_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, org_id: _Optional[str] = ..., group_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class GetBillingPlanHistoryResponse(_message.Message):
+    __slots__ = ("history",)
+    HISTORY_FIELD_NUMBER: _ClassVar[int]
+    history: _containers.RepeatedCompositeFieldContainer[_plan_pb2.BillingPlanSnapshot]
+    def __init__(self, history: _Optional[_Iterable[_Union[_plan_pb2.BillingPlanSnapshot, _Mapping]]] = ...) -> None: ...
+
 class ListBillingPlansRequest(_message.Message):
     __slots__ = ("billing_plan_id", "filter", "fields", "sort", "page")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
