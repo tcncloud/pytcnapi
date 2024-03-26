@@ -3542,3 +3542,17 @@ class HelloWorldWFMAdherenceResponse(_message.Message):
     HELLO_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     hello_message: str
     def __init__(self, hello_message: _Optional[str] = ...) -> None: ...
+
+class ListAgentStatesForDayRequest(_message.Message):
+    __slots__ = ("start_datetime", "end_datetime")
+    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    END_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    start_datetime: _timestamp_pb2.Timestamp
+    end_datetime: _timestamp_pb2.Timestamp
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class ListAgentStatesForDayResponse(_message.Message):
+    __slots__ = ("agent_states",)
+    AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
+    agent_states: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AgentStateSequence]
+    def __init__(self, agent_states: _Optional[_Iterable[_Union[_wfm_pb2.AgentStateSequence, _Mapping]]] = ...) -> None: ...

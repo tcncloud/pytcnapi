@@ -855,6 +855,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
                 )
+        self.ListAgentStatesForDay = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAgentStatesForDay',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.FromString,
+                )
 
 
 class WFMServicer(object):
@@ -3325,6 +3330,20 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAgentStatesForDay(self, request, context):
+        """List the real time agent states for published schedule and the org sending the request, starting on the given @start_datetime.
+        If the @end_datetime is set, all agent state sequences will be returned for the range between @start_datetime and @end_datetime.
+        If @end_datetime is not set, the agent state sequences will be returned over a 24 hour period or until the current time, whichever is shorter.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
+        Errors:
+        - grpc.Invalid: the @start_datetime is invalid or beyond the current datetime.
+        - grpc.Internal: error occurs when listing the agent states.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -4167,6 +4186,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.HelloWorldWFMAdherence,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.SerializeToString,
+            ),
+            'ListAgentStatesForDay': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentStatesForDay,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7032,5 +7056,22 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentStatesForDay(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAgentStatesForDay',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

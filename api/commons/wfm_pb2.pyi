@@ -670,3 +670,23 @@ class InitialSetupStatus(_message.Message):
     progress_percentage: int
     message: str
     def __init__(self, state: _Optional[_Union[InitialSetupState, str]] = ..., progress_percentage: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
+
+class AgentStateSegment(_message.Message):
+    __slots__ = ("order_in_rts", "states", "width_in_minutes")
+    ORDER_IN_RTS_FIELD_NUMBER: _ClassVar[int]
+    STATES_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    order_in_rts: int
+    states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
+    width_in_minutes: int
+    def __init__(self, order_in_rts: _Optional[int] = ..., states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., width_in_minutes: _Optional[int] = ...) -> None: ...
+
+class AgentStateSequence(_message.Message):
+    __slots__ = ("wfm_agent_sid", "start_datetime", "state_segments")
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    STATE_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid: int
+    start_datetime: _timestamp_pb2.Timestamp
+    state_segments: _containers.RepeatedCompositeFieldContainer[AgentStateSegment]
+    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ...) -> None: ...
