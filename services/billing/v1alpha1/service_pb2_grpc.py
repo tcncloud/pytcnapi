@@ -101,6 +101,11 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanResponse.FromString,
                 )
+        self.GetBillingPlanHistory = channel.unary_unary(
+                '/services.billing.v1alpha1.BillingService/GetBillingPlanHistory',
+                request_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryResponse.FromString,
+                )
         self.GetInvoice = channel.unary_unary(
                 '/services.billing.v1alpha1.BillingService/GetInvoice',
                 request_serializer=services_dot_billing_dot_v1alpha1_dot_invoices__pb2.GetInvoiceRequest.SerializeToString,
@@ -431,6 +436,20 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetBillingPlanHistory(self, request, context):
+        """Returns the billing plan history for the ORG or REGION.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetInvoice(self, request, context):
         """Returns the specified invoice.
         Required permissions:
@@ -672,6 +691,11 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.GetBillingPlan,
                     request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanResponse.SerializeToString,
+            ),
+            'GetBillingPlanHistory': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBillingPlanHistory,
+                    request_deserializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryResponse.SerializeToString,
             ),
             'GetInvoice': grpc.unary_unary_rpc_method_handler(
                     servicer.GetInvoice,
@@ -1019,6 +1043,23 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetBillingPlan',
             services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanRequest.SerializeToString,
             services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetBillingPlanHistory(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha1.BillingService/GetBillingPlanHistory',
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha1_dot_plans__pb2.GetBillingPlanHistoryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
