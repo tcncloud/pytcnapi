@@ -108,7 +108,7 @@ class ContactFieldDescription(_message.Message):
     def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[str] = ...) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
-    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "email_mfa_settings", "duo_mfa_settings")
+    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "email_mfa_settings", "duo_mfa_settings", "allow_force_password_reset_interval", "password_reset_day_interval")
     class DuoMfaSettings(_message.Message):
         __slots__ = ("duo_client_id", "duo_api_host", "enabled")
         DUO_CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -131,6 +131,8 @@ class AuthenticationPreferences(_message.Message):
     BLOCK_UNVERIFIED_USERS_FIELD_NUMBER: _ClassVar[int]
     EMAIL_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
     DUO_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
+    ALLOW_FORCE_PASSWORD_RESET_INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_RESET_DAY_INTERVAL_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     authorization_via_ip: bool
     allowed_ips: _containers.RepeatedScalarFieldContainer[str]
@@ -139,7 +141,9 @@ class AuthenticationPreferences(_message.Message):
     block_unverified_users: bool
     email_mfa_settings: AuthenticationPreferences.EmailMfaSettings
     duo_mfa_settings: AuthenticationPreferences.DuoMfaSettings
-    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., email_mfa_settings: _Optional[_Union[AuthenticationPreferences.EmailMfaSettings, _Mapping]] = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ...) -> None: ...
+    allow_force_password_reset_interval: bool
+    password_reset_day_interval: int
+    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., email_mfa_settings: _Optional[_Union[AuthenticationPreferences.EmailMfaSettings, _Mapping]] = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ..., allow_force_password_reset_interval: bool = ..., password_reset_day_interval: _Optional[int] = ...) -> None: ...
 
 class WebhookPreferences(_message.Message):
     __slots__ = ("org_id", "push_urls_enabled", "call_result_push_url", "agent_response_push_url")

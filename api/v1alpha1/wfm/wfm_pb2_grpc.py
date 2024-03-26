@@ -3331,7 +3331,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListAgentStatesForDay(self, request, context):
-        """List the real time agent states for the org sending the request, starting on the given @start_datetime.
+        """List the real time agent states for published schedule and the org sending the request, starting on the given @start_datetime.
         If the @end_datetime is set, all agent state sequences will be returned for the range between @start_datetime and @end_datetime.
         If @end_datetime is not set, the agent state sequences will be returned over a 24 hour period or until the current time, whichever is shorter.
         Required permissions:

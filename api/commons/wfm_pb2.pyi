@@ -226,17 +226,18 @@ class InitialSetupState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SETUP_COMPLETE: _ClassVar[InitialSetupState]
     FAILURE: _ClassVar[InitialSetupState]
 
-class AgentRTMState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+class RealTimeManagementState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
-    LOGGED_IN: _ClassVar[AgentRTMState]
-    ACD_INBOUND_CALL: _ClassVar[AgentRTMState]
-    DIRECT_OUTBOUND_CALL: _ClassVar[AgentRTMState]
-    CALL_ON_HOLD: _ClassVar[AgentRTMState]
-    OUTBOUND_CALL: _ClassVar[AgentRTMState]
-    INBOUND_CALL: _ClassVar[AgentRTMState]
-    TRANSFER: _ClassVar[AgentRTMState]
-    CONFERENCE: _ClassVar[AgentRTMState]
-    READY: _ClassVar[AgentRTMState]
+    UNSPECIFIED: _ClassVar[RealTimeManagementState]
+    LOGGED_IN: _ClassVar[RealTimeManagementState]
+    CALL_ON_HOLD: _ClassVar[RealTimeManagementState]
+    OUTBOUND_CALL: _ClassVar[RealTimeManagementState]
+    TRANSFER: _ClassVar[RealTimeManagementState]
+    CONFERENCE: _ClassVar[RealTimeManagementState]
+    READY: _ClassVar[RealTimeManagementState]
+    NOT_READY: _ClassVar[RealTimeManagementState]
+    WRAP_UP: _ClassVar[RealTimeManagementState]
+    LOGGED_OUT: _ClassVar[RealTimeManagementState]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -399,15 +400,16 @@ NOT_SETUP: InitialSetupState
 SETTING_UP: InitialSetupState
 SETUP_COMPLETE: InitialSetupState
 FAILURE: InitialSetupState
-LOGGED_IN: AgentRTMState
-ACD_INBOUND_CALL: AgentRTMState
-DIRECT_OUTBOUND_CALL: AgentRTMState
-CALL_ON_HOLD: AgentRTMState
-OUTBOUND_CALL: AgentRTMState
-INBOUND_CALL: AgentRTMState
-TRANSFER: AgentRTMState
-CONFERENCE: AgentRTMState
-READY: AgentRTMState
+UNSPECIFIED: RealTimeManagementState
+LOGGED_IN: RealTimeManagementState
+CALL_ON_HOLD: RealTimeManagementState
+OUTBOUND_CALL: RealTimeManagementState
+TRANSFER: RealTimeManagementState
+CONFERENCE: RealTimeManagementState
+READY: RealTimeManagementState
+NOT_READY: RealTimeManagementState
+WRAP_UP: RealTimeManagementState
+LOGGED_OUT: RealTimeManagementState
 
 class SkillType(_message.Message):
     __slots__ = ()
@@ -670,29 +672,21 @@ class InitialSetupStatus(_message.Message):
     def __init__(self, state: _Optional[_Union[InitialSetupState, str]] = ..., progress_percentage: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
 
 class AgentStateSegment(_message.Message):
-    __slots__ = ("order_in_rts", "state", "width_in_minutes", "agent_state_segment_sid", "agent_state_sequence_sid")
+    __slots__ = ("order_in_rts", "states", "width_in_minutes")
     ORDER_IN_RTS_FIELD_NUMBER: _ClassVar[int]
-    STATE_FIELD_NUMBER: _ClassVar[int]
+    STATES_FIELD_NUMBER: _ClassVar[int]
     WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
-    AGENT_STATE_SEGMENT_SID_FIELD_NUMBER: _ClassVar[int]
-    AGENT_STATE_SEQUENCE_SID_FIELD_NUMBER: _ClassVar[int]
     order_in_rts: int
-    state: AgentRTMState
+    states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
     width_in_minutes: int
-    agent_state_segment_sid: int
-    agent_state_sequence_sid: int
-    def __init__(self, order_in_rts: _Optional[int] = ..., state: _Optional[_Union[AgentRTMState, str]] = ..., width_in_minutes: _Optional[int] = ..., agent_state_segment_sid: _Optional[int] = ..., agent_state_sequence_sid: _Optional[int] = ...) -> None: ...
+    def __init__(self, order_in_rts: _Optional[int] = ..., states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., width_in_minutes: _Optional[int] = ...) -> None: ...
 
 class AgentStateSequence(_message.Message):
-    __slots__ = ("wfm_agent_sid", "start_datetime", "state_segments", "total_width_in_minutes", "agent_state_sequence_sid")
+    __slots__ = ("wfm_agent_sid", "start_datetime", "state_segments")
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     STATE_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
-    TOTAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
-    AGENT_STATE_SEQUENCE_SID_FIELD_NUMBER: _ClassVar[int]
     wfm_agent_sid: int
     start_datetime: _timestamp_pb2.Timestamp
     state_segments: _containers.RepeatedCompositeFieldContainer[AgentStateSegment]
-    total_width_in_minutes: int
-    agent_state_sequence_sid: int
-    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ..., total_width_in_minutes: _Optional[int] = ..., agent_state_sequence_sid: _Optional[int] = ...) -> None: ...
+    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ...) -> None: ...
