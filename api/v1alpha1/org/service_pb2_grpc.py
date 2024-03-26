@@ -735,6 +735,16 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.FromString,
                 )
+        self.CopyHuntGroupIntegrationLink = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CopyHuntGroupIntegrationLink',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupIntegrationLinkRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupIntegrationLinkResponse.FromString,
+                )
+        self.UpdateHuntGroupIntegrationLinks = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateHuntGroupIntegrationLinks',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupIntegrationLinksRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupIntegrationLinksResponse.FromString,
+                )
         self.GetHuntGroupClientInfoDisplayTemplate = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetHuntGroupClientInfoDisplayTemplate',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupClientInfoDisplayTemplateRequest.SerializeToString,
@@ -2125,6 +2135,25 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CopyHuntGroupIntegrationLink(self, request, context):
+        """CopyHuntGroupIntegrationLink copies the integration link from one hunt group to another.
+        It will create a new integration link in the destination hunt group with the same settings
+        as the source integration link.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateHuntGroupIntegrationLinks(self, request, context):
+        """UpdateHuntGroupIntegrationLinks updates the integration links for a hunt group.
+        It will create any new integration links that do not already exist in the hunt group,
+        update any existing integration links with the new settings, and delete any integration links
+        that are not in the request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetHuntGroupClientInfoDisplayTemplate(self, request, context):
         """GetHuntGroupClientInfoDisplayTemplate returns the client info display template for a given hunt group.
         """
@@ -3351,6 +3380,16 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.ListHuntGroupIntegrationLinks,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.SerializeToString,
+            ),
+            'CopyHuntGroupIntegrationLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyHuntGroupIntegrationLink,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupIntegrationLinkRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupIntegrationLinkResponse.SerializeToString,
+            ),
+            'UpdateHuntGroupIntegrationLinks': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateHuntGroupIntegrationLinks,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupIntegrationLinksRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupIntegrationLinksResponse.SerializeToString,
             ),
             'GetHuntGroupClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.GetHuntGroupClientInfoDisplayTemplate,
@@ -6119,6 +6158,40 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListHuntGroupIntegrationLinks',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupIntegrationLinksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyHuntGroupIntegrationLink(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CopyHuntGroupIntegrationLink',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupIntegrationLinkRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyHuntGroupIntegrationLinkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateHuntGroupIntegrationLinks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateHuntGroupIntegrationLinks',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupIntegrationLinksRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateHuntGroupIntegrationLinksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
