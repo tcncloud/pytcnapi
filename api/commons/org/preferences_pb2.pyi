@@ -730,17 +730,19 @@ class ProgrammedDay(_message.Message):
     def __init__(self, day: _Optional[_Union[MonthDayDate, _Mapping]] = ..., holiday: _Optional[_Union[CountryHoliday, _Mapping]] = ...) -> None: ...
 
 class ProgrammedDates(_message.Message):
-    __slots__ = ("org_id", "programmed_dates_id", "programmed_dates_name", "description", "days", "last_updated")
+    __slots__ = ("org_id", "programmed_dates_id", "programmed_dates_name", "description", "timezone", "days", "last_updated")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PROGRAMMED_DATES_ID_FIELD_NUMBER: _ClassVar[int]
     PROGRAMMED_DATES_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     DAYS_FIELD_NUMBER: _ClassVar[int]
     LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     programmed_dates_id: str
     programmed_dates_name: str
     description: str
+    timezone: _org_pb2.TimeZone
     days: _containers.RepeatedCompositeFieldContainer[ProgrammedDay]
     last_updated: _timestamp_pb2.Timestamp
-    def __init__(self, org_id: _Optional[str] = ..., programmed_dates_id: _Optional[str] = ..., programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., days: _Optional[_Iterable[_Union[ProgrammedDay, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., programmed_dates_id: _Optional[str] = ..., programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[ProgrammedDay, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
