@@ -29,7 +29,7 @@ class Invoice(_message.Message):
     def __init__(self, invoice_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., url: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., client_id: _Optional[str] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ("invoice_item_id", "product", "price", "create_time", "update_time", "description", "date", "columns", "client_id")
+    __slots__ = ("invoice_item_id", "product", "price", "create_time", "update_time", "description", "date", "columns")
     INVOICE_ITEM_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     PRICE_FIELD_NUMBER: _ClassVar[int]
@@ -38,7 +38,6 @@ class InvoiceItem(_message.Message):
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     DATE_FIELD_NUMBER: _ClassVar[int]
     COLUMNS_FIELD_NUMBER: _ClassVar[int]
-    CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     invoice_item_id: str
     product: _product_pb2.Product
     price: float
@@ -47,15 +46,12 @@ class InvoiceItem(_message.Message):
     description: str
     date: _timestamp_pb2.Timestamp
     columns: _containers.RepeatedCompositeFieldContainer[InvoiceItemColumn]
-    client_id: str
-    def __init__(self, invoice_item_id: _Optional[str] = ..., product: _Optional[_Union[_product_pb2.Product, str]] = ..., price: _Optional[float] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., description: _Optional[str] = ..., date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., columns: _Optional[_Iterable[_Union[InvoiceItemColumn, _Mapping]]] = ..., client_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, invoice_item_id: _Optional[str] = ..., product: _Optional[_Union[_product_pb2.Product, str]] = ..., price: _Optional[float] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., description: _Optional[str] = ..., date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., columns: _Optional[_Iterable[_Union[InvoiceItemColumn, _Mapping]]] = ...) -> None: ...
 
 class InvoiceItemColumn(_message.Message):
-    __slots__ = ("name", "value", "column_value")
+    __slots__ = ("name", "value")
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
-    COLUMN_VALUE_FIELD_NUMBER: _ClassVar[int]
     name: str
     value: int
-    column_value: str
-    def __init__(self, name: _Optional[str] = ..., value: _Optional[int] = ..., column_value: _Optional[str] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
