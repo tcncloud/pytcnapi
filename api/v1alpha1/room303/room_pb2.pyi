@@ -118,3 +118,11 @@ class GetGlobalConfigResponse(_message.Message):
     date_created: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
     def __init__(self, edited_by: _Optional[str] = ..., config: _Optional[_Union[_room303_pb2.GlobalConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class UpdateRoomRequest(_message.Message):
+    __slots__ = ("room", "field_mask")
+    ROOM_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    room: _room303_pb2.Room
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, room: _Optional[_Union[_room303_pb2.Room, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
