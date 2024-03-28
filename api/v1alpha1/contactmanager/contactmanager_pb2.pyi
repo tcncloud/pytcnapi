@@ -19,10 +19,12 @@ class GetContactListRequest(_message.Message):
     def __init__(self, request_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., org_id: _Optional[str] = ..., project_id: _Optional[int] = ...) -> None: ...
 
 class GetContactListResponse(_message.Message):
-    __slots__ = ("contact_list",)
+    __slots__ = ("contact_list", "contact_manager_list")
     CONTACT_LIST_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGER_LIST_FIELD_NUMBER: _ClassVar[int]
     contact_list: _containers.RepeatedCompositeFieldContainer[_contactmanager_pb2.ContactManagerList]
-    def __init__(self, contact_list: _Optional[_Iterable[_Union[_contactmanager_pb2.ContactManagerList, _Mapping]]] = ...) -> None: ...
+    contact_manager_list: _containers.RepeatedCompositeFieldContainer[ContactManagerList]
+    def __init__(self, contact_list: _Optional[_Iterable[_Union[_contactmanager_pb2.ContactManagerList, _Mapping]]] = ..., contact_manager_list: _Optional[_Iterable[_Union[ContactManagerList, _Mapping]]] = ...) -> None: ...
 
 class ListContactEntryListRequest(_message.Message):
     __slots__ = ("contact_manager_list_id", "org_id", "project_id")
@@ -35,10 +37,12 @@ class ListContactEntryListRequest(_message.Message):
     def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[str] = ...) -> None: ...
 
 class ListContactEntryListResponse(_message.Message):
-    __slots__ = ("contact_entry",)
+    __slots__ = ("contact_entry", "contact_manager_entry")
     CONTACT_ENTRY_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGER_ENTRY_FIELD_NUMBER: _ClassVar[int]
     contact_entry: _containers.RepeatedCompositeFieldContainer[_contactmanager_pb2.ContactManagerEntry]
-    def __init__(self, contact_entry: _Optional[_Iterable[_Union[_contactmanager_pb2.ContactManagerEntry, _Mapping]]] = ...) -> None: ...
+    contact_manager_entry: _containers.RepeatedCompositeFieldContainer[ContactManagerEntry]
+    def __init__(self, contact_entry: _Optional[_Iterable[_Union[_contactmanager_pb2.ContactManagerEntry, _Mapping]]] = ..., contact_manager_entry: _Optional[_Iterable[_Union[ContactManagerEntry, _Mapping]]] = ...) -> None: ...
 
 class GetEncContactEntryRequest(_message.Message):
     __slots__ = ("contact_manager_entry_id",)
@@ -47,10 +51,12 @@ class GetEncContactEntryRequest(_message.Message):
     def __init__(self, contact_manager_entry_id: _Optional[int] = ...) -> None: ...
 
 class GetEncContactEntryResponse(_message.Message):
-    __slots__ = ("contact_entry",)
+    __slots__ = ("contact_entry", "contact_manager_entry")
     CONTACT_ENTRY_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGER_ENTRY_FIELD_NUMBER: _ClassVar[int]
     contact_entry: _containers.RepeatedCompositeFieldContainer[_contactmanager_pb2.ContactManagerEntry]
-    def __init__(self, contact_entry: _Optional[_Iterable[_Union[_contactmanager_pb2.ContactManagerEntry, _Mapping]]] = ...) -> None: ...
+    contact_manager_entry: _containers.RepeatedCompositeFieldContainer[ContactManagerEntry]
+    def __init__(self, contact_entry: _Optional[_Iterable[_Union[_contactmanager_pb2.ContactManagerEntry, _Mapping]]] = ..., contact_manager_entry: _Optional[_Iterable[_Union[ContactManagerEntry, _Mapping]]] = ...) -> None: ...
 
 class GetKYCEncContactEntryRequest(_message.Message):
     __slots__ = ("project_id", "entry_val", "min_kyc_limit", "kyc_response")
