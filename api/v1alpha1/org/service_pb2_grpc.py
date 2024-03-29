@@ -1090,6 +1090,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
                 )
+        self.UpdateGroupedUserIPRestrictions = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateGroupedUserIPRestrictions',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.UpdateGroupedUserIPRestrictionsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.UpdateGroupedUserIPRestrictionsResponse.FromString,
+                )
 
 
 class OrgServicer(object):
@@ -2668,6 +2673,14 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateGroupedUserIPRestrictions(self, request, context):
+        """UpdateGroupedUserIPRestrictions updates a user or list of user's IPs they
+        are required to authenticate with
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrgServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -3735,6 +3748,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.UpdateBusinessHours,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.SerializeToString,
+            ),
+            'UpdateGroupedUserIPRestrictions': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateGroupedUserIPRestrictions,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.UpdateGroupedUserIPRestrictionsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.UpdateGroupedUserIPRestrictionsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7365,5 +7383,22 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateBusinessHours',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateGroupedUserIPRestrictions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateGroupedUserIPRestrictions',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.UpdateGroupedUserIPRestrictionsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.UpdateGroupedUserIPRestrictionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

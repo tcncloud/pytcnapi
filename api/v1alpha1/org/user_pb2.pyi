@@ -1022,3 +1022,15 @@ class GetMyAllowedMfaMethodsResponse(_message.Message):
     email_enabled: bool
     duo_enabled: bool
     def __init__(self, mfa_enabled: bool = ..., email_enabled: bool = ..., duo_enabled: bool = ...) -> None: ...
+
+class UpdateGroupedUserIPRestrictionsRequest(_message.Message):
+    __slots__ = ("ips", "user_ids")
+    IPS_FIELD_NUMBER: _ClassVar[int]
+    USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    ips: _containers.RepeatedScalarFieldContainer[str]
+    user_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, ips: _Optional[_Iterable[str]] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class UpdateGroupedUserIPRestrictionsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
