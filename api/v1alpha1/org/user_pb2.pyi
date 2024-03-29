@@ -1024,24 +1024,24 @@ class GetMyAllowedMfaMethodsResponse(_message.Message):
     def __init__(self, mfa_enabled: bool = ..., email_enabled: bool = ..., duo_enabled: bool = ...) -> None: ...
 
 class AddGroupedUserIPRestrictionsRequest(_message.Message):
-    __slots__ = ("ips", "user_ids")
-    IPS_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("user_ids", "ips")
     USER_IDS_FIELD_NUMBER: _ClassVar[int]
-    ips: _containers.RepeatedScalarFieldContainer[str]
+    IPS_FIELD_NUMBER: _ClassVar[int]
     user_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, ips: _Optional[_Iterable[str]] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    ips: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, user_ids: _Optional[_Iterable[str]] = ..., ips: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class AddGroupedUserIPRestrictionsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class RemoveGroupedUserIPRestrictionsRequest(_message.Message):
-    __slots__ = ("ips", "user_ids")
-    IPS_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("user_ids", "ips")
     USER_IDS_FIELD_NUMBER: _ClassVar[int]
-    ips: _containers.RepeatedScalarFieldContainer[str]
+    IPS_FIELD_NUMBER: _ClassVar[int]
     user_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, ips: _Optional[_Iterable[str]] = ..., user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    ips: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, user_ids: _Optional[_Iterable[str]] = ..., ips: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class RemoveGroupedUserIPRestrictionsResponse(_message.Message):
     __slots__ = ()
