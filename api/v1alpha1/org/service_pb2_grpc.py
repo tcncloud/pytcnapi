@@ -1090,6 +1090,16 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
                 )
+        self.AddGroupedUserIPRestrictions = channel.unary_unary(
+                '/api.v1alpha1.org.Org/AddGroupedUserIPRestrictions',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.AddGroupedUserIPRestrictionsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.AddGroupedUserIPRestrictionsResponse.FromString,
+                )
+        self.RemoveGroupedUserIPRestrictions = channel.unary_unary(
+                '/api.v1alpha1.org.Org/RemoveGroupedUserIPRestrictions',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsResponse.FromString,
+                )
 
 
 class OrgServicer(object):
@@ -2668,6 +2678,22 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddGroupedUserIPRestrictions(self, request, context):
+        """AddGroupedUserIPRestrictions adds a user or list of user's IPs they
+        are required to authenticate with
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveGroupedUserIPRestrictions(self, request, context):
+        """RemoveGroupedUserIPRestrictions removes a user or list of user's IPs they
+        are required to authenticate with
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrgServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -3735,6 +3761,16 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.UpdateBusinessHours,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.SerializeToString,
+            ),
+            'AddGroupedUserIPRestrictions': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddGroupedUserIPRestrictions,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.AddGroupedUserIPRestrictionsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.AddGroupedUserIPRestrictionsResponse.SerializeToString,
+            ),
+            'RemoveGroupedUserIPRestrictions': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveGroupedUserIPRestrictions,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7365,5 +7401,39 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateBusinessHours',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddGroupedUserIPRestrictions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/AddGroupedUserIPRestrictions',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.AddGroupedUserIPRestrictionsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.AddGroupedUserIPRestrictionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveGroupedUserIPRestrictions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RemoveGroupedUserIPRestrictions',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
