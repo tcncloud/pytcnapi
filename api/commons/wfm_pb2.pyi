@@ -672,14 +672,16 @@ class InitialSetupStatus(_message.Message):
     def __init__(self, state: _Optional[_Union[InitialSetupState, str]] = ..., progress_percentage: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
 
 class AgentStateSegment(_message.Message):
-    __slots__ = ("order_in_rts", "states", "width_in_minutes")
+    __slots__ = ("order_in_rts", "states", "width_in_minutes", "width_in_seconds")
     ORDER_IN_RTS_FIELD_NUMBER: _ClassVar[int]
     STATES_FIELD_NUMBER: _ClassVar[int]
     WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     order_in_rts: int
     states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
     width_in_minutes: int
-    def __init__(self, order_in_rts: _Optional[int] = ..., states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., width_in_minutes: _Optional[int] = ...) -> None: ...
+    width_in_seconds: int
+    def __init__(self, order_in_rts: _Optional[int] = ..., states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., width_in_minutes: _Optional[int] = ..., width_in_seconds: _Optional[int] = ...) -> None: ...
 
 class AgentStateSequence(_message.Message):
     __slots__ = ("wfm_agent_sid", "start_datetime", "state_segments")
