@@ -60,56 +60,56 @@ class ProgrammedDatesServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def ListProgrammedDates(self, request, context):
-        """ListProgrammedDates returns all ListProgrammedDates for an Org.
+        """ListProgrammedDates returns all ProgrammedDates for an Org.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetProgrammedDates(self, request, context):
-        """GetProgrammedDates returns the programmed dates for the ID.
+        """GetProgrammedDates returns the ProgrammedDates for the ID.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SetProgrammedDates(self, request, context):
-        """SetProgrammedDates creates a new programmed dates for an Org.
+        """SetProgrammedDates creates a new ProgrammedDates for an Org.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AddToProgrammedDates(self, request, context):
-        """AddToProgrammedDates adds a new programmed day for an Org.
+        """AddToProgrammedDates adds a new ProgrammedDay for an Org.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def RemoveFromProgrammedDates(self, request, context):
-        """RemoveFromProgrammedDates removes an existing programmed day from an Org.
+        """RemoveFromProgrammedDates removes an existing ProgrammedDay from an Org.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateProgrammedDatesInfo(self, request, context):
-        """UpdateProgrammedDatesInfo updates the general info for a programmed date.
+        """UpdateProgrammedDatesInfo updates the general info for a specified ProgrammedDates.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteProgrammedDates(self, request, context):
-        """DeleteProgrammedDates deletes an existing programmed date.
+        """DeleteProgrammedDates deletes an existing ProgrammedDates.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def EvaluateProgrammedDates(self, request, context):
-        """EvaluateProgrammedDates evaluates the programmed date.
+        """EvaluateProgrammedDates evaluates the ProgrammedDates.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
