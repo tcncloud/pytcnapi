@@ -1,3 +1,4 @@
+from api.commons import org_pb2 as _org_pb2
 from api.commons.org import preferences_pb2 as _preferences_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
@@ -30,14 +31,16 @@ class GetProgrammedDatesResponse(_message.Message):
     def __init__(self, dates: _Optional[_Iterable[_Union[_preferences_pb2.ProgrammedDates, _Mapping]]] = ...) -> None: ...
 
 class SetProgrammedDatesRequest(_message.Message):
-    __slots__ = ("programmed_dates_name", "description", "dates")
+    __slots__ = ("programmed_dates_name", "description", "timezone", "days")
     PROGRAMMED_DATES_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
-    DATES_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    DAYS_FIELD_NUMBER: _ClassVar[int]
     programmed_dates_name: str
     description: str
-    dates: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.ProgrammedDates]
-    def __init__(self, programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., dates: _Optional[_Iterable[_Union[_preferences_pb2.ProgrammedDates, _Mapping]]] = ...) -> None: ...
+    timezone: _org_pb2.TimeZone
+    days: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.ProgrammedDay]
+    def __init__(self, programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[_preferences_pb2.ProgrammedDay, _Mapping]]] = ...) -> None: ...
 
 class SetProgrammedDatesResponse(_message.Message):
     __slots__ = ("programmed_dates_id",)
@@ -70,16 +73,18 @@ class RemoveFromProgrammedDatesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateProgrammedDatesInfoRequest(_message.Message):
-    __slots__ = ("programmed_dates_id", "programmed_dates_name", "description", "field_mask")
+    __slots__ = ("programmed_dates_id", "programmed_dates_name", "description", "timezone", "field_mask")
     PROGRAMMED_DATES_ID_FIELD_NUMBER: _ClassVar[int]
     PROGRAMMED_DATES_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     programmed_dates_id: str
     programmed_dates_name: str
     description: str
+    timezone: _org_pb2.TimeZone
     field_mask: _field_mask_pb2.FieldMask
-    def __init__(self, programmed_dates_id: _Optional[str] = ..., programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    def __init__(self, programmed_dates_id: _Optional[str] = ..., programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateProgrammedDatesInfoResponse(_message.Message):
     __slots__ = ()
