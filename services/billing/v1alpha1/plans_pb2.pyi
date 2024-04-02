@@ -132,12 +132,16 @@ class GetBillingPlanResponse(_message.Message):
     def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
 
 class GetBillingPlanHistoryRequest(_message.Message):
-    __slots__ = ("org_id", "group_ids")
+    __slots__ = ("org_id", "group_ids", "start_time", "end_time")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+    START_TIME_FIELD_NUMBER: _ClassVar[int]
+    END_TIME_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     group_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, org_id: _Optional[str] = ..., group_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    start_time: _timestamp_pb2.Timestamp
+    end_time: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., group_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GetBillingPlanHistoryResponse(_message.Message):
     __slots__ = ("history",)
