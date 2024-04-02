@@ -25,10 +25,10 @@ class GetProgrammedDatesRequest(_message.Message):
     def __init__(self, programmed_dates_id: _Optional[str] = ...) -> None: ...
 
 class GetProgrammedDatesResponse(_message.Message):
-    __slots__ = ("dates",)
-    DATES_FIELD_NUMBER: _ClassVar[int]
-    dates: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.ProgrammedDates]
-    def __init__(self, dates: _Optional[_Iterable[_Union[_preferences_pb2.ProgrammedDates, _Mapping]]] = ...) -> None: ...
+    __slots__ = ("programmed_dates",)
+    PROGRAMMED_DATES_FIELD_NUMBER: _ClassVar[int]
+    programmed_dates: _preferences_pb2.ProgrammedDates
+    def __init__(self, programmed_dates: _Optional[_Union[_preferences_pb2.ProgrammedDates, _Mapping]] = ...) -> None: ...
 
 class SetProgrammedDatesRequest(_message.Message):
     __slots__ = ("programmed_dates_name", "description", "timezone", "days")
@@ -107,5 +107,7 @@ class EvaluateProgrammedDatesRequest(_message.Message):
     def __init__(self, programmed_dates_id: _Optional[str] = ...) -> None: ...
 
 class EvaluateProgrammedDatesResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("date_matched",)
+    DATE_MATCHED_FIELD_NUMBER: _ClassVar[int]
+    date_matched: bool
+    def __init__(self, date_matched: bool = ...) -> None: ...
