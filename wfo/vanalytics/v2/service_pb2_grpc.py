@@ -77,7 +77,7 @@ class VanalyticsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateFilter(self, request, context):
-        """UpdateFilter updates a filter search request and/or name.
+        """UpdateFilter updates a filter transcript query and/or name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -91,7 +91,7 @@ class VanalyticsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetFilter(self, request, context):
-        """GetFilter gets filter given a filter_sid, name or search request.
+        """GetFilter gets filter given a filter_sid or name.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
