@@ -139,6 +139,11 @@ class VanalyticsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.FromString,
                 )
+        self.DeleteFlagTranscript = channel.unary_unary(
+                '/api.v1alpha1.vanalytics.Vanalytics/DeleteFlagTranscript',
+                request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptResponse.FromString,
+                )
         self.SearchFlagTranscripts = channel.unary_unary(
                 '/api.v1alpha1.vanalytics.Vanalytics/SearchFlagTranscripts',
                 request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.SearchFlagTranscriptsRequest.SerializeToString,
@@ -377,6 +382,13 @@ class VanalyticsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteFlagTranscript(self, request, context):
+        """DeleteFlagTranscript deletes a flag transcript.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SearchFlagTranscripts(self, request, context):
         """SearchFlagTranscripts searches flag transcripts.
         """
@@ -579,6 +591,11 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     servicer.CreateFlagTranscript,
                     request_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.SerializeToString,
+            ),
+            'DeleteFlagTranscript': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFlagTranscript,
+                    request_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptResponse.SerializeToString,
             ),
             'SearchFlagTranscripts': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchFlagTranscripts,
@@ -1033,6 +1050,23 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.vanalytics.Vanalytics/CreateFlagTranscript',
             api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.SerializeToString,
             api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteFlagTranscript(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.vanalytics.Vanalytics/DeleteFlagTranscript',
+            api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptRequest.SerializeToString,
+            api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
