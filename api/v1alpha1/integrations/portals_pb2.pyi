@@ -345,3 +345,71 @@ class ListAvailablePaymentFieldsRes(_message.Message):
     PAYMENT_FIELDS_FIELD_NUMBER: _ClassVar[int]
     payment_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
     def __init__(self, payment_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
+
+class ListPortalTypesReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListPortalTypesResponse(_message.Message):
+    __slots__ = ("values",)
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.RepeatedCompositeFieldContainer[PortalDefinition]
+    def __init__(self, values: _Optional[_Iterable[_Union[PortalDefinition, _Mapping]]] = ...) -> None: ...
+
+class ListFlowsReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListFlowsResponse(_message.Message):
+    __slots__ = ("values",)
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.RepeatedCompositeFieldContainer[FlowDefinition]
+    def __init__(self, values: _Optional[_Iterable[_Union[FlowDefinition, _Mapping]]] = ...) -> None: ...
+
+class PortalDefinition(_message.Message):
+    __slots__ = ("defintion_name", "steps")
+    DEFINTION_NAME_FIELD_NUMBER: _ClassVar[int]
+    STEPS_FIELD_NUMBER: _ClassVar[int]
+    defintion_name: str
+    steps: _containers.RepeatedCompositeFieldContainer[FlowRequirement]
+    def __init__(self, defintion_name: _Optional[str] = ..., steps: _Optional[_Iterable[_Union[FlowRequirement, _Mapping]]] = ...) -> None: ...
+
+class FlowRequirement(_message.Message):
+    __slots__ = ("max_choices", "flow_type")
+    MAX_CHOICES_FIELD_NUMBER: _ClassVar[int]
+    FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
+    max_choices: int
+    flow_type: _integrations_pb2.FlowType
+    def __init__(self, max_choices: _Optional[int] = ..., flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ...) -> None: ...
+
+class FlowDefinition(_message.Message):
+    __slots__ = ("flow_type", "definition_name", "method", "req_fields", "res_fields", "plugin_fields", "link_fields", "prev_fields", "form_fields", "template", "opts")
+    FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
+    METHOD_FIELD_NUMBER: _ClassVar[int]
+    REQ_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    RES_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    PLUGIN_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    LINK_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    PREV_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    FORM_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    OPTS_FIELD_NUMBER: _ClassVar[int]
+    flow_type: _integrations_pb2.FlowType
+    definition_name: str
+    method: _integrations_pb2.RequestMethod
+    req_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    res_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    plugin_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    link_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    prev_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    form_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    template: Template
+    opts: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., method: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., req_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., res_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., plugin_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., link_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., prev_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., form_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., template: _Optional[_Union[Template, _Mapping]] = ..., opts: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
+
+class Template(_message.Message):
+    __slots__ = ("invoice_template",)
+    INVOICE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    invoice_template: _integrations_pb2.Invoices
+    def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ...) -> None: ...

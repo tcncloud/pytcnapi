@@ -130,6 +130,16 @@ class PortalManagerApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAvailablePaymentFieldsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAvailablePaymentFieldsRes.FromString,
                 )
+        self.ListPortalTypes = channel.unary_unary(
+                '/api.v1alpha1.integrations.PortalManagerApi/ListPortalTypes',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPortalTypesReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPortalTypesResponse.FromString,
+                )
+        self.ListFlows = channel.unary_unary(
+                '/api.v1alpha1.integrations.PortalManagerApi/ListFlows',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListFlowsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListFlowsResponse.FromString,
+                )
 
 
 class PortalManagerApiServicer(object):
@@ -278,6 +288,18 @@ class PortalManagerApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPortalTypes(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFlows(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PortalManagerApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -395,6 +417,16 @@ def add_PortalManagerApiServicer_to_server(servicer, server):
                     servicer.ListAvailablePaymentFields,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAvailablePaymentFieldsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAvailablePaymentFieldsRes.SerializeToString,
+            ),
+            'ListPortalTypes': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPortalTypes,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPortalTypesReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPortalTypesResponse.SerializeToString,
+            ),
+            'ListFlows': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFlows,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListFlowsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListFlowsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -794,5 +826,39 @@ class PortalManagerApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.PortalManagerApi/ListAvailablePaymentFields',
             api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAvailablePaymentFieldsReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAvailablePaymentFieldsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPortalTypes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.PortalManagerApi/ListPortalTypes',
+            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPortalTypesReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPortalTypesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFlows(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.PortalManagerApi/ListFlows',
+            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListFlowsReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListFlowsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
