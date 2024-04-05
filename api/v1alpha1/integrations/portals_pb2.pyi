@@ -404,12 +404,6 @@ class FlowDefinition(_message.Message):
     link_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
     prev_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
     form_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
-    template: Template
+    template: _service_pb2.Template
     opts: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
-    def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., method: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., req_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., res_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., plugin_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., link_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., prev_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., form_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., template: _Optional[_Union[Template, _Mapping]] = ..., opts: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
-
-class Template(_message.Message):
-    __slots__ = ("invoice_template",)
-    INVOICE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
-    invoice_template: _integrations_pb2.Invoices
-    def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ...) -> None: ...
+    def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., method: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., req_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., res_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., plugin_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., link_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., prev_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., form_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., template: _Optional[_Union[_service_pb2.Template, _Mapping]] = ..., opts: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
