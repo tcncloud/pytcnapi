@@ -135,14 +135,12 @@ class ContactManagerEntryVal(_message.Message):
     def __init__(self, type: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class AddContactEntryRequest(_message.Message):
-    __slots__ = ("project_id", "contact_manager_list_id", "entry")
-    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("contact_manager_list_id", "entry")
     CONTACT_MANAGER_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     ENTRY_FIELD_NUMBER: _ClassVar[int]
-    project_id: str
     contact_manager_list_id: int
     entry: _containers.RepeatedCompositeFieldContainer[Entry]
-    def __init__(self, project_id: _Optional[str] = ..., contact_manager_list_id: _Optional[int] = ..., entry: _Optional[_Iterable[_Union[Entry, _Mapping]]] = ...) -> None: ...
+    def __init__(self, contact_manager_list_id: _Optional[int] = ..., entry: _Optional[_Iterable[_Union[Entry, _Mapping]]] = ...) -> None: ...
 
 class Entry(_message.Message):
     __slots__ = ("name", "value", "type")
