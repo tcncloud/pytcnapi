@@ -777,12 +777,12 @@ class OmniCannedMessage(_message.Message):
     def __init__(self, canned_message_id: _Optional[str] = ...) -> None: ...
 
 class OmniDataMessage(_message.Message):
-    __slots__ = ("message", "message_id")
+    __slots__ = ("message", "message_sid")
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
-    MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
     message: str
-    message_id: str
-    def __init__(self, message: _Optional[str] = ..., message_id: _Optional[str] = ...) -> None: ...
+    message_sid: int
+    def __init__(self, message: _Optional[str] = ..., message_sid: _Optional[int] = ...) -> None: ...
 
 class OmniConversationUserInformation(_message.Message):
     __slots__ = ("user_id", "name")
