@@ -88,3 +88,50 @@ class StreamAutoEvaluationsResponse(_message.Message):
     AUTO_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation: _scorecards_pb2.AutoEvaluation
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
+
+class ListAutoEvaluationsByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "scorecard_ids", "completed_at", "category_ids", "call_sid", "agent_user_ids", "page_size", "order_by", "page_token", "risk_levels")
+    class CallSidFilter(_message.Message):
+        __slots__ = ("any_of", "eq", "gte", "lte", "gt", "lt")
+        ANY_OF_FIELD_NUMBER: _ClassVar[int]
+        EQ_FIELD_NUMBER: _ClassVar[int]
+        GTE_FIELD_NUMBER: _ClassVar[int]
+        LTE_FIELD_NUMBER: _ClassVar[int]
+        GT_FIELD_NUMBER: _ClassVar[int]
+        LT_FIELD_NUMBER: _ClassVar[int]
+        any_of: _containers.RepeatedScalarFieldContainer[int]
+        eq: int
+        gte: int
+        lte: int
+        gt: int
+        lt: int
+        def __init__(self, any_of: _Optional[_Iterable[int]] = ..., eq: _Optional[int] = ..., gte: _Optional[int] = ..., lte: _Optional[int] = ..., gt: _Optional[int] = ..., lt: _Optional[int] = ...) -> None: ...
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
+    CALL_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    ORDER_BY_FIELD_NUMBER: _ClassVar[int]
+    PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    RISK_LEVELS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
+    completed_at: _scorecards_pb2.TimeFilter
+    category_ids: _containers.RepeatedScalarFieldContainer[int]
+    call_sid: ListAutoEvaluationsByOrgIdRequest.CallSidFilter
+    agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
+    page_size: int
+    order_by: str
+    page_token: str
+    risk_levels: _containers.RepeatedScalarFieldContainer[_scorecards_pb2.RiskLevel]
+    def __init__(self, org_id: _Optional[str] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., call_sid: _Optional[_Union[ListAutoEvaluationsByOrgIdRequest.CallSidFilter, _Mapping]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., risk_levels: _Optional[_Iterable[_Union[_scorecards_pb2.RiskLevel, str]]] = ...) -> None: ...
+
+class DeleteAutoEvaluationByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "auto_evaluation_id")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    auto_evaluation_id: int
+    def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_id: _Optional[int] = ...) -> None: ...

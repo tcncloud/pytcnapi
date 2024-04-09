@@ -79,3 +79,19 @@ class GetScorecardResponse(_message.Message):
     SCORECARD_FIELD_NUMBER: _ClassVar[int]
     scorecard: _scorecards_pb2.Scorecard
     def __init__(self, scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
+
+class ListScorecardsByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "author_ids", "category_ids", "states", "evaluation_types", "call_types")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    AUTHOR_IDS_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
+    STATES_FIELD_NUMBER: _ClassVar[int]
+    EVALUATION_TYPES_FIELD_NUMBER: _ClassVar[int]
+    CALL_TYPES_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    author_ids: _containers.RepeatedScalarFieldContainer[str]
+    category_ids: _containers.RepeatedScalarFieldContainer[int]
+    states: _containers.RepeatedScalarFieldContainer[_scorecards_pb2.ScorecardState]
+    evaluation_types: _containers.RepeatedScalarFieldContainer[_scorecards_pb2.EvaluationType]
+    call_types: _containers.RepeatedScalarFieldContainer[_acd_pb2.CallType.Enum]
+    def __init__(self, org_id: _Optional[str] = ..., author_ids: _Optional[_Iterable[str]] = ..., category_ids: _Optional[_Iterable[int]] = ..., states: _Optional[_Iterable[_Union[_scorecards_pb2.ScorecardState, str]]] = ..., evaluation_types: _Optional[_Iterable[_Union[_scorecards_pb2.EvaluationType, str]]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ...) -> None: ...
