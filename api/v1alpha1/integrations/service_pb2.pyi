@@ -1119,7 +1119,7 @@ class PortalId(_message.Message):
     def __init__(self, id: _Optional[str] = ...) -> None: ...
 
 class Portal(_message.Message):
-    __slots__ = ("id", "name", "description", "portal_config_id", "plugin_inst_ids", "ptype", "last_edited", "definition_name", "steps")
+    __slots__ = ("id", "name", "description", "portal_config_id", "plugin_inst_ids", "ptype", "last_edited", "definition_name", "portal_steps")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -1128,7 +1128,7 @@ class Portal(_message.Message):
     PTYPE_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
     DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
-    STEPS_FIELD_NUMBER: _ClassVar[int]
+    PORTAL_STEPS_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -1137,8 +1137,14 @@ class Portal(_message.Message):
     ptype: PortalType
     last_edited: _timestamp_pb2.Timestamp
     definition_name: str
+    portal_steps: Steps
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., portal_config_id: _Optional[str] = ..., plugin_inst_ids: _Optional[_Iterable[str]] = ..., ptype: _Optional[_Union[PortalType, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., definition_name: _Optional[str] = ..., portal_steps: _Optional[_Union[Steps, _Mapping]] = ...) -> None: ...
+
+class Steps(_message.Message):
+    __slots__ = ("steps",)
+    STEPS_FIELD_NUMBER: _ClassVar[int]
     steps: _containers.RepeatedCompositeFieldContainer[FlowChoices]
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., portal_config_id: _Optional[str] = ..., plugin_inst_ids: _Optional[_Iterable[str]] = ..., ptype: _Optional[_Union[PortalType, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., definition_name: _Optional[str] = ..., steps: _Optional[_Iterable[_Union[FlowChoices, _Mapping]]] = ...) -> None: ...
+    def __init__(self, steps: _Optional[_Iterable[_Union[FlowChoices, _Mapping]]] = ...) -> None: ...
 
 class PortalText(_message.Message):
     __slots__ = ("verification_header", "verification_footer", "payment_header", "payment_footer", "receipt_header", "receipt_footer", "invoice_header", "invoice_footer")
