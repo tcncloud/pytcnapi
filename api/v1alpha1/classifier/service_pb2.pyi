@@ -1,4 +1,4 @@
-from api.commons import classifier_pb2 as _classifier_pb2
+from api.v1alpha1.classifier import entities_pb2 as _entities_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -13,8 +13,8 @@ class ParseFileRequest(_message.Message):
         FILE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
         HINTS_FIELD_NUMBER: _ClassVar[int]
         file_template_id: int
-        hints: _classifier_pb2.ParseHints
-        def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_classifier_pb2.ParseHints, _Mapping]] = ...) -> None: ...
+        hints: _entities_pb2.ParseHints
+        def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ...) -> None: ...
     RAW_DATA_FIELD_NUMBER: _ClassVar[int]
     REPARSE_FILE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -26,14 +26,14 @@ class ParseFileRequest(_message.Message):
 class ParseFileResponse(_message.Message):
     __slots__ = ("file_template",)
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
-    file_template: _classifier_pb2.FileTemplate
-    def __init__(self, file_template: _Optional[_Union[_classifier_pb2.FileTemplate, _Mapping]] = ...) -> None: ...
+    file_template: _entities_pb2.FileTemplate
+    def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplate, _Mapping]] = ...) -> None: ...
 
 class UpdateFileTemplateRequest(_message.Message):
     __slots__ = ("file_template",)
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
-    file_template: _classifier_pb2.FileTemplate
-    def __init__(self, file_template: _Optional[_Union[_classifier_pb2.FileTemplate, _Mapping]] = ...) -> None: ...
+    file_template: _entities_pb2.FileTemplate
+    def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplate, _Mapping]] = ...) -> None: ...
 
 class UpdateFileTemplateResponse(_message.Message):
     __slots__ = ()
@@ -62,8 +62,8 @@ class ListFileTemplatesRequest(_message.Message):
 class ListFileTemplatesResponse(_message.Message):
     __slots__ = ("file_templates",)
     FILE_TEMPLATES_FIELD_NUMBER: _ClassVar[int]
-    file_templates: _containers.RepeatedCompositeFieldContainer[_classifier_pb2.FileTemplate]
-    def __init__(self, file_templates: _Optional[_Iterable[_Union[_classifier_pb2.FileTemplate, _Mapping]]] = ...) -> None: ...
+    file_templates: _containers.RepeatedCompositeFieldContainer[_entities_pb2.FileTemplate]
+    def __init__(self, file_templates: _Optional[_Iterable[_Union[_entities_pb2.FileTemplate, _Mapping]]] = ...) -> None: ...
 
 class GetFileTemplateRequest(_message.Message):
     __slots__ = ("file_template_id",)
@@ -74,5 +74,5 @@ class GetFileTemplateRequest(_message.Message):
 class GetFileTemplateResponse(_message.Message):
     __slots__ = ("file_template",)
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
-    file_template: _classifier_pb2.FileTemplate
-    def __init__(self, file_template: _Optional[_Union[_classifier_pb2.FileTemplate, _Mapping]] = ...) -> None: ...
+    file_template: _entities_pb2.FileTemplate
+    def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplate, _Mapping]] = ...) -> None: ...

@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x61pi/commons/classifier.proto\x12\x0b\x61pi.commons\"\xcc\x03\n\x0c\x46ileTemplate\x12(\n\x10\x66ile_template_id\x18\x01 \x01(\x03R\x0e\x66ileTemplateId\x12\x1a\n\x08\x66ilename\x18\x02 \x01(\tR\x08\x66ilename\x12\x37\n\x06\x66ields\x18\x03 \x03(\x0b\x32\x1f.api.commons.FileTemplate.FieldR\x06\x66ields\x12\x35\n\nparse_opts\x18\x04 \x01(\x0b\x32\x16.api.commons.ParseOptsR\tparseOpts\x12:\n\x0b\x63onstraints\x18\x05 \x01(\x0b\x32\x18.api.commons.ConstraintsR\x0b\x63onstraints\x12\x12\n\x04\x66oid\x18\x06 \x01(\x03R\x04\x66oid\x1a\xb5\x01\n\x05\x46ield\x12\x1f\n\x0bsyntax_type\x18\x01 \x01(\tR\nsyntaxType\x12\x42\n\x0b\x65ntity_type\x18\x02 \x01(\x0e\x32!.api.commons.ClassifierEntityTypeR\nentityType\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x16\n\x06\x66ormat\x18\x04 \x01(\tR\x06\x66ormat\x12\x1b\n\traw_value\x18\x05 \x01(\tR\x08rawValue\"\x81\x02\n\tParseOpts\x12(\n\x03\x63sv\x18\x01 \x01(\x0b\x32\x14.api.commons.OptsCsvH\x00R\x03\x63sv\x12+\n\x04json\x18\x02 \x01(\x0b\x32\x15.api.commons.OptsJsonH\x00R\x04json\x12.\n\x05jsonl\x18\x03 \x01(\x0b\x32\x16.api.commons.OptsJsonLH\x00R\x05jsonl\x12.\n\x05\x66ixed\x18\x04 \x01(\x0b\x32\x16.api.commons.OptsFixedH\x00R\x05\x66ixed\x12\x34\n\x07parquet\x18\x05 \x01(\x0b\x32\x18.api.commons.OptsParquetH\x00R\x07parquetB\x07\n\x05\x66type\"{\n\x07OptsCsv\x12\x1d\n\nhas_header\x18\x01 \x01(\x08R\thasHeader\x12\x1b\n\tskip_rows\x18\x02 \x01(\x03R\x08skipRows\x12\x16\n\x06header\x18\x03 \x03(\tR\x06header\x12\x1c\n\tseparator\x18\x04 \x01(\tR\tseparator\"-\n\x08OptsJson\x12!\n\x0crecords_root\x18\x01 \x01(\tR\x0brecordsRoot\"\x0b\n\tOptsJsonL\"\x8d\x02\n\tOptsFixed\x12\x43\n\tpositions\x18\x01 \x03(\x0b\x32%.api.commons.OptsFixed.PositionsEntryR\tpositions\x1a[\n\tFieldOpts\x12+\n\x11starting_position\x18\r \x01(\x05R\x10startingPosition\x12!\n\x0c\x66ield_length\x18\x0e \x01(\x05R\x0b\x66ieldLength\x1a^\n\x0ePositionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32 .api.commons.OptsFixed.FieldOptsR\x05value:\x02\x38\x01\"\r\n\x0bOptsParquet\"\xc3\x02\n\x0b\x43onstraints\x12<\n\x06\x66orbid\x18\x01 \x03(\x0b\x32$.api.commons.Constraints.ForbidEntryR\x06\x66orbid\x12\x39\n\x05\x61llow\x18\x02 \x03(\x0b\x32#.api.commons.Constraints.AllowEntryR\x05\x61llow\x1a]\n\x0b\x46orbidEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32\".api.commons.ClassifierEntityTypesR\x05value:\x02\x38\x01\x1a\\\n\nAllowEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32\".api.commons.ClassifierEntityTypesR\x05value:\x02\x38\x01\"P\n\x15\x43lassifierEntityTypes\x12\x37\n\x05types\x18\x01 \x03(\x0e\x32!.api.commons.ClassifierEntityTypeR\x05types\"\x7f\n\nParseHints\x12\x35\n\nparse_opts\x18\x01 \x01(\x0b\x32\x16.api.commons.ParseOptsR\tparseOpts\x12:\n\x0b\x63onstraints\x18\x02 \x01(\x0b\x32\x18.api.commons.ConstraintsR\x0b\x63onstraints*\x86\x03\n\x14\x43lassifierEntityType\x12\x0f\n\x0b\x43\x45T_UNKNOWN\x10\x00\x12\x13\n\x0f\x43\x45T_CREDIT_CARD\x10\x01\x12\x0e\n\nCET_CRYPTO\x10\x02\x12\x11\n\rCET_DATE_TIME\x10\x03\x12\x15\n\x11\x43\x45T_EMAIL_ADDRESS\x10\x04\x12\x11\n\rCET_IBAN_CODE\x10\x05\x12\x12\n\x0e\x43\x45T_IP_ADDRESS\x10\x06\x12\x0b\n\x07\x43\x45T_NRP\x10\x07\x12\x10\n\x0c\x43\x45T_LOCATION\x10\x08\x12\x0e\n\nCET_PERSON\x10\t\x12\x14\n\x10\x43\x45T_PHONE_NUMBER\x10\n\x12\x17\n\x13\x43\x45T_MEDICAL_LICENSE\x10\x0b\x12\x0b\n\x07\x43\x45T_URL\x10\x0c\x12\x16\n\x12\x43\x45T_US_BANK_NUMBER\x10\r\x12\x19\n\x15\x43\x45T_US_DRIVER_LICENSE\x10\x0e\x12\x0f\n\x0b\x43\x45T_US_ITIN\x10\x0f\x12\x13\n\x0f\x43\x45T_US_PASSPORT\x10\x10\x12\x0e\n\nCET_US_SSN\x10\x11\x12\x13\n\x0f\x43\x45T_POSTAL_CODE\x10\x12\x42o\n\x0f\x63om.api.commonsB\x0f\x43lassifierProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x61pi/commons/classifier.proto\x12\x0b\x61pi.commons*\x86\x03\n\x14\x43lassifierEntityType\x12\x0f\n\x0b\x43\x45T_UNKNOWN\x10\x00\x12\x13\n\x0f\x43\x45T_CREDIT_CARD\x10\x01\x12\x0e\n\nCET_CRYPTO\x10\x02\x12\x11\n\rCET_DATE_TIME\x10\x03\x12\x15\n\x11\x43\x45T_EMAIL_ADDRESS\x10\x04\x12\x11\n\rCET_IBAN_CODE\x10\x05\x12\x12\n\x0e\x43\x45T_IP_ADDRESS\x10\x06\x12\x0b\n\x07\x43\x45T_NRP\x10\x07\x12\x10\n\x0c\x43\x45T_LOCATION\x10\x08\x12\x0e\n\nCET_PERSON\x10\t\x12\x14\n\x10\x43\x45T_PHONE_NUMBER\x10\n\x12\x17\n\x13\x43\x45T_MEDICAL_LICENSE\x10\x0b\x12\x0b\n\x07\x43\x45T_URL\x10\x0c\x12\x16\n\x12\x43\x45T_US_BANK_NUMBER\x10\r\x12\x19\n\x15\x43\x45T_US_DRIVER_LICENSE\x10\x0e\x12\x0f\n\x0b\x43\x45T_US_ITIN\x10\x0f\x12\x13\n\x0f\x43\x45T_US_PASSPORT\x10\x10\x12\x0e\n\nCET_US_SSN\x10\x11\x12\x13\n\x0f\x43\x45T_POSTAL_CODE\x10\x12\x42o\n\x0f\x63om.api.commonsB\x0f\x43lassifierProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -22,42 +22,6 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.classifier_pb2'
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.commonsB\017ClassifierProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
-  _globals['_OPTSFIXED_POSITIONSENTRY']._loaded_options = None
-  _globals['_OPTSFIXED_POSITIONSENTRY']._serialized_options = b'8\001'
-  _globals['_CONSTRAINTS_FORBIDENTRY']._loaded_options = None
-  _globals['_CONSTRAINTS_FORBIDENTRY']._serialized_options = b'8\001'
-  _globals['_CONSTRAINTS_ALLOWENTRY']._loaded_options = None
-  _globals['_CONSTRAINTS_ALLOWENTRY']._serialized_options = b'8\001'
-  _globals['_CLASSIFIERENTITYTYPE']._serialized_start=1778
-  _globals['_CLASSIFIERENTITYTYPE']._serialized_end=2168
-  _globals['_FILETEMPLATE']._serialized_start=46
-  _globals['_FILETEMPLATE']._serialized_end=506
-  _globals['_FILETEMPLATE_FIELD']._serialized_start=325
-  _globals['_FILETEMPLATE_FIELD']._serialized_end=506
-  _globals['_PARSEOPTS']._serialized_start=509
-  _globals['_PARSEOPTS']._serialized_end=766
-  _globals['_OPTSCSV']._serialized_start=768
-  _globals['_OPTSCSV']._serialized_end=891
-  _globals['_OPTSJSON']._serialized_start=893
-  _globals['_OPTSJSON']._serialized_end=938
-  _globals['_OPTSJSONL']._serialized_start=940
-  _globals['_OPTSJSONL']._serialized_end=951
-  _globals['_OPTSFIXED']._serialized_start=954
-  _globals['_OPTSFIXED']._serialized_end=1223
-  _globals['_OPTSFIXED_FIELDOPTS']._serialized_start=1036
-  _globals['_OPTSFIXED_FIELDOPTS']._serialized_end=1127
-  _globals['_OPTSFIXED_POSITIONSENTRY']._serialized_start=1129
-  _globals['_OPTSFIXED_POSITIONSENTRY']._serialized_end=1223
-  _globals['_OPTSPARQUET']._serialized_start=1225
-  _globals['_OPTSPARQUET']._serialized_end=1238
-  _globals['_CONSTRAINTS']._serialized_start=1241
-  _globals['_CONSTRAINTS']._serialized_end=1564
-  _globals['_CONSTRAINTS_FORBIDENTRY']._serialized_start=1377
-  _globals['_CONSTRAINTS_FORBIDENTRY']._serialized_end=1470
-  _globals['_CONSTRAINTS_ALLOWENTRY']._serialized_start=1472
-  _globals['_CONSTRAINTS_ALLOWENTRY']._serialized_end=1564
-  _globals['_CLASSIFIERENTITYTYPES']._serialized_start=1566
-  _globals['_CLASSIFIERENTITYTYPES']._serialized_end=1646
-  _globals['_PARSEHINTS']._serialized_start=1648
-  _globals['_PARSEHINTS']._serialized_end=1775
+  _globals['_CLASSIFIERENTITYTYPE']._serialized_start=46
+  _globals['_CLASSIFIERENTITYTYPE']._serialized_end=436
 # @@protoc_insertion_point(module_scope)
