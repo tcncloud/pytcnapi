@@ -39,6 +39,11 @@ class ContactManagerStub(object):
                 request_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.GetKYCKeysRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.GetKYCKeysResponse.FromString,
                 )
+        self.AddContactEntry = channel.unary_unary(
+                '/api.v1alpha1.contactmanager.ContactManager/AddContactEntry',
+                request_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryResponse.FromString,
+                )
 
 
 class ContactManagerServicer(object):
@@ -74,6 +79,14 @@ class ContactManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddContactEntry(self, request, context):
+        """*
+        Adds a new contact entry based on the provided request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ContactManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -101,6 +114,11 @@ def add_ContactManagerServicer_to_server(servicer, server):
                     servicer.GetKYCKeys,
                     request_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.GetKYCKeysRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.GetKYCKeysResponse.SerializeToString,
+            ),
+            'AddContactEntry': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddContactEntry,
+                    request_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -194,5 +212,22 @@ class ContactManager(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.contactmanager.ContactManager/GetKYCKeys',
             api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.GetKYCKeysRequest.SerializeToString,
             api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.GetKYCKeysResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddContactEntry(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.contactmanager.ContactManager/AddContactEntry',
+            api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryRequest.SerializeToString,
+            api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
