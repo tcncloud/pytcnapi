@@ -32,10 +32,12 @@ class CreateFlagTranscriptResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteFlagTranscriptRequest(_message.Message):
-    __slots__ = ("transcript_sids",)
+    __slots__ = ("org_id", "transcript_sids")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
     transcript_sids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, transcript_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., transcript_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class DeleteFlagTranscriptResponse(_message.Message):
     __slots__ = ()
