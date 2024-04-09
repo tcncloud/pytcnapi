@@ -67,6 +67,18 @@ class ListInsightsResponse(_message.Message):
     insights: _containers.RepeatedCompositeFieldContainer[Insight]
     def __init__(self, insights: _Optional[_Iterable[_Union[Insight, _Mapping]]] = ...) -> None: ...
 
+class ListOrgInsightsRequest(_message.Message):
+    __slots__ = ("org_id",)
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    def __init__(self, org_id: _Optional[str] = ...) -> None: ...
+
+class ListOrgInsightsResponse(_message.Message):
+    __slots__ = ("insights",)
+    INSIGHTS_FIELD_NUMBER: _ClassVar[int]
+    insights: _containers.RepeatedCompositeFieldContainer[Insight]
+    def __init__(self, insights: _Optional[_Iterable[_Union[Insight, _Mapping]]] = ...) -> None: ...
+
 class UpdateInsightRequest(_message.Message):
     __slots__ = ("insight", "update_mask")
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
