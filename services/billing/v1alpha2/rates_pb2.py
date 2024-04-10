@@ -18,7 +18,7 @@ from services.billing.entities.v1alpha2 import rates_pb2 as services_dot_billing
 from services.billing.v1alpha2 import core_pb2 as services_dot_billing_dot_v1alpha2_dot_core__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%services/billing/v1alpha2/rates.proto\x12\x19services.billing.v1alpha2\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.services/billing/entities/v1alpha2/rates.proto\x1a$services/billing/v1alpha2/core.proto\"\xaf\x01\n\"CreateDefaultRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\"S\n#CreateDefaultRateDefinitionResponse\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"\xa8\x01\n\x1b\x43reateRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\"L\n\x1c\x43reateRateDefinitionResponse\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"R\n\"DeleteDefaultRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"%\n#DeleteDefaultRateDefinitionResponse\"K\n\x1b\x44\x65leteRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"\x1e\n\x1c\x44\x65leteRateDefinitionResponse\"H\n\x18GetRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"x\n\x19GetRateDefinitionResponse\x12[\n\x0frate_definition\x18\x01 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\"\xbd\x01\n\x15GetRateHistoryRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x1b\n\tgroup_ids\x18\x02 \x03(\tR\x08groupIds\x12\x39\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12\x35\n\x08\x65nd_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65ndTime\"h\n\x16GetRateHistoryResponse\x12N\n\tsnapshots\x18\x01 \x03(\x0b\x32\x30.services.billing.entities.v1alpha2.RateSnapshotR\tsnapshots\"\x86\x02\n ListActiveRateDefinitionsRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12\x16\n\x06\x66ilter\x18\x02 \x01(\tR\x06\x66ilter\x12\x32\n\x06\x66ields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x06\x66ields\x12\x33\n\x04sort\x18\x04 \x03(\x0b\x32\x1f.services.billing.v1alpha2.SortR\x04sort\x12\x33\n\x04page\x18\x05 \x01(\x0b\x32\x1f.services.billing.v1alpha2.PageR\x04page\"\x98\x01\n!ListActiveRateDefinitionsResponse\x12]\n\x10rate_definitions\x18\x01 \x03(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0frateDefinitions\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"\x80\x02\n\x1aListRateDefinitionsRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12\x16\n\x06\x66ilter\x18\x02 \x01(\tR\x06\x66ilter\x12\x32\n\x06\x66ields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x06\x66ields\x12\x33\n\x04sort\x18\x04 \x03(\x0b\x32\x1f.services.billing.v1alpha2.SortR\x04sort\x12\x33\n\x04page\x18\x05 \x01(\x0b\x32\x1f.services.billing.v1alpha2.PageR\x04page\"\x92\x01\n\x1bListRateDefinitionsResponse\x12]\n\x10rate_definitions\x18\x01 \x03(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0frateDefinitions\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"\xf0\x01\n\"UpdateDefaultRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\x12?\n\rupdate_fields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0cupdateFields\"%\n#UpdateDefaultRateDefinitionResponse\"\xe9\x01\n\x1bUpdateRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\x12?\n\rupdate_fields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0cupdateFields\"\x1e\n\x1cUpdateRateDefinitionResponseB\xb1\x01\n\x1d\x63om.services.billing.v1alpha2B\nRatesProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha2\xca\x02\x19Services\\Billing\\V1alpha2\xe2\x02%Services\\Billing\\V1alpha2\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%services/billing/v1alpha2/rates.proto\x12\x19services.billing.v1alpha2\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.services/billing/entities/v1alpha2/rates.proto\x1a$services/billing/v1alpha2/core.proto\"\xaf\x01\n\"CreateDefaultRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\"S\n#CreateDefaultRateDefinitionResponse\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"z\n#CreateDefaultRateDefinitionsRequest\x12S\n\x05rates\x18\x01 \x03(\x0b\x32=.services.billing.v1alpha2.CreateDefaultRateDefinitionRequestR\x05rates\"|\n$CreateDefaultRateDefinitionsResponse\x12T\n\x05rates\x18\x01 \x03(\x0b\x32>.services.billing.v1alpha2.CreateDefaultRateDefinitionResponseR\x05rates\"\xa8\x01\n\x1b\x43reateRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\"L\n\x1c\x43reateRateDefinitionResponse\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"l\n\x1c\x43reateRateDefinitionsRequest\x12L\n\x05rates\x18\x01 \x03(\x0b\x32\x36.services.billing.v1alpha2.CreateRateDefinitionRequestR\x05rates\"n\n\x1d\x43reateRateDefinitionsResponse\x12M\n\x05rates\x18\x01 \x03(\x0b\x32\x37.services.billing.v1alpha2.CreateRateDefinitionResponseR\x05rates\"R\n\"DeleteDefaultRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"%\n#DeleteDefaultRateDefinitionResponse\"K\n\x1b\x44\x65leteRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"\x1e\n\x1c\x44\x65leteRateDefinitionResponse\"H\n\x18GetRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\"x\n\x19GetRateDefinitionResponse\x12[\n\x0frate_definition\x18\x01 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\"\xbd\x01\n\x15GetRateHistoryRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x1b\n\tgroup_ids\x18\x02 \x03(\tR\x08groupIds\x12\x39\n\nstart_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12\x35\n\x08\x65nd_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65ndTime\"h\n\x16GetRateHistoryResponse\x12N\n\tsnapshots\x18\x01 \x03(\x0b\x32\x30.services.billing.entities.v1alpha2.RateSnapshotR\tsnapshots\"\x86\x02\n ListActiveRateDefinitionsRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12\x16\n\x06\x66ilter\x18\x02 \x01(\tR\x06\x66ilter\x12\x32\n\x06\x66ields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x06\x66ields\x12\x33\n\x04sort\x18\x04 \x03(\x0b\x32\x1f.services.billing.v1alpha2.SortR\x04sort\x12\x33\n\x04page\x18\x05 \x01(\x0b\x32\x1f.services.billing.v1alpha2.PageR\x04page\"\x98\x01\n!ListActiveRateDefinitionsResponse\x12]\n\x10rate_definitions\x18\x01 \x03(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0frateDefinitions\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"\x80\x02\n\x1aListRateDefinitionsRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12\x16\n\x06\x66ilter\x18\x02 \x01(\tR\x06\x66ilter\x12\x32\n\x06\x66ields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x06\x66ields\x12\x33\n\x04sort\x18\x04 \x03(\x0b\x32\x1f.services.billing.v1alpha2.SortR\x04sort\x12\x33\n\x04page\x18\x05 \x01(\x0b\x32\x1f.services.billing.v1alpha2.PageR\x04page\"\x92\x01\n\x1bListRateDefinitionsResponse\x12]\n\x10rate_definitions\x18\x01 \x03(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0frateDefinitions\x12\x14\n\x05token\x18\x02 \x01(\tR\x05token\"\xf0\x01\n\"UpdateDefaultRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\x12?\n\rupdate_fields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0cupdateFields\"%\n#UpdateDefaultRateDefinitionResponse\"\xe9\x01\n\x1bUpdateRateDefinitionRequest\x12,\n\x12rate_definition_id\x18\x01 \x01(\tR\x10rateDefinitionId\x12[\n\x0frate_definition\x18\x02 \x01(\x0b\x32\x32.services.billing.entities.v1alpha2.RateDefinitionR\x0erateDefinition\x12?\n\rupdate_fields\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0cupdateFields\"\x1e\n\x1cUpdateRateDefinitionResponseB\xb1\x01\n\x1d\x63om.services.billing.v1alpha2B\nRatesProtoP\x01\xa2\x02\x03SBX\xaa\x02\x19Services.Billing.V1alpha2\xca\x02\x19Services\\Billing\\V1alpha2\xe2\x02%Services\\Billing\\V1alpha2\\GPBMetadata\xea\x02\x1bServices::Billing::V1alpha2b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -30,40 +30,48 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_CREATEDEFAULTRATEDEFINITIONREQUEST']._serialized_end=397
   _globals['_CREATEDEFAULTRATEDEFINITIONRESPONSE']._serialized_start=399
   _globals['_CREATEDEFAULTRATEDEFINITIONRESPONSE']._serialized_end=482
-  _globals['_CREATERATEDEFINITIONREQUEST']._serialized_start=485
-  _globals['_CREATERATEDEFINITIONREQUEST']._serialized_end=653
-  _globals['_CREATERATEDEFINITIONRESPONSE']._serialized_start=655
-  _globals['_CREATERATEDEFINITIONRESPONSE']._serialized_end=731
-  _globals['_DELETEDEFAULTRATEDEFINITIONREQUEST']._serialized_start=733
-  _globals['_DELETEDEFAULTRATEDEFINITIONREQUEST']._serialized_end=815
-  _globals['_DELETEDEFAULTRATEDEFINITIONRESPONSE']._serialized_start=817
-  _globals['_DELETEDEFAULTRATEDEFINITIONRESPONSE']._serialized_end=854
-  _globals['_DELETERATEDEFINITIONREQUEST']._serialized_start=856
-  _globals['_DELETERATEDEFINITIONREQUEST']._serialized_end=931
-  _globals['_DELETERATEDEFINITIONRESPONSE']._serialized_start=933
-  _globals['_DELETERATEDEFINITIONRESPONSE']._serialized_end=963
-  _globals['_GETRATEDEFINITIONREQUEST']._serialized_start=965
-  _globals['_GETRATEDEFINITIONREQUEST']._serialized_end=1037
-  _globals['_GETRATEDEFINITIONRESPONSE']._serialized_start=1039
-  _globals['_GETRATEDEFINITIONRESPONSE']._serialized_end=1159
-  _globals['_GETRATEHISTORYREQUEST']._serialized_start=1162
-  _globals['_GETRATEHISTORYREQUEST']._serialized_end=1351
-  _globals['_GETRATEHISTORYRESPONSE']._serialized_start=1353
-  _globals['_GETRATEHISTORYRESPONSE']._serialized_end=1457
-  _globals['_LISTACTIVERATEDEFINITIONSREQUEST']._serialized_start=1460
-  _globals['_LISTACTIVERATEDEFINITIONSREQUEST']._serialized_end=1722
-  _globals['_LISTACTIVERATEDEFINITIONSRESPONSE']._serialized_start=1725
-  _globals['_LISTACTIVERATEDEFINITIONSRESPONSE']._serialized_end=1877
-  _globals['_LISTRATEDEFINITIONSREQUEST']._serialized_start=1880
-  _globals['_LISTRATEDEFINITIONSREQUEST']._serialized_end=2136
-  _globals['_LISTRATEDEFINITIONSRESPONSE']._serialized_start=2139
-  _globals['_LISTRATEDEFINITIONSRESPONSE']._serialized_end=2285
-  _globals['_UPDATEDEFAULTRATEDEFINITIONREQUEST']._serialized_start=2288
-  _globals['_UPDATEDEFAULTRATEDEFINITIONREQUEST']._serialized_end=2528
-  _globals['_UPDATEDEFAULTRATEDEFINITIONRESPONSE']._serialized_start=2530
-  _globals['_UPDATEDEFAULTRATEDEFINITIONRESPONSE']._serialized_end=2567
-  _globals['_UPDATERATEDEFINITIONREQUEST']._serialized_start=2570
-  _globals['_UPDATERATEDEFINITIONREQUEST']._serialized_end=2803
-  _globals['_UPDATERATEDEFINITIONRESPONSE']._serialized_start=2805
-  _globals['_UPDATERATEDEFINITIONRESPONSE']._serialized_end=2835
+  _globals['_CREATEDEFAULTRATEDEFINITIONSREQUEST']._serialized_start=484
+  _globals['_CREATEDEFAULTRATEDEFINITIONSREQUEST']._serialized_end=606
+  _globals['_CREATEDEFAULTRATEDEFINITIONSRESPONSE']._serialized_start=608
+  _globals['_CREATEDEFAULTRATEDEFINITIONSRESPONSE']._serialized_end=732
+  _globals['_CREATERATEDEFINITIONREQUEST']._serialized_start=735
+  _globals['_CREATERATEDEFINITIONREQUEST']._serialized_end=903
+  _globals['_CREATERATEDEFINITIONRESPONSE']._serialized_start=905
+  _globals['_CREATERATEDEFINITIONRESPONSE']._serialized_end=981
+  _globals['_CREATERATEDEFINITIONSREQUEST']._serialized_start=983
+  _globals['_CREATERATEDEFINITIONSREQUEST']._serialized_end=1091
+  _globals['_CREATERATEDEFINITIONSRESPONSE']._serialized_start=1093
+  _globals['_CREATERATEDEFINITIONSRESPONSE']._serialized_end=1203
+  _globals['_DELETEDEFAULTRATEDEFINITIONREQUEST']._serialized_start=1205
+  _globals['_DELETEDEFAULTRATEDEFINITIONREQUEST']._serialized_end=1287
+  _globals['_DELETEDEFAULTRATEDEFINITIONRESPONSE']._serialized_start=1289
+  _globals['_DELETEDEFAULTRATEDEFINITIONRESPONSE']._serialized_end=1326
+  _globals['_DELETERATEDEFINITIONREQUEST']._serialized_start=1328
+  _globals['_DELETERATEDEFINITIONREQUEST']._serialized_end=1403
+  _globals['_DELETERATEDEFINITIONRESPONSE']._serialized_start=1405
+  _globals['_DELETERATEDEFINITIONRESPONSE']._serialized_end=1435
+  _globals['_GETRATEDEFINITIONREQUEST']._serialized_start=1437
+  _globals['_GETRATEDEFINITIONREQUEST']._serialized_end=1509
+  _globals['_GETRATEDEFINITIONRESPONSE']._serialized_start=1511
+  _globals['_GETRATEDEFINITIONRESPONSE']._serialized_end=1631
+  _globals['_GETRATEHISTORYREQUEST']._serialized_start=1634
+  _globals['_GETRATEHISTORYREQUEST']._serialized_end=1823
+  _globals['_GETRATEHISTORYRESPONSE']._serialized_start=1825
+  _globals['_GETRATEHISTORYRESPONSE']._serialized_end=1929
+  _globals['_LISTACTIVERATEDEFINITIONSREQUEST']._serialized_start=1932
+  _globals['_LISTACTIVERATEDEFINITIONSREQUEST']._serialized_end=2194
+  _globals['_LISTACTIVERATEDEFINITIONSRESPONSE']._serialized_start=2197
+  _globals['_LISTACTIVERATEDEFINITIONSRESPONSE']._serialized_end=2349
+  _globals['_LISTRATEDEFINITIONSREQUEST']._serialized_start=2352
+  _globals['_LISTRATEDEFINITIONSREQUEST']._serialized_end=2608
+  _globals['_LISTRATEDEFINITIONSRESPONSE']._serialized_start=2611
+  _globals['_LISTRATEDEFINITIONSRESPONSE']._serialized_end=2757
+  _globals['_UPDATEDEFAULTRATEDEFINITIONREQUEST']._serialized_start=2760
+  _globals['_UPDATEDEFAULTRATEDEFINITIONREQUEST']._serialized_end=3000
+  _globals['_UPDATEDEFAULTRATEDEFINITIONRESPONSE']._serialized_start=3002
+  _globals['_UPDATEDEFAULTRATEDEFINITIONRESPONSE']._serialized_end=3039
+  _globals['_UPDATERATEDEFINITIONREQUEST']._serialized_start=3042
+  _globals['_UPDATERATEDEFINITIONREQUEST']._serialized_end=3275
+  _globals['_UPDATERATEDEFINITIONRESPONSE']._serialized_start=3277
+  _globals['_UPDATERATEDEFINITIONRESPONSE']._serialized_end=3307
 # @@protoc_insertion_point(module_scope)

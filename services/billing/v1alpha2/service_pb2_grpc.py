@@ -20,10 +20,20 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionResponse.FromString,
                 )
+        self.CreateDefaultRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha2.BillingService/CreateDefaultRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionsResponse.FromString,
+                )
         self.CreateRateDefinition = channel.unary_unary(
                 '/services.billing.v1alpha2.BillingService/CreateRateDefinition',
                 request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionResponse.FromString,
+                )
+        self.CreateRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha2.BillingService/CreateRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionsResponse.FromString,
                 )
         self.DeleteDefaultRateDefinition = channel.unary_unary(
                 '/services.billing.v1alpha2.BillingService/DeleteDefaultRateDefinition',
@@ -81,7 +91,23 @@ class BillingServiceServicer(object):
         CUSTOMER_SUPPORT
         TCN_BILLING_ADMIN
         Errors:
-        - grpc.AlreadyExists: A rate definition with the same feature already exists.
+        - grpc.AlreadyExists: A rate definition with the same data already exists.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateDefaultRateDefinitions(self, request, context):
+        """Creates rate definitions for the REGION.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.AlreadyExists: A rate definition with the same data already exists.
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
@@ -96,7 +122,22 @@ class BillingServiceServicer(object):
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
-        - grpc.AlreadyExists: A rate definition with the same feature id already exists.
+        - grpc.AlreadyExists: A rate definition with the same data already exists.
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateRateDefinitions(self, request, context):
+        """Creates rate definitions for an ORG.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.AlreadyExists: A rate definition with the same data already exists.
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
@@ -246,10 +287,20 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionResponse.SerializeToString,
             ),
+            'CreateDefaultRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateDefaultRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionsResponse.SerializeToString,
+            ),
             'CreateRateDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateRateDefinition,
                     request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionResponse.SerializeToString,
+            ),
+            'CreateRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionsResponse.SerializeToString,
             ),
             'DeleteDefaultRateDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteDefaultRateDefinition,
@@ -324,6 +375,23 @@ class BillingService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateDefaultRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/CreateDefaultRateDefinitions',
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateDefaultRateDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateRateDefinition(request,
             target,
             options=(),
@@ -337,6 +405,23 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/CreateRateDefinition',
             services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionRequest.SerializeToString,
             services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/CreateRateDefinitions',
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.CreateRateDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

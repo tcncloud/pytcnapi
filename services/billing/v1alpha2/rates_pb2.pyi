@@ -23,6 +23,18 @@ class CreateDefaultRateDefinitionResponse(_message.Message):
     rate_definition_id: str
     def __init__(self, rate_definition_id: _Optional[str] = ...) -> None: ...
 
+class CreateDefaultRateDefinitionsRequest(_message.Message):
+    __slots__ = ("rates",)
+    RATES_FIELD_NUMBER: _ClassVar[int]
+    rates: _containers.RepeatedCompositeFieldContainer[CreateDefaultRateDefinitionRequest]
+    def __init__(self, rates: _Optional[_Iterable[_Union[CreateDefaultRateDefinitionRequest, _Mapping]]] = ...) -> None: ...
+
+class CreateDefaultRateDefinitionsResponse(_message.Message):
+    __slots__ = ("rates",)
+    RATES_FIELD_NUMBER: _ClassVar[int]
+    rates: _containers.RepeatedCompositeFieldContainer[CreateDefaultRateDefinitionResponse]
+    def __init__(self, rates: _Optional[_Iterable[_Union[CreateDefaultRateDefinitionResponse, _Mapping]]] = ...) -> None: ...
+
 class CreateRateDefinitionRequest(_message.Message):
     __slots__ = ("rate_definition_id", "rate_definition")
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -36,6 +48,18 @@ class CreateRateDefinitionResponse(_message.Message):
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     rate_definition_id: str
     def __init__(self, rate_definition_id: _Optional[str] = ...) -> None: ...
+
+class CreateRateDefinitionsRequest(_message.Message):
+    __slots__ = ("rates",)
+    RATES_FIELD_NUMBER: _ClassVar[int]
+    rates: _containers.RepeatedCompositeFieldContainer[CreateRateDefinitionRequest]
+    def __init__(self, rates: _Optional[_Iterable[_Union[CreateRateDefinitionRequest, _Mapping]]] = ...) -> None: ...
+
+class CreateRateDefinitionsResponse(_message.Message):
+    __slots__ = ("rates",)
+    RATES_FIELD_NUMBER: _ClassVar[int]
+    rates: _containers.RepeatedCompositeFieldContainer[CreateRateDefinitionResponse]
+    def __init__(self, rates: _Optional[_Iterable[_Union[CreateRateDefinitionResponse, _Mapping]]] = ...) -> None: ...
 
 class DeleteDefaultRateDefinitionRequest(_message.Message):
     __slots__ = ("rate_definition_id",)
