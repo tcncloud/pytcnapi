@@ -1046,3 +1046,27 @@ class RemoveGroupedUserIPRestrictionsRequest(_message.Message):
 class RemoveGroupedUserIPRestrictionsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListUsersAllowedIpsRequest(_message.Message):
+    __slots__ = ("user_ids",)
+    USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    user_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class ListUsersAllowedIpsResponse(_message.Message):
+    __slots__ = ("user_allowed_ips_map",)
+    class UserAllowedIpsMapEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: ListUsersAllowedIpsResponse.AllowedIps
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[ListUsersAllowedIpsResponse.AllowedIps, _Mapping]] = ...) -> None: ...
+    class AllowedIps(_message.Message):
+        __slots__ = ("ips",)
+        IPS_FIELD_NUMBER: _ClassVar[int]
+        ips: _containers.RepeatedScalarFieldContainer[str]
+        def __init__(self, ips: _Optional[_Iterable[str]] = ...) -> None: ...
+    USER_ALLOWED_IPS_MAP_FIELD_NUMBER: _ClassVar[int]
+    user_allowed_ips_map: _containers.MessageMap[str, ListUsersAllowedIpsResponse.AllowedIps]
+    def __init__(self, user_allowed_ips_map: _Optional[_Mapping[str, ListUsersAllowedIpsResponse.AllowedIps]] = ...) -> None: ...
