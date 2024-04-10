@@ -87,6 +87,28 @@ class GetRateHistoryResponse(_message.Message):
     snapshots: _containers.RepeatedCompositeFieldContainer[_rates_pb2.RateSnapshot]
     def __init__(self, snapshots: _Optional[_Iterable[_Union[_rates_pb2.RateSnapshot, _Mapping]]] = ...) -> None: ...
 
+class ListActiveRateDefinitionsRequest(_message.Message):
+    __slots__ = ("rate_definition_id", "filter", "fields", "sort", "page")
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
+    FILTER_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
+    SORT_FIELD_NUMBER: _ClassVar[int]
+    PAGE_FIELD_NUMBER: _ClassVar[int]
+    rate_definition_id: str
+    filter: str
+    fields: _field_mask_pb2.FieldMask
+    sort: _containers.RepeatedCompositeFieldContainer[_core_pb2.Sort]
+    page: _core_pb2.Page
+    def __init__(self, rate_definition_id: _Optional[str] = ..., filter: _Optional[str] = ..., fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., sort: _Optional[_Iterable[_Union[_core_pb2.Sort, _Mapping]]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
+
+class ListActiveRateDefinitionsResponse(_message.Message):
+    __slots__ = ("rate_definitions", "token")
+    RATE_DEFINITIONS_FIELD_NUMBER: _ClassVar[int]
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    rate_definitions: _containers.RepeatedCompositeFieldContainer[_rates_pb2.RateDefinition]
+    token: str
+    def __init__(self, rate_definitions: _Optional[_Iterable[_Union[_rates_pb2.RateDefinition, _Mapping]]] = ..., token: _Optional[str] = ...) -> None: ...
+
 class ListRateDefinitionsRequest(_message.Message):
     __slots__ = ("rate_definition_id", "filter", "fields", "sort", "page")
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]

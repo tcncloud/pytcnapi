@@ -50,6 +50,11 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.GetRateHistoryRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.GetRateHistoryResponse.FromString,
                 )
+        self.ListActiveRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha2.BillingService/ListActiveRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.ListActiveRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.ListActiveRateDefinitionsResponse.FromString,
+                )
         self.ListRateDefinitions = channel.unary_unary(
                 '/services.billing.v1alpha2.BillingService/ListRateDefinitions',
                 request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.ListRateDefinitionsRequest.SerializeToString,
@@ -175,6 +180,20 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListActiveRateDefinitions(self, request, context):
+        """Lists active rate definitions.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListRateDefinitions(self, request, context):
         """Lists rate definitions.
         Required permissions:
@@ -256,6 +275,11 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.GetRateHistory,
                     request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.GetRateHistoryRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.GetRateHistoryResponse.SerializeToString,
+            ),
+            'ListActiveRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListActiveRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.ListActiveRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.ListActiveRateDefinitionsResponse.SerializeToString,
             ),
             'ListRateDefinitions': grpc.unary_unary_rpc_method_handler(
                     servicer.ListRateDefinitions,
@@ -398,6 +422,23 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/GetRateHistory',
             services_dot_billing_dot_v1alpha2_dot_rates__pb2.GetRateHistoryRequest.SerializeToString,
             services_dot_billing_dot_v1alpha2_dot_rates__pb2.GetRateHistoryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListActiveRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/ListActiveRateDefinitions',
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.ListActiveRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.ListActiveRateDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
