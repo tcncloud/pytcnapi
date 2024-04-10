@@ -1226,12 +1226,14 @@ class OmniProjectComplianceConfig(_message.Message):
     def __init__(self, email: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., sms: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ..., whatsapp: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ...) -> None: ...
 
 class OmniComplianceAction(_message.Message):
-    __slots__ = ("keywords", "confirmation_message")
+    __slots__ = ("keywords", "confirmation_message", "is_fuzzy_match")
     KEYWORDS_FIELD_NUMBER: _ClassVar[int]
     CONFIRMATION_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    IS_FUZZY_MATCH_FIELD_NUMBER: _ClassVar[int]
     keywords: _containers.RepeatedScalarFieldContainer[str]
     confirmation_message: str
-    def __init__(self, keywords: _Optional[_Iterable[str]] = ..., confirmation_message: _Optional[str] = ...) -> None: ...
+    is_fuzzy_match: bool
+    def __init__(self, keywords: _Optional[_Iterable[str]] = ..., confirmation_message: _Optional[str] = ..., is_fuzzy_match: bool = ...) -> None: ...
 
 class OmniComplianceConfig(_message.Message):
     __slots__ = ("opt_in", "opt_out", "help", "information", "scrub_list_id", "rule_set_id")
