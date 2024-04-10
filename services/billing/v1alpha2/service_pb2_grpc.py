@@ -40,10 +40,20 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionResponse.FromString,
                 )
+        self.DeleteDefaultRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha2.BillingService/DeleteDefaultRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionsResponse.FromString,
+                )
         self.DeleteRateDefinition = channel.unary_unary(
                 '/services.billing.v1alpha2.BillingService/DeleteRateDefinition',
                 request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionResponse.FromString,
+                )
+        self.DeleteRateDefinitions = channel.unary_unary(
+                '/services.billing.v1alpha2.BillingService/DeleteRateDefinitions',
+                request_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionsRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionsResponse.FromString,
                 )
         self.ExportInvoice = channel.unary_unary(
                 '/services.billing.v1alpha2.BillingService/ExportInvoice',
@@ -163,8 +173,39 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteDefaultRateDefinitions(self, request, context):
+        """Deletes rate definitions from the REGION.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The rate definition doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteRateDefinition(self, request, context):
         """Deletes a rate definition from an ORG.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The specified rate definition doesn't exist.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRateDefinitions(self, request, context):
+        """Deletes rate definitions from an ORG.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
@@ -307,10 +348,20 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionResponse.SerializeToString,
             ),
+            'DeleteDefaultRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteDefaultRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionsResponse.SerializeToString,
+            ),
             'DeleteRateDefinition': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteRateDefinition,
                     request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionResponse.SerializeToString,
+            ),
+            'DeleteRateDefinitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRateDefinitions,
+                    request_deserializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionsRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionsResponse.SerializeToString,
             ),
             'ExportInvoice': grpc.unary_unary_rpc_method_handler(
                     servicer.ExportInvoice,
@@ -443,6 +494,23 @@ class BillingService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteDefaultRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/DeleteDefaultRateDefinitions',
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteDefaultRateDefinitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteRateDefinition(request,
             target,
             options=(),
@@ -456,6 +524,23 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/DeleteRateDefinition',
             services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionRequest.SerializeToString,
             services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRateDefinitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha2.BillingService/DeleteRateDefinitions',
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionsRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha2_dot_rates__pb2.DeleteRateDefinitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

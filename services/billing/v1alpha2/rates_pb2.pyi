@@ -71,6 +71,16 @@ class DeleteDefaultRateDefinitionResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class DeleteDefaultRateDefinitionsRequest(_message.Message):
+    __slots__ = ("rate_definition_ids",)
+    RATE_DEFINITION_IDS_FIELD_NUMBER: _ClassVar[int]
+    rate_definition_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, rate_definition_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class DeleteDefaultRateDefinitionsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class DeleteRateDefinitionRequest(_message.Message):
     __slots__ = ("rate_definition_id",)
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -78,6 +88,16 @@ class DeleteRateDefinitionRequest(_message.Message):
     def __init__(self, rate_definition_id: _Optional[str] = ...) -> None: ...
 
 class DeleteRateDefinitionResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteRateDefinitionsRequest(_message.Message):
+    __slots__ = ("rate_definition_ids",)
+    RATE_DEFINITION_IDS_FIELD_NUMBER: _ClassVar[int]
+    rate_definition_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, rate_definition_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class DeleteRateDefinitionsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
