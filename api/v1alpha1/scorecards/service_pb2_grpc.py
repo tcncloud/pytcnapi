@@ -252,31 +252,6 @@ class ScorecardsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.PreviewEvaluationScoreRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.PreviewEvaluationScoreResponse.FromString,
                 )
-        self.ListEvaluationsByOrgId = channel.unary_unary(
-                '/api.v1alpha1.scorecards.Scorecards/ListEvaluationsByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ListEvaluationsByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ListEvaluationsResponse.FromString,
-                )
-        self.ListAutoEvaluationsByOrgId = channel.unary_unary(
-                '/api.v1alpha1.scorecards.Scorecards/ListAutoEvaluationsByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.FromString,
-                )
-        self.DeleteEvaluationByOrgId = channel.unary_unary(
-                '/api.v1alpha1.scorecards.Scorecards/DeleteEvaluationByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationResponse.FromString,
-                )
-        self.DeleteAutoEvaluationByOrgId = channel.unary_unary(
-                '/api.v1alpha1.scorecards.Scorecards/DeleteAutoEvaluationByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.DeleteAutoEvaluationByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.DeleteAutoEvaluationResponse.FromString,
-                )
-        self.ListScorecardsByOrgId = channel.unary_unary(
-                '/api.v1alpha1.scorecards.Scorecards/ListScorecardsByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsResponse.FromString,
-                )
 
 
 class ScorecardsServicer(object):
@@ -604,43 +579,6 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListEvaluationsByOrgId(self, request, context):
-        """[CUSTOMER SUPPORT ONLY] ================================
-
-        ListEvaluationsByOrgId gets a list of evaluations by org id
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListAutoEvaluationsByOrgId(self, request, context):
-        """ListAutoEvaluationsByOrgId gets a list of auto evaluations
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteEvaluationByOrgId(self, request, context):
-        """DeleteEvaluationByOrgId delete an evaluation in a specific org
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteAutoEvaluationByOrgId(self, request, context):
-        """DeleteAutoEvaluationByOrgId deletes an auto evaluations
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListScorecardsByOrgId(self, request, context):
-        """ListScorecardsByOrgId lists scorecards
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_ScorecardsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -873,31 +811,6 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.PreviewEvaluationScore,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.PreviewEvaluationScoreRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.PreviewEvaluationScoreResponse.SerializeToString,
-            ),
-            'ListEvaluationsByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListEvaluationsByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ListEvaluationsByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ListEvaluationsResponse.SerializeToString,
-            ),
-            'ListAutoEvaluationsByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListAutoEvaluationsByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.SerializeToString,
-            ),
-            'DeleteEvaluationByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteEvaluationByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationResponse.SerializeToString,
-            ),
-            'DeleteAutoEvaluationByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteAutoEvaluationByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.DeleteAutoEvaluationByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.DeleteAutoEvaluationResponse.SerializeToString,
-            ),
-            'ListScorecardsByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListScorecardsByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1688,90 +1601,5 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/PreviewEvaluationScore',
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.PreviewEvaluationScoreRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.PreviewEvaluationScoreResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListEvaluationsByOrgId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/ListEvaluationsByOrgId',
-            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ListEvaluationsByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ListEvaluationsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListAutoEvaluationsByOrgId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/ListAutoEvaluationsByOrgId',
-            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteEvaluationByOrgId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/DeleteEvaluationByOrgId',
-            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteAutoEvaluationByOrgId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/DeleteAutoEvaluationByOrgId',
-            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.DeleteAutoEvaluationByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.DeleteAutoEvaluationResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListScorecardsByOrgId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/ListScorecardsByOrgId',
-            api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
