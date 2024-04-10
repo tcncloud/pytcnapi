@@ -363,18 +363,18 @@ class ListFlowsReq(_message.Message):
 class ListFlowsResponse(_message.Message):
     __slots__ = ("values",)
     VALUES_FIELD_NUMBER: _ClassVar[int]
-    values: _containers.RepeatedCompositeFieldContainer[FlowDefinition]
-    def __init__(self, values: _Optional[_Iterable[_Union[FlowDefinition, _Mapping]]] = ...) -> None: ...
+    values: _containers.RepeatedCompositeFieldContainer[WorkflowDefinition]
+    def __init__(self, values: _Optional[_Iterable[_Union[WorkflowDefinition, _Mapping]]] = ...) -> None: ...
 
 class PortalDefinition(_message.Message):
-    __slots__ = ("defintion_name", "steps")
-    DEFINTION_NAME_FIELD_NUMBER: _ClassVar[int]
-    STEPS_FIELD_NUMBER: _ClassVar[int]
-    defintion_name: str
-    steps: _containers.RepeatedCompositeFieldContainer[FlowRequirement]
-    def __init__(self, defintion_name: _Optional[str] = ..., steps: _Optional[_Iterable[_Union[FlowRequirement, _Mapping]]] = ...) -> None: ...
+    __slots__ = ("definition_name", "workflow_requirements")
+    DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
+    WORKFLOW_REQUIREMENTS_FIELD_NUMBER: _ClassVar[int]
+    definition_name: str
+    workflow_requirements: _containers.RepeatedCompositeFieldContainer[WorkflowRequirement]
+    def __init__(self, definition_name: _Optional[str] = ..., workflow_requirements: _Optional[_Iterable[_Union[WorkflowRequirement, _Mapping]]] = ...) -> None: ...
 
-class FlowRequirement(_message.Message):
+class WorkflowRequirement(_message.Message):
     __slots__ = ("max_choices", "flow_type")
     MAX_CHOICES_FIELD_NUMBER: _ClassVar[int]
     FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -382,7 +382,7 @@ class FlowRequirement(_message.Message):
     flow_type: _integrations_pb2.FlowType
     def __init__(self, max_choices: _Optional[int] = ..., flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ...) -> None: ...
 
-class FlowDefinition(_message.Message):
+class WorkflowDefinition(_message.Message):
     __slots__ = ("flow_type", "definition_name", "method", "req_fields", "res_fields", "plugin_fields", "link_fields", "prev_fields", "form_fields", "template", "opts")
     FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
     DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
