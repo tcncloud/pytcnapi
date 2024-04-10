@@ -49,16 +49,6 @@ class AgentTrainingServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityResponse.FromString,
                 )
-        self.ListLearningOpportunitiesByOrgId = channel.unary_unary(
-                '/api.v1alpha1.agenttraining.AgentTrainingService/ListLearningOpportunitiesByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesResponse.FromString,
-                )
-        self.DeleteLearningOpportunityByOrgId = channel.unary_unary(
-                '/api.v1alpha1.agenttraining.AgentTrainingService/DeleteLearningOpportunityByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityByOrgIdRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityResponse.FromString,
-                )
 
 
 class AgentTrainingServiceServicer(object):
@@ -113,22 +103,6 @@ class AgentTrainingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListLearningOpportunitiesByOrgId(self, request, context):
-        """[CUSTOMER SUPPORT ONLY] ================================
-
-        ListLearningOpportunitiesByOrgId lists learning opportunities by org id.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteLearningOpportunityByOrgId(self, request, context):
-        """DeleteLearningOpportunityByOrgId deletes a learning opportunity in a specific org
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_AgentTrainingServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -166,16 +140,6 @@ def add_AgentTrainingServiceServicer_to_server(servicer, server):
                     servicer.GetLearningOpportunity,
                     request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityResponse.SerializeToString,
-            ),
-            'ListLearningOpportunitiesByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListLearningOpportunitiesByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesResponse.SerializeToString,
-            ),
-            'DeleteLearningOpportunityByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteLearningOpportunityByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityByOrgIdRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -303,39 +267,5 @@ class AgentTrainingService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/GetLearningOpportunity',
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityRequest.SerializeToString,
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.GetLearningOpportunityResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListLearningOpportunitiesByOrgId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/ListLearningOpportunitiesByOrgId',
-            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListLearningOpportunitiesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteLearningOpportunityByOrgId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/DeleteLearningOpportunityByOrgId',
-            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityByOrgIdRequest.SerializeToString,
-            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.DeleteLearningOpportunityResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
