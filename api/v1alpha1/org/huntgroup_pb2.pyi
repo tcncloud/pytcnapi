@@ -420,12 +420,10 @@ class CopyHuntGroupIntegrationLinkResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateHuntGroupIntegrationLinksRequest(_message.Message):
-    __slots__ = ("links", "hunt_group_sid")
+    __slots__ = ("links",)
     LINKS_FIELD_NUMBER: _ClassVar[int]
-    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     links: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.IntegrationLink]
-    hunt_group_sid: int
-    def __init__(self, links: _Optional[_Iterable[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]]] = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
+    def __init__(self, links: _Optional[_Iterable[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]]] = ...) -> None: ...
 
 class UpdateHuntGroupIntegrationLinksResponse(_message.Message):
     __slots__ = ()
