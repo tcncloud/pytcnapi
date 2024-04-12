@@ -356,11 +356,11 @@ class ListPortalTypesResponse(_message.Message):
     values: _containers.RepeatedCompositeFieldContainer[PortalDefinition]
     def __init__(self, values: _Optional[_Iterable[_Union[PortalDefinition, _Mapping]]] = ...) -> None: ...
 
-class ListFlowsReq(_message.Message):
+class ListPortalWorkflowsReq(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class ListFlowsResponse(_message.Message):
+class ListPortalWorkflowsResponse(_message.Message):
     __slots__ = ("values",)
     VALUES_FIELD_NUMBER: _ClassVar[int]
     values: _containers.RepeatedCompositeFieldContainer[WorkflowDefinition]
