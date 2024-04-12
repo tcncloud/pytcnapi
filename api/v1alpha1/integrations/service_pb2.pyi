@@ -1119,7 +1119,7 @@ class PortalId(_message.Message):
     def __init__(self, id: _Optional[str] = ...) -> None: ...
 
 class Portal(_message.Message):
-    __slots__ = ("id", "name", "description", "portal_config_id", "plugin_inst_ids", "ptype", "last_edited")
+    __slots__ = ("id", "name", "description", "portal_config_id", "plugin_inst_ids", "ptype", "last_edited", "definition_name", "portal_segments")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -1127,6 +1127,8 @@ class Portal(_message.Message):
     PLUGIN_INST_IDS_FIELD_NUMBER: _ClassVar[int]
     PTYPE_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
+    PORTAL_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
     id: str
     name: str
     description: str
@@ -1134,7 +1136,15 @@ class Portal(_message.Message):
     plugin_inst_ids: _containers.RepeatedScalarFieldContainer[str]
     ptype: PortalType
     last_edited: _timestamp_pb2.Timestamp
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., portal_config_id: _Optional[str] = ..., plugin_inst_ids: _Optional[_Iterable[str]] = ..., ptype: _Optional[_Union[PortalType, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    definition_name: str
+    portal_segments: PortalSegments
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., portal_config_id: _Optional[str] = ..., plugin_inst_ids: _Optional[_Iterable[str]] = ..., ptype: _Optional[_Union[PortalType, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., definition_name: _Optional[str] = ..., portal_segments: _Optional[_Union[PortalSegments, _Mapping]] = ...) -> None: ...
+
+class PortalSegments(_message.Message):
+    __slots__ = ("portal_segments",)
+    PORTAL_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+    portal_segments: _containers.RepeatedCompositeFieldContainer[PortalSegment]
+    def __init__(self, portal_segments: _Optional[_Iterable[_Union[PortalSegment, _Mapping]]] = ...) -> None: ...
 
 class PortalText(_message.Message):
     __slots__ = ("verification_header", "verification_footer", "payment_header", "payment_footer", "receipt_header", "receipt_footer", "invoice_header", "invoice_footer")
@@ -1302,3 +1312,70 @@ class GenerateEpicKeyPairRes(_message.Message):
     production_public_key: str
     non_production_public_key: str
     def __init__(self, production_public_key: _Optional[str] = ..., non_production_public_key: _Optional[str] = ...) -> None: ...
+
+class PortalSegment(_message.Message):
+    __slots__ = ("workflow_choices",)
+    WORKFLOW_CHOICES_FIELD_NUMBER: _ClassVar[int]
+    workflow_choices: _containers.RepeatedCompositeFieldContainer[PortalWorkflow]
+    def __init__(self, workflow_choices: _Optional[_Iterable[_Union[PortalWorkflow, _Mapping]]] = ...) -> None: ...
+
+class PortalWorkflow(_message.Message):
+    __slots__ = ("plugin_instance_id", "actions", "template", "form_fields", "opts", "header_text", "footer_text", "demo_mode", "demo_fail_conditions", "demo_pass_conditions", "demo_results")
+    class OptsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class DemoResultsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTIONS_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    FORM_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    OPTS_FIELD_NUMBER: _ClassVar[int]
+    HEADER_TEXT_FIELD_NUMBER: _ClassVar[int]
+    FOOTER_TEXT_FIELD_NUMBER: _ClassVar[int]
+    DEMO_MODE_FIELD_NUMBER: _ClassVar[int]
+    DEMO_FAIL_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
+    DEMO_PASS_CONDITIONS_FIELD_NUMBER: _ClassVar[int]
+    DEMO_RESULTS_FIELD_NUMBER: _ClassVar[int]
+    plugin_instance_id: str
+    actions: _containers.RepeatedCompositeFieldContainer[Action]
+    template: Template
+    form_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    opts: _containers.ScalarMap[str, str]
+    header_text: str
+    footer_text: str
+    demo_mode: bool
+    demo_fail_conditions: _containers.RepeatedCompositeFieldContainer[Condition]
+    demo_pass_conditions: _containers.RepeatedCompositeFieldContainer[Condition]
+    demo_results: _containers.ScalarMap[str, str]
+    def __init__(self, plugin_instance_id: _Optional[str] = ..., actions: _Optional[_Iterable[_Union[Action, _Mapping]]] = ..., template: _Optional[_Union[Template, _Mapping]] = ..., form_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., opts: _Optional[_Mapping[str, str]] = ..., header_text: _Optional[str] = ..., footer_text: _Optional[str] = ..., demo_mode: bool = ..., demo_fail_conditions: _Optional[_Iterable[_Union[Condition, _Mapping]]] = ..., demo_pass_conditions: _Optional[_Iterable[_Union[Condition, _Mapping]]] = ..., demo_results: _Optional[_Mapping[str, str]] = ...) -> None: ...
+
+class Action(_message.Message):
+    __slots__ = ("workflow_definition_name", "rename")
+    class RenameEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    WORKFLOW_DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
+    RENAME_FIELD_NUMBER: _ClassVar[int]
+    workflow_definition_name: str
+    rename: _containers.ScalarMap[str, str]
+    def __init__(self, workflow_definition_name: _Optional[str] = ..., rename: _Optional[_Mapping[str, str]] = ...) -> None: ...
+
+class Template(_message.Message):
+    __slots__ = ("invoice_template",)
+    INVOICE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    invoice_template: _integrations_pb2.Invoices
+    def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ...) -> None: ...
