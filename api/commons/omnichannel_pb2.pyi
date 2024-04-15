@@ -106,6 +106,12 @@ class AgentConversationAssignmentType(int, metaclass=_enum_type_wrapper.EnumType
     PRIMARY_AGENT: _ClassVar[AgentConversationAssignmentType]
     SECONDARY_AGENT: _ClassVar[AgentConversationAssignmentType]
 
+class MessageFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    MESSAGE_FORMAT_UNSPECIFIED: _ClassVar[MessageFormat]
+    MESSAGE_FORMAT_HTML: _ClassVar[MessageFormat]
+    MESSAGE_FORMAT_HTML_FORM: _ClassVar[MessageFormat]
+
 class OmniMessageStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     OMNI_MESSAGE_CREATED: _ClassVar[OmniMessageStatus]
@@ -269,6 +275,9 @@ ACTIVE_AGENT: AgentConversationAssignmentStatus
 INACTIVE_AGENT: AgentConversationAssignmentStatus
 PRIMARY_AGENT: AgentConversationAssignmentType
 SECONDARY_AGENT: AgentConversationAssignmentType
+MESSAGE_FORMAT_UNSPECIFIED: MessageFormat
+MESSAGE_FORMAT_HTML: MessageFormat
+MESSAGE_FORMAT_HTML_FORM: MessageFormat
 OMNI_MESSAGE_CREATED: OmniMessageStatus
 OMNI_INBOUND_MESSAGE_RECEIVED: OmniMessageStatus
 OMNI_OUTBOUND_MESSAGE_RECEIVED: OmniMessageStatus
@@ -583,20 +592,22 @@ class CustomerChatWidgetMessage(_message.Message):
     def __init__(self, message_sid: _Optional[int] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., customer_information: _Optional[_Union[ConversationCustomerInformation, _Mapping]] = ...) -> None: ...
 
 class AgentChatWidgetMessage(_message.Message):
-    __slots__ = ("message_sid", "payload", "date_created", "ui_reference_id", "user_information", "sender_type")
+    __slots__ = ("message_sid", "payload", "date_created", "ui_reference_id", "user_information", "sender_type", "message_format")
     MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
     PAYLOAD_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     UI_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_INFORMATION_FIELD_NUMBER: _ClassVar[int]
     SENDER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FORMAT_FIELD_NUMBER: _ClassVar[int]
     message_sid: int
     payload: OmniMessagePayload
     date_created: _timestamp_pb2.Timestamp
     ui_reference_id: str
     user_information: OmniConversationUserInformation
     sender_type: OmniSenderType
-    def __init__(self, message_sid: _Optional[int] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., user_information: _Optional[_Union[OmniConversationUserInformation, _Mapping]] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ...) -> None: ...
+    message_format: MessageFormat
+    def __init__(self, message_sid: _Optional[int] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., user_information: _Optional[_Union[OmniConversationUserInformation, _Mapping]] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ..., message_format: _Optional[_Union[MessageFormat, str]] = ...) -> None: ...
 
 class OmniMessagePayload(_message.Message):
     __slots__ = ("text_message", "typing_notification", "reassignment", "request_attachment_upload_url", "attachment_upload_url", "attachment", "close_conversation", "assign_conversation", "unassign_conversation", "finish_wrap_up", "suspend", "start_wrap_up", "queue_information", "request_queue_information", "off_loaded_text_message", "canned_message")
