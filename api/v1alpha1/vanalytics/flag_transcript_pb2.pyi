@@ -31,6 +31,18 @@ class CreateFlagTranscriptResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class DeleteFlagTranscriptRequest(_message.Message):
+    __slots__ = ("org_id", "transcript_sids")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    transcript_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, org_id: _Optional[str] = ..., transcript_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class DeleteFlagTranscriptResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class SearchFlagTranscriptsRequest(_message.Message):
     __slots__ = ("page_size", "page_token", "flag_sid", "flag_review_status", "notify_group_id", "review_group_id", "start_transcript_sid", "end_transcript_sid", "order_by")
     class FlagSid(_message.Message):

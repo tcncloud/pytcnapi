@@ -103,3 +103,25 @@ class GetLearningOpportunityResponse(_message.Message):
     LEARNING_OPPORTUNITY_FIELD_NUMBER: _ClassVar[int]
     learning_opportunity: _agent_training_pb2.LearningOpportunity
     def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
+
+class ListLearningOpportunitiesByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "call_identifiers", "transcript_sids", "agent_user_ids", "created_at")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    CALL_IDENTIFIERS_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    call_identifiers: _containers.RepeatedCompositeFieldContainer[_agent_training_pb2.CallIdentifier]
+    transcript_sids: _containers.RepeatedScalarFieldContainer[int]
+    agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
+    created_at: _scorecards_pb2.TimeFilter
+    def __init__(self, org_id: _Optional[str] = ..., call_identifiers: _Optional[_Iterable[_Union[_agent_training_pb2.CallIdentifier, _Mapping]]] = ..., transcript_sids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., created_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
+
+class DeleteLearningOpportunityByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "learning_opportunity_id")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    LEARNING_OPPORTUNITY_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    learning_opportunity_id: int
+    def __init__(self, org_id: _Optional[str] = ..., learning_opportunity_id: _Optional[int] = ...) -> None: ...
