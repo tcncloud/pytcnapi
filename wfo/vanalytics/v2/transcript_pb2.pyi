@@ -116,7 +116,7 @@ class FlagSummary(_message.Message):
     def __init__(self, count: _Optional[int] = ..., priority_sum: _Optional[int] = ..., priority_max: _Optional[int] = ..., need_review: _Optional[_Union[FlagSummary.NeedReview, _Mapping]] = ..., flags: _Optional[_Iterable[_Union[FlagSummary.Flag, _Mapping]]] = ..., review_status: _Optional[_Union[ReviewStatus, str]] = ...) -> None: ...
 
 class Sms(_message.Message):
-    __slots__ = ("conversation_sid", "threads", "phone")
+    __slots__ = ("conversation_sid", "threads", "phone", "caller_id", "campaign_sid")
     class Phone(_message.Message):
         __slots__ = ("raw",)
         RAW_FIELD_NUMBER: _ClassVar[int]
@@ -141,10 +141,14 @@ class Sms(_message.Message):
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     THREADS_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
+    CALLER_ID_FIELD_NUMBER: _ClassVar[int]
+    CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     threads: _containers.RepeatedCompositeFieldContainer[Sms.Thread]
     phone: Sms.Phone
-    def __init__(self, conversation_sid: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Sms.Thread, _Mapping]]] = ..., phone: _Optional[_Union[Sms.Phone, _Mapping]] = ...) -> None: ...
+    caller_id: str
+    campaign_sid: int
+    def __init__(self, conversation_sid: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Sms.Thread, _Mapping]]] = ..., phone: _Optional[_Union[Sms.Phone, _Mapping]] = ..., caller_id: _Optional[str] = ..., campaign_sid: _Optional[int] = ...) -> None: ...
 
 class Call(_message.Message):
     __slots__ = ("call_sid", "call_type", "audio_time", "threads", "silence", "talk_over", "talk_time", "caller_id", "group_name", "agent_response", "hunt_group_sids", "number_format", "agent_call_log", "phone", "audio_bytes")
