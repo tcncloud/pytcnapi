@@ -1100,6 +1100,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsResponse.FromString,
                 )
+        self.ListUsersAllowedIps = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListUsersAllowedIps',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsResponse.FromString,
+                )
 
 
 class OrgServicer(object):
@@ -2694,6 +2699,13 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListUsersAllowedIps(self, request, context):
+        """ListUsersAllowedIps -
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrgServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -3771,6 +3783,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.RemoveGroupedUserIPRestrictions,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsResponse.SerializeToString,
+            ),
+            'ListUsersAllowedIps': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUsersAllowedIps,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7435,5 +7452,22 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RemoveGroupedUserIPRestrictions',
             api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_user__pb2.RemoveGroupedUserIPRestrictionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListUsersAllowedIps(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListUsersAllowedIps',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
