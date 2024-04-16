@@ -11,6 +11,20 @@ class Empty(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class CronExpression(_message.Message):
+    __slots__ = ("repeat_minutes", "hours_of_day", "days_of_month", "months_of_year", "day_of_week")
+    REPEAT_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    HOURS_OF_DAY_FIELD_NUMBER: _ClassVar[int]
+    DAYS_OF_MONTH_FIELD_NUMBER: _ClassVar[int]
+    MONTHS_OF_YEAR_FIELD_NUMBER: _ClassVar[int]
+    DAY_OF_WEEK_FIELD_NUMBER: _ClassVar[int]
+    repeat_minutes: str
+    hours_of_day: str
+    days_of_month: str
+    months_of_year: str
+    day_of_week: str
+    def __init__(self, repeat_minutes: _Optional[str] = ..., hours_of_day: _Optional[str] = ..., days_of_month: _Optional[str] = ..., months_of_year: _Optional[str] = ..., day_of_week: _Optional[str] = ...) -> None: ...
+
 class Int32Nullable(_message.Message):
     __slots__ = ("is_null", "value")
     IS_NULL_FIELD_NUMBER: _ClassVar[int]

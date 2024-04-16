@@ -345,3 +345,65 @@ class ListAvailablePaymentFieldsRes(_message.Message):
     PAYMENT_FIELDS_FIELD_NUMBER: _ClassVar[int]
     payment_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
     def __init__(self, payment_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
+
+class ListPortalTypesReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListPortalTypesResponse(_message.Message):
+    __slots__ = ("values",)
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.RepeatedCompositeFieldContainer[PortalDefinition]
+    def __init__(self, values: _Optional[_Iterable[_Union[PortalDefinition, _Mapping]]] = ...) -> None: ...
+
+class ListPortalWorkflowsReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListPortalWorkflowsResponse(_message.Message):
+    __slots__ = ("values",)
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.RepeatedCompositeFieldContainer[WorkflowDefinition]
+    def __init__(self, values: _Optional[_Iterable[_Union[WorkflowDefinition, _Mapping]]] = ...) -> None: ...
+
+class PortalDefinition(_message.Message):
+    __slots__ = ("definition_name", "workflow_requirements")
+    DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
+    WORKFLOW_REQUIREMENTS_FIELD_NUMBER: _ClassVar[int]
+    definition_name: str
+    workflow_requirements: _containers.RepeatedCompositeFieldContainer[WorkflowRequirement]
+    def __init__(self, definition_name: _Optional[str] = ..., workflow_requirements: _Optional[_Iterable[_Union[WorkflowRequirement, _Mapping]]] = ...) -> None: ...
+
+class WorkflowRequirement(_message.Message):
+    __slots__ = ("max_choices", "flow_type")
+    MAX_CHOICES_FIELD_NUMBER: _ClassVar[int]
+    FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
+    max_choices: int
+    flow_type: _integrations_pb2.FlowType
+    def __init__(self, max_choices: _Optional[int] = ..., flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ...) -> None: ...
+
+class WorkflowDefinition(_message.Message):
+    __slots__ = ("flow_type", "definition_name", "method", "req_fields", "res_fields", "plugin_fields", "link_fields", "prev_fields", "form_fields", "template", "opts")
+    FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
+    METHOD_FIELD_NUMBER: _ClassVar[int]
+    REQ_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    RES_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    PLUGIN_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    LINK_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    PREV_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    FORM_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    OPTS_FIELD_NUMBER: _ClassVar[int]
+    flow_type: _integrations_pb2.FlowType
+    definition_name: str
+    method: _integrations_pb2.RequestMethod
+    req_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    res_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    plugin_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    link_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    prev_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    form_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    template: _service_pb2.Template
+    opts: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., method: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., req_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., res_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., plugin_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., link_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., prev_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., form_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., template: _Optional[_Union[_service_pb2.Template, _Mapping]] = ..., opts: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...

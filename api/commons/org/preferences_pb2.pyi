@@ -1,8 +1,10 @@
 from api.commons import ana_pb2 as _ana_pb2
 from api.commons import country_pb2 as _country_pb2
+from api.commons import enums_pb2 as _enums_pb2
 from api.commons import lms_pb2 as _lms_pb2
 from api.commons import org_pb2 as _org_pb2
 from api.commons import org_preferences_pb2 as _org_preferences_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -106,29 +108,44 @@ class ContactFieldDescription(_message.Message):
     def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[str] = ...) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
-    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "duo_mfa_settings")
+    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "email_mfa_settings", "duo_mfa_settings", "allow_force_password_reset_interval", "password_reset_day_interval", "user_authorization_via_ip")
     class DuoMfaSettings(_message.Message):
-        __slots__ = ("duo_client_id", "duo_api_host")
+        __slots__ = ("duo_client_id", "duo_api_host", "enabled")
         DUO_CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
         DUO_API_HOST_FIELD_NUMBER: _ClassVar[int]
+        ENABLED_FIELD_NUMBER: _ClassVar[int]
         duo_client_id: str
         duo_api_host: str
-        def __init__(self, duo_client_id: _Optional[str] = ..., duo_api_host: _Optional[str] = ...) -> None: ...
+        enabled: bool
+        def __init__(self, duo_client_id: _Optional[str] = ..., duo_api_host: _Optional[str] = ..., enabled: bool = ...) -> None: ...
+    class EmailMfaSettings(_message.Message):
+        __slots__ = ("enabled",)
+        ENABLED_FIELD_NUMBER: _ClassVar[int]
+        enabled: bool
+        def __init__(self, enabled: bool = ...) -> None: ...
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_IPS_FIELD_NUMBER: _ClassVar[int]
     AGENT_API_KEY_FIELD_NUMBER: _ClassVar[int]
     ENABLE_2FA_FIELD_NUMBER: _ClassVar[int]
     BLOCK_UNVERIFIED_USERS_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
     DUO_MFA_SETTINGS_FIELD_NUMBER: _ClassVar[int]
+    ALLOW_FORCE_PASSWORD_RESET_INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_RESET_DAY_INTERVAL_FIELD_NUMBER: _ClassVar[int]
+    USER_AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     authorization_via_ip: bool
     allowed_ips: _containers.RepeatedScalarFieldContainer[str]
     agent_api_key: str
     enable_2fa: bool
     block_unverified_users: bool
+    email_mfa_settings: AuthenticationPreferences.EmailMfaSettings
     duo_mfa_settings: AuthenticationPreferences.DuoMfaSettings
-    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ...) -> None: ...
+    allow_force_password_reset_interval: bool
+    password_reset_day_interval: int
+    user_authorization_via_ip: bool
+    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., email_mfa_settings: _Optional[_Union[AuthenticationPreferences.EmailMfaSettings, _Mapping]] = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ..., allow_force_password_reset_interval: bool = ..., password_reset_day_interval: _Optional[int] = ..., user_authorization_via_ip: bool = ...) -> None: ...
 
 class WebhookPreferences(_message.Message):
     __slots__ = ("org_id", "push_urls_enabled", "call_result_push_url", "agent_response_push_url")
@@ -641,18 +658,22 @@ class AdminClientPreferences(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., use_reserved_carrier: bool = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., email_key: _Optional[str] = ..., email_id: _Optional[str] = ..., email_name: _Optional[str] = ..., whitelist_ips: _Optional[_Iterable[str]] = ..., whitelist_domains: _Optional[_Iterable[str]] = ..., callbacks_service_id: _Optional[str] = ..., agent_screen_recording: bool = ..., allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ...) -> None: ...
 
 class BusinessHours(_message.Message):
-    __slots__ = ("org_id", "id", "name", "description", "ranges")
+    __slots__ = ("org_id", "description", "business_hours_id", "business_hours_name", "timezone", "day_intervals", "last_updated")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
-    ID_FIELD_NUMBER: _ClassVar[int]
-    NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
-    RANGES_FIELD_NUMBER: _ClassVar[int]
+    BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
+    BUSINESS_HOURS_NAME_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    DAY_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
     org_id: str
-    id: str
-    name: str
     description: str
-    ranges: _containers.RepeatedCompositeFieldContainer[Range]
-    def __init__(self, org_id: _Optional[str] = ..., id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., ranges: _Optional[_Iterable[_Union[Range, _Mapping]]] = ...) -> None: ...
+    business_hours_id: str
+    business_hours_name: str
+    timezone: _org_pb2.TimeZone
+    day_intervals: _containers.RepeatedCompositeFieldContainer[DayInterval]
+    last_updated: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., description: _Optional[str] = ..., business_hours_id: _Optional[str] = ..., business_hours_name: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., day_intervals: _Optional[_Iterable[_Union[DayInterval, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Range(_message.Message):
     __slots__ = ("start_hour", "start_minute", "end_hour", "end_minute")
@@ -665,3 +686,91 @@ class Range(_message.Message):
     end_hour: int
     end_minute: int
     def __init__(self, start_hour: _Optional[int] = ..., start_minute: _Optional[int] = ..., end_hour: _Optional[int] = ..., end_minute: _Optional[int] = ...) -> None: ...
+
+class TimeOfDay(_message.Message):
+    __slots__ = ("hour", "minute")
+    HOUR_FIELD_NUMBER: _ClassVar[int]
+    MINUTE_FIELD_NUMBER: _ClassVar[int]
+    hour: int
+    minute: int
+    def __init__(self, hour: _Optional[int] = ..., minute: _Optional[int] = ...) -> None: ...
+
+class DayInterval(_message.Message):
+    __slots__ = ("day", "start", "end")
+    DAY_FIELD_NUMBER: _ClassVar[int]
+    START_FIELD_NUMBER: _ClassVar[int]
+    END_FIELD_NUMBER: _ClassVar[int]
+    day: _enums_pb2.Weekday.Enum
+    start: TimeOfDay
+    end: TimeOfDay
+    def __init__(self, day: _Optional[_Union[_enums_pb2.Weekday.Enum, str]] = ..., start: _Optional[_Union[TimeOfDay, _Mapping]] = ..., end: _Optional[_Union[TimeOfDay, _Mapping]] = ...) -> None: ...
+
+class MonthDayDate(_message.Message):
+    __slots__ = ("date_name", "month", "day_of_month")
+    DATE_NAME_FIELD_NUMBER: _ClassVar[int]
+    MONTH_FIELD_NUMBER: _ClassVar[int]
+    DAY_OF_MONTH_FIELD_NUMBER: _ClassVar[int]
+    date_name: str
+    month: _enums_pb2.Month
+    day_of_month: int
+    def __init__(self, date_name: _Optional[str] = ..., month: _Optional[_Union[_enums_pb2.Month, str]] = ..., day_of_month: _Optional[int] = ...) -> None: ...
+
+class CountryHoliday(_message.Message):
+    __slots__ = ("holiday_name", "country")
+    HOLIDAY_NAME_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_FIELD_NUMBER: _ClassVar[int]
+    holiday_name: str
+    country: _country_pb2.Country
+    def __init__(self, holiday_name: _Optional[str] = ..., country: _Optional[_Union[_country_pb2.Country, str]] = ...) -> None: ...
+
+class ProgrammedDay(_message.Message):
+    __slots__ = ("day", "holiday")
+    DAY_FIELD_NUMBER: _ClassVar[int]
+    HOLIDAY_FIELD_NUMBER: _ClassVar[int]
+    day: MonthDayDate
+    holiday: CountryHoliday
+    def __init__(self, day: _Optional[_Union[MonthDayDate, _Mapping]] = ..., holiday: _Optional[_Union[CountryHoliday, _Mapping]] = ...) -> None: ...
+
+class ProgrammedDates(_message.Message):
+    __slots__ = ("org_id", "programmed_dates_id", "programmed_dates_name", "description", "timezone", "days", "last_updated")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    PROGRAMMED_DATES_ID_FIELD_NUMBER: _ClassVar[int]
+    PROGRAMMED_DATES_NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    DAYS_FIELD_NUMBER: _ClassVar[int]
+    LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    programmed_dates_id: str
+    programmed_dates_name: str
+    description: str
+    timezone: _org_pb2.TimeZone
+    days: _containers.RepeatedCompositeFieldContainer[ProgrammedDay]
+    last_updated: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., programmed_dates_id: _Optional[str] = ..., programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[ProgrammedDay, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class ObservedHolidays(_message.Message):
+    __slots__ = ("org_id", "observed_holidays_id", "observed_holidays_name", "description", "timezone", "days", "last_updated")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
+    OBSERVED_HOLIDAYS_NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    DAYS_FIELD_NUMBER: _ClassVar[int]
+    LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    observed_holidays_id: str
+    observed_holidays_name: str
+    description: str
+    timezone: _org_pb2.TimeZone
+    days: _containers.RepeatedCompositeFieldContainer[ObservedHoliday]
+    last_updated: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., observed_holidays_id: _Optional[str] = ..., observed_holidays_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[ObservedHoliday, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class ObservedHoliday(_message.Message):
+    __slots__ = ("day", "holiday")
+    DAY_FIELD_NUMBER: _ClassVar[int]
+    HOLIDAY_FIELD_NUMBER: _ClassVar[int]
+    day: MonthDayDate
+    holiday: CountryHoliday
+    def __init__(self, day: _Optional[_Union[MonthDayDate, _Mapping]] = ..., holiday: _Optional[_Union[CountryHoliday, _Mapping]] = ...) -> None: ...

@@ -689,10 +689,12 @@ class EmailTransport(_message.Message):
     def __init__(self, from_address: _Optional[str] = ..., to_address: _Optional[str] = ..., cc_addresses: _Optional[_Iterable[str]] = ..., to_addresses: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class Room303Transport(_message.Message):
-    __slots__ = ("system_message",)
+    __slots__ = ("system_message", "system_messages")
     SYSTEM_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    SYSTEM_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     system_message: Room303SystemMessage
-    def __init__(self, system_message: _Optional[_Union[Room303SystemMessage, _Mapping]] = ...) -> None: ...
+    system_messages: Room303SystemMessages
+    def __init__(self, system_message: _Optional[_Union[Room303SystemMessage, _Mapping]] = ..., system_messages: _Optional[_Union[Room303SystemMessages, _Mapping]] = ...) -> None: ...
 
 class Room303SystemMessage(_message.Message):
     __slots__ = ("room", "username", "user_id")
@@ -703,6 +705,12 @@ class Room303SystemMessage(_message.Message):
     username: str
     user_id: str
     def __init__(self, room: _Optional[str] = ..., username: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+
+class Room303SystemMessages(_message.Message):
+    __slots__ = ("system_messages",)
+    SYSTEM_MESSAGES_FIELD_NUMBER: _ClassVar[int]
+    system_messages: _containers.RepeatedCompositeFieldContainer[Room303SystemMessage]
+    def __init__(self, system_messages: _Optional[_Iterable[_Union[Room303SystemMessage, _Mapping]]] = ...) -> None: ...
 
 class SMSTransport(_message.Message):
     __slots__ = ("destination_phone", "source_phone")
