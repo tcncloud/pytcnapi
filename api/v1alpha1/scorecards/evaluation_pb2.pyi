@@ -104,3 +104,29 @@ class PreviewEvaluationScoreResponse(_message.Message):
     EVALUATION_FIELD_NUMBER: _ClassVar[int]
     evaluation: _scorecards_pb2.Evaluation
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
+
+class ListEvaluationsByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    SCORER_ID_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
+    RETURN_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    scorer_id: _containers.RepeatedScalarFieldContainer[str]
+    completed_at: _scorecards_pb2.TimeFilter
+    category_ids: _containers.RepeatedScalarFieldContainer[int]
+    agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
+    scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
+    return_fields: _field_mask_pb2.FieldMask
+    def __init__(self, org_id: _Optional[str] = ..., scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class DeleteEvaluationByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "evaluation_id")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    evaluation_id: int
+    def __init__(self, org_id: _Optional[str] = ..., evaluation_id: _Optional[int] = ...) -> None: ...
