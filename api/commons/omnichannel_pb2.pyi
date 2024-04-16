@@ -610,7 +610,7 @@ class AgentChatWidgetMessage(_message.Message):
     def __init__(self, message_sid: _Optional[int] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., user_information: _Optional[_Union[OmniConversationUserInformation, _Mapping]] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ..., message_format: _Optional[_Union[MessageFormat, str]] = ...) -> None: ...
 
 class OmniMessagePayload(_message.Message):
-    __slots__ = ("text_message", "typing_notification", "reassignment", "request_attachment_upload_url", "attachment_upload_url", "attachment", "close_conversation", "assign_conversation", "unassign_conversation", "finish_wrap_up", "suspend", "start_wrap_up", "queue_information", "request_queue_information", "off_loaded_text_message", "canned_message")
+    __slots__ = ("text_message", "typing_notification", "reassignment", "request_attachment_upload_url", "attachment_upload_url", "attachment", "close_conversation", "assign_conversation", "unassign_conversation", "finish_wrap_up", "suspend", "start_wrap_up", "queue_information", "request_queue_information", "off_loaded_text_message", "canned_message", "data_message")
     TEXT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     TYPING_NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
     REASSIGNMENT_FIELD_NUMBER: _ClassVar[int]
@@ -627,6 +627,7 @@ class OmniMessagePayload(_message.Message):
     REQUEST_QUEUE_INFORMATION_FIELD_NUMBER: _ClassVar[int]
     OFF_LOADED_TEXT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     CANNED_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    DATA_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     text_message: OmniTextMessage
     typing_notification: OmniTypingNotification
     reassignment: OmniReassignmentNotification
@@ -643,7 +644,8 @@ class OmniMessagePayload(_message.Message):
     request_queue_information: OmniRequestQueueInformation
     off_loaded_text_message: OmniOffLoadedTextMessage
     canned_message: OmniCannedMessage
-    def __init__(self, text_message: _Optional[_Union[OmniTextMessage, _Mapping]] = ..., typing_notification: _Optional[_Union[OmniTypingNotification, _Mapping]] = ..., reassignment: _Optional[_Union[OmniReassignmentNotification, _Mapping]] = ..., request_attachment_upload_url: _Optional[_Union[OmniRequestAttachmentUploadURL, _Mapping]] = ..., attachment_upload_url: _Optional[_Union[OmniAttachmentUploadURL, _Mapping]] = ..., attachment: _Optional[_Union[OmniAttachment, _Mapping]] = ..., close_conversation: _Optional[_Union[OmniCloseConversation, _Mapping]] = ..., assign_conversation: _Optional[_Union[OmniAssignConversation, _Mapping]] = ..., unassign_conversation: _Optional[_Union[OmniUnassignConversation, _Mapping]] = ..., finish_wrap_up: _Optional[_Union[OmniFinishWrapUp, _Mapping]] = ..., suspend: _Optional[_Union[OmniSuspend, _Mapping]] = ..., start_wrap_up: _Optional[_Union[OmniStartWrapUp, _Mapping]] = ..., queue_information: _Optional[_Union[OmniQueueInformation, _Mapping]] = ..., request_queue_information: _Optional[_Union[OmniRequestQueueInformation, _Mapping]] = ..., off_loaded_text_message: _Optional[_Union[OmniOffLoadedTextMessage, _Mapping]] = ..., canned_message: _Optional[_Union[OmniCannedMessage, _Mapping]] = ...) -> None: ...
+    data_message: OmniDataMessage
+    def __init__(self, text_message: _Optional[_Union[OmniTextMessage, _Mapping]] = ..., typing_notification: _Optional[_Union[OmniTypingNotification, _Mapping]] = ..., reassignment: _Optional[_Union[OmniReassignmentNotification, _Mapping]] = ..., request_attachment_upload_url: _Optional[_Union[OmniRequestAttachmentUploadURL, _Mapping]] = ..., attachment_upload_url: _Optional[_Union[OmniAttachmentUploadURL, _Mapping]] = ..., attachment: _Optional[_Union[OmniAttachment, _Mapping]] = ..., close_conversation: _Optional[_Union[OmniCloseConversation, _Mapping]] = ..., assign_conversation: _Optional[_Union[OmniAssignConversation, _Mapping]] = ..., unassign_conversation: _Optional[_Union[OmniUnassignConversation, _Mapping]] = ..., finish_wrap_up: _Optional[_Union[OmniFinishWrapUp, _Mapping]] = ..., suspend: _Optional[_Union[OmniSuspend, _Mapping]] = ..., start_wrap_up: _Optional[_Union[OmniStartWrapUp, _Mapping]] = ..., queue_information: _Optional[_Union[OmniQueueInformation, _Mapping]] = ..., request_queue_information: _Optional[_Union[OmniRequestQueueInformation, _Mapping]] = ..., off_loaded_text_message: _Optional[_Union[OmniOffLoadedTextMessage, _Mapping]] = ..., canned_message: _Optional[_Union[OmniCannedMessage, _Mapping]] = ..., data_message: _Optional[_Union[OmniDataMessage, _Mapping]] = ...) -> None: ...
 
 class OmniTextMessage(_message.Message):
     __slots__ = ("message", "attachments", "primary_asm_session_sid")
@@ -784,6 +786,14 @@ class OmniCannedMessage(_message.Message):
     CANNED_MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     canned_message_id: str
     def __init__(self, canned_message_id: _Optional[str] = ...) -> None: ...
+
+class OmniDataMessage(_message.Message):
+    __slots__ = ("message", "message_sid")
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
+    message: str
+    message_sid: int
+    def __init__(self, message: _Optional[str] = ..., message_sid: _Optional[int] = ...) -> None: ...
 
 class OmniConversationUserInformation(_message.Message):
     __slots__ = ("user_id", "name")
