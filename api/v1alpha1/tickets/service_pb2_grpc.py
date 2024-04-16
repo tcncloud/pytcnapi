@@ -171,6 +171,21 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeResponse.FromString,
                 )
+        self.AddEntityRef = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/AddEntityRef',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AddEntityRefRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AddEntityRefResponse.FromString,
+                )
+        self.ListTicketsByEntityRef = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/ListTicketsByEntityRef',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketsByEntityRefRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketsByEntityRefResponse.FromString,
+                )
+        self.ListEntityRefsByTicket = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/ListEntityRefsByTicket',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketResponse.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -396,6 +411,27 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AddEntityRef(self, request, context):
+        """Public method to addEntityRef
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListTicketsByEntityRef(self, request, context):
+        """Public method to listTicketsByEntityRef
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListEntityRefsByTicket(self, request, context):
+        """Public method to listEntityRefsByTicket
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -553,6 +589,21 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.GetPhoneNumberType,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeResponse.SerializeToString,
+            ),
+            'AddEntityRef': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddEntityRef,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AddEntityRefRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AddEntityRefResponse.SerializeToString,
+            ),
+            'ListTicketsByEntityRef': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTicketsByEntityRef,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketsByEntityRefRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketsByEntityRefResponse.SerializeToString,
+            ),
+            'ListEntityRefsByTicket': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListEntityRefsByTicket,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1089,5 +1140,56 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/GetPhoneNumberType',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.GetPhoneNumberTypeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AddEntityRef(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/AddEntityRef',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AddEntityRefRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.AddEntityRefResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTicketsByEntityRef(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListTicketsByEntityRef',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketsByEntityRefRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListTicketsByEntityRefResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListEntityRefsByTicket(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListEntityRefsByTicket',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
