@@ -110,7 +110,7 @@ class RateSnapshot(_message.Message):
     def __init__(self, start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., rates: _Optional[_Iterable[_Union[RateDefinition, _Mapping]]] = ...) -> None: ...
 
 class RateDefinition(_message.Message):
-    __slots__ = ("rate_definition_id", "event_type", "config_type", "matching_rule", "matching_config", "matching_sha", "create_time", "update_time", "delete_time", "effective_time", "config", "group_id")
+    __slots__ = ("rate_definition_id", "event_type", "config_type", "matching_rule", "matching_config", "matching_sha", "create_time", "update_time", "delete_time", "effective_time", "config", "group_id", "config_sha", "thread_id")
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     CONFIG_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -123,6 +123,8 @@ class RateDefinition(_message.Message):
     EFFECTIVE_TIME_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    CONFIG_SHA_FIELD_NUMBER: _ClassVar[int]
+    THREAD_ID_FIELD_NUMBER: _ClassVar[int]
     rate_definition_id: str
     event_type: _event_types_pb2.EventType
     config_type: RateDefinitionConfigType
@@ -135,7 +137,9 @@ class RateDefinition(_message.Message):
     effective_time: _timestamp_pb2.Timestamp
     config: RateDefinitionConfig
     group_id: str
-    def __init__(self, rate_definition_id: _Optional[str] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., config_type: _Optional[_Union[RateDefinitionConfigType, str]] = ..., matching_rule: _Optional[_Union[_matching_pb2.MatchingRule, str]] = ..., matching_config: _Optional[_Union[_matching_pb2.MatchingConfig, _Mapping]] = ..., matching_sha: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., effective_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., config: _Optional[_Union[RateDefinitionConfig, _Mapping]] = ..., group_id: _Optional[str] = ...) -> None: ...
+    config_sha: str
+    thread_id: str
+    def __init__(self, rate_definition_id: _Optional[str] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., config_type: _Optional[_Union[RateDefinitionConfigType, str]] = ..., matching_rule: _Optional[_Union[_matching_pb2.MatchingRule, str]] = ..., matching_config: _Optional[_Union[_matching_pb2.MatchingConfig, _Mapping]] = ..., matching_sha: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., effective_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., config: _Optional[_Union[RateDefinitionConfig, _Mapping]] = ..., group_id: _Optional[str] = ..., config_sha: _Optional[str] = ..., thread_id: _Optional[str] = ...) -> None: ...
 
 class RateDefinitionConfig(_message.Message):
     __slots__ = ("agent_seats", "connected_inbox_poll", "connected_inbox_created", "agent_message_chat", "agent_message_chat_size", "agent_message_chat_units", "agent_message_email", "agent_message_email_size", "agent_message_email_units", "agent_message_sms", "agent_message_sms_size", "agent_message_sms_units", "manager_message_chat", "manager_message_chat_size", "manager_message_chat_units", "manager_message_email", "manager_message_email_size", "manager_message_email_units", "manager_message_sms", "manager_message_sms_size", "manager_message_sms_units", "system_message_chat", "system_message_chat_size", "system_message_chat_units", "system_message_email", "system_message_email_size", "system_message_email_units", "system_message_sms", "system_message_sms_size", "system_message_sms_units", "customer_message_chat", "customer_message_chat_size", "customer_message_chat_units", "customer_message_email", "customer_message_email_size", "customer_message_email_units", "customer_message_sms", "customer_message_sms_size", "customer_message_sms_units", "compliance_rnd_query", "compliance_rnd_query_cached")

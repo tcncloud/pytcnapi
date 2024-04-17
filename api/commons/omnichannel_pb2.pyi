@@ -106,6 +106,12 @@ class AgentConversationAssignmentType(int, metaclass=_enum_type_wrapper.EnumType
     PRIMARY_AGENT: _ClassVar[AgentConversationAssignmentType]
     SECONDARY_AGENT: _ClassVar[AgentConversationAssignmentType]
 
+class MessageFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    MESSAGE_FORMAT_UNSPECIFIED: _ClassVar[MessageFormat]
+    MESSAGE_FORMAT_HTML: _ClassVar[MessageFormat]
+    MESSAGE_FORMAT_HTML_FORM: _ClassVar[MessageFormat]
+
 class OmniMessageStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     OMNI_MESSAGE_CREATED: _ClassVar[OmniMessageStatus]
@@ -269,6 +275,9 @@ ACTIVE_AGENT: AgentConversationAssignmentStatus
 INACTIVE_AGENT: AgentConversationAssignmentStatus
 PRIMARY_AGENT: AgentConversationAssignmentType
 SECONDARY_AGENT: AgentConversationAssignmentType
+MESSAGE_FORMAT_UNSPECIFIED: MessageFormat
+MESSAGE_FORMAT_HTML: MessageFormat
+MESSAGE_FORMAT_HTML_FORM: MessageFormat
 OMNI_MESSAGE_CREATED: OmniMessageStatus
 OMNI_INBOUND_MESSAGE_RECEIVED: OmniMessageStatus
 OMNI_OUTBOUND_MESSAGE_RECEIVED: OmniMessageStatus
@@ -418,7 +427,7 @@ class OmniCampaignModule(_message.Message):
     def __init__(self, campaign_module_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., module_type: _Optional[_Union[OmniCampaignModuleType, str]] = ..., status: _Optional[_Union[OmniCampaignModuleStatus, str]] = ..., config: _Optional[_Union[OmniCampaignModuleConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., scheduled_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., actual_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., hours_of_operation: _Optional[_Union[WeekdayTimeRange, _Mapping]] = ..., details: _Optional[_Union[OmniCampaignModule.Details, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ...) -> None: ...
 
 class OmniCampaignModuleConfig(_message.Message):
-    __slots__ = ("api_key_primary", "api_key_secondary", "color_properties", "connected_inbox_sid", "dispositions", "email", "message_body", "email_subject", "sms_number", "header", "sla_timeouts", "sends_per_hour", "unsubscribe_link_sid", "verified_email_sid", "stop_on_task_deplete", "attachments", "compliance_rule_set_id", "payment_portal_ids", "flow_id", "skills", "whatsapp_number", "provider_metadata")
+    __slots__ = ("api_key_primary", "api_key_secondary", "color_properties", "connected_inbox_sid", "dispositions", "email", "message_body", "email_subject", "sms_number", "header", "sla_timeouts", "sends_per_hour", "unsubscribe_link_sid", "verified_email_sid", "stop_on_task_deplete", "attachments", "compliance_rule_set_id", "payment_portal_ids", "flow_id", "skills", "whatsapp_number", "provider_metadata", "country_code", "postal_code_field")
     class ProviderMetadataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -448,6 +457,8 @@ class OmniCampaignModuleConfig(_message.Message):
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     WHATSAPP_NUMBER_FIELD_NUMBER: _ClassVar[int]
     PROVIDER_METADATA_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    POSTAL_CODE_FIELD_FIELD_NUMBER: _ClassVar[int]
     api_key_primary: _wrappers_pb2.StringValue
     api_key_secondary: _wrappers_pb2.StringValue
     color_properties: _chat_pb2.ChatColorProperties
@@ -470,7 +481,9 @@ class OmniCampaignModuleConfig(_message.Message):
     skills: OmniConversationSkills
     whatsapp_number: WhatsAppNumber
     provider_metadata: _containers.ScalarMap[str, str]
-    def __init__(self, api_key_primary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., api_key_secondary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., color_properties: _Optional[_Union[_chat_pb2.ChatColorProperties, _Mapping]] = ..., connected_inbox_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., dispositions: _Optional[_Iterable[_Union[Disposition, _Mapping]]] = ..., email: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., message_body: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., email_subject: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sms_number: _Optional[_Union[SmsNumber, _Mapping]] = ..., header: _Optional[_Union[_chat_pb2.ChatHeader, _Mapping]] = ..., sla_timeouts: _Optional[_Union[SLATimeouts, _Mapping]] = ..., sends_per_hour: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., unsubscribe_link_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., verified_email_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., stop_on_task_deplete: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., compliance_rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., payment_portal_ids: _Optional[_Iterable[str]] = ..., flow_id: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., whatsapp_number: _Optional[_Union[WhatsAppNumber, _Mapping]] = ..., provider_metadata: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    country_code: int
+    postal_code_field: str
+    def __init__(self, api_key_primary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., api_key_secondary: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., color_properties: _Optional[_Union[_chat_pb2.ChatColorProperties, _Mapping]] = ..., connected_inbox_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., dispositions: _Optional[_Iterable[_Union[Disposition, _Mapping]]] = ..., email: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., message_body: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., email_subject: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sms_number: _Optional[_Union[SmsNumber, _Mapping]] = ..., header: _Optional[_Union[_chat_pb2.ChatHeader, _Mapping]] = ..., sla_timeouts: _Optional[_Union[SLATimeouts, _Mapping]] = ..., sends_per_hour: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., unsubscribe_link_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., verified_email_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., stop_on_task_deplete: _Optional[_Union[_wrappers_pb2.BoolValue, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., compliance_rule_set_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., payment_portal_ids: _Optional[_Iterable[str]] = ..., flow_id: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., whatsapp_number: _Optional[_Union[WhatsAppNumber, _Mapping]] = ..., provider_metadata: _Optional[_Mapping[str, str]] = ..., country_code: _Optional[int] = ..., postal_code_field: _Optional[str] = ...) -> None: ...
 
 class SmsNumber(_message.Message):
     __slots__ = ("number", "type", "provider", "country_code")
@@ -583,23 +596,25 @@ class CustomerChatWidgetMessage(_message.Message):
     def __init__(self, message_sid: _Optional[int] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., customer_information: _Optional[_Union[ConversationCustomerInformation, _Mapping]] = ...) -> None: ...
 
 class AgentChatWidgetMessage(_message.Message):
-    __slots__ = ("message_sid", "payload", "date_created", "ui_reference_id", "user_information", "sender_type")
+    __slots__ = ("message_sid", "payload", "date_created", "ui_reference_id", "user_information", "sender_type", "message_format")
     MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
     PAYLOAD_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     UI_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     USER_INFORMATION_FIELD_NUMBER: _ClassVar[int]
     SENDER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FORMAT_FIELD_NUMBER: _ClassVar[int]
     message_sid: int
     payload: OmniMessagePayload
     date_created: _timestamp_pb2.Timestamp
     ui_reference_id: str
     user_information: OmniConversationUserInformation
     sender_type: OmniSenderType
-    def __init__(self, message_sid: _Optional[int] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., user_information: _Optional[_Union[OmniConversationUserInformation, _Mapping]] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ...) -> None: ...
+    message_format: MessageFormat
+    def __init__(self, message_sid: _Optional[int] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., user_information: _Optional[_Union[OmniConversationUserInformation, _Mapping]] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ..., message_format: _Optional[_Union[MessageFormat, str]] = ...) -> None: ...
 
 class OmniMessagePayload(_message.Message):
-    __slots__ = ("text_message", "typing_notification", "reassignment", "request_attachment_upload_url", "attachment_upload_url", "attachment", "close_conversation", "assign_conversation", "unassign_conversation", "finish_wrap_up", "suspend", "start_wrap_up", "queue_information", "request_queue_information", "off_loaded_text_message", "canned_message")
+    __slots__ = ("text_message", "typing_notification", "reassignment", "request_attachment_upload_url", "attachment_upload_url", "attachment", "close_conversation", "assign_conversation", "unassign_conversation", "finish_wrap_up", "suspend", "start_wrap_up", "queue_information", "request_queue_information", "off_loaded_text_message", "canned_message", "data_message")
     TEXT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     TYPING_NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
     REASSIGNMENT_FIELD_NUMBER: _ClassVar[int]
@@ -616,6 +631,7 @@ class OmniMessagePayload(_message.Message):
     REQUEST_QUEUE_INFORMATION_FIELD_NUMBER: _ClassVar[int]
     OFF_LOADED_TEXT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     CANNED_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    DATA_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     text_message: OmniTextMessage
     typing_notification: OmniTypingNotification
     reassignment: OmniReassignmentNotification
@@ -632,7 +648,8 @@ class OmniMessagePayload(_message.Message):
     request_queue_information: OmniRequestQueueInformation
     off_loaded_text_message: OmniOffLoadedTextMessage
     canned_message: OmniCannedMessage
-    def __init__(self, text_message: _Optional[_Union[OmniTextMessage, _Mapping]] = ..., typing_notification: _Optional[_Union[OmniTypingNotification, _Mapping]] = ..., reassignment: _Optional[_Union[OmniReassignmentNotification, _Mapping]] = ..., request_attachment_upload_url: _Optional[_Union[OmniRequestAttachmentUploadURL, _Mapping]] = ..., attachment_upload_url: _Optional[_Union[OmniAttachmentUploadURL, _Mapping]] = ..., attachment: _Optional[_Union[OmniAttachment, _Mapping]] = ..., close_conversation: _Optional[_Union[OmniCloseConversation, _Mapping]] = ..., assign_conversation: _Optional[_Union[OmniAssignConversation, _Mapping]] = ..., unassign_conversation: _Optional[_Union[OmniUnassignConversation, _Mapping]] = ..., finish_wrap_up: _Optional[_Union[OmniFinishWrapUp, _Mapping]] = ..., suspend: _Optional[_Union[OmniSuspend, _Mapping]] = ..., start_wrap_up: _Optional[_Union[OmniStartWrapUp, _Mapping]] = ..., queue_information: _Optional[_Union[OmniQueueInformation, _Mapping]] = ..., request_queue_information: _Optional[_Union[OmniRequestQueueInformation, _Mapping]] = ..., off_loaded_text_message: _Optional[_Union[OmniOffLoadedTextMessage, _Mapping]] = ..., canned_message: _Optional[_Union[OmniCannedMessage, _Mapping]] = ...) -> None: ...
+    data_message: OmniDataMessage
+    def __init__(self, text_message: _Optional[_Union[OmniTextMessage, _Mapping]] = ..., typing_notification: _Optional[_Union[OmniTypingNotification, _Mapping]] = ..., reassignment: _Optional[_Union[OmniReassignmentNotification, _Mapping]] = ..., request_attachment_upload_url: _Optional[_Union[OmniRequestAttachmentUploadURL, _Mapping]] = ..., attachment_upload_url: _Optional[_Union[OmniAttachmentUploadURL, _Mapping]] = ..., attachment: _Optional[_Union[OmniAttachment, _Mapping]] = ..., close_conversation: _Optional[_Union[OmniCloseConversation, _Mapping]] = ..., assign_conversation: _Optional[_Union[OmniAssignConversation, _Mapping]] = ..., unassign_conversation: _Optional[_Union[OmniUnassignConversation, _Mapping]] = ..., finish_wrap_up: _Optional[_Union[OmniFinishWrapUp, _Mapping]] = ..., suspend: _Optional[_Union[OmniSuspend, _Mapping]] = ..., start_wrap_up: _Optional[_Union[OmniStartWrapUp, _Mapping]] = ..., queue_information: _Optional[_Union[OmniQueueInformation, _Mapping]] = ..., request_queue_information: _Optional[_Union[OmniRequestQueueInformation, _Mapping]] = ..., off_loaded_text_message: _Optional[_Union[OmniOffLoadedTextMessage, _Mapping]] = ..., canned_message: _Optional[_Union[OmniCannedMessage, _Mapping]] = ..., data_message: _Optional[_Union[OmniDataMessage, _Mapping]] = ...) -> None: ...
 
 class OmniTextMessage(_message.Message):
     __slots__ = ("message", "attachments", "primary_asm_session_sid")
@@ -773,6 +790,14 @@ class OmniCannedMessage(_message.Message):
     CANNED_MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     canned_message_id: str
     def __init__(self, canned_message_id: _Optional[str] = ...) -> None: ...
+
+class OmniDataMessage(_message.Message):
+    __slots__ = ("message", "message_sid")
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
+    message: str
+    message_sid: int
+    def __init__(self, message: _Optional[str] = ..., message_sid: _Optional[int] = ...) -> None: ...
 
 class OmniConversationUserInformation(_message.Message):
     __slots__ = ("user_id", "name")
