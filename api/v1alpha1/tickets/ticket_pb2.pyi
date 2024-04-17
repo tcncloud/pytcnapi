@@ -465,10 +465,8 @@ class AddEntityRefRequest(_message.Message):
     def __init__(self, entity_ref: _Optional[_Union[EntityRef, _Mapping]] = ...) -> None: ...
 
 class AddEntityRefResponse(_message.Message):
-    __slots__ = ("is_added",)
-    IS_ADDED_FIELD_NUMBER: _ClassVar[int]
-    is_added: bool
-    def __init__(self, is_added: bool = ...) -> None: ...
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class ListEntityRefsByTicketRequest(_message.Message):
     __slots__ = ("ticket_code",)
@@ -483,10 +481,10 @@ class ListEntityRefsByTicketResponse(_message.Message):
     def __init__(self, entity_ref: _Optional[_Iterable[_Union[EntityRef, _Mapping]]] = ...) -> None: ...
 
 class ListTicketsByEntityRefRequest(_message.Message):
-    __slots__ = ("entity_ref_id",)
-    ENTITY_REF_ID_FIELD_NUMBER: _ClassVar[int]
-    entity_ref_id: int
-    def __init__(self, entity_ref_id: _Optional[int] = ...) -> None: ...
+    __slots__ = ("uri",)
+    URI_FIELD_NUMBER: _ClassVar[int]
+    uri: str
+    def __init__(self, uri: _Optional[str] = ...) -> None: ...
 
 class ListTicketsByEntityRefResponse(_message.Message):
     __slots__ = ("tickets",)
@@ -495,15 +493,13 @@ class ListTicketsByEntityRefResponse(_message.Message):
     def __init__(self, tickets: _Optional[_Iterable[_Union[_tickets_pb2.Ticket, _Mapping]]] = ...) -> None: ...
 
 class EntityRef(_message.Message):
-    __slots__ = ("org_id", "region_id", "ticket_code", "uri", "deleted")
+    __slots__ = ("org_id", "region_id", "ticket_code", "uri")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     REGION_ID_FIELD_NUMBER: _ClassVar[int]
     TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     URI_FIELD_NUMBER: _ClassVar[int]
-    DELETED_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     region_id: str
     ticket_code: str
     uri: str
-    deleted: bool
-    def __init__(self, org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., ticket_code: _Optional[str] = ..., uri: _Optional[str] = ..., deleted: bool = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., ticket_code: _Optional[str] = ..., uri: _Optional[str] = ...) -> None: ...
