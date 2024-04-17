@@ -181,8 +181,20 @@ class ListAvailableAgentTicketsResponse(_message.Message):
     def __init__(self, ticket_sid: _Optional[_Iterable[int]] = ..., ticket: _Optional[_Iterable[_Union[_tickets_pb2.Ticket, _Mapping]]] = ...) -> None: ...
 
 class ListAvailableAgentTicketsRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("select_field_mask", "available_filter", "agent_view_limit")
+    SELECT_FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    AVAILABLE_FILTER_FIELD_NUMBER: _ClassVar[int]
+    AGENT_VIEW_LIMIT_FIELD_NUMBER: _ClassVar[int]
+    select_field_mask: _field_mask_pb2.FieldMask
+    available_filter: AvailableTicketsFilter
+    agent_view_limit: int
+    def __init__(self, select_field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., available_filter: _Optional[_Union[AvailableTicketsFilter, _Mapping]] = ..., agent_view_limit: _Optional[int] = ...) -> None: ...
+
+class AvailableTicketsFilter(_message.Message):
+    __slots__ = ("agent_skill_id",)
+    AGENT_SKILL_ID_FIELD_NUMBER: _ClassVar[int]
+    agent_skill_id: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, agent_skill_id: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class EditTicketRes(_message.Message):
     __slots__ = ("is_edited",)
@@ -445,3 +457,49 @@ class ChangeTicketStatusResponse(_message.Message):
     IS_STATUS_EDITED_FIELD_NUMBER: _ClassVar[int]
     is_status_edited: bool
     def __init__(self, is_status_edited: bool = ...) -> None: ...
+
+class AddEntityRefRequest(_message.Message):
+    __slots__ = ("entity_ref",)
+    ENTITY_REF_FIELD_NUMBER: _ClassVar[int]
+    entity_ref: EntityRef
+    def __init__(self, entity_ref: _Optional[_Union[EntityRef, _Mapping]] = ...) -> None: ...
+
+class AddEntityRefResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListEntityRefsByTicketRequest(_message.Message):
+    __slots__ = ("ticket_code",)
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    ticket_code: str
+    def __init__(self, ticket_code: _Optional[str] = ...) -> None: ...
+
+class ListEntityRefsByTicketResponse(_message.Message):
+    __slots__ = ("entity_ref",)
+    ENTITY_REF_FIELD_NUMBER: _ClassVar[int]
+    entity_ref: _containers.RepeatedCompositeFieldContainer[EntityRef]
+    def __init__(self, entity_ref: _Optional[_Iterable[_Union[EntityRef, _Mapping]]] = ...) -> None: ...
+
+class ListTicketsByEntityRefRequest(_message.Message):
+    __slots__ = ("uri",)
+    URI_FIELD_NUMBER: _ClassVar[int]
+    uri: str
+    def __init__(self, uri: _Optional[str] = ...) -> None: ...
+
+class ListTicketsByEntityRefResponse(_message.Message):
+    __slots__ = ("tickets",)
+    TICKETS_FIELD_NUMBER: _ClassVar[int]
+    tickets: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.Ticket]
+    def __init__(self, tickets: _Optional[_Iterable[_Union[_tickets_pb2.Ticket, _Mapping]]] = ...) -> None: ...
+
+class EntityRef(_message.Message):
+    __slots__ = ("org_id", "region_id", "ticket_code", "uri")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    REGION_ID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    URI_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    region_id: str
+    ticket_code: str
+    uri: str
+    def __init__(self, org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., ticket_code: _Optional[str] = ..., uri: _Optional[str] = ...) -> None: ...

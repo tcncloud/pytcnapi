@@ -1447,14 +1447,16 @@ class UpdateAuthenticationPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
-    __slots__ = ("authorization_via_ip", "allowed_ips", "agent_api_key")
+    __slots__ = ("authorization_via_ip", "allowed_ips", "agent_api_key", "user_authorization_via_ip")
     AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_IPS_FIELD_NUMBER: _ClassVar[int]
     AGENT_API_KEY_FIELD_NUMBER: _ClassVar[int]
+    USER_AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     authorization_via_ip: bool
     allowed_ips: _containers.RepeatedScalarFieldContainer[str]
     agent_api_key: str
-    def __init__(self, authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ...) -> None: ...
+    user_authorization_via_ip: bool
+    def __init__(self, authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., user_authorization_via_ip: bool = ...) -> None: ...
 
 class GetWebhookPreferencesRequest(_message.Message):
     __slots__ = ("field_mask",)

@@ -345,6 +345,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupRes.FromString,
                 )
+        self.CreateUnassignedWFMAgent = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateUnassignedWFMAgent',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentResponse.FromString,
+                )
         self.UpdateWFMAgent = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/UpdateWFMAgent',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateWFMAgentReq.SerializeToString,
@@ -370,6 +375,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.FromString,
                 )
+        self.ListUnassignedWFMAgents = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsResponse.FromString,
+                )
         self.ListWFMAgentsAssociatedWithAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListWFMAgentsAssociatedWithAgentGroup',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.SerializeToString,
@@ -380,6 +390,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsRes.FromString,
                 )
+        self.CopyWFMAgentMemberships = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CopyWFMAgentMemberships',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsResponse.FromString,
+                )
         self.DeleteWFMAgentMemberships = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteWFMAgentMemberships',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.SerializeToString,
@@ -389,6 +404,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/DeleteWFMAgentsMemberships',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
+                )
+        self.RemoveAgentFromFutureShifts = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/RemoveAgentFromFutureShifts',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromFutureShiftsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromFutureShiftsResponse.FromString,
                 )
         self.BuildAgentDiagnostics = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/BuildAgentDiagnostics',
@@ -829,6 +849,16 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
+                )
+        self.HelloWorldWFMAdherence = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
+                )
+        self.ListAgentStatesForDay = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAgentStatesForDay',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.FromString,
                 )
 
 
@@ -1519,7 +1549,6 @@ class WFMServicer(object):
         The @client_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent call center node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        The @origin_sid must be set to nil, since this method can only make an original node.
         Required permissions:
         NONE
         Errors:
@@ -1552,7 +1581,6 @@ class WFMServicer(object):
         The @location_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent client node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        The @origin_sid must be set to nil, since this method can only make an original node.
         Required permissions:
         NONE
         Errors:
@@ -1585,7 +1613,6 @@ class WFMServicer(object):
         The @program_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent location node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        The @origin_sid must be set to nil, since this method can only make an original node.
         Required permissions:
         NONE
         Errors:
@@ -1796,6 +1823,21 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateUnassignedWFMAgent(self, request, context):
+        """Creates an agent that is not assigned a tcn agent for the org sending the request.
+        If @wfm_agent_sid_to_copy_agent_group_associations is set, it will also copy that agent's agent group associations to the new agent.
+        Otherwise only the new agent will be created.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the @wfm_agent_sid_to_copy_agent_group_associations in the request is invalid.
+        - grpc.Internal: error occurs creating the agent or the memberships.
+        - grpc.NotFound: the given @wfm_agent_sid_to_copy_agent_group_associations doesn't exist for the org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def UpdateWFMAgent(self, request, context):
         """Updates a wfm agent for the given @wfm_agent_sid and org sending the request with the provided parameters.
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
@@ -1874,6 +1916,18 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListUnassignedWFMAgents(self, request, context):
+        """Lists all wfm agents that don't have a TCN agent assigned to them for the given @orgId.
+        Member entities will not be returned.
+        Required Permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when getting the wfm agents.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListWFMAgentsAssociatedWithAgentGroup(self, request, context):
         """Lists the IDs of wfm agents that belong to the org sending the request which are associated with the given @agent_group_sid.
         Required permissions:
@@ -1900,6 +1954,21 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CopyWFMAgentMemberships(self, request, context):
+        """Copies the membership association of @originating_wfm_agent_sid to @target_wfm_agent_sid.
+        The wfm agents must both belong to the org sending the request.
+        Any existing membership associations on @target_wfm_agent_sid with be retained.
+        Any conflicting memberships for @target_wfm_agent_sid will be set with the membership of @originating_wfm_agent_sid.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.NotFound: the @wfm_agent_sids or @agent_group_sid don't exist for the org sending the request.
+        - grpc.Internal: error occurs when creating the associations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteWFMAgentMemberships(self, request, context):
         """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid for the org sending the request.
         Required permissions:
@@ -1920,6 +1989,20 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sids are invalid.
         - grpc.Internal: error occurs when deleting the associations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveAgentFromFutureShifts(self, request, context):
+        """Removes the @wfm_agent_sid_to_remove from all future shifts for the org.
+        If @replace_with_new_unassigned_agent is set to true, a new unassigned agent will be created and it will be assigned to the shifts and agent groups from @wfm_agent_sid_to_remove.
+        If @replace_with_new_unassigned_agent is set to false, the future shifts will just be deleted.
+        If the @wfm_agent_sid_to_remove is not currently inactive, it will be set as inactive.
+        Required Permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when deleting the shifts, creating the new unassigned agent, reassigning the shifts to that agent, or setting the agent to inactive.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2350,7 +2433,6 @@ class WFMServicer(object):
         """Gets the published schedule for the corresponding @datetime_range for the org sending the request.
         Will create a published schedule if it does not exist already for the org sending the request.
         if @include_shift_instances is true, the shift instances associated within @datetime_range for the published schedule will be returned in the published schedules shift_instances field.
-        if @node_selector is set, then only instances belonging to the origin of @node_selector and its children node will be returned, otherwise all matching shift instances will be included.
         if @include_shift_template is true, any returned shift instances will have their orginating shift template returned in their origin_shift_template field.
         if @include_shift_segments is true, any returned shift instances will have their shift_segments field set, otherwise the field will be left nil.
         if @include_scheduling_activity is true, any returned shift segments will have their scheduling_activity field set, otherwise the field will be left nil.
@@ -2470,7 +2552,6 @@ class WFMServicer(object):
         """Gets the draft schedule with @draft_schedule_sid for the corresponding @datetime_range for the org sending the request.
         The @datetime_range field is optional. If not set, the draft schedule will be obtained with it's default range from it's start to end time.
         if @include_shift_instances is true, the shift instances associated within @datetime_range for the draft schedule will be returned in the draft schedules shift_instances field.
-        if @node_selector is set then only instances belonging to the origin of @node_selector and its children node will be returned, otherwise all matching shift instances will be included.
         @node_selector must be for a node that belongs to the same schedule scenario as @draft_schedule_sid.
         if @include_shift_template is true, any returned shift instances will have their orginating shift template returned in their origin_shift_template field.
         if @include_shift_segments is true, any returned shift instances will have their shift_segments field set, otherwise the field will be left nil.
@@ -3229,6 +3310,40 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def HelloWorldWFMAdherence(self, request, context):
+        """**************************************************************************************************************************************************
+
+        **************************************************************************************************************************************************
+
+        ***************************************************************ADHERENCE RPCS*********************************************************************
+
+        **************************************************************************************************************************************************
+
+        **************************************************************************************************************************************************
+
+        A hello world endpoint to test the WFM Adherence App.
+        Returns a string with a hello world message.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAgentStatesForDay(self, request, context):
+        """List the real time agent states for published schedule and the org sending the request, starting on the given @start_datetime.
+        If the @end_datetime is set, all agent state sequences will be returned for the range between @start_datetime and @end_datetime.
+        If @end_datetime is not set, the agent state sequences will be returned over a 24 hour period or until the current time, whichever is shorter.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
+        Errors:
+        - grpc.Invalid: the @start_datetime is invalid or beyond the current datetime.
+        - grpc.Internal: error occurs when listing the agent states.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -3562,6 +3677,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateAgentGroupRes.SerializeToString,
             ),
+            'CreateUnassignedWFMAgent': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateUnassignedWFMAgent,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentResponse.SerializeToString,
+            ),
             'UpdateWFMAgent': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateWFMAgent,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateWFMAgentReq.FromString,
@@ -3587,6 +3707,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentSidsRes.SerializeToString,
             ),
+            'ListUnassignedWFMAgents': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListUnassignedWFMAgents,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsResponse.SerializeToString,
+            ),
             'ListWFMAgentsAssociatedWithAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.ListWFMAgentsAssociatedWithAgentGroup,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListWFMAgentsAssociatedWithAgentGroupReq.FromString,
@@ -3597,6 +3722,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateWFMAgentMembershipsRes.SerializeToString,
             ),
+            'CopyWFMAgentMemberships': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyWFMAgentMemberships,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsResponse.SerializeToString,
+            ),
             'DeleteWFMAgentMemberships': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteWFMAgentMemberships,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentMembershipsReq.FromString,
@@ -3606,6 +3736,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteWFMAgentsMemberships,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.SerializeToString,
+            ),
+            'RemoveAgentFromFutureShifts': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveAgentFromFutureShifts,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromFutureShiftsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromFutureShiftsResponse.SerializeToString,
             ),
             'BuildAgentDiagnostics': grpc.unary_unary_rpc_method_handler(
                     servicer.BuildAgentDiagnostics,
@@ -4046,6 +4181,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.RemoveAgentFromSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.SerializeToString,
+            ),
+            'HelloWorldWFMAdherence': grpc.unary_unary_rpc_method_handler(
+                    servicer.HelloWorldWFMAdherence,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.SerializeToString,
+            ),
+            'ListAgentStatesForDay': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentStatesForDay,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -5181,6 +5326,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CreateUnassignedWFMAgent(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateUnassignedWFMAgent',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateUnassignedWFMAgentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def UpdateWFMAgent(request,
             target,
             options=(),
@@ -5266,6 +5428,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListUnassignedWFMAgents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListUnassignedWFMAgents',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListUnassignedWFMAgentsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListWFMAgentsAssociatedWithAgentGroup(request,
             target,
             options=(),
@@ -5300,6 +5479,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CopyWFMAgentMemberships(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CopyWFMAgentMemberships',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyWFMAgentMembershipsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteWFMAgentMemberships(request,
             target,
             options=(),
@@ -5330,6 +5526,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteWFMAgentsMemberships',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteWFMAgentsMembershipsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveAgentFromFutureShifts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromFutureShifts',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromFutureShiftsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromFutureShiftsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -6826,5 +7039,39 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def HelloWorldWFMAdherence(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentStatesForDay(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAgentStatesForDay',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
