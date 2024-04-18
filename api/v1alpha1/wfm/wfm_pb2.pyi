@@ -3556,3 +3556,31 @@ class ListAgentStatesForDayResponse(_message.Message):
     AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
     agent_states: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AgentStateSequence]
     def __init__(self, agent_states: _Optional[_Iterable[_Union[_wfm_pb2.AgentStateSequence, _Mapping]]] = ...) -> None: ...
+
+class ListRealTimeManagementStatesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListRealTimeManagementStatesResponse(_message.Message):
+    __slots__ = ("states",)
+    STATES_FIELD_NUMBER: _ClassVar[int]
+    states: _containers.RepeatedScalarFieldContainer[_wfm_pb2.RealTimeManagementState]
+    def __init__(self, states: _Optional[_Iterable[_Union[_wfm_pb2.RealTimeManagementState, str]]] = ...) -> None: ...
+
+class RealTimeManagementStateColor(_message.Message):
+    __slots__ = ("state", "color")
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    COLOR_FIELD_NUMBER: _ClassVar[int]
+    state: _wfm_pb2.RealTimeManagementState
+    color: _wfm_pb2.RgbaColor
+    def __init__(self, state: _Optional[_Union[_wfm_pb2.RealTimeManagementState, str]] = ..., color: _Optional[_Union[_wfm_pb2.RgbaColor, _Mapping]] = ...) -> None: ...
+
+class ListRealTimeManagementStateColorsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListRealTimeManagementStateColorsResponse(_message.Message):
+    __slots__ = ("state_colors",)
+    STATE_COLORS_FIELD_NUMBER: _ClassVar[int]
+    state_colors: _containers.RepeatedCompositeFieldContainer[RealTimeManagementStateColor]
+    def __init__(self, state_colors: _Optional[_Iterable[_Union[RealTimeManagementStateColor, _Mapping]]] = ...) -> None: ...

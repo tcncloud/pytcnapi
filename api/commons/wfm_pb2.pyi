@@ -692,3 +692,15 @@ class AgentStateSequence(_message.Message):
     start_datetime: _timestamp_pb2.Timestamp
     state_segments: _containers.RepeatedCompositeFieldContainer[AgentStateSegment]
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ...) -> None: ...
+
+class RgbaColor(_message.Message):
+    __slots__ = ("red", "green", "blue", "alpha")
+    RED_FIELD_NUMBER: _ClassVar[int]
+    GREEN_FIELD_NUMBER: _ClassVar[int]
+    BLUE_FIELD_NUMBER: _ClassVar[int]
+    ALPHA_FIELD_NUMBER: _ClassVar[int]
+    red: float
+    green: float
+    blue: float
+    alpha: float
+    def __init__(self, red: _Optional[float] = ..., green: _Optional[float] = ..., blue: _Optional[float] = ..., alpha: _Optional[float] = ...) -> None: ...
