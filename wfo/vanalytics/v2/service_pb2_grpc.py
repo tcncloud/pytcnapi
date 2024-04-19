@@ -3,6 +3,7 @@
 import grpc
 
 from wfo.vanalytics.v2 import filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_filter__pb2
+from wfo.vanalytics.v2 import flag_filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2
 from wfo.vanalytics.v2 import flag_transcript_filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2
 from wfo.vanalytics.v2 import transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__pb2
 
@@ -50,6 +51,11 @@ class VanalyticsStub(object):
                 '/wfo.vanalytics.v2.Vanalytics/ListFlagTranscriptFilters',
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2.ListFlagTranscriptFiltersRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2.ListFlagTranscriptFiltersResponse.FromString,
+                )
+        self.ListFlagFilters = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListFlagFilters',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersResponse.FromString,
                 )
 
 
@@ -112,6 +118,15 @@ class VanalyticsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListFlagFilters(self, request, context):
+        """[FLAG_FILTER] =============================================================
+
+        ListFlagFilters lists flag filter associations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_VanalyticsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -149,6 +164,11 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     servicer.ListFlagTranscriptFilters,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2.ListFlagTranscriptFiltersRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2.ListFlagTranscriptFiltersResponse.SerializeToString,
+            ),
+            'ListFlagFilters': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFlagFilters,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -276,5 +296,22 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListFlagTranscriptFilters',
             wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2.ListFlagTranscriptFiltersRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2.ListFlagTranscriptFiltersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFlagFilters(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListFlagFilters',
+            wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
