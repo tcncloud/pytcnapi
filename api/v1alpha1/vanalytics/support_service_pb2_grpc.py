@@ -20,9 +20,9 @@ class VanalyticsSupportStub(object):
                 request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptResponse.FromString,
                 )
-        self.SearchByOrgId = channel.unary_unary(
-                '/api.v1alpha1.vanalytics.VanalyticsSupport/SearchByOrgId',
-                request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.SearchByOrgIdRequest.SerializeToString,
+        self.ListFlaggedTranscriptsByOrgId = channel.unary_unary(
+                '/api.v1alpha1.vanalytics.VanalyticsSupport/ListFlaggedTranscriptsByOrgId',
+                request_serializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListFlaggedTranscriptsByOrgIdRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.SearchResponse.FromString,
                 )
 
@@ -37,8 +37,8 @@ class VanalyticsSupportServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SearchByOrgId(self, request, context):
-        """SearchByOrgId searches flag transcripts.
+    def ListFlaggedTranscriptsByOrgId(self, request, context):
+        """ListFlaggedTranscriptsByOrgId lists flagged transcripts.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -52,9 +52,9 @@ def add_VanalyticsSupportServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_vanalytics_dot_flag__transcript__pb2.DeleteFlagTranscriptResponse.SerializeToString,
             ),
-            'SearchByOrgId': grpc.unary_unary_rpc_method_handler(
-                    servicer.SearchByOrgId,
-                    request_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.SearchByOrgIdRequest.FromString,
+            'ListFlaggedTranscriptsByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFlaggedTranscriptsByOrgId,
+                    request_deserializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListFlaggedTranscriptsByOrgIdRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.SearchResponse.SerializeToString,
             ),
     }
@@ -85,7 +85,7 @@ class VanalyticsSupport(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def SearchByOrgId(request,
+    def ListFlaggedTranscriptsByOrgId(request,
             target,
             options=(),
             channel_credentials=None,
@@ -95,8 +95,8 @@ class VanalyticsSupport(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.vanalytics.VanalyticsSupport/SearchByOrgId',
-            api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.SearchByOrgIdRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.vanalytics.VanalyticsSupport/ListFlaggedTranscriptsByOrgId',
+            api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.ListFlaggedTranscriptsByOrgIdRequest.SerializeToString,
             api_dot_v1alpha1_dot_vanalytics_dot_transcript__pb2.SearchResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
