@@ -805,57 +805,6 @@ class AgentResponse(_message.Message):
 
 class ListFlaggedTranscriptsByOrgIdRequest(_message.Message):
     __slots__ = ("org_id", "page_size", "sort", "transcript_mask", "flag_summary")
-    class FlagSummary(_message.Message):
-        __slots__ = ("need_review", "review_status", "flags", "count")
-        class NeedReview(_message.Message):
-            __slots__ = ("flag_sids",)
-            class FlagSids(_message.Message):
-                __slots__ = ("any",)
-                ANY_FIELD_NUMBER: _ClassVar[int]
-                any: _containers.RepeatedScalarFieldContainer[int]
-                def __init__(self, any: _Optional[_Iterable[int]] = ...) -> None: ...
-            FLAG_SIDS_FIELD_NUMBER: _ClassVar[int]
-            flag_sids: ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.NeedReview.FlagSids
-            def __init__(self, flag_sids: _Optional[_Union[ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.NeedReview.FlagSids, _Mapping]] = ...) -> None: ...
-        class ReviewStatus(_message.Message):
-            __slots__ = ("any",)
-            ANY_FIELD_NUMBER: _ClassVar[int]
-            any: _containers.RepeatedScalarFieldContainer[TranscriptReviewStatus]
-            def __init__(self, any: _Optional[_Iterable[_Union[TranscriptReviewStatus, str]]] = ...) -> None: ...
-        class Flags(_message.Message):
-            __slots__ = ("flag_sid",)
-            class FlagSid(_message.Message):
-                __slots__ = ("any", "all")
-                ANY_FIELD_NUMBER: _ClassVar[int]
-                ALL_FIELD_NUMBER: _ClassVar[int]
-                any: _containers.RepeatedScalarFieldContainer[int]
-                all: _containers.RepeatedScalarFieldContainer[int]
-                def __init__(self, any: _Optional[_Iterable[int]] = ..., all: _Optional[_Iterable[int]] = ...) -> None: ...
-            FLAG_SID_FIELD_NUMBER: _ClassVar[int]
-            flag_sid: ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.Flags.FlagSid
-            def __init__(self, flag_sid: _Optional[_Union[ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.Flags.FlagSid, _Mapping]] = ...) -> None: ...
-        class Count(_message.Message):
-            __slots__ = ("gte", "lte", "gt", "lt", "eq")
-            GTE_FIELD_NUMBER: _ClassVar[int]
-            LTE_FIELD_NUMBER: _ClassVar[int]
-            GT_FIELD_NUMBER: _ClassVar[int]
-            LT_FIELD_NUMBER: _ClassVar[int]
-            EQ_FIELD_NUMBER: _ClassVar[int]
-            gte: _wrappers_pb2.Int32Value
-            lte: _wrappers_pb2.Int32Value
-            gt: _wrappers_pb2.Int32Value
-            lt: _wrappers_pb2.Int32Value
-            eq: _wrappers_pb2.Int32Value
-            def __init__(self, gte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lte: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., gt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., lt: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., eq: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ...) -> None: ...
-        NEED_REVIEW_FIELD_NUMBER: _ClassVar[int]
-        REVIEW_STATUS_FIELD_NUMBER: _ClassVar[int]
-        FLAGS_FIELD_NUMBER: _ClassVar[int]
-        COUNT_FIELD_NUMBER: _ClassVar[int]
-        need_review: ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.NeedReview
-        review_status: ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.ReviewStatus
-        flags: ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.Flags
-        count: ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.Count
-        def __init__(self, need_review: _Optional[_Union[ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.NeedReview, _Mapping]] = ..., review_status: _Optional[_Union[ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.ReviewStatus, _Mapping]] = ..., flags: _Optional[_Union[ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.Flags, _Mapping]] = ..., count: _Optional[_Union[ListFlaggedTranscriptsByOrgIdRequest.FlagSummary.Count, _Mapping]] = ...) -> None: ...
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     SORT_FIELD_NUMBER: _ClassVar[int]
@@ -865,5 +814,5 @@ class ListFlaggedTranscriptsByOrgIdRequest(_message.Message):
     page_size: int
     sort: Sort
     transcript_mask: _field_mask_pb2.FieldMask
-    flag_summary: ListFlaggedTranscriptsByOrgIdRequest.FlagSummary
-    def __init__(self, org_id: _Optional[str] = ..., page_size: _Optional[int] = ..., sort: _Optional[_Union[Sort, _Mapping]] = ..., transcript_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., flag_summary: _Optional[_Union[ListFlaggedTranscriptsByOrgIdRequest.FlagSummary, _Mapping]] = ...) -> None: ...
+    flag_summary: SearchQuery.FlagSummary
+    def __init__(self, org_id: _Optional[str] = ..., page_size: _Optional[int] = ..., sort: _Optional[_Union[Sort, _Mapping]] = ..., transcript_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., flag_summary: _Optional[_Union[SearchQuery.FlagSummary, _Mapping]] = ...) -> None: ...
