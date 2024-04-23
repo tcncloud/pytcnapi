@@ -803,7 +803,7 @@ class AgentResponse(_message.Message):
     values: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, values: _Optional[_Iterable[str]] = ...) -> None: ...
 
-class ListFlaggedTranscriptsByOrgIdRequest(_message.Message):
+class SearchByOrgIdRequest(_message.Message):
     __slots__ = ("org_id", "page_size", "sort", "transcript_mask", "flag_summary")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
