@@ -2289,7 +2289,7 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteHuntGroupScript(self, request, context):
-        """DeleteHuntGroupScript removes a hunt group script
+        """DeleteHuntGroupScript deletes a hunt group script
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
