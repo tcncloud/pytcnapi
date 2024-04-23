@@ -3356,6 +3356,11 @@ class WFMServicer(object):
 
     def ListRealTimeManagementStates(self, request, context):
         """List org-level RealTimeManagementStates.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
+        Errors:
+        - grpc.Invalid: on invalid input.
+        - grpc.Internal: on unexpected error.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3363,6 +3368,11 @@ class WFMServicer(object):
 
     def ListRealTimeManagementStateColors(self, request, context):
         """List org-level RealTimeManagementStateColors.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
+        Errors:
+        - grpc.Invalid: on invalid input.
+        - grpc.Internal: on unexpected error.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
