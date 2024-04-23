@@ -3,6 +3,7 @@
 import grpc
 
 from api.v1alpha1.scorecards import auto_evaluation_pb2 as api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2
+from api.v1alpha1.scorecards import category_pb2 as api_dot_v1alpha1_dot_scorecards_dot_category__pb2
 from api.v1alpha1.scorecards import evaluation_pb2 as api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2
 from api.v1alpha1.scorecards import scorecard_pb2 as api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2
 
@@ -42,6 +43,11 @@ class ScorecardsSupportStub(object):
                 '/api.v1alpha1.scorecards.ScorecardsSupport/ListScorecardsByOrgId',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsByOrgIdRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsResponse.FromString,
+                )
+        self.ListCategoriesByOrgId = channel.unary_unary(
+                '/api.v1alpha1.scorecards.ScorecardsSupport/ListCategoriesByOrgId',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.ListCategoriesByOrgIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.ListCategoriesResponse.FromString,
                 )
 
 
@@ -85,6 +91,13 @@ class ScorecardsSupportServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListCategoriesByOrgId(self, request, context):
+        """ListCategoriesByOrgId lists categories
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ScorecardsSupportServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -112,6 +125,11 @@ def add_ScorecardsSupportServicer_to_server(servicer, server):
                     servicer.ListScorecardsByOrgId,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsByOrgIdRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsResponse.SerializeToString,
+            ),
+            'ListCategoriesByOrgId': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListCategoriesByOrgId,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.ListCategoriesByOrgIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.ListCategoriesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -207,5 +225,22 @@ class ScorecardsSupport(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.ScorecardsSupport/ListScorecardsByOrgId',
             api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsByOrgIdRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2.ListScorecardsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListCategoriesByOrgId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.ScorecardsSupport/ListCategoriesByOrgId',
+            api_dot_v1alpha1_dot_scorecards_dot_category__pb2.ListCategoriesByOrgIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_category__pb2.ListCategoriesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
