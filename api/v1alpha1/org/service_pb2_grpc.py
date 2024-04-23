@@ -280,11 +280,6 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminClientPreferencesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminClientPreferencesResponse.FromString,
                 )
-        self.ListBroadcastTemplateGeneralDetails = channel.unary_unary(
-                '/api.v1alpha1.org.Org/ListBroadcastTemplateGeneralDetails',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBroadcastTemplateGeneralDetailsRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBroadcastTemplateGeneralDetailsResponse.FromString,
-                )
         self.AcceptLinkbackRecordingTerms = channel.unary_unary(
                 '/api.v1alpha1.org.Org/AcceptLinkbackRecordingTerms',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.AcceptLinkbackRecordingTermsRequest.SerializeToString,
@@ -699,6 +694,11 @@ class OrgStub(object):
                 '/api.v1alpha1.org.Org/CopyDataDipTemplateToOrganization',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationResponse.FromString,
+                )
+        self.ListBroadcastTemplateGeneralDetails = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListBroadcastTemplateGeneralDetails',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListBroadcastTemplateGeneralDetailsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListBroadcastTemplateGeneralDetailsResponse.FromString,
                 )
         self.ListAgentResponseAutoRules = channel.unary_unary(
                 '/api.v1alpha1.org.Org/ListAgentResponseAutoRules',
@@ -1494,13 +1494,6 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListBroadcastTemplateGeneralDetails(self, request, context):
-        """ListBroadcastTemplateGeneralDetails returns a list of broadcast templates for an organization
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def AcceptLinkbackRecordingTerms(self, request, context):
         """AcceptLinkbackRecordingTerms insert a digital signature acceptance activity
         log upon client acknowledgement of terms and conditions usage for linkback
@@ -2101,6 +2094,13 @@ class OrgServicer(object):
 
     def CopyDataDipTemplateToOrganization(self, request, context):
         """Copies a data dip template to a different organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBroadcastTemplateGeneralDetails(self, request, context):
+        """ListBroadcastTemplateGeneralDetails returns a list of broadcast templates for an organization
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2976,11 +2976,6 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminClientPreferencesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminClientPreferencesResponse.SerializeToString,
             ),
-            'ListBroadcastTemplateGeneralDetails': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListBroadcastTemplateGeneralDetails,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBroadcastTemplateGeneralDetailsRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBroadcastTemplateGeneralDetailsResponse.SerializeToString,
-            ),
             'AcceptLinkbackRecordingTerms': grpc.unary_unary_rpc_method_handler(
                     servicer.AcceptLinkbackRecordingTerms,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.AcceptLinkbackRecordingTermsRequest.FromString,
@@ -3395,6 +3390,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.CopyDataDipTemplateToOrganization,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationResponse.SerializeToString,
+            ),
+            'ListBroadcastTemplateGeneralDetails': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBroadcastTemplateGeneralDetails,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListBroadcastTemplateGeneralDetailsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListBroadcastTemplateGeneralDetailsResponse.SerializeToString,
             ),
             'ListAgentResponseAutoRules': grpc.unary_unary_rpc_method_handler(
                     servicer.ListAgentResponseAutoRules,
@@ -4681,23 +4681,6 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateAdminClientPreferences',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminClientPreferencesRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateAdminClientPreferencesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListBroadcastTemplateGeneralDetails(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListBroadcastTemplateGeneralDetails',
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBroadcastTemplateGeneralDetailsRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListBroadcastTemplateGeneralDetailsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -6109,6 +6092,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CopyDataDipTemplateToOrganization',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CopyDataDipTemplateToOrganizationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBroadcastTemplateGeneralDetails(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListBroadcastTemplateGeneralDetails',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListBroadcastTemplateGeneralDetailsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListBroadcastTemplateGeneralDetailsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
