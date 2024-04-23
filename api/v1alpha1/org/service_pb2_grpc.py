@@ -2303,7 +2303,7 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UnassignHuntGroupScript(self, request, context):
-        """UnassignHuntGroupScript unassigns a script to a hunt group
+        """UnassignHuntGroupScript unassigns a script from a hunt group
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
