@@ -130,3 +130,23 @@ class SampleAgentCall(_message.Message):
     silence: _duration_pb2.Duration
     agent_user_id: str
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., call_start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., speech: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., silence: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., agent_user_id: _Optional[str] = ...) -> None: ...
+
+class ListCategoriesByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "author_ids", "skill_profiles", "category_type")
+    class CategoryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        ANY: _ClassVar[ListCategoriesByOrgIdRequest.CategoryType]
+        SYSTEM: _ClassVar[ListCategoriesByOrgIdRequest.CategoryType]
+        USER: _ClassVar[ListCategoriesByOrgIdRequest.CategoryType]
+    ANY: ListCategoriesByOrgIdRequest.CategoryType
+    SYSTEM: ListCategoriesByOrgIdRequest.CategoryType
+    USER: ListCategoriesByOrgIdRequest.CategoryType
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    AUTHOR_IDS_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILES_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    author_ids: _containers.RepeatedScalarFieldContainer[str]
+    skill_profiles: _containers.RepeatedScalarFieldContainer[int]
+    category_type: ListCategoriesByOrgIdRequest.CategoryType
+    def __init__(self, org_id: _Optional[str] = ..., author_ids: _Optional[_Iterable[str]] = ..., skill_profiles: _Optional[_Iterable[int]] = ..., category_type: _Optional[_Union[ListCategoriesByOrgIdRequest.CategoryType, str]] = ...) -> None: ...

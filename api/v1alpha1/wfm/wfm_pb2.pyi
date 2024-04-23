@@ -3533,6 +3533,18 @@ class ReplaceAgentOnScheduleRes(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
+class RgbaColor(_message.Message):
+    __slots__ = ("red", "green", "blue", "alpha")
+    RED_FIELD_NUMBER: _ClassVar[int]
+    GREEN_FIELD_NUMBER: _ClassVar[int]
+    BLUE_FIELD_NUMBER: _ClassVar[int]
+    ALPHA_FIELD_NUMBER: _ClassVar[int]
+    red: float
+    green: float
+    blue: float
+    alpha: float
+    def __init__(self, red: _Optional[float] = ..., green: _Optional[float] = ..., blue: _Optional[float] = ..., alpha: _Optional[float] = ...) -> None: ...
+
 class HelloWorldWFMAdherenceRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
@@ -3572,8 +3584,8 @@ class RealTimeManagementStateColor(_message.Message):
     STATE_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
     state: _wfm_pb2.RealTimeManagementState
-    color: _wfm_pb2.RgbaColor
-    def __init__(self, state: _Optional[_Union[_wfm_pb2.RealTimeManagementState, str]] = ..., color: _Optional[_Union[_wfm_pb2.RgbaColor, _Mapping]] = ...) -> None: ...
+    color: RgbaColor
+    def __init__(self, state: _Optional[_Union[_wfm_pb2.RealTimeManagementState, str]] = ..., color: _Optional[_Union[RgbaColor, _Mapping]] = ...) -> None: ...
 
 class ListRealTimeManagementStateColorsRequest(_message.Message):
     __slots__ = ()
