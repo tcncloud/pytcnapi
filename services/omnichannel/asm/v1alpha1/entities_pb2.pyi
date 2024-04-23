@@ -78,7 +78,9 @@ class ListAsmUserDetailsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAsmUserDetailsResponse(_message.Message):
-    __slots__ = ("sessions",)
+    __slots__ = ("sessions", "asm_user_details")
     SESSIONS_FIELD_NUMBER: _ClassVar[int]
+    ASM_USER_DETAILS_FIELD_NUMBER: _ClassVar[int]
     sessions: _containers.RepeatedCompositeFieldContainer[_session_pb2.AsmUserDetails]
-    def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ...) -> None: ...
+    asm_user_details: _containers.RepeatedCompositeFieldContainer[_session_pb2.AsmUserDetails]
+    def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ..., asm_user_details: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ...) -> None: ...
