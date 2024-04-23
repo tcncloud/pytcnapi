@@ -1357,3 +1357,15 @@ class SimpleCompareExpression(_message.Message):
     disposition_header: str
     compare_value: str
     def __init__(self, operator_type: _Optional[_Union[CompareOperatorType, str]] = ..., act_index: _Optional[int] = ..., disposition_header: _Optional[str] = ..., compare_value: _Optional[str] = ...) -> None: ...
+
+class HuntGroupScriptDetails(_message.Message):
+    __slots__ = ("script", "hunt_group_sids", "outbound_broadcast_template_sids", "inbound_broadcast_template_sids")
+    SCRIPT_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+    OUTBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    script: HuntGroupScript
+    hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    outbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
+    inbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, script: _Optional[_Union[HuntGroupScript, _Mapping]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., outbound_broadcast_template_sids: _Optional[_Iterable[int]] = ..., inbound_broadcast_template_sids: _Optional[_Iterable[int]] = ...) -> None: ...

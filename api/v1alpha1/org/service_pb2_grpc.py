@@ -2261,7 +2261,7 @@ class OrgServicer(object):
     def ListHuntGroupScripts(self, request, context):
         """Hunt Group Scripts
 
-        ListHuntGroupScripts lists
+        ListHuntGroupScripts lists all hunt group scripts for the current organization.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

@@ -469,18 +469,6 @@ class UpdateAgentTriggersResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class HuntGroupScriptDetails(_message.Message):
-    __slots__ = ("script", "hunt_group_sids", "outbound_broadcast_template_sids", "inbound_broadcast_template_sids")
-    SCRIPT_FIELD_NUMBER: _ClassVar[int]
-    HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
-    OUTBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
-    INBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
-    script: _huntgroup_pb2.HuntGroupScript
-    hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
-    outbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
-    inbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., outbound_broadcast_template_sids: _Optional[_Iterable[int]] = ..., inbound_broadcast_template_sids: _Optional[_Iterable[int]] = ...) -> None: ...
-
 class ListHuntGroupScriptsRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
@@ -504,8 +492,8 @@ class GetHuntGroupScriptResponse(_message.Message):
     HUNT_GROUP_SCRIPT_FIELD_NUMBER: _ClassVar[int]
     SCRIPT_DETAILS_FIELD_NUMBER: _ClassVar[int]
     hunt_group_script: _huntgroup_pb2.HuntGroupScript
-    script_details: HuntGroupScriptDetails
-    def __init__(self, hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ..., script_details: _Optional[_Union[HuntGroupScriptDetails, _Mapping]] = ...) -> None: ...
+    script_details: _huntgroup_pb2.HuntGroupScriptDetails
+    def __init__(self, hunt_group_script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ..., script_details: _Optional[_Union[_huntgroup_pb2.HuntGroupScriptDetails, _Mapping]] = ...) -> None: ...
 
 class CreateHuntGroupScriptRequest(_message.Message):
     __slots__ = ("hunt_group_sid", "hunt_group_script")
@@ -546,24 +534,24 @@ class DeleteHuntGroupScriptResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class AssignHuntGroupScriptRequest(_message.Message):
-    __slots__ = ("script_sid", "hunt_group_sid")
+    __slots__ = ("script_sid", "hunt_group_sids")
     SCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
-    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
     script_sid: int
-    hunt_group_sid: int
-    def __init__(self, script_sid: _Optional[int] = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
+    hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, script_sid: _Optional[int] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class AssignHuntGroupScriptResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class UnassignHuntGroupScriptRequest(_message.Message):
-    __slots__ = ("script_sid", "hunt_group_sid")
+    __slots__ = ("script_sid", "hunt_group_sids")
     SCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
-    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
     script_sid: int
-    hunt_group_sid: int
-    def __init__(self, script_sid: _Optional[int] = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
+    hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, script_sid: _Optional[int] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class UnassignHuntGroupScriptResponse(_message.Message):
     __slots__ = ()
