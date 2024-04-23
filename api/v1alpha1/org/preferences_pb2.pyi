@@ -1,6 +1,8 @@
+from api.commons import broadcasts_pb2 as _broadcasts_pb2
 from api.commons import org_pb2 as _org_pb2
 from api.commons.org import preferences_pb2 as _preferences_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -505,6 +507,27 @@ class UpdateAdminClientPreferencesRequest(_message.Message):
 class UpdateAdminClientPreferencesResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListBroadcastTemplateGeneralDetailsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListBroadcastTemplateGeneralDetailsResponse(_message.Message):
+    __slots__ = ("templates",)
+    class Data(_message.Message):
+        __slots__ = ("template_sid", "name", "broadcast_type", "last_scheduled_date")
+        TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        BROADCAST_TYPE_FIELD_NUMBER: _ClassVar[int]
+        LAST_SCHEDULED_DATE_FIELD_NUMBER: _ClassVar[int]
+        template_sid: int
+        name: str
+        broadcast_type: _broadcasts_pb2.BroadcastType
+        last_scheduled_date: _timestamp_pb2.Timestamp
+        def __init__(self, template_sid: _Optional[int] = ..., name: _Optional[str] = ..., broadcast_type: _Optional[_Union[_broadcasts_pb2.BroadcastType, str]] = ..., last_scheduled_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    TEMPLATES_FIELD_NUMBER: _ClassVar[int]
+    templates: _containers.RepeatedCompositeFieldContainer[ListBroadcastTemplateGeneralDetailsResponse.Data]
+    def __init__(self, templates: _Optional[_Iterable[_Union[ListBroadcastTemplateGeneralDetailsResponse.Data, _Mapping]]] = ...) -> None: ...
 
 class AcceptLinkbackRecordingTermsRequest(_message.Message):
     __slots__ = ()
