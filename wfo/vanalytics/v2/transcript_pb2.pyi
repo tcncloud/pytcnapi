@@ -848,3 +848,15 @@ class SpanFuzzy(_message.Message):
     fuzziness_auto: FuzzinessAuto
     fuzziness_value: int
     def __init__(self, value: _Optional[str] = ..., fuzziness_auto: _Optional[_Union[FuzzinessAuto, _Mapping]] = ..., fuzziness_value: _Optional[int] = ...) -> None: ...
+
+class BulkDeleteTranscriptsRequest(_message.Message):
+    __slots__ = ("query",)
+    QUERY_FIELD_NUMBER: _ClassVar[int]
+    query: TranscriptQuery
+    def __init__(self, query: _Optional[_Union[TranscriptQuery, _Mapping]] = ...) -> None: ...
+
+class BulkDeleteTranscriptsResponse(_message.Message):
+    __slots__ = ("total",)
+    TOTAL_FIELD_NUMBER: _ClassVar[int]
+    total: int
+    def __init__(self, total: _Optional[int] = ...) -> None: ...
