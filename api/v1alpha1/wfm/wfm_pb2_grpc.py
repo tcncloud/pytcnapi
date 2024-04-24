@@ -860,6 +860,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.FromString,
                 )
+        self.ListRealTimeManagementStates = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStates',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.FromString,
+                )
+        self.ListRealTimeManagementStateColors = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStateColors',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.FromString,
+                )
 
 
 class WFMServicer(object):
@@ -3344,6 +3354,30 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListRealTimeManagementStates(self, request, context):
+        """List org-level RealTimeManagementStates.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
+        Errors:
+        - grpc.Invalid: on invalid input.
+        - grpc.Internal: on unexpected error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRealTimeManagementStateColors(self, request, context):
+        """List org-level RealTimeManagementStateColors.
+        Required permissions:
+        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
+        Errors:
+        - grpc.Invalid: on invalid input.
+        - grpc.Internal: on unexpected error.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -4191,6 +4225,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListAgentStatesForDay,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.SerializeToString,
+            ),
+            'ListRealTimeManagementStates': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRealTimeManagementStates,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.SerializeToString,
+            ),
+            'ListRealTimeManagementStateColors': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRealTimeManagementStateColors,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7073,5 +7117,39 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAgentStatesForDay',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRealTimeManagementStates(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStates',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRealTimeManagementStateColors(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStateColors',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -5,7 +5,11 @@ import grpc
 
 
 class WfmAdherenceAppServiceStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """The original plan was to use this for public endpoints to wfm-adherence-app,
+    but we ended up putting them in wfm.proto and wfm-api.
+
+    This should be unused until we remove wfm-api in favor of using individual services.
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -16,7 +20,11 @@ class WfmAdherenceAppServiceStub(object):
 
 
 class WfmAdherenceAppServiceServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """The original plan was to use this for public endpoints to wfm-adherence-app,
+    but we ended up putting them in wfm.proto and wfm-api.
+
+    This should be unused until we remove wfm-api in favor of using individual services.
+    """
 
 
 def add_WfmAdherenceAppServiceServicer_to_server(servicer, server):
@@ -29,4 +37,8 @@ def add_WfmAdherenceAppServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class WfmAdherenceAppService(object):
-    """Missing associated documentation comment in .proto file."""
+    """The original plan was to use this for public endpoints to wfm-adherence-app,
+    but we ended up putting them in wfm.proto and wfm-api.
+
+    This should be unused until we remove wfm-api in favor of using individual services.
+    """

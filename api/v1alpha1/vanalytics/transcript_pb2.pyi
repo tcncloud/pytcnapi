@@ -802,3 +802,17 @@ class AgentResponse(_message.Message):
     VALUES_FIELD_NUMBER: _ClassVar[int]
     values: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, values: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class SearchByOrgIdRequest(_message.Message):
+    __slots__ = ("org_id", "page_size", "sort", "transcript_mask", "flag_summary")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    SORT_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_MASK_FIELD_NUMBER: _ClassVar[int]
+    FLAG_SUMMARY_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    page_size: int
+    sort: Sort
+    transcript_mask: _field_mask_pb2.FieldMask
+    flag_summary: SearchQuery.FlagSummary
+    def __init__(self, org_id: _Optional[str] = ..., page_size: _Optional[int] = ..., sort: _Optional[_Union[Sort, _Mapping]] = ..., transcript_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., flag_summary: _Optional[_Union[SearchQuery.FlagSummary, _Mapping]] = ...) -> None: ...
