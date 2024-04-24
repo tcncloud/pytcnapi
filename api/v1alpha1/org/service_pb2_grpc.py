@@ -800,6 +800,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersResponse.FromString,
                 )
+        self.ListHuntGroupScripts = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListHuntGroupScripts',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
+                )
         self.GetHuntGroupScript = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetHuntGroupScript',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupScriptRequest.SerializeToString,
@@ -819,6 +824,16 @@ class OrgStub(object):
                 '/api.v1alpha1.org.Org/DeleteHuntGroupScript',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupScriptRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupScriptResponse.FromString,
+                )
+        self.AssignScriptToHuntGroups = channel.unary_unary(
+                '/api.v1alpha1.org.Org/AssignScriptToHuntGroups',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignScriptToHuntGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignScriptToHuntGroupsResponse.FromString,
+                )
+        self.UnassignScriptFromHuntGroups = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UnassignScriptFromHuntGroups',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UnassignScriptFromHuntGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UnassignScriptFromHuntGroupsResponse.FromString,
                 )
         self.CreateTrust = channel.unary_unary(
                 '/api.v1alpha1.org.Org/CreateTrust',
@@ -2255,31 +2270,52 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetHuntGroupScript(self, request, context):
+    def ListHuntGroupScripts(self, request, context):
         """Hunt Group Scripts
 
-        GetHuntGroupScript gets the hunt group script for a given hunt group
+        ListHuntGroupScripts lists all hunt group scripts for the current organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetHuntGroupScript(self, request, context):
+        """GetHuntGroupScript gets the specified script from the given script sid
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def CreateHuntGroupScript(self, request, context):
-        """CreateHuntGroupScript adds a hunt group script within the given hunt group
+        """CreateHuntGroupScript adds a creates a new hunt group script
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def UpdateHuntGroupScript(self, request, context):
-        """UpdateHuntGroupScript updates a hunt group script within the given hunt group
+        """UpdateHuntGroupScript updates a script specified by the given script sid
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def DeleteHuntGroupScript(self, request, context):
-        """DeleteHuntGroupScript removes a hunt group script within the given hunt group
+        """DeleteHuntGroupScript deletes a hunt group script
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AssignScriptToHuntGroups(self, request, context):
+        """AssignScriptToHuntGroups assigns a script to the specified hunt groups
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UnassignScriptFromHuntGroups(self, request, context):
+        """UnassignScriptFromHuntGroups unassigns a script from the specified hunt groups
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3496,6 +3532,11 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateAgentTriggersResponse.SerializeToString,
             ),
+            'ListHuntGroupScripts': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListHuntGroupScripts,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.SerializeToString,
+            ),
             'GetHuntGroupScript': grpc.unary_unary_rpc_method_handler(
                     servicer.GetHuntGroupScript,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupScriptRequest.FromString,
@@ -3515,6 +3556,16 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.DeleteHuntGroupScript,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupScriptRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupScriptResponse.SerializeToString,
+            ),
+            'AssignScriptToHuntGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignScriptToHuntGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignScriptToHuntGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignScriptToHuntGroupsResponse.SerializeToString,
+            ),
+            'UnassignScriptFromHuntGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.UnassignScriptFromHuntGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UnassignScriptFromHuntGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UnassignScriptFromHuntGroupsResponse.SerializeToString,
             ),
             'CreateTrust': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateTrust,
@@ -6453,6 +6504,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListHuntGroupScripts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListHuntGroupScripts',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetHuntGroupScript(request,
             target,
             options=(),
@@ -6517,6 +6585,40 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteHuntGroupScript',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupScriptRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteHuntGroupScriptResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignScriptToHuntGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/AssignScriptToHuntGroups',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignScriptToHuntGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.AssignScriptToHuntGroupsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UnassignScriptFromHuntGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UnassignScriptFromHuntGroups',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UnassignScriptFromHuntGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UnassignScriptFromHuntGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
