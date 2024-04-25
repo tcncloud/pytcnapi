@@ -71,18 +71,20 @@ class ScrubList(_message.Message):
     def __init__(self, list_id: _Optional[str] = ..., entries: _Optional[_Iterable[_Union[ScrubEntry, _Mapping]]] = ...) -> None: ...
 
 class CreateScrubListReq(_message.Message):
-    __slots__ = ("list_id", "list", "content_type", "country_code", "scrub_entry_details")
+    __slots__ = ("list_id", "list", "content_type", "country_code", "scrub_entry_details", "durable")
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
     LIST_FIELD_NUMBER: _ClassVar[int]
     CONTENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     SCRUB_ENTRY_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    DURABLE_FIELD_NUMBER: _ClassVar[int]
     list_id: str
     list: _containers.RepeatedScalarFieldContainer[str]
     content_type: _compliance_pb2.ContentType
     country_code: str
     scrub_entry_details: _containers.RepeatedCompositeFieldContainer[_compliance_pb2.ScrubEntryDetails]
-    def __init__(self, list_id: _Optional[str] = ..., list: _Optional[_Iterable[str]] = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., country_code: _Optional[str] = ..., scrub_entry_details: _Optional[_Iterable[_Union[_compliance_pb2.ScrubEntryDetails, _Mapping]]] = ...) -> None: ...
+    durable: bool
+    def __init__(self, list_id: _Optional[str] = ..., list: _Optional[_Iterable[str]] = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., country_code: _Optional[str] = ..., scrub_entry_details: _Optional[_Iterable[_Union[_compliance_pb2.ScrubEntryDetails, _Mapping]]] = ..., durable: bool = ...) -> None: ...
 
 class AddScrubListEntriesReq(_message.Message):
     __slots__ = ("list_id", "list", "content_type", "country_code", "scrub_entry_details")
