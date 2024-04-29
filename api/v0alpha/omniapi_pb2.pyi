@@ -1,5 +1,4 @@
 from annotations import authz_pb2 as _authz_pb2
-from api.commons import lms_pb2 as _lms_pb2
 from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from api.commons import types_pb2 as _types_pb2
 from api.commons import wfm_pb2 as _wfm_pb2
@@ -458,23 +457,13 @@ class GetAvailableHeadersRes(_message.Message):
     headers: _containers.RepeatedCompositeFieldContainer[HeaderGroup]
     def __init__(self, headers: _Optional[_Iterable[_Union[HeaderGroup, _Mapping]]] = ...) -> None: ...
 
-class Header(_message.Message):
-    __slots__ = ("name", "type")
-    NAME_FIELD_NUMBER: _ClassVar[int]
-    TYPE_FIELD_NUMBER: _ClassVar[int]
-    name: str
-    type: _lms_pb2.FieldType
-    def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[_lms_pb2.FieldType, str]] = ...) -> None: ...
-
 class HeaderGroup(_message.Message):
-    __slots__ = ("name", "headers", "list_headers")
+    __slots__ = ("name", "headers")
     NAME_FIELD_NUMBER: _ClassVar[int]
     HEADERS_FIELD_NUMBER: _ClassVar[int]
-    LIST_HEADERS_FIELD_NUMBER: _ClassVar[int]
     name: str
     headers: _containers.RepeatedScalarFieldContainer[str]
-    list_headers: _containers.RepeatedCompositeFieldContainer[Header]
-    def __init__(self, name: _Optional[str] = ..., headers: _Optional[_Iterable[str]] = ..., list_headers: _Optional[_Iterable[_Union[Header, _Mapping]]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., headers: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ApproveTaskRequest(_message.Message):
     __slots__ = ("task_sid",)
