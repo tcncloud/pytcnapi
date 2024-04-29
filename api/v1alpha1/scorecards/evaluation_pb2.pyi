@@ -45,6 +45,18 @@ class DeleteEvaluationResponse(_message.Message):
     evaluation: _scorecards_pb2.Evaluation
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
+class RestoreEvaluationRequest(_message.Message):
+    __slots__ = ("evaluation_id",)
+    EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
+    evaluation_id: int
+    def __init__(self, evaluation_id: _Optional[int] = ...) -> None: ...
+
+class RestoreEvaluationResponse(_message.Message):
+    __slots__ = ("evaluation",)
+    EVALUATION_FIELD_NUMBER: _ClassVar[int]
+    evaluation: _scorecards_pb2.Evaluation
+    def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
+
 class GetEvaluationRequest(_message.Message):
     __slots__ = ("evaluation_id",)
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]

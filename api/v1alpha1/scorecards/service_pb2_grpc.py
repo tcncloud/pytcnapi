@@ -167,6 +167,11 @@ class ScorecardsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationResponse.FromString,
                 )
+        self.RestoreEvaluation = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/RestoreEvaluation',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationResponse.FromString,
+                )
         self.ScoreEvaluation = channel.unary_unary(
                 '/api.v1alpha1.scorecards.Scorecards/ScoreEvaluation',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.ScoreEvaluationRequest.SerializeToString,
@@ -460,6 +465,13 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def RestoreEvaluation(self, request, context):
+        """RestoreEvaluation restores a deleted evaluation
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ScoreEvaluation(self, request, context):
         """GetEvaluation gets an evaluation
         """
@@ -726,6 +738,11 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.DeleteEvaluation,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationResponse.SerializeToString,
+            ),
+            'RestoreEvaluation': grpc.unary_unary_rpc_method_handler(
+                    servicer.RestoreEvaluation,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationResponse.SerializeToString,
             ),
             'ScoreEvaluation': grpc.unary_unary_rpc_method_handler(
                     servicer.ScoreEvaluation,
@@ -1312,6 +1329,23 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/DeleteEvaluation',
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RestoreEvaluation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/RestoreEvaluation',
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
