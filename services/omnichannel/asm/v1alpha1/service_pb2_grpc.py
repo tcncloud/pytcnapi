@@ -44,6 +44,11 @@ class AsmServiceStub(object):
                 request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRequest.SerializeToString,
                 response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsResponse.FromString,
                 )
+        self.PushEvents = channel.unary_unary(
+                '/services.omnichannel.asm.v1alpha1.AsmService/PushEvents',
+                request_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.PushEventsRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.PushEventResponse.FromString,
+                )
 
 
 class AsmServiceServicer(object):
@@ -90,6 +95,13 @@ class AsmServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def PushEvents(self, request, context):
+        """puah events push a list of events
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AsmServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -122,6 +134,11 @@ def add_AsmServiceServicer_to_server(servicer, server):
                     servicer.ListAsmUserDetails,
                     request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRequest.FromString,
                     response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsResponse.SerializeToString,
+            ),
+            'PushEvents': grpc.unary_unary_rpc_method_handler(
+                    servicer.PushEvents,
+                    request_deserializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.PushEventsRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.PushEventResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -232,5 +249,22 @@ class AsmService(object):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/ListAsmUserDetails',
             services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsRequest.SerializeToString,
             services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.ListAsmUserDetailsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PushEvents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.omnichannel.asm.v1alpha1.AsmService/PushEvents',
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.PushEventsRequest.SerializeToString,
+            services_dot_omnichannel_dot_asm_dot_v1alpha1_dot_entities__pb2.PushEventResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
