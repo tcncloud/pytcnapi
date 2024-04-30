@@ -9,8 +9,7 @@ from wfo.vanalytics.v2 import transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_tr
 
 
 class VanalyticsStub(object):
-    """[TRANSCRIPT] ==============================================================
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
         """Constructor.
@@ -22,11 +21,6 @@ class VanalyticsStub(object):
                 '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
-                )
-        self.BulkDeleteTranscripts = channel.unary_unary(
-                '/wfo.vanalytics.v2.Vanalytics/BulkDeleteTranscripts',
-                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.SerializeToString,
-                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.FromString,
                 )
         self.CreateFilter = channel.unary_unary(
                 '/wfo.vanalytics.v2.Vanalytics/CreateFilter',
@@ -66,20 +60,12 @@ class VanalyticsStub(object):
 
 
 class VanalyticsServicer(object):
-    """[TRANSCRIPT] ==============================================================
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def SearchTranscripts(self, request, context):
         """SearchTranscripts searches transcripts by search criteria. The search response
         contains one page of transcript hits. Traversing the paginated hits is
         achieved by making use of the given page token.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def BulkDeleteTranscripts(self, request, context):
-        """BulkDeleteTranscripts bulk deletes transcripts matching the provided query.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -149,11 +135,6 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.SerializeToString,
             ),
-            'BulkDeleteTranscripts': grpc.unary_unary_rpc_method_handler(
-                    servicer.BulkDeleteTranscripts,
-                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.FromString,
-                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.SerializeToString,
-            ),
             'CreateFilter': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateFilter,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_filter__pb2.CreateFilterRequest.FromString,
@@ -197,8 +178,7 @@ def add_VanalyticsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Vanalytics(object):
-    """[TRANSCRIPT] ==============================================================
-    """
+    """Missing associated documentation comment in .proto file."""
 
     @staticmethod
     def SearchTranscripts(request,
@@ -214,23 +194,6 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def BulkDeleteTranscripts(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/BulkDeleteTranscripts',
-            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.SerializeToString,
-            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
