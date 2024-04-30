@@ -2279,6 +2279,7 @@ class OrgServicer(object):
         """Hunt Group Scripts
 
         ListHuntGroupScripts lists all hunt group scripts for the current organization.
+        DEPRECATED. Use ListOrgHuntGroupScripts instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
