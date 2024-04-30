@@ -546,7 +546,7 @@ class ConversationCollectedData_Item(_message.Message):
     def __init__(self, conversation_collected_data_sid: _Optional[int] = ..., conversation_sid: _Optional[int] = ..., data_name: _Optional[str] = ..., data_value: _Optional[str] = ..., collection_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., user_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class OmniMessage(_message.Message):
-    __slots__ = ("message_sid", "user_id", "sent_from", "sent_to", "channel_type", "reference_id", "ui_reference_id", "payload", "conversation_sid", "status", "date_created", "date_modified", "campaign_sid", "subject", "sender_type", "status_message")
+    __slots__ = ("message_sid", "user_id", "sent_from", "sent_to", "channel_type", "reference_id", "ui_reference_id", "payload", "conversation_sid", "status", "date_created", "date_modified", "campaign_sid", "subject", "sender_type", "status_message", "message_format")
     MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     SENT_FROM_FIELD_NUMBER: _ClassVar[int]
@@ -563,6 +563,7 @@ class OmniMessage(_message.Message):
     SUBJECT_FIELD_NUMBER: _ClassVar[int]
     SENDER_TYPE_FIELD_NUMBER: _ClassVar[int]
     STATUS_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FORMAT_FIELD_NUMBER: _ClassVar[int]
     message_sid: int
     user_id: _wrappers_pb2.StringValue
     sent_from: str
@@ -579,7 +580,8 @@ class OmniMessage(_message.Message):
     subject: _wrappers_pb2.StringValue
     sender_type: OmniSenderType
     status_message: _wrappers_pb2.StringValue
-    def __init__(self, message_sid: _Optional[int] = ..., user_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sent_from: _Optional[str] = ..., sent_to: _Optional[str] = ..., channel_type: _Optional[_Union[ChannelType, str]] = ..., reference_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., conversation_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., status: _Optional[_Union[OmniMessageStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., campaign_sid: _Optional[int] = ..., subject: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ..., status_message: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
+    message_format: MessageFormat
+    def __init__(self, message_sid: _Optional[int] = ..., user_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sent_from: _Optional[str] = ..., sent_to: _Optional[str] = ..., channel_type: _Optional[_Union[ChannelType, str]] = ..., reference_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., ui_reference_id: _Optional[str] = ..., payload: _Optional[_Union[OmniMessagePayload, _Mapping]] = ..., conversation_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., status: _Optional[_Union[OmniMessageStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., campaign_sid: _Optional[int] = ..., subject: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., sender_type: _Optional[_Union[OmniSenderType, str]] = ..., status_message: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., message_format: _Optional[_Union[MessageFormat, str]] = ...) -> None: ...
 
 class CustomerChatWidgetMessage(_message.Message):
     __slots__ = ("message_sid", "payload", "date_created", "ui_reference_id", "customer_information")

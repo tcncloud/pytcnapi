@@ -1802,6 +1802,22 @@ class GetOpenTimesBitmapsRes(_message.Message):
     resulting_bitmap: _containers.RepeatedScalarFieldContainer[_wfm_pb2.OpenTimesOption]
     def __init__(self, inherited_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.OpenTimesOption, str]]] = ..., own_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.OpenTimesOption, str]]] = ..., resulting_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.OpenTimesOption, str]]] = ...) -> None: ...
 
+class ListOpenDateRangesForNodeOpenTimesBitmapsRequest(_message.Message):
+    __slots__ = ("datetime_range", "node_selector", "schedule_scenario_sid")
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    node_selector: ParentEntity
+    schedule_scenario_sid: int
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+
+class ListOpenDateRangesForNodeOpenTimesBitmapsResponse(_message.Message):
+    __slots__ = ("open_close_ranges",)
+    OPEN_CLOSE_RANGES_FIELD_NUMBER: _ClassVar[int]
+    open_close_ranges: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.DatetimeRange]
+    def __init__(self, open_close_ranges: _Optional[_Iterable[_Union[_wfm_pb2.DatetimeRange, _Mapping]]] = ...) -> None: ...
+
 class AgentAvailabilityPattern(_message.Message):
     __slots__ = ("agent_availability_pattern_sid", "parent_entity", "datetime_pattern", "schedule_scenario_sid")
     AGENT_AVAILABILITY_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
@@ -3534,16 +3550,18 @@ class ReplaceAgentOnScheduleRes(_message.Message):
     def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class RgbaColor(_message.Message):
-    __slots__ = ("red", "green", "blue", "alpha")
+    __slots__ = ("red", "green", "blue", "alpha", "name")
     RED_FIELD_NUMBER: _ClassVar[int]
     GREEN_FIELD_NUMBER: _ClassVar[int]
     BLUE_FIELD_NUMBER: _ClassVar[int]
     ALPHA_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     red: float
     green: float
     blue: float
     alpha: float
-    def __init__(self, red: _Optional[float] = ..., green: _Optional[float] = ..., blue: _Optional[float] = ..., alpha: _Optional[float] = ...) -> None: ...
+    name: str
+    def __init__(self, red: _Optional[float] = ..., green: _Optional[float] = ..., blue: _Optional[float] = ..., alpha: _Optional[float] = ..., name: _Optional[str] = ...) -> None: ...
 
 class HelloWorldWFMAdherenceRequest(_message.Message):
     __slots__ = ()
