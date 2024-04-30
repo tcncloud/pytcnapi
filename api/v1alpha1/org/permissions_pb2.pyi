@@ -220,3 +220,27 @@ class RemovePermissionFromAllPermissionGroupsRequest(_message.Message):
 class RemovePermissionFromAllPermissionGroupsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class AssignLabelsRequest(_message.Message):
+    __slots__ = ("label_ids", "permission_group_id")
+    LABEL_IDS_FIELD_NUMBER: _ClassVar[int]
+    PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    label_ids: _containers.RepeatedScalarFieldContainer[str]
+    permission_group_id: str
+    def __init__(self, label_ids: _Optional[_Iterable[str]] = ..., permission_group_id: _Optional[str] = ...) -> None: ...
+
+class AssignLabelsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class RevokeLabelsRequest(_message.Message):
+    __slots__ = ("label_ids", "permission_group_id")
+    LABEL_IDS_FIELD_NUMBER: _ClassVar[int]
+    PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    label_ids: _containers.RepeatedScalarFieldContainer[str]
+    permission_group_id: str
+    def __init__(self, label_ids: _Optional[_Iterable[str]] = ..., permission_group_id: _Optional[str] = ...) -> None: ...
+
+class RevokeLabelsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
