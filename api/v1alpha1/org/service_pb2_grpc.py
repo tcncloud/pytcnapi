@@ -807,8 +807,8 @@ class OrgStub(object):
                 )
         self.ListOrgHuntGroupScripts = channel.unary_stream(
                 '/api.v1alpha1.org.Org/ListOrgHuntGroupScripts',
-                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListOrgHuntGroupScriptsRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListOrgHuntGroupScriptsResponse.FromString,
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
                 )
         self.GetHuntGroupScript = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetHuntGroupScript',
@@ -3551,8 +3551,8 @@ def add_OrgServicer_to_server(servicer, server):
             ),
             'ListOrgHuntGroupScripts': grpc.unary_stream_rpc_method_handler(
                     servicer.ListOrgHuntGroupScripts,
-                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListOrgHuntGroupScriptsRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListOrgHuntGroupScriptsResponse.SerializeToString,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.SerializeToString,
             ),
             'GetHuntGroupScript': grpc.unary_unary_rpc_method_handler(
                     servicer.GetHuntGroupScript,
@@ -6549,8 +6549,8 @@ class Org(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.org.Org/ListOrgHuntGroupScripts',
-            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListOrgHuntGroupScriptsRequest.SerializeToString,
-            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListOrgHuntGroupScriptsResponse.FromString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

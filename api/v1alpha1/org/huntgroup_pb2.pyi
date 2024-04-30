@@ -502,16 +502,6 @@ class ListHuntGroupScriptsResponse(_message.Message):
     scripts: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.HuntGroupScript]
     def __init__(self, scripts: _Optional[_Iterable[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]]] = ...) -> None: ...
 
-class ListOrgHuntGroupScriptsRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
-
-class ListOrgHuntGroupScriptsResponse(_message.Message):
-    __slots__ = ("scripts",)
-    SCRIPTS_FIELD_NUMBER: _ClassVar[int]
-    scripts: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.HuntGroupScript]
-    def __init__(self, scripts: _Optional[_Iterable[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]]] = ...) -> None: ...
-
 class GetHuntGroupScriptRequest(_message.Message):
     __slots__ = ("hunt_group_sid", "script_sid")
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
