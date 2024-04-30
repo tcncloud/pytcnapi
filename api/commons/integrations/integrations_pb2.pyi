@@ -51,6 +51,7 @@ class IntegrationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     INTEGRATION_TYPE_NAVIGA: _ClassVar[IntegrationType]
     INTEGRATION_TYPE_PAYNSECONDS: _ClassVar[IntegrationType]
     INTEGRATION_TYPE_SUTHERLANDREV: _ClassVar[IntegrationType]
+    INTEGRATION_TYPE_DEBUG: _ClassVar[IntegrationType]
 
 class RequestMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -269,6 +270,8 @@ class RequestMethod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REQUEST_METHOD_NAVIGA_CHANGE_BILLING: _ClassVar[RequestMethod]
     REQUEST_METHOD_PAYNSECONDS_TOKENIZE_CARD: _ClassVar[RequestMethod]
     REQUEST_METHOD_SUTHERLANDREV_PAYMENT_CONNECT: _ClassVar[RequestMethod]
+    REQUEST_METHOD_DEBUG_ECHO: _ClassVar[RequestMethod]
+    REQUESET_METHOD_DEBUG_VALIDATE: _ClassVar[RequestMethod]
 
 class TransactionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -434,6 +437,7 @@ INTEGRATION_TYPE_PRIOCOMMERCE: IntegrationType
 INTEGRATION_TYPE_NAVIGA: IntegrationType
 INTEGRATION_TYPE_PAYNSECONDS: IntegrationType
 INTEGRATION_TYPE_SUTHERLANDREV: IntegrationType
+INTEGRATION_TYPE_DEBUG: IntegrationType
 REQUEST_METHOD_UNKNOWN: RequestMethod
 REQUEST_METHOD_BRAINTREE_CREDITSALE: RequestMethod
 REQUEST_METHOD_BRAINTREE_BANKSALE: RequestMethod
@@ -649,6 +653,8 @@ REQUEST_METHOD_NAVIGA_CREATE_PAYMENT: RequestMethod
 REQUEST_METHOD_NAVIGA_CHANGE_BILLING: RequestMethod
 REQUEST_METHOD_PAYNSECONDS_TOKENIZE_CARD: RequestMethod
 REQUEST_METHOD_SUTHERLANDREV_PAYMENT_CONNECT: RequestMethod
+REQUEST_METHOD_DEBUG_ECHO: RequestMethod
+REQUESET_METHOD_DEBUG_VALIDATE: RequestMethod
 TRANSACTION_TYPE_PAYMENT: TransactionType
 TRANSACTION_TYPE_DATA_INQUIRY: TransactionType
 TRANSACTION_TYPE_ACCOUNT_VERIFY: TransactionType
