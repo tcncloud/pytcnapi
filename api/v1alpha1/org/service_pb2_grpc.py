@@ -975,6 +975,16 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupResponse.FromString,
                 )
+        self.AssignLabels = channel.unary_unary(
+                '/api.v1alpha1.org.Org/AssignLabels',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsResponse.FromString,
+                )
+        self.RevokeLabels = channel.unary_unary(
+                '/api.v1alpha1.org.Org/RevokeLabels',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsResponse.FromString,
+                )
         self.AssignAccountOwnerPermissionToUser = channel.unary_unary(
                 '/api.v1alpha1.org.Org/AssignAccountOwnerPermissionToUser',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignAccountOwnerPermissionToUserRequest.SerializeToString,
@@ -2530,6 +2540,20 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AssignLabels(self, request, context):
+        """AssignLabels assigns labels to a given permission group
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RevokeLabels(self, request, context):
+        """RevokeLabels revokes labels from a given permission group
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def AssignAccountOwnerPermissionToUser(self, request, context):
         """AssignAccountOwnerPermissionToUser returns a user a permission group.
         """
@@ -3706,6 +3730,16 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.RevokeUsersPermissionGroup,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupResponse.SerializeToString,
+            ),
+            'AssignLabels': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignLabels,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsResponse.SerializeToString,
+            ),
+            'RevokeLabels': grpc.unary_unary_rpc_method_handler(
+                    servicer.RevokeLabels,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsResponse.SerializeToString,
             ),
             'AssignAccountOwnerPermissionToUser': grpc.unary_unary_rpc_method_handler(
                     servicer.AssignAccountOwnerPermissionToUser,
@@ -7095,6 +7129,40 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RevokeUsersPermissionGroup',
             api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignLabels(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/AssignLabels',
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RevokeLabels(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RevokeLabels',
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
