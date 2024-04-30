@@ -83,19 +83,22 @@ class LabelsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteLabel(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """DeleteLabel deletes a single label
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def AttachLabel(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """AttachLabel attaches a label to a given entity type
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetLabeledEntityMap(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """GetLabeledEntityMap gives back a map of entity Id to attached labels. The Entity type is specified on the request
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
