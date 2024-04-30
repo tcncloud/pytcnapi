@@ -115,6 +115,11 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
                 )
+        self.ExportManyStream = channel.unary_stream(
+                '/api.v0alpha.Learn/ExportManyStream',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.FromString,
+                )
 
 
 class LearnServicer(object):
@@ -266,6 +271,13 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ExportManyStream(self, request, context):
+        """exports multiple pages of the learning center markdown as PDF file stream
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -368,6 +380,11 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.ReviewVersion,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.SerializeToString,
+            ),
+            'ExportManyStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.ExportManyStream,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ExportManyReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ExportRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -717,5 +734,22 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ReviewVersion',
             api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ExportManyStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Learn/ExportManyStream',
+            api_dot_v0alpha_dot_learn__pb2.ExportManyReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.ExportRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
