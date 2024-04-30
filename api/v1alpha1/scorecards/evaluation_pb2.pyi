@@ -70,20 +70,22 @@ class ScoreEvaluationResponse(_message.Message):
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class ListEvaluationsRequest(_message.Message):
-    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields")
+    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields", "is_deleted")
     SCORER_ID_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
     AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
     RETURN_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    IS_DELETED_FIELD_NUMBER: _ClassVar[int]
     scorer_id: _containers.RepeatedScalarFieldContainer[str]
     completed_at: _scorecards_pb2.TimeFilter
     category_ids: _containers.RepeatedScalarFieldContainer[int]
     agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
     scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
     return_fields: _field_mask_pb2.FieldMask
-    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    is_deleted: bool
+    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., is_deleted: bool = ...) -> None: ...
 
 class ListEvaluationsResponse(_message.Message):
     __slots__ = ("evaluations",)
@@ -130,3 +132,17 @@ class DeleteEvaluationByOrgIdRequest(_message.Message):
     org_id: str
     evaluation_id: int
     def __init__(self, org_id: _Optional[str] = ..., evaluation_id: _Optional[int] = ...) -> None: ...
+
+class RestoreEvaluationRequest(_message.Message):
+    __slots__ = ("evaluation_id", "user_id")
+    EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    evaluation_id: int
+    user_id: str
+    def __init__(self, evaluation_id: _Optional[int] = ..., user_id: _Optional[str] = ...) -> None: ...
+
+class RestoreEvaluationResponse(_message.Message):
+    __slots__ = ("evaluation",)
+    EVALUATION_FIELD_NUMBER: _ClassVar[int]
+    evaluation: _scorecards_pb2.Evaluation
+    def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...

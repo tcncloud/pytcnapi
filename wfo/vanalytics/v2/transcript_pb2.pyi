@@ -179,12 +179,14 @@ class Call(_message.Message):
         user_id: str
         def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Call.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
     class Segment(_message.Message):
-        __slots__ = ("text", "offset")
+        __slots__ = ("text", "offset", "duration")
         TEXT_FIELD_NUMBER: _ClassVar[int]
         OFFSET_FIELD_NUMBER: _ClassVar[int]
+        DURATION_FIELD_NUMBER: _ClassVar[int]
         text: str
         offset: _duration_pb2.Duration
-        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+        duration: _duration_pb2.Duration
+        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
     class TalkOver(_message.Message):
         __slots__ = ("duration", "occurrence", "threshold")
         class Duration(_message.Message):
@@ -848,3 +850,15 @@ class SpanFuzzy(_message.Message):
     fuzziness_auto: FuzzinessAuto
     fuzziness_value: int
     def __init__(self, value: _Optional[str] = ..., fuzziness_auto: _Optional[_Union[FuzzinessAuto, _Mapping]] = ..., fuzziness_value: _Optional[int] = ...) -> None: ...
+
+class BulkDeleteTranscriptsRequest(_message.Message):
+    __slots__ = ("query",)
+    QUERY_FIELD_NUMBER: _ClassVar[int]
+    query: TranscriptQuery
+    def __init__(self, query: _Optional[_Union[TranscriptQuery, _Mapping]] = ...) -> None: ...
+
+class BulkDeleteTranscriptsResponse(_message.Message):
+    __slots__ = ("total",)
+    TOTAL_FIELD_NUMBER: _ClassVar[int]
+    total: int
+    def __init__(self, total: _Optional[int] = ...) -> None: ...

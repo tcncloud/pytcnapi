@@ -805,6 +805,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
                 )
+        self.ListOrgHuntGroupScripts = channel.unary_stream(
+                '/api.v1alpha1.org.Org/ListOrgHuntGroupScripts',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
+                )
         self.GetHuntGroupScript = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetHuntGroupScript',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupScriptRequest.SerializeToString,
@@ -2284,6 +2289,14 @@ class OrgServicer(object):
         """Hunt Group Scripts
 
         ListHuntGroupScripts lists all hunt group scripts for the current organization.
+        DEPRECATED. Use ListOrgHuntGroupScripts instead
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListOrgHuntGroupScripts(self, request, context):
+        """ListOrgHuntGroupScripts lists all hunt group scripts for the current organization with a streamed response.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3558,6 +3571,11 @@ def add_OrgServicer_to_server(servicer, server):
             ),
             'ListHuntGroupScripts': grpc.unary_unary_rpc_method_handler(
                     servicer.ListHuntGroupScripts,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.SerializeToString,
+            ),
+            'ListOrgHuntGroupScripts': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListOrgHuntGroupScripts,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.SerializeToString,
             ),
@@ -6549,6 +6567,23 @@ class Org(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListHuntGroupScripts',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOrgHuntGroupScripts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.org.Org/ListOrgHuntGroupScripts',
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
             options, channel_credentials,
