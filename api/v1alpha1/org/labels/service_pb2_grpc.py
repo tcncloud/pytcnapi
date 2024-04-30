@@ -69,7 +69,7 @@ class LabelsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateLabel(self, request, context):
-        """UpdateLabel gets a single label
+        """UpdateLabel updates a single label
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
