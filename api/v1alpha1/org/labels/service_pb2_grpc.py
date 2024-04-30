@@ -55,7 +55,7 @@ class LabelsServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CreateLabel(self, request, context):
-        """CreateLabel creates a new skill group.
+        """CreateLabel creates a new label.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -69,14 +69,14 @@ class LabelsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def UpdateLabel(self, request, context):
-        """UpdateLabel gets a single label
+        """UpdateLabel updates a single label
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def ListLabels(self, request, context):
-        """ListLabels gets a single label
+        """ListLabels lists all labels for a given organization
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
