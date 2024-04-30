@@ -470,10 +470,10 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsRes.FromString,
                 )
-        self.GetOpenCloseTimesForDateRange = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/GetOpenCloseTimesForDateRange',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenCloseTimesForDateRangeRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenCloseTimesForDateRangeResponse.FromString,
+        self.ListOpenDateRangesForNodeOpenTimesBitmaps = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListOpenDateRangesForNodeOpenTimesBitmaps',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsResponse.FromString,
                 )
         self.CreateAgentAvailabilityPattern = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateAgentAvailabilityPattern',
@@ -2203,7 +2203,7 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetOpenCloseTimesForDateRange(self, request, context):
+    def ListOpenDateRangesForNodeOpenTimesBitmaps(self, request, context):
         """Gets the datetime ranges over which the given @node_selector is open througout the given @datetime_range for the org sending the request.
         If the @node_selector is not open during that range, no ranges will be returned.
         If the @node_selector is opened before or after the given @datetime_range, those times outside of @datetime_range will not be included in the returned @open_close_ranges.
@@ -3852,10 +3852,10 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsRes.SerializeToString,
             ),
-            'GetOpenCloseTimesForDateRange': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOpenCloseTimesForDateRange,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenCloseTimesForDateRangeRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenCloseTimesForDateRangeResponse.SerializeToString,
+            'ListOpenDateRangesForNodeOpenTimesBitmaps': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOpenDateRangesForNodeOpenTimesBitmaps,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsResponse.SerializeToString,
             ),
             'CreateAgentAvailabilityPattern': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAgentAvailabilityPattern,
@@ -5816,7 +5816,7 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetOpenCloseTimesForDateRange(request,
+    def ListOpenDateRangesForNodeOpenTimesBitmaps(request,
             target,
             options=(),
             channel_credentials=None,
@@ -5826,9 +5826,9 @@ class WFM(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetOpenCloseTimesForDateRange',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenCloseTimesForDateRangeRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenCloseTimesForDateRangeResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListOpenDateRangesForNodeOpenTimesBitmaps',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

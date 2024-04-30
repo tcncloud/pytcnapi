@@ -1802,7 +1802,7 @@ class GetOpenTimesBitmapsRes(_message.Message):
     resulting_bitmap: _containers.RepeatedScalarFieldContainer[_wfm_pb2.OpenTimesOption]
     def __init__(self, inherited_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.OpenTimesOption, str]]] = ..., own_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.OpenTimesOption, str]]] = ..., resulting_bitmap: _Optional[_Iterable[_Union[_wfm_pb2.OpenTimesOption, str]]] = ...) -> None: ...
 
-class GetOpenCloseTimesForDateRangeRequest(_message.Message):
+class ListOpenDateRangesForNodeOpenTimesBitmapsRequest(_message.Message):
     __slots__ = ("datetime_range", "node_selector", "schedule_scenario_sid")
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
     NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
@@ -1812,7 +1812,7 @@ class GetOpenCloseTimesForDateRangeRequest(_message.Message):
     schedule_scenario_sid: int
     def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
-class GetOpenCloseTimesForDateRangeResponse(_message.Message):
+class ListOpenDateRangesForNodeOpenTimesBitmapsResponse(_message.Message):
     __slots__ = ("open_close_ranges",)
     OPEN_CLOSE_RANGES_FIELD_NUMBER: _ClassVar[int]
     open_close_ranges: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.DatetimeRange]
