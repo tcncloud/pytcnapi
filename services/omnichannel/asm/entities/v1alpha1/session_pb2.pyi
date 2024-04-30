@@ -58,7 +58,7 @@ class VoiceRegistration(_message.Message):
     def __init__(self, username: _Optional[str] = ..., password: _Optional[str] = ..., dial_url: _Optional[str] = ..., pstn_phone: _Optional[str] = ..., default_time_zone: _Optional[str] = ..., expiration_timestamp: _Optional[int] = ...) -> None: ...
 
 class AsmUserDetails(_message.Message):
-    __slots__ = ("user_id", "name", "agent_sid", "agent_status", "agent_profile_group_name", "current_conversation_sid", "average_customer_wait_time_seconds", "average_time_to_respond_seconds", "last_event_time", "skills", "asm_session_sid", "events")
+    __slots__ = ("user_id", "name", "agent_sid", "agent_status", "agent_profile_group_name", "current_conversation_sid", "average_customer_wait_time_seconds", "average_time_to_respond_seconds", "last_event_time", "skills", "asm_session_sid", "events", "login_time")
     class SkillsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -78,6 +78,7 @@ class AsmUserDetails(_message.Message):
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     EVENTS_FIELD_NUMBER: _ClassVar[int]
+    LOGIN_TIME_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     name: str
     agent_sid: int
@@ -90,7 +91,8 @@ class AsmUserDetails(_message.Message):
     skills: _containers.ScalarMap[str, int]
     asm_session_sid: _wrappers_pb2.Int64Value
     events: _containers.RepeatedCompositeFieldContainer[DashboardAgentResponseEvent]
-    def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ..., agent_sid: _Optional[int] = ..., agent_status: _Optional[_Union[StatusState, str]] = ..., agent_profile_group_name: _Optional[str] = ..., current_conversation_sid: _Optional[int] = ..., average_customer_wait_time_seconds: _Optional[int] = ..., average_time_to_respond_seconds: _Optional[int] = ..., last_event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Mapping[str, int]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., events: _Optional[_Iterable[_Union[DashboardAgentResponseEvent, _Mapping]]] = ...) -> None: ...
+    login_time: _timestamp_pb2.Timestamp
+    def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ..., agent_sid: _Optional[int] = ..., agent_status: _Optional[_Union[StatusState, str]] = ..., agent_profile_group_name: _Optional[str] = ..., current_conversation_sid: _Optional[int] = ..., average_customer_wait_time_seconds: _Optional[int] = ..., average_time_to_respond_seconds: _Optional[int] = ..., last_event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Mapping[str, int]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., events: _Optional[_Iterable[_Union[DashboardAgentResponseEvent, _Mapping]]] = ..., login_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class DashboardAgentResponseEvent(_message.Message):
     __slots__ = ("response_time_seconds", "time", "is_initial_agent_message")

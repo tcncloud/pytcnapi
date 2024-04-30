@@ -187,3 +187,11 @@ class FilenamePart(_message.Message):
     type: FilenamePartType
     static_text: str
     def __init__(self, type: _Optional[_Union[FilenamePartType, str]] = ..., static_text: _Optional[str] = ...) -> None: ...
+
+class TransferOptions(_message.Message):
+    __slots__ = ("transfer_config_sid", "filename_parts")
+    TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
+    FILENAME_PARTS_FIELD_NUMBER: _ClassVar[int]
+    transfer_config_sid: str
+    filename_parts: _containers.RepeatedCompositeFieldContainer[FilenamePart]
+    def __init__(self, transfer_config_sid: _Optional[str] = ..., filename_parts: _Optional[_Iterable[_Union[FilenamePart, _Mapping]]] = ...) -> None: ...
