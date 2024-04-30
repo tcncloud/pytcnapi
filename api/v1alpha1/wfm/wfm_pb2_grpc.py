@@ -470,6 +470,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsRes.FromString,
                 )
+        self.ListOpenDateRangesForNodeOpenTimesBitmaps = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListOpenDateRangesForNodeOpenTimesBitmaps',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsResponse.FromString,
+                )
         self.CreateAgentAvailabilityPattern = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateAgentAvailabilityPattern',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentAvailabilityPatternReq.SerializeToString,
@@ -890,8 +895,6 @@ class WFMServicer(object):
     def ListSkillProfiles(self, request, context):
         """Retrieves all the skill profiles of the org sending the request.
         Also it can return the skills of each of the returned profiles.
-        Required permissions:
-        NONE
         Errors:
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -901,8 +904,6 @@ class WFMServicer(object):
     def UpdateSkillProfile(self, request, context):
         """Updates the @name, and averages of a skill profile that has the given @skill_profile_sid.
         It also updates it to no longer be unnamed.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid, @name or averages in the request are invalid.
         - grpc.Internal: error occurs when updating the skill profile.
@@ -914,8 +915,6 @@ class WFMServicer(object):
 
     def UpdateSkillProfileProficiencies(self, request, context):
         """Updates the @proficiencies for the given skill profile's skills that belong the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @proficiencies in the request are invalid.
         - grpc.Internal: error occurs when updating the skill profiles proficiencies.
@@ -929,8 +928,6 @@ class WFMServicer(object):
         It also gets all the skills and the mappings associated with that profile.
         If the @inactive_as_of_date of the skill profile is nil then the mapping is of inactive profiles to this one,
         otherwise the mapping is of this profile to an active one.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid in the request is invalid.
         - grpc.Internal: error occurs when getting the skill profile.
@@ -943,8 +940,6 @@ class WFMServicer(object):
     def ResyncSkillProfiles(self, request, context):
         """Resyncs the skill profiles of the org sending the request.
         It will add skills and skill profiles based on that client's historical call data.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when creating the new skills and skill profiles.
         """
@@ -955,8 +950,6 @@ class WFMServicer(object):
     def GetLastSkillProfileResyncDate(self, request, context):
         """Gets the last date of a skill profile resync for the org seding the request.
         If the org has never done a skill profile resync @resync_date will not be set.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the resync date.
         """
@@ -967,8 +960,6 @@ class WFMServicer(object):
     def UpsertForecastingParameters(self, request, context):
         """Tries to create an entry for the given forecasting parameters for the org sending the request.
         If the org already has an entry for them, it will update the already existing entry.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @forecasting_parameters in the request is invalid.
         - grpc.Internal: error occurs when upserting the parameters.
@@ -980,8 +971,6 @@ class WFMServicer(object):
     def GetForecastingParameters(self, request, context):
         """Gets the forecasting parameters for the org sending the request.
         If the org hasn't created any parameters, it will return the default parameters.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the parameters.
         """
@@ -993,8 +982,6 @@ class WFMServicer(object):
         """Gets the state of the cache for the given @org_id, and if the cache's state is not_loaded, or loading_failed,
         it will start the loading task before returning the current state.
         DEPRECATED as of Dec/13/2023 - Use PerformInitialClientSetup instead.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Internal: error occurs when getting the cache info.
         """
@@ -1008,8 +995,6 @@ class WFMServicer(object):
         The duration of each interval will be the interval width of the org's forecasting parameters.
         It also applies any deltas that the client has stored for the given @skill_profile_category, if the category is a group it will use the deltas of the skill profiles part of that group.
         If the client has no historical data, only the deltas will be applied to the returned intervals, all other intervals will have nil averages.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_category in the request is invalid.
         - grpc.NotFound: the @skill_profile_category given is not found for the org.
@@ -1022,8 +1007,6 @@ class WFMServicer(object):
     def UpsertHistoricalDataDelta(self, request, context):
         """Tries to create an entry for the given @delta for the org sending the request.
         If the org already has an entry for it, it will update the already exisiting entry.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @delta in the request is invalid.
         - grpc.Internal: error occurs when upserting the historical data interval.
@@ -1036,8 +1019,6 @@ class WFMServicer(object):
         """Tries to create entries for the given @deltas.
         If the given org already has an entry for any of the deltas, it will replace the already existing entries.
         This is made into a unary due to the UI's lack of support for client streams.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @deltas in the request are invalid.
         - grpc.Internal: error occurs when upserting the historical data deltas.
@@ -1049,8 +1030,6 @@ class WFMServicer(object):
     def ListSkills(self, request, context):
         """Gets all the skills that the org sending the request has.
         Skills returned will be sorted by @skill_sid in ascending order.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the skills.
         """
@@ -1066,8 +1045,6 @@ class WFMServicer(object):
         or from @training_data_start_datetime to @training_data_end_datetime if @averages_calculation_range_in_months is 0.
         The fixed averages fields in the call profile template, will be set to the averages that the skill profile has.
         DEPRECATED as of Sep/7/2023 - Use BuildCallProfileTemplate instead.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid in the request is invalid.
         - grpc.NotFound: the @skill_profile_sid given is not found for the org.
@@ -1084,8 +1061,6 @@ class WFMServicer(object):
         The @total_calls in the returned template be summed from the (@training_data_start_datetime - @averages_calculation_range_in_months) to @training_data_end_datetime,
         or from @training_data_start_datetime to @training_data_end_datetime if @averages_calculation_range_in_months is 0.
         The fixed averages fields in the call profile template, will be set to the averages that the skill profile category has.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_category in the request is invalid.
         - grpc.NotFound: the @skill_profile_category given is not found for the org.
@@ -1098,8 +1073,6 @@ class WFMServicer(object):
     def CreateInactiveSkillProfileMapping(self, request, context):
         """Creates a mapping entry for the @inactive_skill_profile_sid to the @active_skill_profile_sid for the org sending the request.
         DEPRECATED as of Sep/27/2023 - Use skill profile groups instead.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @inactive_skill_profile_sid, or @active_skill_profile_sid in the request are invalid.
         the @inactive_skill_profile_sid given is of an active skill profile.
@@ -1112,8 +1085,6 @@ class WFMServicer(object):
 
     def GetAvailableRegressionForecasterModelTypes(self, request, context):
         """Gets a list of enums that represent all of the forecaster types that are currently available for use
-        Required permissions:
-        NONE
         Errors:
         -grpc.Internal: error occurs when contacting the forecaster to get the available forecaster types.
         """
@@ -1124,8 +1095,6 @@ class WFMServicer(object):
     def DisconnectInactiveSkillProfileMapping(self, request, context):
         """Changes the current mapping for the given @inactive_skill_profile_sid to be disconnected.
         DEPRECATED as of Sep/27/2023 - Use skill profile groups instead.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @inactive_skill_profile_sid in the request is invalid.
         - grpc.NotFound: the skill profile is not found for the org.
@@ -1139,8 +1108,6 @@ class WFMServicer(object):
     def CreateSkillProfileGroup(self, request, context):
         """Creates the given @skill_profile_group.
         @skill_profile_group_sids will be ignored since associations cannot be created by this method.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_group in the request is invalid.
         - grpc.Internal: error occurs creating the skill profile group.
@@ -1152,8 +1119,6 @@ class WFMServicer(object):
     def UpdateSkillProfileGroup(self, request, context):
         """Updates the given @skill_profile_group that has the @skill_profile_group_sid for the org sending the request.
         @skill_profile_group_sids will be ignored since associations cannot be updated by this method.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_group in the request is invalid.
         - grpc.NotFound: the skill profile group to update doesn't exist.
@@ -1179,8 +1144,6 @@ class WFMServicer(object):
         """Updates associations of the given @skill_profile_group_sid for the org sending the request.
         It will create the associations with the @skill_profile_sids_to_associate, and remove the associations with the @skill_profile_sids_to_disassociate.
         Only one of the skill_profile_sids fields needs to be set, but both can be set on the same request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the values in the request are invalid.
         - grpc.Internal: error occurs updating the skill profile group associations.
@@ -1192,8 +1155,6 @@ class WFMServicer(object):
     def DeleteHistoricalDataDeltas(self, request, context):
         """Deletes deltas whose dates match the given @start_datetimes for the given @skill_profile_sid.
         If no @start_datetimes are given, it will delete all the deltas that the given @skill_profile_sid has.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid, or @start_datetimes in the request are invalid.
         - grpc.NotFound: no matching deltas are found for deletion.
@@ -1207,8 +1168,6 @@ class WFMServicer(object):
         """Gets the top N skill profiles with the highest calls_count for org sending the request where N is @max_number_of_profiles.
         It will also return the number of skills found for that profile.
         Individual skills that each profile has will not be returned.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @max_number_of_profiles in the request is invalid.
         - grpc.Internal: error occurs when getting the skill profiles.
@@ -1219,8 +1178,6 @@ class WFMServicer(object):
 
     def GetSkillProfilesCount(self, request, context):
         """Gets the total number of skill profiles associated with the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the skill profiles count.
         """
@@ -1234,8 +1191,6 @@ class WFMServicer(object):
         (@training_data_range_end_datetime - @forecast_test_range_in_weeks) to @forecast_range_end_datetime.
         The @total_calls in the @call_profile_template will be scaled using the same ranges as BuildCallProfileTemplate.
         The @fixed_averages_forecast field indicates whether or not to do a fixed averages forecast.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_category or @call_profile_template in the request is invalid.
         - grpc.Internal: error occurs during the building of the profile forecast.
@@ -1251,8 +1206,6 @@ class WFMServicer(object):
         The @total_calls in the @call_profile_template will be scaled using the same ranges as BuildCallProfileTemplate.
         The @fixed_averages_forecast field indicates whether or not to do a fixed averages forecast.
         It also returns the statistics of the produced forecast by using the test data of the given @skill_profile_category.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_category or @call_profile_template in the request is invalid.
         - grpc.Internal: error occurs during the building of the profile forecast.
@@ -1268,8 +1221,6 @@ class WFMServicer(object):
         The @total_calls in the @call_profile_template will be scaled using the same ranges as BuildCallProfileTemplateForSkillProfile.
         The intervals produced will be saved in the database.
         The @fixed_averages_forecast field indicates whether or not to do a fixed averages forecast.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid or @call_profile_template in the request are invalid.
         - grpc.NotFound: the @skill_profile_sid doesn't exist.
@@ -1281,8 +1232,6 @@ class WFMServicer(object):
 
     def CreateCallProfileTemplate(self, request, context):
         """Creates the given @call_profile_template for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @call_profile_template in the request is invalid.
         - grpc.Internal: error occurs during the creation of the call profile.
@@ -1293,8 +1242,6 @@ class WFMServicer(object):
 
     def DeleteCallProfileTemplate(self, request, context):
         """Deletes a call profile template for the requesting org that has the given @call_profile_template_sid.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @call_profile_template_sid in the request is invalid.
         - grpc.Internal: error occurs during the deletion of the call profile.
@@ -1305,8 +1252,6 @@ class WFMServicer(object):
 
     def CreateRegressionTemplate(self, request, context):
         """Creates an entry for the @regression_template for the requesting org.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @regression_template in the request is invalid.
         - grpc.Internal: error occurs when creating the regression template.
@@ -1317,8 +1262,6 @@ class WFMServicer(object):
 
     def DeleteRegressionTemplate(self, request, context):
         """Deletes a regression template for the requesting org that has the given @regression_template_sid.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @regression_template_sid in the request is invalid.
         - grpc.Internal: error occurs during the deletion of the regression template.
@@ -1329,8 +1272,6 @@ class WFMServicer(object):
 
     def ListRegressionTemplates(self, request, context):
         """Gets all the regression templates that the org sending the request has.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the regression templates.
         """
@@ -1341,8 +1282,6 @@ class WFMServicer(object):
     def ListForecastIntervalsForSkillProfile(self, request, context):
         """Gets the forecast data intervals for the given @skill_profile_sid.
         DEPRECATED as of Sep/13/2023 - Use ListForecastIntervals instead.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_sid in the request is invalid.
         - grpc.Internal: error occurs when getting the forecast data intervals.
@@ -1353,8 +1292,6 @@ class WFMServicer(object):
 
     def ListForecastIntervals(self, request, context):
         """Gets the forecast data intervals for the given @skill_profile_category.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @skill_profile_category in the request is invalid.
         - grpc.Internal: error occurs when getting the forecast data intervals.
@@ -1368,8 +1305,6 @@ class WFMServicer(object):
         It will generate forecast intervals for the skill profiles sids in @skill_profile_sids_to_forecast.
         It will use the client's saved forecasting test range as the start datetime and the forecast range as the end datetime of the forecasted data.
         It will use the client's saved interval width to divide the resulting forecast intervals.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: no @skill_profile_sids_to_forecast are given or the @regression_template in the request is invalid.
         - grpc.Internal: error occurs during the building of the regression forecast.
@@ -1395,8 +1330,6 @@ class WFMServicer(object):
 
     def ListCallProfileTemplates(self, request, context):
         """Gets the call profile templates that the org sending the request has.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the templates.
         """
@@ -1409,8 +1342,6 @@ class WFMServicer(object):
         It will generate forecast intervals for the skill profiles sids in @save_forecasts_for_skill_profile_sids,
         if the list is empty or has no valid skill profile sids, it will generate and save forecasts for all active skill profiles.
         If any intervals produced already exist in the db, they will be replaced with the ones produced.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @regression_template in the request is invalid.
         - grpc.Internal: error occurs when upserting the regression forecast.
@@ -1422,8 +1353,6 @@ class WFMServicer(object):
     def UpsertForecastDataDelta(self, request, context):
         """Tries to create an entry for the given @delta for the org sending the request.
         If the org already has an entry for it, it will update the already exisiting entry.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @delta in the request is invalid.
         - grpc.Internal: error occurs when upserting the forecast data delta.
@@ -1435,8 +1364,6 @@ class WFMServicer(object):
     def UpsertForecastDataDeltas(self, request, context):
         """Tries to create entries for the given @deltas.
         If the org already has entries for any of them, it will update the already existing entry.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @deltas in the request are invalid.
         - grpc.Internal: error occurs when upserting the forecast data deltas.
@@ -1451,8 +1378,6 @@ class WFMServicer(object):
         associated with that id. If @delete_param is type interval_sids, then the intervals/deltas to be
         deleted will be contained in the list @interval_sids. The @delete_type field determines which
         table(s) in the database the intervals/deltas will be deleted from.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one of the @delete_params is invalid
         - grpc.NotFound: no matching intervals/deltas are found for deletion.
@@ -1467,8 +1392,6 @@ class WFMServicer(object):
         Each value in every interval that has the same @start_datetime of each skill profile will be summed then averaged and made into a single one.
         When calculating the averages, each interval's values will be weighted by the number of @total_calls it has.
         History will be sorted by @start_datetime in ascending order, and the range is determined by the client's historical range.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when retriving the history.
         """
@@ -1478,8 +1401,6 @@ class WFMServicer(object):
 
     def BuildDOWAndMOYProfiles(self, request, context):
         """Converts the given @profile_tod and @profile_woms to a ProfileDOW and ProfileMOY.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @profile_tod or @profile_woms in the request are invalid.
         - grpc.Internal: error occurs when building the ProfileDOW or ProfileMOY.
@@ -1539,8 +1460,6 @@ class WFMServicer(object):
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this call center node since it cannot be changed.
         The @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the one or more of the fields in the request are invalid.
         - grpc.Internal: error occurs when updating the call center node.
@@ -1555,8 +1474,6 @@ class WFMServicer(object):
         The @client_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent call center node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @name, @parent_sid, or @time_zone_val is invalid.
         - grpc.NotFound: parent call center node doesn't exist, or belongs to a different scenario than the one given.
@@ -1571,8 +1488,6 @@ class WFMServicer(object):
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this client node since it cannot be changed.
         The @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @node have invalid values.
         - grpc.Internal: error occurs when updating the client @node.
@@ -1587,8 +1502,6 @@ class WFMServicer(object):
         The @location_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent client node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @node have invalid values.
         - grpc.NotFound: parent client node doesn't exist or belongs to a different scenario than the one given.
@@ -1603,8 +1516,6 @@ class WFMServicer(object):
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this location node since it cannot be changed.
         The @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @location_node have invalid values.
         - grpc.Internal: error occurs when updating the location node.
@@ -1619,8 +1530,6 @@ class WFMServicer(object):
         The @program_node_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent location node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @node have invalid values.
         - grpc.NotFound: parent location node doesn't exist or belongs to a different scenario than the one given.
@@ -1636,8 +1545,6 @@ class WFMServicer(object):
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this program node since it cannot be changed.
         The @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @program_node have invalid values.
         - grpc.Internal: error occurs when updating the program node.
@@ -1650,8 +1557,6 @@ class WFMServicer(object):
 
     def ListProgramNodesBySid(self, request, context):
         """Lists the program nodes with the given @program_node_sids for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the given @program_node_sids are invalid.
         - grpc.Internal: error occurs when listing the program nodes.
@@ -1668,8 +1573,6 @@ class WFMServicer(object):
         If the @member_target_entity is for a skill proficiency, that skill proficiency will be created with the given @constraint_rule as parent.
         If @rule_type is NOT MIN_SKILL_LEVEL then the @target_sid must be that of a scheduling activity.
         The all other @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @constraint_rule have invalid values.
         - grpc.NotFound: the given @target_sid for the given @rule_type, or @parent_entity don't exist.
@@ -1688,8 +1591,6 @@ class WFMServicer(object):
         the old one will be deleted and a new one will be created for the given @member_target_entity.
         If @rule_type is NOT MIN_SKILL_LEVEL then the @target_sid must be that of a scheduling activity.
         The all other @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @constraint_rule have invalid values.
         - grpc.NotFound: entry to be updated doesn't exist, or the @parent_entity has a different @schedule_scenario_sid than the constraint rule.
@@ -1703,8 +1604,6 @@ class WFMServicer(object):
     def DeleteConstraintRule(self, request, context):
         """Deletes a constraint rule with the coresponding @constraint_rule_sid for the org sending the request.
         It also deletes the entity referenced by the @target_sid and @rule_type if said entity is not a member of any other entity or the on call scheduling activity.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @constraint_rule_sid is invalid for the org making the request.
         - grpc.NotFound: the given @constraint_rule doesn't exist.
@@ -1718,8 +1617,6 @@ class WFMServicer(object):
         """Creates the given @non_skill_activity for the org sending the request.
         Will also create a scheduling activity wrapper for the non skill activity.
         The @non_skill_activity_sid and @scheduling_activity_sid of the new entities will be returned in the response.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @non_skill_activity have invalid values.
         - grpc.NotFound: the @schedule_scenario_sid doesn't exist.
@@ -1731,8 +1628,6 @@ class WFMServicer(object):
 
     def UpdateNonSkillActivity(self, request, context):
         """Updates a non skill activity that has the given @non_skill_activity_sid with the given values.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: @non_skill_activity fields have invalid values.
         - grpc.NotFound: non skill activity for the given @non_skill_activity_sid doesn't exist.
@@ -1744,8 +1639,6 @@ class WFMServicer(object):
 
     def ListNonSkillActivities(self, request, context):
         """Lists the non skill activities that belong to the org sending the request.
-        Required permissions:
-        NONE
         Errors:.
         - grpc.Internal: error occurs when listing the activites.
         """
@@ -1755,8 +1648,6 @@ class WFMServicer(object):
 
     def ListNonSkillActivityAssociations(self, request, context):
         """Lists the IDs of non skill activities that belong to the org sending the request which have the given @relationship_type with the @associated_entity.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @associated_entity or @relationship_type are invalid.
         - grpc.Internal: error occurs when listing the associations.
@@ -1771,8 +1662,6 @@ class WFMServicer(object):
         If the rule will belong to a wfm agent, the agent group must be supplied instead to get a relevant set of candidate scheduling activities.
         Member non skill activity of each scheduling activity will be included in the response.
         The on call scheduling activity will always be included.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @parent_of_rule is invalid.
         - grpc.NotFound: @parent_of_rule doesn't exist
@@ -1787,8 +1676,6 @@ class WFMServicer(object):
         A successful response should contain the @agent_group_sid of the newly created entity.
         The @schedule_scenario_sid must match the scenario of the @parent_entity.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @name, or @parent_entity are invalid.
         - grpc.NotFound: @parent_entity doesn't exist
@@ -1802,8 +1689,6 @@ class WFMServicer(object):
         """ListAgentScheduleGroups lists all schedulable agent groups for the given @entity and @org_id, filled with @member_wfm_agents.
         The given @entity must be either a Node or a ShiftTemplate.
 
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the agent groups.
@@ -1817,8 +1702,6 @@ class WFMServicer(object):
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this agent group since it cannot be changed.
         The @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @agent_group_sid, @parent_entity, or @name in the request are invalid.
         - grpc.Internal: error occurs when updating the agent group.
@@ -1833,8 +1716,6 @@ class WFMServicer(object):
         """Creates an agent that is not assigned a tcn agent for the org sending the request.
         If @wfm_agent_sid_to_copy_agent_group_associations is set, it will also copy that agent's agent group associations to the new agent.
         Otherwise only the new agent will be created.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @wfm_agent_sid_to_copy_agent_group_associations in the request is invalid.
         - grpc.Internal: error occurs creating the agent or the memberships.
@@ -1870,8 +1751,6 @@ class WFMServicer(object):
         if @include_agent_groups is set to false, the @agent_group_schedule_scenario_sid will be ignored.
         @agent_group_schedule_scenario_sid does not effect which @wfm_agents are returned.
         WFM agents with no associated agent_groups will have an empty slice in agent_groups_by_agent at their correlated index.
-        Required Permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the wfm agents.
         """
@@ -1883,8 +1762,6 @@ class WFMServicer(object):
         """Lists all candidate wfm agents for the org sending the request and given @agent_group_sid.
         A WFM agent is considered a candidate when it's active and it doesn't already belong to the given agent group.
         Member entities will not be returned.
-        Required Permissions:
-        NONE
         Errors:
         - grpc.Invalid: @agent_group_sid has an invalid value.
         - grpc.Internal: error occurs when getting the wfm agents.
@@ -1898,8 +1775,6 @@ class WFMServicer(object):
         If @schedule_scenario_sid is positive, it will filter further to get only agents who are not grouped with any agent group for that scenario.
         if @include_skill_proficiencies is true then agents returned will include their skill proficiencies.
         Member entities will not be returned.
-        Required Permissions:
-        NONE
         Errors:
         - grpc.Invalid: @created_after_datetime has an invalid value.
         - grpc.Internal: error occurs when getting the wfm agents.
@@ -1912,8 +1787,6 @@ class WFMServicer(object):
         """Gets the wfm_agent_sids with the given @tcn_agent_sids for the org sending the request.
         Returns a map where Key: tcn_agent_sid - Value: wfm_agent_sid.
         If the wfm_agent_sid is not found for any @tcn_agent_sids, they will not have an entry in the returned @sids.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @tcn_agent_sids are invalid.
         - grpc.Internal: error occours while listing the wfm_agent_sids.
@@ -1925,8 +1798,6 @@ class WFMServicer(object):
     def ListUnassignedWFMAgents(self, request, context):
         """Lists all wfm agents that don't have a TCN agent assigned to them for the given @orgId.
         Member entities will not be returned.
-        Required Permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when getting the wfm agents.
         """
@@ -1936,8 +1807,6 @@ class WFMServicer(object):
 
     def ListWFMAgentsAssociatedWithAgentGroup(self, request, context):
         """Lists the IDs of wfm agents that belong to the org sending the request which are associated with the given @agent_group_sid.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @agent_group_sid is invalid.
         - grpc.Internal: error occurs when listing the wfm agents.
@@ -1949,8 +1818,6 @@ class WFMServicer(object):
     def CreateWFMAgentMemberships(self, request, context):
         """Creates a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid.
         The @schedule_scenario_sid must match the scenario of the agent group and wfm agents.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sid are invalid.
         - grpc.NotFound: the @wfm_agent_sids or @agent_group_sid don't exist for the org or given @schedule_scenario_sid.
@@ -1965,8 +1832,6 @@ class WFMServicer(object):
         The wfm agents must both belong to the org sending the request.
         Any existing membership associations on @target_wfm_agent_sid with be retained.
         Any conflicting memberships for @target_wfm_agent_sid will be set with the membership of @originating_wfm_agent_sid.
-        Required permissions:
-        NONE
         Errors:
         - grpc.NotFound: the @wfm_agent_sids or @agent_group_sid don't exist for the org sending the request.
         - grpc.Internal: error occurs when creating the associations.
@@ -1977,8 +1842,6 @@ class WFMServicer(object):
 
     def DeleteWFMAgentMemberships(self, request, context):
         """Deletes a membership association for each of the given @wfm_agent_sids with the given @agent_group_sid for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sid are invalid.
         - grpc.NotFound: any of the given memberships to delete do not exist.
@@ -1990,8 +1853,6 @@ class WFMServicer(object):
 
     def DeleteWFMAgentsMemberships(self, request, context):
         """Deletes all membership associations for the given @wfm_agent_sids with the given @agent_group_sids.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @wfm_agent_sids, or @agent_group_sids are invalid.
         - grpc.Internal: error occurs when deleting the associations.
@@ -2005,8 +1866,6 @@ class WFMServicer(object):
         If @replace_with_new_unassigned_agent is set to true, a new unassigned agent will be created and it will be assigned to the shifts and agent groups from @wfm_agent_sid_to_remove.
         If @replace_with_new_unassigned_agent is set to false, the future shifts will just be deleted.
         If the @wfm_agent_sid_to_remove is not currently inactive, it will be set as inactive.
-        Required Permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when deleting the shifts, creating the new unassigned agent, reassigning the shifts to that agent, or setting the agent to inactive.
         """
@@ -2019,8 +1878,6 @@ class WFMServicer(object):
         Response will only contain:
         one element if build for a single @wfm_agent_sid.
         one element for each WFM agent if build for an @agent_group_sid.
-        Required permissions:
-        NONE
         - grpc.Invalid: the @wfm_agent_sid, or @agent_group_sid is invalid.
         - grpc.NotFound: the given @wfm_agent_sid doesn't exist or the @agent_group_sid has no agents.
         - grpc.Internal: error occurs building the diagnostics.
@@ -2034,8 +1891,6 @@ class WFMServicer(object):
         The @shift_template_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent program node.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @name, or @program_node_sid are invalid.
         - grpc.AlreadyExists: a shift template with the given @name already exists.
@@ -2051,8 +1906,6 @@ class WFMServicer(object):
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this shift template since it cannot be changed.
         The @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @shift_template_sid, @name, @program_node_sid are invalid.
         - grpc.AlreadyExists: a shift template with the given @name already exists.
@@ -2066,8 +1919,6 @@ class WFMServicer(object):
     def ListShiftTemplatesBySids(self, request, context):
         """Lists the shift templates matching the specified @shift_template_sids for the org sending the request.
         If @include_placement_rules is set to true, the @shift_templates will be returned with their member placement rules.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @shift_template_sids are invalid.
         - grpc.Internal: error occurs when getting the data.
@@ -2078,8 +1929,6 @@ class WFMServicer(object):
 
     def BuildShiftTemplateDiagnostics(self, request, context):
         """Builds and returns the diagnostics for the shift template associated with the given @shift_template_sid for the org sending the request.
-        Required permissions:
-        NONE
         - grpc.Invalid: the @shift_template_sid is invalid.
         - grpc.NotFound: the given @shift_template_sid doesn't exist for the org sending the request.
         - grpc.Internal: error occours building the diagnostics for the shift template.
@@ -2093,8 +1942,6 @@ class WFMServicer(object):
         The @placement_rule_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the parent shift template.
         The @member fields will be ignored since those cannot be created by this method and must be created by their respective create methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the parameters in the @placement_rule are invalid.
         - grpc.NotFound: the parent shift template doesn't exist or belongs to a different scenario than the one given.
@@ -2110,8 +1957,6 @@ class WFMServicer(object):
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this placement rule since it cannot be changed.
         The @member fields will be ignored since those cannot be updated by this method and must be updated by their respective update methods.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the one or more of the fields in the @placement_rule are invalid.
         - grpc.Internal: error occurs when updating the placement rule.
@@ -2125,8 +1970,6 @@ class WFMServicer(object):
     def DeletePlacementRule(self, request, context):
         """Deletes a placement rule with the coresponding @placement_rule_sid for the org sending the request.
         It also deletes the scheduling activity referenced by the @scheduling_activity_sid if said activity is not a member of any other entity.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @placement_rule_sid is invalid for the org making the request.
         - grpc.NotFound: the given @placement_rule doesn't exist.
@@ -2140,8 +1983,6 @@ class WFMServicer(object):
         """Creates an open times pattern for the org sending the request with the provided parameters.
         The @open_times_pattern_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the @parent_entity.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the parameters in the @open_times_pattern are invalid.
         - grpc.NotFound: the parent entity doesn't exist.
@@ -2168,8 +2009,6 @@ class WFMServicer(object):
 
     def DeleteOpenTimesPattern(self, request, context):
         """Deletes an open times pattern with the coresponding @open_times_pattern_sid for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @open_times_pattern_sid is invalid for the org making the request.
         - grpc.NotFound: the given @open_times_pattern doesn't exist.
@@ -2186,8 +2025,6 @@ class WFMServicer(object):
         If @bitmap_type is ONLY_WEEKMAPS, the bitmaps will be generated using only the weekmap data from the open times patterns.
         If @bitmap_type is ONLY_CALENDAR_ITEMS, the bitmaps will be generated using only the calendar item data from the open times patterns.
         The bitmaps will be generated for the span of @datetime_range.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @node_to_check is invalid for @schedule_scenario_sid and the org making the request.
         : the @datetime_range is invalid.
@@ -2198,12 +2035,23 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListOpenDateRangesForNodeOpenTimesBitmaps(self, request, context):
+        """Gets the datetime ranges over which the given @node_selector open times patterns are open throughout the given @datetime_range for the org sending the request.
+        If the @node_selector is not open during that range, no ranges will be returned.
+        If the @node_selector is opened before or after the given @datetime_range, those times outside of @datetime_range will not be included in the returned @open_close_ranges.
+        Errors:
+        - grpc.Invalid: the @node_selector or @datetime_range is invalid.
+        - grpc.NotFound: the given @node_selector doesn't exist in @schedule_scenario_sid for the org sending the request.
+        - grpc.Internal: error occurs when getting the open time close times.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateAgentAvailabilityPattern(self, request, context):
         """Creates an agent availability pattern for the org sending the request with the provided parameters.
         The @agent_availability_pattern_sid of the new entity will be returned in the response.
         The @schedule_scenario_sid must match the scenario of the @parent_entity.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the parameters in the @agent_availability_pattern are invalid.
         - grpc.NotFound: the parent entity doesn't exist.
@@ -2217,8 +2065,6 @@ class WFMServicer(object):
         """Updates an agent availability pattern for the given @agent_availability_pattern_sid and org sending the request with the provided parameters.
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @schedule_scenario_sid must be the original for this agent availability pattern since it cannot be changed.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @agent_availability_pattern have invalid values.
         - grpc.Internal: error occurs when updating the agent avilability pattern.
@@ -2230,8 +2076,6 @@ class WFMServicer(object):
 
     def DeleteAgentAvailabilityPattern(self, request, context):
         """Deletes an agent availability pattern with the coresponding @agent_availability_pattern_sid for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @agent_availability_pattern_sid has an invalid value.
         - grpc.NotFound: the @agent_availability_pattern with the given sid doesn't exist.
@@ -2250,8 +2094,6 @@ class WFMServicer(object):
         If @bitmap_type is COMPLETE, the bitmaps will be generated using all relevant pattern data.
         If @bitmap_type is ONLY_WEEKMAPS, the bitmaps will be generated using only the weekmap data from the availability patterns.
         If @bitmap_type is ONLY_CALENDAR_ITEMS, the bitmaps will be generated using only the calendar item data from the availability patterns.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @entities_to_check is invalid for @schedule_scenario_sid and the org making the request.
         : the @datetime_range is invalid.
@@ -2269,8 +2111,6 @@ class WFMServicer(object):
         The @schedule_scenario_sid must match the scenario of the @parent_entity.
         If a NOT_ASSOCIATED_WITH relationship is being created, the tree will be checked for conflicting downstream effects.
         If any member rules, are referencing the non skill activity and @relationship_type is NOT_ASSOCIATED_WITH, then the upsert will not take effect, and the list of related entities to be updated/removed first will be returned.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @non_skill_activity_sid, @node or @association_type are invalid.
         : the non skill activity and @node belong to different scenarios.
@@ -2284,8 +2124,6 @@ class WFMServicer(object):
     def CreateSkillProficiencies(self, request, context):
         """Creates skill proficiencies for the org sending the request with the provided parameters.
         The @schedule_scenario_sid must match the scenario of the @parent_entities.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the parameters in a @proficiency, or the @schedule_scenario_sid are invalid.
         - grpc.NotFound: for any of the given @skill_proficiencies:
@@ -2303,8 +2141,6 @@ class WFMServicer(object):
         """Updates skill proficiencies corresponding to the given @skill_proficiency_sids and org sending the request with the provided parameters.
         All of the entity's parameters that are not desired to be updated must be filled with their current values.
         The @skill_sid and @parent_entity field of each proficiency will be ignored since it cannot be updated.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the @skill_proficiencies have invalid values.
         - grpc.Internal: error occurs when updating the skill proficiencies.
@@ -2319,8 +2155,6 @@ class WFMServicer(object):
 
     def DeleteSkillProficiency(self, request, context):
         """Deletes a skill proficiency with the corresponding @skill_proficiency_sid for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Invalid: the @skill_proficiency_sid is invalid for the org making the request.
         -grpc.NotFound: the skill proficiency with the given @skill_proficiency_sid doesn't exist.
@@ -2334,8 +2168,6 @@ class WFMServicer(object):
         """Copies the existing scenario with the @scenario_sid_to_copy for the org sending the request using the provided parameters.
         Scheduling targets of entities in the scenario to copy will also be copied.
         The new @schedule_scenario_sid of the new entity will be returned in the response.
-        Required permissions:
-        NONE
         Errors:gg
         - grpc.Invalid: the parameters @scenario_sid_to_copy or any others are invalid.
         - grpc.NotFound: the scenario corresponding to the @scenario_sid_to_copy doesn't exist.
@@ -2353,8 +2185,6 @@ class WFMServicer(object):
         The @copied_from_scenario_sid field will be ignored, as it will be set to nil in the newly created scenario.
         The @creation_datetime and @is_default fields will also be ignored and set as the current time and false respectively.
         The @skill_profile_category will be associated with the created program node.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: parameters in the @req are invalid for the org making the request.
         - grpc.NotFound: the @skill_profile_category does not exist.
@@ -2369,8 +2199,6 @@ class WFMServicer(object):
         Only the @name, @description and @datetime_set_to_inactive fields may be updated, and must be filled in with current value if updating the field is not desired.
         The @schedule_scenario_sid must be the original for the schedule scenario since it cannot be updated.
         All other fields will be ignored since they cannot be updated.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Invalid: one or more fields in the @scenario have invalid values.
         -grpc.NotFound: the scenario with the given @schedule_scenario_sid doesn't exist.
@@ -2385,8 +2213,6 @@ class WFMServicer(object):
         If @include_member_lists is set to true the member lists of the entities retrieved will be included.
         Any nodes in the returned set of entities will have inherited nonskill associations applied to the node's member_nonskill_activity fields.
         Prior to listing the entities it will Resync TCN Agents and skill proficiencies.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @entity_type, or @belongs_to_entity have invalid values.
         - grpc.Internal: error occurs when getting the config entities.
@@ -2397,8 +2223,6 @@ class WFMServicer(object):
 
     def DeleteShiftInstances(self, request, context):
         """Deletes shift instances with the corresponding @shift_instance_sids for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Invalid: the @shift_instance_sids are invalid for the org making the request.
         -grpc.NotFound: the shift instances with the given @shift_instance_sids don't exist.
@@ -2411,8 +2235,6 @@ class WFMServicer(object):
     def BuildNodeDiagnostics(self, request, context):
         """Builds and returns the diagnostics and @nodes_checked for the @node_to_check for @schedule_scenario_sid and the org sending the request.
         The @schedule_scenario_sid must match the scenario of the @node_to_check.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @node_to_check is invalid for @schedule_scenario_sid and the org making the request.
         - grpc.NotFound: the given @node_to_check doesn't exist.
@@ -2424,8 +2246,6 @@ class WFMServicer(object):
 
     def BuildGlobalDiagnostics(self, request, context):
         """Builds and returns the global diagnostics and @nodes_checked for the @schedule_scenario_sid and the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @schedule_scenario_sid has an invalid values.
         - grpc.NotFound: the given @schedule_scenario_sid doesn't exist for the org making the request.
@@ -2443,8 +2263,6 @@ class WFMServicer(object):
         if @include_shift_segments is true, any returned shift instances will have their shift_segments field set, otherwise the field will be left nil.
         if @include_scheduling_activity is true, any returned shift segments will have their scheduling_activity field set, otherwise the field will be left nil.
         if @include_activity is true, any returned scheduling activities will have their member_non_skill_activity field set, otherwise the field will be left nil.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @datetime_range, @metric_types are invalid.
         - grpc.NotFound: the @node_selector doesn't exist.
@@ -2456,8 +2274,6 @@ class WFMServicer(object):
 
     def GetPublishedScheduleRequiredCalls(self, request, context):
         """Gets the required calls intervals for the published schedule for the corresponding @viewing_range, for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the published schedule doesn't exist.
@@ -2469,8 +2285,6 @@ class WFMServicer(object):
 
     def GetDraftScheduleRequiredCalls(self, request, context):
         """Gets the required calls intervals for the specified draft schedule for the corresponding @viewing_range, for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the draft schedule doesn't exist.
@@ -2485,8 +2299,6 @@ class WFMServicer(object):
         The @draft_schedule_sid of the new entity will be returned in the response.
         The @created_at and @last_updated_at fields will be set to the current time and null respectively.
         The draft schedule will include the published schedule's shift instances and shift segments.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @name, @description or @scheduling_range are invalid.
         - grpc.Internal: error occurs when creating the draft schedule.
@@ -2526,8 +2338,6 @@ class WFMServicer(object):
         If @ignore_diagnostics_errors is set to true, it will publish the schedule regardless of any diagnostics errors,
         otherwise it will return those diagnostic errors and not publish the schedule.
         @include parameters are used when retrieving the resulting published schedule, and work in the same way as for GetDraftSchedule.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the parameters in the @req are invalid..
         - grpc.NotFound: @draft_schedule_sid doesn't exist.
@@ -2543,8 +2353,6 @@ class WFMServicer(object):
         If no @datetime_range is provided, all shifts will be removed from the @draft_schedule_sid, and published shifts will be copied across the draft's datetime range.
         If @unlocked_only is set to true, only unlocked shifts will be deleted, and the locked shift instances will remain.
         The published schedule will still be copied, so any newly overlapping shifts will result in an overlap warning.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @datetime_range or @draft_schedule_sid are invalid for the org sending the request.
         - grpc.NotFound: the @draft_schedule_sid doesn't exist.
@@ -2563,8 +2371,6 @@ class WFMServicer(object):
         if @include_shift_segments is true, any returned shift instances will have their shift_segments field set, otherwise the field will be left nil.
         if @include_scheduling_activity is true, any returned shift segments will have their scheduling_activity field set, otherwise the field will be left nil.
         if @include_activity is true, any returned scheduling activities will have their member_non_skill_activity field set, otherwise the field will be left nil.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @datetime_range or @draft_schedule_sid are invalid.
         - grpc.NotFound: the @node_selector or @draft_schedule_sid doesn't exist.
@@ -2577,8 +2383,6 @@ class WFMServicer(object):
     def ListDraftSchedules(self, request, context):
         """Lists the draft schedules whose scheduling_range overlaps the given @datetime_range for the org sending the request.
         If @datetime_range is not set, all draft schedules for the org will be returned.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @datetime_range is invalid.
         - grpc.Internal: error occurs when listing the draft schedules.
@@ -2599,8 +2403,6 @@ class WFMServicer(object):
         If @start_datetimes_only is set to false, deletes the shifts that overlap with the @datetime range, or overlap the range before or after @datetime_range if @invert_datetime_range is true.
         If @delete_locked is set to true, both locked and unlocked shifts will be cleared.
         If @delete_locked is set to false, only shifts with @is_locked set to false may be cleared.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @node_selector, @schedule_selector, or @datetime_range in the request are invalid.
         - grpc.NotFound: the draft schedule with the given @schedule_selector doesn't exist.
@@ -2613,8 +2415,6 @@ class WFMServicer(object):
     def DeleteDraftSchedule(self, request, context):
         """Deletes a draft schedule with the corresponding @draft_schedule_sid for the org sending the request.
         It also deletes all of its shift instances and segments.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @draft_schedule_sid is invalid for the org making the request.
         - grpc.NotFound: the draft schedule with the given @draft_schedule_sid doesn't exist.
@@ -2632,8 +2432,6 @@ class WFMServicer(object):
         @include_shift_segments must be true to take effect.
         If @include_activity is set to true then the related non skill activity for the scheduling activity will be returned in the scheduling
         activities member non skill activity field. @include_scheduling_activity must be true to take effect.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: @shift_instance_sids in the request are invalid.
         - grpc.Internal: error occurs when listing the shift instances or their shift segments.
@@ -2650,8 +2448,6 @@ class WFMServicer(object):
         If @start_datetimes_only is set to true, then only shifts with start times within the @datetime range will be copied.
         If @overlap_as_warning is set to false, any overlapping shifts for a given agent will return a diagnostic error, and prevent any shifts from being copied.
         If @overlap_as_warning is set to true, the shifts will be copied regardless of overlap conflicts, and any conflicts will cause a diagnostic warning to be returned after.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Invalid: one or more fields in the request have invalid values.
         -grpc.NotFound: the @source_schedule_selector or @destination_schedule_selector don't exist for the org sending the request.
@@ -2664,8 +2460,6 @@ class WFMServicer(object):
     def CreateShiftInstance(self, request, context):
         """Creates a shift instance for the org sending the request with the provided parameters.
         This method is not implemented. Do not use.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when creating the shift instance.
@@ -2678,8 +2472,6 @@ class WFMServicer(object):
         """Creates a shift instance for the org sending the request with the provided parameters.
         If @wfm_agent_sids is empty, then the shift instance will be created for a newly created unassigned agent.
         A shift instance will be created for each wfm agent sid provided.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when creating the shift instance.
@@ -2693,8 +2485,6 @@ class WFMServicer(object):
         """Creates the @shift_instance with any member shift segments and shift segment call stats for the org sending the request.
         If @ignore_diagnostics_errors any diagnostics encountered will be returned as warnings, and the shift will still be created.
         Otherwise, any diagnostics triggered by the given @shift_instance will be returned and the shift will not be created.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Invalid: one or more fields in the request have invalid values.
         -grpc.NotFound: the fields referenced in @shift_instance or its member shift segments don't exist for the org.
@@ -2709,8 +2499,6 @@ class WFMServicer(object):
         Any shift segments will be split between the two shift instances at @time_to_split.
         If the @time_to_split creates instances shorter then the minimum length specified by the shift template,
         warning diagnostics will be returned and the instance will still be split.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Invalid: one or more fields in the request have invalid values, or @time_to_split is not at least 5 minutes from the start or end of @shift_instance_sid.
         -grpc.NotFound: the @shift_instance_sid does't exist for the org sending the request.
@@ -2725,8 +2513,6 @@ class WFMServicer(object):
         Returns the swapped @shift_instances after they are succesfully updated.
         If there are other shifts for the given @wfm_agent_sids with an overlap conflict, diagnostics will be returned instead.
         All @shift_instance_sids must belong to the same schedule, and be from a draft schedule.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.NotFound: wfm_agent_sid_1, wfm_agent_sid_2, or shift_instance_sids do not exist for the org sending the request.
@@ -2739,8 +2525,6 @@ class WFMServicer(object):
     def UpdateShiftInstance(self, request, context):
         """Updates a shift instance for the org sending the request with the provided parameters.
         This method is not implemented. Do not use.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when updating the shift instance.
@@ -2751,8 +2535,6 @@ class WFMServicer(object):
 
     def UpdateShiftInstanceV2(self, request, context):
         """Updates a shift instance for the org sending the request with the provided parameters.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when updating the shift instance.
@@ -2769,8 +2551,6 @@ class WFMServicer(object):
 
         Any existing shift segments belonging to @shift_instance will be deleted and replaced with the ones in the given @shift_instance.
         If no segments are provided, the existing segments will still be deleted and the instances will be left without any.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when updating the @shift_instance or replacing their member shift segments.
@@ -2784,8 +2564,6 @@ class WFMServicer(object):
         If there are any overlap conflicts on @destination_schedule and @overlap_as_warning is set to false,
         then @shift_instance_sids will not be copied, and a list of diagnostics detailing the overlaps will be returned.
         If @overlap_as_warning is set to true, overlap conflicts will not prevent the shifts from being copied, and the overlap diagnostics will be returned after as warning messages instead.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.NotFound: the @shift_instance_sids or @destination_schedule does not exist for the org sending the request.
@@ -2797,8 +2575,6 @@ class WFMServicer(object):
 
     def ListShiftInstanceSidsForAgent(self, request, context):
         """Lists the shift_instance_sids for the Shift Instances associated with @wfm_agent_sid over the given @datetime_range and @schedule_selector.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the data.
@@ -2811,8 +2587,6 @@ class WFMServicer(object):
         """Lists shift segments for the specified shift instances for the org sending the request.
         If @include_scheduling_activity is set to true then the related scheduling activity for the shift segment will be returned in the scheduling activity field.
         If @include_activity is set to true then the related non skill activity for the scheduling activity will be returned in the scheduling activities member non skill activity field.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: a shift instance doesn't exist.
@@ -2826,8 +2600,6 @@ class WFMServicer(object):
         """Creates the given @scheduling_target for the org making the request.
         The @scheduling_target_sid of the new entity will be returned in the response.
         Any preexisting scheduling target for @node_entity will be removed upon creation of the new @scheduling_target.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @scheduling_target is invalid.
         - grpc.NotFound: @node_entity doesn't exist for @schedule_scenario_sid and the org making the request.
@@ -2839,8 +2611,6 @@ class WFMServicer(object):
 
     def GetSchedulingTarget(self, request, context):
         """Gets the @own_scheduling_target, @inherited_scheduling_target, and @resulting_scheduling_target for the given @node_selector and the org making the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the @node_selector is invalid.
         - grpc.NotFound: the given @node_selector doesn't exist for the org making the request.
@@ -2852,8 +2622,6 @@ class WFMServicer(object):
 
     def DeleteSchedulingTarget(self, request, context):
         """Deletes the scheduling target of the corresponding @node_selector for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         -grpc.Invalid: the @node_selector is invalid.
         -grpc.NotFound: the scheduling target for the given @node_selector doesn't exist for the org making the request.
@@ -2886,8 +2654,6 @@ class WFMServicer(object):
         """Gets the performance metrics across @datetime_range for shift instances in @schedule_selector associated with @node_selector for the org making the request.
         Performance metrics will be generated for each of the given @metric_params.
         The @interval_width_in_minutes must be a multiple of 5.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the @node_selector, @schedule_selector, or their shift instances doesn't exist.
@@ -2900,8 +2666,6 @@ class WFMServicer(object):
     def ListRequiredCallsIntervals(self, request, context):
         """Lists the required calls intervals for the given @node_selector over the given @datetime_range for the org making the request.
         The @interval_width_in_minutes must be a multiple of 5.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the data.
@@ -2913,8 +2677,6 @@ class WFMServicer(object):
     def CreateTourPattern(self, request, context):
         """Creates a Tour Pattern for @shift_template_sid and the org sending the request, returning @tour_pattern_sid.
         If there is already a Tour Pattern for @shift_template_sid then the method call will fail to create a new Tour Pattern.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.AlreadyExists: A Tour Pattern already exists for @shift_template_sid.
@@ -2931,8 +2693,6 @@ class WFMServicer(object):
         Does not query the database to check that foreign keys exist.
         Returns a single diagnostic with an OK code if the given @tour_pattern has no issues.
         The @member_tour_week_patterns and @member_tour_agent_collections fields must be set on @tour_pattern.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Internal: error occurs when validating the tour pattern or members.
         """
@@ -2947,8 +2707,6 @@ class WFMServicer(object):
         belonging to @tour_pattern.shift_template_sid will be replaced with the members on the provided @tour_pattern.
         At least one Tour Agent Collection and one Tour Week Pattern must be provided in the member fields.
         If the tour pattern data or members have issues that prevent them from being persisted, a list of diagnostics will be returned describing the issues that must be resolved.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the @tour_pattern.shift_template_sid does not exist.
@@ -2960,8 +2718,6 @@ class WFMServicer(object):
 
     def GetTourPattern(self, request, context):
         """Gets the Tour Pattern belonging to @shift_template_sid and the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the requested Tour Pattern does not exist.
@@ -2974,8 +2730,6 @@ class WFMServicer(object):
     def GetTourPatternWithMembers(self, request, context):
         """Gets the Tour Pattern belonging to @shift_template_sid and the org sending the request.
         The @tour_pattern will be returned with all member entities.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the requested Tour Pattern does not exist.
@@ -2988,8 +2742,6 @@ class WFMServicer(object):
     def DeleteTourPattern(self, request, context):
         """Deletes the Tour Pattern belonging to @tour_pattern_sid and the org sending the request.
         Any member Tour Week Patterns or Agent Collections will be deleted as well.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when deleting the data or it's children.
@@ -3001,8 +2753,6 @@ class WFMServicer(object):
     def CreateTourWeekPattern(self, request, context):
         """Creates a Tour Week Pattern for @tour_pattern_sid for the org sending the request, returning @tour_week_pattern_sid.
         The newly created Tour Week Pattern will be placed at the end of the existing sequence of tour week patterns for @tour_pattern_sid.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the given @tour_pattern_sid does not exist for the org sending the request.
@@ -3014,8 +2764,6 @@ class WFMServicer(object):
 
     def ListTourWeekPatterns(self, request, context):
         """Lists the Tour Week Patterns with @tour_pattern_sid for the org sending the request
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the Tour Week Patterns.
@@ -3028,8 +2776,6 @@ class WFMServicer(object):
         """Deletes the Tour Week Patterns with the given @tour_week_pattern_sids for the org sending the request.
         Any Tour Week Instance or Segment Configs using @tour_week_pattern_sids will be deleted.
         Request will error if any @tour_week_pattern_sids are in use by a Tour Agent Collection, as those must be removed first.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.FailedPrecondition: a @tour_week_pattern_sid is in use by a Tour Agent Collection.
@@ -3043,8 +2789,6 @@ class WFMServicer(object):
         """Creates the @tour_shift_instance_config for the org sending the request, returning @tour_shift_instance_config_sid.
         The given @tour_shift_instance_config will not be created if it will overlap another tour shift instance config belonging to @tour_week_pattern_sid.
         The @member_tour_shift_segment_configs field will be ignored, and will not be created if passed through this endpoint.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid or a preexisting tour shift instance config would overlap @tour_shift_instance_config.
         - grpc.Internal: error occurs when creating the data.
@@ -3057,8 +2801,6 @@ class WFMServicer(object):
         """Updates the @tour_shift_instance_config for the org sending the request, returning @tour_shift_instance_config_sid.
         The given @tour_shift_instance_config will not be created if it will overlap another tour shift instance config belonging to @tour_week_pattern_sid.
         The @member_tour_shift_segment_configs field will be ignored, and will not be updated if passed through this endpoint.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid or a preexisting Tour Shift Instance Config would overlap @tour_shift_instance_config.
         - grpc.Internal: error occurs when updating the data.
@@ -3069,8 +2811,6 @@ class WFMServicer(object):
 
     def ListTourShiftInstanceConfigs(self, request, context):
         """Lists the Tour Shift Instance Configs belonging to @tour_week_pattern_sids for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the Tour Shift Instance Configs.
@@ -3081,8 +2821,6 @@ class WFMServicer(object):
 
     def DeleteTourShiftInstanceConfigs(self, request, context):
         """Deletes the Tour Shift Instance Configs matching @tour_shift_instance_config_sids for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the Tour Shift Instance Configs.
@@ -3093,8 +2831,6 @@ class WFMServicer(object):
 
     def CreateTourShiftSegmentConfig(self, request, context):
         """Creates the given @tour_shift_segment_config for the org sending the request, returning @tour_shift_segment_config_sid.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: the @tour_shift_instance_config_sid does not exist for the org sending the request.
@@ -3107,8 +2843,6 @@ class WFMServicer(object):
     def UpdateTourShiftSegmentConfig(self, request, context):
         """Updates the given @tour_shift_segment_config matching @tour_shift_segment_config_sid for the org sending the request.
         If the updated Tour Shift Segment Config overlaps another segment or does not fit within the parent Tour Shift Instance Config the update will fail.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid or the resulting update would result in a conflict.
         - grpc.NotFound: the @tour_shift_instance_config_sid does not exist for the org sending the request.
@@ -3120,8 +2854,6 @@ class WFMServicer(object):
 
     def ListTourShiftSegmentConfigs(self, request, context):
         """Lists the Tour Shift Segment Configs belonging to @tour_shift_instance_config_sids for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the Tour Shift Segment Configs.
@@ -3132,8 +2864,6 @@ class WFMServicer(object):
 
     def DeleteTourShiftSegmentConfigs(self, request, context):
         """Deletes the Tour Shift Segment Configs associated with the given @tour_shift_segment_config_sids for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when deleting the Tour Shift Segment Configs.
@@ -3145,8 +2875,6 @@ class WFMServicer(object):
     def CreateTourAgentCollection(self, request, context):
         """Creates the given @tour_agent_collection for the org sending the request and return the @tour_agent_collection_sid.
         The @wfm_agent_sids will be ignored and will not be created through this endpoint.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.AlreadyExists: the first_week_pattern_number for @tour_pattern_sid is already in use by another tour agent collection.
@@ -3160,8 +2888,6 @@ class WFMServicer(object):
     def UpdateTourAgentCollection(self, request, context):
         """Updates the given @tour_agent_collection matching the @tour_agent_collection_sid for the org sending the request.
         The @wfm_agent_sids will be ignored and will not be updated through this endpoint.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.AlreadyExists: the first_week_pattern_number for @tour_pattern_sid is already in use by another tour agent collection.
@@ -3174,8 +2900,6 @@ class WFMServicer(object):
 
     def ListTourAgentCollections(self, request, context):
         """Lists the Tour Agent Collections belonging to @tour_pattern_sid for the org sending the request.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the tour agent collections.
@@ -3187,8 +2911,6 @@ class WFMServicer(object):
     def DeleteTourAgentCollections(self, request, context):
         """Deletes the Tour Agent collections matching @tour_agent_collection_sids for the org sending the request.
         Any existing associations with WFM Agent Sids will be deleted as well.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when deleting the tour agent collections.
@@ -3200,8 +2922,6 @@ class WFMServicer(object):
     def CreateTourAgentCollectionWFMAgents(self, request, context):
         """Creates an assocation between the @tour_agent_collection_sid and the @wfm_agent_sids for the org sending the request.
         If there is already an association between any of the @wfm_agent_sids and the Tour Pattern that @tour_agent_collection_sid belongs to, the method will fail and no associations will be created.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid
         - grpc.AlreadyExists: an association already exists for at least one SID in @wfm_agent_sids.
@@ -3215,8 +2935,6 @@ class WFMServicer(object):
         """Lists the WFM Agent SIDs belonging to @tour_agent_collection_sids for the org sending the request.
         The resulting sids will be returned in @wfm_agent_pairings each containing an @agent_collection_sid and @wfm_agent_sids.
         If no agents are found for a sid in the given @tour_agent_collection_sids, that @agent_collection_sid will have an empty slice in @wfm_agent_sids.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when getting the tour agent collections.
@@ -3228,8 +2946,6 @@ class WFMServicer(object):
     def DeleteTourAgentCollectionWFMAgents(self, request, context):
         """Deletes association between the @wfm_agent_sids and @tour_agent_collection_sid for the org sending the request.
         If no @wfm_agent_sids are provided, all existing @wfm_agent_sids for the given @tour_agent_collection_sid will be deleted.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: there are no WFM Agent associations to delete for @tour_agent_collection_sid.
@@ -3246,8 +2962,6 @@ class WFMServicer(object):
         the forecasted call data over the next @num_weeks_in_tour, starting on the next Monday.
         The returned data will not be persisted. This method will not effect any existing tour week patterns in the database.
         The @tour_week_patterns returned by this method are intended to replace, not append, all currenly existing tour week patterns for @target_shift_template_sid, once persisted.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.NotFound: there is no call center node or @shift_template_sid associated with @schedule_scenario_sid.
@@ -3263,8 +2977,6 @@ class WFMServicer(object):
         If @skip_skill_proficiency_sort is False, the agents will be returned in order of cumulative skill proficiency towards the required skills.
         If @include_skill_mismatches is True, the agents will be included even if they do not include all of the required skills for the shifts being replaced.
         If @skip_force_same_agent_groups is False, the agents will only be returned if they belong to every agent group that @wfm_agent_sid_to_replace is a member of. Otherwise, this check will be skipped.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when determinining which agents are valid.
@@ -3278,8 +2990,6 @@ class WFMServicer(object):
         If @skip_overlapping_shifts, shifts with an overlap conflict will be skipped, otherwise overlap conflicts will cause a diagnostic to be returned.
         Does not enforce skill proficiencies. To check skill proficiencies for shift replacement use ListValidAgentsForReplacement.
         DEPRECATED as of Jan/22/2024 - Use ReplaceAgentOnScheduleV1 instead.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when replacing the @wfm_agent_sid_to_remove.
@@ -3292,8 +3002,6 @@ class WFMServicer(object):
         """Replaces @wfm_agent_sid_to_remove with @wfm_agent_sid_to_add for the given parameters and the org sending the request.
         If @skip_overlapping_shifts, shifts with an overlap conflict will be skipped, otherwise overlap conflicts will cause a diagnostic to be returned.
         Does not enforce skill proficiencies. To check skill proficiencies for shift replacement use ListValidAgentsForReplacement.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when replacing the @wfm_agent_sid_to_remove.
@@ -3306,8 +3014,6 @@ class WFMServicer(object):
         """Removes the @wfm_agent_sid from @schedule_selector over @datetime_range for the org sending the request.
         Creates a new unassigned agent with the same active agent group associations as @wfm_agent_sid for @schedule_scenario_sid.
         The unassigned agent will be assigned to shifts belonging to @wfm_agent_sid, returning newly created unassigned agent's SID and the updated shifts.
-        Required permissions:
-        NONE
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when creating the unassigned agent or updating the shifts.
@@ -3329,8 +3035,6 @@ class WFMServicer(object):
 
         A hello world endpoint to test the WFM Adherence App.
         Returns a string with a hello world message.
-        Required permissions:
-        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3340,8 +3044,6 @@ class WFMServicer(object):
         """List the real time agent states for published schedule and the org sending the request, starting on the given @start_datetime.
         If the @end_datetime is set, all agent state sequences will be returned for the range between @start_datetime and @end_datetime.
         If @end_datetime is not set, the agent state sequences will be returned over a 24 hour period or until the current time, whichever is shorter.
-        Required permissions:
-        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
         Errors:
         - grpc.Invalid: the @start_datetime is invalid or beyond the current datetime.
         - grpc.Internal: error occurs when listing the agent states.
@@ -3352,8 +3054,6 @@ class WFMServicer(object):
 
     def ListRealTimeManagementStates(self, request, context):
         """List org-level RealTimeManagementStates.
-        Required permissions:
-        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
         Errors:
         - grpc.Invalid: on invalid input.
         - grpc.Internal: on unexpected error.
@@ -3364,8 +3064,6 @@ class WFMServicer(object):
 
     def ListRealTimeManagementStateColors(self, request, context):
         """List org-level RealTimeManagementStateColors.
-        Required permissions:
-        PERMISSION_WFM_ADHERENCE_ADMIN, PERMISSION_WFM_ADHERENCE_MANAGER, or PERMISSION_WFM_ADHERENCE_MONITOR
         Errors:
         - grpc.Invalid: on invalid input.
         - grpc.Internal: on unexpected error.
@@ -3831,6 +3529,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.GetOpenTimesBitmaps,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsRes.SerializeToString,
+            ),
+            'ListOpenDateRangesForNodeOpenTimesBitmaps': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListOpenDateRangesForNodeOpenTimesBitmaps,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsResponse.SerializeToString,
             ),
             'CreateAgentAvailabilityPattern': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAgentAvailabilityPattern,
@@ -5787,6 +5490,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetOpenTimesBitmaps',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOpenTimesBitmapsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOpenDateRangesForNodeOpenTimesBitmaps(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListOpenDateRangesForNodeOpenTimesBitmaps',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListOpenDateRangesForNodeOpenTimesBitmapsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
