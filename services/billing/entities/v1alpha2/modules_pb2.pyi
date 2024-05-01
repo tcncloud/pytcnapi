@@ -12,17 +12,19 @@ class BasicConfig(_message.Message):
     def __init__(self, rate: _Optional[float] = ...) -> None: ...
 
 class BasicUnitConfig(_message.Message):
-    __slots__ = ("unit_size", "rate", "min_units", "max_units", "min_units_per_cycle", "max_units_per_cycle")
+    __slots__ = ("unit_size", "rate", "min_units", "max_units", "min_units_per_cycle", "max_units_per_cycle", "unit_size_per_cycle")
     UNIT_SIZE_FIELD_NUMBER: _ClassVar[int]
     RATE_FIELD_NUMBER: _ClassVar[int]
     MIN_UNITS_FIELD_NUMBER: _ClassVar[int]
     MAX_UNITS_FIELD_NUMBER: _ClassVar[int]
     MIN_UNITS_PER_CYCLE_FIELD_NUMBER: _ClassVar[int]
     MAX_UNITS_PER_CYCLE_FIELD_NUMBER: _ClassVar[int]
+    UNIT_SIZE_PER_CYCLE_FIELD_NUMBER: _ClassVar[int]
     unit_size: int
     rate: float
     min_units: _wrappers_pb2.Int64Value
     max_units: _wrappers_pb2.Int64Value
     min_units_per_cycle: _wrappers_pb2.Int64Value
     max_units_per_cycle: _wrappers_pb2.Int64Value
-    def __init__(self, unit_size: _Optional[int] = ..., rate: _Optional[float] = ..., min_units: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., max_units: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., min_units_per_cycle: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., max_units_per_cycle: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    unit_size_per_cycle: int
+    def __init__(self, unit_size: _Optional[int] = ..., rate: _Optional[float] = ..., min_units: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., max_units: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., min_units_per_cycle: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., max_units_per_cycle: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., unit_size_per_cycle: _Optional[int] = ...) -> None: ...
