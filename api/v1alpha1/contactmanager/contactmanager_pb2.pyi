@@ -159,3 +159,29 @@ class AddContactEntryResponse(_message.Message):
     CONTACT_ID_FIELD_NUMBER: _ClassVar[int]
     contact_id: int
     def __init__(self, contact_id: _Optional[int] = ...) -> None: ...
+
+class EditContactEntryRequest(_message.Message):
+    __slots__ = ("contact_manager_list_id", "contact_manager_entry_id", "edited_entry")
+    CONTACT_MANAGER_LIST_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGER_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
+    EDITED_ENTRY_FIELD_NUMBER: _ClassVar[int]
+    contact_manager_list_id: int
+    contact_manager_entry_id: int
+    edited_entry: _containers.RepeatedCompositeFieldContainer[EditedEntry]
+    def __init__(self, contact_manager_list_id: _Optional[int] = ..., contact_manager_entry_id: _Optional[int] = ..., edited_entry: _Optional[_Iterable[_Union[EditedEntry, _Mapping]]] = ...) -> None: ...
+
+class EditedEntry(_message.Message):
+    __slots__ = ("contact_manager_entry_list_id", "name", "value", "type")
+    CONTACT_MANAGER_ENTRY_LIST_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    contact_manager_entry_list_id: int
+    name: str
+    value: str
+    type: str
+    def __init__(self, contact_manager_entry_list_id: _Optional[int] = ..., name: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[str] = ...) -> None: ...
+
+class EditContactEntryResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

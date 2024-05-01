@@ -63,6 +63,18 @@ class TimePeriod(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TIME_PERIOD_LAST_1_YEAR: _ClassVar[TimePeriod]
     TIME_PERIOD_LAST_2_YEARS: _ClassVar[TimePeriod]
     TIME_PERIOD_LAST_5_YEARS: _ClassVar[TimePeriod]
+
+class FilenamePartType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    FILENAME_PART_TYPE_UNSPECIFIED: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_DASHBOARD_NAME: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_JOB_NAME: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_INSIGHT_NAME: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_DATE_TIME_FILTER_TEXT: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_START_DATE_TIME: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_END_DATE_TIME: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_REPORT_DATE_TIME: _ClassVar[FilenamePartType]
+    FILENAME_PART_TYPE_STATIC_TEXT: _ClassVar[FilenamePartType]
 REPEAT_FREQUENCY_UNSPECIFIED: RepeatFrequency
 REPEAT_FREQUENCY_ON_HOUR: RepeatFrequency
 REPEAT_FREQUENCY_15_MINUTES: RepeatFrequency
@@ -108,6 +120,15 @@ TIME_PERIOD_LAST_6_MONTHS: TimePeriod
 TIME_PERIOD_LAST_1_YEAR: TimePeriod
 TIME_PERIOD_LAST_2_YEARS: TimePeriod
 TIME_PERIOD_LAST_5_YEARS: TimePeriod
+FILENAME_PART_TYPE_UNSPECIFIED: FilenamePartType
+FILENAME_PART_TYPE_DASHBOARD_NAME: FilenamePartType
+FILENAME_PART_TYPE_JOB_NAME: FilenamePartType
+FILENAME_PART_TYPE_INSIGHT_NAME: FilenamePartType
+FILENAME_PART_TYPE_DATE_TIME_FILTER_TEXT: FilenamePartType
+FILENAME_PART_TYPE_START_DATE_TIME: FilenamePartType
+FILENAME_PART_TYPE_END_DATE_TIME: FilenamePartType
+FILENAME_PART_TYPE_REPORT_DATE_TIME: FilenamePartType
+FILENAME_PART_TYPE_STATIC_TEXT: FilenamePartType
 
 class DeliveryTimes(_message.Message):
     __slots__ = ("delivery_times", "repeat_frequency")
@@ -158,3 +179,19 @@ class DeliveryOptions(_message.Message):
     transfer_config_sid: int
     failure_notification_emails: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, transfer_config_sid: _Optional[int] = ..., failure_notification_emails: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class FilenamePart(_message.Message):
+    __slots__ = ("type", "static_text")
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    STATIC_TEXT_FIELD_NUMBER: _ClassVar[int]
+    type: FilenamePartType
+    static_text: str
+    def __init__(self, type: _Optional[_Union[FilenamePartType, str]] = ..., static_text: _Optional[str] = ...) -> None: ...
+
+class TransferOptions(_message.Message):
+    __slots__ = ("transfer_config_sid", "filename_parts")
+    TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
+    FILENAME_PARTS_FIELD_NUMBER: _ClassVar[int]
+    transfer_config_sid: str
+    filename_parts: _containers.RepeatedCompositeFieldContainer[FilenamePart]
+    def __init__(self, transfer_config_sid: _Optional[str] = ..., filename_parts: _Optional[_Iterable[_Union[FilenamePart, _Mapping]]] = ...) -> None: ...

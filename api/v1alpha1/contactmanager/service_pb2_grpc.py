@@ -44,6 +44,11 @@ class ContactManagerStub(object):
                 request_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryResponse.FromString,
                 )
+        self.EditContactEntry = channel.unary_unary(
+                '/api.v1alpha1.contactmanager.ContactManager/EditContactEntry',
+                request_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.EditContactEntryRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.EditContactEntryResponse.FromString,
+                )
 
 
 class ContactManagerServicer(object):
@@ -87,6 +92,14 @@ class ContactManagerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def EditContactEntry(self, request, context):
+        """*
+        Edits the fields of an existing contact entry...
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ContactManagerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -119,6 +132,11 @@ def add_ContactManagerServicer_to_server(servicer, server):
                     servicer.AddContactEntry,
                     request_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryResponse.SerializeToString,
+            ),
+            'EditContactEntry': grpc.unary_unary_rpc_method_handler(
+                    servicer.EditContactEntry,
+                    request_deserializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.EditContactEntryRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.EditContactEntryResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -229,5 +247,22 @@ class ContactManager(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.contactmanager.ContactManager/AddContactEntry',
             api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryRequest.SerializeToString,
             api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.AddContactEntryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EditContactEntry(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.contactmanager.ContactManager/EditContactEntry',
+            api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.EditContactEntryRequest.SerializeToString,
+            api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2.EditContactEntryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
