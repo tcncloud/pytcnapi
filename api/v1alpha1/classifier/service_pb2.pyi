@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ParseFileRequest(_message.Message):
-    __slots__ = ("raw_data", "reparse_file", "name")
+    __slots__ = ("raw_data", "reparse_file", "name", "rename_fields")
     class ReParseFile(_message.Message):
         __slots__ = ("file_template_id", "hints")
         FILE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -15,13 +15,22 @@ class ParseFileRequest(_message.Message):
         file_template_id: int
         hints: _entities_pb2.ParseHints
         def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ...) -> None: ...
+    class RenameFieldsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     RAW_DATA_FIELD_NUMBER: _ClassVar[int]
     REPARSE_FILE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    RENAME_FIELDS_FIELD_NUMBER: _ClassVar[int]
     raw_data: bytes
     reparse_file: ParseFileRequest.ReParseFile
     name: str
-    def __init__(self, raw_data: _Optional[bytes] = ..., reparse_file: _Optional[_Union[ParseFileRequest.ReParseFile, _Mapping]] = ..., name: _Optional[str] = ...) -> None: ...
+    rename_fields: _containers.ScalarMap[str, str]
+    def __init__(self, raw_data: _Optional[bytes] = ..., reparse_file: _Optional[_Union[ParseFileRequest.ReParseFile, _Mapping]] = ..., name: _Optional[str] = ..., rename_fields: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class ParseFileResponse(_message.Message):
     __slots__ = ("file_template",)
