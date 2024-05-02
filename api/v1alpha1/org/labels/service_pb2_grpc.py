@@ -102,7 +102,7 @@ class LabelsServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DetachLabel(self, request, context):
-        """DetachLabel attaches a label to a given entity type
+        """DetachLabel detaches a label from an entity based on an entity type
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
