@@ -10,7 +10,9 @@ from wfo.vanalytics.v2 import flag_review_pb2 as wfo_dot_vanalytics_dot_v2_dot_f
 from wfo.vanalytics.v2 import flag_snapshot_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2
 from wfo.vanalytics.v2 import flag_transcript_filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2
 from wfo.vanalytics.v2 import flag_transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2
+from wfo.vanalytics.v2 import service_pb2 as wfo_dot_vanalytics_dot_v2_dot_service__pb2
 from wfo.vanalytics.v2 import transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__pb2
+from wfo.vanalytics.v2 import transcript_summary_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2
 
 
 class VanalyticsStub(object):
@@ -22,10 +24,50 @@ class VanalyticsStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.Audit = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/Audit',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditResponse.FromString,
+                )
+        self.GetRecordingUrl = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/GetRecordingUrl',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlResponse.FromString,
+                )
+        self.ListBillingSpan = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListBillingSpan',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanResponse.FromString,
+                )
         self.SearchTranscripts = channel.unary_unary(
                 '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
+                )
+        self.BulkDeleteTranscripts = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/BulkDeleteTranscripts',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.FromString,
+                )
+        self.BulkRestoreTranscripts = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/BulkRestoreTranscripts',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsResponse.FromString,
+                )
+        self.ListTranscriptGroupNames = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListTranscriptGroupNames',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesResponse.FromString,
+                )
+        self.ListAgentResponseValues = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListAgentResponseValues',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesResponse.FromString,
+                )
+        self.GetTranscriptSummary = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/GetTranscriptSummary',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.FromString,
                 )
         self.CreateFilter = channel.unary_unary(
                 '/wfo.vanalytics.v2.Vanalytics/CreateFilter',
@@ -147,10 +189,72 @@ class VanalyticsStub(object):
 class VanalyticsServicer(object):
     """Missing associated documentation comment in .proto file."""
 
+    def Audit(self, request, context):
+        """Audit audits the used transcription audio time for a client. The window
+        of time to audit can be widened or narrowed using the request since and
+        until fields.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRecordingUrl(self, request, context):
+        """GetRecordingUrl gets a signed url to download a transcript recording.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBillingSpan(self, request, context):
+        """ListBillingSpan lists billing spans.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def SearchTranscripts(self, request, context):
-        """SearchTranscripts searches transcripts by search criteria. The search response
+        """[TRANSCRIPT] ==============================================================
+
+        SearchTranscripts searches transcripts by search criteria. The search response
         contains one page of transcript hits. Traversing the paginated hits is
         achieved by making use of the given page token.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkDeleteTranscripts(self, request, context):
+        """BulkDeleteTranscripts bulk deletes transcripts matching the provided query.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkRestoreTranscripts(self, request, context):
+        """BulkRestoreTranscripts bulk restores transcripts matching the provided query.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListTranscriptGroupNames(self, request, context):
+        """ListTranscriptGroupNames lists transcript group names.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAgentResponseValues(self, request, context):
+        """ListAgentResponseValues lists transcript agent response values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTranscriptSummary(self, request, context):
+        """[TRANSCRIPT_SUMMARY] ======================================================
+
+        GetTranscriptSummary gets a transcript summary for a provided transcript.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -337,10 +441,50 @@ class VanalyticsServicer(object):
 
 def add_VanalyticsServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'Audit': grpc.unary_unary_rpc_method_handler(
+                    servicer.Audit,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditResponse.SerializeToString,
+            ),
+            'GetRecordingUrl': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRecordingUrl,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlResponse.SerializeToString,
+            ),
+            'ListBillingSpan': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBillingSpan,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanResponse.SerializeToString,
+            ),
             'SearchTranscripts': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchTranscripts,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.SerializeToString,
+            ),
+            'BulkDeleteTranscripts': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkDeleteTranscripts,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.SerializeToString,
+            ),
+            'BulkRestoreTranscripts': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkRestoreTranscripts,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsResponse.SerializeToString,
+            ),
+            'ListTranscriptGroupNames': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTranscriptGroupNames,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesResponse.SerializeToString,
+            ),
+            'ListAgentResponseValues': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentResponseValues,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesResponse.SerializeToString,
+            ),
+            'GetTranscriptSummary': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTranscriptSummary,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.SerializeToString,
             ),
             'CreateFilter': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateFilter,
@@ -468,6 +612,57 @@ class Vanalytics(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
+    def Audit(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/Audit',
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRecordingUrl(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/GetRecordingUrl',
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBillingSpan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListBillingSpan',
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def SearchTranscripts(request,
             target,
             options=(),
@@ -481,6 +676,91 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkDeleteTranscripts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/BulkDeleteTranscripts',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkRestoreTranscripts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/BulkRestoreTranscripts',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTranscriptGroupNames(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListTranscriptGroupNames',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentResponseValues(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListAgentResponseValues',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTranscriptSummary(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/GetTranscriptSummary',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

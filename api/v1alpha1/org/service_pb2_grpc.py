@@ -805,6 +805,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
                 )
+        self.ListOrgHuntGroupScripts = channel.unary_stream(
+                '/api.v1alpha1.org.Org/ListOrgHuntGroupScripts',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
+                )
         self.GetHuntGroupScript = channel.unary_unary(
                 '/api.v1alpha1.org.Org/GetHuntGroupScript',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupScriptRequest.SerializeToString,
@@ -974,6 +979,16 @@ class OrgStub(object):
                 '/api.v1alpha1.org.Org/RevokeUsersPermissionGroup',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupResponse.FromString,
+                )
+        self.AssignLabels = channel.unary_unary(
+                '/api.v1alpha1.org.Org/AssignLabels',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsResponse.FromString,
+                )
+        self.RevokeLabels = channel.unary_unary(
+                '/api.v1alpha1.org.Org/RevokeLabels',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsResponse.FromString,
                 )
         self.AssignAccountOwnerPermissionToUser = channel.unary_unary(
                 '/api.v1alpha1.org.Org/AssignAccountOwnerPermissionToUser',
@@ -2274,6 +2289,14 @@ class OrgServicer(object):
         """Hunt Group Scripts
 
         ListHuntGroupScripts lists all hunt group scripts for the current organization.
+        DEPRECATED. Use ListOrgHuntGroupScripts instead
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListOrgHuntGroupScripts(self, request, context):
+        """ListOrgHuntGroupScripts lists all hunt group scripts for the current organization with a streamed response.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2525,6 +2548,20 @@ class OrgServicer(object):
 
     def RevokeUsersPermissionGroup(self, request, context):
         """RevokeUsersPermissionGroup returns a user a permission group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AssignLabels(self, request, context):
+        """AssignLabels assigns labels to a given permission group
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RevokeLabels(self, request, context):
+        """RevokeLabels revokes labels from a given permission group
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3537,6 +3574,11 @@ def add_OrgServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.SerializeToString,
             ),
+            'ListOrgHuntGroupScripts': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListOrgHuntGroupScripts,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.SerializeToString,
+            ),
             'GetHuntGroupScript': grpc.unary_unary_rpc_method_handler(
                     servicer.GetHuntGroupScript,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetHuntGroupScriptRequest.FromString,
@@ -3706,6 +3748,16 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.RevokeUsersPermissionGroup,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupResponse.SerializeToString,
+            ),
+            'AssignLabels': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignLabels,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsResponse.SerializeToString,
+            ),
+            'RevokeLabels': grpc.unary_unary_rpc_method_handler(
+                    servicer.RevokeLabels,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsResponse.SerializeToString,
             ),
             'AssignAccountOwnerPermissionToUser': grpc.unary_unary_rpc_method_handler(
                     servicer.AssignAccountOwnerPermissionToUser,
@@ -6521,6 +6573,23 @@ class Org(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListOrgHuntGroupScripts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.org.Org/ListOrgHuntGroupScripts',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListHuntGroupScriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def GetHuntGroupScript(request,
             target,
             options=(),
@@ -7095,6 +7164,40 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RevokeUsersPermissionGroup',
             api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeUsersPermissionGroupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignLabels(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/AssignLabels',
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.AssignLabelsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RevokeLabels(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RevokeLabels',
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_permissions__pb2.RevokeLabelsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

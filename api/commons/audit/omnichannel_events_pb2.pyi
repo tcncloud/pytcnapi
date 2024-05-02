@@ -239,12 +239,14 @@ class OmnichannelCloseConversationEvent(_message.Message):
     def __init__(self, message: _Optional[_Union[_omnichannel_pb2.OmniMessage, _Mapping]] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class OmnichannelTranscriptSavedEvent(_message.Message):
-    __slots__ = ("conversation_sid", "transcript_path")
+    __slots__ = ("conversation_sid", "transcript_path", "conversation")
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_PATH_FIELD_NUMBER: _ClassVar[int]
+    CONVERSATION_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     transcript_path: str
-    def __init__(self, conversation_sid: _Optional[int] = ..., transcript_path: _Optional[str] = ...) -> None: ...
+    conversation: _omnichannel_pb2.OmniConversation
+    def __init__(self, conversation_sid: _Optional[int] = ..., transcript_path: _Optional[str] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ...) -> None: ...
 
 class OmnichannelUpdateCampaignEvent(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "channel_type", "omni_campaign")

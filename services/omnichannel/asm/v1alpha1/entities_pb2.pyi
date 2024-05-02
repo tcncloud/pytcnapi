@@ -1,3 +1,4 @@
+from api.commons import event_pb2 as _event_pb2
 from services.omnichannel.asm.entities.v1alpha1 import session_pb2 as _session_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -84,3 +85,15 @@ class ListAsmUserDetailsResponse(_message.Message):
     sessions: _containers.RepeatedCompositeFieldContainer[_session_pb2.AsmUserDetails]
     asm_user_details: _containers.RepeatedCompositeFieldContainer[_session_pb2.AsmUserDetails]
     def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ..., asm_user_details: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ...) -> None: ...
+
+class PushEventsRequest(_message.Message):
+    __slots__ = ("ams_session_sid", "asm_events")
+    AMS_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    ASM_EVENTS_FIELD_NUMBER: _ClassVar[int]
+    ams_session_sid: int
+    asm_events: _containers.RepeatedCompositeFieldContainer[_event_pb2.AsmEvent]
+    def __init__(self, ams_session_sid: _Optional[int] = ..., asm_events: _Optional[_Iterable[_Union[_event_pb2.AsmEvent, _Mapping]]] = ...) -> None: ...
+
+class PushEventResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

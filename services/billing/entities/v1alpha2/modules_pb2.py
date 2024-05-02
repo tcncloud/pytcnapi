@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha2/modules.proto\x12\"services.billing.entities.v1alpha2\x1a\x1egoogle/protobuf/wrappers.proto\"!\n\x0b\x42\x61sicConfig\x12\x12\n\x04rate\x18\x01 \x01(\x01R\x04rate\"\xb6\x01\n\x0f\x42\x61sicUnitConfig\x12\x1b\n\tunit_size\x18\x01 \x01(\x03R\x08unitSize\x12\x12\n\x04rate\x18\x02 \x01(\x01R\x04rate\x12\x38\n\tmin_units\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x08minUnits\x12\x38\n\tmax_units\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x08maxUnitsB\xe1\x01\n&com.services.billing.entities.v1alpha2B\x0cModulesProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha2\xca\x02\"Services\\Billing\\Entities\\V1alpha2\xe2\x02.Services\\Billing\\Entities\\V1alpha2\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha2/modules.proto\x12\"services.billing.entities.v1alpha2\x1a\x1egoogle/protobuf/wrappers.proto\"!\n\x0b\x42\x61sicConfig\x12\x12\n\x04rate\x18\x01 \x01(\x01R\x04rate\"\xce\x02\n\x0f\x42\x61sicUnitConfig\x12\x1b\n\tunit_size\x18\x01 \x01(\x03R\x08unitSize\x12\x12\n\x04rate\x18\x02 \x01(\x01R\x04rate\x12\x38\n\tmin_units\x18\x03 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x08minUnits\x12\x38\n\tmax_units\x18\x04 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x08maxUnits\x12J\n\x13min_units_per_cycle\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x10minUnitsPerCycle\x12J\n\x13max_units_per_cycle\x18\x06 \x01(\x0b\x32\x1b.google.protobuf.Int64ValueR\x10maxUnitsPerCycleB\xe1\x01\n&com.services.billing.entities.v1alpha2B\x0cModulesProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha2\xca\x02\"Services\\Billing\\Entities\\V1alpha2\xe2\x02.Services\\Billing\\Entities\\V1alpha2\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha2b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -26,5 +26,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_BASICCONFIG']._serialized_start=120
   _globals['_BASICCONFIG']._serialized_end=153
   _globals['_BASICUNITCONFIG']._serialized_start=156
-  _globals['_BASICUNITCONFIG']._serialized_end=338
+  _globals['_BASICUNITCONFIG']._serialized_end=490
 # @@protoc_insertion_point(module_scope)

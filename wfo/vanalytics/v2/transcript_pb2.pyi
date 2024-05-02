@@ -5,6 +5,7 @@ from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from wfo.vanalytics.v2 import agent_call_log_pb2 as _agent_call_log_pb2
+from wfo.vanalytics.v2 import transcript_summary_pb2 as _transcript_summary_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -30,7 +31,7 @@ REVIEW_STATUS_DONE: ReviewStatus
 REVIEW_STATUS_NONE: ReviewStatus
 
 class Transcript(_message.Message):
-    __slots__ = ("call", "sms", "channel", "start_time", "delete_time", "flag_summary", "transcript_sid")
+    __slots__ = ("call", "sms", "channel", "start_time", "delete_time", "flag_summary", "transcript_sid", "summary")
     CALL_FIELD_NUMBER: _ClassVar[int]
     SMS_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_FIELD_NUMBER: _ClassVar[int]
@@ -38,6 +39,7 @@ class Transcript(_message.Message):
     DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
     FLAG_SUMMARY_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    SUMMARY_FIELD_NUMBER: _ClassVar[int]
     call: Call
     sms: Sms
     channel: Channel
@@ -45,7 +47,8 @@ class Transcript(_message.Message):
     delete_time: _timestamp_pb2.Timestamp
     flag_summary: FlagSummary
     transcript_sid: int
-    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., channel: _Optional[_Union[Channel, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ...) -> None: ...
+    summary: _transcript_summary_pb2.TranscriptSummary
+    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., channel: _Optional[_Union[Channel, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ..., summary: _Optional[_Union[_transcript_summary_pb2.TranscriptSummary, _Mapping]] = ...) -> None: ...
 
 class FlagSummary(_message.Message):
     __slots__ = ("count", "priority_sum", "priority_max", "need_review", "flags", "review_status")
@@ -179,12 +182,14 @@ class Call(_message.Message):
         user_id: str
         def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Call.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
     class Segment(_message.Message):
-        __slots__ = ("text", "offset")
+        __slots__ = ("text", "offset", "duration")
         TEXT_FIELD_NUMBER: _ClassVar[int]
         OFFSET_FIELD_NUMBER: _ClassVar[int]
+        DURATION_FIELD_NUMBER: _ClassVar[int]
         text: str
         offset: _duration_pb2.Duration
-        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+        duration: _duration_pb2.Duration
+        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
     class TalkOver(_message.Message):
         __slots__ = ("duration", "occurrence", "threshold")
         class Duration(_message.Message):
@@ -848,3 +853,55 @@ class SpanFuzzy(_message.Message):
     fuzziness_auto: FuzzinessAuto
     fuzziness_value: int
     def __init__(self, value: _Optional[str] = ..., fuzziness_auto: _Optional[_Union[FuzzinessAuto, _Mapping]] = ..., fuzziness_value: _Optional[int] = ...) -> None: ...
+
+class BulkDeleteTranscriptsRequest(_message.Message):
+    __slots__ = ("query",)
+    QUERY_FIELD_NUMBER: _ClassVar[int]
+    query: TranscriptQuery
+    def __init__(self, query: _Optional[_Union[TranscriptQuery, _Mapping]] = ...) -> None: ...
+
+class BulkDeleteTranscriptsResponse(_message.Message):
+    __slots__ = ("total",)
+    TOTAL_FIELD_NUMBER: _ClassVar[int]
+    total: int
+    def __init__(self, total: _Optional[int] = ...) -> None: ...
+
+class BulkRestoreTranscriptsRequest(_message.Message):
+    __slots__ = ("query",)
+    QUERY_FIELD_NUMBER: _ClassVar[int]
+    query: TranscriptQuery
+    def __init__(self, query: _Optional[_Union[TranscriptQuery, _Mapping]] = ...) -> None: ...
+
+class BulkRestoreTranscriptsResponse(_message.Message):
+    __slots__ = ("total",)
+    TOTAL_FIELD_NUMBER: _ClassVar[int]
+    total: int
+    def __init__(self, total: _Optional[int] = ...) -> None: ...
+
+class ListTranscriptGroupNamesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListTranscriptGroupNamesResponse(_message.Message):
+    __slots__ = ("group_names",)
+    GROUP_NAMES_FIELD_NUMBER: _ClassVar[int]
+    group_names: _containers.RepeatedCompositeFieldContainer[TranscriptGroupName]
+    def __init__(self, group_names: _Optional[_Iterable[_Union[TranscriptGroupName, _Mapping]]] = ...) -> None: ...
+
+class TranscriptGroupName(_message.Message):
+    __slots__ = ("value",)
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    value: str
+    def __init__(self, value: _Optional[str] = ...) -> None: ...
+
+class ListAgentResponseValuesRequest(_message.Message):
+    __slots__ = ("key",)
+    KEY_FIELD_NUMBER: _ClassVar[int]
+    key: str
+    def __init__(self, key: _Optional[str] = ...) -> None: ...
+
+class ListAgentResponseValuesResponse(_message.Message):
+    __slots__ = ("values",)
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, values: _Optional[_Iterable[str]] = ...) -> None: ...
