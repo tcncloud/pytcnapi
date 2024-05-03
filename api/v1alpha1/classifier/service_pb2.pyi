@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ParseFileRequest(_message.Message):
-    __slots__ = ("raw_data", "reparse_file", "name")
+    __slots__ = ("raw_data", "reparse_file", "parse_with_hints", "name")
     class ReParseFile(_message.Message):
         __slots__ = ("file_template_id", "hints", "rename_fields")
         class RenameFieldsEntry(_message.Message):
@@ -24,13 +24,22 @@ class ParseFileRequest(_message.Message):
         hints: _entities_pb2.ParseHints
         rename_fields: _containers.ScalarMap[str, str]
         def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ..., rename_fields: _Optional[_Mapping[str, str]] = ...) -> None: ...
+    class ParseWithHints(_message.Message):
+        __slots__ = ("raw_data", "hints")
+        RAW_DATA_FIELD_NUMBER: _ClassVar[int]
+        HINTS_FIELD_NUMBER: _ClassVar[int]
+        raw_data: bytes
+        hints: _entities_pb2.ParseHints
+        def __init__(self, raw_data: _Optional[bytes] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ...) -> None: ...
     RAW_DATA_FIELD_NUMBER: _ClassVar[int]
     REPARSE_FILE_FIELD_NUMBER: _ClassVar[int]
+    PARSE_WITH_HINTS_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     raw_data: bytes
     reparse_file: ParseFileRequest.ReParseFile
+    parse_with_hints: ParseFileRequest.ParseWithHints
     name: str
-    def __init__(self, raw_data: _Optional[bytes] = ..., reparse_file: _Optional[_Union[ParseFileRequest.ReParseFile, _Mapping]] = ..., name: _Optional[str] = ...) -> None: ...
+    def __init__(self, raw_data: _Optional[bytes] = ..., reparse_file: _Optional[_Union[ParseFileRequest.ReParseFile, _Mapping]] = ..., parse_with_hints: _Optional[_Union[ParseFileRequest.ParseWithHints, _Mapping]] = ..., name: _Optional[str] = ...) -> None: ...
 
 class ParseFileResponse(_message.Message):
     __slots__ = ("file_template",)
