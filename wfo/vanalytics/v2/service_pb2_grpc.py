@@ -149,11 +149,6 @@ class VanalyticsStub(object):
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.FromString,
                 )
-        self.SearchFlagTranscripts = channel.unary_unary(
-                '/wfo.vanalytics.v2.Vanalytics/SearchFlagTranscripts',
-                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.SearchFlagTranscriptsRequest.SerializeToString,
-                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.SearchFlagTranscriptsResponse.FromString,
-                )
         self.ListFlagSnapshots = channel.unary_unary(
                 '/wfo.vanalytics.v2.Vanalytics/ListFlagSnapshots',
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2.ListFlagSnapshotsRequest.SerializeToString,
@@ -385,13 +380,6 @@ class VanalyticsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def SearchFlagTranscripts(self, request, context):
-        """SearchFlagTranscripts searches flag transcripts.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def ListFlagSnapshots(self, request, context):
         """[FLAG_SNAPSHOT] ===========================================================
 
@@ -565,11 +553,6 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     servicer.CreateFlagTranscript,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.SerializeToString,
-            ),
-            'SearchFlagTranscripts': grpc.unary_unary_rpc_method_handler(
-                    servicer.SearchFlagTranscripts,
-                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.SearchFlagTranscriptsRequest.FromString,
-                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.SearchFlagTranscriptsResponse.SerializeToString,
             ),
             'ListFlagSnapshots': grpc.unary_unary_rpc_method_handler(
                     servicer.ListFlagSnapshots,
@@ -1033,23 +1016,6 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateFlagTranscript',
             wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def SearchFlagTranscripts(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/SearchFlagTranscripts',
-            wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.SearchFlagTranscriptsRequest.SerializeToString,
-            wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.SearchFlagTranscriptsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
