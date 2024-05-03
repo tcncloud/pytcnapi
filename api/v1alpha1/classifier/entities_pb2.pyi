@@ -86,7 +86,7 @@ class OptsJsonL(_message.Message):
     def __init__(self) -> None: ...
 
 class OptsFixed(_message.Message):
-    __slots__ = ("positions",)
+    __slots__ = ("positions", "has_header")
     class FieldOpts(_message.Message):
         __slots__ = ("starting_position", "field_length")
         STARTING_POSITION_FIELD_NUMBER: _ClassVar[int]
@@ -102,8 +102,10 @@ class OptsFixed(_message.Message):
         value: OptsFixed.FieldOpts
         def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[OptsFixed.FieldOpts, _Mapping]] = ...) -> None: ...
     POSITIONS_FIELD_NUMBER: _ClassVar[int]
+    HAS_HEADER_FIELD_NUMBER: _ClassVar[int]
     positions: _containers.MessageMap[str, OptsFixed.FieldOpts]
-    def __init__(self, positions: _Optional[_Mapping[str, OptsFixed.FieldOpts]] = ...) -> None: ...
+    has_header: bool
+    def __init__(self, positions: _Optional[_Mapping[str, OptsFixed.FieldOpts]] = ..., has_header: bool = ...) -> None: ...
 
 class OptsParquet(_message.Message):
     __slots__ = ()
