@@ -25,14 +25,12 @@ class ParseFileRequest(_message.Message):
         rename_fields: _containers.ScalarMap[str, str]
         def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ..., rename_fields: _Optional[_Mapping[str, str]] = ...) -> None: ...
     class ParseWithHints(_message.Message):
-        __slots__ = ("raw_data", "has_header", "header")
+        __slots__ = ("raw_data", "has_header")
         RAW_DATA_FIELD_NUMBER: _ClassVar[int]
         HAS_HEADER_FIELD_NUMBER: _ClassVar[int]
-        HEADER_FIELD_NUMBER: _ClassVar[int]
         raw_data: bytes
         has_header: bool
-        header: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, raw_data: _Optional[bytes] = ..., has_header: bool = ..., header: _Optional[_Iterable[str]] = ...) -> None: ...
+        def __init__(self, raw_data: _Optional[bytes] = ..., has_header: bool = ...) -> None: ...
     RAW_DATA_FIELD_NUMBER: _ClassVar[int]
     REPARSE_FILE_FIELD_NUMBER: _ClassVar[int]
     PARSE_WITH_HINTS_FIELD_NUMBER: _ClassVar[int]
