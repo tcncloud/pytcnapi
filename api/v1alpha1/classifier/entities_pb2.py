@@ -15,7 +15,7 @@ _sym_db = _symbol_database.Default()
 from api.commons import classifier_pb2 as api_dot_commons_dot_classifier__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/v1alpha1/classifier/entities.proto\x12\x17\x61pi.v1alpha1.classifier\x1a\x1c\x61pi/commons/classifier.proto\"P\n\x15\x43lassifierEntityTypes\x12\x37\n\x05types\x18\x01 \x03(\x0e\x32!.api.commons.ClassifierEntityTypeR\x05types\"\xa7\x04\n\x0c\x46ileTemplate\x12(\n\x10\x66ile_template_id\x18\x01 \x01(\x03R\x0e\x66ileTemplateId\x12\x1a\n\x08\x66ilename\x18\x02 \x01(\tR\x08\x66ilename\x12\x43\n\x06\x66ields\x18\x03 \x03(\x0b\x32+.api.v1alpha1.classifier.FileTemplate.FieldR\x06\x66ields\x12\x45\n\nparse_opts\x18\x04 \x01(\x0b\x32\".api.v1alpha1.classifier.ParseOptsB\x02\x18\x01R\tparseOpts\x12\x31\n\x04opts\x18\x07 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04opts\x12\x46\n\x0b\x63onstraints\x18\x05 \x01(\x0b\x32$.api.v1alpha1.classifier.ConstraintsR\x0b\x63onstraints\x12\x12\n\x04\x66oid\x18\x06 \x01(\x03R\x04\x66oid\x1a\xb5\x01\n\x05\x46ield\x12\x1f\n\x0bsyntax_type\x18\x01 \x01(\tR\nsyntaxType\x12\x42\n\x0b\x65ntity_type\x18\x02 \x01(\x0e\x32!.api.commons.ClassifierEntityTypeR\nentityType\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x16\n\x06\x66ormat\x18\x04 \x01(\tR\x06\x66ormat\x12\x1b\n\traw_value\x18\x05 \x01(\tR\x08rawValue\"\xf1\x02\n\x04Opts\x12Q\n\x0c\x64\x61te_formats\x18\x01 \x03(\x0b\x32..api.v1alpha1.classifier.Opts.DateFormatsEntryR\x0b\x64\x61teFormats\x12T\n\rrename_fields\x18\x02 \x03(\x0b\x32/.api.v1alpha1.classifier.Opts.RenameFieldsEntryR\x0crenameFields\x12?\n\ttype_opts\x18\x03 \x01(\x0b\x32\".api.v1alpha1.classifier.ParseOptsR\x08typeOpts\x1a>\n\x10\x44\x61teFormatsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a?\n\x11RenameFieldsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xbd\x02\n\tParseOpts\x12\x34\n\x03\x63sv\x18\x01 \x01(\x0b\x32 .api.v1alpha1.classifier.OptsCsvH\x00R\x03\x63sv\x12\x37\n\x04json\x18\x02 \x01(\x0b\x32!.api.v1alpha1.classifier.OptsJsonH\x00R\x04json\x12:\n\x05jsonl\x18\x03 \x01(\x0b\x32\".api.v1alpha1.classifier.OptsJsonLH\x00R\x05jsonl\x12:\n\x05\x66ixed\x18\x04 \x01(\x0b\x32\".api.v1alpha1.classifier.OptsFixedH\x00R\x05\x66ixed\x12@\n\x07parquet\x18\x05 \x01(\x0b\x32$.api.v1alpha1.classifier.OptsParquetH\x00R\x07parquetB\x07\n\x05\x66type\"{\n\x07OptsCsv\x12\x1d\n\nhas_header\x18\x01 \x01(\x08R\thasHeader\x12\x1b\n\tskip_rows\x18\x02 \x01(\x03R\x08skipRows\x12\x16\n\x06header\x18\x03 \x03(\tR\x06header\x12\x1c\n\tseparator\x18\x04 \x01(\tR\tseparator\"-\n\x08OptsJson\x12!\n\x0crecords_root\x18\x01 \x01(\tR\x0brecordsRoot\"\x0b\n\tOptsJsonL\"\xc4\x02\n\tOptsFixed\x12O\n\tpositions\x18\x01 \x03(\x0b\x32\x31.api.v1alpha1.classifier.OptsFixed.PositionsEntryR\tpositions\x12\x1d\n\nhas_header\x18\x02 \x01(\x08R\thasHeader\x1a[\n\tFieldOpts\x12+\n\x11starting_position\x18\r \x01(\x05R\x10startingPosition\x12!\n\x0c\x66ield_length\x18\x0e \x01(\x05R\x0b\x66ieldLength\x1aj\n\x0ePositionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x42\n\x05value\x18\x02 \x01(\x0b\x32,.api.v1alpha1.classifier.OptsFixed.FieldOptsR\x05value:\x02\x38\x01\"\r\n\x0bOptsParquet\"\xf3\x02\n\x0b\x43onstraints\x12H\n\x06\x66orbid\x18\x01 \x03(\x0b\x32\x30.api.v1alpha1.classifier.Constraints.ForbidEntryR\x06\x66orbid\x12\x45\n\x05\x61llow\x18\x02 \x03(\x0b\x32/.api.v1alpha1.classifier.Constraints.AllowEntryR\x05\x61llow\x1ai\n\x0b\x46orbidEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x44\n\x05value\x18\x02 \x01(\x0b\x32..api.v1alpha1.classifier.ClassifierEntityTypesR\x05value:\x02\x38\x01\x1ah\n\nAllowEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x44\n\x05value\x18\x02 \x01(\x0b\x32..api.v1alpha1.classifier.ClassifierEntityTypesR\x05value:\x02\x38\x01\"\xce\x01\n\nParseHints\x12\x45\n\nparse_opts\x18\x01 \x01(\x0b\x32\".api.v1alpha1.classifier.ParseOptsB\x02\x18\x01R\tparseOpts\x12\x46\n\x0b\x63onstraints\x18\x02 \x01(\x0b\x32$.api.v1alpha1.classifier.ConstraintsR\x0b\x63onstraints\x12\x31\n\x04opts\x18\x03 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04optsB\xaa\x01\n\x1b\x63om.api.v1alpha1.classifierB\rEntitiesProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x17\x41pi.V1alpha1.Classifier\xca\x02\x17\x41pi\\V1alpha1\\Classifier\xe2\x02#Api\\V1alpha1\\Classifier\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Classifierb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/v1alpha1/classifier/entities.proto\x12\x17\x61pi.v1alpha1.classifier\x1a\x1c\x61pi/commons/classifier.proto\"P\n\x15\x43lassifierEntityTypes\x12\x37\n\x05types\x18\x01 \x03(\x0e\x32!.api.commons.ClassifierEntityTypeR\x05types\"\xa7\x04\n\x0c\x46ileTemplate\x12(\n\x10\x66ile_template_id\x18\x01 \x01(\x03R\x0e\x66ileTemplateId\x12\x1a\n\x08\x66ilename\x18\x02 \x01(\tR\x08\x66ilename\x12\x43\n\x06\x66ields\x18\x03 \x03(\x0b\x32+.api.v1alpha1.classifier.FileTemplate.FieldR\x06\x66ields\x12\x45\n\nparse_opts\x18\x04 \x01(\x0b\x32\".api.v1alpha1.classifier.ParseOptsB\x02\x18\x01R\tparseOpts\x12\x31\n\x04opts\x18\x07 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04opts\x12\x46\n\x0b\x63onstraints\x18\x05 \x01(\x0b\x32$.api.v1alpha1.classifier.ConstraintsR\x0b\x63onstraints\x12\x12\n\x04\x66oid\x18\x06 \x01(\x03R\x04\x66oid\x1a\xb5\x01\n\x05\x46ield\x12\x1f\n\x0bsyntax_type\x18\x01 \x01(\tR\nsyntaxType\x12\x42\n\x0b\x65ntity_type\x18\x02 \x01(\x0e\x32!.api.commons.ClassifierEntityTypeR\nentityType\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12\x16\n\x06\x66ormat\x18\x04 \x01(\tR\x06\x66ormat\x12\x1b\n\traw_value\x18\x05 \x01(\tR\x08rawValue\"\xf3\x02\n\x04Opts\x12Q\n\x0c\x64\x61te_formats\x18\x01 \x03(\x0b\x32..api.v1alpha1.classifier.Opts.DateFormatsEntryR\x0b\x64\x61teFormats\x12T\n\rrename_fields\x18\x02 \x03(\x0b\x32/.api.v1alpha1.classifier.Opts.RenameFieldsEntryR\x0crenameFields\x12\x41\n\nparse_opts\x18\x03 \x01(\x0b\x32\".api.v1alpha1.classifier.ParseOptsR\tparseOpts\x1a>\n\x10\x44\x61teFormatsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\x1a?\n\x11RenameFieldsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value:\x02\x38\x01\"\xbd\x02\n\tParseOpts\x12\x34\n\x03\x63sv\x18\x01 \x01(\x0b\x32 .api.v1alpha1.classifier.OptsCsvH\x00R\x03\x63sv\x12\x37\n\x04json\x18\x02 \x01(\x0b\x32!.api.v1alpha1.classifier.OptsJsonH\x00R\x04json\x12:\n\x05jsonl\x18\x03 \x01(\x0b\x32\".api.v1alpha1.classifier.OptsJsonLH\x00R\x05jsonl\x12:\n\x05\x66ixed\x18\x04 \x01(\x0b\x32\".api.v1alpha1.classifier.OptsFixedH\x00R\x05\x66ixed\x12@\n\x07parquet\x18\x05 \x01(\x0b\x32$.api.v1alpha1.classifier.OptsParquetH\x00R\x07parquetB\x07\n\x05\x66type\"{\n\x07OptsCsv\x12\x1d\n\nhas_header\x18\x01 \x01(\x08R\thasHeader\x12\x1b\n\tskip_rows\x18\x02 \x01(\x03R\x08skipRows\x12\x16\n\x06header\x18\x03 \x03(\tR\x06header\x12\x1c\n\tseparator\x18\x04 \x01(\tR\tseparator\"-\n\x08OptsJson\x12!\n\x0crecords_root\x18\x01 \x01(\tR\x0brecordsRoot\"\x0b\n\tOptsJsonL\"\xc4\x02\n\tOptsFixed\x12O\n\tpositions\x18\x01 \x03(\x0b\x32\x31.api.v1alpha1.classifier.OptsFixed.PositionsEntryR\tpositions\x12\x1d\n\nhas_header\x18\x02 \x01(\x08R\thasHeader\x1a[\n\tFieldOpts\x12+\n\x11starting_position\x18\r \x01(\x05R\x10startingPosition\x12!\n\x0c\x66ield_length\x18\x0e \x01(\x05R\x0b\x66ieldLength\x1aj\n\x0ePositionsEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x42\n\x05value\x18\x02 \x01(\x0b\x32,.api.v1alpha1.classifier.OptsFixed.FieldOptsR\x05value:\x02\x38\x01\"\r\n\x0bOptsParquet\"\xf3\x02\n\x0b\x43onstraints\x12H\n\x06\x66orbid\x18\x01 \x03(\x0b\x32\x30.api.v1alpha1.classifier.Constraints.ForbidEntryR\x06\x66orbid\x12\x45\n\x05\x61llow\x18\x02 \x03(\x0b\x32/.api.v1alpha1.classifier.Constraints.AllowEntryR\x05\x61llow\x1ai\n\x0b\x46orbidEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x44\n\x05value\x18\x02 \x01(\x0b\x32..api.v1alpha1.classifier.ClassifierEntityTypesR\x05value:\x02\x38\x01\x1ah\n\nAllowEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x44\n\x05value\x18\x02 \x01(\x0b\x32..api.v1alpha1.classifier.ClassifierEntityTypesR\x05value:\x02\x38\x01\"\xce\x01\n\nParseHints\x12\x45\n\nparse_opts\x18\x01 \x01(\x0b\x32\".api.v1alpha1.classifier.ParseOptsB\x02\x18\x01R\tparseOpts\x12\x46\n\x0b\x63onstraints\x18\x02 \x01(\x0b\x32$.api.v1alpha1.classifier.ConstraintsR\x0b\x63onstraints\x12\x31\n\x04opts\x18\x03 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04optsB\xaa\x01\n\x1b\x63om.api.v1alpha1.classifierB\rEntitiesProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x17\x41pi.V1alpha1.Classifier\xca\x02\x17\x41pi\\V1alpha1\\Classifier\xe2\x02#Api\\V1alpha1\\Classifier\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Classifierb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -44,33 +44,33 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_FILETEMPLATE_FIELD']._serialized_start=550
   _globals['_FILETEMPLATE_FIELD']._serialized_end=731
   _globals['_OPTS']._serialized_start=734
-  _globals['_OPTS']._serialized_end=1103
-  _globals['_OPTS_DATEFORMATSENTRY']._serialized_start=976
-  _globals['_OPTS_DATEFORMATSENTRY']._serialized_end=1038
-  _globals['_OPTS_RENAMEFIELDSENTRY']._serialized_start=1040
-  _globals['_OPTS_RENAMEFIELDSENTRY']._serialized_end=1103
-  _globals['_PARSEOPTS']._serialized_start=1106
-  _globals['_PARSEOPTS']._serialized_end=1423
-  _globals['_OPTSCSV']._serialized_start=1425
-  _globals['_OPTSCSV']._serialized_end=1548
-  _globals['_OPTSJSON']._serialized_start=1550
-  _globals['_OPTSJSON']._serialized_end=1595
-  _globals['_OPTSJSONL']._serialized_start=1597
-  _globals['_OPTSJSONL']._serialized_end=1608
-  _globals['_OPTSFIXED']._serialized_start=1611
-  _globals['_OPTSFIXED']._serialized_end=1935
-  _globals['_OPTSFIXED_FIELDOPTS']._serialized_start=1736
-  _globals['_OPTSFIXED_FIELDOPTS']._serialized_end=1827
-  _globals['_OPTSFIXED_POSITIONSENTRY']._serialized_start=1829
-  _globals['_OPTSFIXED_POSITIONSENTRY']._serialized_end=1935
-  _globals['_OPTSPARQUET']._serialized_start=1937
-  _globals['_OPTSPARQUET']._serialized_end=1950
-  _globals['_CONSTRAINTS']._serialized_start=1953
-  _globals['_CONSTRAINTS']._serialized_end=2324
-  _globals['_CONSTRAINTS_FORBIDENTRY']._serialized_start=2113
-  _globals['_CONSTRAINTS_FORBIDENTRY']._serialized_end=2218
-  _globals['_CONSTRAINTS_ALLOWENTRY']._serialized_start=2220
-  _globals['_CONSTRAINTS_ALLOWENTRY']._serialized_end=2324
-  _globals['_PARSEHINTS']._serialized_start=2327
-  _globals['_PARSEHINTS']._serialized_end=2533
+  _globals['_OPTS']._serialized_end=1105
+  _globals['_OPTS_DATEFORMATSENTRY']._serialized_start=978
+  _globals['_OPTS_DATEFORMATSENTRY']._serialized_end=1040
+  _globals['_OPTS_RENAMEFIELDSENTRY']._serialized_start=1042
+  _globals['_OPTS_RENAMEFIELDSENTRY']._serialized_end=1105
+  _globals['_PARSEOPTS']._serialized_start=1108
+  _globals['_PARSEOPTS']._serialized_end=1425
+  _globals['_OPTSCSV']._serialized_start=1427
+  _globals['_OPTSCSV']._serialized_end=1550
+  _globals['_OPTSJSON']._serialized_start=1552
+  _globals['_OPTSJSON']._serialized_end=1597
+  _globals['_OPTSJSONL']._serialized_start=1599
+  _globals['_OPTSJSONL']._serialized_end=1610
+  _globals['_OPTSFIXED']._serialized_start=1613
+  _globals['_OPTSFIXED']._serialized_end=1937
+  _globals['_OPTSFIXED_FIELDOPTS']._serialized_start=1738
+  _globals['_OPTSFIXED_FIELDOPTS']._serialized_end=1829
+  _globals['_OPTSFIXED_POSITIONSENTRY']._serialized_start=1831
+  _globals['_OPTSFIXED_POSITIONSENTRY']._serialized_end=1937
+  _globals['_OPTSPARQUET']._serialized_start=1939
+  _globals['_OPTSPARQUET']._serialized_end=1952
+  _globals['_CONSTRAINTS']._serialized_start=1955
+  _globals['_CONSTRAINTS']._serialized_end=2326
+  _globals['_CONSTRAINTS_FORBIDENTRY']._serialized_start=2115
+  _globals['_CONSTRAINTS_FORBIDENTRY']._serialized_end=2220
+  _globals['_CONSTRAINTS_ALLOWENTRY']._serialized_start=2222
+  _globals['_CONSTRAINTS_ALLOWENTRY']._serialized_end=2326
+  _globals['_PARSEHINTS']._serialized_start=2329
+  _globals['_PARSEHINTS']._serialized_end=2535
 # @@protoc_insertion_point(module_scope)

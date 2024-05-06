@@ -44,7 +44,7 @@ class FileTemplate(_message.Message):
     def __init__(self, file_template_id: _Optional[int] = ..., filename: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[FileTemplate.Field, _Mapping]]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., opts: _Optional[_Union[Opts, _Mapping]] = ..., constraints: _Optional[_Union[Constraints, _Mapping]] = ..., foid: _Optional[int] = ...) -> None: ...
 
 class Opts(_message.Message):
-    __slots__ = ("date_formats", "rename_fields", "type_opts")
+    __slots__ = ("date_formats", "rename_fields", "parse_opts")
     class DateFormatsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -61,11 +61,11 @@ class Opts(_message.Message):
         def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     DATE_FORMATS_FIELD_NUMBER: _ClassVar[int]
     RENAME_FIELDS_FIELD_NUMBER: _ClassVar[int]
-    TYPE_OPTS_FIELD_NUMBER: _ClassVar[int]
+    PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
     date_formats: _containers.ScalarMap[str, str]
     rename_fields: _containers.ScalarMap[str, str]
-    type_opts: ParseOpts
-    def __init__(self, date_formats: _Optional[_Mapping[str, str]] = ..., rename_fields: _Optional[_Mapping[str, str]] = ..., type_opts: _Optional[_Union[ParseOpts, _Mapping]] = ...) -> None: ...
+    parse_opts: ParseOpts
+    def __init__(self, date_formats: _Optional[_Mapping[str, str]] = ..., rename_fields: _Optional[_Mapping[str, str]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ...) -> None: ...
 
 class ParseOpts(_message.Message):
     __slots__ = ("csv", "json", "jsonl", "fixed", "parquet")
