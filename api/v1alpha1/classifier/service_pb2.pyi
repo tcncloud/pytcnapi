@@ -18,12 +18,12 @@ class ParseFileRequest(_message.Message):
         opts: _entities_pb2.Opts
         def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ..., opts: _Optional[_Union[_entities_pb2.Opts, _Mapping]] = ...) -> None: ...
     class ParseWithHints(_message.Message):
-        __slots__ = ("raw_data", "opts")
+        __slots__ = ("raw_data", "has_header")
         RAW_DATA_FIELD_NUMBER: _ClassVar[int]
-        OPTS_FIELD_NUMBER: _ClassVar[int]
+        HAS_HEADER_FIELD_NUMBER: _ClassVar[int]
         raw_data: bytes
-        opts: _entities_pb2.Opts
-        def __init__(self, raw_data: _Optional[bytes] = ..., opts: _Optional[_Union[_entities_pb2.Opts, _Mapping]] = ...) -> None: ...
+        has_header: bool
+        def __init__(self, raw_data: _Optional[bytes] = ..., has_header: bool = ...) -> None: ...
     RAW_DATA_FIELD_NUMBER: _ClassVar[int]
     REPARSE_FILE_FIELD_NUMBER: _ClassVar[int]
     PARSE_WITH_HINTS_FIELD_NUMBER: _ClassVar[int]
