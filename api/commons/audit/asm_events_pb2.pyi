@@ -54,20 +54,18 @@ class AsmDeactivateConversationEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ...) -> None: ...
 
 class AsmAgentStateChangedEvent(_message.Message):
-    __slots__ = ("user_id", "asm_session_sid", "new_status", "old_status", "last_state_change_time", "last_state_duration")
+    __slots__ = ("user_id", "asm_session_sid", "new_status", "old_status", "old_status_duration")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     NEW_STATUS_FIELD_NUMBER: _ClassVar[int]
     OLD_STATUS_FIELD_NUMBER: _ClassVar[int]
-    LAST_STATE_CHANGE_TIME_FIELD_NUMBER: _ClassVar[int]
-    LAST_STATE_DURATION_FIELD_NUMBER: _ClassVar[int]
+    OLD_STATUS_DURATION_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     asm_session_sid: int
     new_status: _asm_pb2.StatusState
     old_status: _asm_pb2.StatusState
-    last_state_change_time: _timestamp_pb2.Timestamp
-    last_state_duration: int
-    def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., new_status: _Optional[_Union[_asm_pb2.StatusState, str]] = ..., old_status: _Optional[_Union[_asm_pb2.StatusState, str]] = ..., last_state_change_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_state_duration: _Optional[int] = ...) -> None: ...
+    old_status_duration: int
+    def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ..., new_status: _Optional[_Union[_asm_pb2.StatusState, str]] = ..., old_status: _Optional[_Union[_asm_pb2.StatusState, str]] = ..., old_status_duration: _Optional[int] = ...) -> None: ...
 
 class AsmAgentLogoutEvent(_message.Message):
     __slots__ = ("user_id", "asm_session_sid", "reason")
