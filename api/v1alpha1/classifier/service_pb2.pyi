@@ -9,28 +9,19 @@ DESCRIPTOR: _descriptor.FileDescriptor
 class ParseFileRequest(_message.Message):
     __slots__ = ("raw_data", "reparse_file", "parse_with_hints", "name")
     class ReParseFile(_message.Message):
-        __slots__ = ("file_template_id", "hints", "rename_fields")
-        class RenameFieldsEntry(_message.Message):
-            __slots__ = ("key", "value")
-            KEY_FIELD_NUMBER: _ClassVar[int]
-            VALUE_FIELD_NUMBER: _ClassVar[int]
-            key: str
-            value: str
-            def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+        __slots__ = ("file_template_id", "hints")
         FILE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
         HINTS_FIELD_NUMBER: _ClassVar[int]
-        RENAME_FIELDS_FIELD_NUMBER: _ClassVar[int]
         file_template_id: int
         hints: _entities_pb2.ParseHints
-        rename_fields: _containers.ScalarMap[str, str]
-        def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ..., rename_fields: _Optional[_Mapping[str, str]] = ...) -> None: ...
+        def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ...) -> None: ...
     class ParseWithHints(_message.Message):
-        __slots__ = ("raw_data", "has_header")
+        __slots__ = ("raw_data", "hints")
         RAW_DATA_FIELD_NUMBER: _ClassVar[int]
-        HAS_HEADER_FIELD_NUMBER: _ClassVar[int]
+        HINTS_FIELD_NUMBER: _ClassVar[int]
         raw_data: bytes
-        has_header: bool
-        def __init__(self, raw_data: _Optional[bytes] = ..., has_header: bool = ...) -> None: ...
+        hints: _entities_pb2.ParseHints
+        def __init__(self, raw_data: _Optional[bytes] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ...) -> None: ...
     RAW_DATA_FIELD_NUMBER: _ClassVar[int]
     REPARSE_FILE_FIELD_NUMBER: _ClassVar[int]
     PARSE_WITH_HINTS_FIELD_NUMBER: _ClassVar[int]
