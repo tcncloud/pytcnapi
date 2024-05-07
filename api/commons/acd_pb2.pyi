@@ -828,7 +828,7 @@ class AgentDirectedCallHangupAlert(_message.Message):
     def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., id: _Optional[str] = ...) -> None: ...
 
 class AgentState(_message.Message):
-    __slots__ = ("status", "status_desc", "paused", "queue", "current_session_id", "last_status_change", "monitoring", "calls_count", "last_sip_code", "agent_peer_is_lost_call", "disabled", "caller_was_suspended", "transfer_members", "agent_peer_is_direct_to_agent", "user_id", "agent_sid", "asm_session_sid", "agent_is_muted")
+    __slots__ = ("status", "status_desc", "paused", "queue", "current_session_id", "last_status_change", "monitoring", "calls_count", "last_sip_code", "agent_peer_is_lost_call", "disabled", "caller_was_suspended", "transfer_members", "agent_peer_is_direct_to_agent", "user_id", "agent_sid", "asm_session_sid", "agent_is_muted", "uuid")
     STATUS_FIELD_NUMBER: _ClassVar[int]
     STATUS_DESC_FIELD_NUMBER: _ClassVar[int]
     PAUSED_FIELD_NUMBER: _ClassVar[int]
@@ -847,6 +847,7 @@ class AgentState(_message.Message):
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_IS_MUTED_FIELD_NUMBER: _ClassVar[int]
+    UUID_FIELD_NUMBER: _ClassVar[int]
     status: int
     status_desc: AgentStatus.Enum
     paused: bool
@@ -865,4 +866,5 @@ class AgentState(_message.Message):
     agent_sid: int
     asm_session_sid: int
     agent_is_muted: bool
-    def __init__(self, status: _Optional[int] = ..., status_desc: _Optional[_Union[AgentStatus.Enum, str]] = ..., paused: bool = ..., queue: _Optional[str] = ..., current_session_id: _Optional[int] = ..., last_status_change: _Optional[int] = ..., monitoring: bool = ..., calls_count: _Optional[int] = ..., last_sip_code: _Optional[int] = ..., agent_peer_is_lost_call: bool = ..., disabled: bool = ..., caller_was_suspended: bool = ..., transfer_members: _Optional[_Iterable[_Union[TransferMember, _Mapping]]] = ..., agent_peer_is_direct_to_agent: bool = ..., user_id: _Optional[str] = ..., agent_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., agent_is_muted: bool = ...) -> None: ...
+    uuid: str
+    def __init__(self, status: _Optional[int] = ..., status_desc: _Optional[_Union[AgentStatus.Enum, str]] = ..., paused: bool = ..., queue: _Optional[str] = ..., current_session_id: _Optional[int] = ..., last_status_change: _Optional[int] = ..., monitoring: bool = ..., calls_count: _Optional[int] = ..., last_sip_code: _Optional[int] = ..., agent_peer_is_lost_call: bool = ..., disabled: bool = ..., caller_was_suspended: bool = ..., transfer_members: _Optional[_Iterable[_Union[TransferMember, _Mapping]]] = ..., agent_peer_is_direct_to_agent: bool = ..., user_id: _Optional[str] = ..., agent_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., agent_is_muted: bool = ..., uuid: _Optional[str] = ...) -> None: ...

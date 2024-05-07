@@ -108,14 +108,12 @@ class StreamAgentStateRes(_message.Message):
     def __init__(self, state: _Optional[_Union[_acd_pb2.AgentState, _Mapping]] = ..., heart_beat: _Optional[_Union[KeepAlive, _Mapping]] = ..., call_queue_add: _Optional[_Union[QueueCallAdd, _Mapping]] = ..., call_queue_remove: _Optional[_Union[QueueCallRemove, _Mapping]] = ...) -> None: ...
 
 class ManagerStreamAgentStateRes(_message.Message):
-    __slots__ = ("state", "heart_beat", "uuid")
+    __slots__ = ("state", "heart_beat")
     STATE_FIELD_NUMBER: _ClassVar[int]
     HEART_BEAT_FIELD_NUMBER: _ClassVar[int]
-    UUID_FIELD_NUMBER: _ClassVar[int]
     state: _acd_pb2.AgentState
     heart_beat: KeepAlive
-    uuid: str
-    def __init__(self, state: _Optional[_Union[_acd_pb2.AgentState, _Mapping]] = ..., heart_beat: _Optional[_Union[KeepAlive, _Mapping]] = ..., uuid: _Optional[str] = ...) -> None: ...
+    def __init__(self, state: _Optional[_Union[_acd_pb2.AgentState, _Mapping]] = ..., heart_beat: _Optional[_Union[KeepAlive, _Mapping]] = ...) -> None: ...
 
 class KeepAlive(_message.Message):
     __slots__ = ()
