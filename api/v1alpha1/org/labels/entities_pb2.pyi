@@ -80,6 +80,20 @@ class AttachLabelResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class DetachLabelRequest(_message.Message):
+    __slots__ = ("label_id", "entity_id", "entity_type")
+    LABEL_ID_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_ID_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    label_id: str
+    entity_id: str
+    entity_type: _labels_pb2.LabeledEntity
+    def __init__(self, label_id: _Optional[str] = ..., entity_id: _Optional[str] = ..., entity_type: _Optional[_Union[_labels_pb2.LabeledEntity, str]] = ...) -> None: ...
+
+class DetachLabelResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class GetLabeledEntityMapRequest(_message.Message):
     __slots__ = ("entity_type",)
     ENTITY_TYPE_FIELD_NUMBER: _ClassVar[int]

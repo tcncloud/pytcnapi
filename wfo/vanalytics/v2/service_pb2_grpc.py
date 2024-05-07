@@ -2,15 +2,21 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
+from wfo.vanalytics.v2 import correction_pb2 as wfo_dot_vanalytics_dot_v2_dot_correction__pb2
 from wfo.vanalytics.v2 import filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_filter__pb2
 from wfo.vanalytics.v2 import flag_filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2
+from wfo.vanalytics.v2 import flag_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__pb2
+from wfo.vanalytics.v2 import flag_review_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2
+from wfo.vanalytics.v2 import flag_snapshot_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2
 from wfo.vanalytics.v2 import flag_transcript_filter_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__transcript__filter__pb2
+from wfo.vanalytics.v2 import flag_transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2
+from wfo.vanalytics.v2 import service_pb2 as wfo_dot_vanalytics_dot_v2_dot_service__pb2
 from wfo.vanalytics.v2 import transcript_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__pb2
+from wfo.vanalytics.v2 import transcript_summary_pb2 as wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2
 
 
 class VanalyticsStub(object):
-    """[TRANSCRIPT] ==============================================================
-    """
+    """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
         """Constructor.
@@ -18,6 +24,21 @@ class VanalyticsStub(object):
         Args:
             channel: A grpc.Channel.
         """
+        self.Audit = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/Audit',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditResponse.FromString,
+                )
+        self.GetRecordingUrl = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/GetRecordingUrl',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlResponse.FromString,
+                )
+        self.ListBillingSpan = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListBillingSpan',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanResponse.FromString,
+                )
         self.SearchTranscripts = channel.unary_unary(
                 '/wfo.vanalytics.v2.Vanalytics/SearchTranscripts',
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.SerializeToString,
@@ -27,6 +48,26 @@ class VanalyticsStub(object):
                 '/wfo.vanalytics.v2.Vanalytics/BulkDeleteTranscripts',
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.FromString,
+                )
+        self.BulkRestoreTranscripts = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/BulkRestoreTranscripts',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsResponse.FromString,
+                )
+        self.ListTranscriptGroupNames = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListTranscriptGroupNames',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesResponse.FromString,
+                )
+        self.ListAgentResponseValues = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListAgentResponseValues',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesResponse.FromString,
+                )
+        self.GetTranscriptSummary = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/GetTranscriptSummary',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.FromString,
                 )
         self.CreateFilter = channel.unary_unary(
                 '/wfo.vanalytics.v2.Vanalytics/CreateFilter',
@@ -63,14 +104,113 @@ class VanalyticsStub(object):
                 request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersRequest.SerializeToString,
                 response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersResponse.FromString,
                 )
+        self.GetFlag = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/GetFlag',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.GetFlagRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.FromString,
+                )
+        self.CreateFlag = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/CreateFlag',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.CreateFlagRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.FromString,
+                )
+        self.ListFlags = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListFlags',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.ListFlagsRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.ListFlagsResponse.FromString,
+                )
+        self.UpdateFlag = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/UpdateFlag',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.UpdateFlagRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.FromString,
+                )
+        self.DeleteFlag = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/DeleteFlag',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.DeleteFlagRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.DeleteFlagResponse.FromString,
+                )
+        self.CreateFlagReview = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/CreateFlagReview',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.CreateFlagReviewRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.FlagReview.FromString,
+                )
+        self.BulkCreateFlagReview = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/BulkCreateFlagReview',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.BulkCreateFlagReviewRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.BulkCreateFlagReviewResponse.FromString,
+                )
+        self.ListFlagReviews = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListFlagReviews',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.ListFlagReviewsRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.ListFlagReviewsResponse.FromString,
+                )
+        self.CreateFlagTranscript = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/CreateFlagTranscript',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.FromString,
+                )
+        self.ListFlagSnapshots = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListFlagSnapshots',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2.ListFlagSnapshotsRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2.ListFlagSnapshotsResponse.FromString,
+                )
+        self.CreateCorrection = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/CreateCorrection',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionResponse.FromString,
+                )
+        self.GetCorrection = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/GetCorrection',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.GetCorrectionRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.Correction.FromString,
+                )
+        self.DeleteCorrection = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/DeleteCorrection',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.DeleteCorrectionRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.DeleteCorrectionResponse.FromString,
+                )
+        self.ListCorrections = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/ListCorrections',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.ListCorrectionsRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.ListCorrectionsResponse.FromString,
+                )
+        self.UpdateCorrection = channel.unary_unary(
+                '/wfo.vanalytics.v2.Vanalytics/UpdateCorrection',
+                request_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.UpdateCorrectionRequest.SerializeToString,
+                response_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.UpdateCorrectionResponse.FromString,
+                )
 
 
 class VanalyticsServicer(object):
-    """[TRANSCRIPT] ==============================================================
-    """
+    """Missing associated documentation comment in .proto file."""
+
+    def Audit(self, request, context):
+        """Audit audits the used transcription audio time for a client. The window
+        of time to audit can be widened or narrowed using the request since and
+        until fields.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetRecordingUrl(self, request, context):
+        """GetRecordingUrl gets a signed url to download a transcript recording.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListBillingSpan(self, request, context):
+        """ListBillingSpan lists billing spans.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def SearchTranscripts(self, request, context):
-        """SearchTranscripts searches transcripts by search criteria. The search response
+        """[TRANSCRIPT] ==============================================================
+
+        SearchTranscripts searches transcripts by search criteria. The search response
         contains one page of transcript hits. Traversing the paginated hits is
         achieved by making use of the given page token.
         """
@@ -80,6 +220,36 @@ class VanalyticsServicer(object):
 
     def BulkDeleteTranscripts(self, request, context):
         """BulkDeleteTranscripts bulk deletes transcripts matching the provided query.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkRestoreTranscripts(self, request, context):
+        """BulkRestoreTranscripts bulk restores transcripts matching the provided query.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListTranscriptGroupNames(self, request, context):
+        """ListTranscriptGroupNames lists transcript group names.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAgentResponseValues(self, request, context):
+        """ListAgentResponseValues lists transcript agent response values.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTranscriptSummary(self, request, context):
+        """[TRANSCRIPT_SUMMARY] ======================================================
+
+        GetTranscriptSummary gets a transcript summary for a provided transcript.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -141,9 +311,139 @@ class VanalyticsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetFlag(self, request, context):
+        """[FLAG] ====================================================================
+
+        GetFlag gets a flag.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateFlag(self, request, context):
+        """CreateFlag creates a new flag.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFlags(self, request, context):
+        """ListFlags lists flags in an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateFlag(self, request, context):
+        """UpdateFlag updates a flag.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteFlag(self, request, context):
+        """DeleteFlag deletes the flag identified by the given flag_sid.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateFlagReview(self, request, context):
+        """[FLAG_REVIEW] =============================================================
+
+        CreateFlagReview creates a flag review.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkCreateFlagReview(self, request, context):
+        """BulkCreateFlagReview creates flag reviews.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFlagReviews(self, request, context):
+        """ListFlagReviews lists reviews in an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateFlagTranscript(self, request, context):
+        """[FLAG_TRANSCRIPT] =========================================================
+
+        CreateFlagTranscript creates a flag transcript.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListFlagSnapshots(self, request, context):
+        """[FLAG_SNAPSHOT] ===========================================================
+
+        ListFlagSnapshots lists flag snapshots in an organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateCorrection(self, request, context):
+        """[CORRECTION] =========================================================
+
+        CreateCorrection creates a correction.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetCorrection(self, request, context):
+        """GetCorrection gets a correction.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteCorrection(self, request, context):
+        """DeleteCorrection deletes a correction.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListCorrections(self, request, context):
+        """ListCorrections lists corrections.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateCorrection(self, request, context):
+        """UpdateCorrection updates a correction.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_VanalyticsServicer_to_server(servicer, server):
     rpc_method_handlers = {
+            'Audit': grpc.unary_unary_rpc_method_handler(
+                    servicer.Audit,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditResponse.SerializeToString,
+            ),
+            'GetRecordingUrl': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRecordingUrl,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlResponse.SerializeToString,
+            ),
+            'ListBillingSpan': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBillingSpan,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanResponse.SerializeToString,
+            ),
             'SearchTranscripts': grpc.unary_unary_rpc_method_handler(
                     servicer.SearchTranscripts,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.SearchTranscriptsRequest.FromString,
@@ -153,6 +453,26 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     servicer.BulkDeleteTranscripts,
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.SerializeToString,
+            ),
+            'BulkRestoreTranscripts': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkRestoreTranscripts,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsResponse.SerializeToString,
+            ),
+            'ListTranscriptGroupNames': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListTranscriptGroupNames,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesResponse.SerializeToString,
+            ),
+            'ListAgentResponseValues': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentResponseValues,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesResponse.SerializeToString,
+            ),
+            'GetTranscriptSummary': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTranscriptSummary,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.SerializeToString,
             ),
             'CreateFilter': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateFilter,
@@ -189,6 +509,81 @@ def add_VanalyticsServicer_to_server(servicer, server):
                     request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersRequest.FromString,
                     response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersResponse.SerializeToString,
             ),
+            'GetFlag': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFlag,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.GetFlagRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.SerializeToString,
+            ),
+            'CreateFlag': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateFlag,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.CreateFlagRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.SerializeToString,
+            ),
+            'ListFlags': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFlags,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.ListFlagsRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.ListFlagsResponse.SerializeToString,
+            ),
+            'UpdateFlag': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateFlag,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.UpdateFlagRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.SerializeToString,
+            ),
+            'DeleteFlag': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteFlag,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.DeleteFlagRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__pb2.DeleteFlagResponse.SerializeToString,
+            ),
+            'CreateFlagReview': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateFlagReview,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.CreateFlagReviewRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.FlagReview.SerializeToString,
+            ),
+            'BulkCreateFlagReview': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkCreateFlagReview,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.BulkCreateFlagReviewRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.BulkCreateFlagReviewResponse.SerializeToString,
+            ),
+            'ListFlagReviews': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFlagReviews,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.ListFlagReviewsRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.ListFlagReviewsResponse.SerializeToString,
+            ),
+            'CreateFlagTranscript': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateFlagTranscript,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.SerializeToString,
+            ),
+            'ListFlagSnapshots': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListFlagSnapshots,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2.ListFlagSnapshotsRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2.ListFlagSnapshotsResponse.SerializeToString,
+            ),
+            'CreateCorrection': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateCorrection,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionResponse.SerializeToString,
+            ),
+            'GetCorrection': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCorrection,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.GetCorrectionRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.Correction.SerializeToString,
+            ),
+            'DeleteCorrection': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteCorrection,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.DeleteCorrectionRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.DeleteCorrectionResponse.SerializeToString,
+            ),
+            'ListCorrections': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListCorrections,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.ListCorrectionsRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.ListCorrectionsResponse.SerializeToString,
+            ),
+            'UpdateCorrection': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateCorrection,
+                    request_deserializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.UpdateCorrectionRequest.FromString,
+                    response_serializer=wfo_dot_vanalytics_dot_v2_dot_correction__pb2.UpdateCorrectionResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'wfo.vanalytics.v2.Vanalytics', rpc_method_handlers)
@@ -197,8 +592,58 @@ def add_VanalyticsServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Vanalytics(object):
-    """[TRANSCRIPT] ==============================================================
-    """
+    """Missing associated documentation comment in .proto file."""
+
+    @staticmethod
+    def Audit(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/Audit',
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.AuditResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRecordingUrl(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/GetRecordingUrl',
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.GetRecordingUrlResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListBillingSpan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListBillingSpan',
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_service__pb2.ListBillingSpanResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def SearchTranscripts(request,
@@ -231,6 +676,74 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/BulkDeleteTranscripts',
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkDeleteTranscriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkRestoreTranscripts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/BulkRestoreTranscripts',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.BulkRestoreTranscriptsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListTranscriptGroupNames(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListTranscriptGroupNames',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListTranscriptGroupNamesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentResponseValues(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListAgentResponseValues',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__pb2.ListAgentResponseValuesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTranscriptSummary(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/GetTranscriptSummary',
+            wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_transcript__summary__pb2.GetTranscriptSummaryResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -350,5 +863,260 @@ class Vanalytics(object):
         return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListFlagFilters',
             wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersRequest.SerializeToString,
             wfo_dot_vanalytics_dot_v2_dot_flag__filter__pb2.ListFlagFiltersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFlag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/GetFlag',
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.GetFlagRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateFlag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateFlag',
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.CreateFlagRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFlags(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListFlags',
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.ListFlagsRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.ListFlagsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateFlag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/UpdateFlag',
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.UpdateFlagRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.Flag.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteFlag(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/DeleteFlag',
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.DeleteFlagRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__pb2.DeleteFlagResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateFlagReview(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateFlagReview',
+            wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.CreateFlagReviewRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.FlagReview.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkCreateFlagReview(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/BulkCreateFlagReview',
+            wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.BulkCreateFlagReviewRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.BulkCreateFlagReviewResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFlagReviews(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListFlagReviews',
+            wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.ListFlagReviewsRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__review__pb2.ListFlagReviewsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateFlagTranscript(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateFlagTranscript',
+            wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__transcript__pb2.CreateFlagTranscriptResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListFlagSnapshots(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListFlagSnapshots',
+            wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2.ListFlagSnapshotsRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_flag__snapshot__pb2.ListFlagSnapshotsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateCorrection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/CreateCorrection',
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.CreateCorrectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCorrection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/GetCorrection',
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.GetCorrectionRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.Correction.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteCorrection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/DeleteCorrection',
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.DeleteCorrectionRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.DeleteCorrectionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListCorrections(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/ListCorrections',
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.ListCorrectionsRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.ListCorrectionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateCorrection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wfo.vanalytics.v2.Vanalytics/UpdateCorrection',
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.UpdateCorrectionRequest.SerializeToString,
+            wfo_dot_vanalytics_dot_v2_dot_correction__pb2.UpdateCorrectionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

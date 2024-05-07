@@ -17,7 +17,7 @@ from api.commons.org import labels_pb2 as api_dot_commons_dot_org_dot_labels__pb
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/v1alpha1/org/labels/entities.proto\x12\x17\x61pi.v1alpha1.org.labels\x1a\x18\x61pi/commons/labels.proto\x1a\x1c\x61pi/commons/org/labels.proto\x1a google/protobuf/field_mask.proto\"B\n\x12\x43reateLabelRequest\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\"0\n\x13\x43reateLabelResponse\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\"}\n\x12UpdateLabelRequest\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\x12\x39\n\nfield_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"C\n\x13UpdateLabelResponse\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\",\n\x0fGetLabelRequest\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\"@\n\x10GetLabelResponse\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\"\x13\n\x11ListLabelsRequest\"B\n\x12ListLabelsResponse\x12,\n\x05label\x18\x01 \x03(\x0b\x32\x16.api.commons.org.LabelR\x05label\"/\n\x12\x44\x65leteLabelRequest\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\"\x15\n\x13\x44\x65leteLabelResponse\"\x89\x01\n\x12\x41ttachLabelRequest\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\x12\x1b\n\tentity_id\x18\x02 \x01(\tR\x08\x65ntityId\x12;\n\x0b\x65ntity_type\x18\x03 \x01(\x0e\x32\x1a.api.commons.LabeledEntityR\nentityType\"\x15\n\x13\x41ttachLabelResponse\"Y\n\x1aGetLabeledEntityMapRequest\x12;\n\x0b\x65ntity_type\x18\x01 \x01(\x0e\x32\x1a.api.commons.LabeledEntityR\nentityType\"\xc2\x02\n\x1bGetLabeledEntityMapResponse\x12\x62\n\nentity_map\x18\x01 \x03(\x0b\x32\x43.api.v1alpha1.org.labels.GetLabeledEntityMapResponse.EntityMapEntryR\tentityMap\x1a\x7f\n\x0e\x45ntityMapEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12W\n\x05value\x18\x02 \x01(\x0b\x32\x41.api.v1alpha1.org.labels.GetLabeledEntityMapResponse.EntityLabelsR\x05value:\x02\x38\x01\x1a>\n\x0c\x45ntityLabels\x12.\n\x06labels\x18\x01 \x03(\x0b\x32\x16.api.commons.org.LabelR\x06labelsB\xac\x01\n\x1b\x63om.api.v1alpha1.org.labelsB\rEntitiesProtoP\x01\xa2\x02\x04\x41VOL\xaa\x02\x17\x41pi.V1alpha1.Org.Labels\xca\x02\x17\x41pi\\V1alpha1\\Org\\Labels\xe2\x02#Api\\V1alpha1\\Org\\Labels\\GPBMetadata\xea\x02\x1a\x41pi::V1alpha1::Org::Labelsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/v1alpha1/org/labels/entities.proto\x12\x17\x61pi.v1alpha1.org.labels\x1a\x18\x61pi/commons/labels.proto\x1a\x1c\x61pi/commons/org/labels.proto\x1a google/protobuf/field_mask.proto\"B\n\x12\x43reateLabelRequest\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\"0\n\x13\x43reateLabelResponse\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\"}\n\x12UpdateLabelRequest\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\x12\x39\n\nfield_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\tfieldMask\"C\n\x13UpdateLabelResponse\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\",\n\x0fGetLabelRequest\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\"@\n\x10GetLabelResponse\x12,\n\x05label\x18\x01 \x01(\x0b\x32\x16.api.commons.org.LabelR\x05label\"\x13\n\x11ListLabelsRequest\"B\n\x12ListLabelsResponse\x12,\n\x05label\x18\x01 \x03(\x0b\x32\x16.api.commons.org.LabelR\x05label\"/\n\x12\x44\x65leteLabelRequest\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\"\x15\n\x13\x44\x65leteLabelResponse\"\x89\x01\n\x12\x41ttachLabelRequest\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\x12\x1b\n\tentity_id\x18\x02 \x01(\tR\x08\x65ntityId\x12;\n\x0b\x65ntity_type\x18\x03 \x01(\x0e\x32\x1a.api.commons.LabeledEntityR\nentityType\"\x15\n\x13\x41ttachLabelResponse\"\x89\x01\n\x12\x44\x65tachLabelRequest\x12\x19\n\x08label_id\x18\x01 \x01(\tR\x07labelId\x12\x1b\n\tentity_id\x18\x02 \x01(\tR\x08\x65ntityId\x12;\n\x0b\x65ntity_type\x18\x03 \x01(\x0e\x32\x1a.api.commons.LabeledEntityR\nentityType\"\x15\n\x13\x44\x65tachLabelResponse\"Y\n\x1aGetLabeledEntityMapRequest\x12;\n\x0b\x65ntity_type\x18\x01 \x01(\x0e\x32\x1a.api.commons.LabeledEntityR\nentityType\"\xc2\x02\n\x1bGetLabeledEntityMapResponse\x12\x62\n\nentity_map\x18\x01 \x03(\x0b\x32\x43.api.v1alpha1.org.labels.GetLabeledEntityMapResponse.EntityMapEntryR\tentityMap\x1a\x7f\n\x0e\x45ntityMapEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12W\n\x05value\x18\x02 \x01(\x0b\x32\x41.api.v1alpha1.org.labels.GetLabeledEntityMapResponse.EntityLabelsR\x05value:\x02\x38\x01\x1a>\n\x0c\x45ntityLabels\x12.\n\x06labels\x18\x01 \x03(\x0b\x32\x16.api.commons.org.LabelR\x06labelsB\xac\x01\n\x1b\x63om.api.v1alpha1.org.labelsB\rEntitiesProtoP\x01\xa2\x02\x04\x41VOL\xaa\x02\x17\x41pi.V1alpha1.Org.Labels\xca\x02\x17\x41pi\\V1alpha1\\Org\\Labels\xe2\x02#Api\\V1alpha1\\Org\\Labels\\GPBMetadata\xea\x02\x1a\x41pi::V1alpha1::Org::Labelsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -51,12 +51,16 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ATTACHLABELREQUEST']._serialized_end=882
   _globals['_ATTACHLABELRESPONSE']._serialized_start=884
   _globals['_ATTACHLABELRESPONSE']._serialized_end=905
-  _globals['_GETLABELEDENTITYMAPREQUEST']._serialized_start=907
-  _globals['_GETLABELEDENTITYMAPREQUEST']._serialized_end=996
-  _globals['_GETLABELEDENTITYMAPRESPONSE']._serialized_start=999
-  _globals['_GETLABELEDENTITYMAPRESPONSE']._serialized_end=1321
-  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYMAPENTRY']._serialized_start=1130
-  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYMAPENTRY']._serialized_end=1257
-  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYLABELS']._serialized_start=1259
-  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYLABELS']._serialized_end=1321
+  _globals['_DETACHLABELREQUEST']._serialized_start=908
+  _globals['_DETACHLABELREQUEST']._serialized_end=1045
+  _globals['_DETACHLABELRESPONSE']._serialized_start=1047
+  _globals['_DETACHLABELRESPONSE']._serialized_end=1068
+  _globals['_GETLABELEDENTITYMAPREQUEST']._serialized_start=1070
+  _globals['_GETLABELEDENTITYMAPREQUEST']._serialized_end=1159
+  _globals['_GETLABELEDENTITYMAPRESPONSE']._serialized_start=1162
+  _globals['_GETLABELEDENTITYMAPRESPONSE']._serialized_end=1484
+  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYMAPENTRY']._serialized_start=1293
+  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYMAPENTRY']._serialized_end=1420
+  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYLABELS']._serialized_start=1422
+  _globals['_GETLABELEDENTITYMAPRESPONSE_ENTITYLABELS']._serialized_end=1484
 # @@protoc_insertion_point(module_scope)

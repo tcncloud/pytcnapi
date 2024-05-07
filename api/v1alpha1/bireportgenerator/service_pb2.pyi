@@ -2,6 +2,7 @@ from annotations import authz_pb2 as _authz_pb2
 from api.v1alpha1.bireportgenerator import entities_pb2 as _entities_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -68,10 +69,12 @@ class GetReportJobResponse(_message.Message):
     def __init__(self, report_job: _Optional[_Union[_entities_pb2.ReportJob, _Mapping]] = ...) -> None: ...
 
 class GenerateReportRequest(_message.Message):
-    __slots__ = ("report_job",)
+    __slots__ = ("report_job", "send_as_of_date")
     REPORT_JOB_FIELD_NUMBER: _ClassVar[int]
+    SEND_AS_OF_DATE_FIELD_NUMBER: _ClassVar[int]
     report_job: _entities_pb2.ReportJob
-    def __init__(self, report_job: _Optional[_Union[_entities_pb2.ReportJob, _Mapping]] = ...) -> None: ...
+    send_as_of_date: _timestamp_pb2.Timestamp
+    def __init__(self, report_job: _Optional[_Union[_entities_pb2.ReportJob, _Mapping]] = ..., send_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GenerateReportResponse(_message.Message):
     __slots__ = ()
