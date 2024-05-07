@@ -87,12 +87,14 @@ class ListAsmUserDetailsResponse(_message.Message):
     def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ..., asm_user_details: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ...) -> None: ...
 
 class PushEventsRequest(_message.Message):
-    __slots__ = ("ams_session_sid", "asm_events")
+    __slots__ = ("ams_session_sid", "asm_events", "asm_session_sid")
     AMS_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     ASM_EVENTS_FIELD_NUMBER: _ClassVar[int]
+    ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     ams_session_sid: int
     asm_events: _containers.RepeatedCompositeFieldContainer[_event_pb2.AsmEvent]
-    def __init__(self, ams_session_sid: _Optional[int] = ..., asm_events: _Optional[_Iterable[_Union[_event_pb2.AsmEvent, _Mapping]]] = ...) -> None: ...
+    asm_session_sid: int
+    def __init__(self, ams_session_sid: _Optional[int] = ..., asm_events: _Optional[_Iterable[_Union[_event_pb2.AsmEvent, _Mapping]]] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
 
 class PushEventResponse(_message.Message):
     __slots__ = ()
