@@ -14,8 +14,10 @@ class LabeledEntity(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     LABELED_ENTITY_UNSPECIFIED: _ClassVar[LabeledEntity]
     LABELED_ENTITY_SKILL_GROUP: _ClassVar[LabeledEntity]
+    LABELED_ENTITY_USER: _ClassVar[LabeledEntity]
 ENTITY_TYPE_INVALID: EntityType
 ENTITY_TYPE_USER: EntityType
 ENTITY_TYPE_LMS_PIPELINE: EntityType
 LABELED_ENTITY_UNSPECIFIED: LabeledEntity
 LABELED_ENTITY_SKILL_GROUP: LabeledEntity
+LABELED_ENTITY_USER: LabeledEntity
