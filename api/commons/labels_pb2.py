@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18\x61pi/commons/labels.proto\x12\x0b\x61pi.commons*Y\n\nEntityType\x12\x17\n\x13\x45NTITY_TYPE_INVALID\x10\x00\x12\x14\n\x10\x45NTITY_TYPE_USER\x10\x01\x12\x1c\n\x18\x45NTITY_TYPE_LMS_PIPELINE\x10\x02*O\n\rLabeledEntity\x12\x1e\n\x1aLABELED_ENTITY_UNSPECIFIED\x10\x00\x12\x1e\n\x1aLABELED_ENTITY_SKILL_GROUP\x10\x01\x42k\n\x0f\x63om.api.commonsB\x0bLabelsProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18\x61pi/commons/labels.proto\x12\x0b\x61pi.commons*Y\n\nEntityType\x12\x17\n\x13\x45NTITY_TYPE_INVALID\x10\x00\x12\x14\n\x10\x45NTITY_TYPE_USER\x10\x01\x12\x1c\n\x18\x45NTITY_TYPE_LMS_PIPELINE\x10\x02*h\n\rLabeledEntity\x12\x1e\n\x1aLABELED_ENTITY_UNSPECIFIED\x10\x00\x12\x1e\n\x1aLABELED_ENTITY_SKILL_GROUP\x10\x01\x12\x17\n\x13LABELED_ENTITY_USER\x10\x02\x42k\n\x0f\x63om.api.commonsB\x0bLabelsProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -25,5 +25,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ENTITYTYPE']._serialized_start=41
   _globals['_ENTITYTYPE']._serialized_end=130
   _globals['_LABELEDENTITY']._serialized_start=132
-  _globals['_LABELEDENTITY']._serialized_end=211
+  _globals['_LABELEDENTITY']._serialized_end=236
 # @@protoc_insertion_point(module_scope)

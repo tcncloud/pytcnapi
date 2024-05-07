@@ -44,6 +44,11 @@ class LabelsServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AttachLabelRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AttachLabelResponse.FromString,
                 )
+        self.DetachLabel = channel.unary_unary(
+                '/api.v1alpha1.org.labels.LabelsService/DetachLabel',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.DetachLabelRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.DetachLabelResponse.FromString,
+                )
         self.GetLabeledEntityMap = channel.unary_unary(
                 '/api.v1alpha1.org.labels.LabelsService/GetLabeledEntityMap',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.GetLabeledEntityMapRequest.SerializeToString,
@@ -96,6 +101,13 @@ class LabelsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DetachLabel(self, request, context):
+        """DetachLabel detaches a label from an entity based on an entity type
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetLabeledEntityMap(self, request, context):
         """GetLabeledEntityMap gives back a map of entity Id to attached labels. The Entity type is specified on the request
         """
@@ -135,6 +147,11 @@ def add_LabelsServiceServicer_to_server(servicer, server):
                     servicer.AttachLabel,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AttachLabelRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AttachLabelResponse.SerializeToString,
+            ),
+            'DetachLabel': grpc.unary_unary_rpc_method_handler(
+                    servicer.DetachLabel,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.DetachLabelRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.DetachLabelResponse.SerializeToString,
             ),
             'GetLabeledEntityMap': grpc.unary_unary_rpc_method_handler(
                     servicer.GetLabeledEntityMap,
@@ -250,6 +267,23 @@ class LabelsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.labels.LabelsService/AttachLabel',
             api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AttachLabelRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AttachLabelResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DetachLabel(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.labels.LabelsService/DetachLabel',
+            api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.DetachLabelRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.DetachLabelResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

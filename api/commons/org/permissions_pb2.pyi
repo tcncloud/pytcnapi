@@ -9,20 +9,22 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PermissionGroup(_message.Message):
-    __slots__ = ("permission_group_id", "org_id", "name", "description", "permissions", "read_only")
+    __slots__ = ("permission_group_id", "org_id", "name", "description", "permissions", "read_only", "label_ids")
     PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     READ_ONLY_FIELD_NUMBER: _ClassVar[int]
+    LABEL_IDS_FIELD_NUMBER: _ClassVar[int]
     permission_group_id: str
     org_id: str
     name: str
     description: str
     permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
     read_only: bool
-    def __init__(self, permission_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., read_only: bool = ...) -> None: ...
+    label_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, permission_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., read_only: bool = ..., label_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class P3PermissionGroup(_message.Message):
     __slots__ = ("p3_permission_group_id", "org_id", "region_id", "name", "description", "permissions")
