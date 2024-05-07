@@ -35,7 +35,7 @@ class ListFlagSnapshotsResponse(_message.Message):
 class FlagSnapshot(_message.Message):
     __slots__ = ("flag_snapshot_sid", "flag_sid", "name", "review_group_id", "notify_group_id", "priority", "version", "create_time", "must_review", "must_notify", "bool_expr", "dncl_list")
     class BoolExpr(_message.Message):
-        __slots__ = ()
+        __slots__ = ("filter",)
         class Filter(_message.Message):
             __slots__ = ("filter_sid",)
             FILTER_SID_FIELD_NUMBER: _ClassVar[int]
@@ -43,8 +43,10 @@ class FlagSnapshot(_message.Message):
             def __init__(self, filter_sid: _Optional[int] = ...) -> None: ...
         AND_FIELD_NUMBER: _ClassVar[int]
         OR_FIELD_NUMBER: _ClassVar[int]
+        FILTER_FIELD_NUMBER: _ClassVar[int]
         NOT_FIELD_NUMBER: _ClassVar[int]
-        def __init__(self, **kwargs) -> None: ...
+        filter: FlagSnapshot.BoolExpr.Filter
+        def __init__(self, filter: _Optional[_Union[FlagSnapshot.BoolExpr.Filter, _Mapping]] = ..., **kwargs) -> None: ...
     FLAG_SNAPSHOT_SID_FIELD_NUMBER: _ClassVar[int]
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
