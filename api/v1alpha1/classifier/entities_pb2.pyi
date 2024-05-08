@@ -12,16 +12,8 @@ class ClassifierEntityTypes(_message.Message):
     types: _containers.RepeatedScalarFieldContainer[_classifier_pb2.ClassifierEntityType]
     def __init__(self, types: _Optional[_Iterable[_Union[_classifier_pb2.ClassifierEntityType, str]]] = ...) -> None: ...
 
-class ParseHints(_message.Message):
-    __slots__ = ("parse_opts", "constraints")
-    PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
-    CONSTRAINTS_FIELD_NUMBER: _ClassVar[int]
-    parse_opts: ParseOpts
-    constraints: Constraints
-    def __init__(self, parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., constraints: _Optional[_Union[Constraints, _Mapping]] = ...) -> None: ...
-
 class FileTemplate(_message.Message):
-    __slots__ = ("file_template_id", "filename", "fields", "parse_opts", "constraints", "foid")
+    __slots__ = ("file_template_id", "filename", "fields", "parse_opts", "constraints", "foid", "opts")
     class Field(_message.Message):
         __slots__ = ("syntax_type", "entity_type", "name", "format", "raw_value")
         SYNTAX_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -41,13 +33,41 @@ class FileTemplate(_message.Message):
     PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
     CONSTRAINTS_FIELD_NUMBER: _ClassVar[int]
     FOID_FIELD_NUMBER: _ClassVar[int]
+    OPTS_FIELD_NUMBER: _ClassVar[int]
     file_template_id: int
     filename: str
     fields: _containers.RepeatedCompositeFieldContainer[FileTemplate.Field]
     parse_opts: ParseOpts
     constraints: Constraints
     foid: int
-    def __init__(self, file_template_id: _Optional[int] = ..., filename: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[FileTemplate.Field, _Mapping]]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., constraints: _Optional[_Union[Constraints, _Mapping]] = ..., foid: _Optional[int] = ...) -> None: ...
+    opts: Opts
+    def __init__(self, file_template_id: _Optional[int] = ..., filename: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[FileTemplate.Field, _Mapping]]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., constraints: _Optional[_Union[Constraints, _Mapping]] = ..., foid: _Optional[int] = ..., opts: _Optional[_Union[Opts, _Mapping]] = ...) -> None: ...
+
+class Opts(_message.Message):
+    __slots__ = ("date_formats", "rename_fields", "parse_opts", "constraints")
+    class DateFormatsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class RenameFieldsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    DATE_FORMATS_FIELD_NUMBER: _ClassVar[int]
+    RENAME_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
+    CONSTRAINTS_FIELD_NUMBER: _ClassVar[int]
+    date_formats: _containers.ScalarMap[str, str]
+    rename_fields: _containers.ScalarMap[str, str]
+    parse_opts: ParseOpts
+    constraints: Constraints
+    def __init__(self, date_formats: _Optional[_Mapping[str, str]] = ..., rename_fields: _Optional[_Mapping[str, str]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., constraints: _Optional[_Union[Constraints, _Mapping]] = ...) -> None: ...
 
 class ParseOpts(_message.Message):
     __slots__ = ("csv", "json", "jsonl", "fixed", "parquet")
@@ -86,7 +106,7 @@ class OptsJsonL(_message.Message):
     def __init__(self) -> None: ...
 
 class OptsFixed(_message.Message):
-    __slots__ = ("positions",)
+    __slots__ = ("positions", "has_header")
     class FieldOpts(_message.Message):
         __slots__ = ("starting_position", "field_length")
         STARTING_POSITION_FIELD_NUMBER: _ClassVar[int]
@@ -102,8 +122,10 @@ class OptsFixed(_message.Message):
         value: OptsFixed.FieldOpts
         def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[OptsFixed.FieldOpts, _Mapping]] = ...) -> None: ...
     POSITIONS_FIELD_NUMBER: _ClassVar[int]
+    HAS_HEADER_FIELD_NUMBER: _ClassVar[int]
     positions: _containers.MessageMap[str, OptsFixed.FieldOpts]
-    def __init__(self, positions: _Optional[_Mapping[str, OptsFixed.FieldOpts]] = ...) -> None: ...
+    has_header: bool
+    def __init__(self, positions: _Optional[_Mapping[str, OptsFixed.FieldOpts]] = ..., has_header: bool = ...) -> None: ...
 
 class OptsParquet(_message.Message):
     __slots__ = ()
@@ -130,3 +152,11 @@ class Constraints(_message.Message):
     forbid: _containers.MessageMap[str, ClassifierEntityTypes]
     allow: _containers.MessageMap[str, ClassifierEntityTypes]
     def __init__(self, forbid: _Optional[_Mapping[str, ClassifierEntityTypes]] = ..., allow: _Optional[_Mapping[str, ClassifierEntityTypes]] = ...) -> None: ...
+
+class ParseHints(_message.Message):
+    __slots__ = ("parse_opts", "constraints")
+    PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
+    CONSTRAINTS_FIELD_NUMBER: _ClassVar[int]
+    parse_opts: ParseOpts
+    constraints: Constraints
+    def __init__(self, parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., constraints: _Optional[_Union[Constraints, _Mapping]] = ...) -> None: ...

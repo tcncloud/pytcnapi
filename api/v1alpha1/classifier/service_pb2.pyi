@@ -7,21 +7,32 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ParseFileRequest(_message.Message):
-    __slots__ = ("raw_data", "reparse_file", "name")
+    __slots__ = ("raw_data", "reparse_file", "parse_with_hints", "name")
     class ReParseFile(_message.Message):
-        __slots__ = ("file_template_id", "hints")
+        __slots__ = ("file_template_id", "hints", "opts")
         FILE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
         HINTS_FIELD_NUMBER: _ClassVar[int]
+        OPTS_FIELD_NUMBER: _ClassVar[int]
         file_template_id: int
         hints: _entities_pb2.ParseHints
-        def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ...) -> None: ...
+        opts: _entities_pb2.Opts
+        def __init__(self, file_template_id: _Optional[int] = ..., hints: _Optional[_Union[_entities_pb2.ParseHints, _Mapping]] = ..., opts: _Optional[_Union[_entities_pb2.Opts, _Mapping]] = ...) -> None: ...
+    class ParseWithHints(_message.Message):
+        __slots__ = ("raw_data", "opts")
+        RAW_DATA_FIELD_NUMBER: _ClassVar[int]
+        OPTS_FIELD_NUMBER: _ClassVar[int]
+        raw_data: bytes
+        opts: _entities_pb2.Opts
+        def __init__(self, raw_data: _Optional[bytes] = ..., opts: _Optional[_Union[_entities_pb2.Opts, _Mapping]] = ...) -> None: ...
     RAW_DATA_FIELD_NUMBER: _ClassVar[int]
     REPARSE_FILE_FIELD_NUMBER: _ClassVar[int]
+    PARSE_WITH_HINTS_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     raw_data: bytes
     reparse_file: ParseFileRequest.ReParseFile
+    parse_with_hints: ParseFileRequest.ParseWithHints
     name: str
-    def __init__(self, raw_data: _Optional[bytes] = ..., reparse_file: _Optional[_Union[ParseFileRequest.ReParseFile, _Mapping]] = ..., name: _Optional[str] = ...) -> None: ...
+    def __init__(self, raw_data: _Optional[bytes] = ..., reparse_file: _Optional[_Union[ParseFileRequest.ReParseFile, _Mapping]] = ..., parse_with_hints: _Optional[_Union[ParseFileRequest.ParseWithHints, _Mapping]] = ..., name: _Optional[str] = ...) -> None: ...
 
 class ParseFileResponse(_message.Message):
     __slots__ = ("file_template",)
