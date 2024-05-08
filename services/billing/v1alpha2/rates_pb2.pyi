@@ -36,12 +36,14 @@ class CreateDefaultRateDefinitionsResponse(_message.Message):
     def __init__(self, rates: _Optional[_Iterable[_Union[CreateDefaultRateDefinitionResponse, _Mapping]]] = ...) -> None: ...
 
 class CreateRateDefinitionRequest(_message.Message):
-    __slots__ = ("rate_definition_id", "rate_definition")
+    __slots__ = ("rate_definition_id", "rate_definition", "default_rate_definition_id")
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     rate_definition_id: str
     rate_definition: _rates_pb2.RateDefinition
-    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ...) -> None: ...
+    default_rate_definition_id: str
+    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ..., default_rate_definition_id: _Optional[str] = ...) -> None: ...
 
 class CreateRateDefinitionResponse(_message.Message):
     __slots__ = ("rate_definition_id",)
