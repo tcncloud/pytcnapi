@@ -2433,7 +2433,7 @@ class RequiredCallsInterval(_message.Message):
     def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., required_calls: _Optional[int] = ...) -> None: ...
 
 class ShiftInstance(_message.Message):
-    __slots__ = ("shift_instance_sid", "start_datetime", "is_locked", "width_in_minutes", "shift_template_sid", "originating_program_node_sid", "schedule_sid", "wfm_agent_sid", "schedule_type", "shift_segments", "shift_template")
+    __slots__ = ("shift_instance_sid", "start_datetime", "is_locked", "width_in_minutes", "shift_template_sid", "originating_program_node_sid", "schedule_sid", "wfm_agent_sid", "schedule_type", "shift_segments", "shift_template", "planned_shrinkage_percent")
     SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     IS_LOCKED_FIELD_NUMBER: _ClassVar[int]
@@ -2445,6 +2445,7 @@ class ShiftInstance(_message.Message):
     SCHEDULE_TYPE_FIELD_NUMBER: _ClassVar[int]
     SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
     SHIFT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    PLANNED_SHRINKAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
     shift_instance_sid: int
     start_datetime: _timestamp_pb2.Timestamp
     is_locked: bool
@@ -2456,7 +2457,8 @@ class ShiftInstance(_message.Message):
     schedule_type: _wfm_pb2.ScheduleType
     shift_segments: _containers.RepeatedCompositeFieldContainer[ShiftSegment]
     shift_template: ShiftTemplate
-    def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_locked: bool = ..., width_in_minutes: _Optional[int] = ..., shift_template_sid: _Optional[int] = ..., originating_program_node_sid: _Optional[int] = ..., schedule_sid: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ..., shift_segments: _Optional[_Iterable[_Union[ShiftSegment, _Mapping]]] = ..., shift_template: _Optional[_Union[ShiftTemplate, _Mapping]] = ...) -> None: ...
+    planned_shrinkage_percent: float
+    def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_locked: bool = ..., width_in_minutes: _Optional[int] = ..., shift_template_sid: _Optional[int] = ..., originating_program_node_sid: _Optional[int] = ..., schedule_sid: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ..., shift_segments: _Optional[_Iterable[_Union[ShiftSegment, _Mapping]]] = ..., shift_template: _Optional[_Union[ShiftTemplate, _Mapping]] = ..., planned_shrinkage_percent: _Optional[float] = ...) -> None: ...
 
 class ShiftSegmentCallStat(_message.Message):
     __slots__ = ("num_calls", "percent_fit", "skill_collection")
