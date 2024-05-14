@@ -2327,6 +2327,7 @@ class WFMServicer(object):
         The @schedule_scenario_scheduling_range field is optional. If not set, the draft schedule will be obtained with it's default range from it's start to end time.
         @include parameters are used when retrieving the resulting draft schedule, and work in the same way as for GetDraftSchedule.
         Will return diagnostics for the newly built schedule, or just diagnostics if the schedule cannot be built successfully due to diagnostic error.
+        If @auto_generate_agents is set to true, unassigned agents will automatically be generated to meet the requirements of the shift templates min and max agents.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
