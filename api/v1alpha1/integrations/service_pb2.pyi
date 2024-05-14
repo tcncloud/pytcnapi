@@ -1,5 +1,7 @@
 from annotations import authz_pb2 as _authz_pb2
+from api.commons import acd_pb2 as _acd_pb2
 from api.commons.integrations import integrations_pb2 as _integrations_pb2
+from api.commons.org import huntgroup_pb2 as _huntgroup_pb2
 from api.commons import perms_pb2 as _perms_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
@@ -1379,3 +1381,25 @@ class Template(_message.Message):
     INVOICE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     invoice_template: _integrations_pb2.Invoices
     def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ...) -> None: ...
+
+class PopulateIntegrationLinkReq(_message.Message):
+    __slots__ = ("client_sid", "agent_sid", "call_sid", "call_type", "scheduled_callback_id", "integration_link")
+    CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
+    INTEGRATION_LINK_FIELD_NUMBER: _ClassVar[int]
+    client_sid: int
+    agent_sid: int
+    call_sid: int
+    call_type: _acd_pb2.CallType.Enum
+    scheduled_callback_id: str
+    integration_link: _huntgroup_pb2.IntegrationLink
+    def __init__(self, client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., scheduled_callback_id: _Optional[str] = ..., integration_link: _Optional[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]] = ...) -> None: ...
+
+class PopulateIntegrationLinkRes(_message.Message):
+    __slots__ = ("integration_link",)
+    INTEGRATION_LINK_FIELD_NUMBER: _ClassVar[int]
+    integration_link: _huntgroup_pb2.IntegrationLink
+    def __init__(self, integration_link: _Optional[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]] = ...) -> None: ...
