@@ -542,7 +542,7 @@ class GeneralSettings(_message.Message):
     def __init__(self, enable_agent_gateway_title_bar: bool = ..., default_agent_dial_in: _Optional[str] = ..., require_end_call_confirmation: bool = ..., enable_authorization_by_ip: bool = ..., authorized_ip_addresses: _Optional[_Iterable[str]] = ..., initial_agent_status: _Optional[_Union[_org_pb2.InitialAgentStatus, str]] = ..., enable_agent_pause: bool = ..., agent_pause_option_set: _Optional[_Union[GeneralSettings.PauseOptionSet, _Mapping]] = ..., default_agent_pause_option: _Optional[str] = ..., enable_pause_option_reset: bool = ..., display_recording_indicator: bool = ..., enable_call_recording_pause: bool = ..., call_recording_pause_confirmation: bool = ..., call_recording_delay: _Optional[int] = ..., enable_pause_recording_on_hold: bool = ..., enable_envision_screen_recording: bool = ..., enable_agent_simple_hold: bool = ..., enable_agent_multi_accept: bool = ..., pause_agent_after_multi_accept: bool = ..., hold_queue_monitoring: _Optional[_Union[GeneralSettings.HoldQueueMonitoring, _Mapping]] = ..., display_machine_deliver: bool = ..., display_linkback_hunt_group: bool = ..., display_sip_header_data: bool = ..., display_ivr_navigation_keys: bool = ..., display_data_collect_data: bool = ..., display_data_dipped_data: _Optional[_Union[GeneralSettings.DataDipDataDisplay, _Mapping]] = ..., integration_data_display: _Optional[_Union[GeneralSettings.IntegrationDataDisplay, _Mapping]] = ..., journey_data_display: _Optional[_Union[GeneralSettings.JourneyDataDisplay, _Mapping]] = ..., agent_call_history_scope: _Optional[_Union[_org_pb2.AgentCallHistoryScope, str]] = ..., agent_login_gui_statistics_display: _Optional[_Union[GeneralSettings.AgentLoginGuiStatisticsDisplay, _Mapping]] = ..., phone_zip_metadata_display: _Optional[_Union[GeneralSettings.PhoneZipMetadataDisplay, _Mapping]] = ..., display_skills: bool = ..., display_web_links: bool = ..., enable_agent_hunt_group_reassignment: bool = ..., disallowed_hunt_groups: _Optional[_Union[GeneralSettings.DisallowedHuntGroups, _Mapping]] = ..., enable_manual_approval_of_calls: bool = ..., require_manual_approval_number: bool = ..., enable_manual_approval_of_sms: bool = ..., require_manual_approval_number_sms: bool = ..., disable_reject_option_for_approvers: bool = ..., alphanumeric_keypad: _Optional[_Union[GeneralSettings.AlphanumericKeypad, _Mapping]] = ..., enable_call_desktop_notifications: bool = ..., inbound_compliance_metadata: _Optional[_Union[GeneralSettings.InboundComplianceMetadata, _Mapping]] = ..., enable_agent_intercom: bool = ..., prepare_state_call_delivery: _Optional[_Union[GeneralSettings.PrepareStateCallDelivery, _Mapping]] = ...) -> None: ...
 
 class HuntGroupDetails(_message.Message):
-    __slots__ = ("general_details", "template_details", "web_link_details", "trigger_details", "integration_link_details")
+    __slots__ = ("general_details", "template_details", "web_link_details", "trigger_details", "integration_link_details", "script_details")
     class GeneralDetails(_message.Message):
         __slots__ = ("name", "description", "type", "modify_date", "agent_count")
         NAME_FIELD_NUMBER: _ClassVar[int]
@@ -596,17 +596,34 @@ class HuntGroupDetails(_message.Message):
         name: str
         description: str
         def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    class ScriptDetails(_message.Message):
+        __slots__ = ("script_sid", "name", "description", "act_count", "disposition_count", "verbiage_count")
+        SCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+        NAME_FIELD_NUMBER: _ClassVar[int]
+        DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+        ACT_COUNT_FIELD_NUMBER: _ClassVar[int]
+        DISPOSITION_COUNT_FIELD_NUMBER: _ClassVar[int]
+        VERBIAGE_COUNT_FIELD_NUMBER: _ClassVar[int]
+        script_sid: int
+        name: str
+        description: str
+        act_count: int
+        disposition_count: int
+        verbiage_count: int
+        def __init__(self, script_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., act_count: _Optional[int] = ..., disposition_count: _Optional[int] = ..., verbiage_count: _Optional[int] = ...) -> None: ...
     GENERAL_DETAILS_FIELD_NUMBER: _ClassVar[int]
     TEMPLATE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     WEB_LINK_DETAILS_FIELD_NUMBER: _ClassVar[int]
     TRIGGER_DETAILS_FIELD_NUMBER: _ClassVar[int]
     INTEGRATION_LINK_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    SCRIPT_DETAILS_FIELD_NUMBER: _ClassVar[int]
     general_details: HuntGroupDetails.GeneralDetails
     template_details: HuntGroupDetails.ClientInfoDisplayTemplateDetails
     web_link_details: _containers.RepeatedCompositeFieldContainer[HuntGroupDetails.WebLinkDetails]
     trigger_details: _containers.RepeatedCompositeFieldContainer[HuntGroupDetails.TriggerDetails]
     integration_link_details: _containers.RepeatedCompositeFieldContainer[HuntGroupDetails.IntegrationLinkDetails]
-    def __init__(self, general_details: _Optional[_Union[HuntGroupDetails.GeneralDetails, _Mapping]] = ..., template_details: _Optional[_Union[HuntGroupDetails.ClientInfoDisplayTemplateDetails, _Mapping]] = ..., web_link_details: _Optional[_Iterable[_Union[HuntGroupDetails.WebLinkDetails, _Mapping]]] = ..., trigger_details: _Optional[_Iterable[_Union[HuntGroupDetails.TriggerDetails, _Mapping]]] = ..., integration_link_details: _Optional[_Iterable[_Union[HuntGroupDetails.IntegrationLinkDetails, _Mapping]]] = ...) -> None: ...
+    script_details: HuntGroupDetails.ScriptDetails
+    def __init__(self, general_details: _Optional[_Union[HuntGroupDetails.GeneralDetails, _Mapping]] = ..., template_details: _Optional[_Union[HuntGroupDetails.ClientInfoDisplayTemplateDetails, _Mapping]] = ..., web_link_details: _Optional[_Iterable[_Union[HuntGroupDetails.WebLinkDetails, _Mapping]]] = ..., trigger_details: _Optional[_Iterable[_Union[HuntGroupDetails.TriggerDetails, _Mapping]]] = ..., integration_link_details: _Optional[_Iterable[_Union[HuntGroupDetails.IntegrationLinkDetails, _Mapping]]] = ..., script_details: _Optional[_Union[HuntGroupDetails.ScriptDetails, _Mapping]] = ...) -> None: ...
 
 class CommunicationSettings(_message.Message):
     __slots__ = ("enable_scrub_list_adding", "scrub_lists", "enable_scrub_list_removal", "scrub_lists_removal_allowed", "compliance_default_country", "display_options_in_wrapup", "inbound_scrub_list_expiration", "manual_scrub_list_expiration", "outbound_scrub_list_expiration", "preview_scrub_list_expiration", "automate_manually_dialed_scrub_list", "automate_preview_dialed_scrub_list", "automate_response_rules", "automate_scrub_list_call_data")
