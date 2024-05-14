@@ -14,9 +14,10 @@ _sym_db = _symbol_database.Default()
 
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
+from google.type import decimal_pb2 as google_dot_type_dot_decimal__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha2/invoice.proto\x12\"services.billing.entities.v1alpha2\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\xf3\x01\n\x07Invoice\x12#\n\rbilling_cycle\x18\x01 \x01(\tR\x0c\x62illingCycle\x12;\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12\x45\n\x05items\x18\x03 \x03(\x0b\x32/.services.billing.entities.v1alpha2.InvoiceItemR\x05items\x12?\n\x0c\x64ownload_url\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64ownloadUrl\"\xaa\x02\n\x0bInvoiceItem\x12\x1b\n\tclient_id\x18\x01 \x01(\tR\x08\x63lientId\x12\x45\n\x07product\x18\x02 \x01(\x0e\x32+.services.billing.entities.v1alpha2.ProductR\x07product\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12.\n\x04\x64\x61te\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x04\x64\x61te\x12\x14\n\x05price\x18\x05 \x01(\x01R\x05price\x12O\n\x07\x63olumns\x18\x06 \x03(\x0b\x32\x35.services.billing.entities.v1alpha2.InvoiceItemColumnR\x07\x63olumns\"=\n\x11InvoiceItemColumn\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value*\xa3\x02\n\x07Product\x12\x17\n\x13PRODUCT_UNSPECIFIED\x10\x00\x12\x11\n\x0cPRODUCT_OMNI\x10\xc8\x01\x12\x17\n\x12PRODUCT_OMNI_SEATS\x10\xc9\x01\x12\x1b\n\x16PRODUCT_OMNI_CHAT_SENT\x10\xca\x01\x12\x1f\n\x1aPRODUCT_OMNI_CHAT_RECEIVED\x10\xcb\x01\x12\x1d\n\x18PRODUCT_OMNI_EMAILS_SENT\x10\xcc\x01\x12!\n\x1cPRODUCT_OMNI_EMAILS_RECEIVED\x10\xcd\x01\x12\x1a\n\x15PRODUCT_OMNI_SMS_SENT\x10\xce\x01\x12\x1e\n\x19PRODUCT_OMNI_SMS_RECEIVED\x10\xcf\x01\x12\x17\n\x12PRODUCT_COMPLIANCE\x10\xac\x02\x42\xe1\x01\n&com.services.billing.entities.v1alpha2B\x0cInvoiceProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha2\xca\x02\"Services\\Billing\\Entities\\V1alpha2\xe2\x02.Services\\Billing\\Entities\\V1alpha2\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0services/billing/entities/v1alpha2/invoice.proto\x12\"services.billing.entities.v1alpha2\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x19google/type/decimal.proto\"\xf3\x01\n\x07Invoice\x12#\n\rbilling_cycle\x18\x01 \x01(\tR\x0c\x62illingCycle\x12;\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\x12\x45\n\x05items\x18\x03 \x03(\x0b\x32/.services.billing.entities.v1alpha2.InvoiceItemR\x05items\x12?\n\x0c\x64ownload_url\x18\x04 \x01(\x0b\x32\x1c.google.protobuf.StringValueR\x0b\x64ownloadUrl\"\xe7\x02\n\x0bInvoiceItem\x12\x1b\n\tclient_id\x18\x01 \x01(\tR\x08\x63lientId\x12\x45\n\x07product\x18\x02 \x01(\x0e\x32+.services.billing.entities.v1alpha2.ProductR\x07product\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription\x12.\n\x04\x64\x61te\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x04\x64\x61te\x12\x18\n\x05price\x18\x05 \x01(\x01\x42\x02\x18\x01R\x05price\x12O\n\x07\x63olumns\x18\x06 \x03(\x0b\x32\x35.services.billing.entities.v1alpha2.InvoiceItemColumnR\x07\x63olumns\x12\x37\n\x0crated_amount\x18\x07 \x01(\x0b\x32\x14.google.type.DecimalR\x0bratedAmount\"=\n\x11InvoiceItemColumn\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value*\xa3\x02\n\x07Product\x12\x17\n\x13PRODUCT_UNSPECIFIED\x10\x00\x12\x11\n\x0cPRODUCT_OMNI\x10\xc8\x01\x12\x17\n\x12PRODUCT_OMNI_SEATS\x10\xc9\x01\x12\x1b\n\x16PRODUCT_OMNI_CHAT_SENT\x10\xca\x01\x12\x1f\n\x1aPRODUCT_OMNI_CHAT_RECEIVED\x10\xcb\x01\x12\x1d\n\x18PRODUCT_OMNI_EMAILS_SENT\x10\xcc\x01\x12!\n\x1cPRODUCT_OMNI_EMAILS_RECEIVED\x10\xcd\x01\x12\x1a\n\x15PRODUCT_OMNI_SMS_SENT\x10\xce\x01\x12\x1e\n\x19PRODUCT_OMNI_SMS_RECEIVED\x10\xcf\x01\x12\x17\n\x12PRODUCT_COMPLIANCE\x10\xac\x02\x42\xe1\x01\n&com.services.billing.entities.v1alpha2B\x0cInvoiceProtoP\x01\xa2\x02\x03SBE\xaa\x02\"Services.Billing.Entities.V1alpha2\xca\x02\"Services\\Billing\\Entities\\V1alpha2\xe2\x02.Services\\Billing\\Entities\\V1alpha2\\GPBMetadata\xea\x02%Services::Billing::Entities::V1alpha2b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -24,12 +25,14 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'services.billing.entities.v
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n&com.services.billing.entities.v1alpha2B\014InvoiceProtoP\001\242\002\003SBE\252\002\"Services.Billing.Entities.V1alpha2\312\002\"Services\\Billing\\Entities\\V1alpha2\342\002.Services\\Billing\\Entities\\V1alpha2\\GPBMetadata\352\002%Services::Billing::Entities::V1alpha2'
-  _globals['_PRODUCT']._serialized_start=764
-  _globals['_PRODUCT']._serialized_end=1055
-  _globals['_INVOICE']._serialized_start=154
-  _globals['_INVOICE']._serialized_end=397
-  _globals['_INVOICEITEM']._serialized_start=400
-  _globals['_INVOICEITEM']._serialized_end=698
-  _globals['_INVOICEITEMCOLUMN']._serialized_start=700
-  _globals['_INVOICEITEMCOLUMN']._serialized_end=761
+  _globals['_INVOICEITEM'].fields_by_name['price']._loaded_options = None
+  _globals['_INVOICEITEM'].fields_by_name['price']._serialized_options = b'\030\001'
+  _globals['_PRODUCT']._serialized_start=852
+  _globals['_PRODUCT']._serialized_end=1143
+  _globals['_INVOICE']._serialized_start=181
+  _globals['_INVOICE']._serialized_end=424
+  _globals['_INVOICEITEM']._serialized_start=427
+  _globals['_INVOICEITEM']._serialized_end=786
+  _globals['_INVOICEITEMCOLUMN']._serialized_start=788
+  _globals['_INVOICEITEMCOLUMN']._serialized_end=849
 # @@protoc_insertion_point(module_scope)
