@@ -150,6 +150,7 @@ class OmniTaskStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OMNI_TASK_SENDING_INCOMPLETE: _ClassVar[OmniTaskStatus]
     OMNI_TASK_SENT: _ClassVar[OmniTaskStatus]
     OMNI_TASK_RECEIVED: _ClassVar[OmniTaskStatus]
+    OMNI_TASK_CANCELLED: _ClassVar[OmniTaskStatus]
 
 class OmniSenderType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -308,6 +309,7 @@ OMNI_TASK_SENDING_FAILED: OmniTaskStatus
 OMNI_TASK_SENDING_INCOMPLETE: OmniTaskStatus
 OMNI_TASK_SENT: OmniTaskStatus
 OMNI_TASK_RECEIVED: OmniTaskStatus
+OMNI_TASK_CANCELLED: OmniTaskStatus
 OMNI_SENDER_TYPE_AGENT: OmniSenderType
 OMNI_SENDER_TYPE_CUSTOMER: OmniSenderType
 OMNI_SENDER_TYPE_SYSTEM: OmniSenderType
