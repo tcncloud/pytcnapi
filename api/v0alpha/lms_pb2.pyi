@@ -1928,18 +1928,20 @@ class ReshapeAction(_message.Message):
     def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., divide: _Optional[_Union[ReshapeAction.Divide, _Mapping]] = ..., multiply: _Optional[_Union[ReshapeAction.Multiply, _Mapping]] = ..., modulo: _Optional[_Union[ReshapeAction.Modulo, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
 
 class ContactManagerSink(_message.Message):
-    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "ttl", "fields")
+    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime")
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     CONTACT_LIST_NAME_FIELD_NUMBER: _ClassVar[int]
     CONTACT_LIST_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
-    TTL_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
+    TTL_FIELD_NUMBER: _ClassVar[int]
+    LIFETIME_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     contact_list_name: str
     contact_list_description: str
-    ttl: int
     fields: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., ttl: _Optional[int] = ..., fields: _Optional[_Iterable[str]] = ...) -> None: ...
+    ttl: int
+    lifetime: _duration_pb2.Duration
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., lifetime: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
 
 class ListMetrics(_message.Message):
     __slots__ = ("input_record_count", "output_record_count", "field_names", "field_types", "ftypes", "field_counts", "run_type", "success_message", "max_record_width", "min_record_width", "max_record_index", "min_record_index", "files", "groups", "missing_fields", "seconds_to_start", "seconds_to_process")
