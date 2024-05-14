@@ -24,7 +24,7 @@ class GetAgentHuntGroupReq(_message.Message):
     def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
 
 class HuntGroup(_message.Message):
-    __slots__ = ("hunt_group_sid", "client_sid", "name", "description", "modify_date", "type", "agent_count")
+    __slots__ = ("hunt_group_sid", "client_sid", "name", "description", "modify_date", "type", "agent_count", "hunt_group_skill_agent_count")
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -32,6 +32,7 @@ class HuntGroup(_message.Message):
     MODIFY_DATE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     AGENT_COUNT_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SKILL_AGENT_COUNT_FIELD_NUMBER: _ClassVar[int]
     hunt_group_sid: int
     client_sid: int
     name: str
@@ -39,7 +40,8 @@ class HuntGroup(_message.Message):
     modify_date: _timestamp_pb2.Timestamp
     type: _acd_pb2.HuntGroupType.Enum
     agent_count: int
-    def __init__(self, hunt_group_sid: _Optional[int] = ..., client_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., modify_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., type: _Optional[_Union[_acd_pb2.HuntGroupType.Enum, str]] = ..., agent_count: _Optional[int] = ...) -> None: ...
+    hunt_group_skill_agent_count: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., client_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., modify_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., type: _Optional[_Union[_acd_pb2.HuntGroupType.Enum, str]] = ..., agent_count: _Optional[int] = ..., hunt_group_skill_agent_count: _Optional[int] = ...) -> None: ...
 
 class GetAgentSkillsReq(_message.Message):
     __slots__ = ("hunt_group_sid",)
