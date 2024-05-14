@@ -1374,3 +1374,17 @@ class SimpleCompareExpression(_message.Message):
     disposition_header: str
     compare_value: str
     def __init__(self, operator_type: _Optional[_Union[CompareOperatorType, str]] = ..., act_index: _Optional[int] = ..., disposition_header: _Optional[str] = ..., compare_value: _Optional[str] = ...) -> None: ...
+
+class ResponseEvaluator(_message.Message):
+    __slots__ = ("response_evaluator_id", "org_id", "name", "description", "regular_expression")
+    RESPONSE_EVALUATOR_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    REGULAR_EXPRESSION_FIELD_NUMBER: _ClassVar[int]
+    response_evaluator_id: str
+    org_id: str
+    name: str
+    description: str
+    regular_expression: str
+    def __init__(self, response_evaluator_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., regular_expression: _Optional[str] = ...) -> None: ...

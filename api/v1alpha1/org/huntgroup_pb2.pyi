@@ -590,3 +590,59 @@ class UnassignScriptFromHuntGroupsRequest(_message.Message):
 class UnassignScriptFromHuntGroupsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListResponseEvaluatorsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListResponseEvaluatorsResponse(_message.Message):
+    __slots__ = ("evaluators",)
+    EVALUATORS_FIELD_NUMBER: _ClassVar[int]
+    evaluators: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.ResponseEvaluator]
+    def __init__(self, evaluators: _Optional[_Iterable[_Union[_huntgroup_pb2.ResponseEvaluator, _Mapping]]] = ...) -> None: ...
+
+class GetResponseEvaluatorRequest(_message.Message):
+    __slots__ = ("evaluator_id",)
+    EVALUATOR_ID_FIELD_NUMBER: _ClassVar[int]
+    evaluator_id: str
+    def __init__(self, evaluator_id: _Optional[str] = ...) -> None: ...
+
+class GetResponseEvaluatorResponse(_message.Message):
+    __slots__ = ("evaluator",)
+    EVALUATOR_FIELD_NUMBER: _ClassVar[int]
+    evaluator: _huntgroup_pb2.ResponseEvaluator
+    def __init__(self, evaluator: _Optional[_Union[_huntgroup_pb2.ResponseEvaluator, _Mapping]] = ...) -> None: ...
+
+class CreateResponseEvaluatorRequest(_message.Message):
+    __slots__ = ("evaluator",)
+    EVALUATOR_FIELD_NUMBER: _ClassVar[int]
+    evaluator: _huntgroup_pb2.ResponseEvaluator
+    def __init__(self, evaluator: _Optional[_Union[_huntgroup_pb2.ResponseEvaluator, _Mapping]] = ...) -> None: ...
+
+class CreateResponseEvaluatorResponse(_message.Message):
+    __slots__ = ("evaluator",)
+    EVALUATOR_FIELD_NUMBER: _ClassVar[int]
+    evaluator: _huntgroup_pb2.ResponseEvaluator
+    def __init__(self, evaluator: _Optional[_Union[_huntgroup_pb2.ResponseEvaluator, _Mapping]] = ...) -> None: ...
+
+class UpdateResponseEvaluatorRequest(_message.Message):
+    __slots__ = ("evaluator",)
+    EVALUATOR_FIELD_NUMBER: _ClassVar[int]
+    evaluator: _huntgroup_pb2.ResponseEvaluator
+    def __init__(self, evaluator: _Optional[_Union[_huntgroup_pb2.ResponseEvaluator, _Mapping]] = ...) -> None: ...
+
+class UpdateResponseEvaluatorResponse(_message.Message):
+    __slots__ = ("evaluator",)
+    EVALUATOR_FIELD_NUMBER: _ClassVar[int]
+    evaluator: _huntgroup_pb2.ResponseEvaluator
+    def __init__(self, evaluator: _Optional[_Union[_huntgroup_pb2.ResponseEvaluator, _Mapping]] = ...) -> None: ...
+
+class DeleteResponseEvaluatorRequest(_message.Message):
+    __slots__ = ("evaluator_id",)
+    EVALUATOR_ID_FIELD_NUMBER: _ClassVar[int]
+    evaluator_id: str
+    def __init__(self, evaluator_id: _Optional[str] = ...) -> None: ...
+
+class DeleteResponseEvaluatorResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

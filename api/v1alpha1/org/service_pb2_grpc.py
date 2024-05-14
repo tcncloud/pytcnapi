@@ -1140,6 +1140,31 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsResponse.FromString,
                 )
+        self.ListResponseEvaluators = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListResponseEvaluators',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListResponseEvaluatorsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListResponseEvaluatorsResponse.FromString,
+                )
+        self.GetResponseEvaluator = channel.unary_unary(
+                '/api.v1alpha1.org.Org/GetResponseEvaluator',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetResponseEvaluatorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetResponseEvaluatorResponse.FromString,
+                )
+        self.CreateResponseEvaluator = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CreateResponseEvaluator',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateResponseEvaluatorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateResponseEvaluatorResponse.FromString,
+                )
+        self.UpdateResponseEvaluator = channel.unary_unary(
+                '/api.v1alpha1.org.Org/UpdateResponseEvaluator',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateResponseEvaluatorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateResponseEvaluatorResponse.FromString,
+                )
+        self.DeleteResponseEvaluator = channel.unary_unary(
+                '/api.v1alpha1.org.Org/DeleteResponseEvaluator',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteResponseEvaluatorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteResponseEvaluatorResponse.FromString,
+                )
 
 
 class OrgServicer(object):
@@ -2791,6 +2816,36 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListResponseEvaluators(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetResponseEvaluator(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateResponseEvaluator(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateResponseEvaluator(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteResponseEvaluator(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrgServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -3908,6 +3963,31 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.ListUsersAllowedIps,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsResponse.SerializeToString,
+            ),
+            'ListResponseEvaluators': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListResponseEvaluators,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListResponseEvaluatorsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListResponseEvaluatorsResponse.SerializeToString,
+            ),
+            'GetResponseEvaluator': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetResponseEvaluator,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetResponseEvaluatorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetResponseEvaluatorResponse.SerializeToString,
+            ),
+            'CreateResponseEvaluator': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateResponseEvaluator,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateResponseEvaluatorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateResponseEvaluatorResponse.SerializeToString,
+            ),
+            'UpdateResponseEvaluator': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateResponseEvaluator,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateResponseEvaluatorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateResponseEvaluatorResponse.SerializeToString,
+            ),
+            'DeleteResponseEvaluator': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteResponseEvaluator,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteResponseEvaluatorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteResponseEvaluatorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7708,5 +7788,90 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListUsersAllowedIps',
             api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_user__pb2.ListUsersAllowedIpsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListResponseEvaluators(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListResponseEvaluators',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListResponseEvaluatorsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.ListResponseEvaluatorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetResponseEvaluator(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetResponseEvaluator',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetResponseEvaluatorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.GetResponseEvaluatorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateResponseEvaluator(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateResponseEvaluator',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateResponseEvaluatorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.CreateResponseEvaluatorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateResponseEvaluator(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateResponseEvaluator',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateResponseEvaluatorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.UpdateResponseEvaluatorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteResponseEvaluator(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteResponseEvaluator',
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteResponseEvaluatorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_huntgroup__pb2.DeleteResponseEvaluatorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
