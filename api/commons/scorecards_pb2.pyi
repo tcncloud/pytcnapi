@@ -116,7 +116,7 @@ class Category(_message.Message):
     def __init__(self, category_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., skill_profiles: _Optional[_Iterable[int]] = ..., version: _Optional[int] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., is_system: bool = ..., category_type: _Optional[_Union[CategoryType, str]] = ...) -> None: ...
 
 class Evaluation(_message.Message):
-    __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "call_sid", "score", "evaluation_state", "evaluation_sections", "completed_at", "agent_user_id", "call_type", "transcript_sid", "custom_fields")
+    __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "call_sid", "score", "evaluation_state", "evaluation_sections", "completed_at", "agent_user_id", "call_type", "transcript_sid", "custom_fields", "deleted_by")
     class CustomField(_message.Message):
         __slots__ = ("key", "field")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -136,6 +136,7 @@ class Evaluation(_message.Message):
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    DELETED_BY_FIELD_NUMBER: _ClassVar[int]
     evaluation_id: int
     scorecard_id: int
     scorer_id: str
@@ -148,7 +149,8 @@ class Evaluation(_message.Message):
     call_type: _acd_pb2.CallType.Enum
     transcript_sid: int
     custom_fields: _containers.RepeatedCompositeFieldContainer[Evaluation.CustomField]
-    def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., scorer_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., score: _Optional[float] = ..., evaluation_state: _Optional[_Union[EvaluationState, str]] = ..., evaluation_sections: _Optional[_Iterable[_Union[EvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_user_id: _Optional[str] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., custom_fields: _Optional[_Iterable[_Union[Evaluation.CustomField, _Mapping]]] = ...) -> None: ...
+    deleted_by: str
+    def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., scorer_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., score: _Optional[float] = ..., evaluation_state: _Optional[_Union[EvaluationState, str]] = ..., evaluation_sections: _Optional[_Iterable[_Union[EvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_user_id: _Optional[str] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., custom_fields: _Optional[_Iterable[_Union[Evaluation.CustomField, _Mapping]]] = ..., deleted_by: _Optional[str] = ...) -> None: ...
 
 class EvaluationSection(_message.Message):
     __slots__ = ("evaluation_section_id", "evaluation_id", "section_id", "points", "possible_points", "sort_order", "deleted_at", "created_at", "evaluation_questions", "auto_evaluation_questions", "skipped")
