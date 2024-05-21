@@ -1169,3 +1169,15 @@ class ExportConsentListResponse(_message.Message):
     URL_FIELD_NUMBER: _ClassVar[int]
     url: str
     def __init__(self, url: _Optional[str] = ...) -> None: ...
+
+class ScrubListDownloadRequest(_message.Message):
+    __slots__ = ("list_id",)
+    LIST_ID_FIELD_NUMBER: _ClassVar[int]
+    list_id: str
+    def __init__(self, list_id: _Optional[str] = ...) -> None: ...
+
+class ConsentListDownloadRequest(_message.Message):
+    __slots__ = ("consent_profile_id",)
+    CONSENT_PROFILE_ID_FIELD_NUMBER: _ClassVar[int]
+    consent_profile_id: str
+    def __init__(self, consent_profile_id: _Optional[str] = ...) -> None: ...

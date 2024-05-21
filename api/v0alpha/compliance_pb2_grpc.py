@@ -121,6 +121,11 @@ class ComplianceStub(object):
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessScrubListUploadReq.SerializeToString,
                 response_deserializer=google_dot_longrunning_dot_operations__pb2.Operation.FromString,
                 )
+        self.ScrubListDownload = channel.unary_unary(
+                '/api.v0alpha.Compliance/ScrubListDownload',
+                request_serializer=api_dot_v0alpha_dot_compliance__pb2.ScrubListDownloadRequest.SerializeToString,
+                response_deserializer=google_dot_longrunning_dot_operations__pb2.Operation.FromString,
+                )
         self.ProcessScrubListDeleteUpload = channel.unary_unary(
                 '/api.v0alpha.Compliance/ProcessScrubListDeleteUpload',
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessScrubListDeleteUploadReq.SerializeToString,
@@ -271,6 +276,11 @@ class ComplianceStub(object):
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.ProcessConsentListDeleteUploadReq.SerializeToString,
                 response_deserializer=google_dot_longrunning_dot_operations__pb2.Operation.FromString,
                 )
+        self.ConsentListDownload = channel.unary_unary(
+                '/api.v0alpha.Compliance/ConsentListDownload',
+                request_serializer=api_dot_v0alpha_dot_compliance__pb2.ConsentListDownloadRequest.SerializeToString,
+                response_deserializer=google_dot_longrunning_dot_operations__pb2.Operation.FromString,
+                )
         self.EnableConsentProfile = channel.unary_unary(
                 '/api.v0alpha.Compliance/EnableConsentProfile',
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.EnableConsentProfileReq.SerializeToString,
@@ -412,7 +422,7 @@ class ComplianceServicer(object):
         The method will return a ScrubListRes message that will
         contain the results.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE or PERMISSION_AGENT_COMPLIANCE_SCRUBLIST_OPTIONS
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -422,7 +432,7 @@ class ComplianceServicer(object):
         """Update scrub list entry defined by UpdateScrubEntryReq message.
         The method will update a scrub list entry with the specified fields
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -476,6 +486,15 @@ class ComplianceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ScrubListDownload(self, request, context):
+        """Download a scrub list defined by ScrubListDownloadRequest message.
+        Required permissions:
+        PERMISSION_COMPLIANCE
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ProcessScrubListDeleteUpload(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -491,7 +510,7 @@ class ComplianceServicer(object):
     def PurgeScrubList(self, request, context):
         """Purge entries from a scrub list defined by PurgeScrubListReq message.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -736,7 +755,17 @@ class ComplianceServicer(object):
         """Process a consent delete list defined by DeleteConsentReq message
         The method will return a google.protobuf.Empty message
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ConsentListDownload(self, request, context):
+        """Download a consent list defined by ConsentListDownloadRequest message
+        The method will return a google.longrunning.Operation message
+        Required permissions:
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -748,7 +777,7 @@ class ComplianceServicer(object):
         consent_profile_id field.
         The method will return a google.protobuf.Empty message.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -760,7 +789,7 @@ class ComplianceServicer(object):
         consent_profile_id field.
         The method will return a google.protobuf.Empty message.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -773,7 +802,7 @@ class ComplianceServicer(object):
         containing consent_profile_id, profile_name, the number of consents
         belonging to the profile, and disabled.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -784,7 +813,7 @@ class ComplianceServicer(object):
         The method will return a GetConsentUploadUrlRes messages
         containing a url with which to upload an import file.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -794,7 +823,7 @@ class ComplianceServicer(object):
         """Process consent upload defined by ProcessConsentUploadReq message.
         The method will process an uploaded consent file.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -814,7 +843,7 @@ class ComplianceServicer(object):
         The method will return a ListConsentTopicsRes message
         containing topic, org_id, and deleted.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -825,7 +854,7 @@ class ComplianceServicer(object):
         for the specified topic and org_id.
         The method will return a ConsentTopic message/entity.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -835,7 +864,7 @@ class ComplianceServicer(object):
         """Create a consent topic defined by ConsentTopic
         message.  The method will return an Empty message.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -845,7 +874,7 @@ class ComplianceServicer(object):
         """Delete a consent topic defined by ConsentTopic message.
         The method will return an Empty message.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -855,7 +884,7 @@ class ComplianceServicer(object):
         """Update a consent topic defined by UpdateConsentTopicReq message.
         The method will return an Empty message.
         Required permissions:
-        EXECUTE_DO_NOT_CALL_LIST
+        PERMISSION_COMPLIANCE_CONSENT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -989,6 +1018,11 @@ def add_ComplianceServicer_to_server(servicer, server):
             'ProcessScrubListUpload': grpc.unary_unary_rpc_method_handler(
                     servicer.ProcessScrubListUpload,
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ProcessScrubListUploadReq.FromString,
+                    response_serializer=google_dot_longrunning_dot_operations__pb2.Operation.SerializeToString,
+            ),
+            'ScrubListDownload': grpc.unary_unary_rpc_method_handler(
+                    servicer.ScrubListDownload,
+                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ScrubListDownloadRequest.FromString,
                     response_serializer=google_dot_longrunning_dot_operations__pb2.Operation.SerializeToString,
             ),
             'ProcessScrubListDeleteUpload': grpc.unary_unary_rpc_method_handler(
@@ -1139,6 +1173,11 @@ def add_ComplianceServicer_to_server(servicer, server):
             'ProcessConsentListDeleteUpload': grpc.unary_unary_rpc_method_handler(
                     servicer.ProcessConsentListDeleteUpload,
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ProcessConsentListDeleteUploadReq.FromString,
+                    response_serializer=google_dot_longrunning_dot_operations__pb2.Operation.SerializeToString,
+            ),
+            'ConsentListDownload': grpc.unary_unary_rpc_method_handler(
+                    servicer.ConsentListDownload,
+                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.ConsentListDownloadRequest.FromString,
                     response_serializer=google_dot_longrunning_dot_operations__pb2.Operation.SerializeToString,
             ),
             'EnableConsentProfile': grpc.unary_unary_rpc_method_handler(
@@ -1569,6 +1608,23 @@ class Compliance(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/ProcessScrubListUpload',
             api_dot_v0alpha_dot_compliance__pb2.ProcessScrubListUploadReq.SerializeToString,
+            google_dot_longrunning_dot_operations__pb2.Operation.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ScrubListDownload(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/ScrubListDownload',
+            api_dot_v0alpha_dot_compliance__pb2.ScrubListDownloadRequest.SerializeToString,
             google_dot_longrunning_dot_operations__pb2.Operation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
@@ -2079,6 +2135,23 @@ class Compliance(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/ProcessConsentListDeleteUpload',
             api_dot_v0alpha_dot_compliance__pb2.ProcessConsentListDeleteUploadReq.SerializeToString,
+            google_dot_longrunning_dot_operations__pb2.Operation.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ConsentListDownload(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/ConsentListDownload',
+            api_dot_v0alpha_dot_compliance__pb2.ConsentListDownloadRequest.SerializeToString,
             google_dot_longrunning_dot_operations__pb2.Operation.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
