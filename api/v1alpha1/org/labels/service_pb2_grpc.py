@@ -54,6 +54,16 @@ class LabelsServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.GetLabeledEntityMapRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.GetLabeledEntityMapResponse.FromString,
                 )
+        self.AssignLabels = channel.unary_unary(
+                '/api.v1alpha1.org.labels.LabelsService/AssignLabels',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AssignLabelsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AssignLabelsResponse.FromString,
+                )
+        self.RevokeLabels = channel.unary_unary(
+                '/api.v1alpha1.org.labels.LabelsService/RevokeLabels',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.RevokeLabelsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.RevokeLabelsResponse.FromString,
+                )
 
 
 class LabelsServiceServicer(object):
@@ -115,6 +125,20 @@ class LabelsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AssignLabels(self, request, context):
+        """AssignLabels assigns labels to a specific permission group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RevokeLabels(self, request, context):
+        """RevokeLabels revokes labels from a specific permission group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LabelsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -157,6 +181,16 @@ def add_LabelsServiceServicer_to_server(servicer, server):
                     servicer.GetLabeledEntityMap,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.GetLabeledEntityMapRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.GetLabeledEntityMapResponse.SerializeToString,
+            ),
+            'AssignLabels': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignLabels,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AssignLabelsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AssignLabelsResponse.SerializeToString,
+            ),
+            'RevokeLabels': grpc.unary_unary_rpc_method_handler(
+                    servicer.RevokeLabels,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.RevokeLabelsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.RevokeLabelsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -301,5 +335,39 @@ class LabelsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.labels.LabelsService/GetLabeledEntityMap',
             api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.GetLabeledEntityMapRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.GetLabeledEntityMapResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignLabels(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.labels.LabelsService/AssignLabels',
+            api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AssignLabelsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.AssignLabelsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RevokeLabels(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.labels.LabelsService/RevokeLabels',
+            api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.RevokeLabelsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_labels_dot_entities__pb2.RevokeLabelsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
