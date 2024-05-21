@@ -874,7 +874,7 @@ class UserCapability(_message.Message):
     def __init__(self, can_display: bool = ..., can_edit: bool = ..., is_move_target: bool = ..., can_move: bool = ..., can_delete: bool = ..., can_undelete: bool = ..., can_add_child: bool = ...) -> None: ...
 
 class CallCenterNode(_message.Message):
-    __slots__ = ("call_center_node_sid", "name", "description", "datetime_set_to_inactive", "time_zone_val", "schedule_scenario_sid", "member_client_nodes", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "origin_sid")
+    __slots__ = ("call_center_node_sid", "name", "description", "datetime_set_to_inactive", "time_zone_val", "schedule_scenario_sid", "member_client_nodes", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "origin_sid", "shrinkage")
     CALL_CENTER_NODE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -888,6 +888,7 @@ class CallCenterNode(_message.Message):
     MEMBER_CONSTRAINT_RULES_FIELD_NUMBER: _ClassVar[int]
     MEMBER_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_SID_FIELD_NUMBER: _ClassVar[int]
+    SHRINKAGE_FIELD_NUMBER: _ClassVar[int]
     call_center_node_sid: int
     name: str
     description: str
@@ -901,7 +902,8 @@ class CallCenterNode(_message.Message):
     member_constraint_rules: _containers.RepeatedCompositeFieldContainer[ConstraintRule]
     member_agent_groups: _containers.RepeatedCompositeFieldContainer[AgentGroup]
     origin_sid: _wrappers_pb2.Int64Value
-    def __init__(self, call_center_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., schedule_scenario_sid: _Optional[int] = ..., member_client_nodes: _Optional[_Iterable[_Union[ClientNode, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    shrinkage: _wrappers_pb2.FloatValue
+    def __init__(self, call_center_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., schedule_scenario_sid: _Optional[int] = ..., member_client_nodes: _Optional[_Iterable[_Union[ClientNode, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., shrinkage: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...) -> None: ...
 
 class UpdateCallCenterNodeReq(_message.Message):
     __slots__ = ("node",)
@@ -914,7 +916,7 @@ class UpdateCallCenterNodeRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ClientNode(_message.Message):
-    __slots__ = ("client_node_sid", "name", "description", "parent_sid", "datetime_set_to_inactive", "time_zone_val", "schedule_scenario_sid", "member_location_nodes", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "origin_sid")
+    __slots__ = ("client_node_sid", "name", "description", "parent_sid", "datetime_set_to_inactive", "time_zone_val", "schedule_scenario_sid", "member_location_nodes", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "origin_sid", "shrinkage")
     CLIENT_NODE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -929,6 +931,7 @@ class ClientNode(_message.Message):
     MEMBER_CONSTRAINT_RULES_FIELD_NUMBER: _ClassVar[int]
     MEMBER_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_SID_FIELD_NUMBER: _ClassVar[int]
+    SHRINKAGE_FIELD_NUMBER: _ClassVar[int]
     client_node_sid: int
     name: str
     description: str
@@ -943,7 +946,8 @@ class ClientNode(_message.Message):
     member_constraint_rules: _containers.RepeatedCompositeFieldContainer[ConstraintRule]
     member_agent_groups: _containers.RepeatedCompositeFieldContainer[AgentGroup]
     origin_sid: _wrappers_pb2.Int64Value
-    def __init__(self, client_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., parent_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., schedule_scenario_sid: _Optional[int] = ..., member_location_nodes: _Optional[_Iterable[_Union[LocationNode, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    shrinkage: _wrappers_pb2.FloatValue
+    def __init__(self, client_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., parent_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., schedule_scenario_sid: _Optional[int] = ..., member_location_nodes: _Optional[_Iterable[_Union[LocationNode, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., shrinkage: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...) -> None: ...
 
 class CreateClientNodeReq(_message.Message):
     __slots__ = ("node",)
@@ -968,7 +972,7 @@ class UpdateClientNodeRes(_message.Message):
     def __init__(self) -> None: ...
 
 class LocationNode(_message.Message):
-    __slots__ = ("location_node_sid", "name", "description", "client_node_sid", "datetime_set_to_inactive", "time_zone_val", "shrinkage_is_percentage", "shrinkage_value", "schedule_scenario_sid", "member_program_nodes", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "origin_sid")
+    __slots__ = ("location_node_sid", "name", "description", "client_node_sid", "datetime_set_to_inactive", "time_zone_val", "shrinkage_is_percentage", "shrinkage_value", "schedule_scenario_sid", "member_program_nodes", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "origin_sid", "shrinkage")
     LOCATION_NODE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -985,6 +989,7 @@ class LocationNode(_message.Message):
     MEMBER_CONSTRAINT_RULES_FIELD_NUMBER: _ClassVar[int]
     MEMBER_AGENT_GROUPS_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_SID_FIELD_NUMBER: _ClassVar[int]
+    SHRINKAGE_FIELD_NUMBER: _ClassVar[int]
     location_node_sid: int
     name: str
     description: str
@@ -1001,7 +1006,8 @@ class LocationNode(_message.Message):
     member_constraint_rules: _containers.RepeatedCompositeFieldContainer[ConstraintRule]
     member_agent_groups: _containers.RepeatedCompositeFieldContainer[AgentGroup]
     origin_sid: _wrappers_pb2.Int64Value
-    def __init__(self, location_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., client_node_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., shrinkage_is_percentage: bool = ..., shrinkage_value: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., member_program_nodes: _Optional[_Iterable[_Union[ProgramNode, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    shrinkage: _wrappers_pb2.FloatValue
+    def __init__(self, location_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., client_node_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., time_zone_val: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., shrinkage_is_percentage: bool = ..., shrinkage_value: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., member_program_nodes: _Optional[_Iterable[_Union[ProgramNode, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., shrinkage: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...) -> None: ...
 
 class CreateLocationNodeReq(_message.Message):
     __slots__ = ("node",)
@@ -1026,7 +1032,7 @@ class UpdateLocationNodeRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ProgramNode(_message.Message):
-    __slots__ = ("program_node_sid", "name", "description", "location_node_sid", "datetime_set_to_inactive", "shrinkage_is_percentage", "shrinkage_value", "schedule_scenario_sid", "member_shift_templates", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "member_skill_proficiencies", "origin_sid", "skill_profile_category")
+    __slots__ = ("program_node_sid", "name", "description", "location_node_sid", "datetime_set_to_inactive", "shrinkage_is_percentage", "shrinkage_value", "schedule_scenario_sid", "member_shift_templates", "member_non_skill_activities", "member_open_times_patterns", "member_agent_availability_patterns", "member_constraint_rules", "member_agent_groups", "member_skill_proficiencies", "origin_sid", "skill_profile_category", "shrinkage")
     PROGRAM_NODE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -1044,6 +1050,7 @@ class ProgramNode(_message.Message):
     MEMBER_SKILL_PROFICIENCIES_FIELD_NUMBER: _ClassVar[int]
     ORIGIN_SID_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    SHRINKAGE_FIELD_NUMBER: _ClassVar[int]
     program_node_sid: int
     name: str
     description: str
@@ -1061,7 +1068,8 @@ class ProgramNode(_message.Message):
     member_skill_proficiencies: _containers.RepeatedCompositeFieldContainer[SkillProficiency]
     origin_sid: _wrappers_pb2.Int64Value
     skill_profile_category: _wfm_pb2.SkillProfileCategory
-    def __init__(self, program_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., location_node_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., shrinkage_is_percentage: bool = ..., shrinkage_value: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., member_shift_templates: _Optional[_Iterable[_Union[ShiftTemplate, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., member_skill_proficiencies: _Optional[_Iterable[_Union[SkillProficiency, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
+    shrinkage: _wrappers_pb2.FloatValue
+    def __init__(self, program_node_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., location_node_sid: _Optional[int] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., shrinkage_is_percentage: bool = ..., shrinkage_value: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., member_shift_templates: _Optional[_Iterable[_Union[ShiftTemplate, _Mapping]]] = ..., member_non_skill_activities: _Optional[_Iterable[_Union[NonSkillActivity, _Mapping]]] = ..., member_open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., member_agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ..., member_constraint_rules: _Optional[_Iterable[_Union[ConstraintRule, _Mapping]]] = ..., member_agent_groups: _Optional[_Iterable[_Union[AgentGroup, _Mapping]]] = ..., member_skill_proficiencies: _Optional[_Iterable[_Union[SkillProficiency, _Mapping]]] = ..., origin_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., shrinkage: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...) -> None: ...
 
 class CreateProgramNodeReq(_message.Message):
     __slots__ = ("node",)
@@ -2433,7 +2441,7 @@ class RequiredCallsInterval(_message.Message):
     def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., required_calls: _Optional[int] = ...) -> None: ...
 
 class ShiftInstance(_message.Message):
-    __slots__ = ("shift_instance_sid", "start_datetime", "is_locked", "width_in_minutes", "shift_template_sid", "originating_program_node_sid", "schedule_sid", "wfm_agent_sid", "schedule_type", "shift_segments", "shift_template")
+    __slots__ = ("shift_instance_sid", "start_datetime", "is_locked", "width_in_minutes", "shift_template_sid", "originating_program_node_sid", "schedule_sid", "wfm_agent_sid", "schedule_type", "shift_segments", "shift_template", "planned_shrinkage_percent")
     SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     IS_LOCKED_FIELD_NUMBER: _ClassVar[int]
@@ -2445,6 +2453,7 @@ class ShiftInstance(_message.Message):
     SCHEDULE_TYPE_FIELD_NUMBER: _ClassVar[int]
     SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
     SHIFT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    PLANNED_SHRINKAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
     shift_instance_sid: int
     start_datetime: _timestamp_pb2.Timestamp
     is_locked: bool
@@ -2456,7 +2465,8 @@ class ShiftInstance(_message.Message):
     schedule_type: _wfm_pb2.ScheduleType
     shift_segments: _containers.RepeatedCompositeFieldContainer[ShiftSegment]
     shift_template: ShiftTemplate
-    def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_locked: bool = ..., width_in_minutes: _Optional[int] = ..., shift_template_sid: _Optional[int] = ..., originating_program_node_sid: _Optional[int] = ..., schedule_sid: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ..., shift_segments: _Optional[_Iterable[_Union[ShiftSegment, _Mapping]]] = ..., shift_template: _Optional[_Union[ShiftTemplate, _Mapping]] = ...) -> None: ...
+    planned_shrinkage_percent: float
+    def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_locked: bool = ..., width_in_minutes: _Optional[int] = ..., shift_template_sid: _Optional[int] = ..., originating_program_node_sid: _Optional[int] = ..., schedule_sid: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ..., shift_segments: _Optional[_Iterable[_Union[ShiftSegment, _Mapping]]] = ..., shift_template: _Optional[_Union[ShiftTemplate, _Mapping]] = ..., planned_shrinkage_percent: _Optional[float] = ...) -> None: ...
 
 class ShiftSegmentCallStat(_message.Message):
     __slots__ = ("num_calls", "percent_fit", "skill_collection")
