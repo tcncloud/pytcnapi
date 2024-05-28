@@ -2913,18 +2913,20 @@ class UpdateShiftInstanceRes(_message.Message):
     def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., performance_metrics: _Optional[_Iterable[_Union[PerformanceMetric, _Mapping]]] = ...) -> None: ...
 
 class UpdateShiftInstanceV2Req(_message.Message):
-    __slots__ = ("shift_instance_sid", "start_datetime", "width_in_minutes", "wfm_agent_sid", "is_locked")
+    __slots__ = ("shift_instance_sid", "start_datetime", "width_in_minutes", "wfm_agent_sid", "is_locked", "planned_shrinkage_percent")
     SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     IS_LOCKED_FIELD_NUMBER: _ClassVar[int]
+    PLANNED_SHRINKAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
     shift_instance_sid: int
     start_datetime: _timestamp_pb2.Timestamp
     width_in_minutes: int
     wfm_agent_sid: int
     is_locked: bool
-    def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., width_in_minutes: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., is_locked: bool = ...) -> None: ...
+    planned_shrinkage_percent: float
+    def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., width_in_minutes: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., is_locked: bool = ..., planned_shrinkage_percent: _Optional[float] = ...) -> None: ...
 
 class UpdateShiftInstanceV2Res(_message.Message):
     __slots__ = ("shift_instance", "diagnostics")
