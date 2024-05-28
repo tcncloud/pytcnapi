@@ -242,6 +242,14 @@ class RealTimeManagementState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     NOT_READY: _ClassVar[RealTimeManagementState]
     WRAP_UP: _ClassVar[RealTimeManagementState]
     LOGGED_OUT: _ClassVar[RealTimeManagementState]
+
+class AgentLeavePetitionStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    UNSPECIFIED_PETITION_STATUS: _ClassVar[AgentLeavePetitionStatus]
+    PENDING_PETITION: _ClassVar[AgentLeavePetitionStatus]
+    APPROVED_PETITION: _ClassVar[AgentLeavePetitionStatus]
+    DENIED_PETITION: _ClassVar[AgentLeavePetitionStatus]
+    CANCELLED_PETITION: _ClassVar[AgentLeavePetitionStatus]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -418,6 +426,11 @@ READY: RealTimeManagementState
 NOT_READY: RealTimeManagementState
 WRAP_UP: RealTimeManagementState
 LOGGED_OUT: RealTimeManagementState
+UNSPECIFIED_PETITION_STATUS: AgentLeavePetitionStatus
+PENDING_PETITION: AgentLeavePetitionStatus
+APPROVED_PETITION: AgentLeavePetitionStatus
+DENIED_PETITION: AgentLeavePetitionStatus
+CANCELLED_PETITION: AgentLeavePetitionStatus
 
 class SkillType(_message.Message):
     __slots__ = ()
@@ -700,3 +713,27 @@ class AgentStateSequence(_message.Message):
     start_datetime: _timestamp_pb2.Timestamp
     state_segments: _containers.RepeatedCompositeFieldContainer[AgentStateSegment]
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ...) -> None: ...
+
+class AgentLeavePetition(_message.Message):
+    __slots__ = ("agent_leave_petition_id", "wfm_agent_sid", "petition_status", "petition_comment", "response_comment", "requested_datetime_ranges", "created_time", "archived_time", "resolved_time", "resolved_by_user_id")
+    AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    PETITION_STATUS_FIELD_NUMBER: _ClassVar[int]
+    PETITION_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    REQUESTED_DATETIME_RANGES_FIELD_NUMBER: _ClassVar[int]
+    CREATED_TIME_FIELD_NUMBER: _ClassVar[int]
+    ARCHIVED_TIME_FIELD_NUMBER: _ClassVar[int]
+    RESOLVED_TIME_FIELD_NUMBER: _ClassVar[int]
+    RESOLVED_BY_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition_id: int
+    wfm_agent_sid: int
+    petition_status: AgentLeavePetitionStatus
+    petition_comment: str
+    response_comment: str
+    requested_datetime_ranges: _containers.RepeatedCompositeFieldContainer[DatetimeRange]
+    created_time: _timestamp_pb2.Timestamp
+    archived_time: _timestamp_pb2.Timestamp
+    resolved_time: _timestamp_pb2.Timestamp
+    resolved_by_user_id: str
+    def __init__(self, agent_leave_petition_id: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., petition_status: _Optional[_Union[AgentLeavePetitionStatus, str]] = ..., petition_comment: _Optional[str] = ..., response_comment: _Optional[str] = ..., requested_datetime_ranges: _Optional[_Iterable[_Union[DatetimeRange, _Mapping]]] = ..., created_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., archived_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_by_user_id: _Optional[str] = ...) -> None: ...

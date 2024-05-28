@@ -855,6 +855,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
                 )
+        self.CreateAgentLeavePetition = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateAgentLeavePetition',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentLeavePetitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentLeavePetitionResponse.FromString,
+                )
+        self.ListAgentLeavePetitions = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAgentLeavePetitions',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsResponse.FromString,
+                )
         self.HelloWorldWFMAdherence = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
@@ -3023,6 +3033,32 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateAgentLeavePetition(self, request, context):
+        """Creates an agent leave petition to request time off for the @wfm_agent_sid over the @requested_datetime_ranges for the org sending the request.
+        The @petition_comment must be set with a value.
+        The @requested_datetime_ranges may not overlap each other.
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when creating the time off request.
+        - grpc.NotFound: the @wfm_agent_sid does not exist for the org sending the request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListAgentLeavePetitions(self, request, context):
+        """Lists agent leave petitions for the @wfm_agent_sids over @datetime_range for the org sending the request.
+        If no @wfm_agent_sids are provided, all agent leave petitions overlapping @datetime_range for the org sending the request will be returned.
+        If @include_archived is true, archived agent leave petitions will be returned as well, otherwise archived requests will not be included.
+        If no agent leave petitions are found for the given parameters, an empty slice will be returned.
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when listing the agent leave petitions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def HelloWorldWFMAdherence(self, request, context):
         """**************************************************************************************************************************************************
 
@@ -3915,6 +3951,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.RemoveAgentFromSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.SerializeToString,
+            ),
+            'CreateAgentLeavePetition': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAgentLeavePetition,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentLeavePetitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentLeavePetitionResponse.SerializeToString,
+            ),
+            'ListAgentLeavePetitions': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentLeavePetitions,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsResponse.SerializeToString,
             ),
             'HelloWorldWFMAdherence': grpc.unary_unary_rpc_method_handler(
                     servicer.HelloWorldWFMAdherence,
@@ -6800,6 +6846,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAgentLeavePetition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAgentLeavePetition',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentLeavePetitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentLeavePetitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentLeavePetitions(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAgentLeavePetitions',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

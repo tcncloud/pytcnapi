@@ -3628,3 +3628,35 @@ class ListRealTimeManagementStateColorsResponse(_message.Message):
     STATE_COLORS_FIELD_NUMBER: _ClassVar[int]
     state_colors: _containers.RepeatedCompositeFieldContainer[RealTimeManagementStateColor]
     def __init__(self, state_colors: _Optional[_Iterable[_Union[RealTimeManagementStateColor, _Mapping]]] = ...) -> None: ...
+
+class CreateAgentLeavePetitionRequest(_message.Message):
+    __slots__ = ("requested_datetime_ranges", "petition_comment", "wfm_agent_sid")
+    REQUESTED_DATETIME_RANGES_FIELD_NUMBER: _ClassVar[int]
+    PETITION_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    requested_datetime_ranges: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.DatetimeRange]
+    petition_comment: str
+    wfm_agent_sid: int
+    def __init__(self, requested_datetime_ranges: _Optional[_Iterable[_Union[_wfm_pb2.DatetimeRange, _Mapping]]] = ..., petition_comment: _Optional[str] = ..., wfm_agent_sid: _Optional[int] = ...) -> None: ...
+
+class CreateAgentLeavePetitionResponse(_message.Message):
+    __slots__ = ("agent_leave_petition",)
+    AGENT_LEAVE_PETITION_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition: _wfm_pb2.AgentLeavePetition
+    def __init__(self, agent_leave_petition: _Optional[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]] = ...) -> None: ...
+
+class ListAgentLeavePetitionsRequest(_message.Message):
+    __slots__ = ("wfm_agent_sids", "datetime_range", "include_archived")
+    WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_ARCHIVED_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    include_archived: bool
+    def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., include_archived: bool = ...) -> None: ...
+
+class ListAgentLeavePetitionsResponse(_message.Message):
+    __slots__ = ("agent_leave_petitions",)
+    AGENT_LEAVE_PETITIONS_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petitions: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AgentLeavePetition]
+    def __init__(self, agent_leave_petitions: _Optional[_Iterable[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]]] = ...) -> None: ...
