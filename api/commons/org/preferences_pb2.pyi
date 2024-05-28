@@ -718,12 +718,18 @@ class MonthDayDate(_message.Message):
     def __init__(self, date_name: _Optional[str] = ..., month: _Optional[_Union[_enums_pb2.Month, str]] = ..., day_of_month: _Optional[int] = ...) -> None: ...
 
 class CountryHoliday(_message.Message):
-    __slots__ = ("holiday_name", "country")
+    __slots__ = ("holiday_name", "country", "country_name", "types", "states")
     HOLIDAY_NAME_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_NAME_FIELD_NUMBER: _ClassVar[int]
+    TYPES_FIELD_NUMBER: _ClassVar[int]
+    STATES_FIELD_NUMBER: _ClassVar[int]
     holiday_name: str
     country: _country_pb2.Country
-    def __init__(self, holiday_name: _Optional[str] = ..., country: _Optional[_Union[_country_pb2.Country, str]] = ...) -> None: ...
+    country_name: str
+    types: _containers.RepeatedScalarFieldContainer[str]
+    states: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, holiday_name: _Optional[str] = ..., country: _Optional[_Union[_country_pb2.Country, str]] = ..., country_name: _Optional[str] = ..., types: _Optional[_Iterable[str]] = ..., states: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ProgrammedDay(_message.Message):
     __slots__ = ("day", "holiday")

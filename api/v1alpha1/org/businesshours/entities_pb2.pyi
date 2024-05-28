@@ -1,6 +1,7 @@
 from api.commons import org_pb2 as _org_pb2
 from api.commons.org import preferences_pb2 as _preferences_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -107,7 +108,9 @@ class EvaluateBusinessHoursRequest(_message.Message):
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class EvaluateBusinessHoursResponse(_message.Message):
-    __slots__ = ("within_range",)
+    __slots__ = ("within_range", "result_expiration")
     WITHIN_RANGE_FIELD_NUMBER: _ClassVar[int]
+    RESULT_EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     within_range: bool
-    def __init__(self, within_range: bool = ...) -> None: ...
+    result_expiration: _timestamp_pb2.Timestamp
+    def __init__(self, within_range: bool = ..., result_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

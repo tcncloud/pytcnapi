@@ -1,6 +1,7 @@
 from api.commons import org_pb2 as _org_pb2
 from api.commons.org import preferences_pb2 as _preferences_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -109,7 +110,9 @@ class EvaluateObservedHolidaysRequest(_message.Message):
     def __init__(self, observed_holidays_id: _Optional[str] = ...) -> None: ...
 
 class EvaluateObservedHolidaysResponse(_message.Message):
-    __slots__ = ("date_matched",)
+    __slots__ = ("date_matched", "result_expiration")
     DATE_MATCHED_FIELD_NUMBER: _ClassVar[int]
+    RESULT_EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     date_matched: bool
-    def __init__(self, date_matched: bool = ...) -> None: ...
+    result_expiration: _timestamp_pb2.Timestamp
+    def __init__(self, date_matched: bool = ..., result_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
