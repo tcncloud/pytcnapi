@@ -45,7 +45,7 @@ class Invoice(_message.Message):
     def __init__(self, billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., download_url: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ("client_id", "product", "description", "date", "price", "columns", "rated_amount")
+    __slots__ = ("client_id", "product", "description", "date", "price", "columns", "rated_amount", "product_id")
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -53,6 +53,7 @@ class InvoiceItem(_message.Message):
     PRICE_FIELD_NUMBER: _ClassVar[int]
     COLUMNS_FIELD_NUMBER: _ClassVar[int]
     RATED_AMOUNT_FIELD_NUMBER: _ClassVar[int]
+    PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     client_id: str
     product: Product
     description: str
@@ -60,7 +61,8 @@ class InvoiceItem(_message.Message):
     price: float
     columns: _containers.RepeatedCompositeFieldContainer[InvoiceItemColumn]
     rated_amount: _decimal_pb2.Decimal
-    def __init__(self, client_id: _Optional[str] = ..., product: _Optional[_Union[Product, str]] = ..., description: _Optional[str] = ..., date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., price: _Optional[float] = ..., columns: _Optional[_Iterable[_Union[InvoiceItemColumn, _Mapping]]] = ..., rated_amount: _Optional[_Union[_decimal_pb2.Decimal, _Mapping]] = ...) -> None: ...
+    product_id: str
+    def __init__(self, client_id: _Optional[str] = ..., product: _Optional[_Union[Product, str]] = ..., description: _Optional[str] = ..., date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., price: _Optional[float] = ..., columns: _Optional[_Iterable[_Union[InvoiceItemColumn, _Mapping]]] = ..., rated_amount: _Optional[_Union[_decimal_pb2.Decimal, _Mapping]] = ..., product_id: _Optional[str] = ...) -> None: ...
 
 class InvoiceItemColumn(_message.Message):
     __slots__ = ("name", "value")
