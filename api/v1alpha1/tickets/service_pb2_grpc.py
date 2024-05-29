@@ -111,6 +111,11 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAvailableAgentTicketsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAvailableAgentTicketsResponse.FromString,
                 )
+        self.ListAgentTickets = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/ListAgentTickets',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAgentTicketsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAgentTicketsResponse.FromString,
+                )
         self.ListSkills = channel.unary_unary(
                 '/api.v1alpha1.tickets.Tickets/ListSkills',
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListSkillsRequest.SerializeToString,
@@ -327,6 +332,13 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAgentTickets(self, request, context):
+        """public method - to return list of available tickets to pick for an Agent
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListSkills(self, request, context):
         """public method to fetch list of skills for a tickets user
         """
@@ -529,6 +541,11 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.ListAvailableAgentTickets,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAvailableAgentTicketsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAvailableAgentTicketsResponse.SerializeToString,
+            ),
+            'ListAgentTickets': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAgentTickets,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAgentTicketsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAgentTicketsResponse.SerializeToString,
             ),
             'ListSkills': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSkills,
@@ -936,6 +953,23 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListAvailableAgentTickets',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAvailableAgentTicketsRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAvailableAgentTicketsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentTickets(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListAgentTickets',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAgentTicketsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListAgentTicketsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

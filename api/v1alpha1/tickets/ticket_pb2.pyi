@@ -172,6 +172,20 @@ class ListAllocatedTicketReq(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class ListAgentTicketsResponse(_message.Message):
+    __slots__ = ("ticket",)
+    TICKET_FIELD_NUMBER: _ClassVar[int]
+    ticket: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.Ticket]
+    def __init__(self, ticket: _Optional[_Iterable[_Union[_tickets_pb2.Ticket, _Mapping]]] = ...) -> None: ...
+
+class ListAgentTicketsRequest(_message.Message):
+    __slots__ = ("select_field_mask", "filter_mask")
+    SELECT_FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    FILTER_MASK_FIELD_NUMBER: _ClassVar[int]
+    select_field_mask: _field_mask_pb2.FieldMask
+    filter_mask: _field_mask_pb2.FieldMask
+    def __init__(self, select_field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., filter_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
 class ListAvailableAgentTicketsResponse(_message.Message):
     __slots__ = ("ticket_sid", "ticket")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
