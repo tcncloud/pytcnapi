@@ -27,7 +27,7 @@ from api.v1alpha1.classifier import entities_pb2 as api_dot_v1alpha1_dot_classif
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%api/v1alpha1/classifier/service.proto\x12\x17\x61pi.v1alpha1.classifier\x1a\x17\x61nnotations/authz.proto\x1a&api/v1alpha1/classifier/entities.proto\x1a\x1cgoogle/api/annotations.proto\"\x98\x04\n\x10ParseFileRequest\x12\x1b\n\x08raw_data\x18\x03 \x01(\x0cH\x00R\x07rawData\x12Z\n\x0creparse_file\x18\x04 \x01(\x0b\x32\x35.api.v1alpha1.classifier.ParseFileRequest.ReParseFileH\x00R\x0breparseFile\x12\x64\n\x10parse_with_hints\x18\x06 \x01(\x0b\x32\x38.api.v1alpha1.classifier.ParseFileRequest.ParseWithHintsH\x00R\x0eparseWithHints\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x1a\xa9\x01\n\x0bReParseFile\x12(\n\x10\x66ile_template_id\x18\x01 \x01(\x03R\x0e\x66ileTemplateId\x12=\n\x05hints\x18\x02 \x01(\x0b\x32#.api.v1alpha1.classifier.ParseHintsB\x02\x18\x01R\x05hints\x12\x31\n\x04opts\x18\x03 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04opts\x1a^\n\x0eParseWithHints\x12\x19\n\x08raw_data\x18\x07 \x01(\x0cR\x07rawData\x12\x31\n\x04opts\x18\x08 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04optsB\x05\n\x03opt\"_\n\x11ParseFileResponse\x12J\n\rfile_template\x18\x01 \x01(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\x0c\x66ileTemplate\"g\n\x19UpdateFileTemplateRequest\x12J\n\rfile_template\x18\x01 \x01(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\x0c\x66ileTemplate\"\x1c\n\x1aUpdateFileTemplateResponse\"@\n\x19\x44\x65leteFileTemplateRequest\x12#\n\rfile_template\x18\x01 \x01(\x03R\x0c\x66ileTemplate\"\x1c\n\x1a\x44\x65leteFileTemplateResponse\"b\n\x18ListFileTemplatesRequest\x12\x17\n\x07prev_id\x18\x01 \x01(\x03R\x06prevId\x12\x10\n\x03\x61sc\x18\x02 \x01(\x08R\x03\x61sc\x12\x1b\n\tpage_size\x18\x03 \x01(\x05R\x08pageSize\"i\n\x19ListFileTemplatesResponse\x12L\n\x0e\x66ile_templates\x18\x01 \x03(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\rfileTemplates\"B\n\x16GetFileTemplateRequest\x12(\n\x10\x66ile_template_id\x18\x01 \x01(\x03R\x0e\x66ileTemplateId\"e\n\x17GetFileTemplateResponse\x12J\n\rfile_template\x18\x01 \x01(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\x0c\x66ileTemplate2\xc5\x07\n\x17\x43lassifierFileTemplates\x12\xa6\x01\n\tParseFile\x12).api.v1alpha1.classifier.ParseFileRequest\x1a*.api.v1alpha1.classifier.ParseFileResponse\"B\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x32\"-/api/v1alpha1/classifier/file_templates/parse:\x01*\x12\xc2\x01\n\x12UpdateFileTemplate\x12\x32.api.v1alpha1.classifier.UpdateFileTemplateRequest\x1a\x33.api.v1alpha1.classifier.UpdateFileTemplateResponse\"C\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x33\"./api/v1alpha1/classifier/file_templates/update:\x01*\x12\xc2\x01\n\x12\x44\x65leteFileTemplate\x12\x32.api.v1alpha1.classifier.DeleteFileTemplateRequest\x1a\x33.api.v1alpha1.classifier.DeleteFileTemplateResponse\"C\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x33*./api/v1alpha1/classifier/file_templates/delete:\x01*\x12\xbd\x01\n\x11ListFileTemplates\x12\x31.api.v1alpha1.classifier.ListFileTemplatesRequest\x1a\x32.api.v1alpha1.classifier.ListFileTemplatesResponse\"A\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x31\",/api/v1alpha1/classifier/file_templates/list:\x01*\x12\xb6\x01\n\x0fGetFileTemplate\x12/.api.v1alpha1.classifier.GetFileTemplateRequest\x1a\x30.api.v1alpha1.classifier.GetFileTemplateResponse\"@\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x30\"+/api/v1alpha1/classifier/file_templates/get:\x01*B\xa9\x01\n\x1b\x63om.api.v1alpha1.classifierB\x0cServiceProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x17\x41pi.V1alpha1.Classifier\xca\x02\x17\x41pi\\V1alpha1\\Classifier\xe2\x02#Api\\V1alpha1\\Classifier\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Classifierb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%api/v1alpha1/classifier/service.proto\x12\x17\x61pi.v1alpha1.classifier\x1a\x17\x61nnotations/authz.proto\x1a&api/v1alpha1/classifier/entities.proto\x1a\x1cgoogle/api/annotations.proto\"\x9c\x04\n\x10ParseFileRequest\x12\x1b\n\x08raw_data\x18\x03 \x01(\x0cH\x00R\x07rawData\x12Z\n\x0creparse_file\x18\x04 \x01(\x0b\x32\x35.api.v1alpha1.classifier.ParseFileRequest.ReParseFileH\x00R\x0breparseFile\x12\x64\n\x10parse_with_hints\x18\x06 \x01(\x0b\x32\x38.api.v1alpha1.classifier.ParseFileRequest.ParseWithHintsH\x00R\x0eparseWithHints\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x1a\xad\x01\n\x0bReParseFile\x12,\n\x10\x66ile_template_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x0e\x66ileTemplateId\x12=\n\x05hints\x18\x02 \x01(\x0b\x32#.api.v1alpha1.classifier.ParseHintsB\x02\x18\x01R\x05hints\x12\x31\n\x04opts\x18\x03 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04opts\x1a^\n\x0eParseWithHints\x12\x19\n\x08raw_data\x18\x07 \x01(\x0cR\x07rawData\x12\x31\n\x04opts\x18\x08 \x01(\x0b\x32\x1d.api.v1alpha1.classifier.OptsR\x04optsB\x05\n\x03opt\"_\n\x11ParseFileResponse\x12J\n\rfile_template\x18\x01 \x01(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\x0c\x66ileTemplate\"g\n\x19UpdateFileTemplateRequest\x12J\n\rfile_template\x18\x01 \x01(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\x0c\x66ileTemplate\"\x1c\n\x1aUpdateFileTemplateResponse\"D\n\x19\x44\x65leteFileTemplateRequest\x12\'\n\rfile_template\x18\x01 \x01(\x03\x42\x02\x30\x01R\x0c\x66ileTemplate\"\x1c\n\x1a\x44\x65leteFileTemplateResponse\"f\n\x18ListFileTemplatesRequest\x12\x1b\n\x07prev_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x06prevId\x12\x10\n\x03\x61sc\x18\x02 \x01(\x08R\x03\x61sc\x12\x1b\n\tpage_size\x18\x03 \x01(\x05R\x08pageSize\"i\n\x19ListFileTemplatesResponse\x12L\n\x0e\x66ile_templates\x18\x01 \x03(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\rfileTemplates\"F\n\x16GetFileTemplateRequest\x12,\n\x10\x66ile_template_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x0e\x66ileTemplateId\"e\n\x17GetFileTemplateResponse\x12J\n\rfile_template\x18\x01 \x01(\x0b\x32%.api.v1alpha1.classifier.FileTemplateR\x0c\x66ileTemplate2\xc5\x07\n\x17\x43lassifierFileTemplates\x12\xa6\x01\n\tParseFile\x12).api.v1alpha1.classifier.ParseFileRequest\x1a*.api.v1alpha1.classifier.ParseFileResponse\"B\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x32\"-/api/v1alpha1/classifier/file_templates/parse:\x01*\x12\xc2\x01\n\x12UpdateFileTemplate\x12\x32.api.v1alpha1.classifier.UpdateFileTemplateRequest\x1a\x33.api.v1alpha1.classifier.UpdateFileTemplateResponse\"C\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x33\"./api/v1alpha1/classifier/file_templates/update:\x01*\x12\xc2\x01\n\x12\x44\x65leteFileTemplate\x12\x32.api.v1alpha1.classifier.DeleteFileTemplateRequest\x1a\x33.api.v1alpha1.classifier.DeleteFileTemplateResponse\"C\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x33*./api/v1alpha1/classifier/file_templates/delete:\x01*\x12\xbd\x01\n\x11ListFileTemplates\x12\x31.api.v1alpha1.classifier.ListFileTemplatesRequest\x1a\x32.api.v1alpha1.classifier.ListFileTemplatesResponse\"A\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x31\",/api/v1alpha1/classifier/file_templates/list:\x01*\x12\xb6\x01\n\x0fGetFileTemplate\x12/.api.v1alpha1.classifier.GetFileTemplateRequest\x1a\x30.api.v1alpha1.classifier.GetFileTemplateResponse\"@\xba\xb8\x91\x02\x05\n\x03\x08\xe9\x07\x82\xd3\xe4\x93\x02\x30\"+/api/v1alpha1/classifier/file_templates/get:\x01*B\xa9\x01\n\x1b\x63om.api.v1alpha1.classifierB\x0cServiceProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x17\x41pi.V1alpha1.Classifier\xca\x02\x17\x41pi\\V1alpha1\\Classifier\xe2\x02#Api\\V1alpha1\\Classifier\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Classifierb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,8 +35,16 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.classifier.ser
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\033com.api.v1alpha1.classifierB\014ServiceProtoP\001\242\002\003AVC\252\002\027Api.V1alpha1.Classifier\312\002\027Api\\V1alpha1\\Classifier\342\002#Api\\V1alpha1\\Classifier\\GPBMetadata\352\002\031Api::V1alpha1::Classifier'
+  _globals['_PARSEFILEREQUEST_REPARSEFILE'].fields_by_name['file_template_id']._loaded_options = None
+  _globals['_PARSEFILEREQUEST_REPARSEFILE'].fields_by_name['file_template_id']._serialized_options = b'0\001'
   _globals['_PARSEFILEREQUEST_REPARSEFILE'].fields_by_name['hints']._loaded_options = None
   _globals['_PARSEFILEREQUEST_REPARSEFILE'].fields_by_name['hints']._serialized_options = b'\030\001'
+  _globals['_DELETEFILETEMPLATEREQUEST'].fields_by_name['file_template']._loaded_options = None
+  _globals['_DELETEFILETEMPLATEREQUEST'].fields_by_name['file_template']._serialized_options = b'0\001'
+  _globals['_LISTFILETEMPLATESREQUEST'].fields_by_name['prev_id']._loaded_options = None
+  _globals['_LISTFILETEMPLATESREQUEST'].fields_by_name['prev_id']._serialized_options = b'0\001'
+  _globals['_GETFILETEMPLATEREQUEST'].fields_by_name['file_template_id']._loaded_options = None
+  _globals['_GETFILETEMPLATEREQUEST'].fields_by_name['file_template_id']._serialized_options = b'0\001'
   _globals['_CLASSIFIERFILETEMPLATES'].methods_by_name['ParseFile']._loaded_options = None
   _globals['_CLASSIFIERFILETEMPLATES'].methods_by_name['ParseFile']._serialized_options = b'\272\270\221\002\005\n\003\010\351\007\202\323\344\223\0022\"-/api/v1alpha1/classifier/file_templates/parse:\001*'
   _globals['_CLASSIFIERFILETEMPLATES'].methods_by_name['UpdateFileTemplate']._loaded_options = None
@@ -48,29 +56,29 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_CLASSIFIERFILETEMPLATES'].methods_by_name['GetFileTemplate']._loaded_options = None
   _globals['_CLASSIFIERFILETEMPLATES'].methods_by_name['GetFileTemplate']._serialized_options = b'\272\270\221\002\005\n\003\010\351\007\202\323\344\223\0020\"+/api/v1alpha1/classifier/file_templates/get:\001*'
   _globals['_PARSEFILEREQUEST']._serialized_start=162
-  _globals['_PARSEFILEREQUEST']._serialized_end=698
+  _globals['_PARSEFILEREQUEST']._serialized_end=702
   _globals['_PARSEFILEREQUEST_REPARSEFILE']._serialized_start=426
-  _globals['_PARSEFILEREQUEST_REPARSEFILE']._serialized_end=595
-  _globals['_PARSEFILEREQUEST_PARSEWITHHINTS']._serialized_start=597
-  _globals['_PARSEFILEREQUEST_PARSEWITHHINTS']._serialized_end=691
-  _globals['_PARSEFILERESPONSE']._serialized_start=700
-  _globals['_PARSEFILERESPONSE']._serialized_end=795
-  _globals['_UPDATEFILETEMPLATEREQUEST']._serialized_start=797
-  _globals['_UPDATEFILETEMPLATEREQUEST']._serialized_end=900
-  _globals['_UPDATEFILETEMPLATERESPONSE']._serialized_start=902
-  _globals['_UPDATEFILETEMPLATERESPONSE']._serialized_end=930
-  _globals['_DELETEFILETEMPLATEREQUEST']._serialized_start=932
-  _globals['_DELETEFILETEMPLATEREQUEST']._serialized_end=996
-  _globals['_DELETEFILETEMPLATERESPONSE']._serialized_start=998
-  _globals['_DELETEFILETEMPLATERESPONSE']._serialized_end=1026
-  _globals['_LISTFILETEMPLATESREQUEST']._serialized_start=1028
-  _globals['_LISTFILETEMPLATESREQUEST']._serialized_end=1126
-  _globals['_LISTFILETEMPLATESRESPONSE']._serialized_start=1128
-  _globals['_LISTFILETEMPLATESRESPONSE']._serialized_end=1233
-  _globals['_GETFILETEMPLATEREQUEST']._serialized_start=1235
-  _globals['_GETFILETEMPLATEREQUEST']._serialized_end=1301
-  _globals['_GETFILETEMPLATERESPONSE']._serialized_start=1303
-  _globals['_GETFILETEMPLATERESPONSE']._serialized_end=1404
-  _globals['_CLASSIFIERFILETEMPLATES']._serialized_start=1407
-  _globals['_CLASSIFIERFILETEMPLATES']._serialized_end=2372
+  _globals['_PARSEFILEREQUEST_REPARSEFILE']._serialized_end=599
+  _globals['_PARSEFILEREQUEST_PARSEWITHHINTS']._serialized_start=601
+  _globals['_PARSEFILEREQUEST_PARSEWITHHINTS']._serialized_end=695
+  _globals['_PARSEFILERESPONSE']._serialized_start=704
+  _globals['_PARSEFILERESPONSE']._serialized_end=799
+  _globals['_UPDATEFILETEMPLATEREQUEST']._serialized_start=801
+  _globals['_UPDATEFILETEMPLATEREQUEST']._serialized_end=904
+  _globals['_UPDATEFILETEMPLATERESPONSE']._serialized_start=906
+  _globals['_UPDATEFILETEMPLATERESPONSE']._serialized_end=934
+  _globals['_DELETEFILETEMPLATEREQUEST']._serialized_start=936
+  _globals['_DELETEFILETEMPLATEREQUEST']._serialized_end=1004
+  _globals['_DELETEFILETEMPLATERESPONSE']._serialized_start=1006
+  _globals['_DELETEFILETEMPLATERESPONSE']._serialized_end=1034
+  _globals['_LISTFILETEMPLATESREQUEST']._serialized_start=1036
+  _globals['_LISTFILETEMPLATESREQUEST']._serialized_end=1138
+  _globals['_LISTFILETEMPLATESRESPONSE']._serialized_start=1140
+  _globals['_LISTFILETEMPLATESRESPONSE']._serialized_end=1245
+  _globals['_GETFILETEMPLATEREQUEST']._serialized_start=1247
+  _globals['_GETFILETEMPLATEREQUEST']._serialized_end=1317
+  _globals['_GETFILETEMPLATERESPONSE']._serialized_start=1319
+  _globals['_GETFILETEMPLATERESPONSE']._serialized_end=1420
+  _globals['_CLASSIFIERFILETEMPLATES']._serialized_start=1423
+  _globals['_CLASSIFIERFILETEMPLATES']._serialized_end=2388
 # @@protoc_insertion_point(module_scope)
