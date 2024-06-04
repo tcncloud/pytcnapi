@@ -135,12 +135,19 @@ class Sms(_message.Message):
         user_id: str
         def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Sms.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
     class Segment(_message.Message):
-        __slots__ = ("text", "offset")
+        __slots__ = ("text", "offset", "attachments")
+        class Attachment(_message.Message):
+            __slots__ = ("attachment_sid",)
+            ATTACHMENT_SID_FIELD_NUMBER: _ClassVar[int]
+            attachment_sid: int
+            def __init__(self, attachment_sid: _Optional[int] = ...) -> None: ...
         TEXT_FIELD_NUMBER: _ClassVar[int]
         OFFSET_FIELD_NUMBER: _ClassVar[int]
+        ATTACHMENTS_FIELD_NUMBER: _ClassVar[int]
         text: str
         offset: _duration_pb2.Duration
-        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+        attachments: _containers.RepeatedCompositeFieldContainer[Sms.Segment.Attachment]
+        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[Sms.Segment.Attachment, _Mapping]]] = ...) -> None: ...
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     THREADS_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
