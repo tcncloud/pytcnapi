@@ -330,3 +330,15 @@ class ReviewVersionRes(_message.Message):
     diff_urls: str
     diff_file_names: str
     def __init__(self, diff_urls: _Optional[str] = ..., diff_file_names: _Optional[str] = ...) -> None: ...
+
+class ListVersionsReq(_message.Message):
+    __slots__ = ("locale",)
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    locale: str
+    def __init__(self, locale: _Optional[str] = ...) -> None: ...
+
+class ListVersionsRes(_message.Message):
+    __slots__ = ("versions",)
+    VERSIONS_FIELD_NUMBER: _ClassVar[int]
+    versions: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, versions: _Optional[_Iterable[str]] = ...) -> None: ...

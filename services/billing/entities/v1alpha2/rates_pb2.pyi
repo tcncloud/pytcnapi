@@ -124,14 +124,16 @@ RATE_DEFINITION_CONFIG_TYPE_COMPLIANCE_RND_QUERY: RateDefinitionConfigType
 RATE_DEFINITION_CONFIG_TYPE_COMPLIANCE_RND_QUERY_CACHED: RateDefinitionConfigType
 
 class RateSnapshot(_message.Message):
-    __slots__ = ("start_date", "end_date", "rates")
+    __slots__ = ("start_date", "end_date", "rates", "user_id")
     START_DATE_FIELD_NUMBER: _ClassVar[int]
     END_DATE_FIELD_NUMBER: _ClassVar[int]
     RATES_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
     start_date: _timestamp_pb2.Timestamp
     end_date: _timestamp_pb2.Timestamp
     rates: _containers.RepeatedCompositeFieldContainer[RateDefinition]
-    def __init__(self, start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., rates: _Optional[_Iterable[_Union[RateDefinition, _Mapping]]] = ...) -> None: ...
+    user_id: str
+    def __init__(self, start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., rates: _Optional[_Iterable[_Union[RateDefinition, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class RateDefinition(_message.Message):
     __slots__ = ("rate_definition_id", "event_type", "config_type", "matching_rule", "matching_config", "matching_sha", "create_time", "update_time", "delete_time", "effective_time", "config", "group_id", "config_sha", "thread_id")
