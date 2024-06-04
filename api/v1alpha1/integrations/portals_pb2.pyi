@@ -382,7 +382,27 @@ class WorkflowRequirement(_message.Message):
     flow_type: _integrations_pb2.FlowType
     def __init__(self, max_choices: _Optional[int] = ..., flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ...) -> None: ...
 
+class ListAllActionDefinitionsReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAllActionDefinitionsResponse(_message.Message):
+    __slots__ = ("values",)
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.RepeatedCompositeFieldContainer[ActionDefinition]
+    def __init__(self, values: _Optional[_Iterable[_Union[ActionDefinition, _Mapping]]] = ...) -> None: ...
+
 class WorkflowDefinition(_message.Message):
+    __slots__ = ("flow_type", "definition_name", "action_definitions")
+    FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
+    ACTION_DEFINITIONS_FIELD_NUMBER: _ClassVar[int]
+    flow_type: _integrations_pb2.FlowType
+    definition_name: str
+    action_definitions: _containers.RepeatedCompositeFieldContainer[ActionDefinition]
+    def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., action_definitions: _Optional[_Iterable[_Union[ActionDefinition, _Mapping]]] = ...) -> None: ...
+
+class ActionDefinition(_message.Message):
     __slots__ = ("flow_type", "definition_name", "method", "req_fields", "res_fields", "plugin_fields", "link_fields", "prev_fields", "form_fields", "template", "opts")
     FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
     DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
