@@ -201,3 +201,33 @@ class GetAgentSkillsResponse(_message.Message):
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     skills: _containers.ScalarMap[str, int]
     def __init__(self, skills: _Optional[_Mapping[str, int]] = ...) -> None: ...
+
+class ListAssignedSkillGroupsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAssignedSkillGroupsResponse(_message.Message):
+    __slots__ = ("skill_groups",)
+    SKILL_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    skill_groups: _containers.RepeatedCompositeFieldContainer[_skill_group_pb2.SkillGroup]
+    def __init__(self, skill_groups: _Optional[_Iterable[_Union[_skill_group_pb2.SkillGroup, _Mapping]]] = ...) -> None: ...
+
+class AssignOwnSkillGroupsRequest(_message.Message):
+    __slots__ = ("skill_group_ids",)
+    SKILL_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+    skill_group_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, skill_group_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class AssignOwnSkillGroupsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class RevokeOwnSkillGroupsRequest(_message.Message):
+    __slots__ = ("skill_group_ids",)
+    SKILL_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
+    skill_group_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, skill_group_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class RevokeOwnSkillGroupsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

@@ -89,6 +89,21 @@ class SkillsServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentResponse.FromString,
                 )
+        self.ListAssignedSkillGroups = channel.unary_unary(
+                '/api.v1alpha1.org.skills.SkillsService/ListAssignedSkillGroups',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListAssignedSkillGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListAssignedSkillGroupsResponse.FromString,
+                )
+        self.AssignOwnSkillGroups = channel.unary_unary(
+                '/api.v1alpha1.org.skills.SkillsService/AssignOwnSkillGroups',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.AssignOwnSkillGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.AssignOwnSkillGroupsResponse.FromString,
+                )
+        self.RevokeOwnSkillGroups = channel.unary_unary(
+                '/api.v1alpha1.org.skills.SkillsService/RevokeOwnSkillGroups',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RevokeOwnSkillGroupsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RevokeOwnSkillGroupsResponse.FromString,
+                )
 
 
 class SkillsServiceServicer(object):
@@ -208,6 +223,27 @@ class SkillsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAssignedSkillGroups(self, request, context):
+        """Returns a list of skills for the current user.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AssignOwnSkillGroups(self, request, context):
+        """AssignOwnSkillGroups updates the current users skill groups
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RevokeOwnSkillGroups(self, request, context):
+        """RevokeOwnSkillGroups updates the current users skill groups
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SkillsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -285,6 +321,21 @@ def add_SkillsServiceServicer_to_server(servicer, server):
                     servicer.ListSkillsForCurrentAgent,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentResponse.SerializeToString,
+            ),
+            'ListAssignedSkillGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAssignedSkillGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListAssignedSkillGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListAssignedSkillGroupsResponse.SerializeToString,
+            ),
+            'AssignOwnSkillGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.AssignOwnSkillGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.AssignOwnSkillGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.AssignOwnSkillGroupsResponse.SerializeToString,
+            ),
+            'RevokeOwnSkillGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.RevokeOwnSkillGroups,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RevokeOwnSkillGroupsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RevokeOwnSkillGroupsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -548,5 +599,56 @@ class SkillsService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/ListSkillsForCurrentAgent',
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListSkillsForCurrentAgentResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAssignedSkillGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/ListAssignedSkillGroups',
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListAssignedSkillGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.ListAssignedSkillGroupsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AssignOwnSkillGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/AssignOwnSkillGroups',
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.AssignOwnSkillGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.AssignOwnSkillGroupsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RevokeOwnSkillGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.skills.SkillsService/RevokeOwnSkillGroups',
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RevokeOwnSkillGroupsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_skills_dot_entities__pb2.RevokeOwnSkillGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
