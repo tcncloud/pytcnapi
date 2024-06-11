@@ -133,6 +133,18 @@ class DeleteEvaluationByOrgIdRequest(_message.Message):
     evaluation_id: int
     def __init__(self, org_id: _Optional[str] = ..., evaluation_id: _Optional[int] = ...) -> None: ...
 
+class BulkDeleteEvaluationsRequest(_message.Message):
+    __slots__ = ("org_id", "evaluation_ids")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    EVALUATION_IDS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    evaluation_ids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, org_id: _Optional[str] = ..., evaluation_ids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class BulkDeleteEvaluationsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class RestoreEvaluationRequest(_message.Message):
     __slots__ = ("evaluation_id", "user_id")
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]

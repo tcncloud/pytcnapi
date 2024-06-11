@@ -29,6 +29,16 @@ class ScorecardsSupportStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsByOrgIdRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.FromString,
                 )
+        self.BulkDeleteEvaluations = channel.unary_unary(
+                '/api.v1alpha1.scorecards.ScorecardsSupport/BulkDeleteEvaluations',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.BulkDeleteEvaluationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.BulkDeleteEvaluationsResponse.FromString,
+                )
+        self.BulkDeleteAutoEvaluations = channel.unary_unary(
+                '/api.v1alpha1.scorecards.ScorecardsSupport/BulkDeleteAutoEvaluations',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.BulkDeleteAutoEvaluationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.BulkDeleteAutoEvaluationsResponse.FromString,
+                )
         self.DeleteEvaluationByOrgId = channel.unary_unary(
                 '/api.v1alpha1.scorecards.ScorecardsSupport/DeleteEvaluationByOrgId',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.DeleteEvaluationByOrgIdRequest.SerializeToString,
@@ -65,6 +75,20 @@ class ScorecardsSupportServicer(object):
 
     def ListAutoEvaluationsByOrgId(self, request, context):
         """ListAutoEvaluationsByOrgId gets a list of auto evaluations
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkDeleteEvaluations(self, request, context):
+        """BulkDeleteEvaluations deletes a set of evaluations in a given org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkDeleteAutoEvaluations(self, request, context):
+        """BulkDeleteAutoEvaluations deletes a set of auto evaluations in a given org.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -110,6 +134,16 @@ def add_ScorecardsSupportServicer_to_server(servicer, server):
                     servicer.ListAutoEvaluationsByOrgId,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsByOrgIdRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.SerializeToString,
+            ),
+            'BulkDeleteEvaluations': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkDeleteEvaluations,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.BulkDeleteEvaluationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.BulkDeleteEvaluationsResponse.SerializeToString,
+            ),
+            'BulkDeleteAutoEvaluations': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkDeleteAutoEvaluations,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.BulkDeleteAutoEvaluationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.BulkDeleteAutoEvaluationsResponse.SerializeToString,
             ),
             'DeleteEvaluationByOrgId': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteEvaluationByOrgId,
@@ -174,6 +208,40 @@ class ScorecardsSupport(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.ScorecardsSupport/ListAutoEvaluationsByOrgId',
             api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsByOrgIdRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.ListAutoEvaluationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkDeleteEvaluations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.ScorecardsSupport/BulkDeleteEvaluations',
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.BulkDeleteEvaluationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.BulkDeleteEvaluationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkDeleteAutoEvaluations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.ScorecardsSupport/BulkDeleteAutoEvaluations',
+            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.BulkDeleteAutoEvaluationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_auto__evaluation__pb2.BulkDeleteAutoEvaluationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

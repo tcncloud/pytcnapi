@@ -135,3 +135,15 @@ class DeleteAutoEvaluationByOrgIdRequest(_message.Message):
     org_id: str
     auto_evaluation_id: int
     def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_id: _Optional[int] = ...) -> None: ...
+
+class BulkDeleteAutoEvaluationsRequest(_message.Message):
+    __slots__ = ("org_id", "auto_evaluation_ids")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    AUTO_EVALUATION_IDS_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    auto_evaluation_ids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_ids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class BulkDeleteAutoEvaluationsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
