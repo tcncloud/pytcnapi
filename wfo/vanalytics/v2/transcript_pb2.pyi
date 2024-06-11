@@ -1,4 +1,5 @@
 from api.commons import acd_pb2 as _acd_pb2
+from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from api.commons import vanalytics_pb2 as _vanalytics_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
@@ -14,18 +15,11 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class Channel(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    CHANNEL_CALL: _ClassVar[Channel]
-    CHANNEL_SMS: _ClassVar[Channel]
-
 class ReviewStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     REVIEW_STATUS_TODO: _ClassVar[ReviewStatus]
     REVIEW_STATUS_DONE: _ClassVar[ReviewStatus]
     REVIEW_STATUS_NONE: _ClassVar[ReviewStatus]
-CHANNEL_CALL: Channel
-CHANNEL_SMS: Channel
 REVIEW_STATUS_TODO: ReviewStatus
 REVIEW_STATUS_DONE: ReviewStatus
 REVIEW_STATUS_NONE: ReviewStatus
@@ -42,13 +36,13 @@ class Transcript(_message.Message):
     SUMMARY_FIELD_NUMBER: _ClassVar[int]
     call: Call
     sms: Sms
-    channel: Channel
+    channel: _omnichannel_pb2.ChannelType
     start_time: _timestamp_pb2.Timestamp
     delete_time: _timestamp_pb2.Timestamp
     flag_summary: FlagSummary
     transcript_sid: int
     summary: _transcript_summary_pb2.TranscriptSummary
-    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., channel: _Optional[_Union[Channel, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ..., summary: _Optional[_Union[_transcript_summary_pb2.TranscriptSummary, _Mapping]] = ...) -> None: ...
+    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., channel: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ..., summary: _Optional[_Union[_transcript_summary_pb2.TranscriptSummary, _Mapping]] = ...) -> None: ...
 
 class FlagSummary(_message.Message):
     __slots__ = ("count", "priority_sum", "priority_max", "need_review", "flags", "review_status")
@@ -424,8 +418,8 @@ class TranscriptQuery(_message.Message):
     class Channel(_message.Message):
         __slots__ = ("any",)
         ANY_FIELD_NUMBER: _ClassVar[int]
-        any: _containers.RepeatedScalarFieldContainer[Channel]
-        def __init__(self, any: _Optional[_Iterable[_Union[Channel, str]]] = ...) -> None: ...
+        any: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
+        def __init__(self, any: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ...) -> None: ...
     class Metadata(_message.Message):
         __slots__ = ("call", "sms")
         CALL_FIELD_NUMBER: _ClassVar[int]

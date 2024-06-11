@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from api.v1alpha1.contactmanager import contactmanager_pb2 as api_dot_v1alpha1_dot_contactmanager_dot_contactmanager__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-api/commons/audit/contactmanager_events.proto\x12\x11\x61pi.commons.audit\x1a\x30\x61pi/v1alpha1/contactmanager/contactmanager.proto\"\x1d\n\x1b\x43ontactManagerEntryAddEvent\" \n\x1e\x43ontactManagerEntryGetEncEvent\"\x1b\n\x19\x43ontactManagerDeleteEvent\"\x18\n\x16\x43ontactManagerKycEventB\x98\x01\n\x15\x63om.api.commons.auditB\x19\x43ontactmanagerEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-api/commons/audit/contactmanager_events.proto\x12\x11\x61pi.commons.audit\x1a\x30\x61pi/v1alpha1/contactmanager/contactmanager.proto\"\x1d\n\x1b\x43ontactManagerEntryAddEvent\" \n\x1e\x43ontactManagerEntryGetEncEvent\"\x1b\n\x19\x43ontactManagerDeleteEvent\"\xc4\x01\n\x18\x43ontactManagerEntryEvent\x12\x32\n\x14\x43ontactManagerListId\x18\x01 \x01(\x03R\x14\x43ontactManagerListId\x12\x34\n\x15\x43ontactManagerEntryId\x18\x02 \x01(\x03R\x15\x43ontactManagerEntryId\x12>\n\x1a\x43ontactManagerEntryListIds\x18\x03 \x03(\x03R\x1a\x43ontactManagerEntryListIds\"\x8f\x01\n\x1d\x43ontactManagerListUploadEvent\x12\x32\n\x14\x43ontactManagerListId\x18\x01 \x01(\x03R\x14\x43ontactManagerListId\x12:\n\x18NumberOfContactsUploaded\x18\x02 \x01(\x03R\x18NumberOfContactsUploaded\"\xd8\x01\n\x16\x43ontactManagerKycEvent\x12\x32\n\x14\x43ontactManagerListId\x18\x01 \x01(\x03R\x14\x43ontactManagerListId\x12\x34\n\x15\x43ontactManagerEntryId\x18\x02 \x01(\x03R\x15\x43ontactManagerEntryId\x12\x14\n\x05types\x18\x03 \x03(\tR\x05types\x12>\n\x1a\x43ontactManagerEntryListIds\x18\x04 \x03(\x03R\x1a\x43ontactManagerEntryListIdsB\x98\x01\n\x15\x63om.api.commons.auditB\x19\x43ontactmanagerEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -39,6 +39,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_CONTACTMANAGERENTRYGETENCEVENT']._serialized_end=181
   _globals['_CONTACTMANAGERDELETEEVENT']._serialized_start=183
   _globals['_CONTACTMANAGERDELETEEVENT']._serialized_end=210
-  _globals['_CONTACTMANAGERKYCEVENT']._serialized_start=212
-  _globals['_CONTACTMANAGERKYCEVENT']._serialized_end=236
+  _globals['_CONTACTMANAGERENTRYEVENT']._serialized_start=213
+  _globals['_CONTACTMANAGERENTRYEVENT']._serialized_end=409
+  _globals['_CONTACTMANAGERLISTUPLOADEVENT']._serialized_start=412
+  _globals['_CONTACTMANAGERLISTUPLOADEVENT']._serialized_end=555
+  _globals['_CONTACTMANAGERKYCEVENT']._serialized_start=558
+  _globals['_CONTACTMANAGERKYCEVENT']._serialized_end=774
 # @@protoc_insertion_point(module_scope)
