@@ -3660,3 +3660,13 @@ class ListAgentLeavePetitionsResponse(_message.Message):
     AGENT_LEAVE_PETITIONS_FIELD_NUMBER: _ClassVar[int]
     agent_leave_petitions: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AgentLeavePetition]
     def __init__(self, agent_leave_petitions: _Optional[_Iterable[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]]] = ...) -> None: ...
+
+class ArchiveAgentLeavePetitionRequest(_message.Message):
+    __slots__ = ("agent_leave_petition_id",)
+    AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition_id: int
+    def __init__(self, agent_leave_petition_id: _Optional[int] = ...) -> None: ...
+
+class ArchiveAgentLeavePetitionResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

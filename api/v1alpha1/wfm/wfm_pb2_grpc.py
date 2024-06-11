@@ -865,6 +865,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsResponse.FromString,
                 )
+        self.ArchiveAgentLeavePetition = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ArchiveAgentLeavePetition',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ArchiveAgentLeavePetitionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ArchiveAgentLeavePetitionResponse.FromString,
+                )
         self.HelloWorldWFMAdherence = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
@@ -3049,11 +3054,26 @@ class WFMServicer(object):
     def ListAgentLeavePetitions(self, request, context):
         """Lists agent leave petitions for the @wfm_agent_sids over @datetime_range for the org sending the request.
         If no @wfm_agent_sids are provided, all agent leave petitions overlapping @datetime_range for the org sending the request will be returned.
+        If no @datetime_range is provided, petitions will be returned across all datetimes.
         If @include_archived is true, archived agent leave petitions will be returned as well, otherwise archived requests will not be included.
         If no agent leave petitions are found for the given parameters, an empty slice will be returned.
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when listing the agent leave petitions.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ArchiveAgentLeavePetition(self, request, context):
+        """Archives an agent leave petition with the given @agent_leave_petition_id for the org sending the request.
+        If the leave petition has the status of PENDING_PETITION, the petition must be resolved first, or the request will error.
+        If the petition has a status of APPROVED_PETITION and a portion of the petitions @requested_datetime_ranges lies in the future,
+        the petition may not be archived without being cancelled.
+        Errors:
+        - grpc.Invalid: the request data is invalid, the agent leave petition is approved for a future datetime, still pending, or is already archived.
+        - grpc.Internal: error occurs when archiving the agent leave petition.
+        - grpc.NotFound: the @agent_leave_petition_id does not exist for the org sending the request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3961,6 +3981,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListAgentLeavePetitions,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsResponse.SerializeToString,
+            ),
+            'ArchiveAgentLeavePetition': grpc.unary_unary_rpc_method_handler(
+                    servicer.ArchiveAgentLeavePetition,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ArchiveAgentLeavePetitionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ArchiveAgentLeavePetitionResponse.SerializeToString,
             ),
             'HelloWorldWFMAdherence': grpc.unary_unary_rpc_method_handler(
                     servicer.HelloWorldWFMAdherence,
@@ -6880,6 +6905,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAgentLeavePetitions',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentLeavePetitionsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ArchiveAgentLeavePetition(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ArchiveAgentLeavePetition',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ArchiveAgentLeavePetitionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ArchiveAgentLeavePetitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
