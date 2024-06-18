@@ -125,6 +125,16 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.ListVersionsReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.ListVersionsRes.FromString,
                 )
+        self.ReviewVersionStream = channel.unary_stream(
+                '/api.v0alpha.Learn/ReviewVersionStream',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
+                )
+        self.DeleteVersion = channel.unary_unary(
+                '/api.v0alpha.Learn/DeleteVersion',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionRes.FromString,
+                )
 
 
 class LearnServicer(object):
@@ -290,6 +300,20 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ReviewVersionStream(self, request, context):
+        """returns urls as a stream after comparing version contents between both versions
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteVersion(self, request, context):
+        """delete version from learn
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -402,6 +426,16 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.ListVersions,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.ListVersionsReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.ListVersionsRes.SerializeToString,
+            ),
+            'ReviewVersionStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.ReviewVersionStream,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.SerializeToString,
+            ),
+            'DeleteVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteVersion,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -785,5 +819,39 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/ListVersions',
             api_dot_v0alpha_dot_learn__pb2.ListVersionsReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.ListVersionsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReviewVersionStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Learn/ReviewVersionStream',
+            api_dot_v0alpha_dot_learn__pb2.ReviewVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.ReviewVersionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/DeleteVersion',
+            api_dot_v0alpha_dot_learn__pb2.DeleteVersionReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.DeleteVersionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

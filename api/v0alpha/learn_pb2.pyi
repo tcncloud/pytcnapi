@@ -162,12 +162,14 @@ class UploadDynamicScreenshotRes(_message.Message):
     def __init__(self, data_learn_id: _Optional[str] = ..., download_url: _Optional[str] = ...) -> None: ...
 
 class StandaloneReq(_message.Message):
-    __slots__ = ("locale", "category")
+    __slots__ = ("locale", "category", "version")
     LOCALE_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
     locale: str
     category: str
-    def __init__(self, locale: _Optional[str] = ..., category: _Optional[str] = ...) -> None: ...
+    version: str
+    def __init__(self, locale: _Optional[str] = ..., category: _Optional[str] = ..., version: _Optional[str] = ...) -> None: ...
 
 class StandaloneRes(_message.Message):
     __slots__ = ("standalone_details",)
@@ -188,22 +190,26 @@ class LearnStandaloneDetails(_message.Message):
     def __init__(self, name: _Optional[str] = ..., content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., title: _Optional[str] = ...) -> None: ...
 
 class DeleteStandaloneReq(_message.Message):
-    __slots__ = ("locale", "article_names")
+    __slots__ = ("locale", "article_names", "version")
     LOCALE_FIELD_NUMBER: _ClassVar[int]
     ARTICLE_NAMES_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
     locale: str
     article_names: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, locale: _Optional[str] = ..., article_names: _Optional[_Iterable[str]] = ...) -> None: ...
+    version: str
+    def __init__(self, locale: _Optional[str] = ..., article_names: _Optional[_Iterable[str]] = ..., version: _Optional[str] = ...) -> None: ...
 
 class DeleteStandaloneRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class SnippetReq(_message.Message):
-    __slots__ = ("locale",)
+    __slots__ = ("locale", "version")
     LOCALE_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
     locale: str
-    def __init__(self, locale: _Optional[str] = ...) -> None: ...
+    version: str
+    def __init__(self, locale: _Optional[str] = ..., version: _Optional[str] = ...) -> None: ...
 
 class SnippetRes(_message.Message):
     __slots__ = ("snippet_details",)
@@ -224,28 +230,34 @@ class LearnSnippetDetails(_message.Message):
     def __init__(self, name: _Optional[str] = ..., content: _Optional[str] = ..., last_edited_timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., title: _Optional[str] = ...) -> None: ...
 
 class DeleteLearnPagesReq(_message.Message):
-    __slots__ = ("locale", "url")
+    __slots__ = ("locale", "url", "version")
     LOCALE_FIELD_NUMBER: _ClassVar[int]
     URL_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
     locale: str
     url: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, locale: _Optional[str] = ..., url: _Optional[_Iterable[str]] = ...) -> None: ...
+    version: str
+    def __init__(self, locale: _Optional[str] = ..., url: _Optional[_Iterable[str]] = ..., version: _Optional[str] = ...) -> None: ...
 
 class DeleteLearnPagesRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class CreateEditVersionReq(_message.Message):
-    __slots__ = ("src_version", "dest_version")
+    __slots__ = ("src_version", "dest_version", "dest_version_name")
     SRC_VERSION_FIELD_NUMBER: _ClassVar[int]
     DEST_VERSION_FIELD_NUMBER: _ClassVar[int]
+    DEST_VERSION_NAME_FIELD_NUMBER: _ClassVar[int]
     src_version: str
     dest_version: str
-    def __init__(self, src_version: _Optional[str] = ..., dest_version: _Optional[str] = ...) -> None: ...
+    dest_version_name: str
+    def __init__(self, src_version: _Optional[str] = ..., dest_version: _Optional[str] = ..., dest_version_name: _Optional[str] = ...) -> None: ...
 
 class CreateEditVersionRes(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("version_details",)
+    VERSION_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    version_details: VersionDetails
+    def __init__(self, version_details: _Optional[_Union[VersionDetails, _Mapping]] = ...) -> None: ...
 
 class PublishVersionReq(_message.Message):
     __slots__ = ("publish_version",)
@@ -254,8 +266,10 @@ class PublishVersionReq(_message.Message):
     def __init__(self, publish_version: _Optional[str] = ...) -> None: ...
 
 class PublishVersionRes(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("version_details",)
+    VERSION_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    version_details: VersionDetails
+    def __init__(self, version_details: _Optional[_Union[VersionDetails, _Mapping]] = ...) -> None: ...
 
 class ContentByVersionReq(_message.Message):
     __slots__ = ("url", "locale", "version")
@@ -324,12 +338,16 @@ class ReviewVersionReq(_message.Message):
     def __init__(self, version: _Optional[str] = ..., locale: _Optional[str] = ...) -> None: ...
 
 class ReviewVersionRes(_message.Message):
-    __slots__ = ("diff_urls", "diff_file_names")
+    __slots__ = ("diff_urls", "diff_file_names", "src_content", "dest_content")
     DIFF_URLS_FIELD_NUMBER: _ClassVar[int]
     DIFF_FILE_NAMES_FIELD_NUMBER: _ClassVar[int]
+    SRC_CONTENT_FIELD_NUMBER: _ClassVar[int]
+    DEST_CONTENT_FIELD_NUMBER: _ClassVar[int]
     diff_urls: str
     diff_file_names: str
-    def __init__(self, diff_urls: _Optional[str] = ..., diff_file_names: _Optional[str] = ...) -> None: ...
+    src_content: str
+    dest_content: str
+    def __init__(self, diff_urls: _Optional[str] = ..., diff_file_names: _Optional[str] = ..., src_content: _Optional[str] = ..., dest_content: _Optional[str] = ...) -> None: ...
 
 class ListVersionsReq(_message.Message):
     __slots__ = ("locale",)
@@ -338,7 +356,35 @@ class ListVersionsReq(_message.Message):
     def __init__(self, locale: _Optional[str] = ...) -> None: ...
 
 class ListVersionsRes(_message.Message):
-    __slots__ = ("versions",)
+    __slots__ = ("versions", "version_details")
     VERSIONS_FIELD_NUMBER: _ClassVar[int]
+    VERSION_DETAILS_FIELD_NUMBER: _ClassVar[int]
     versions: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, versions: _Optional[_Iterable[str]] = ...) -> None: ...
+    version_details: _containers.RepeatedCompositeFieldContainer[VersionDetails]
+    def __init__(self, versions: _Optional[_Iterable[str]] = ..., version_details: _Optional[_Iterable[_Union[VersionDetails, _Mapping]]] = ...) -> None: ...
+
+class VersionDetails(_message.Message):
+    __slots__ = ("version", "version_name", "date_created", "date_published", "status")
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    VERSION_NAME_FIELD_NUMBER: _ClassVar[int]
+    DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
+    DATE_PUBLISHED_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    version: str
+    version_name: str
+    date_created: _timestamp_pb2.Timestamp
+    date_published: _timestamp_pb2.Timestamp
+    status: str
+    def __init__(self, version: _Optional[str] = ..., version_name: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_published: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[str] = ...) -> None: ...
+
+class DeleteVersionReq(_message.Message):
+    __slots__ = ("locale", "version")
+    LOCALE_FIELD_NUMBER: _ClassVar[int]
+    VERSION_FIELD_NUMBER: _ClassVar[int]
+    locale: str
+    version: str
+    def __init__(self, locale: _Optional[str] = ..., version: _Optional[str] = ...) -> None: ...
+
+class DeleteVersionRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

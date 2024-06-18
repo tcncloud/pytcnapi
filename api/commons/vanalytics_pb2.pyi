@@ -17,6 +17,14 @@ class Interval(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     LAST_60_DAYS: _ClassVar[Interval]
     LAST_90_DAYS: _ClassVar[Interval]
     LAST_180_DAYS: _ClassVar[Interval]
+
+class TranscriptSummaryStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    TRANSCRIPT_SUMMARY_STATUS_QUEUED: _ClassVar[TranscriptSummaryStatus]
+    TRANSCRIPT_SUMMARY_STATUS_QUEUED_ERRORED: _ClassVar[TranscriptSummaryStatus]
+    TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED: _ClassVar[TranscriptSummaryStatus]
+    TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED_ERRORED: _ClassVar[TranscriptSummaryStatus]
+    TRANSCRIPT_SUMMARY_STATUS_VISIBLE: _ClassVar[TranscriptSummaryStatus]
 TODAY: Interval
 YESTERDAY: Interval
 THIS_WEEK: Interval
@@ -28,3 +36,8 @@ LAST_30_DAYS: Interval
 LAST_60_DAYS: Interval
 LAST_90_DAYS: Interval
 LAST_180_DAYS: Interval
+TRANSCRIPT_SUMMARY_STATUS_QUEUED: TranscriptSummaryStatus
+TRANSCRIPT_SUMMARY_STATUS_QUEUED_ERRORED: TranscriptSummaryStatus
+TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED: TranscriptSummaryStatus
+TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED_ERRORED: TranscriptSummaryStatus
+TRANSCRIPT_SUMMARY_STATUS_VISIBLE: TranscriptSummaryStatus

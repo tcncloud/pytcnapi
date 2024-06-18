@@ -1115,6 +1115,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetMyAllowedMfaMethodsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetMyAllowedMfaMethodsResponse.FromString,
                 )
+        self.GenerateTOTPSecret = channel.unary_unary(
+                '/api.v1alpha1.org.Org/GenerateTOTPSecret',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GenerateTOTPSecretRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GenerateTOTPSecretResponse.FromString,
+                )
         self.CreateBusinessHours = channel.unary_unary(
                 '/api.v1alpha1.org.Org/CreateBusinessHours',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.CreateBusinessHoursRequest.SerializeToString,
@@ -2779,6 +2784,15 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GenerateTOTPSecret(self, request, context):
+        """GenerateTOTPSecret generates a new TOTP secret key for the current user and
+        returns it with a url to be displayed as a QR code that can be scanned
+        by an authenticator app.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateBusinessHours(self, request, context):
         """CreateBusinessHours persists times businesses are available.
         """
@@ -3938,6 +3952,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.GetMyAllowedMfaMethods,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetMyAllowedMfaMethodsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GetMyAllowedMfaMethodsResponse.SerializeToString,
+            ),
+            'GenerateTOTPSecret': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateTOTPSecret,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GenerateTOTPSecretRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.GenerateTOTPSecretResponse.SerializeToString,
             ),
             'CreateBusinessHours': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateBusinessHours,
@@ -7703,6 +7722,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GetMyAllowedMfaMethods',
             api_dot_v1alpha1_dot_org_dot_user__pb2.GetMyAllowedMfaMethodsRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_user__pb2.GetMyAllowedMfaMethodsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GenerateTOTPSecret(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/GenerateTOTPSecret',
+            api_dot_v1alpha1_dot_org_dot_user__pb2.GenerateTOTPSecretRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_user__pb2.GenerateTOTPSecretResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

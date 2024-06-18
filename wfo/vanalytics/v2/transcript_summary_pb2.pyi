@@ -1,3 +1,4 @@
+from api.commons import vanalytics_pb2 as _vanalytics_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -18,7 +19,9 @@ class GetTranscriptSummaryResponse(_message.Message):
     def __init__(self, transcript_summary: _Optional[_Union[TranscriptSummary, _Mapping]] = ...) -> None: ...
 
 class TranscriptSummary(_message.Message):
-    __slots__ = ("bullet_points",)
+    __slots__ = ("bullet_points", "status")
     BULLET_POINTS_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
     bullet_points: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, bullet_points: _Optional[_Iterable[str]] = ...) -> None: ...
+    status: _vanalytics_pb2.TranscriptSummaryStatus
+    def __init__(self, bullet_points: _Optional[_Iterable[str]] = ..., status: _Optional[_Union[_vanalytics_pb2.TranscriptSummaryStatus, str]] = ...) -> None: ...

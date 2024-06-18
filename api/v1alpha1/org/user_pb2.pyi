@@ -1014,14 +1014,28 @@ class GetMyAllowedMfaMethodsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetMyAllowedMfaMethodsResponse(_message.Message):
-    __slots__ = ("mfa_enabled", "email_enabled", "duo_enabled")
+    __slots__ = ("mfa_enabled", "email_enabled", "duo_enabled", "totp_enabled")
     MFA_ENABLED_FIELD_NUMBER: _ClassVar[int]
     EMAIL_ENABLED_FIELD_NUMBER: _ClassVar[int]
     DUO_ENABLED_FIELD_NUMBER: _ClassVar[int]
+    TOTP_ENABLED_FIELD_NUMBER: _ClassVar[int]
     mfa_enabled: bool
     email_enabled: bool
     duo_enabled: bool
-    def __init__(self, mfa_enabled: bool = ..., email_enabled: bool = ..., duo_enabled: bool = ...) -> None: ...
+    totp_enabled: bool
+    def __init__(self, mfa_enabled: bool = ..., email_enabled: bool = ..., duo_enabled: bool = ..., totp_enabled: bool = ...) -> None: ...
+
+class GenerateTOTPSecretRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GenerateTOTPSecretResponse(_message.Message):
+    __slots__ = ("secret_key", "qr_code_url")
+    SECRET_KEY_FIELD_NUMBER: _ClassVar[int]
+    QR_CODE_URL_FIELD_NUMBER: _ClassVar[int]
+    secret_key: str
+    qr_code_url: str
+    def __init__(self, secret_key: _Optional[str] = ..., qr_code_url: _Optional[str] = ...) -> None: ...
 
 class AddGroupedUserIPRestrictionsRequest(_message.Message):
     __slots__ = ("user_ids", "ips")
