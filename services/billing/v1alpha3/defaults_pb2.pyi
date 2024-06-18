@@ -99,12 +99,12 @@ class UpdateDefaultBillingPlanResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateDefaultRateDefinitionRequest(_message.Message):
-    __slots__ = ("billing_plan_id", "rate_definition")
-    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("rate_definition_id", "rate_definition")
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
-    billing_plan_id: str
+    rate_definition_id: str
     rate_definition: _rates_pb2.RateDefinition
-    def __init__(self, billing_plan_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ...) -> None: ...
+    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ...) -> None: ...
 
 class CreateDefaultRateDefinitionResponse(_message.Message):
     __slots__ = ("rate_definition_id",)

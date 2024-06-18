@@ -50,19 +50,19 @@ class DeleteBillingPlanResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class GetOrgBillingPlanRequest(_message.Message):
+class GetBillingPlanRequest(_message.Message):
     __slots__ = ("billing_plan_id",)
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     billing_plan_id: str
     def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
 
-class GetOrgBillingPlanResponse(_message.Message):
+class GetBillingPlanResponse(_message.Message):
     __slots__ = ("billing_plan",)
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
     billing_plan: _plan_pb2.BillingPlan
     def __init__(self, billing_plan: _Optional[_Union[_plan_pb2.BillingPlan, _Mapping]] = ...) -> None: ...
 
-class ListOrgBillingPlansRequest(_message.Message):
+class ListBillingPlansRequest(_message.Message):
     __slots__ = ("billing_plan_id", "filter", "fields", "sort", "page")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
@@ -76,7 +76,7 @@ class ListOrgBillingPlansRequest(_message.Message):
     page: _core_pb2.Page
     def __init__(self, billing_plan_id: _Optional[str] = ..., filter: _Optional[str] = ..., fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., sort: _Optional[_Iterable[_Union[_core_pb2.Sort, _Mapping]]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
 
-class ListOrgBillingPlansResponse(_message.Message):
+class ListBillingPlansResponse(_message.Message):
     __slots__ = ("billing_plans", "token")
     BILLING_PLANS_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -99,12 +99,12 @@ class UpdateBillingPlanResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateRateDefinitionRequest(_message.Message):
-    __slots__ = ("billing_plan_id", "rate_definition")
-    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ("rate_definition_id", "rate_definition")
+    RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     RATE_DEFINITION_FIELD_NUMBER: _ClassVar[int]
-    billing_plan_id: str
+    rate_definition_id: str
     rate_definition: _rates_pb2.RateDefinition
-    def __init__(self, billing_plan_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ...) -> None: ...
+    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition: _Optional[_Union[_rates_pb2.RateDefinition, _Mapping]] = ...) -> None: ...
 
 class CreateRateDefinitionResponse(_message.Message):
     __slots__ = ("rate_definition_id",)

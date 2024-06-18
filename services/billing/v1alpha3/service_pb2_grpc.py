@@ -39,15 +39,15 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.DeleteBillingPlanRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.DeleteBillingPlanResponse.FromString,
                 )
-        self.GetOrgBillingPlan = channel.unary_unary(
-                '/services.billing.v1alpha3.BillingService/GetOrgBillingPlan',
-                request_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetOrgBillingPlanRequest.SerializeToString,
-                response_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetOrgBillingPlanResponse.FromString,
+        self.GetBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha3.BillingService/GetBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetBillingPlanResponse.FromString,
                 )
-        self.ListOrgBillingPlans = channel.unary_unary(
-                '/services.billing.v1alpha3.BillingService/ListOrgBillingPlans',
-                request_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListOrgBillingPlansRequest.SerializeToString,
-                response_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListOrgBillingPlansResponse.FromString,
+        self.ListBillingPlans = channel.unary_unary(
+                '/services.billing.v1alpha3.BillingService/ListBillingPlans',
+                request_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListBillingPlansRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListBillingPlansResponse.FromString,
                 )
         self.UpdateBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha3.BillingService/UpdateBillingPlan',
@@ -163,7 +163,7 @@ class BillingServiceServicer(object):
 
     def ApplyBillingPlanDraft(self, request, context):
         """--------------------------------------------------------------------------
-        Org Plans
+        Billing Plans
 
         Applies a draft billing plan.
         Required permissions:
@@ -208,8 +208,8 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetOrgBillingPlan(self, request, context):
-        """Gets a billing plan for an ORG.
+    def GetBillingPlan(self, request, context):
+        """Gets a billing plan.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
@@ -223,8 +223,8 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListOrgBillingPlans(self, request, context):
-        """Lists billing plans for ORGs.
+    def ListBillingPlans(self, request, context):
+        """Lists billing plans.
         Required permissions:
         CUSTOMER_SUPPORT
         Errors:
@@ -351,7 +351,7 @@ class BillingServiceServicer(object):
 
     def CreateRateDefinition(self, request, context):
         """--------------------------------------------------------------------------
-        Org Rate Definitions
+        Rate Definitions
 
         Creates a new rate definition.
         Required permissions:
@@ -552,15 +552,15 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.DeleteBillingPlanRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.DeleteBillingPlanResponse.SerializeToString,
             ),
-            'GetOrgBillingPlan': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetOrgBillingPlan,
-                    request_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetOrgBillingPlanRequest.FromString,
-                    response_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetOrgBillingPlanResponse.SerializeToString,
+            'GetBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetBillingPlanResponse.SerializeToString,
             ),
-            'ListOrgBillingPlans': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListOrgBillingPlans,
-                    request_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListOrgBillingPlansRequest.FromString,
-                    response_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListOrgBillingPlansResponse.SerializeToString,
+            'ListBillingPlans': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListBillingPlans,
+                    request_deserializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListBillingPlansRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListBillingPlansResponse.SerializeToString,
             ),
             'UpdateBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateBillingPlan,
@@ -733,7 +733,7 @@ class BillingService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetOrgBillingPlan(request,
+    def GetBillingPlan(request,
             target,
             options=(),
             channel_credentials=None,
@@ -743,14 +743,14 @@ class BillingService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha3.BillingService/GetOrgBillingPlan',
-            services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetOrgBillingPlanRequest.SerializeToString,
-            services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetOrgBillingPlanResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha3.BillingService/GetBillingPlan',
+            services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha3_dot_plan__pb2.GetBillingPlanResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListOrgBillingPlans(request,
+    def ListBillingPlans(request,
             target,
             options=(),
             channel_credentials=None,
@@ -760,9 +760,9 @@ class BillingService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha3.BillingService/ListOrgBillingPlans',
-            services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListOrgBillingPlansRequest.SerializeToString,
-            services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListOrgBillingPlansResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha3.BillingService/ListBillingPlans',
+            services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListBillingPlansRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha3_dot_plan__pb2.ListBillingPlansResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

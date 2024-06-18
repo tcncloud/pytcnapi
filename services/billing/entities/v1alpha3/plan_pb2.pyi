@@ -9,10 +9,10 @@ DESCRIPTOR: _descriptor.FileDescriptor
 class BillingPlanType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     BILLING_PLAN_TYPE_UNSPECIFIED: _ClassVar[BillingPlanType]
-    BILLING_PLAN_TYPE_TEMPLATE: _ClassVar[BillingPlanType]
+    BILLING_PLAN_TYPE_DEFAULT: _ClassVar[BillingPlanType]
     BILLING_PLAN_TYPE_ORG: _ClassVar[BillingPlanType]
 BILLING_PLAN_TYPE_UNSPECIFIED: BillingPlanType
-BILLING_PLAN_TYPE_TEMPLATE: BillingPlanType
+BILLING_PLAN_TYPE_DEFAULT: BillingPlanType
 BILLING_PLAN_TYPE_ORG: BillingPlanType
 
 class BillingPlan(_message.Message):
