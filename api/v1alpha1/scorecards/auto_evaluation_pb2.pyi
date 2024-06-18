@@ -137,13 +137,17 @@ class DeleteAutoEvaluationByOrgIdRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_id: _Optional[int] = ...) -> None: ...
 
 class BulkDeleteAutoEvaluationsRequest(_message.Message):
-    __slots__ = ("org_id", "auto_evaluation_ids")
+    __slots__ = ("org_id", "auto_evaluation_ids", "completed_at")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_EVALUATION_IDS_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     auto_evaluation_ids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_ids: _Optional[_Iterable[int]] = ...) -> None: ...
+    completed_at: _scorecards_pb2.TimeFilter
+    def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
 
 class BulkDeleteAutoEvaluationsResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("count",)
+    COUNT_FIELD_NUMBER: _ClassVar[int]
+    count: int
+    def __init__(self, count: _Optional[int] = ...) -> None: ...

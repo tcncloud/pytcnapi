@@ -16,3 +16,11 @@ class AuthToken(_message.Message):
     org_id: str
     expiration: _timestamp_pb2.Timestamp
     def __init__(self, token: _Optional[str] = ..., user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class AuthTokenExpiration(_message.Message):
+    __slots__ = ("token", "expiration")
+    TOKEN_FIELD_NUMBER: _ClassVar[int]
+    EXPIRATION_FIELD_NUMBER: _ClassVar[int]
+    token: str
+    expiration: _timestamp_pb2.Timestamp
+    def __init__(self, token: _Optional[str] = ..., expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

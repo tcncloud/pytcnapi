@@ -134,16 +134,20 @@ class DeleteEvaluationByOrgIdRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., evaluation_id: _Optional[int] = ...) -> None: ...
 
 class BulkDeleteEvaluationsRequest(_message.Message):
-    __slots__ = ("org_id", "evaluation_ids")
+    __slots__ = ("org_id", "evaluation_ids", "completed_at")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     EVALUATION_IDS_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     evaluation_ids: _containers.RepeatedScalarFieldContainer[int]
-    def __init__(self, org_id: _Optional[str] = ..., evaluation_ids: _Optional[_Iterable[int]] = ...) -> None: ...
+    completed_at: _scorecards_pb2.TimeFilter
+    def __init__(self, org_id: _Optional[str] = ..., evaluation_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
 
 class BulkDeleteEvaluationsResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("count",)
+    COUNT_FIELD_NUMBER: _ClassVar[int]
+    count: int
+    def __init__(self, count: _Optional[int] = ...) -> None: ...
 
 class RestoreEvaluationRequest(_message.Message):
     __slots__ = ("evaluation_id", "user_id")

@@ -1,5 +1,6 @@
 from api.commons import acd_pb2 as _acd_pb2
 from api.commons import omnichannel_pb2 as _omnichannel_pb2
+from api.commons.org import auth_token_pb2 as _auth_token_pb2
 from google.protobuf import any_pb2 as _any_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -10,7 +11,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GhostNotification(_message.Message):
-    __slots__ = ("reference_id", "any", "status", "omni_conversation", "backoffice_message", "directed_call_ringing", "directed_call_hangup", "agent_queued_calls_notification")
+    __slots__ = ("reference_id", "any", "status", "omni_conversation", "backoffice_message", "directed_call_ringing", "directed_call_hangup", "agent_queued_calls_notification", "auth_token_expiration")
     REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     ANY_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -19,6 +20,7 @@ class GhostNotification(_message.Message):
     DIRECTED_CALL_RINGING_FIELD_NUMBER: _ClassVar[int]
     DIRECTED_CALL_HANGUP_FIELD_NUMBER: _ClassVar[int]
     AGENT_QUEUED_CALLS_NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
+    AUTH_TOKEN_EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     reference_id: str
     any: _any_pb2.Any
     status: Status
@@ -27,7 +29,8 @@ class GhostNotification(_message.Message):
     directed_call_ringing: _acd_pb2.AgentDirectedCallRingingAlert
     directed_call_hangup: _acd_pb2.AgentDirectedCallHangupAlert
     agent_queued_calls_notification: AgentQueuedCallsNotification
-    def __init__(self, reference_id: _Optional[str] = ..., any: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., status: _Optional[_Union[Status, _Mapping]] = ..., omni_conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., backoffice_message: _Optional[_Union[_acd_pb2.AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[_acd_pb2.AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[_acd_pb2.AgentDirectedCallHangupAlert, _Mapping]] = ..., agent_queued_calls_notification: _Optional[_Union[AgentQueuedCallsNotification, _Mapping]] = ...) -> None: ...
+    auth_token_expiration: _auth_token_pb2.AuthTokenExpiration
+    def __init__(self, reference_id: _Optional[str] = ..., any: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., status: _Optional[_Union[Status, _Mapping]] = ..., omni_conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., backoffice_message: _Optional[_Union[_acd_pb2.AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[_acd_pb2.AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[_acd_pb2.AgentDirectedCallHangupAlert, _Mapping]] = ..., agent_queued_calls_notification: _Optional[_Union[AgentQueuedCallsNotification, _Mapping]] = ..., auth_token_expiration: _Optional[_Union[_auth_token_pb2.AuthTokenExpiration, _Mapping]] = ...) -> None: ...
 
 class Status(_message.Message):
     __slots__ = ("code", "message")
