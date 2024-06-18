@@ -458,6 +458,36 @@ class GetAvailableHeadersRes(_message.Message):
     headers: _containers.RepeatedCompositeFieldContainer[HeaderGroup]
     def __init__(self, headers: _Optional[_Iterable[_Union[HeaderGroup, _Mapping]]] = ...) -> None: ...
 
+class GetOmniExchangeElementsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetOmniExchangeElementsResult(_message.Message):
+    __slots__ = ("headers",)
+    HEADERS_FIELD_NUMBER: _ClassVar[int]
+    headers: _containers.RepeatedCompositeFieldContainer[OmniExchange]
+    def __init__(self, headers: _Optional[_Iterable[_Union[OmniExchange, _Mapping]]] = ...) -> None: ...
+
+class OmniExchange(_message.Message):
+    __slots__ = ("exchange_id", "name")
+    EXCHANGE_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    exchange_id: str
+    name: str
+    def __init__(self, exchange_id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
+
+class GetFieldsForElementRequest(_message.Message):
+    __slots__ = ("exchange",)
+    EXCHANGE_FIELD_NUMBER: _ClassVar[int]
+    exchange: OmniExchange
+    def __init__(self, exchange: _Optional[_Union[OmniExchange, _Mapping]] = ...) -> None: ...
+
+class GetFieldsForElementResult(_message.Message):
+    __slots__ = ("headers",)
+    HEADERS_FIELD_NUMBER: _ClassVar[int]
+    headers: _containers.RepeatedCompositeFieldContainer[Header]
+    def __init__(self, headers: _Optional[_Iterable[_Union[Header, _Mapping]]] = ...) -> None: ...
+
 class Header(_message.Message):
     __slots__ = ("name", "type")
     NAME_FIELD_NUMBER: _ClassVar[int]

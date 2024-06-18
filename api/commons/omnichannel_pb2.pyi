@@ -388,20 +388,22 @@ class OmniCampaign(_message.Message):
 class OmniCampaignModule(_message.Message):
     __slots__ = ("campaign_module_sid", "campaign_sid", "module_type", "status", "config", "date_created", "date_modified", "scheduled_stop_date", "actual_stop_date", "hours_of_operation", "details", "attachments")
     class Details(_message.Message):
-        __slots__ = ("total_task_count", "completed_task_count", "connected_inbox_address", "verified_email_address", "pending_task_count", "failed_task_count")
+        __slots__ = ("total_task_count", "completed_task_count", "connected_inbox_address", "verified_email_address", "pending_task_count", "failed_task_count", "canceled_task_count")
         TOTAL_TASK_COUNT_FIELD_NUMBER: _ClassVar[int]
         COMPLETED_TASK_COUNT_FIELD_NUMBER: _ClassVar[int]
         CONNECTED_INBOX_ADDRESS_FIELD_NUMBER: _ClassVar[int]
         VERIFIED_EMAIL_ADDRESS_FIELD_NUMBER: _ClassVar[int]
         PENDING_TASK_COUNT_FIELD_NUMBER: _ClassVar[int]
         FAILED_TASK_COUNT_FIELD_NUMBER: _ClassVar[int]
+        CANCELED_TASK_COUNT_FIELD_NUMBER: _ClassVar[int]
         total_task_count: _wrappers_pb2.Int64Value
         completed_task_count: _wrappers_pb2.Int64Value
         connected_inbox_address: _wrappers_pb2.StringValue
         verified_email_address: _wrappers_pb2.StringValue
         pending_task_count: _wrappers_pb2.Int64Value
         failed_task_count: _wrappers_pb2.Int64Value
-        def __init__(self, total_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., completed_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., connected_inbox_address: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., verified_email_address: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., pending_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., failed_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+        canceled_task_count: _wrappers_pb2.Int64Value
+        def __init__(self, total_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., completed_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., connected_inbox_address: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., verified_email_address: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., pending_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., failed_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., canceled_task_count: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
     CAMPAIGN_MODULE_SID_FIELD_NUMBER: _ClassVar[int]
     CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
     MODULE_TYPE_FIELD_NUMBER: _ClassVar[int]

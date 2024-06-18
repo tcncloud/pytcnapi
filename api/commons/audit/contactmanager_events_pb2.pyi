@@ -2,17 +2,27 @@ from api.v1alpha1.contactmanager import contactmanager_pb2 as _contactmanager_pb
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ContactManagerEntryAddEvent(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("addEvent",)
+    ADDEVENT_FIELD_NUMBER: _ClassVar[int]
+    addEvent: ContactManagerEntryEvent
+    def __init__(self, addEvent: _Optional[_Union[ContactManagerEntryEvent, _Mapping]] = ...) -> None: ...
 
 class ContactManagerEntryGetEncEvent(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("viewEvent",)
+    VIEWEVENT_FIELD_NUMBER: _ClassVar[int]
+    viewEvent: ContactManagerEntryEvent
+    def __init__(self, viewEvent: _Optional[_Union[ContactManagerEntryEvent, _Mapping]] = ...) -> None: ...
+
+class ContactManagerEntryEditEvent(_message.Message):
+    __slots__ = ("editEvent",)
+    EDITEVENT_FIELD_NUMBER: _ClassVar[int]
+    editEvent: ContactManagerEntryEvent
+    def __init__(self, editEvent: _Optional[_Union[ContactManagerEntryEvent, _Mapping]] = ...) -> None: ...
 
 class ContactManagerDeleteEvent(_message.Message):
     __slots__ = ()

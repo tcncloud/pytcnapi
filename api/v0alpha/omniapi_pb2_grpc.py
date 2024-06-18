@@ -134,6 +134,16 @@ class OmniApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersRes.FromString,
                 )
+        self.GetOmniExchangeElements = channel.unary_unary(
+                '/api.v0alpha.OmniApi/GetOmniExchangeElements',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetOmniExchangeElementsRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetOmniExchangeElementsResult.FromString,
+                )
+        self.GetFieldsForElement = channel.unary_unary(
+                '/api.v0alpha.OmniApi/GetFieldsForElement',
+                request_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetFieldsForElementRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetFieldsForElementResult.FromString,
+                )
         self.ApproveTask = channel.unary_unary(
                 '/api.v0alpha.OmniApi/ApproveTask',
                 request_serializer=api_dot_v0alpha_dot_omniapi__pb2.ApproveTaskRequest.SerializeToString,
@@ -562,6 +572,20 @@ class OmniApiServicer(object):
         """GetAvailableHeaders - retrieves all the available headers that could be present on a contact list
         Required permissions:
         OMNI_BOSS
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOmniExchangeElements(self, request, context):
+        """GetOmniExchangeElements - retrieves all omni exchange elements from lms service
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetFieldsForElement(self, request, context):
+        """GetFieldsForElement - takes an omni exchange element and returns fields for it
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1157,6 +1181,16 @@ def add_OmniApiServicer_to_server(servicer, server):
                     servicer.GetAvailableHeaders,
                     request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersRes.SerializeToString,
+            ),
+            'GetOmniExchangeElements': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOmniExchangeElements,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetOmniExchangeElementsRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetOmniExchangeElementsResult.SerializeToString,
+            ),
+            'GetFieldsForElement': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetFieldsForElement,
+                    request_deserializer=api_dot_v0alpha_dot_omniapi__pb2.GetFieldsForElementRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_omniapi__pb2.GetFieldsForElementResult.SerializeToString,
             ),
             'ApproveTask': grpc.unary_unary_rpc_method_handler(
                     servicer.ApproveTask,
@@ -1809,6 +1843,40 @@ class OmniApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/GetAvailableHeaders',
             api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersReq.SerializeToString,
             api_dot_v0alpha_dot_omniapi__pb2.GetAvailableHeadersRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOmniExchangeElements(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/GetOmniExchangeElements',
+            api_dot_v0alpha_dot_omniapi__pb2.GetOmniExchangeElementsRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.GetOmniExchangeElementsResult.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetFieldsForElement(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.OmniApi/GetFieldsForElement',
+            api_dot_v0alpha_dot_omniapi__pb2.GetFieldsForElementRequest.SerializeToString,
+            api_dot_v0alpha_dot_omniapi__pb2.GetFieldsForElementResult.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

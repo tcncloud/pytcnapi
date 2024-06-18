@@ -36,10 +36,12 @@ class ListEnabledProjectsRes(_message.Message):
     def __init__(self, projects: _Optional[_Iterable[_Union[_tickets_pb2.TicketProject, _Mapping]]] = ...) -> None: ...
 
 class ListTicketAuditLogReq(_message.Message):
-    __slots__ = ("ticket_sid",)
+    __slots__ = ("ticket_sid", "ticket_code")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
-    def __init__(self, ticket_sid: _Optional[int] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_sid: _Optional[int] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class ListTicketAuditLogRes(_message.Message):
     __slots__ = ("events",)

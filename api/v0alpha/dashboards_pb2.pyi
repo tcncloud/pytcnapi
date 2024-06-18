@@ -1,4 +1,5 @@
 from annotations import authz_pb2 as _authz_pb2
+from annotations.perms import license_pb2 as _license_pb2
 from api.commons import org_pb2 as _org_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
@@ -276,4 +277,50 @@ class TimeSpan(_message.Message):
         start: _timestamp_pb2.Timestamp
         end: _timestamp_pb2.Timestamp
         def __init__(self, start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self) -> None: ...
+
+class CreateApplicationDashboardRequest(_message.Message):
+    __slots__ = ("dashboard_resource_id", "org_id", "application")
+    DASHBOARD_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    APPLICATION_FIELD_NUMBER: _ClassVar[int]
+    dashboard_resource_id: str
+    org_id: str
+    application: _license_pb2.Application
+    def __init__(self, dashboard_resource_id: _Optional[str] = ..., org_id: _Optional[str] = ..., application: _Optional[_Union[_license_pb2.Application, str]] = ...) -> None: ...
+
+class CreateApplicationDashboardResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListApplicationsDashboardsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ApplicationDashboards(_message.Message):
+    __slots__ = ("application", "dashboard_summaries")
+    APPLICATION_FIELD_NUMBER: _ClassVar[int]
+    DASHBOARD_SUMMARIES_FIELD_NUMBER: _ClassVar[int]
+    application: _license_pb2.Application
+    dashboard_summaries: _containers.RepeatedCompositeFieldContainer[DashboardSummary]
+    def __init__(self, application: _Optional[_Union[_license_pb2.Application, str]] = ..., dashboard_summaries: _Optional[_Iterable[_Union[DashboardSummary, _Mapping]]] = ...) -> None: ...
+
+class ListApplicationsDashboardsResponse(_message.Message):
+    __slots__ = ("application_dashboards",)
+    APPLICATION_DASHBOARDS_FIELD_NUMBER: _ClassVar[int]
+    application_dashboards: _containers.RepeatedCompositeFieldContainer[ApplicationDashboards]
+    def __init__(self, application_dashboards: _Optional[_Iterable[_Union[ApplicationDashboards, _Mapping]]] = ...) -> None: ...
+
+class DeleteApplicationDashboardRequest(_message.Message):
+    __slots__ = ("application", "dashboard_resource_id", "org_id")
+    APPLICATION_FIELD_NUMBER: _ClassVar[int]
+    DASHBOARD_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    application: _license_pb2.Application
+    dashboard_resource_id: str
+    org_id: str
+    def __init__(self, application: _Optional[_Union[_license_pb2.Application, str]] = ..., dashboard_resource_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
+
+class DeleteApplicationDashboardResponse(_message.Message):
+    __slots__ = ()
     def __init__(self) -> None: ...

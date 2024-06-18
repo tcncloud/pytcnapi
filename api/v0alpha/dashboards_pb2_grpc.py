@@ -75,6 +75,21 @@ class DashboardsStub(object):
                 request_serializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardResponse.FromString,
                 )
+        self.CreateApplicationDashboard = channel.unary_unary(
+                '/api.v0alpha.Dashboards/CreateApplicationDashboard',
+                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.CreateApplicationDashboardRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_dashboards__pb2.CreateApplicationDashboardResponse.FromString,
+                )
+        self.ListApplicationsDashboards = channel.unary_unary(
+                '/api.v0alpha.Dashboards/ListApplicationsDashboards',
+                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.ListApplicationsDashboardsRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_dashboards__pb2.ListApplicationsDashboardsResponse.FromString,
+                )
+        self.DeleteApplicationDashboard = channel.unary_unary(
+                '/api.v0alpha.Dashboards/DeleteApplicationDashboard',
+                request_serializer=api_dot_v0alpha_dot_dashboards__pb2.DeleteApplicationDashboardRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_dashboards__pb2.DeleteApplicationDashboardResponse.FromString,
+                )
 
 
 class DashboardsServicer(object):
@@ -162,6 +177,27 @@ class DashboardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateApplicationDashboard(self, request, context):
+        """CreateApplicationDashboard assigns a dashboard to an application
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListApplicationsDashboards(self, request, context):
+        """ListApplicationDashboards lists applications and their assigned dashboards
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteApplicationDashboard(self, request, context):
+        """DeleteApplicationDashboard removes a dashboard from an application
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DashboardsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -224,6 +260,21 @@ def add_DashboardsServicer_to_server(servicer, server):
                     servicer.PublishDashboard,
                     request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardResponse.SerializeToString,
+            ),
+            'CreateApplicationDashboard': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateApplicationDashboard,
+                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.CreateApplicationDashboardRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_dashboards__pb2.CreateApplicationDashboardResponse.SerializeToString,
+            ),
+            'ListApplicationsDashboards': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListApplicationsDashboards,
+                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.ListApplicationsDashboardsRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_dashboards__pb2.ListApplicationsDashboardsResponse.SerializeToString,
+            ),
+            'DeleteApplicationDashboard': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteApplicationDashboard,
+                    request_deserializer=api_dot_v0alpha_dot_dashboards__pb2.DeleteApplicationDashboardRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_dashboards__pb2.DeleteApplicationDashboardResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -436,5 +487,56 @@ class Dashboards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/PublishDashboard',
             api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardRequest.SerializeToString,
             api_dot_v0alpha_dot_dashboards__pb2.PublishDashboardResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateApplicationDashboard(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/CreateApplicationDashboard',
+            api_dot_v0alpha_dot_dashboards__pb2.CreateApplicationDashboardRequest.SerializeToString,
+            api_dot_v0alpha_dot_dashboards__pb2.CreateApplicationDashboardResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListApplicationsDashboards(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/ListApplicationsDashboards',
+            api_dot_v0alpha_dot_dashboards__pb2.ListApplicationsDashboardsRequest.SerializeToString,
+            api_dot_v0alpha_dot_dashboards__pb2.ListApplicationsDashboardsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteApplicationDashboard(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Dashboards/DeleteApplicationDashboard',
+            api_dot_v0alpha_dot_dashboards__pb2.DeleteApplicationDashboardRequest.SerializeToString,
+            api_dot_v0alpha_dot_dashboards__pb2.DeleteApplicationDashboardResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

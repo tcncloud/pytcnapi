@@ -147,14 +147,16 @@ class EditTicketReq(_message.Message):
     def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[_tickets_pb2.EditAttribute, _Mapping]] = ...) -> None: ...
 
 class EditMaskTicketReq(_message.Message):
-    __slots__ = ("ticket_sid", "edit_value", "edited_fields_mask")
+    __slots__ = ("ticket_sid", "edit_value", "edited_fields_mask", "ticket_code")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     EDIT_VALUE_FIELD_NUMBER: _ClassVar[int]
     EDITED_FIELDS_MASK_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     edit_value: _tickets_pb2.Ticket
     edited_fields_mask: _containers.RepeatedCompositeFieldContainer[_field_mask_pb2.FieldMask]
-    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[_tickets_pb2.Ticket, _Mapping]] = ..., edited_fields_mask: _Optional[_Iterable[_Union[_field_mask_pb2.FieldMask, _Mapping]]] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[_tickets_pb2.Ticket, _Mapping]] = ..., edited_fields_mask: _Optional[_Iterable[_Union[_field_mask_pb2.FieldMask, _Mapping]]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class EditMaskTicketRes(_message.Message):
     __slots__ = ("is_edited",)
@@ -247,10 +249,12 @@ class AssignTicketRes(_message.Message):
     def __init__(self, ticket_sid: _Optional[int] = ..., assignee_list: _Optional[str] = ..., assigned_id: _Optional[str] = ...) -> None: ...
 
 class ViewTicketReq(_message.Message):
-    __slots__ = ("ticket_sid",)
+    __slots__ = ("ticket_sid", "ticket_code")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
-    def __init__(self, ticket_sid: _Optional[int] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_sid: _Optional[int] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class ViewTicketRes(_message.Message):
     __slots__ = ("ticket", "comments", "reply_comment")
@@ -263,12 +267,14 @@ class ViewTicketRes(_message.Message):
     def __init__(self, ticket: _Optional[_Union[_tickets_pb2.Ticket, _Mapping]] = ..., comments: _Optional[_Iterable[_Union[_tickets_pb2.Comment, _Mapping]]] = ..., reply_comment: _Optional[_Iterable[_Union[_tickets_pb2.ReplyComment, _Mapping]]] = ...) -> None: ...
 
 class CreateCommentReq(_message.Message):
-    __slots__ = ("ticket_sid", "comment")
+    __slots__ = ("ticket_sid", "comment", "ticket_code")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     COMMENT_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     comment: str
-    def __init__(self, ticket_sid: _Optional[int] = ..., comment: _Optional[str] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_sid: _Optional[int] = ..., comment: _Optional[str] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class CreateCommentRes(_message.Message):
     __slots__ = ("comment",)
@@ -277,14 +283,16 @@ class CreateCommentRes(_message.Message):
     def __init__(self, comment: _Optional[_Union[_tickets_pb2.Comment, _Mapping]] = ...) -> None: ...
 
 class CloseTicketReq(_message.Message):
-    __slots__ = ("ticket_sid", "comment", "from_status")
+    __slots__ = ("ticket_sid", "comment", "from_status", "ticket_code")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     COMMENT_FIELD_NUMBER: _ClassVar[int]
     FROM_STATUS_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     comment: str
     from_status: int
-    def __init__(self, ticket_sid: _Optional[int] = ..., comment: _Optional[str] = ..., from_status: _Optional[int] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_sid: _Optional[int] = ..., comment: _Optional[str] = ..., from_status: _Optional[int] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class CloseTicketRes(_message.Message):
     __slots__ = ("is_status",)
@@ -347,16 +355,18 @@ class ListSlaConditionRes(_message.Message):
     def __init__(self, slaCondition: _Optional[_Iterable[_Union[_tickets_pb2.SlaConditions, _Mapping]]] = ...) -> None: ...
 
 class ReplyCommentReq(_message.Message):
-    __slots__ = ("comment_sid", "ticket_sid", "reply", "created_by_id")
+    __slots__ = ("comment_sid", "ticket_sid", "reply", "created_by_id", "ticket_code")
     COMMENT_SID_FIELD_NUMBER: _ClassVar[int]
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     REPLY_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     comment_sid: int
     ticket_sid: int
     reply: str
     created_by_id: str
-    def __init__(self, comment_sid: _Optional[int] = ..., ticket_sid: _Optional[int] = ..., reply: _Optional[str] = ..., created_by_id: _Optional[str] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, comment_sid: _Optional[int] = ..., ticket_sid: _Optional[int] = ..., reply: _Optional[str] = ..., created_by_id: _Optional[str] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class ReplyCommentRes(_message.Message):
     __slots__ = ("is_created",)
@@ -429,14 +439,16 @@ class CreateTicketActionResponse(_message.Message):
     def __init__(self, ticket_action: _Optional[_Union[_tickets_pb2.TicketAction, _Mapping]] = ...) -> None: ...
 
 class CloseTicketActionRequest(_message.Message):
-    __slots__ = ("ticket_action_id", "ticket_id", "comment")
+    __slots__ = ("ticket_action_id", "ticket_id", "comment", "ticket_code")
     TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     TICKET_ID_FIELD_NUMBER: _ClassVar[int]
     COMMENT_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_action_id: int
     ticket_id: int
     comment: str
-    def __init__(self, ticket_action_id: _Optional[int] = ..., ticket_id: _Optional[int] = ..., comment: _Optional[str] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_action_id: _Optional[int] = ..., ticket_id: _Optional[int] = ..., comment: _Optional[str] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class CloseTicketActionResponse(_message.Message):
     __slots__ = ("is_closed",)

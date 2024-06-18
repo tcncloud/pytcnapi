@@ -169,7 +169,7 @@ class Duration(_message.Message):
     def __init__(self, value: _Optional[int] = ..., scale: _Optional[_Union[TimeScale, str]] = ...) -> None: ...
 
 class TicketAction(_message.Message):
-    __slots__ = ("ticket_action_id", "action_id", "callback_context", "ticket_id", "start_ts", "expiry_ts", "state", "action_skills", "action_sla_id", "work_done_by", "voice_context", "sms_context", "email_context", "action_type")
+    __slots__ = ("ticket_action_id", "action_id", "callback_context", "ticket_id", "start_ts", "expiry_ts", "state", "action_skills", "action_sla_id", "work_done_by", "voice_context", "sms_context", "email_context", "action_type", "ticket_code")
     TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     CALLBACK_CONTEXT_FIELD_NUMBER: _ClassVar[int]
@@ -184,6 +184,7 @@ class TicketAction(_message.Message):
     SMS_CONTEXT_FIELD_NUMBER: _ClassVar[int]
     EMAIL_CONTEXT_FIELD_NUMBER: _ClassVar[int]
     ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_action_id: int
     action_id: int
     callback_context: CallbackContext
@@ -198,7 +199,8 @@ class TicketAction(_message.Message):
     sms_context: SmsbackContext
     email_context: EmailbackContext
     action_type: ActionType
-    def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., callback_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., ticket_id: _Optional[int] = ..., start_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state: _Optional[int] = ..., action_skills: _Optional[_Iterable[str]] = ..., action_sla_id: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., work_done_by: _Optional[str] = ..., voice_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., sms_context: _Optional[_Union[SmsbackContext, _Mapping]] = ..., email_context: _Optional[_Union[EmailbackContext, _Mapping]] = ..., action_type: _Optional[_Union[ActionType, _Mapping]] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_action_id: _Optional[int] = ..., action_id: _Optional[int] = ..., callback_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., ticket_id: _Optional[int] = ..., start_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expiry_ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state: _Optional[int] = ..., action_skills: _Optional[_Iterable[str]] = ..., action_sla_id: _Optional[_Iterable[_Union[Sla, _Mapping]]] = ..., work_done_by: _Optional[str] = ..., voice_context: _Optional[_Union[CallbackContext, _Mapping]] = ..., sms_context: _Optional[_Union[SmsbackContext, _Mapping]] = ..., email_context: _Optional[_Union[EmailbackContext, _Mapping]] = ..., action_type: _Optional[_Union[ActionType, _Mapping]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class CallbackContext(_message.Message):
     __slots__ = ("caller_id", "phone_no", "country_code", "caller_name", "caller_country_code")
@@ -275,34 +277,38 @@ class Sla(_message.Message):
     def __init__(self, condition_sid: _Optional[int] = ..., sla_sid: _Optional[int] = ..., sla_min: _Optional[int] = ..., sla_duration: _Optional[_Union[Duration, _Mapping]] = ...) -> None: ...
 
 class Comment(_message.Message):
-    __slots__ = ("comment_sid", "ticket_sid", "comment", "created_by_id", "created_by_name", "created_by_date")
+    __slots__ = ("comment_sid", "ticket_sid", "comment", "created_by_id", "created_by_name", "created_by_date", "ticket_code")
     COMMENT_SID_FIELD_NUMBER: _ClassVar[int]
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     COMMENT_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_NAME_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_DATE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     comment_sid: int
     ticket_sid: int
     comment: str
     created_by_id: str
     created_by_name: str
     created_by_date: _timestamp_pb2.Timestamp
-    def __init__(self, comment_sid: _Optional[int] = ..., ticket_sid: _Optional[int] = ..., comment: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, comment_sid: _Optional[int] = ..., ticket_sid: _Optional[int] = ..., comment: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_name: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class CloseTicket(_message.Message):
-    __slots__ = ("ticket_sid", "status", "comment", "from_status", "created_by_id")
+    __slots__ = ("ticket_sid", "status", "comment", "from_status", "created_by_id", "ticket_code")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     COMMENT_FIELD_NUMBER: _ClassVar[int]
     FROM_STATUS_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     status: int
     comment: str
     from_status: int
     created_by_id: str
-    def __init__(self, ticket_sid: _Optional[int] = ..., status: _Optional[int] = ..., comment: _Optional[str] = ..., from_status: _Optional[int] = ..., created_by_id: _Optional[str] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_sid: _Optional[int] = ..., status: _Optional[int] = ..., comment: _Optional[str] = ..., from_status: _Optional[int] = ..., created_by_id: _Optional[str] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class ConfirmClose(_message.Message):
     __slots__ = ("status",)
@@ -361,18 +367,20 @@ class SlaConditions(_message.Message):
     def __init__(self, sla_condition_sid: _Optional[int] = ..., sla_condition_name: _Optional[str] = ...) -> None: ...
 
 class ReplyComment(_message.Message):
-    __slots__ = ("comment_sid", "ticket_sid", "reply", "created_by_id", "created_by_date")
+    __slots__ = ("comment_sid", "ticket_sid", "reply", "created_by_id", "created_by_date", "ticket_code")
     COMMENT_SID_FIELD_NUMBER: _ClassVar[int]
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     REPLY_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_DATE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     comment_sid: int
     ticket_sid: int
     reply: str
     created_by_id: str
     created_by_date: _timestamp_pb2.Timestamp
-    def __init__(self, comment_sid: _Optional[int] = ..., ticket_sid: _Optional[int] = ..., reply: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, comment_sid: _Optional[int] = ..., ticket_sid: _Optional[int] = ..., reply: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class ConfirmReplyComment(_message.Message):
     __slots__ = ("is_created",)
@@ -381,7 +389,7 @@ class ConfirmReplyComment(_message.Message):
     def __init__(self, is_created: bool = ...) -> None: ...
 
 class TicketAuditLog(_message.Message):
-    __slots__ = ("ticket_audit_event_log_id", "org_id", "event", "ticket_sid", "event_type", "created_by_id", "created_by_date")
+    __slots__ = ("ticket_audit_event_log_id", "org_id", "event", "ticket_sid", "event_type", "created_by_id", "created_by_date", "ticket_code")
     TICKET_AUDIT_EVENT_LOG_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     EVENT_FIELD_NUMBER: _ClassVar[int]
@@ -389,6 +397,7 @@ class TicketAuditLog(_message.Message):
     EVENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_DATE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_audit_event_log_id: str
     org_id: str
     event: str
@@ -396,15 +405,18 @@ class TicketAuditLog(_message.Message):
     event_type: str
     created_by_id: str
     created_by_date: _timestamp_pb2.Timestamp
-    def __init__(self, ticket_audit_event_log_id: _Optional[str] = ..., org_id: _Optional[str] = ..., event: _Optional[str] = ..., ticket_sid: _Optional[int] = ..., event_type: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_audit_event_log_id: _Optional[str] = ..., org_id: _Optional[str] = ..., event: _Optional[str] = ..., ticket_sid: _Optional[int] = ..., event_type: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class EditTicket(_message.Message):
-    __slots__ = ("ticket_sid", "edit_value")
+    __slots__ = ("ticket_sid", "edit_value", "ticket_code")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     EDIT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     edit_value: EditAttribute
-    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[EditAttribute, _Mapping]] = ...) -> None: ...
+    ticket_code: str
+    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[EditAttribute, _Mapping]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class EditAttribute(_message.Message):
     __slots__ = ("col_desc", "from_val", "to_val", "is_edited")
