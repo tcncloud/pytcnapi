@@ -120,14 +120,16 @@ class Sms(_message.Message):
         raw: str
         def __init__(self, raw: _Optional[str] = ...) -> None: ...
     class Thread(_message.Message):
-        __slots__ = ("id", "segments", "user_id")
+        __slots__ = ("id", "segments", "user_id", "sentiment")
         ID_FIELD_NUMBER: _ClassVar[int]
         SEGMENTS_FIELD_NUMBER: _ClassVar[int]
         USER_ID_FIELD_NUMBER: _ClassVar[int]
+        SENTIMENT_FIELD_NUMBER: _ClassVar[int]
         id: int
         segments: _containers.RepeatedCompositeFieldContainer[Sms.Segment]
         user_id: str
-        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Sms.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
+        sentiment: Sentiment
+        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Sms.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ..., sentiment: _Optional[_Union[Sentiment, _Mapping]] = ...) -> None: ...
     class Segment(_message.Message):
         __slots__ = ("text", "offset", "attachments")
         class Attachment(_message.Message):
@@ -174,14 +176,16 @@ class Call(_message.Message):
         values: _containers.RepeatedScalarFieldContainer[str]
         def __init__(self, values: _Optional[_Iterable[str]] = ...) -> None: ...
     class Thread(_message.Message):
-        __slots__ = ("id", "segments", "user_id")
+        __slots__ = ("id", "segments", "user_id", "sentiment")
         ID_FIELD_NUMBER: _ClassVar[int]
         SEGMENTS_FIELD_NUMBER: _ClassVar[int]
         USER_ID_FIELD_NUMBER: _ClassVar[int]
+        SENTIMENT_FIELD_NUMBER: _ClassVar[int]
         id: int
         segments: _containers.RepeatedCompositeFieldContainer[Call.Segment]
         user_id: str
-        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Call.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ...) -> None: ...
+        sentiment: Sentiment
+        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Call.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ..., sentiment: _Optional[_Union[Sentiment, _Mapping]] = ...) -> None: ...
     class Segment(_message.Message):
         __slots__ = ("text", "offset", "duration")
         TEXT_FIELD_NUMBER: _ClassVar[int]
@@ -268,6 +272,38 @@ class Call(_message.Message):
     phone: Call.Phone
     audio_bytes: int
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ..., silence: _Optional[_Union[Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., caller_id: _Optional[str] = ..., group_name: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, Call.AgentResponse]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., number_format: _Optional[str] = ..., agent_call_log: _Optional[_Union[_agent_call_log_pb2.AgentCallLog, _Mapping]] = ..., phone: _Optional[_Union[Call.Phone, _Mapping]] = ..., audio_bytes: _Optional[int] = ...) -> None: ...
+
+class Sentiment(_message.Message):
+    __slots__ = ("overall", "worst", "dominant", "last", "samples")
+    class Sample(_message.Message):
+        __slots__ = ("estimate", "offset", "duration")
+        ESTIMATE_FIELD_NUMBER: _ClassVar[int]
+        OFFSET_FIELD_NUMBER: _ClassVar[int]
+        DURATION_FIELD_NUMBER: _ClassVar[int]
+        estimate: Sentiment.Estimate
+        offset: _duration_pb2.Duration
+        duration: _duration_pb2.Duration
+        def __init__(self, estimate: _Optional[_Union[Sentiment.Estimate, _Mapping]] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    class Estimate(_message.Message):
+        __slots__ = ("positive", "neutral", "negative")
+        POSITIVE_FIELD_NUMBER: _ClassVar[int]
+        NEUTRAL_FIELD_NUMBER: _ClassVar[int]
+        NEGATIVE_FIELD_NUMBER: _ClassVar[int]
+        positive: float
+        neutral: float
+        negative: float
+        def __init__(self, positive: _Optional[float] = ..., neutral: _Optional[float] = ..., negative: _Optional[float] = ...) -> None: ...
+    OVERALL_FIELD_NUMBER: _ClassVar[int]
+    WORST_FIELD_NUMBER: _ClassVar[int]
+    DOMINANT_FIELD_NUMBER: _ClassVar[int]
+    LAST_FIELD_NUMBER: _ClassVar[int]
+    SAMPLES_FIELD_NUMBER: _ClassVar[int]
+    overall: Sentiment.Estimate
+    worst: _vanalytics_pb2.TranscriptSentimentTone
+    dominant: _vanalytics_pb2.TranscriptSentimentTone
+    last: _vanalytics_pb2.TranscriptSentimentTone
+    samples: _containers.RepeatedCompositeFieldContainer[Sentiment.Sample]
+    def __init__(self, overall: _Optional[_Union[Sentiment.Estimate, _Mapping]] = ..., worst: _Optional[_Union[_vanalytics_pb2.TranscriptSentimentTone, str]] = ..., dominant: _Optional[_Union[_vanalytics_pb2.TranscriptSentimentTone, str]] = ..., last: _Optional[_Union[_vanalytics_pb2.TranscriptSentimentTone, str]] = ..., samples: _Optional[_Iterable[_Union[Sentiment.Sample, _Mapping]]] = ...) -> None: ...
 
 class SearchTranscriptsRequest(_message.Message):
     __slots__ = ("page_size", "order_by", "read_mask", "bool_query", "page_token", "highlight")

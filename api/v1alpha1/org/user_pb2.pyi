@@ -1037,6 +1037,16 @@ class GenerateTOTPSecretResponse(_message.Message):
     qr_code_url: str
     def __init__(self, secret_key: _Optional[str] = ..., qr_code_url: _Optional[str] = ...) -> None: ...
 
+class VerifyTOTPCodeRequest(_message.Message):
+    __slots__ = ("code",)
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    code: str
+    def __init__(self, code: _Optional[str] = ...) -> None: ...
+
+class VerifyTOTPCodeResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class AddGroupedUserIPRestrictionsRequest(_message.Message):
     __slots__ = ("user_ids", "ips")
     USER_IDS_FIELD_NUMBER: _ClassVar[int]

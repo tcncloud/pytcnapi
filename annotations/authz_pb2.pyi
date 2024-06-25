@@ -20,7 +20,17 @@ class Permissions(_message.Message):
     def __init__(self, sets: _Optional[_Iterable[_Union[PermissionSet, _Mapping]]] = ..., wip: bool = ..., no_permissions: bool = ...) -> None: ...
 
 class PermissionSet(_message.Message):
-    __slots__ = ("permissions",)
+    __slots__ = ("permissions", "taint")
     PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
+    TAINT_FIELD_NUMBER: _ClassVar[int]
     permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
-    def __init__(self, permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ...) -> None: ...
+    taint: Taint
+    def __init__(self, permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., taint: _Optional[_Union[Taint, _Mapping]] = ...) -> None: ...
+
+class Taint(_message.Message):
+    __slots__ = ("id", "value")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    value: int
+    def __init__(self, id: _Optional[int] = ..., value: _Optional[int] = ...) -> None: ...
