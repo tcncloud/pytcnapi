@@ -1277,6 +1277,16 @@ class ListCandidateSchedulingActivitiesRes(_message.Message):
     scheduling_activities: _containers.RepeatedCompositeFieldContainer[SchedulingActivity]
     def __init__(self, scheduling_activities: _Optional[_Iterable[_Union[SchedulingActivity, _Mapping]]] = ...) -> None: ...
 
+class GetOnCallSchedulingActivityReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetOnCallSchedulingActivityRes(_message.Message):
+    __slots__ = ("on_call_scheduling_activity",)
+    ON_CALL_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    on_call_scheduling_activity: SchedulingActivity
+    def __init__(self, on_call_scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ...) -> None: ...
+
 class AgentGroup(_message.Message):
     __slots__ = ("agent_group_sid", "parent_entity", "name", "description", "datetime_set_to_inactive", "schedule_scenario_sid", "member_constraint_rules", "member_wfm_agents", "member_skill_proficiencies", "member_agent_availability_patterns")
     AGENT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]

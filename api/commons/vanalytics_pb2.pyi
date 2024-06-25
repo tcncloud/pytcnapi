@@ -25,6 +25,13 @@ class TranscriptSummaryStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED: _ClassVar[TranscriptSummaryStatus]
     TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED_ERRORED: _ClassVar[TranscriptSummaryStatus]
     TRANSCRIPT_SUMMARY_STATUS_VISIBLE: _ClassVar[TranscriptSummaryStatus]
+
+class TranscriptSentimentTone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    TRANSCRIPT_SENTIMENT_TONE_UNKNOWN: _ClassVar[TranscriptSentimentTone]
+    TRANSCRIPT_SENTIMENT_TONE_NEGATIVE: _ClassVar[TranscriptSentimentTone]
+    TRANSCRIPT_SENTIMENT_TONE_NEUTRAL: _ClassVar[TranscriptSentimentTone]
+    TRANSCRIPT_SENTIMENT_TONE_POSITIVE: _ClassVar[TranscriptSentimentTone]
 TODAY: Interval
 YESTERDAY: Interval
 THIS_WEEK: Interval
@@ -41,3 +48,7 @@ TRANSCRIPT_SUMMARY_STATUS_QUEUED_ERRORED: TranscriptSummaryStatus
 TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED: TranscriptSummaryStatus
 TRANSCRIPT_SUMMARY_STATUS_SUMMARIZED_ERRORED: TranscriptSummaryStatus
 TRANSCRIPT_SUMMARY_STATUS_VISIBLE: TranscriptSummaryStatus
+TRANSCRIPT_SENTIMENT_TONE_UNKNOWN: TranscriptSentimentTone
+TRANSCRIPT_SENTIMENT_TONE_NEGATIVE: TranscriptSentimentTone
+TRANSCRIPT_SENTIMENT_TONE_NEUTRAL: TranscriptSentimentTone
+TRANSCRIPT_SENTIMENT_TONE_POSITIVE: TranscriptSentimentTone
