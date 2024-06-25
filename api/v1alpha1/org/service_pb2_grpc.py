@@ -1135,6 +1135,21 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
                 )
+        self.CreateCertificateInfo = channel.unary_unary(
+                '/api.v1alpha1.org.Org/CreateCertificateInfo',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.CreateCertificateInfoRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.CreateCertificateInfoResponse.FromString,
+                )
+        self.DeleteCertificateInfo = channel.unary_unary(
+                '/api.v1alpha1.org.Org/DeleteCertificateInfo',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoResponse.FromString,
+                )
+        self.ListCertificateInfo = channel.unary_unary(
+                '/api.v1alpha1.org.Org/ListCertificateInfo',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListCertificateInfoRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListCertificateInfoResponse.FromString,
+                )
         self.AddGroupedUserIPRestrictions = channel.unary_unary(
                 '/api.v1alpha1.org.Org/AddGroupedUserIPRestrictions',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_user__pb2.AddGroupedUserIPRestrictionsRequest.SerializeToString,
@@ -2819,6 +2834,28 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateCertificateInfo(self, request, context):
+        """CreateCertificateInfo creates a new TLS certificate and
+        returns the certificate info for the current organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteCertificateInfo(self, request, context):
+        """DeleteCertificateInfo deletes a certificate info for the current organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListCertificateInfo(self, request, context):
+        """ListCertificateInfo returns a list of certificate info for the current organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def AddGroupedUserIPRestrictions(self, request, context):
         """AddGroupedUserIPRestrictions adds a user or list of user's IPs they
         are required to authenticate with
@@ -3984,6 +4021,21 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.UpdateBusinessHours,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.SerializeToString,
+            ),
+            'CreateCertificateInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateCertificateInfo,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.CreateCertificateInfoRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.CreateCertificateInfoResponse.SerializeToString,
+            ),
+            'DeleteCertificateInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteCertificateInfo,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoResponse.SerializeToString,
+            ),
+            'ListCertificateInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListCertificateInfo,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListCertificateInfoRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListCertificateInfoResponse.SerializeToString,
             ),
             'AddGroupedUserIPRestrictions': grpc.unary_unary_rpc_method_handler(
                     servicer.AddGroupedUserIPRestrictions,
@@ -7807,6 +7859,57 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/UpdateBusinessHours',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.UpdateBusinessHoursResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateCertificateInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/CreateCertificateInfo',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.CreateCertificateInfoRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.CreateCertificateInfoResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteCertificateInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteCertificateInfo',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListCertificateInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/ListCertificateInfo',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListCertificateInfoRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListCertificateInfoResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

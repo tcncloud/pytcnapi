@@ -665,3 +665,37 @@ class EvaluateBusinessHoursResponse(_message.Message):
     WITHIN_RANGE_FIELD_NUMBER: _ClassVar[int]
     within_range: bool
     def __init__(self, within_range: bool = ...) -> None: ...
+
+class CreateCertificateInfoRequest(_message.Message):
+    __slots__ = ("name", "description")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    description: str
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class CreateCertificateInfoResponse(_message.Message):
+    __slots__ = ("encoded_certificate",)
+    ENCODED_CERTIFICATE_FIELD_NUMBER: _ClassVar[int]
+    encoded_certificate: str
+    def __init__(self, encoded_certificate: _Optional[str] = ...) -> None: ...
+
+class DeleteCertificateInfoRequest(_message.Message):
+    __slots__ = ("certificate_info_id",)
+    CERTIFICATE_INFO_ID_FIELD_NUMBER: _ClassVar[int]
+    certificate_info_id: str
+    def __init__(self, certificate_info_id: _Optional[str] = ...) -> None: ...
+
+class DeleteCertificateInfoResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListCertificateInfoRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListCertificateInfoResponse(_message.Message):
+    __slots__ = ("certificate_info_list",)
+    CERTIFICATE_INFO_LIST_FIELD_NUMBER: _ClassVar[int]
+    certificate_info_list: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.CertificateInfo]
+    def __init__(self, certificate_info_list: _Optional[_Iterable[_Union[_preferences_pb2.CertificateInfo, _Mapping]]] = ...) -> None: ...

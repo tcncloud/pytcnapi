@@ -784,3 +784,25 @@ class ObservedHoliday(_message.Message):
     day: MonthDayDate
     holiday: CountryHoliday
     def __init__(self, day: _Optional[_Union[MonthDayDate, _Mapping]] = ..., holiday: _Optional[_Union[CountryHoliday, _Mapping]] = ...) -> None: ...
+
+class CertificateInfo(_message.Message):
+    __slots__ = ("certificate_info_id", "org_id", "name", "description", "hash", "expiration_date", "creation_date", "request_by", "deleted")
+    CERTIFICATE_INFO_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    HASH_FIELD_NUMBER: _ClassVar[int]
+    EXPIRATION_DATE_FIELD_NUMBER: _ClassVar[int]
+    CREATION_DATE_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_BY_FIELD_NUMBER: _ClassVar[int]
+    DELETED_FIELD_NUMBER: _ClassVar[int]
+    certificate_info_id: str
+    org_id: str
+    name: str
+    description: str
+    hash: str
+    expiration_date: _timestamp_pb2.Timestamp
+    creation_date: _timestamp_pb2.Timestamp
+    request_by: str
+    deleted: bool
+    def __init__(self, certificate_info_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., hash: _Optional[str] = ..., expiration_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., creation_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., request_by: _Optional[str] = ..., deleted: bool = ...) -> None: ...
