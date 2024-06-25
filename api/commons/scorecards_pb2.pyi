@@ -116,7 +116,7 @@ class Category(_message.Message):
     def __init__(self, category_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., skill_profiles: _Optional[_Iterable[int]] = ..., version: _Optional[int] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., is_system: bool = ..., category_type: _Optional[_Union[CategoryType, str]] = ...) -> None: ...
 
 class Evaluation(_message.Message):
-    __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "call_sid", "score", "evaluation_state", "evaluation_sections", "completed_at", "agent_user_id", "call_type", "transcript_sid", "custom_fields", "deleted_by")
+    __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "call_sid", "score", "evaluation_state", "evaluation_sections", "completed_at", "deleted_at", "agent_user_id", "call_type", "transcript_sid", "custom_fields", "deleted_by", "is_recoverable")
     class CustomField(_message.Message):
         __slots__ = ("key", "field")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -132,11 +132,13 @@ class Evaluation(_message.Message):
     EVALUATION_STATE_FIELD_NUMBER: _ClassVar[int]
     EVALUATION_SECTIONS_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
+    DELETED_AT_FIELD_NUMBER: _ClassVar[int]
     AGENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELDS_FIELD_NUMBER: _ClassVar[int]
     DELETED_BY_FIELD_NUMBER: _ClassVar[int]
+    IS_RECOVERABLE_FIELD_NUMBER: _ClassVar[int]
     evaluation_id: int
     scorecard_id: int
     scorer_id: str
@@ -145,12 +147,14 @@ class Evaluation(_message.Message):
     evaluation_state: EvaluationState
     evaluation_sections: _containers.RepeatedCompositeFieldContainer[EvaluationSection]
     completed_at: _timestamp_pb2.Timestamp
+    deleted_at: _timestamp_pb2.Timestamp
     agent_user_id: str
     call_type: _acd_pb2.CallType.Enum
     transcript_sid: int
     custom_fields: _containers.RepeatedCompositeFieldContainer[Evaluation.CustomField]
     deleted_by: str
-    def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., scorer_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., score: _Optional[float] = ..., evaluation_state: _Optional[_Union[EvaluationState, str]] = ..., evaluation_sections: _Optional[_Iterable[_Union[EvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_user_id: _Optional[str] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., custom_fields: _Optional[_Iterable[_Union[Evaluation.CustomField, _Mapping]]] = ..., deleted_by: _Optional[str] = ...) -> None: ...
+    is_recoverable: bool
+    def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., scorer_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., score: _Optional[float] = ..., evaluation_state: _Optional[_Union[EvaluationState, str]] = ..., evaluation_sections: _Optional[_Iterable[_Union[EvaluationSection, _Mapping]]] = ..., completed_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_user_id: _Optional[str] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., custom_fields: _Optional[_Iterable[_Union[Evaluation.CustomField, _Mapping]]] = ..., deleted_by: _Optional[str] = ..., is_recoverable: bool = ...) -> None: ...
 
 class EvaluationSection(_message.Message):
     __slots__ = ("evaluation_section_id", "evaluation_id", "section_id", "points", "possible_points", "sort_order", "deleted_at", "created_at", "evaluation_questions", "auto_evaluation_questions", "skipped")
@@ -370,7 +374,7 @@ class Section(_message.Message):
     def __init__(self, section_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., questions: _Optional[_Iterable[_Union[ScorecardQuestion, _Mapping]]] = ..., version: _Optional[int] = ..., sort_order: _Optional[int] = ..., auto_questions: _Optional[_Iterable[_Union[AutoQuestion, _Mapping]]] = ...) -> None: ...
 
 class Scorecard(_message.Message):
-    __slots__ = ("scorecard_id", "author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "distribute_weights", "category", "sections", "version", "state", "is_ad_hoc", "custom_field_keys", "call_types")
+    __slots__ = ("scorecard_id", "author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "distribute_weights", "category", "sections", "version", "state", "is_ad_hoc", "custom_field_keys", "call_types", "updated_at")
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -387,6 +391,7 @@ class Scorecard(_message.Message):
     IS_AD_HOC_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_KEYS_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPES_FIELD_NUMBER: _ClassVar[int]
+    UPDATED_AT_FIELD_NUMBER: _ClassVar[int]
     scorecard_id: int
     author_id: str
     title: str
@@ -403,7 +408,8 @@ class Scorecard(_message.Message):
     is_ad_hoc: bool
     custom_field_keys: _containers.RepeatedScalarFieldContainer[str]
     call_types: _containers.RepeatedScalarFieldContainer[_acd_pb2.CallType.Enum]
-    def __init__(self, scorecard_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[ScoreType, str]] = ..., evaluation_type: _Optional[_Union[EvaluationType, str]] = ..., allow_feedback: bool = ..., distribute_weights: bool = ..., category: _Optional[_Union[Category, _Mapping]] = ..., sections: _Optional[_Iterable[_Union[Section, _Mapping]]] = ..., version: _Optional[int] = ..., state: _Optional[_Union[ScorecardState, str]] = ..., is_ad_hoc: bool = ..., custom_field_keys: _Optional[_Iterable[str]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ...) -> None: ...
+    updated_at: _timestamp_pb2.Timestamp
+    def __init__(self, scorecard_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[ScoreType, str]] = ..., evaluation_type: _Optional[_Union[EvaluationType, str]] = ..., allow_feedback: bool = ..., distribute_weights: bool = ..., category: _Optional[_Union[Category, _Mapping]] = ..., sections: _Optional[_Iterable[_Union[Section, _Mapping]]] = ..., version: _Optional[int] = ..., state: _Optional[_Union[ScorecardState, str]] = ..., is_ad_hoc: bool = ..., custom_field_keys: _Optional[_Iterable[str]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class AutoQuestion(_message.Message):
     __slots__ = ("auto_question_id", "flag_sid", "scorecard_id", "auto_section_id", "sort_order", "flag_expression", "question", "description", "question_id", "risk_level")
