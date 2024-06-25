@@ -1414,39 +1414,3 @@ class PopulateIntegrationLinkRes(_message.Message):
     INTEGRATION_LINK_FIELD_NUMBER: _ClassVar[int]
     integration_link: _huntgroup_pb2.IntegrationLink
     def __init__(self, integration_link: _Optional[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]] = ...) -> None: ...
-
-class ProcessWorkflowReq(_message.Message):
-    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params")
-    class ParamsEntry(_message.Message):
-        __slots__ = ("key", "value")
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: Value
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[Value, _Mapping]] = ...) -> None: ...
-    PORTAL_LINK_ID_FIELD_NUMBER: _ClassVar[int]
-    PORTAL_ID_FIELD_NUMBER: _ClassVar[int]
-    SEGMENT_FIELD_NUMBER: _ClassVar[int]
-    CHOICE_FIELD_NUMBER: _ClassVar[int]
-    PARAMS_FIELD_NUMBER: _ClassVar[int]
-    portal_link_id: str
-    portal_id: str
-    segment: int
-    choice: int
-    params: _containers.MessageMap[str, Value]
-    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ...) -> None: ...
-
-class ProcessWorkflowRes(_message.Message):
-    __slots__ = ("success", "data")
-    class DataEntry(_message.Message):
-        __slots__ = ("key", "value")
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: Value
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[Value, _Mapping]] = ...) -> None: ...
-    SUCCESS_FIELD_NUMBER: _ClassVar[int]
-    DATA_FIELD_NUMBER: _ClassVar[int]
-    success: bool
-    data: _containers.MessageMap[str, Value]
-    def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, Value]] = ...) -> None: ...

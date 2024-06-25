@@ -44,11 +44,6 @@ class IntegrationsPublicStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetReceiptReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetReceiptRes.FromString,
                 )
-        self.ProcessWorkflow = channel.unary_unary(
-                '/api.v1alpha1.integrationspublic.IntegrationsPublic/ProcessWorkflow',
-                request_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowRes.FromString,
-                )
 
 
 class IntegrationsPublicServicer(object):
@@ -90,12 +85,6 @@ class IntegrationsPublicServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ProcessWorkflow(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_IntegrationsPublicServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -128,11 +117,6 @@ def add_IntegrationsPublicServicer_to_server(servicer, server):
                     servicer.GetReceipt,
                     request_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetReceiptReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetReceiptRes.SerializeToString,
-            ),
-            'ProcessWorkflow': grpc.unary_unary_rpc_method_handler(
-                    servicer.ProcessWorkflow,
-                    request_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -243,22 +227,5 @@ class IntegrationsPublic(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrationspublic.IntegrationsPublic/GetReceipt',
             api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetReceiptReq.SerializeToString,
             api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetReceiptRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ProcessWorkflow(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrationspublic.IntegrationsPublic/ProcessWorkflow',
-            api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowReq.SerializeToString,
-            api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

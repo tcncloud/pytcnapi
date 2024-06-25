@@ -1,5 +1,4 @@
 from api.commons.integrations import integrations_pb2 as _integrations_pb2
-from api.v1alpha1.integrations import service_pb2 as _service_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -294,39 +293,3 @@ class GetReceiptRes(_message.Message):
     amount_paid_key: str
     payment_flow: _integrations_pb2.PaymentFlow
     def __init__(self, receipt_id: _Optional[str] = ..., request: _Optional[_Mapping[str, Value]] = ..., response: _Optional[_Mapping[str, Value]] = ..., amount_paid: _Optional[float] = ..., amount_paid_key: _Optional[str] = ..., payment_flow: _Optional[_Union[_integrations_pb2.PaymentFlow, _Mapping]] = ...) -> None: ...
-
-class ProcessWorkflowReq(_message.Message):
-    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params")
-    class ParamsEntry(_message.Message):
-        __slots__ = ("key", "value")
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: Value
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[Value, _Mapping]] = ...) -> None: ...
-    PORTAL_LINK_ID_FIELD_NUMBER: _ClassVar[int]
-    PORTAL_ID_FIELD_NUMBER: _ClassVar[int]
-    SEGMENT_FIELD_NUMBER: _ClassVar[int]
-    CHOICE_FIELD_NUMBER: _ClassVar[int]
-    PARAMS_FIELD_NUMBER: _ClassVar[int]
-    portal_link_id: str
-    portal_id: str
-    segment: int
-    choice: int
-    params: _containers.MessageMap[str, Value]
-    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ...) -> None: ...
-
-class ProcessWorkflowRes(_message.Message):
-    __slots__ = ("success", "data")
-    class DataEntry(_message.Message):
-        __slots__ = ("key", "value")
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: Value
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[Value, _Mapping]] = ...) -> None: ...
-    SUCCESS_FIELD_NUMBER: _ClassVar[int]
-    DATA_FIELD_NUMBER: _ClassVar[int]
-    success: bool
-    data: _containers.MessageMap[str, Value]
-    def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, Value]] = ...) -> None: ...
