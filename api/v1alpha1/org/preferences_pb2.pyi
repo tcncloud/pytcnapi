@@ -690,6 +690,16 @@ class DeleteCertificateInfoResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class RevokeCertificateInfoRequest(_message.Message):
+    __slots__ = ("certificate_info_id",)
+    CERTIFICATE_INFO_ID_FIELD_NUMBER: _ClassVar[int]
+    certificate_info_id: str
+    def __init__(self, certificate_info_id: _Optional[str] = ...) -> None: ...
+
+class RevokeCertificateInfoResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class ListCertificateInfoRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...

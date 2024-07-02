@@ -1145,6 +1145,11 @@ class OrgStub(object):
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoResponse.FromString,
                 )
+        self.RevokeCertificateInfo = channel.unary_unary(
+                '/api.v1alpha1.org.Org/RevokeCertificateInfo',
+                request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RevokeCertificateInfoRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RevokeCertificateInfoResponse.FromString,
+                )
         self.ListCertificateInfo = channel.unary_unary(
                 '/api.v1alpha1.org.Org/ListCertificateInfo',
                 request_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.ListCertificateInfoRequest.SerializeToString,
@@ -2849,6 +2854,13 @@ class OrgServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def RevokeCertificateInfo(self, request, context):
+        """RevokeCertificateInfo deletes a certificate info for the current organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListCertificateInfo(self, request, context):
         """ListCertificateInfo returns a list of certificate info for the current organization.
         """
@@ -4031,6 +4043,11 @@ def add_OrgServicer_to_server(servicer, server):
                     servicer.DeleteCertificateInfo,
                     request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoResponse.SerializeToString,
+            ),
+            'RevokeCertificateInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.RevokeCertificateInfo,
+                    request_deserializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RevokeCertificateInfoRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_org_dot_preferences__pb2.RevokeCertificateInfoResponse.SerializeToString,
             ),
             'ListCertificateInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.ListCertificateInfo,
@@ -7893,6 +7910,23 @@ class Org(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/DeleteCertificateInfo',
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoRequest.SerializeToString,
             api_dot_v1alpha1_dot_org_dot_preferences__pb2.DeleteCertificateInfoResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RevokeCertificateInfo(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.org.Org/RevokeCertificateInfo',
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.RevokeCertificateInfoRequest.SerializeToString,
+            api_dot_v1alpha1_dot_org_dot_preferences__pb2.RevokeCertificateInfoResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
