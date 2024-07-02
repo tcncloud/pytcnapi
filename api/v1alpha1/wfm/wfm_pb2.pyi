@@ -3708,3 +3708,29 @@ class ArchiveAgentLeavePetitionRequest(_message.Message):
 class ArchiveAgentLeavePetitionResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ResolveAgentLeavePetitionRequest(_message.Message):
+    __slots__ = ("agent_leave_petition_id", "petition_status", "response_comment", "retain_partial_shifts")
+    AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
+    PETITION_STATUS_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    RETAIN_PARTIAL_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition_id: int
+    petition_status: _wfm_pb2.AgentLeavePetitionStatus
+    response_comment: str
+    retain_partial_shifts: bool
+    def __init__(self, agent_leave_petition_id: _Optional[int] = ..., petition_status: _Optional[_Union[_wfm_pb2.AgentLeavePetitionStatus, str]] = ..., response_comment: _Optional[str] = ..., retain_partial_shifts: bool = ...) -> None: ...
+
+class ResolveAgentLeavePetitionResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CancelAgentLeavePetitionRequest(_message.Message):
+    __slots__ = ("agent_leave_petition_id",)
+    AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition_id: int
+    def __init__(self, agent_leave_petition_id: _Optional[int] = ...) -> None: ...
+
+class CancelAgentLeavePetitionResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
