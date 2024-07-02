@@ -349,7 +349,7 @@ class TranscriptBoolQuery(_message.Message):
     def __init__(self, transcript: _Optional[_Union[TranscriptQuery, _Mapping]] = ...) -> None: ...
 
 class TranscriptQuery(_message.Message):
-    __slots__ = ("transcript_sid", "channel", "metadata", "threads", "flag_summary", "start_time", "delete_time", "phone")
+    __slots__ = ("transcript_sid", "channel", "metadata", "threads", "flag_summary", "start_time", "delete_time", "phone", "channel_type")
     class Phone(_message.Message):
         __slots__ = ("cc", "ndc", "prefix", "city", "iso2", "region_code", "region_name", "time_zone", "type", "utc", "location", "raw")
         class Cc(_message.Message):
@@ -831,6 +831,7 @@ class TranscriptQuery(_message.Message):
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: TranscriptQuery.TranscriptSid
     channel: TranscriptQuery.Channel
     metadata: TranscriptQuery.Metadata
@@ -839,7 +840,8 @@ class TranscriptQuery(_message.Message):
     start_time: TranscriptQuery.StartTime
     delete_time: TranscriptQuery.DeleteTime
     phone: TranscriptQuery.Phone
-    def __init__(self, transcript_sid: _Optional[_Union[TranscriptQuery.TranscriptSid, _Mapping]] = ..., channel: _Optional[_Union[TranscriptQuery.Channel, _Mapping]] = ..., metadata: _Optional[_Union[TranscriptQuery.Metadata, _Mapping]] = ..., threads: _Optional[_Union[TranscriptQuery.Threads, _Mapping]] = ..., flag_summary: _Optional[_Union[TranscriptQuery.FlagSummary, _Mapping]] = ..., start_time: _Optional[_Union[TranscriptQuery.StartTime, _Mapping]] = ..., delete_time: _Optional[_Union[TranscriptQuery.DeleteTime, _Mapping]] = ..., phone: _Optional[_Union[TranscriptQuery.Phone, _Mapping]] = ...) -> None: ...
+    channel_type: TranscriptQuery.Channel
+    def __init__(self, transcript_sid: _Optional[_Union[TranscriptQuery.TranscriptSid, _Mapping]] = ..., channel: _Optional[_Union[TranscriptQuery.Channel, _Mapping]] = ..., metadata: _Optional[_Union[TranscriptQuery.Metadata, _Mapping]] = ..., threads: _Optional[_Union[TranscriptQuery.Threads, _Mapping]] = ..., flag_summary: _Optional[_Union[TranscriptQuery.FlagSummary, _Mapping]] = ..., start_time: _Optional[_Union[TranscriptQuery.StartTime, _Mapping]] = ..., delete_time: _Optional[_Union[TranscriptQuery.DeleteTime, _Mapping]] = ..., phone: _Optional[_Union[TranscriptQuery.Phone, _Mapping]] = ..., channel_type: _Optional[_Union[TranscriptQuery.Channel, _Mapping]] = ...) -> None: ...
 
 class Moment(_message.Message):
     __slots__ = ("time_zone", "interval")
