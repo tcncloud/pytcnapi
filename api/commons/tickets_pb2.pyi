@@ -409,14 +409,16 @@ class TicketAuditLog(_message.Message):
     def __init__(self, ticket_audit_event_log_id: _Optional[str] = ..., org_id: _Optional[str] = ..., event: _Optional[str] = ..., ticket_sid: _Optional[int] = ..., event_type: _Optional[str] = ..., created_by_id: _Optional[str] = ..., created_by_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class EditTicket(_message.Message):
-    __slots__ = ("ticket_sid", "edit_value", "ticket_code")
+    __slots__ = ("ticket_sid", "edit_value", "ticket_code", "ticket_action_id")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     EDIT_VALUE_FIELD_NUMBER: _ClassVar[int]
     TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    TICKET_ACTION_ID_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     edit_value: EditAttribute
     ticket_code: str
-    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[EditAttribute, _Mapping]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
+    ticket_action_id: int
+    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[EditAttribute, _Mapping]] = ..., ticket_code: _Optional[str] = ..., ticket_action_id: _Optional[int] = ...) -> None: ...
 
 class EditAttribute(_message.Message):
     __slots__ = ("col_desc", "from_val", "to_val", "is_edited")

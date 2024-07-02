@@ -39,12 +39,16 @@ class ContactManagerEntryEvent(_message.Message):
     def __init__(self, ContactManagerListId: _Optional[int] = ..., ContactManagerEntryId: _Optional[int] = ..., ContactManagerEntryListIds: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ContactManagerListUploadEvent(_message.Message):
-    __slots__ = ("ContactManagerListId", "NumberOfContactsUploaded")
+    __slots__ = ("ContactManagerListId", "NumberOfContactsUploaded", "NumberOfSuccessfulContactsUploaded", "NumberOfFailedContacts")
     CONTACTMANAGERLISTID_FIELD_NUMBER: _ClassVar[int]
     NUMBEROFCONTACTSUPLOADED_FIELD_NUMBER: _ClassVar[int]
+    NUMBEROFSUCCESSFULCONTACTSUPLOADED_FIELD_NUMBER: _ClassVar[int]
+    NUMBEROFFAILEDCONTACTS_FIELD_NUMBER: _ClassVar[int]
     ContactManagerListId: int
     NumberOfContactsUploaded: int
-    def __init__(self, ContactManagerListId: _Optional[int] = ..., NumberOfContactsUploaded: _Optional[int] = ...) -> None: ...
+    NumberOfSuccessfulContactsUploaded: int
+    NumberOfFailedContacts: int
+    def __init__(self, ContactManagerListId: _Optional[int] = ..., NumberOfContactsUploaded: _Optional[int] = ..., NumberOfSuccessfulContactsUploaded: _Optional[int] = ..., NumberOfFailedContacts: _Optional[int] = ...) -> None: ...
 
 class ContactManagerKycEvent(_message.Message):
     __slots__ = ("ContactManagerListId", "ContactManagerEntryId", "types", "ContactManagerEntryListIds")
