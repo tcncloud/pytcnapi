@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-services/translations/v1alpha1/entities.proto\x12\x1eservices.translations.v1alpha1\"P\n\x18TranslateTemplateRequest\x12\x1a\n\x08template\x18\x01 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x02 \x01(\tR\x07\x63ontext\"l\n\x19TranslateTemplateResponse\x12O\n\x0ctranslations\x18\x01 \x03(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0ctranslations\"\xe5\x01\n\x0bTranslation\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\x12\x1a\n\x08template\x18\x02 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x03 \x01(\tR\x07\x63ontext\x12!\n\x0clanguage_tag\x18\x04 \x01(\tR\x0blanguageTag\x12\'\n\x0fllm_translation\x18\x05 \x01(\tR\x0ellmTranslation\x12-\n\x12manual_translation\x18\x06 \x01(\tR\x11manualTranslationB\xcd\x01\n\"com.services.translations.v1alpha1B\rEntitiesProtoP\x01\xa2\x02\x03STX\xaa\x02\x1eServices.Translations.V1alpha1\xca\x02\x1eServices\\Translations\\V1alpha1\xe2\x02*Services\\Translations\\V1alpha1\\GPBMetadata\xea\x02 Services::Translations::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-services/translations/v1alpha1/entities.proto\x12\x1eservices.translations.v1alpha1\"\xe5\x01\n\x0bTranslation\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\x12\x1a\n\x08template\x18\x02 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x03 \x01(\tR\x07\x63ontext\x12!\n\x0clanguage_tag\x18\x04 \x01(\tR\x0blanguageTag\x12\'\n\x0fllm_translation\x18\x05 \x01(\tR\x0ellmTranslation\x12-\n\x12manual_translation\x18\x06 \x01(\tR\x11manualTranslation\"P\n\x18TranslateTemplateRequest\x12\x1a\n\x08template\x18\x01 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x02 \x01(\tR\x07\x63ontext\"l\n\x19TranslateTemplateResponse\x12O\n\x0ctranslations\x18\x01 \x03(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0ctranslations\"V\n\x17ListTranslationsRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\x12!\n\x0clanguage_tag\x18\x02 \x01(\tR\x0blanguageTag\"k\n\x18ListTranslationsResponse\x12O\n\x0ctranslations\x18\x01 \x03(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0ctranslations\"c\n\x18UpdateTranslationRequest\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\x12 \n\x0btranslation\x18\x02 \x01(\tR\x0btranslation\"j\n\x19UpdateTranslationResponse\x12M\n\x0btranslation\x18\x01 \x01(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0btranslation\"E\n\x1cTriggerLLMTranslationRequest\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\"n\n\x1dTriggerLLMTranslationResponse\x12M\n\x0btranslation\x18\x01 \x01(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0btranslation\"Z\n\x17SetSystemMessageRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\x12%\n\x0esystem_message\x18\x02 \x01(\tR\rsystemMessage\"\x1a\n\x18SetSystemMessageResponse\"3\n\x17GetSystemMessageRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\"A\n\x18GetSystemMessageResponse\x12%\n\x0esystem_message\x18\x01 \x01(\tR\rsystemMessage\"\x80\x01\n\x18TestSystemMessageRequest\x12%\n\x0esystem_message\x18\x01 \x01(\tR\rsystemMessage\x12\x1a\n\x08template\x18\x02 \x01(\tR\x08template\x12!\n\x0clanguage_tag\x18\x03 \x01(\tR\x0blanguageTag\"=\n\x19TestSystemMessageResponse\x12 \n\x0btranslation\x18\x01 \x01(\tR\x0btranslation\"9\n\x1dTriggerLLMTranslationsRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\" \n\x1eTriggerLLMTranslationsResponseB\xcd\x01\n\"com.services.translations.v1alpha1B\rEntitiesProtoP\x01\xa2\x02\x03STX\xaa\x02\x1eServices.Translations.V1alpha1\xca\x02\x1eServices\\Translations\\V1alpha1\xe2\x02*Services\\Translations\\V1alpha1\\GPBMetadata\xea\x02 Services::Translations::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,10 +32,38 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'services.translations.v1alp
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\"com.services.translations.v1alpha1B\rEntitiesProtoP\001\242\002\003STX\252\002\036Services.Translations.V1alpha1\312\002\036Services\\Translations\\V1alpha1\342\002*Services\\Translations\\V1alpha1\\GPBMetadata\352\002 Services::Translations::V1alpha1'
-  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_start=81
-  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_end=161
-  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_start=163
-  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_end=271
-  _globals['_TRANSLATION']._serialized_start=274
-  _globals['_TRANSLATION']._serialized_end=503
+  _globals['_TRANSLATION']._serialized_start=82
+  _globals['_TRANSLATION']._serialized_end=311
+  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_start=313
+  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_end=393
+  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_start=395
+  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_end=503
+  _globals['_LISTTRANSLATIONSREQUEST']._serialized_start=505
+  _globals['_LISTTRANSLATIONSREQUEST']._serialized_end=591
+  _globals['_LISTTRANSLATIONSRESPONSE']._serialized_start=593
+  _globals['_LISTTRANSLATIONSRESPONSE']._serialized_end=700
+  _globals['_UPDATETRANSLATIONREQUEST']._serialized_start=702
+  _globals['_UPDATETRANSLATIONREQUEST']._serialized_end=801
+  _globals['_UPDATETRANSLATIONRESPONSE']._serialized_start=803
+  _globals['_UPDATETRANSLATIONRESPONSE']._serialized_end=909
+  _globals['_TRIGGERLLMTRANSLATIONREQUEST']._serialized_start=911
+  _globals['_TRIGGERLLMTRANSLATIONREQUEST']._serialized_end=980
+  _globals['_TRIGGERLLMTRANSLATIONRESPONSE']._serialized_start=982
+  _globals['_TRIGGERLLMTRANSLATIONRESPONSE']._serialized_end=1092
+  _globals['_SETSYSTEMMESSAGEREQUEST']._serialized_start=1094
+  _globals['_SETSYSTEMMESSAGEREQUEST']._serialized_end=1184
+  _globals['_SETSYSTEMMESSAGERESPONSE']._serialized_start=1186
+  _globals['_SETSYSTEMMESSAGERESPONSE']._serialized_end=1212
+  _globals['_GETSYSTEMMESSAGEREQUEST']._serialized_start=1214
+  _globals['_GETSYSTEMMESSAGEREQUEST']._serialized_end=1265
+  _globals['_GETSYSTEMMESSAGERESPONSE']._serialized_start=1267
+  _globals['_GETSYSTEMMESSAGERESPONSE']._serialized_end=1332
+  _globals['_TESTSYSTEMMESSAGEREQUEST']._serialized_start=1335
+  _globals['_TESTSYSTEMMESSAGEREQUEST']._serialized_end=1463
+  _globals['_TESTSYSTEMMESSAGERESPONSE']._serialized_start=1465
+  _globals['_TESTSYSTEMMESSAGERESPONSE']._serialized_end=1526
+  _globals['_TRIGGERLLMTRANSLATIONSREQUEST']._serialized_start=1528
+  _globals['_TRIGGERLLMTRANSLATIONSREQUEST']._serialized_end=1585
+  _globals['_TRIGGERLLMTRANSLATIONSRESPONSE']._serialized_start=1587
+  _globals['_TRIGGERLLMTRANSLATIONSRESPONSE']._serialized_end=1619
 # @@protoc_insertion_point(module_scope)
