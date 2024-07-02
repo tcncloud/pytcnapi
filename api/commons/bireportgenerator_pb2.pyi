@@ -181,12 +181,14 @@ class DeliveryOptions(_message.Message):
     def __init__(self, transfer_config_sid: _Optional[int] = ..., failure_notification_emails: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class FilenamePart(_message.Message):
-    __slots__ = ("type", "static_text")
+    __slots__ = ("type", "static_text", "date_parts")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     STATIC_TEXT_FIELD_NUMBER: _ClassVar[int]
+    DATE_PARTS_FIELD_NUMBER: _ClassVar[int]
     type: FilenamePartType
     static_text: str
-    def __init__(self, type: _Optional[_Union[FilenamePartType, str]] = ..., static_text: _Optional[str] = ...) -> None: ...
+    date_parts: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, type: _Optional[_Union[FilenamePartType, str]] = ..., static_text: _Optional[str] = ..., date_parts: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class TransferOptions(_message.Message):
     __slots__ = ("transfer_config_sid", "filename_parts")
