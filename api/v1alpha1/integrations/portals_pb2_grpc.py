@@ -145,11 +145,6 @@ class PortalManagerApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAllActionDefinitionsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAllActionDefinitionsResponse.FromString,
                 )
-        self.ListPluginsByMethod = channel.unary_unary(
-                '/api.v1alpha1.integrations.PortalManagerApi/ListPluginsByMethod',
-                request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPluginsByMethodReq.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPluginsByMethodRes.FromString,
-                )
 
 
 class PortalManagerApiServicer(object):
@@ -316,12 +311,6 @@ class PortalManagerApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListPluginsByMethod(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_PortalManagerApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -454,11 +443,6 @@ def add_PortalManagerApiServicer_to_server(servicer, server):
                     servicer.ListAllActionDefinitions,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAllActionDefinitionsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAllActionDefinitionsResponse.SerializeToString,
-            ),
-            'ListPluginsByMethod': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListPluginsByMethod,
-                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPluginsByMethodReq.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPluginsByMethodRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -909,22 +893,5 @@ class PortalManagerApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.PortalManagerApi/ListAllActionDefinitions',
             api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAllActionDefinitionsReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListAllActionDefinitionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListPluginsByMethod(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.PortalManagerApi/ListPluginsByMethod',
-            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPluginsByMethodReq.SerializeToString,
-            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPluginsByMethodRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
