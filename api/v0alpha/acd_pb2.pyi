@@ -1,5 +1,6 @@
 from annotations import authz_pb2 as _authz_pb2
 from api.commons import acd_pb2 as _acd_pb2
+from api.v1alpha1.integrations import service_pb2 as _service_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -732,5 +733,94 @@ class AgentUnmuteRequest(_message.Message):
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
 
 class AgentUnmuteReply(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class StartSecureFormReq(_message.Message):
+    __slots__ = ("portal_id",)
+    PORTAL_ID_FIELD_NUMBER: _ClassVar[int]
+    portal_id: str
+    def __init__(self, portal_id: _Optional[str] = ...) -> None: ...
+
+class StartSecureFormRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CollectSecureFormFieldReq(_message.Message):
+    __slots__ = ("field_name",)
+    FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    field_name: str
+    def __init__(self, field_name: _Optional[str] = ...) -> None: ...
+
+class CollectSecureFormFieldRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ResetSecureFormFieldReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ResetSecureFormFieldRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class AcceptSecureFormFieldReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class AcceptSecureFormFieldRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ProcessSecureFormReq(_message.Message):
+    __slots__ = ("values", "portal_id", "segment", "choice")
+    class ValuesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: _service_pb2.Value
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_service_pb2.Value, _Mapping]] = ...) -> None: ...
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    PORTAL_ID_FIELD_NUMBER: _ClassVar[int]
+    SEGMENT_FIELD_NUMBER: _ClassVar[int]
+    CHOICE_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.MessageMap[str, _service_pb2.Value]
+    portal_id: str
+    segment: int
+    choice: int
+    def __init__(self, values: _Optional[_Mapping[str, _service_pb2.Value]] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ...) -> None: ...
+
+class ProcessSecureFormRes(_message.Message):
+    __slots__ = ("success", "data")
+    class DataEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: _service_pb2.Value
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_service_pb2.Value, _Mapping]] = ...) -> None: ...
+    SUCCESS_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    success: bool
+    data: _containers.MessageMap[str, _service_pb2.Value]
+    def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
+
+class FinishSecureFormHandlingReq(_message.Message):
+    __slots__ = ("reason", "data")
+    class DataEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: _service_pb2.Value
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_service_pb2.Value, _Mapping]] = ...) -> None: ...
+    REASON_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    reason: str
+    data: _containers.MessageMap[str, _service_pb2.Value]
+    def __init__(self, reason: _Optional[str] = ..., data: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
+
+class FinishSecureFormHandlingRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...

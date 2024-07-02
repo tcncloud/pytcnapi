@@ -179,6 +179,7 @@ class AgentStatus(_message.Message):
         CALLER_TRANSFER_LOST_MERGED_CALLER: _ClassVar[AgentStatus.Enum]
         COLD_OUTBOUND_TRANSFER_STARTED: _ClassVar[AgentStatus.Enum]
         COLD_AGENT_TRANSFER_STARTED: _ClassVar[AgentStatus.Enum]
+        SECURE_FORM_HANDLING: _ClassVar[AgentStatus.Enum]
     UNAVALIABLE: AgentStatus.Enum
     IDLE: AgentStatus.Enum
     READY: AgentStatus.Enum
@@ -219,6 +220,7 @@ class AgentStatus(_message.Message):
     CALLER_TRANSFER_LOST_MERGED_CALLER: AgentStatus.Enum
     COLD_OUTBOUND_TRANSFER_STARTED: AgentStatus.Enum
     COLD_AGENT_TRANSFER_STARTED: AgentStatus.Enum
+    SECURE_FORM_HANDLING: AgentStatus.Enum
     def __init__(self) -> None: ...
 
 class CallerStatus(_message.Message):
@@ -245,6 +247,7 @@ class CallerStatus(_message.Message):
         CALLER_TRANSFER_PEER: _ClassVar[CallerStatus.Enum]
         CALLER_TRANSFER_MERGED_CALLER: _ClassVar[CallerStatus.Enum]
         CALLER_PEERED: _ClassVar[CallerStatus.Enum]
+        SECURE_FORM_HANDLING_COLLECT: _ClassVar[CallerStatus.Enum]
     UNAVALIABLE: CallerStatus.Enum
     IDLE: CallerStatus.Enum
     READY: CallerStatus.Enum
@@ -265,6 +268,7 @@ class CallerStatus(_message.Message):
     CALLER_TRANSFER_PEER: CallerStatus.Enum
     CALLER_TRANSFER_MERGED_CALLER: CallerStatus.Enum
     CALLER_PEERED: CallerStatus.Enum
+    SECURE_FORM_HANDLING_COLLECT: CallerStatus.Enum
     def __init__(self) -> None: ...
 
 class CallType(_message.Message):

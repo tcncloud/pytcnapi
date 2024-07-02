@@ -292,6 +292,36 @@ class AcdStub(object):
                 request_serializer=api_dot_v0alpha_dot_acd__pb2.AgentUnmuteRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentUnmuteReply.FromString,
                 )
+        self.StartSecureForm = channel.unary_unary(
+                '/api.v0alpha.Acd/StartSecureForm',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.StartSecureFormReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.StartSecureFormRes.FromString,
+                )
+        self.CollectSecureFormField = channel.unary_stream(
+                '/api.v0alpha.Acd/CollectSecureFormField',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.CollectSecureFormFieldReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.CollectSecureFormFieldRes.FromString,
+                )
+        self.ResetSecureFormField = channel.unary_unary(
+                '/api.v0alpha.Acd/ResetSecureFormField',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.ResetSecureFormFieldReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.ResetSecureFormFieldRes.FromString,
+                )
+        self.AcceptSecureFormField = channel.unary_unary(
+                '/api.v0alpha.Acd/AcceptSecureFormField',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.AcceptSecureFormFieldReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.AcceptSecureFormFieldRes.FromString,
+                )
+        self.ProcessSecureForm = channel.unary_unary(
+                '/api.v0alpha.Acd/ProcessSecureForm',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.ProcessSecureFormReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.ProcessSecureFormRes.FromString,
+                )
+        self.FinishSecureFormHandling = channel.unary_unary(
+                '/api.v0alpha.Acd/FinishSecureFormHandling',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.FinishSecureFormHandlingReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.FinishSecureFormHandlingRes.FromString,
+                )
 
 
 class AcdServicer(object):
@@ -638,6 +668,42 @@ class AcdServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def StartSecureForm(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CollectSecureFormField(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ResetSecureFormField(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AcceptSecureFormField(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ProcessSecureForm(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def FinishSecureFormHandling(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AcdServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -900,6 +966,36 @@ def add_AcdServicer_to_server(servicer, server):
                     servicer.AgentUnmute,
                     request_deserializer=api_dot_v0alpha_dot_acd__pb2.AgentUnmuteRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_acd__pb2.AgentUnmuteReply.SerializeToString,
+            ),
+            'StartSecureForm': grpc.unary_unary_rpc_method_handler(
+                    servicer.StartSecureForm,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.StartSecureFormReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.StartSecureFormRes.SerializeToString,
+            ),
+            'CollectSecureFormField': grpc.unary_stream_rpc_method_handler(
+                    servicer.CollectSecureFormField,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.CollectSecureFormFieldReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.CollectSecureFormFieldRes.SerializeToString,
+            ),
+            'ResetSecureFormField': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResetSecureFormField,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.ResetSecureFormFieldReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.ResetSecureFormFieldRes.SerializeToString,
+            ),
+            'AcceptSecureFormField': grpc.unary_unary_rpc_method_handler(
+                    servicer.AcceptSecureFormField,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.AcceptSecureFormFieldReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.AcceptSecureFormFieldRes.SerializeToString,
+            ),
+            'ProcessSecureForm': grpc.unary_unary_rpc_method_handler(
+                    servicer.ProcessSecureForm,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.ProcessSecureFormReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.ProcessSecureFormRes.SerializeToString,
+            ),
+            'FinishSecureFormHandling': grpc.unary_unary_rpc_method_handler(
+                    servicer.FinishSecureFormHandling,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.FinishSecureFormHandlingReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.FinishSecureFormHandlingRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1810,5 +1906,107 @@ class Acd(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/AgentUnmute',
             api_dot_v0alpha_dot_acd__pb2.AgentUnmuteRequest.SerializeToString,
             api_dot_v0alpha_dot_acd__pb2.AgentUnmuteReply.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def StartSecureForm(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/StartSecureForm',
+            api_dot_v0alpha_dot_acd__pb2.StartSecureFormReq.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.StartSecureFormRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CollectSecureFormField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v0alpha.Acd/CollectSecureFormField',
+            api_dot_v0alpha_dot_acd__pb2.CollectSecureFormFieldReq.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.CollectSecureFormFieldRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ResetSecureFormField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/ResetSecureFormField',
+            api_dot_v0alpha_dot_acd__pb2.ResetSecureFormFieldReq.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.ResetSecureFormFieldRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AcceptSecureFormField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/AcceptSecureFormField',
+            api_dot_v0alpha_dot_acd__pb2.AcceptSecureFormFieldReq.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.AcceptSecureFormFieldRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ProcessSecureForm(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/ProcessSecureForm',
+            api_dot_v0alpha_dot_acd__pb2.ProcessSecureFormReq.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.ProcessSecureFormRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def FinishSecureFormHandling(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/FinishSecureFormHandling',
+            api_dot_v0alpha_dot_acd__pb2.FinishSecureFormHandlingReq.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.FinishSecureFormHandlingRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
