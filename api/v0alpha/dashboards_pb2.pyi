@@ -91,12 +91,14 @@ class DeleteDashboardRequest(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class GetDashboardRequest(_message.Message):
-    __slots__ = ("dashboard_id", "resource_id")
+    __slots__ = ("dashboard_id", "resource_id", "application")
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    APPLICATION_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
     resource_id: str
-    def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
+    application: _license_pb2.Application
+    def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ..., application: _Optional[_Union[_license_pb2.Application, str]] = ...) -> None: ...
 
 class CreateDashboardRequest(_message.Message):
     __slots__ = ("title", "description", "layout", "view", "type")
