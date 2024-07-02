@@ -427,3 +427,15 @@ class ActionDefinition(_message.Message):
     template: _service_pb2.Template
     opts: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
     def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., method: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., req_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., res_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., plugin_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., link_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., prev_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., form_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., template: _Optional[_Union[_service_pb2.Template, _Mapping]] = ..., opts: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
+
+class ListPluginsByMethodReq(_message.Message):
+    __slots__ = ("method_id",)
+    METHOD_ID_FIELD_NUMBER: _ClassVar[int]
+    method_id: _integrations_pb2.RequestMethod
+    def __init__(self, method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ...) -> None: ...
+
+class ListPluginsByMethodRes(_message.Message):
+    __slots__ = ("entities",)
+    ENTITIES_FIELD_NUMBER: _ClassVar[int]
+    entities: _containers.RepeatedCompositeFieldContainer[_service_pb2.PluginInstance]
+    def __init__(self, entities: _Optional[_Iterable[_Union[_service_pb2.PluginInstance, _Mapping]]] = ...) -> None: ...

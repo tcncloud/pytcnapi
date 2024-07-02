@@ -356,6 +356,8 @@ class Validation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALIDATION_DOB: _ClassVar[Validation]
     VALIDATION_BOOL: _ClassVar[Validation]
     VALIDATION_REGEX: _ClassVar[Validation]
+    VALIDATION_ROUTING: _ClassVar[Validation]
+    VALIDATION_ACCOUNT: _ClassVar[Validation]
 
 class InvoiceDisplayType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -726,6 +728,8 @@ VALIDATION_DATE: Validation
 VALIDATION_DOB: Validation
 VALIDATION_BOOL: Validation
 VALIDATION_REGEX: Validation
+VALIDATION_ROUTING: Validation
+VALIDATION_ACCOUNT: Validation
 UNSPECIFIED: InvoiceDisplayType
 AMOUNT_DUE: InvoiceDisplayType
 SERVICE_DATE: InvoiceDisplayType
