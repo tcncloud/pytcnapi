@@ -737,43 +737,51 @@ class AgentUnmuteReply(_message.Message):
     def __init__(self) -> None: ...
 
 class StartSecureFormReq(_message.Message):
-    __slots__ = ("portal_id",)
+    __slots__ = ("portal_id", "voice_session_sid")
     PORTAL_ID_FIELD_NUMBER: _ClassVar[int]
+    VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     portal_id: str
-    def __init__(self, portal_id: _Optional[str] = ...) -> None: ...
+    voice_session_sid: int
+    def __init__(self, portal_id: _Optional[str] = ..., voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class StartSecureFormRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class CollectSecureFormFieldReq(_message.Message):
-    __slots__ = ("field_name",)
+    __slots__ = ("field_name", "voice_session_sid")
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     field_name: str
-    def __init__(self, field_name: _Optional[str] = ...) -> None: ...
+    voice_session_sid: int
+    def __init__(self, field_name: _Optional[str] = ..., voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class CollectSecureFormFieldRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class ResetSecureFormFieldReq(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("voice_session_sid",)
+    VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    voice_session_sid: int
+    def __init__(self, voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class ResetSecureFormFieldRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class AcceptSecureFormFieldReq(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("voice_session_sid",)
+    VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    voice_session_sid: int
+    def __init__(self, voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class AcceptSecureFormFieldRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class ProcessSecureFormReq(_message.Message):
-    __slots__ = ("values", "portal_id", "segment", "choice")
+    __slots__ = ("values", "portal_id", "segment", "choice", "voice_session_sid")
     class ValuesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -785,11 +793,13 @@ class ProcessSecureFormReq(_message.Message):
     PORTAL_ID_FIELD_NUMBER: _ClassVar[int]
     SEGMENT_FIELD_NUMBER: _ClassVar[int]
     CHOICE_FIELD_NUMBER: _ClassVar[int]
+    VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     values: _containers.MessageMap[str, _service_pb2.Value]
     portal_id: str
     segment: int
     choice: int
-    def __init__(self, values: _Optional[_Mapping[str, _service_pb2.Value]] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ...) -> None: ...
+    voice_session_sid: int
+    def __init__(self, values: _Optional[_Mapping[str, _service_pb2.Value]] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class ProcessSecureFormRes(_message.Message):
     __slots__ = ("success", "data")
@@ -807,7 +817,7 @@ class ProcessSecureFormRes(_message.Message):
     def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
 
 class FinishSecureFormHandlingReq(_message.Message):
-    __slots__ = ("reason", "data")
+    __slots__ = ("reason", "data", "voice_session_sid")
     class DataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -817,9 +827,11 @@ class FinishSecureFormHandlingReq(_message.Message):
         def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_service_pb2.Value, _Mapping]] = ...) -> None: ...
     REASON_FIELD_NUMBER: _ClassVar[int]
     DATA_FIELD_NUMBER: _ClassVar[int]
+    VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     reason: str
     data: _containers.MessageMap[str, _service_pb2.Value]
-    def __init__(self, reason: _Optional[str] = ..., data: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
+    voice_session_sid: int
+    def __init__(self, reason: _Optional[str] = ..., data: _Optional[_Mapping[str, _service_pb2.Value]] = ..., voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class FinishSecureFormHandlingRes(_message.Message):
     __slots__ = ()
