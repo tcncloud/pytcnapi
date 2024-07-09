@@ -34,6 +34,11 @@ class AgentTrainingServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityResponse.FromString,
                 )
+        self.ListDashboards = channel.unary_unary(
+                '/api.v1alpha1.agenttraining.AgentTrainingService/ListDashboards',
+                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.FromString,
+                )
         self.UpdateLearningOpportunity = channel.unary_unary(
                 '/api.v1alpha1.agenttraining.AgentTrainingService/UpdateLearningOpportunity',
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityRequest.SerializeToString,
@@ -82,6 +87,13 @@ class AgentTrainingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListDashboards(self, request, context):
+        """ListDashboards lists dashboards.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def UpdateLearningOpportunity(self, request, context):
         """UpdateLearningOpportunity updates a learning opportunity.
         """
@@ -125,6 +137,11 @@ def add_AgentTrainingServiceServicer_to_server(servicer, server):
                     servicer.CompleteAgentLearningOpportunity,
                     request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityResponse.SerializeToString,
+            ),
+            'ListDashboards': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListDashboards,
+                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.SerializeToString,
             ),
             'UpdateLearningOpportunity': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateLearningOpportunity,
@@ -216,6 +233,23 @@ class AgentTrainingService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/CompleteAgentLearningOpportunity',
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityRequest.SerializeToString,
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.CompleteAgentLearningOpportunityResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListDashboards(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/ListDashboards',
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
