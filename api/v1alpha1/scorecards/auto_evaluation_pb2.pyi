@@ -137,22 +137,14 @@ class DeleteAutoEvaluationByOrgIdRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_id: _Optional[int] = ...) -> None: ...
 
 class BulkDeleteAutoEvaluationsRequest(_message.Message):
-    __slots__ = ("org_id", "auto_evaluation_ids", "completed_at", "scorecard_ids", "category_ids", "agent_user_ids", "risk_levels")
+    __slots__ = ("org_id", "auto_evaluation_ids", "completed_at")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_EVALUATION_IDS_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
-    SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
-    CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
-    AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
-    RISK_LEVELS_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     auto_evaluation_ids: _containers.RepeatedScalarFieldContainer[int]
     completed_at: _scorecards_pb2.TimeFilter
-    scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
-    category_ids: _containers.RepeatedScalarFieldContainer[int]
-    agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
-    risk_levels: _containers.RepeatedScalarFieldContainer[_scorecards_pb2.RiskLevel]
-    def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., risk_levels: _Optional[_Iterable[_Union[_scorecards_pb2.RiskLevel, str]]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
 
 class BulkDeleteAutoEvaluationsResponse(_message.Message):
     __slots__ = ("count",)

@@ -104,23 +104,6 @@ class GetLearningOpportunityResponse(_message.Message):
     learning_opportunity: _agent_training_pb2.LearningOpportunity
     def __init__(self, learning_opportunity: _Optional[_Union[_agent_training_pb2.LearningOpportunity, _Mapping]] = ...) -> None: ...
 
-class ListDashboardsRequest(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
-
-class ListDashboardsResponse(_message.Message):
-    __slots__ = ("dashboards",)
-    class Dashboard(_message.Message):
-        __slots__ = ("resource_id", "title")
-        RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
-        TITLE_FIELD_NUMBER: _ClassVar[int]
-        resource_id: str
-        title: str
-        def __init__(self, resource_id: _Optional[str] = ..., title: _Optional[str] = ...) -> None: ...
-    DASHBOARDS_FIELD_NUMBER: _ClassVar[int]
-    dashboards: _containers.RepeatedCompositeFieldContainer[ListDashboardsResponse.Dashboard]
-    def __init__(self, dashboards: _Optional[_Iterable[_Union[ListDashboardsResponse.Dashboard, _Mapping]]] = ...) -> None: ...
-
 class ListLearningOpportunitiesByOrgIdRequest(_message.Message):
     __slots__ = ("org_id", "call_identifiers", "transcript_sids", "agent_user_ids", "created_at")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
