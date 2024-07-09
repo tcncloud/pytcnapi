@@ -15,3 +15,15 @@ class CancelTasksRequest(_message.Message):
 class CancelTasksResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class BulkCancelTasksRequest(_message.Message):
+    __slots__ = ("filter",)
+    FILTER_FIELD_NUMBER: _ClassVar[int]
+    filter: str
+    def __init__(self, filter: _Optional[str] = ...) -> None: ...
+
+class BulkCancelTasksResponse(_message.Message):
+    __slots__ = ("ghost_reference_id",)
+    GHOST_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    ghost_reference_id: str
+    def __init__(self, ghost_reference_id: _Optional[str] = ...) -> None: ...

@@ -19,12 +19,23 @@ class TasksServiceStub(object):
                 request_serializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.CancelTasksRequest.SerializeToString,
                 response_deserializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.CancelTasksResponse.FromString,
                 )
+        self.BulkCancelTasks = channel.unary_unary(
+                '/services.omnichannel.tasks.v1alpha1.TasksService/BulkCancelTasks',
+                request_serializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.BulkCancelTasksRequest.SerializeToString,
+                response_deserializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.BulkCancelTasksResponse.FromString,
+                )
 
 
 class TasksServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def CancelTasks(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkCancelTasks(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -37,6 +48,11 @@ def add_TasksServiceServicer_to_server(servicer, server):
                     servicer.CancelTasks,
                     request_deserializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.CancelTasksRequest.FromString,
                     response_serializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.CancelTasksResponse.SerializeToString,
+            ),
+            'BulkCancelTasks': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkCancelTasks,
+                    request_deserializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.BulkCancelTasksRequest.FromString,
+                    response_serializer=services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.BulkCancelTasksResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,5 +78,22 @@ class TasksService(object):
         return grpc.experimental.unary_unary(request, target, '/services.omnichannel.tasks.v1alpha1.TasksService/CancelTasks',
             services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.CancelTasksRequest.SerializeToString,
             services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.CancelTasksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkCancelTasks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.omnichannel.tasks.v1alpha1.TasksService/BulkCancelTasks',
+            services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.BulkCancelTasksRequest.SerializeToString,
+            services_dot_omnichannel_dot_tasks_dot_v1alpha1_dot_entities__pb2.BulkCancelTasksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
