@@ -154,10 +154,12 @@ class GetPublishedArticleByIdResponse(_message.Message):
     def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
 
 class UserActivityRequest(_message.Message):
-    __slots__ = ("published_article_sid",)
+    __slots__ = ("published_article_sid", "force")
     PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+    FORCE_FIELD_NUMBER: _ClassVar[int]
     published_article_sid: int
-    def __init__(self, published_article_sid: _Optional[int] = ...) -> None: ...
+    force: bool
+    def __init__(self, published_article_sid: _Optional[int] = ..., force: bool = ...) -> None: ...
 
 class UserActivityResponse(_message.Message):
     __slots__ = ("user_activity",)
