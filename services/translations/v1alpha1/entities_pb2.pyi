@@ -124,3 +124,21 @@ class TriggerLLMTranslationsRequest(_message.Message):
 class TriggerLLMTranslationsResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListLanguagesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListLanguagesResponse(_message.Message):
+    __slots__ = ("languages",)
+    LANGUAGES_FIELD_NUMBER: _ClassVar[int]
+    languages: _containers.RepeatedCompositeFieldContainer[LocalizationLanguage]
+    def __init__(self, languages: _Optional[_Iterable[_Union[LocalizationLanguage, _Mapping]]] = ...) -> None: ...
+
+class LocalizationLanguage(_message.Message):
+    __slots__ = ("language_tag", "english_name")
+    LANGUAGE_TAG_FIELD_NUMBER: _ClassVar[int]
+    ENGLISH_NAME_FIELD_NUMBER: _ClassVar[int]
+    language_tag: str
+    english_name: str
+    def __init__(self, language_tag: _Optional[str] = ..., english_name: _Optional[str] = ...) -> None: ...

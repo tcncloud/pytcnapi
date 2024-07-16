@@ -24,6 +24,11 @@ class TranslationsServiceStub(object):
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListTranslationsRequest.SerializeToString,
                 response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListTranslationsResponse.FromString,
                 )
+        self.ListLanguages = channel.unary_unary(
+                '/services.translations.v1alpha1.TranslationsService/ListLanguages',
+                request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesRequest.SerializeToString,
+                response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesResponse.FromString,
+                )
         self.UpdateTranslation = channel.unary_unary(
                 '/services.translations.v1alpha1.TranslationsService/UpdateTranslation',
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.UpdateTranslationRequest.SerializeToString,
@@ -80,6 +85,15 @@ class TranslationsServiceServicer(object):
         Errors:
         - grpc.InvalidArgument: The request is not valid.
         - grpc.NotFound: No templates found for the given context and language.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListLanguages(self, request, context):
+        """Lists localization languages
+        Required permissions:
+        - PERMISSION_CUSTOMER_SUPPORT
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -159,6 +173,11 @@ def add_TranslationsServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListTranslationsRequest.FromString,
                     response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListTranslationsResponse.SerializeToString,
             ),
+            'ListLanguages': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListLanguages,
+                    request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesRequest.FromString,
+                    response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesResponse.SerializeToString,
+            ),
             'UpdateTranslation': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateTranslation,
                     request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.UpdateTranslationRequest.FromString,
@@ -230,6 +249,23 @@ class TranslationsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/ListTranslations',
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListTranslationsRequest.SerializeToString,
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListTranslationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListLanguages(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/ListLanguages',
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesRequest.SerializeToString,
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
