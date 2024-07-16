@@ -1,5 +1,6 @@
 from annotations import authz_pb2 as _authz_pb2
 from api.commons import acd_pb2 as _acd_pb2
+from api.commons.integrations import integrations_pb2 as _integrations_pb2
 from api.v1alpha1.integrations import service_pb2 as _service_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf.internal import containers as _containers
@@ -836,3 +837,32 @@ class FinishSecureFormHandlingReq(_message.Message):
 class FinishSecureFormHandlingRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class PopulateWorkflowFieldsReq(_message.Message):
+    __slots__ = ("client_sid", "agent_sid", "call_sid", "call_type", "scheduled_callback_id", "field_definitions")
+    CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
+    FIELD_DEFINITIONS_FIELD_NUMBER: _ClassVar[int]
+    client_sid: int
+    agent_sid: int
+    call_sid: int
+    call_type: _acd_pb2.CallType.Enum
+    scheduled_callback_id: str
+    field_definitions: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
+    def __init__(self, client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., scheduled_callback_id: _Optional[str] = ..., field_definitions: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
+
+class PopulateWorkflowFieldsRes(_message.Message):
+    __slots__ = ("values",)
+    class ValuesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: _service_pb2.Value
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_service_pb2.Value, _Mapping]] = ...) -> None: ...
+    VALUES_FIELD_NUMBER: _ClassVar[int]
+    values: _containers.MessageMap[str, _service_pb2.Value]
+    def __init__(self, values: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
