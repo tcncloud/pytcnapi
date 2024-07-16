@@ -305,6 +305,11 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_lms__pb2.Events.FromString,
                 )
+        self.ListPools = channel.unary_unary(
+                '/api.v0alpha.LMS/ListPools',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsResponse.FromString,
+                )
 
 
 class LMSServicer(object):
@@ -680,6 +685,13 @@ class LMSServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListPools(self, request, context):
+        """List pools is a unary call to show finvi pools through exile
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LMSServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -972,6 +984,11 @@ def add_LMSServicer_to_server(servicer, server):
                     servicer.GetQueuedEventsStatusByElementId,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.ElementPK.FromString,
                     response_serializer=api_dot_v0alpha_dot_lms__pb2.Events.SerializeToString,
+            ),
+            'ListPools': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPools,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1966,5 +1983,22 @@ class LMS(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/GetQueuedEventsStatusByElementId',
             api_dot_v0alpha_dot_lms__pb2.ElementPK.SerializeToString,
             api_dot_v0alpha_dot_lms__pb2.Events.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPools(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListPools',
+            api_dot_v0alpha_dot_lms__pb2.ListPoolsRequest.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.ListPoolsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
