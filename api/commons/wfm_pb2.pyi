@@ -250,6 +250,12 @@ class AgentLeavePetitionStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper
     APPROVED_PETITION: _ClassVar[AgentLeavePetitionStatus]
     DENIED_PETITION: _ClassVar[AgentLeavePetitionStatus]
     CANCELLED_PETITION: _ClassVar[AgentLeavePetitionStatus]
+
+class SchedulingActivityClassification(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    STANDARD_SCHEDULING_ACTIVITY: _ClassVar[SchedulingActivityClassification]
+    ON_CALL_ACTIVITY: _ClassVar[SchedulingActivityClassification]
+    TIME_OFF_ACTIVITY: _ClassVar[SchedulingActivityClassification]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -431,6 +437,9 @@ PENDING_PETITION: AgentLeavePetitionStatus
 APPROVED_PETITION: AgentLeavePetitionStatus
 DENIED_PETITION: AgentLeavePetitionStatus
 CANCELLED_PETITION: AgentLeavePetitionStatus
+STANDARD_SCHEDULING_ACTIVITY: SchedulingActivityClassification
+ON_CALL_ACTIVITY: SchedulingActivityClassification
+TIME_OFF_ACTIVITY: SchedulingActivityClassification
 
 class SkillType(_message.Message):
     __slots__ = ()
@@ -715,7 +724,7 @@ class AgentStateSequence(_message.Message):
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ...) -> None: ...
 
 class AgentLeavePetition(_message.Message):
-    __slots__ = ("agent_leave_petition_id", "wfm_agent_sid", "petition_status", "petition_comment", "response_comment", "requested_datetime_ranges", "created_time", "archived_time", "resolved_time", "resolved_by_user_id")
+    __slots__ = ("agent_leave_petition_id", "wfm_agent_sid", "petition_status", "petition_comment", "response_comment", "requested_datetime_ranges", "created_time", "archived_time", "resolved_time", "resolved_by_user_id", "requested_hours_off")
     AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     PETITION_STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -726,6 +735,7 @@ class AgentLeavePetition(_message.Message):
     ARCHIVED_TIME_FIELD_NUMBER: _ClassVar[int]
     RESOLVED_TIME_FIELD_NUMBER: _ClassVar[int]
     RESOLVED_BY_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    REQUESTED_HOURS_OFF_FIELD_NUMBER: _ClassVar[int]
     agent_leave_petition_id: int
     wfm_agent_sid: int
     petition_status: AgentLeavePetitionStatus
@@ -736,4 +746,5 @@ class AgentLeavePetition(_message.Message):
     archived_time: _timestamp_pb2.Timestamp
     resolved_time: _timestamp_pb2.Timestamp
     resolved_by_user_id: str
-    def __init__(self, agent_leave_petition_id: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., petition_status: _Optional[_Union[AgentLeavePetitionStatus, str]] = ..., petition_comment: _Optional[str] = ..., response_comment: _Optional[str] = ..., requested_datetime_ranges: _Optional[_Iterable[_Union[DatetimeRange, _Mapping]]] = ..., created_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., archived_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_by_user_id: _Optional[str] = ...) -> None: ...
+    requested_hours_off: float
+    def __init__(self, agent_leave_petition_id: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., petition_status: _Optional[_Union[AgentLeavePetitionStatus, str]] = ..., petition_comment: _Optional[str] = ..., response_comment: _Optional[str] = ..., requested_datetime_ranges: _Optional[_Iterable[_Union[DatetimeRange, _Mapping]]] = ..., created_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., archived_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_by_user_id: _Optional[str] = ..., requested_hours_off: _Optional[float] = ...) -> None: ...

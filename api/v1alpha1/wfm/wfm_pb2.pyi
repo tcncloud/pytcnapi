@@ -1252,16 +1252,18 @@ class ListNonSkillActivityAssociationsRes(_message.Message):
     def __init__(self, non_skill_activity_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class SchedulingActivity(_message.Message):
-    __slots__ = ("scheduling_activity_sid", "is_skill_activity", "activity_sid", "member_non_skill_activity")
+    __slots__ = ("scheduling_activity_sid", "is_skill_activity", "activity_sid", "member_non_skill_activity", "activity_classification")
     SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     IS_SKILL_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_NON_SKILL_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    ACTIVITY_CLASSIFICATION_FIELD_NUMBER: _ClassVar[int]
     scheduling_activity_sid: int
     is_skill_activity: bool
     activity_sid: _wrappers_pb2.Int64Value
     member_non_skill_activity: NonSkillActivity
-    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., is_skill_activity: bool = ..., activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., member_non_skill_activity: _Optional[_Union[NonSkillActivity, _Mapping]] = ...) -> None: ...
+    activity_classification: _wfm_pb2.SchedulingActivityClassification
+    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., is_skill_activity: bool = ..., activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., member_non_skill_activity: _Optional[_Union[NonSkillActivity, _Mapping]] = ..., activity_classification: _Optional[_Union[_wfm_pb2.SchedulingActivityClassification, str]] = ...) -> None: ...
 
 class ListCandidateSchedulingActivitiesReq(_message.Message):
     __slots__ = ("parent_of_rule", "schedule_scenario_sid")
@@ -1753,16 +1755,18 @@ class DatetimePattern(_message.Message):
     def __init__(self, week_maps: _Optional[_Iterable[_Union[DatetimePattern.WeekMap, _Mapping]]] = ..., calendar_items: _Optional[_Iterable[_Union[DatetimePattern.CalendarItem, _Mapping]]] = ...) -> None: ...
 
 class OpenTimesPattern(_message.Message):
-    __slots__ = ("open_times_pattern_sid", "parent_entity", "datetime_pattern", "schedule_scenario_sid")
+    __slots__ = ("open_times_pattern_sid", "parent_entity", "datetime_pattern", "schedule_scenario_sid", "scheduling_activity_sid")
     OPEN_TIMES_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
     PARENT_ENTITY_FIELD_NUMBER: _ClassVar[int]
     DATETIME_PATTERN_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     open_times_pattern_sid: int
     parent_entity: ParentEntity
     datetime_pattern: DatetimePattern
     schedule_scenario_sid: int
-    def __init__(self, open_times_pattern_sid: _Optional[int] = ..., parent_entity: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_pattern: _Optional[_Union[DatetimePattern, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+    scheduling_activity_sid: _wrappers_pb2.Int64Value
+    def __init__(self, open_times_pattern_sid: _Optional[int] = ..., parent_entity: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_pattern: _Optional[_Union[DatetimePattern, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ..., scheduling_activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class CreateOpenTimesPatternReq(_message.Message):
     __slots__ = ("open_times_pattern",)
@@ -1837,16 +1841,18 @@ class ListOpenDateRangesForNodeOpenTimesBitmapsResponse(_message.Message):
     def __init__(self, open_close_ranges: _Optional[_Iterable[_Union[_wfm_pb2.DatetimeRange, _Mapping]]] = ...) -> None: ...
 
 class AgentAvailabilityPattern(_message.Message):
-    __slots__ = ("agent_availability_pattern_sid", "parent_entity", "datetime_pattern", "schedule_scenario_sid")
+    __slots__ = ("agent_availability_pattern_sid", "parent_entity", "datetime_pattern", "schedule_scenario_sid", "scheduling_activity_sid")
     AGENT_AVAILABILITY_PATTERN_SID_FIELD_NUMBER: _ClassVar[int]
     PARENT_ENTITY_FIELD_NUMBER: _ClassVar[int]
     DATETIME_PATTERN_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     agent_availability_pattern_sid: int
     parent_entity: ParentEntity
     datetime_pattern: DatetimePattern
     schedule_scenario_sid: int
-    def __init__(self, agent_availability_pattern_sid: _Optional[int] = ..., parent_entity: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_pattern: _Optional[_Union[DatetimePattern, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+    scheduling_activity_sid: _wrappers_pb2.Int64Value
+    def __init__(self, agent_availability_pattern_sid: _Optional[int] = ..., parent_entity: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_pattern: _Optional[_Union[DatetimePattern, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ..., scheduling_activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class CreateAgentAvailabilityPatternReq(_message.Message):
     __slots__ = ("agent_availability_pattern",)
@@ -3668,14 +3674,16 @@ class ListRealTimeManagementStateColorsResponse(_message.Message):
     def __init__(self, state_colors: _Optional[_Iterable[_Union[RealTimeManagementStateColor, _Mapping]]] = ...) -> None: ...
 
 class CreateAgentLeavePetitionRequest(_message.Message):
-    __slots__ = ("requested_datetime_ranges", "petition_comment", "wfm_agent_sid")
+    __slots__ = ("requested_datetime_ranges", "petition_comment", "wfm_agent_sid", "requested_hours_off")
     REQUESTED_DATETIME_RANGES_FIELD_NUMBER: _ClassVar[int]
     PETITION_COMMENT_FIELD_NUMBER: _ClassVar[int]
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    REQUESTED_HOURS_OFF_FIELD_NUMBER: _ClassVar[int]
     requested_datetime_ranges: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.DatetimeRange]
     petition_comment: str
     wfm_agent_sid: int
-    def __init__(self, requested_datetime_ranges: _Optional[_Iterable[_Union[_wfm_pb2.DatetimeRange, _Mapping]]] = ..., petition_comment: _Optional[str] = ..., wfm_agent_sid: _Optional[int] = ...) -> None: ...
+    requested_hours_off: float
+    def __init__(self, requested_datetime_ranges: _Optional[_Iterable[_Union[_wfm_pb2.DatetimeRange, _Mapping]]] = ..., petition_comment: _Optional[str] = ..., wfm_agent_sid: _Optional[int] = ..., requested_hours_off: _Optional[float] = ...) -> None: ...
 
 class CreateAgentLeavePetitionResponse(_message.Message):
     __slots__ = ("agent_leave_petition",)
@@ -3706,24 +3714,30 @@ class ArchiveAgentLeavePetitionRequest(_message.Message):
     def __init__(self, agent_leave_petition_id: _Optional[int] = ...) -> None: ...
 
 class ArchiveAgentLeavePetitionResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("agent_leave_petition",)
+    AGENT_LEAVE_PETITION_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition: _wfm_pb2.AgentLeavePetition
+    def __init__(self, agent_leave_petition: _Optional[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]] = ...) -> None: ...
 
 class ResolveAgentLeavePetitionRequest(_message.Message):
-    __slots__ = ("agent_leave_petition_id", "petition_status", "response_comment", "retain_partial_shifts")
+    __slots__ = ("agent_leave_petition_id", "petition_status", "response_comment", "retain_partial_shifts", "replace_with_unassigned_agent")
     AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
     PETITION_STATUS_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_COMMENT_FIELD_NUMBER: _ClassVar[int]
     RETAIN_PARTIAL_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    REPLACE_WITH_UNASSIGNED_AGENT_FIELD_NUMBER: _ClassVar[int]
     agent_leave_petition_id: int
     petition_status: _wfm_pb2.AgentLeavePetitionStatus
     response_comment: str
     retain_partial_shifts: bool
-    def __init__(self, agent_leave_petition_id: _Optional[int] = ..., petition_status: _Optional[_Union[_wfm_pb2.AgentLeavePetitionStatus, str]] = ..., response_comment: _Optional[str] = ..., retain_partial_shifts: bool = ...) -> None: ...
+    replace_with_unassigned_agent: bool
+    def __init__(self, agent_leave_petition_id: _Optional[int] = ..., petition_status: _Optional[_Union[_wfm_pb2.AgentLeavePetitionStatus, str]] = ..., response_comment: _Optional[str] = ..., retain_partial_shifts: bool = ..., replace_with_unassigned_agent: bool = ...) -> None: ...
 
 class ResolveAgentLeavePetitionResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("agent_leave_petition",)
+    AGENT_LEAVE_PETITION_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition: _wfm_pb2.AgentLeavePetition
+    def __init__(self, agent_leave_petition: _Optional[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]] = ...) -> None: ...
 
 class CancelAgentLeavePetitionRequest(_message.Message):
     __slots__ = ("agent_leave_petition_id",)
@@ -3732,5 +3746,7 @@ class CancelAgentLeavePetitionRequest(_message.Message):
     def __init__(self, agent_leave_petition_id: _Optional[int] = ...) -> None: ...
 
 class CancelAgentLeavePetitionResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("agent_leave_petition",)
+    AGENT_LEAVE_PETITION_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition: _wfm_pb2.AgentLeavePetition
+    def __init__(self, agent_leave_petition: _Optional[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]] = ...) -> None: ...
