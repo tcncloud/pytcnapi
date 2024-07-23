@@ -2829,21 +2829,25 @@ class UpdateCustomDataKeyRes(_message.Message):
 class Extension(_message.Message):
     __slots__ = ("pbx_extension_sid", "extension_number", "agent", "hunt_group", "agent_access", "email", "greeting", "has_greeting", "unheard_messages", "total_messages")
     class Agent(_message.Message):
-        __slots__ = ("first_name", "last_name", "user_id")
+        __slots__ = ("first_name", "last_name", "user_id", "archived")
         FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
         LAST_NAME_FIELD_NUMBER: _ClassVar[int]
         USER_ID_FIELD_NUMBER: _ClassVar[int]
+        ARCHIVED_FIELD_NUMBER: _ClassVar[int]
         first_name: str
         last_name: str
         user_id: str
-        def __init__(self, first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+        archived: bool
+        def __init__(self, first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., user_id: _Optional[str] = ..., archived: bool = ...) -> None: ...
     class HuntGroup(_message.Message):
-        __slots__ = ("hunt_group_sid", "hunt_group_name")
+        __slots__ = ("hunt_group_sid", "hunt_group_name", "archived")
         HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
         HUNT_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
+        ARCHIVED_FIELD_NUMBER: _ClassVar[int]
         hunt_group_sid: int
         hunt_group_name: str
-        def __init__(self, hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ...) -> None: ...
+        archived: bool
+        def __init__(self, hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ..., archived: bool = ...) -> None: ...
     class Email(_message.Message):
         __slots__ = ("subject", "body", "addresses", "attach_vm")
         SUBJECT_FIELD_NUMBER: _ClassVar[int]
