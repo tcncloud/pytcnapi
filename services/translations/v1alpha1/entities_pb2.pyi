@@ -135,6 +135,16 @@ class ListLanguagesResponse(_message.Message):
     languages: _containers.RepeatedCompositeFieldContainer[LocalizationLanguage]
     def __init__(self, languages: _Optional[_Iterable[_Union[LocalizationLanguage, _Mapping]]] = ...) -> None: ...
 
+class ListContextsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListContextsResponse(_message.Message):
+    __slots__ = ("contexts",)
+    CONTEXTS_FIELD_NUMBER: _ClassVar[int]
+    contexts: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, contexts: _Optional[_Iterable[str]] = ...) -> None: ...
+
 class LocalizationLanguage(_message.Message):
     __slots__ = ("language_tag", "english_name")
     LANGUAGE_TAG_FIELD_NUMBER: _ClassVar[int]

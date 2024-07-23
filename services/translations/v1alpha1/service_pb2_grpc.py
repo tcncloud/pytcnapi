@@ -29,6 +29,11 @@ class TranslationsServiceStub(object):
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesRequest.SerializeToString,
                 response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesResponse.FromString,
                 )
+        self.ListContexts = channel.unary_unary(
+                '/services.translations.v1alpha1.TranslationsService/ListContexts',
+                request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsRequest.SerializeToString,
+                response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsResponse.FromString,
+                )
         self.UpdateTranslation = channel.unary_unary(
                 '/services.translations.v1alpha1.TranslationsService/UpdateTranslation',
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.UpdateTranslationRequest.SerializeToString,
@@ -67,7 +72,7 @@ class TranslationsServiceServicer(object):
     def TranslateTemplate(self, request, context):
         """Translate a template for a given context and language.
         Required permissions:
-        Any Authenticated User (TODO: Validate this assumption)
+        Any Authenticated User
         Errors:
         - grpc.AlreadyExists : This template is already translated for the given context and language.
         - grpc.InvalidArgument: The request is not valid.
@@ -92,6 +97,15 @@ class TranslationsServiceServicer(object):
 
     def ListLanguages(self, request, context):
         """Lists localization languages
+        Required permissions:
+        - Any Authenticated User
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListContexts(self, request, context):
+        """Lists localization contexts
         Required permissions:
         - PERMISSION_CUSTOMER_SUPPORT
         """
@@ -177,6 +191,11 @@ def add_TranslationsServiceServicer_to_server(servicer, server):
                     servicer.ListLanguages,
                     request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesRequest.FromString,
                     response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesResponse.SerializeToString,
+            ),
+            'ListContexts': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListContexts,
+                    request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsRequest.FromString,
+                    response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsResponse.SerializeToString,
             ),
             'UpdateTranslation': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateTranslation,
@@ -266,6 +285,23 @@ class TranslationsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/ListLanguages',
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesRequest.SerializeToString,
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListLanguagesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListContexts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/ListContexts',
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsRequest.SerializeToString,
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
