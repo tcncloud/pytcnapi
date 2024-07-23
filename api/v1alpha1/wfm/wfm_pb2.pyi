@@ -3750,3 +3750,47 @@ class CancelAgentLeavePetitionResponse(_message.Message):
     AGENT_LEAVE_PETITION_FIELD_NUMBER: _ClassVar[int]
     agent_leave_petition: _wfm_pb2.AgentLeavePetition
     def __init__(self, agent_leave_petition: _Optional[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]] = ...) -> None: ...
+
+class CreateRgbaColorRequest(_message.Message):
+    __slots__ = ("color",)
+    COLOR_FIELD_NUMBER: _ClassVar[int]
+    color: RgbaColor
+    def __init__(self, color: _Optional[_Union[RgbaColor, _Mapping]] = ...) -> None: ...
+
+class CreateRgbaColorResponse(_message.Message):
+    __slots__ = ("rgba_color_id",)
+    RGBA_COLOR_ID_FIELD_NUMBER: _ClassVar[int]
+    rgba_color_id: int
+    def __init__(self, rgba_color_id: _Optional[int] = ...) -> None: ...
+
+class ListRgbaColorsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListRgbaColorsResponse(_message.Message):
+    __slots__ = ("colors",)
+    COLORS_FIELD_NUMBER: _ClassVar[int]
+    colors: _containers.RepeatedCompositeFieldContainer[RgbaColor]
+    def __init__(self, colors: _Optional[_Iterable[_Union[RgbaColor, _Mapping]]] = ...) -> None: ...
+
+class UpdateRgbaColorRequest(_message.Message):
+    __slots__ = ("color",)
+    COLOR_FIELD_NUMBER: _ClassVar[int]
+    color: RgbaColor
+    def __init__(self, color: _Optional[_Union[RgbaColor, _Mapping]] = ...) -> None: ...
+
+class UpdateRgbaColorResponse(_message.Message):
+    __slots__ = ("color",)
+    COLOR_FIELD_NUMBER: _ClassVar[int]
+    color: RgbaColor
+    def __init__(self, color: _Optional[_Union[RgbaColor, _Mapping]] = ...) -> None: ...
+
+class DeleteRgbaColorRequest(_message.Message):
+    __slots__ = ("rgba_color_id",)
+    RGBA_COLOR_ID_FIELD_NUMBER: _ClassVar[int]
+    rgba_color_id: int
+    def __init__(self, rgba_color_id: _Optional[int] = ...) -> None: ...
+
+class DeleteRgbaColorResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

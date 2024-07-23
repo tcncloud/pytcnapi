@@ -905,6 +905,26 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.FromString,
                 )
+        self.CreateRgbaColor = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateRgbaColor',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateRgbaColorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateRgbaColorResponse.FromString,
+                )
+        self.ListRgbaColors = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListRgbaColors',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRgbaColorsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRgbaColorsResponse.FromString,
+                )
+        self.UpdateRgbaColor = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateRgbaColor',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateRgbaColorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateRgbaColorResponse.FromString,
+                )
+        self.DeleteRgbaColor = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteRgbaColor',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorResponse.FromString,
+                )
 
 
 class WFMServicer(object):
@@ -3192,6 +3212,47 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateRgbaColor(self, request, context):
+        """Creates the given @color for the org sending the request.
+        Errors:
+        - grpc.Invalid: the values on the given @color are invalid.
+        - grpc.Internal: error occurs when creating the given @color or an rgba with @color.name already exists.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRgbaColors(self, request, context):
+        """Lists all rbga colors for the org sending the request.
+        Errors:
+        - grpc.Internal: error occurs when listing the @colors.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateRgbaColor(self, request, context):
+        """Updates the given @color for the org sending the request.
+        Returns the updated rgba color after it has been updated.
+        Errors:
+        - grpc.Internal: error occurs when updating the rgba color, or getting the updated color.
+        - grpc.NotFound: the color with @color.rgba_color_id does not exist.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRgbaColor(self, request, context):
+        """Delete the rgba color with the @rgba_color_id for the org sending the request.
+        Deletes any real time management state colors that are using @rgba_color_id, leaving them with their default colors.option
+        Errors:
+        - grpc.Invalid: the @rgba_color_id is invalid or does not exist.
+        - grpc.Internal: error occurs when deleting the rgba color or real time management state colors.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -4084,6 +4145,26 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListRealTimeManagementStateColors,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.SerializeToString,
+            ),
+            'CreateRgbaColor': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateRgbaColor,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateRgbaColorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateRgbaColorResponse.SerializeToString,
+            ),
+            'ListRgbaColors': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListRgbaColors,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRgbaColorsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRgbaColorsResponse.SerializeToString,
+            ),
+            'UpdateRgbaColor': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateRgbaColor,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateRgbaColorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateRgbaColorResponse.SerializeToString,
+            ),
+            'DeleteRgbaColor': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRgbaColor,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7119,5 +7200,73 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStateColors',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateRgbaColor(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateRgbaColor',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateRgbaColorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateRgbaColorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListRgbaColors(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListRgbaColors',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRgbaColorsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRgbaColorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateRgbaColor(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateRgbaColor',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateRgbaColorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateRgbaColorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRgbaColor(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteRgbaColor',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
