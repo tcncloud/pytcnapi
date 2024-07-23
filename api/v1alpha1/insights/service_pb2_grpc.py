@@ -84,7 +84,7 @@ class InsightsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationResponse.FromString,
                 )
-        self.ListOutputConfigurations = channel.unary_stream(
+        self.ListOutputConfigurations = channel.unary_unary(
                 '/api.v1alpha1.insights.Insights/ListOutputConfigurations',
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsResponse.FromString,
@@ -332,7 +332,7 @@ def add_InsightsServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationResponse.SerializeToString,
             ),
-            'ListOutputConfigurations': grpc.unary_stream_rpc_method_handler(
+            'ListOutputConfigurations': grpc.unary_unary_rpc_method_handler(
                     servicer.ListOutputConfigurations,
                     request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsResponse.SerializeToString,
@@ -621,7 +621,7 @@ class Insights(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.insights.Insights/ListOutputConfigurations',
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/ListOutputConfigurations',
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsRequest.SerializeToString,
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsResponse.FromString,
             options, channel_credentials,
