@@ -79,6 +79,41 @@ class InsightsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightResponse.FromString,
                 )
+        self.CreateOutputConfiguration = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/CreateOutputConfiguration',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationResponse.FromString,
+                )
+        self.ListOutputConfigurations = channel.unary_stream(
+                '/api.v1alpha1.insights.Insights/ListOutputConfigurations',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsResponse.FromString,
+                )
+        self.UpdateOutputConfiguration = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/UpdateOutputConfiguration',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.UpdateOutputConfigurationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.UpdateOutputConfigurationResponse.FromString,
+                )
+        self.DeleteOutputConfiguration = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/DeleteOutputConfiguration',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.DeleteOutputConfigurationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.DeleteOutputConfigurationResponse.FromString,
+                )
+        self.GetOutputConfiguration = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/GetOutputConfiguration',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetOutputConfigurationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetOutputConfigurationResponse.FromString,
+                )
+        self.SetDefaultOutputConfiguration = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/SetDefaultOutputConfiguration',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.SetDefaultOutputConfigurationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.SetDefaultOutputConfigurationResponse.FromString,
+                )
+        self.GetDefaultOutputConfiguration = channel.unary_unary(
+                '/api.v1alpha1.insights.Insights/GetDefaultOutputConfiguration',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetDefaultOutputConfigurationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetDefaultOutputConfigurationResponse.FromString,
+                )
 
 
 class InsightsServicer(object):
@@ -175,6 +210,55 @@ class InsightsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateOutputConfiguration(self, request, context):
+        """CreateOutputConfiguration creates an output configuration
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListOutputConfigurations(self, request, context):
+        """ListOutputConfigurations lists output configurations for an insight
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateOutputConfiguration(self, request, context):
+        """UpdateOutputConfiguration updates an output configuration
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteOutputConfiguration(self, request, context):
+        """DeleteOutputConfiguration deletes an output configuration
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOutputConfiguration(self, request, context):
+        """GetOutputConfiguration gets an output configuration
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetDefaultOutputConfiguration(self, request, context):
+        """SetDefaultOutputConfiguration sets the specified output configuration to default
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDefaultOutputConfiguration(self, request, context):
+        """GetDefaultOutputConfiguration gets the default output configuration for an insight
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_InsightsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -242,6 +326,41 @@ def add_InsightsServicer_to_server(servicer, server):
                     servicer.PublishInsight,
                     request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightResponse.SerializeToString,
+            ),
+            'CreateOutputConfiguration': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateOutputConfiguration,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationResponse.SerializeToString,
+            ),
+            'ListOutputConfigurations': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListOutputConfigurations,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsResponse.SerializeToString,
+            ),
+            'UpdateOutputConfiguration': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateOutputConfiguration,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.UpdateOutputConfigurationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.UpdateOutputConfigurationResponse.SerializeToString,
+            ),
+            'DeleteOutputConfiguration': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteOutputConfiguration,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.DeleteOutputConfigurationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.DeleteOutputConfigurationResponse.SerializeToString,
+            ),
+            'GetOutputConfiguration': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOutputConfiguration,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetOutputConfigurationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetOutputConfigurationResponse.SerializeToString,
+            ),
+            'SetDefaultOutputConfiguration': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetDefaultOutputConfiguration,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.SetDefaultOutputConfigurationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.SetDefaultOutputConfigurationResponse.SerializeToString,
+            ),
+            'GetDefaultOutputConfiguration': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDefaultOutputConfiguration,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetDefaultOutputConfigurationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetDefaultOutputConfigurationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -471,5 +590,124 @@ class Insights(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/PublishInsight',
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightRequest.SerializeToString,
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.PublishInsightResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateOutputConfiguration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/CreateOutputConfiguration',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.CreateOutputConfigurationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListOutputConfigurations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.insights.Insights/ListOutputConfigurations',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOutputConfigurationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateOutputConfiguration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/UpdateOutputConfiguration',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.UpdateOutputConfigurationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.UpdateOutputConfigurationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteOutputConfiguration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/DeleteOutputConfiguration',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.DeleteOutputConfigurationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.DeleteOutputConfigurationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOutputConfiguration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/GetOutputConfiguration',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetOutputConfigurationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetOutputConfigurationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetDefaultOutputConfiguration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/SetDefaultOutputConfiguration',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.SetDefaultOutputConfigurationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.SetDefaultOutputConfigurationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDefaultOutputConfiguration(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/GetDefaultOutputConfiguration',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetDefaultOutputConfigurationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.GetDefaultOutputConfigurationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

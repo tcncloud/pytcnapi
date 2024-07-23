@@ -1,11 +1,70 @@
 from api.commons import insights_pb2 as _insights_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class OutputConfigurationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    OUTPUT_CONFIGURATION_TYPE_UNSPECIFIED: _ClassVar[OutputConfigurationType]
+    OUTPUT_CONFIGURATION_TYPE_TABLE: _ClassVar[OutputConfigurationType]
+    OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: _ClassVar[OutputConfigurationType]
+    OUTPUT_CONFIGURATION_TYPE_PIE_CHART: _ClassVar[OutputConfigurationType]
+
+class OperationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    OPERATION_TYPE_UNSPECIFIED: _ClassVar[OperationType]
+    OPERATION_TYPE_DATE: _ClassVar[OperationType]
+    OPERATION_TYPE_PREFIX: _ClassVar[OperationType]
+    OPERATION_TYPE_SUFFIX: _ClassVar[OperationType]
+    OPERATION_TYPE_DURATION: _ClassVar[OperationType]
+    OPERATION_TYPE_ADD: _ClassVar[OperationType]
+    OPERATION_TYPE_SUBTRACT: _ClassVar[OperationType]
+    OPERATION_TYPE_MULTIPLY: _ClassVar[OperationType]
+    OPERATION_TYPE_DIVIDE: _ClassVar[OperationType]
+    OPERATION_TYPE_FORMAT_NUMBER: _ClassVar[OperationType]
+    OPERATION_TYPE_PRECISION: _ClassVar[OperationType]
+
+class ColumnSort(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    COLUMN_SORT_UNSPECIFIED: _ClassVar[ColumnSort]
+    COLUMN_SORT_ASCENDING: _ClassVar[ColumnSort]
+    COLUMN_SORT_DESCENDING: _ClassVar[ColumnSort]
+
+class OutputConfigurationColumnSummaryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_UNSPECIFIED: _ClassVar[OutputConfigurationColumnSummaryType]
+    OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_AVG: _ClassVar[OutputConfigurationColumnSummaryType]
+    OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_SUM: _ClassVar[OutputConfigurationColumnSummaryType]
+    OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MIN: _ClassVar[OutputConfigurationColumnSummaryType]
+    OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MAX: _ClassVar[OutputConfigurationColumnSummaryType]
+OUTPUT_CONFIGURATION_TYPE_UNSPECIFIED: OutputConfigurationType
+OUTPUT_CONFIGURATION_TYPE_TABLE: OutputConfigurationType
+OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: OutputConfigurationType
+OUTPUT_CONFIGURATION_TYPE_PIE_CHART: OutputConfigurationType
+OPERATION_TYPE_UNSPECIFIED: OperationType
+OPERATION_TYPE_DATE: OperationType
+OPERATION_TYPE_PREFIX: OperationType
+OPERATION_TYPE_SUFFIX: OperationType
+OPERATION_TYPE_DURATION: OperationType
+OPERATION_TYPE_ADD: OperationType
+OPERATION_TYPE_SUBTRACT: OperationType
+OPERATION_TYPE_MULTIPLY: OperationType
+OPERATION_TYPE_DIVIDE: OperationType
+OPERATION_TYPE_FORMAT_NUMBER: OperationType
+OPERATION_TYPE_PRECISION: OperationType
+COLUMN_SORT_UNSPECIFIED: ColumnSort
+COLUMN_SORT_ASCENDING: ColumnSort
+COLUMN_SORT_DESCENDING: ColumnSort
+OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_UNSPECIFIED: OutputConfigurationColumnSummaryType
+OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_AVG: OutputConfigurationColumnSummaryType
+OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_SUM: OutputConfigurationColumnSummaryType
+OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MIN: OutputConfigurationColumnSummaryType
+OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MAX: OutputConfigurationColumnSummaryType
 
 class Insight(_message.Message):
     __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight")
@@ -165,3 +224,147 @@ class ListVfsSchemasResponse(_message.Message):
     VFS_SCHEMAS_FIELD_NUMBER: _ClassVar[int]
     vfs_schemas: _containers.RepeatedCompositeFieldContainer[GetVfsSchemaResponse]
     def __init__(self, vfs_schemas: _Optional[_Iterable[_Union[GetVfsSchemaResponse, _Mapping]]] = ...) -> None: ...
+
+class TableVisualization(_message.Message):
+    __slots__ = ("table_column_details",)
+    TABLE_COLUMN_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    table_column_details: _containers.RepeatedCompositeFieldContainer[TableColumnConfig]
+    def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ...) -> None: ...
+
+class TableColumnConfig(_message.Message):
+    __slots__ = ("column_name", "column_width", "hide_column", "renamed_as", "operations", "column_summary", "description", "sort_direction")
+    COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
+    COLUMN_WIDTH_FIELD_NUMBER: _ClassVar[int]
+    HIDE_COLUMN_FIELD_NUMBER: _ClassVar[int]
+    RENAMED_AS_FIELD_NUMBER: _ClassVar[int]
+    OPERATIONS_FIELD_NUMBER: _ClassVar[int]
+    COLUMN_SUMMARY_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    SORT_DIRECTION_FIELD_NUMBER: _ClassVar[int]
+    column_name: str
+    column_width: int
+    hide_column: bool
+    renamed_as: str
+    operations: _containers.RepeatedCompositeFieldContainer[ColumnOperation]
+    column_summary: OutputConfigurationColumnSummaryType
+    description: str
+    sort_direction: ColumnSort
+    def __init__(self, column_name: _Optional[str] = ..., column_width: _Optional[int] = ..., hide_column: bool = ..., renamed_as: _Optional[str] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[OutputConfigurationColumnSummaryType, str]] = ..., description: _Optional[str] = ..., sort_direction: _Optional[_Union[ColumnSort, str]] = ...) -> None: ...
+
+class FormatSeries(_message.Message):
+    __slots__ = ("format_parts",)
+    FORMAT_PARTS_FIELD_NUMBER: _ClassVar[int]
+    format_parts: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, format_parts: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class ColumnOperation(_message.Message):
+    __slots__ = ("operation_type", "float_value", "format_series")
+    OPERATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FLOAT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    FORMAT_SERIES_FIELD_NUMBER: _ClassVar[int]
+    operation_type: OperationType
+    float_value: float
+    format_series: FormatSeries
+    def __init__(self, operation_type: _Optional[_Union[OperationType, str]] = ..., float_value: _Optional[float] = ..., format_series: _Optional[_Union[FormatSeries, _Mapping]] = ...) -> None: ...
+
+class OutputConfiguration(_message.Message):
+    __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization")
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_CONFIGURATION_TITLE_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_CONFIGURATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    IS_DEFAULT_FIELD_NUMBER: _ClassVar[int]
+    BLOB_FIELD_NUMBER: _ClassVar[int]
+    TABLE_VISUALIZATION_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    output_configuration_title: str
+    output_configuration_type: OutputConfigurationType
+    insight_resource_id: str
+    is_default: bool
+    blob: str
+    table_visualization: TableVisualization
+    def __init__(self, resource_id: _Optional[str] = ..., output_configuration_title: _Optional[str] = ..., output_configuration_type: _Optional[_Union[OutputConfigurationType, str]] = ..., insight_resource_id: _Optional[str] = ..., is_default: bool = ..., blob: _Optional[str] = ..., table_visualization: _Optional[_Union[TableVisualization, _Mapping]] = ...) -> None: ...
+
+class CreateOutputConfigurationRequest(_message.Message):
+    __slots__ = ("output_configuration",)
+    OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
+    output_configuration: OutputConfiguration
+    def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
+
+class CreateOutputConfigurationResponse(_message.Message):
+    __slots__ = ("output_configuration",)
+    OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
+    output_configuration: OutputConfiguration
+    def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
+
+class ListOutputConfigurationsRequest(_message.Message):
+    __slots__ = ("insight_resource_id",)
+    INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    insight_resource_id: str
+    def __init__(self, insight_resource_id: _Optional[str] = ...) -> None: ...
+
+class ListOutputConfigurationsResponse(_message.Message):
+    __slots__ = ("output_configurations",)
+    OUTPUT_CONFIGURATIONS_FIELD_NUMBER: _ClassVar[int]
+    output_configurations: _containers.RepeatedCompositeFieldContainer[OutputConfiguration]
+    def __init__(self, output_configurations: _Optional[_Iterable[_Union[OutputConfiguration, _Mapping]]] = ...) -> None: ...
+
+class UpdateOutputConfigurationRequest(_message.Message):
+    __slots__ = ("update_mask", "output_configuration")
+    UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
+    update_mask: _field_mask_pb2.FieldMask
+    output_configuration: OutputConfiguration
+    def __init__(self, update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
+
+class UpdateOutputConfigurationResponse(_message.Message):
+    __slots__ = ("output_configuration",)
+    OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
+    output_configuration: OutputConfiguration
+    def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
+
+class DeleteOutputConfigurationRequest(_message.Message):
+    __slots__ = ("resource_id",)
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
+
+class DeleteOutputConfigurationResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetOutputConfigurationRequest(_message.Message):
+    __slots__ = ("resource_id",)
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
+
+class GetOutputConfigurationResponse(_message.Message):
+    __slots__ = ("output_configuration",)
+    OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
+    output_configuration: OutputConfiguration
+    def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
+
+class SetDefaultOutputConfigurationRequest(_message.Message):
+    __slots__ = ("resource_id", "insight_resource_id")
+    RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    resource_id: str
+    insight_resource_id: str
+    def __init__(self, resource_id: _Optional[str] = ..., insight_resource_id: _Optional[str] = ...) -> None: ...
+
+class SetDefaultOutputConfigurationResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetDefaultOutputConfigurationRequest(_message.Message):
+    __slots__ = ("insight_resource_id",)
+    INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    insight_resource_id: str
+    def __init__(self, insight_resource_id: _Optional[str] = ...) -> None: ...
+
+class GetDefaultOutputConfigurationResponse(_message.Message):
+    __slots__ = ("output_configuration",)
+    OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
+    output_configuration: OutputConfiguration
+    def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
