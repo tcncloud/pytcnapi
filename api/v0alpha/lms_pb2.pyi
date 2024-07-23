@@ -2211,18 +2211,20 @@ class SearchCollectionsPaginatedReq(_message.Message):
     def __init__(self, collection_ids: _Optional[_Iterable[str]] = ..., search: _Optional[_Union[Search, _Mapping]] = ..., page_size: _Optional[int] = ..., **kwargs) -> None: ...
 
 class Search(_message.Message):
-    __slots__ = ("term", "fuzziness", "substring", "negate", "case_sensitive")
+    __slots__ = ("term", "fuzziness", "substring", "negate", "case_sensitive", "value")
     TERM_FIELD_NUMBER: _ClassVar[int]
     FUZZINESS_FIELD_NUMBER: _ClassVar[int]
     SUBSTRING_FIELD_NUMBER: _ClassVar[int]
     NEGATE_FIELD_NUMBER: _ClassVar[int]
     CASE_SENSITIVE_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
     term: str
     fuzziness: int
     substring: bool
     negate: bool
     case_sensitive: bool
-    def __init__(self, term: _Optional[str] = ..., fuzziness: _Optional[int] = ..., substring: bool = ..., negate: bool = ..., case_sensitive: bool = ...) -> None: ...
+    value: str
+    def __init__(self, term: _Optional[str] = ..., fuzziness: _Optional[int] = ..., substring: bool = ..., negate: bool = ..., case_sensitive: bool = ..., value: _Optional[str] = ...) -> None: ...
 
 class PaginatedSearchRes(_message.Message):
     __slots__ = ("entries", "total")
