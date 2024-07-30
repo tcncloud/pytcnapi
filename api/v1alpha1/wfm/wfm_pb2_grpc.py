@@ -900,10 +900,20 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.FromString,
                 )
+        self.UpsertRealTimeManagementStateColor = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpsertRealTimeManagementStateColor',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorResponse.FromString,
+                )
         self.ListRealTimeManagementStateColors = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStateColors',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.FromString,
+                )
+        self.DeleteRealTimeManagementStateColor = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteRealTimeManagementStateColor',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRealTimeManagementStateColorRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRealTimeManagementStateColorResponse.FromString,
                 )
         self.CreateRgbaColor = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateRgbaColor',
@@ -3202,11 +3212,32 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListRealTimeManagementStateColors(self, request, context):
-        """List org-level RealTimeManagementStateColors.
+    def UpsertRealTimeManagementStateColor(self, request, context):
+        """Sets the given @state to be associated with the given @rgba_color_id for the org sending the request.
         Errors:
-        - grpc.Invalid: on invalid input.
-        - grpc.Internal: on unexpected error.
+        - grpc.Internal: error upserting the real time management state color or returning the newly created state color.
+        - grpc.NotFound: the given @rgba_color_id does not exist.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListRealTimeManagementStateColors(self, request, context):
+        """List org assigned colors for real-time management states.
+        Any states that do not have an assigned state color will have their system default state color returned instead.
+        Errors:
+        - grpc.Internal: error occurs when listing the real-time management state colors.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteRealTimeManagementStateColor(self, request, context):
+        """Deletes the state color for the given @state for the org sending the request.
+        The state will be associated with the system default color.
+        Errors:
+        - grpc.Invalid: the @state is invalid or is not associated with an @rbg_color_id.
+        - grpc.Internal: error occurs when deleting the state color fails.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4141,10 +4172,20 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.SerializeToString,
             ),
+            'UpsertRealTimeManagementStateColor': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpsertRealTimeManagementStateColor,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorResponse.SerializeToString,
+            ),
             'ListRealTimeManagementStateColors': grpc.unary_unary_rpc_method_handler(
                     servicer.ListRealTimeManagementStateColors,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.SerializeToString,
+            ),
+            'DeleteRealTimeManagementStateColor': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteRealTimeManagementStateColor,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRealTimeManagementStateColorRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRealTimeManagementStateColorResponse.SerializeToString,
             ),
             'CreateRgbaColor': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateRgbaColor,
@@ -7187,6 +7228,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpsertRealTimeManagementStateColor(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpsertRealTimeManagementStateColor',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListRealTimeManagementStateColors(request,
             target,
             options=(),
@@ -7200,6 +7258,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStateColors',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStateColorsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteRealTimeManagementStateColor(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteRealTimeManagementStateColor',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRealTimeManagementStateColorRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRealTimeManagementStateColorResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

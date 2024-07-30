@@ -3663,6 +3663,20 @@ class RealTimeManagementStateColor(_message.Message):
     color: RgbaColor
     def __init__(self, state: _Optional[_Union[_wfm_pb2.RealTimeManagementState, str]] = ..., color: _Optional[_Union[RgbaColor, _Mapping]] = ...) -> None: ...
 
+class UpsertRealTimeManagementStateColorRequest(_message.Message):
+    __slots__ = ("state", "rgba_color_id")
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    RGBA_COLOR_ID_FIELD_NUMBER: _ClassVar[int]
+    state: _wfm_pb2.RealTimeManagementState
+    rgba_color_id: int
+    def __init__(self, state: _Optional[_Union[_wfm_pb2.RealTimeManagementState, str]] = ..., rgba_color_id: _Optional[int] = ...) -> None: ...
+
+class UpsertRealTimeManagementStateColorResponse(_message.Message):
+    __slots__ = ("state_color",)
+    STATE_COLOR_FIELD_NUMBER: _ClassVar[int]
+    state_color: RealTimeManagementStateColor
+    def __init__(self, state_color: _Optional[_Union[RealTimeManagementStateColor, _Mapping]] = ...) -> None: ...
+
 class ListRealTimeManagementStateColorsRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
@@ -3672,6 +3686,16 @@ class ListRealTimeManagementStateColorsResponse(_message.Message):
     STATE_COLORS_FIELD_NUMBER: _ClassVar[int]
     state_colors: _containers.RepeatedCompositeFieldContainer[RealTimeManagementStateColor]
     def __init__(self, state_colors: _Optional[_Iterable[_Union[RealTimeManagementStateColor, _Mapping]]] = ...) -> None: ...
+
+class DeleteRealTimeManagementStateColorRequest(_message.Message):
+    __slots__ = ("state",)
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    state: _wfm_pb2.RealTimeManagementState
+    def __init__(self, state: _Optional[_Union[_wfm_pb2.RealTimeManagementState, str]] = ...) -> None: ...
+
+class DeleteRealTimeManagementStateColorResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class CreateAgentLeavePetitionRequest(_message.Message):
     __slots__ = ("requested_datetime_ranges", "petition_comment", "wfm_agent_sid", "requested_hours_off")
