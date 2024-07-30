@@ -2842,6 +2842,7 @@ class OrgServicer(object):
     def CreateCertificateInfo(self, request, context):
         """CreateCertificateInfo creates a new TLS certificate and
         returns the certificate info for the current organization.
+        DEPRECATED: Use services.org.exile_certificate_manager.v1alpha1.CreateCertificateInfo instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2849,6 +2850,7 @@ class OrgServicer(object):
 
     def DeleteCertificateInfo(self, request, context):
         """DeleteCertificateInfo deletes a certificate info for the current organization.
+        DEPRECATED: Use services.org.exile_certificate_manager.v1alpha1.DeleteCertificateInfo instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2856,6 +2858,7 @@ class OrgServicer(object):
 
     def RevokeCertificateInfo(self, request, context):
         """RevokeCertificateInfo deletes a certificate info for the current organization.
+        DEPRECATED: Use services.org.exile_certificate_manager.v1alpha1.RevokeCertificateInfo instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2863,6 +2866,7 @@ class OrgServicer(object):
 
     def ListCertificateInfo(self, request, context):
         """ListCertificateInfo returns a list of certificate info for the current organization.
+        DEPRECATED: Use services.org.exile_certificate_manager.v1alpha1.ListCertificateInfo instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
