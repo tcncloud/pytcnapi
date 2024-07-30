@@ -1,6 +1,7 @@
 from api.commons import newsroom_pb2 as _newsroom_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -184,20 +185,22 @@ class StoreNewsArticleImageRequest(_message.Message):
     def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
 
 class NewsArticleImage(_message.Message):
-    __slots__ = ("uuid", "new_article_sid", "content", "download_url", "image_reference_id", "image_type")
+    __slots__ = ("uuid", "new_article_sid", "content", "download_url", "image_reference_id", "image_type", "temp_id")
     UUID_FIELD_NUMBER: _ClassVar[int]
     NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
     IMAGE_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     IMAGE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    TEMP_ID_FIELD_NUMBER: _ClassVar[int]
     uuid: str
     new_article_sid: int
     content: str
     download_url: str
     image_reference_id: str
     image_type: str
-    def __init__(self, uuid: _Optional[str] = ..., new_article_sid: _Optional[int] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ..., image_reference_id: _Optional[str] = ..., image_type: _Optional[str] = ...) -> None: ...
+    temp_id: _wrappers_pb2.StringValue
+    def __init__(self, uuid: _Optional[str] = ..., new_article_sid: _Optional[int] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ..., image_reference_id: _Optional[str] = ..., image_type: _Optional[str] = ..., temp_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class StoreNewsArticleImageResponse(_message.Message):
     __slots__ = ("image",)
@@ -216,3 +219,15 @@ class ListImagesForNewsArticleResponse(_message.Message):
     NEWS_ARTICLE_IMAGES_FIELD_NUMBER: _ClassVar[int]
     news_article_images: _containers.RepeatedCompositeFieldContainer[NewsArticleImage]
     def __init__(self, news_article_images: _Optional[_Iterable[_Union[NewsArticleImage, _Mapping]]] = ...) -> None: ...
+
+class UploadNewsArticleImageRequest(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class UploadNewsArticleImageResponse(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...

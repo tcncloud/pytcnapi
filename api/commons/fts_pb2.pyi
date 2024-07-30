@@ -19,6 +19,7 @@ class AppName(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OMNICHANNEL: _ClassVar[AppName]
     LEARN: _ClassVar[AppName]
     BILLING: _ClassVar[AppName]
+    NEWSROOM: _ClassVar[AppName]
 OUTSIDE: AppName
 LMS: AppName
 P3API: AppName
@@ -32,3 +33,4 @@ INTEGRATIONS: AppName
 OMNICHANNEL: AppName
 LEARN: AppName
 BILLING: AppName
+NEWSROOM: AppName
