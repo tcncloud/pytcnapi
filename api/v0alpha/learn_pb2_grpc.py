@@ -135,6 +135,11 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionRes.FromString,
                 )
+        self.UploadStaticImage = channel.unary_unary(
+                '/api.v0alpha.Learn/UploadStaticImage',
+                request_serializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageRes.FromString,
+                )
 
 
 class LearnServicer(object):
@@ -314,6 +319,13 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UploadStaticImage(self, request, context):
+        """upload image for learning articles
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -436,6 +448,11 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.DeleteVersion,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.DeleteVersionRes.SerializeToString,
+            ),
+            'UploadStaticImage': grpc.unary_unary_rpc_method_handler(
+                    servicer.UploadStaticImage,
+                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -853,5 +870,22 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/DeleteVersion',
             api_dot_v0alpha_dot_learn__pb2.DeleteVersionReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.DeleteVersionRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UploadStaticImage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/UploadStaticImage',
+            api_dot_v0alpha_dot_learn__pb2.UploadStaticImageReq.SerializeToString,
+            api_dot_v0alpha_dot_learn__pb2.UploadStaticImageRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

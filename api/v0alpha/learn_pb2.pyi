@@ -2,6 +2,7 @@ from annotations import authz_pb2 as _authz_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -102,14 +103,16 @@ class StoreStaticImageReq(_message.Message):
     def __init__(self, image: _Optional[_Union[LearnImage, _Mapping]] = ...) -> None: ...
 
 class LearnImage(_message.Message):
-    __slots__ = ("uuid", "content", "download_url")
+    __slots__ = ("uuid", "content", "download_url", "temp_id")
     UUID_FIELD_NUMBER: _ClassVar[int]
     CONTENT_FIELD_NUMBER: _ClassVar[int]
     DOWNLOAD_URL_FIELD_NUMBER: _ClassVar[int]
+    TEMP_ID_FIELD_NUMBER: _ClassVar[int]
     uuid: str
     content: str
     download_url: str
-    def __init__(self, uuid: _Optional[str] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ...) -> None: ...
+    temp_id: _wrappers_pb2.StringValue
+    def __init__(self, uuid: _Optional[str] = ..., content: _Optional[str] = ..., download_url: _Optional[str] = ..., temp_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class StoreStaticImageRes(_message.Message):
     __slots__ = ("image",)
@@ -388,3 +391,15 @@ class DeleteVersionReq(_message.Message):
 class DeleteVersionRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class UploadStaticImageReq(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: LearnImage
+    def __init__(self, image: _Optional[_Union[LearnImage, _Mapping]] = ...) -> None: ...
+
+class UploadStaticImageRes(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: LearnImage
+    def __init__(self, image: _Optional[_Union[LearnImage, _Mapping]] = ...) -> None: ...
