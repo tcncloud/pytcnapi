@@ -143,14 +143,16 @@ class DashboardPanel(_message.Message):
     def __init__(self, panel_source: _Optional[_Union[PanelSource, _Mapping]] = ..., row_length: _Optional[int] = ..., column_length: _Optional[int] = ..., row_start: _Optional[int] = ..., column_start: _Optional[int] = ...) -> None: ...
 
 class PanelSource(_message.Message):
-    __slots__ = ("insight_id", "legacy_insight_id", "insight_resource_id")
+    __slots__ = ("insight_id", "legacy_insight_id", "insight_resource_id", "output_configuration_resource_id")
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     LEGACY_INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    OUTPUT_CONFIGURATION_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     insight_id: str
     legacy_insight_id: str
     insight_resource_id: str
-    def __init__(self, insight_id: _Optional[str] = ..., legacy_insight_id: _Optional[str] = ..., insight_resource_id: _Optional[str] = ...) -> None: ...
+    output_configuration_resource_id: str
+    def __init__(self, insight_id: _Optional[str] = ..., legacy_insight_id: _Optional[str] = ..., insight_resource_id: _Optional[str] = ..., output_configuration_resource_id: _Optional[str] = ...) -> None: ...
 
 class Dashboard(_message.Message):
     __slots__ = ("dashboard_id", "title", "description", "layout", "view", "type", "resource_id", "standard_dashboard")
