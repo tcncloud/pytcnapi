@@ -77,3 +77,9 @@ class VanaPhraseCorrectionEvent(_message.Message):
     url: str
     channel: int
     def __init__(self, start_offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., end_offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., original_text: _Optional[str] = ..., proposed_text: _Optional[str] = ..., url: _Optional[str] = ..., channel: _Optional[int] = ...) -> None: ...
+
+class VanaCreateTranscriptEvent(_message.Message):
+    __slots__ = ("transcript_sid",)
+    TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    transcript_sid: int
+    def __init__(self, transcript_sid: _Optional[int] = ...) -> None: ...
