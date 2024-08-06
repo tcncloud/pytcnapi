@@ -18,6 +18,7 @@ class EvaluationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     EVALUATE_MANUAL: _ClassVar[EvaluationType]
     EVALUATE_AUTO: _ClassVar[EvaluationType]
+    EVALUATE_SMART: _ClassVar[EvaluationType]
 
 class ScoreType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -58,6 +59,7 @@ SKILL_CALLS: CategoryType
 MANUAL_DIAL: CategoryType
 EVALUATE_MANUAL: EvaluationType
 EVALUATE_AUTO: EvaluationType
+EVALUATE_SMART: EvaluationType
 SCORE_SIMPLE_SUM: ScoreType
 SCORE_WEIGHTED_SUM: ScoreType
 SCORE_EVEN_WEIGHTED_SUM: ScoreType
