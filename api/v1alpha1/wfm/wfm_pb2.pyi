@@ -3026,6 +3026,24 @@ class ListShiftInstanceSidsForAgentRes(_message.Message):
     shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
     def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
+class ListShiftInstanceSidsForScheduleRequest(_message.Message):
+    __slots__ = ("schedule_selector", "datetime_range", "node_selector", "schedule_scenario_sid")
+    SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    schedule_selector: _wfm_pb2.ScheduleSelector
+    datetime_range: _wfm_pb2.DatetimeRange
+    node_selector: ParentEntity
+    schedule_scenario_sid: int
+    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+
+class ListShiftInstanceSidsForScheduleResponse(_message.Message):
+    __slots__ = ("shift_instance_sids",)
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
 class ListShiftSegmentsByShiftInstanceSidsReq(_message.Message):
     __slots__ = ("shift_instance_sids", "include_scheduling_activity", "include_activity")
     SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]

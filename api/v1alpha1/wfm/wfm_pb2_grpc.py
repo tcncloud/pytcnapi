@@ -675,6 +675,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentRes.FromString,
                 )
+        self.ListShiftInstanceSidsForSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListShiftInstanceSidsForSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForScheduleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForScheduleResponse.FromString,
+                )
         self.ListShiftSegmentsByShiftInstanceSids = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListShiftSegmentsByShiftInstanceSids',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftSegmentsByShiftInstanceSidsReq.SerializeToString,
@@ -2655,6 +2660,19 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListShiftInstanceSidsForSchedule(self, request, context):
+        """Lists the shift_instance_sids for the Shift Instances associated with the given @datetime_range and @schedule_selector.
+        If @node_selector is set, only shifts sids related to the given @node_selector will be listed.
+        If @node_selector is not set, all shifts on the @schedule_selector may be cleared, regardless of the node they are associated with.
+        If @node_selector is set, the @schedule_scenario_sid must be set to match @node_selector.
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when getting the data.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListShiftSegmentsByShiftInstanceSids(self, request, context):
         """Lists shift segments for the specified shift instances for the org sending the request.
         If @include_scheduling_activity is set to true then the related scheduling activity for the shift segment will be returned in the scheduling activity field.
@@ -3946,6 +3964,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListShiftInstanceSidsForAgent,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentRes.SerializeToString,
+            ),
+            'ListShiftInstanceSidsForSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListShiftInstanceSidsForSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForScheduleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForScheduleResponse.SerializeToString,
             ),
             'ListShiftSegmentsByShiftInstanceSids': grpc.unary_unary_rpc_method_handler(
                     servicer.ListShiftSegmentsByShiftInstanceSids,
@@ -6459,6 +6482,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListShiftInstanceSidsForAgent',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForAgentRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListShiftInstanceSidsForSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListShiftInstanceSidsForSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForScheduleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListShiftInstanceSidsForScheduleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
