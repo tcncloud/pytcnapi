@@ -827,7 +827,7 @@ class GetUserSessionDataRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetUserSessionDataResponse(_message.Message):
-    __slots__ = ("user", "org_name", "p3_permissions", "permission_groups", "labels", "org_allowed_mfa", "locale_preferences")
+    __slots__ = ("user", "org_name", "p3_permissions", "permission_groups", "labels", "org_allowed_mfa", "locale_preferences", "billing_id")
     class User(_message.Message):
         __slots__ = ("user_id", "org_id", "username", "p3_permission_group_id", "partner_agent_id", "region_sid_map", "default_region", "api_key", "email", "login_disabled", "caller_ids", "linkback_numbers", "auth_user_id", "first_name", "last_name", "created", "last_updated", "password_reset_required", "connection_id", "time_zone_override", "permission_group_ids", "trust_ids", "default_application", "user_caller_id", "agent_profile_group_id", "agent", "account_owner", "mfa_timestamp", "password_reset_date")
         class RegionSids(_message.Message):
@@ -912,6 +912,7 @@ class GetUserSessionDataResponse(_message.Message):
     LABELS_FIELD_NUMBER: _ClassVar[int]
     ORG_ALLOWED_MFA_FIELD_NUMBER: _ClassVar[int]
     LOCALE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
+    BILLING_ID_FIELD_NUMBER: _ClassVar[int]
     user: GetUserSessionDataResponse.User
     org_name: str
     p3_permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
@@ -919,7 +920,8 @@ class GetUserSessionDataResponse(_message.Message):
     labels: _containers.RepeatedCompositeFieldContainer[_labels_pb2.Label]
     org_allowed_mfa: bool
     locale_preferences: _org_preferences_pb2.LocalePreferences
-    def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., org_allowed_mfa: bool = ..., locale_preferences: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ...) -> None: ...
+    billing_id: str
+    def __init__(self, user: _Optional[_Union[GetUserSessionDataResponse.User, _Mapping]] = ..., org_name: _Optional[str] = ..., p3_permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., permission_groups: _Optional[_Iterable[_Union[_permissions_pb2.PermissionGroup, _Mapping]]] = ..., labels: _Optional[_Iterable[_Union[_labels_pb2.Label, _Mapping]]] = ..., org_allowed_mfa: bool = ..., locale_preferences: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ..., billing_id: _Optional[str] = ...) -> None: ...
 
 class RefreshMfaLockoutRequest(_message.Message):
     __slots__ = ("user_id",)
