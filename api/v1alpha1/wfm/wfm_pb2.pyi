@@ -3608,18 +3608,20 @@ class ReplaceAgentOnScheduleRes(_message.Message):
     def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class RgbaColor(_message.Message):
-    __slots__ = ("red", "green", "blue", "alpha", "name")
+    __slots__ = ("red", "green", "blue", "alpha", "name", "rgba_color_id")
     RED_FIELD_NUMBER: _ClassVar[int]
     GREEN_FIELD_NUMBER: _ClassVar[int]
     BLUE_FIELD_NUMBER: _ClassVar[int]
     ALPHA_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    RGBA_COLOR_ID_FIELD_NUMBER: _ClassVar[int]
     red: float
     green: float
     blue: float
     alpha: float
     name: str
-    def __init__(self, red: _Optional[float] = ..., green: _Optional[float] = ..., blue: _Optional[float] = ..., alpha: _Optional[float] = ..., name: _Optional[str] = ...) -> None: ...
+    rgba_color_id: int
+    def __init__(self, red: _Optional[float] = ..., green: _Optional[float] = ..., blue: _Optional[float] = ..., alpha: _Optional[float] = ..., name: _Optional[str] = ..., rgba_color_id: _Optional[int] = ...) -> None: ...
 
 class HelloWorldWFMAdherenceRequest(_message.Message):
     __slots__ = ()
