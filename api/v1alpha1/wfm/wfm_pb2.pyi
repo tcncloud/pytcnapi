@@ -2787,20 +2787,18 @@ class DeleteDraftScheduleRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListShiftInstancesBySidReq(_message.Message):
-    __slots__ = ("shift_instance_sids", "include_shift_segments", "include_shift_template", "include_scheduling_activity", "include_activity", "include_shift_segment_call_stats")
+    __slots__ = ("shift_instance_sids", "include_shift_segments", "include_shift_template", "include_scheduling_activity", "include_activity")
     SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SHIFT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
-    INCLUDE_SHIFT_SEGMENT_CALL_STATS_FIELD_NUMBER: _ClassVar[int]
     shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
     include_shift_segments: bool
     include_shift_template: bool
     include_scheduling_activity: bool
     include_activity: bool
-    include_shift_segment_call_stats: bool
-    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ..., include_shift_template: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ..., include_shift_segment_call_stats: bool = ...) -> None: ...
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ..., include_shift_template: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ...) -> None: ...
 
 class ListShiftInstancesBySidRes(_message.Message):
     __slots__ = ("shift_instances",)
