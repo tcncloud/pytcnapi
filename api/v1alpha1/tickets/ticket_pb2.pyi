@@ -2,11 +2,32 @@ from api.commons import tickets_pb2 as _tickets_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class ActionTypes(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    NA: _ClassVar[ActionTypes]
+    Callback: _ClassVar[ActionTypes]
+    Emailback: _ClassVar[ActionTypes]
+    Smsback: _ClassVar[ActionTypes]
+
+class SLAConditions(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    None: _ClassVar[SLAConditions]
+    Respond: _ClassVar[SLAConditions]
+    Resolve: _ClassVar[SLAConditions]
+NA: ActionTypes
+Callback: ActionTypes
+Emailback: ActionTypes
+Smsback: ActionTypes
+None: SLAConditions
+Respond: SLAConditions
+Resolve: SLAConditions
 
 class PingReq(_message.Message):
     __slots__ = ()
