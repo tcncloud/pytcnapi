@@ -32,13 +32,15 @@ class ExplorerServiceServicer(object):
     """
 
     def ListDatasourceSchemas(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """ListDatasourceSchemas lists all accessible datasources and their schemas.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Query(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Query queries a datasource.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')

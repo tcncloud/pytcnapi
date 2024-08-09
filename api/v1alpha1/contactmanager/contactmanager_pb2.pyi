@@ -175,3 +175,17 @@ class EditedEntry(_message.Message):
 class EditContactEntryResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListContactsByEntityRequest(_message.Message):
+    __slots__ = ("project_id", "entity_id")
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_ID_FIELD_NUMBER: _ClassVar[int]
+    project_id: int
+    entity_id: str
+    def __init__(self, project_id: _Optional[int] = ..., entity_id: _Optional[str] = ...) -> None: ...
+
+class ListContactsByEntityResponse(_message.Message):
+    __slots__ = ("contact_manager_entry",)
+    CONTACT_MANAGER_ENTRY_FIELD_NUMBER: _ClassVar[int]
+    contact_manager_entry: _containers.RepeatedCompositeFieldContainer[ContactManagerEntry]
+    def __init__(self, contact_manager_entry: _Optional[_Iterable[_Union[ContactManagerEntry, _Mapping]]] = ...) -> None: ...

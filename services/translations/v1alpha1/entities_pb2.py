@@ -22,9 +22,10 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-services/translations/v1alpha1/entities.proto\x12\x1eservices.translations.v1alpha1\"\xe5\x01\n\x0bTranslation\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\x12\x1a\n\x08template\x18\x02 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x03 \x01(\tR\x07\x63ontext\x12!\n\x0clanguage_tag\x18\x04 \x01(\tR\x0blanguageTag\x12\'\n\x0fllm_translation\x18\x05 \x01(\tR\x0ellmTranslation\x12-\n\x12manual_translation\x18\x06 \x01(\tR\x11manualTranslation\"P\n\x18TranslateTemplateRequest\x12\x1a\n\x08template\x18\x01 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x02 \x01(\tR\x07\x63ontext\"l\n\x19TranslateTemplateResponse\x12O\n\x0ctranslations\x18\x01 \x03(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0ctranslations\"V\n\x17ListTranslationsRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\x12!\n\x0clanguage_tag\x18\x02 \x01(\tR\x0blanguageTag\"k\n\x18ListTranslationsResponse\x12O\n\x0ctranslations\x18\x01 \x03(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0ctranslations\"c\n\x18UpdateTranslationRequest\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\x12 \n\x0btranslation\x18\x02 \x01(\tR\x0btranslation\"j\n\x19UpdateTranslationResponse\x12M\n\x0btranslation\x18\x01 \x01(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0btranslation\"E\n\x1cTriggerLLMTranslationRequest\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\"n\n\x1dTriggerLLMTranslationResponse\x12M\n\x0btranslation\x18\x01 \x01(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0btranslation\"Z\n\x17SetSystemMessageRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\x12%\n\x0esystem_message\x18\x02 \x01(\tR\rsystemMessage\"\x1a\n\x18SetSystemMessageResponse\"3\n\x17GetSystemMessageRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\"A\n\x18GetSystemMessageResponse\x12%\n\x0esystem_message\x18\x01 \x01(\tR\rsystemMessage\"\x80\x01\n\x18TestSystemMessageRequest\x12%\n\x0esystem_message\x18\x01 \x01(\tR\rsystemMessage\x12\x1a\n\x08template\x18\x02 \x01(\tR\x08template\x12!\n\x0clanguage_tag\x18\x03 \x01(\tR\x0blanguageTag\"=\n\x19TestSystemMessageResponse\x12 \n\x0btranslation\x18\x01 \x01(\tR\x0btranslation\"9\n\x1dTriggerLLMTranslationsRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\" \n\x1eTriggerLLMTranslationsResponse\"\x16\n\x14ListLanguagesRequest\"k\n\x15ListLanguagesResponse\x12R\n\tlanguages\x18\x01 \x03(\x0b\x32\x34.services.translations.v1alpha1.LocalizationLanguageR\tlanguages\"\x15\n\x13ListContextsRequest\"2\n\x14ListContextsResponse\x12\x1a\n\x08\x63ontexts\x18\x01 \x03(\tR\x08\x63ontexts\"\\\n\x14LocalizationLanguage\x12!\n\x0clanguage_tag\x18\x01 \x01(\tR\x0blanguageTag\x12!\n\x0c\x65nglish_name\x18\x02 \x01(\tR\x0b\x65nglishNameB\xcd\x01\n\"com.services.translations.v1alpha1B\rEntitiesProtoP\x01\xa2\x02\x03STX\xaa\x02\x1eServices.Translations.V1alpha1\xca\x02\x1eServices\\Translations\\V1alpha1\xe2\x02*Services\\Translations\\V1alpha1\\GPBMetadata\xea\x02 Services::Translations::V1alpha1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-services/translations/v1alpha1/entities.proto\x12\x1eservices.translations.v1alpha1\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa2\x02\n\x0bTranslation\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\x12\x1a\n\x08template\x18\x02 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x03 \x01(\tR\x07\x63ontext\x12!\n\x0clanguage_tag\x18\x04 \x01(\tR\x0blanguageTag\x12\'\n\x0fllm_translation\x18\x05 \x01(\tR\x0ellmTranslation\x12-\n\x12manual_translation\x18\x06 \x01(\tR\x11manualTranslation\x12;\n\x0b\x63reate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\ncreateTime\"\\\n\x14LocalizationLanguage\x12!\n\x0clanguage_tag\x18\x01 \x01(\tR\x0blanguageTag\x12!\n\x0c\x65nglish_name\x18\x02 \x01(\tR\x0b\x65nglishName\"p\n\x13LocalizationContext\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\x12%\n\x0esystem_message\x18\x02 \x01(\tR\rsystemMessage\x12\x18\n\x07\x65nabled\x18\x03 \x01(\x08R\x07\x65nabled\"P\n\x18TranslateTemplateRequest\x12\x1a\n\x08template\x18\x01 \x01(\tR\x08template\x12\x18\n\x07\x63ontext\x18\x02 \x01(\tR\x07\x63ontext\"l\n\x19TranslateTemplateResponse\x12O\n\x0ctranslations\x18\x01 \x03(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0ctranslations\"V\n\x17ListTranslationsRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\x12!\n\x0clanguage_tag\x18\x02 \x01(\tR\x0blanguageTag\"k\n\x18ListTranslationsResponse\x12O\n\x0ctranslations\x18\x01 \x03(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0ctranslations\"c\n\x18UpdateTranslationRequest\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\x12 \n\x0btranslation\x18\x02 \x01(\tR\x0btranslation\"j\n\x19UpdateTranslationResponse\x12M\n\x0btranslation\x18\x01 \x01(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0btranslation\"E\n\x1cTriggerLLMTranslationRequest\x12%\n\x0etranslation_id\x18\x01 \x01(\tR\rtranslationId\"n\n\x1dTriggerLLMTranslationResponse\x12M\n\x0btranslation\x18\x01 \x01(\x0b\x32+.services.translations.v1alpha1.TranslationR\x0btranslation\"Z\n\x17SetSystemMessageRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\x12%\n\x0esystem_message\x18\x02 \x01(\tR\rsystemMessage\"\x1a\n\x18SetSystemMessageResponse\"3\n\x17GetSystemMessageRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\"A\n\x18GetSystemMessageResponse\x12%\n\x0esystem_message\x18\x01 \x01(\tR\rsystemMessage\"\x80\x01\n\x18TestSystemMessageRequest\x12%\n\x0esystem_message\x18\x01 \x01(\tR\rsystemMessage\x12\x1a\n\x08template\x18\x02 \x01(\tR\x08template\x12!\n\x0clanguage_tag\x18\x03 \x01(\tR\x0blanguageTag\"=\n\x19TestSystemMessageResponse\x12 \n\x0btranslation\x18\x01 \x01(\tR\x0btranslation\"9\n\x1dTriggerLLMTranslationsRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\" \n\x1eTriggerLLMTranslationsResponse\"\x16\n\x14ListLanguagesRequest\"k\n\x15ListLanguagesResponse\x12R\n\tlanguages\x18\x01 \x03(\x0b\x32\x34.services.translations.v1alpha1.LocalizationLanguageR\tlanguages\"\x15\n\x13ListContextsRequest\"\x9c\x01\n\x14ListContextsResponse\x12\x1a\n\x08\x63ontexts\x18\x01 \x03(\tR\x08\x63ontexts\x12h\n\x15localization_contexts\x18\x02 \x03(\x0b\x32\x33.services.translations.v1alpha1.LocalizationContextR\x14localizationContexts\"0\n\x14\x45nableContextRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\"\x17\n\x15\x45nableContextResponse\"1\n\x15\x44isableContextRequest\x12\x18\n\x07\x63ontext\x18\x01 \x01(\tR\x07\x63ontext\"\x18\n\x16\x44isableContextResponse\"H\n\x1d\x42ulkDeleteTranslationsRequest\x12\'\n\x0ftranslation_ids\x18\x01 \x03(\tR\x0etranslationIds\" \n\x1e\x42ulkDeleteTranslationsResponseB\xcd\x01\n\"com.services.translations.v1alpha1B\rEntitiesProtoP\x01\xa2\x02\x03STX\xaa\x02\x1eServices.Translations.V1alpha1\xca\x02\x1eServices\\Translations\\V1alpha1\xe2\x02*Services\\Translations\\V1alpha1\\GPBMetadata\xea\x02 Services::Translations::V1alpha1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,48 +33,62 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'services.translations.v1alp
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\"com.services.translations.v1alpha1B\rEntitiesProtoP\001\242\002\003STX\252\002\036Services.Translations.V1alpha1\312\002\036Services\\Translations\\V1alpha1\342\002*Services\\Translations\\V1alpha1\\GPBMetadata\352\002 Services::Translations::V1alpha1'
-  _globals['_TRANSLATION']._serialized_start=82
-  _globals['_TRANSLATION']._serialized_end=311
-  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_start=313
-  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_end=393
-  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_start=395
-  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_end=503
-  _globals['_LISTTRANSLATIONSREQUEST']._serialized_start=505
-  _globals['_LISTTRANSLATIONSREQUEST']._serialized_end=591
-  _globals['_LISTTRANSLATIONSRESPONSE']._serialized_start=593
-  _globals['_LISTTRANSLATIONSRESPONSE']._serialized_end=700
-  _globals['_UPDATETRANSLATIONREQUEST']._serialized_start=702
-  _globals['_UPDATETRANSLATIONREQUEST']._serialized_end=801
-  _globals['_UPDATETRANSLATIONRESPONSE']._serialized_start=803
-  _globals['_UPDATETRANSLATIONRESPONSE']._serialized_end=909
-  _globals['_TRIGGERLLMTRANSLATIONREQUEST']._serialized_start=911
-  _globals['_TRIGGERLLMTRANSLATIONREQUEST']._serialized_end=980
-  _globals['_TRIGGERLLMTRANSLATIONRESPONSE']._serialized_start=982
-  _globals['_TRIGGERLLMTRANSLATIONRESPONSE']._serialized_end=1092
-  _globals['_SETSYSTEMMESSAGEREQUEST']._serialized_start=1094
-  _globals['_SETSYSTEMMESSAGEREQUEST']._serialized_end=1184
-  _globals['_SETSYSTEMMESSAGERESPONSE']._serialized_start=1186
-  _globals['_SETSYSTEMMESSAGERESPONSE']._serialized_end=1212
-  _globals['_GETSYSTEMMESSAGEREQUEST']._serialized_start=1214
-  _globals['_GETSYSTEMMESSAGEREQUEST']._serialized_end=1265
-  _globals['_GETSYSTEMMESSAGERESPONSE']._serialized_start=1267
-  _globals['_GETSYSTEMMESSAGERESPONSE']._serialized_end=1332
-  _globals['_TESTSYSTEMMESSAGEREQUEST']._serialized_start=1335
-  _globals['_TESTSYSTEMMESSAGEREQUEST']._serialized_end=1463
-  _globals['_TESTSYSTEMMESSAGERESPONSE']._serialized_start=1465
-  _globals['_TESTSYSTEMMESSAGERESPONSE']._serialized_end=1526
-  _globals['_TRIGGERLLMTRANSLATIONSREQUEST']._serialized_start=1528
-  _globals['_TRIGGERLLMTRANSLATIONSREQUEST']._serialized_end=1585
-  _globals['_TRIGGERLLMTRANSLATIONSRESPONSE']._serialized_start=1587
-  _globals['_TRIGGERLLMTRANSLATIONSRESPONSE']._serialized_end=1619
-  _globals['_LISTLANGUAGESREQUEST']._serialized_start=1621
-  _globals['_LISTLANGUAGESREQUEST']._serialized_end=1643
-  _globals['_LISTLANGUAGESRESPONSE']._serialized_start=1645
-  _globals['_LISTLANGUAGESRESPONSE']._serialized_end=1752
-  _globals['_LISTCONTEXTSREQUEST']._serialized_start=1754
-  _globals['_LISTCONTEXTSREQUEST']._serialized_end=1775
-  _globals['_LISTCONTEXTSRESPONSE']._serialized_start=1777
-  _globals['_LISTCONTEXTSRESPONSE']._serialized_end=1827
-  _globals['_LOCALIZATIONLANGUAGE']._serialized_start=1829
-  _globals['_LOCALIZATIONLANGUAGE']._serialized_end=1921
+  _globals['_TRANSLATION']._serialized_start=115
+  _globals['_TRANSLATION']._serialized_end=405
+  _globals['_LOCALIZATIONLANGUAGE']._serialized_start=407
+  _globals['_LOCALIZATIONLANGUAGE']._serialized_end=499
+  _globals['_LOCALIZATIONCONTEXT']._serialized_start=501
+  _globals['_LOCALIZATIONCONTEXT']._serialized_end=613
+  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_start=615
+  _globals['_TRANSLATETEMPLATEREQUEST']._serialized_end=695
+  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_start=697
+  _globals['_TRANSLATETEMPLATERESPONSE']._serialized_end=805
+  _globals['_LISTTRANSLATIONSREQUEST']._serialized_start=807
+  _globals['_LISTTRANSLATIONSREQUEST']._serialized_end=893
+  _globals['_LISTTRANSLATIONSRESPONSE']._serialized_start=895
+  _globals['_LISTTRANSLATIONSRESPONSE']._serialized_end=1002
+  _globals['_UPDATETRANSLATIONREQUEST']._serialized_start=1004
+  _globals['_UPDATETRANSLATIONREQUEST']._serialized_end=1103
+  _globals['_UPDATETRANSLATIONRESPONSE']._serialized_start=1105
+  _globals['_UPDATETRANSLATIONRESPONSE']._serialized_end=1211
+  _globals['_TRIGGERLLMTRANSLATIONREQUEST']._serialized_start=1213
+  _globals['_TRIGGERLLMTRANSLATIONREQUEST']._serialized_end=1282
+  _globals['_TRIGGERLLMTRANSLATIONRESPONSE']._serialized_start=1284
+  _globals['_TRIGGERLLMTRANSLATIONRESPONSE']._serialized_end=1394
+  _globals['_SETSYSTEMMESSAGEREQUEST']._serialized_start=1396
+  _globals['_SETSYSTEMMESSAGEREQUEST']._serialized_end=1486
+  _globals['_SETSYSTEMMESSAGERESPONSE']._serialized_start=1488
+  _globals['_SETSYSTEMMESSAGERESPONSE']._serialized_end=1514
+  _globals['_GETSYSTEMMESSAGEREQUEST']._serialized_start=1516
+  _globals['_GETSYSTEMMESSAGEREQUEST']._serialized_end=1567
+  _globals['_GETSYSTEMMESSAGERESPONSE']._serialized_start=1569
+  _globals['_GETSYSTEMMESSAGERESPONSE']._serialized_end=1634
+  _globals['_TESTSYSTEMMESSAGEREQUEST']._serialized_start=1637
+  _globals['_TESTSYSTEMMESSAGEREQUEST']._serialized_end=1765
+  _globals['_TESTSYSTEMMESSAGERESPONSE']._serialized_start=1767
+  _globals['_TESTSYSTEMMESSAGERESPONSE']._serialized_end=1828
+  _globals['_TRIGGERLLMTRANSLATIONSREQUEST']._serialized_start=1830
+  _globals['_TRIGGERLLMTRANSLATIONSREQUEST']._serialized_end=1887
+  _globals['_TRIGGERLLMTRANSLATIONSRESPONSE']._serialized_start=1889
+  _globals['_TRIGGERLLMTRANSLATIONSRESPONSE']._serialized_end=1921
+  _globals['_LISTLANGUAGESREQUEST']._serialized_start=1923
+  _globals['_LISTLANGUAGESREQUEST']._serialized_end=1945
+  _globals['_LISTLANGUAGESRESPONSE']._serialized_start=1947
+  _globals['_LISTLANGUAGESRESPONSE']._serialized_end=2054
+  _globals['_LISTCONTEXTSREQUEST']._serialized_start=2056
+  _globals['_LISTCONTEXTSREQUEST']._serialized_end=2077
+  _globals['_LISTCONTEXTSRESPONSE']._serialized_start=2080
+  _globals['_LISTCONTEXTSRESPONSE']._serialized_end=2236
+  _globals['_ENABLECONTEXTREQUEST']._serialized_start=2238
+  _globals['_ENABLECONTEXTREQUEST']._serialized_end=2286
+  _globals['_ENABLECONTEXTRESPONSE']._serialized_start=2288
+  _globals['_ENABLECONTEXTRESPONSE']._serialized_end=2311
+  _globals['_DISABLECONTEXTREQUEST']._serialized_start=2313
+  _globals['_DISABLECONTEXTREQUEST']._serialized_end=2362
+  _globals['_DISABLECONTEXTRESPONSE']._serialized_start=2364
+  _globals['_DISABLECONTEXTRESPONSE']._serialized_end=2388
+  _globals['_BULKDELETETRANSLATIONSREQUEST']._serialized_start=2390
+  _globals['_BULKDELETETRANSLATIONSREQUEST']._serialized_end=2462
+  _globals['_BULKDELETETRANSLATIONSRESPONSE']._serialized_start=2464
+  _globals['_BULKDELETETRANSLATIONSRESPONSE']._serialized_end=2496
 # @@protoc_insertion_point(module_scope)

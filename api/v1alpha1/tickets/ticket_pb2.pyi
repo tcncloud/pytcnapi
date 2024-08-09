@@ -38,7 +38,7 @@ class PingRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateTicketReq(_message.Message):
-    __slots__ = ("title", "description", "project_sid", "due_date", "metadata", "ticket_skills", "status", "ticket_sla", "assign_self", "assign_other", "ticket_action", "ticket_assignee")
+    __slots__ = ("title", "description", "project_sid", "due_date", "metadata", "ticket_skills", "status", "ticket_sla", "assign_self", "assign_other", "ticket_action", "ticket_assignee", "contact_entry_id")
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -51,6 +51,7 @@ class CreateTicketReq(_message.Message):
     ASSIGN_OTHER_FIELD_NUMBER: _ClassVar[int]
     TICKET_ACTION_FIELD_NUMBER: _ClassVar[int]
     TICKET_ASSIGNEE_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
     title: str
     description: str
     project_sid: int
@@ -63,7 +64,8 @@ class CreateTicketReq(_message.Message):
     assign_other: str
     ticket_action: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.TicketAction]
     ticket_assignee: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., project_sid: _Optional[int] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_tickets_pb2.Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[_tickets_pb2.Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[_tickets_pb2.Sla, _Mapping]]] = ..., assign_self: bool = ..., assign_other: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[_tickets_pb2.TicketAction, _Mapping]]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ...) -> None: ...
+    contact_entry_id: int
+    def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., project_sid: _Optional[int] = ..., due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., metadata: _Optional[_Iterable[_Union[_tickets_pb2.Metadata, _Mapping]]] = ..., ticket_skills: _Optional[_Iterable[_Union[_tickets_pb2.Skills, _Mapping]]] = ..., status: _Optional[int] = ..., ticket_sla: _Optional[_Iterable[_Union[_tickets_pb2.Sla, _Mapping]]] = ..., assign_self: bool = ..., assign_other: _Optional[str] = ..., ticket_action: _Optional[_Iterable[_Union[_tickets_pb2.TicketAction, _Mapping]]] = ..., ticket_assignee: _Optional[_Iterable[str]] = ..., contact_entry_id: _Optional[int] = ...) -> None: ...
 
 class CreateTicketTemplateRequest(_message.Message):
     __slots__ = ("ticket_template",)
@@ -168,16 +170,18 @@ class EditTicketReq(_message.Message):
     def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[_tickets_pb2.EditAttribute, _Mapping]] = ...) -> None: ...
 
 class EditMaskTicketReq(_message.Message):
-    __slots__ = ("ticket_sid", "edit_value", "edited_fields_mask", "ticket_code")
+    __slots__ = ("ticket_sid", "edit_value", "edited_fields_mask", "ticket_code", "contact_entry_id")
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     EDIT_VALUE_FIELD_NUMBER: _ClassVar[int]
     EDITED_FIELDS_MASK_FIELD_NUMBER: _ClassVar[int]
     TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
     edit_value: _tickets_pb2.Ticket
     edited_fields_mask: _containers.RepeatedCompositeFieldContainer[_field_mask_pb2.FieldMask]
     ticket_code: str
-    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[_tickets_pb2.Ticket, _Mapping]] = ..., edited_fields_mask: _Optional[_Iterable[_Union[_field_mask_pb2.FieldMask, _Mapping]]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
+    contact_entry_id: int
+    def __init__(self, ticket_sid: _Optional[int] = ..., edit_value: _Optional[_Union[_tickets_pb2.Ticket, _Mapping]] = ..., edited_fields_mask: _Optional[_Iterable[_Union[_field_mask_pb2.FieldMask, _Mapping]]] = ..., ticket_code: _Optional[str] = ..., contact_entry_id: _Optional[int] = ...) -> None: ...
 
 class EditMaskTicketRes(_message.Message):
     __slots__ = ("is_edited",)

@@ -64,6 +64,21 @@ class TranslationsServiceStub(object):
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.TestSystemMessageRequest.SerializeToString,
                 response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.TestSystemMessageResponse.FromString,
                 )
+        self.EnableContext = channel.unary_unary(
+                '/services.translations.v1alpha1.TranslationsService/EnableContext',
+                request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.EnableContextRequest.SerializeToString,
+                response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.EnableContextResponse.FromString,
+                )
+        self.DisableContext = channel.unary_unary(
+                '/services.translations.v1alpha1.TranslationsService/DisableContext',
+                request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextRequest.SerializeToString,
+                response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextResponse.FromString,
+                )
+        self.BulkDeleteTranslations = channel.unary_unary(
+                '/services.translations.v1alpha1.TranslationsService/BulkDeleteTranslations',
+                request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.BulkDeleteTranslationsRequest.SerializeToString,
+                response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.BulkDeleteTranslationsResponse.FromString,
+                )
 
 
 class TranslationsServiceServicer(object):
@@ -174,6 +189,40 @@ class TranslationsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def EnableContext(self, request, context):
+        """enable a context for LLM translations
+        Required permissions:
+        - PERMISSION_CUSTOMER_SUPPORT
+        Errors:
+        - grpc.InvalidArgument: The request is not valid.
+        - grpc.NotFound: No context found
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DisableContext(self, request, context):
+        """disable a context for LLM translations
+        Required permissions:
+        - PERMISSION_CUSTOMER_SUPPORT
+        Errors:
+        - grpc.InvalidArgument: The request is not valid.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def BulkDeleteTranslations(self, request, context):
+        """Bulk delete translations
+        Required permissions:
+        - PERMISSION_CUSTOMER_SUPPORT
+        Errors:
+        - grpc.InvalidArgument: The request is not valid.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TranslationsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -226,6 +275,21 @@ def add_TranslationsServiceServicer_to_server(servicer, server):
                     servicer.TestSystemMessage,
                     request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.TestSystemMessageRequest.FromString,
                     response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.TestSystemMessageResponse.SerializeToString,
+            ),
+            'EnableContext': grpc.unary_unary_rpc_method_handler(
+                    servicer.EnableContext,
+                    request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.EnableContextRequest.FromString,
+                    response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.EnableContextResponse.SerializeToString,
+            ),
+            'DisableContext': grpc.unary_unary_rpc_method_handler(
+                    servicer.DisableContext,
+                    request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextRequest.FromString,
+                    response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextResponse.SerializeToString,
+            ),
+            'BulkDeleteTranslations': grpc.unary_unary_rpc_method_handler(
+                    servicer.BulkDeleteTranslations,
+                    request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.BulkDeleteTranslationsRequest.FromString,
+                    response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.BulkDeleteTranslationsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -404,5 +468,56 @@ class TranslationsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/TestSystemMessage',
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.TestSystemMessageRequest.SerializeToString,
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.TestSystemMessageResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EnableContext(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/EnableContext',
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.EnableContextRequest.SerializeToString,
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.EnableContextResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DisableContext(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/DisableContext',
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextRequest.SerializeToString,
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def BulkDeleteTranslations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/BulkDeleteTranslations',
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.BulkDeleteTranslationsRequest.SerializeToString,
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.BulkDeleteTranslationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
