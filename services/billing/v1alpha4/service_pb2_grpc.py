@@ -25,6 +25,11 @@ class BillingServiceStub(object):
                 request_serializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.ApplyBillingPlanDraftRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.ApplyBillingPlanDraftResponse.FromString,
                 )
+        self.CloneBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha4.BillingService/CloneBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.CloneBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.CloneBillingPlanResponse.FromString,
+                )
         self.CreateBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha4.BillingService/CreateBillingPlan',
                 request_serializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.CreateBillingPlanRequest.SerializeToString,
@@ -54,6 +59,11 @@ class BillingServiceStub(object):
                 '/services.billing.v1alpha4.BillingService/ApplyDefaultBillingPlanDraft',
                 request_serializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.ApplyDefaultBillingPlanDraftRequest.SerializeToString,
                 response_deserializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.ApplyDefaultBillingPlanDraftResponse.FromString,
+                )
+        self.CloneDefaultBillingPlan = channel.unary_unary(
+                '/services.billing.v1alpha4.BillingService/CloneDefaultBillingPlan',
+                request_serializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.CloneDefaultBillingPlanRequest.SerializeToString,
+                response_deserializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.CloneDefaultBillingPlanResponse.FromString,
                 )
         self.CreateDefaultBillingPlan = channel.unary_unary(
                 '/services.billing.v1alpha4.BillingService/CreateDefaultBillingPlan',
@@ -207,6 +217,21 @@ class BillingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CloneBillingPlan(self, request, context):
+        """Clones a billing plan
+        Required permissions:
+        CUSTOMER_SUPPORT
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The billing plan was not found.
+        - grpc.PermissionDenied: The caller does not have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateBillingPlan(self, request, context):
         """Creates a new billing plan.
         Required permissions:
@@ -292,6 +317,22 @@ class BillingServiceServicer(object):
         - grpc.Internal: An internal error occurred.
         - grpc.InvalidArgument: The request is invalid.
         - grpc.NotFound: The draft billing plan was not found.
+        - grpc.PermissionDenied: The caller does not have the required permissions.
+        - grpc.Unavailable: The operation is currently unavailable.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CloneDefaultBillingPlan(self, request, context):
+        """Clones a default billing plan.
+        Required permissions:
+        CUSTOMER_SUPPORT
+        TCN_BILLING_ADMIN
+        Errors:
+        - grpc.Internal: An internal error occurred.
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.NotFound: The billing plan was not found.
         - grpc.PermissionDenied: The caller does not have the required permissions.
         - grpc.Unavailable: The operation is currently unavailable.
         """
@@ -727,6 +768,11 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.ApplyBillingPlanDraftRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.ApplyBillingPlanDraftResponse.SerializeToString,
             ),
+            'CloneBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.CloneBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.CloneBillingPlanResponse.SerializeToString,
+            ),
             'CreateBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateBillingPlan,
                     request_deserializer=services_dot_billing_dot_v1alpha4_dot_plan__pb2.CreateBillingPlanRequest.FromString,
@@ -756,6 +802,11 @@ def add_BillingServiceServicer_to_server(servicer, server):
                     servicer.ApplyDefaultBillingPlanDraft,
                     request_deserializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.ApplyDefaultBillingPlanDraftRequest.FromString,
                     response_serializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.ApplyDefaultBillingPlanDraftResponse.SerializeToString,
+            ),
+            'CloneDefaultBillingPlan': grpc.unary_unary_rpc_method_handler(
+                    servicer.CloneDefaultBillingPlan,
+                    request_deserializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.CloneDefaultBillingPlanRequest.FromString,
+                    response_serializer=services_dot_billing_dot_v1alpha4_dot_defaults__pb2.CloneDefaultBillingPlanResponse.SerializeToString,
             ),
             'CreateDefaultBillingPlan': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateDefaultBillingPlan,
@@ -917,6 +968,23 @@ class BillingService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def CloneBillingPlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha4.BillingService/CloneBillingPlan',
+            services_dot_billing_dot_v1alpha4_dot_plan__pb2.CloneBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha4_dot_plan__pb2.CloneBillingPlanResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def CreateBillingPlan(request,
             target,
             options=(),
@@ -1015,6 +1083,23 @@ class BillingService(object):
         return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha4.BillingService/ApplyDefaultBillingPlanDraft',
             services_dot_billing_dot_v1alpha4_dot_defaults__pb2.ApplyDefaultBillingPlanDraftRequest.SerializeToString,
             services_dot_billing_dot_v1alpha4_dot_defaults__pb2.ApplyDefaultBillingPlanDraftResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CloneDefaultBillingPlan(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.billing.v1alpha4.BillingService/CloneDefaultBillingPlan',
+            services_dot_billing_dot_v1alpha4_dot_defaults__pb2.CloneDefaultBillingPlanRequest.SerializeToString,
+            services_dot_billing_dot_v1alpha4_dot_defaults__pb2.CloneDefaultBillingPlanResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

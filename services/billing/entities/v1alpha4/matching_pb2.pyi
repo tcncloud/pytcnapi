@@ -6,9 +6,13 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Op
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CountryCodePrefix(_message.Message):
-    __slots__ = ("country_code", "prefixes")
+    __slots__ = ("country_code", "prefixes", "matching_rule_id", "name")
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
+    MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     country_code: int
     prefixes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, country_code: _Optional[int] = ..., prefixes: _Optional[_Iterable[str]] = ...) -> None: ...
+    matching_rule_id: str
+    name: str
+    def __init__(self, country_code: _Optional[int] = ..., prefixes: _Optional[_Iterable[str]] = ..., matching_rule_id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...

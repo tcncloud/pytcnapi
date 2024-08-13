@@ -26,6 +26,18 @@ class ApplyBillingPlanDraftResponse(_message.Message):
     billing_plan_ids: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, billing_plan_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class CloneBillingPlanRequest(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
+class CloneBillingPlanResponse(_message.Message):
+    __slots__ = ("billing_plan_id",)
+    BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
+    billing_plan_id: str
+    def __init__(self, billing_plan_id: _Optional[str] = ...) -> None: ...
+
 class CreateBillingPlanRequest(_message.Message):
     __slots__ = ("billing_plan_id", "billing_plan")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
