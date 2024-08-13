@@ -1,4 +1,5 @@
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -256,6 +257,56 @@ class SchedulingActivityClassification(int, metaclass=_enum_type_wrapper.EnumTyp
     STANDARD_SCHEDULING_ACTIVITY: _ClassVar[SchedulingActivityClassification]
     ON_CALL_ACTIVITY: _ClassVar[SchedulingActivityClassification]
     TIME_OFF_ACTIVITY: _ClassVar[SchedulingActivityClassification]
+
+class AdherenceRuleNotificationMedium(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ADHERENCE_RULE_NOTIFICATION_MEDIUM_IN_PRODUCT: _ClassVar[AdherenceRuleNotificationMedium]
+    ADHERENCE_RULE_NOTIFICATION_MEDIUM_EMAIL: _ClassVar[AdherenceRuleNotificationMedium]
+
+class AdherenceRuleRequirementType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ADHERENCE_RULE_REQUIREMENT_TYPE_NOT_USED: _ClassVar[AdherenceRuleRequirementType]
+    ADHERENCE_RULE_REQUIREMENT_TYPE_OPTIONAL: _ClassVar[AdherenceRuleRequirementType]
+    ADHERENCE_RULE_REQUIREMENT_TYPE_MANDATORY: _ClassVar[AdherenceRuleRequirementType]
+
+class AdherenceRuleRange(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ADHERENCE_RULE_RANGE_START_OF_DAY: _ClassVar[AdherenceRuleRange]
+    ADHERENCE_RULE_RANGE_START_OF_WEEK: _ClassVar[AdherenceRuleRange]
+    ADHERENCE_RULE_RANGE_START_OF_MONTH: _ClassVar[AdherenceRuleRange]
+    ADHERENCE_RULE_RANGE_REST_OF_DAY: _ClassVar[AdherenceRuleRange]
+    ADHERENCE_RULE_RANGE_CUSTOM_DATE_RANGE: _ClassVar[AdherenceRuleRange]
+
+class AdherenceDepartmentalRuleActionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ADHERENCE_DEPARTMENTAL_RULE_ACTION_TYPE_CALLS_ANSWERED: _ClassVar[AdherenceDepartmentalRuleActionType]
+
+class AdherenceRuleCondition(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ADHERENCE_RULE_CONDITION_GREATER_THAN: _ClassVar[AdherenceRuleCondition]
+    ADHERENCE_RULE_CONDITION_GREATER_THAN_EQUAL: _ClassVar[AdherenceRuleCondition]
+    ADHERENCE_RULE_CONDITION_LESS_THAN: _ClassVar[AdherenceRuleCondition]
+    ADHERENCE_RULE_CONDITION_LESS_THAN_EQUAL: _ClassVar[AdherenceRuleCondition]
+
+class AdherenceRuleUnit(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ADHERENCE_RULE_UNIT_SECONDS: _ClassVar[AdherenceRuleUnit]
+    ADHERENCE_RULE_UNIT_MINUTES: _ClassVar[AdherenceRuleUnit]
+    ADHERENCE_RULE_UNIT_CALLS: _ClassVar[AdherenceRuleUnit]
+    ADHERENCE_RULE_UNIT_PERCENTAGE: _ClassVar[AdherenceRuleUnit]
+
+class AdherenceAgentRuleActionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_WRAP_UP: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_WAITING: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_MANUAL_DIAL: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_PREVIEW_DIAL: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_ANSWER_CALLS: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_ON_CALL: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_ON_HOLD: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_SHIFT_START: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_SHIFT_START_LATE: _ClassVar[AdherenceAgentRuleActionType]
+    ADHERENCE_AGENT_RULE_ACTION_TYPE_SHIFT_END_EARLY: _ClassVar[AdherenceAgentRuleActionType]
 RANDOM_FOREST: RegressionForecasterModelTypes
 ADABOOST: RegressionForecasterModelTypes
 GRADIENT_BOOSTING: RegressionForecasterModelTypes
@@ -440,6 +491,35 @@ CANCELLED_PETITION: AgentLeavePetitionStatus
 STANDARD_SCHEDULING_ACTIVITY: SchedulingActivityClassification
 ON_CALL_ACTIVITY: SchedulingActivityClassification
 TIME_OFF_ACTIVITY: SchedulingActivityClassification
+ADHERENCE_RULE_NOTIFICATION_MEDIUM_IN_PRODUCT: AdherenceRuleNotificationMedium
+ADHERENCE_RULE_NOTIFICATION_MEDIUM_EMAIL: AdherenceRuleNotificationMedium
+ADHERENCE_RULE_REQUIREMENT_TYPE_NOT_USED: AdherenceRuleRequirementType
+ADHERENCE_RULE_REQUIREMENT_TYPE_OPTIONAL: AdherenceRuleRequirementType
+ADHERENCE_RULE_REQUIREMENT_TYPE_MANDATORY: AdherenceRuleRequirementType
+ADHERENCE_RULE_RANGE_START_OF_DAY: AdherenceRuleRange
+ADHERENCE_RULE_RANGE_START_OF_WEEK: AdherenceRuleRange
+ADHERENCE_RULE_RANGE_START_OF_MONTH: AdherenceRuleRange
+ADHERENCE_RULE_RANGE_REST_OF_DAY: AdherenceRuleRange
+ADHERENCE_RULE_RANGE_CUSTOM_DATE_RANGE: AdherenceRuleRange
+ADHERENCE_DEPARTMENTAL_RULE_ACTION_TYPE_CALLS_ANSWERED: AdherenceDepartmentalRuleActionType
+ADHERENCE_RULE_CONDITION_GREATER_THAN: AdherenceRuleCondition
+ADHERENCE_RULE_CONDITION_GREATER_THAN_EQUAL: AdherenceRuleCondition
+ADHERENCE_RULE_CONDITION_LESS_THAN: AdherenceRuleCondition
+ADHERENCE_RULE_CONDITION_LESS_THAN_EQUAL: AdherenceRuleCondition
+ADHERENCE_RULE_UNIT_SECONDS: AdherenceRuleUnit
+ADHERENCE_RULE_UNIT_MINUTES: AdherenceRuleUnit
+ADHERENCE_RULE_UNIT_CALLS: AdherenceRuleUnit
+ADHERENCE_RULE_UNIT_PERCENTAGE: AdherenceRuleUnit
+ADHERENCE_AGENT_RULE_ACTION_TYPE_WRAP_UP: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_WAITING: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_MANUAL_DIAL: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_PREVIEW_DIAL: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_ANSWER_CALLS: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_ON_CALL: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_ON_HOLD: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_SHIFT_START: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_SHIFT_START_LATE: AdherenceAgentRuleActionType
+ADHERENCE_AGENT_RULE_ACTION_TYPE_SHIFT_END_EARLY: AdherenceAgentRuleActionType
 
 class SkillType(_message.Message):
     __slots__ = ()
@@ -748,3 +828,113 @@ class AgentLeavePetition(_message.Message):
     resolved_by_user_id: str
     requested_hours_off: float
     def __init__(self, agent_leave_petition_id: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., petition_status: _Optional[_Union[AgentLeavePetitionStatus, str]] = ..., petition_comment: _Optional[str] = ..., response_comment: _Optional[str] = ..., requested_datetime_ranges: _Optional[_Iterable[_Union[DatetimeRange, _Mapping]]] = ..., created_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., archived_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_by_user_id: _Optional[str] = ..., requested_hours_off: _Optional[float] = ...) -> None: ...
+
+class ConfigEntity(_message.Message):
+    __slots__ = ("entity_sid", "entity_type")
+    ENTITY_SID_FIELD_NUMBER: _ClassVar[int]
+    ENTITY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    entity_sid: int
+    entity_type: ConfigEntityType
+    def __init__(self, entity_sid: _Optional[int] = ..., entity_type: _Optional[_Union[ConfigEntityType, str]] = ...) -> None: ...
+
+class AdherenceRuleNotificationConfig(_message.Message):
+    __slots__ = ("adherence_rule_notification_config_id", "name")
+    ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    adherence_rule_notification_config_id: int
+    name: str
+    def __init__(self, adherence_rule_notification_config_id: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
+
+class AdherenceRuleNotificationConfigEntry(_message.Message):
+    __slots__ = ("adherence_rule_notification_config_entry_id", "adherence_rule_notification_config_id", "recipient_user_id", "notification_medium", "seconds_to_wait_for_no_response")
+    ADHERENCE_RULE_NOTIFICATION_CONFIG_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
+    ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
+    RECIPIENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    NOTIFICATION_MEDIUM_FIELD_NUMBER: _ClassVar[int]
+    SECONDS_TO_WAIT_FOR_NO_RESPONSE_FIELD_NUMBER: _ClassVar[int]
+    adherence_rule_notification_config_entry_id: int
+    adherence_rule_notification_config_id: int
+    recipient_user_id: str
+    notification_medium: AdherenceRuleNotificationMedium
+    seconds_to_wait_for_no_response: int
+    def __init__(self, adherence_rule_notification_config_entry_id: _Optional[int] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., recipient_user_id: _Optional[str] = ..., notification_medium: _Optional[_Union[AdherenceRuleNotificationMedium, str]] = ..., seconds_to_wait_for_no_response: _Optional[int] = ...) -> None: ...
+
+class AdherenceDepartmentalRuleAction(_message.Message):
+    __slots__ = ("action_type",)
+    ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    action_type: AdherenceDepartmentalRuleActionType
+    def __init__(self, action_type: _Optional[_Union[AdherenceDepartmentalRuleActionType, str]] = ...) -> None: ...
+
+class AdherenceDepartmentalRule(_message.Message):
+    __slots__ = ("adherence_departmental_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id", "rule_range", "custom_range")
+    ADHERENCE_DEPARTMENTAL_RULE_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    SELECTED_ENTITY_FIELD_NUMBER: _ClassVar[int]
+    RULE_REQUIREMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
+    RULE_RANGE_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_RANGE_FIELD_NUMBER: _ClassVar[int]
+    adherence_departmental_rule_id: int
+    name: str
+    selected_entity: ConfigEntity
+    rule_requirement_type: AdherenceRuleRequirementType
+    adherence_rule_notification_config_id: int
+    rule_range: AdherenceRuleRange
+    custom_range: DatetimeRange
+    def __init__(self, adherence_departmental_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., rule_range: _Optional[_Union[AdherenceRuleRange, str]] = ..., custom_range: _Optional[_Union[DatetimeRange, _Mapping]] = ...) -> None: ...
+
+class AdherenceDepartmentalRuleClause(_message.Message):
+    __slots__ = ("adherence_departmental_rule_clause_id", "adherence_departmental_rule_id", "action", "condition", "amount", "unit", "per_amount", "per_unit")
+    ADHERENCE_DEPARTMENTAL_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
+    ADHERENCE_DEPARTMENTAL_RULE_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTION_FIELD_NUMBER: _ClassVar[int]
+    CONDITION_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    PER_AMOUNT_FIELD_NUMBER: _ClassVar[int]
+    PER_UNIT_FIELD_NUMBER: _ClassVar[int]
+    adherence_departmental_rule_clause_id: int
+    adherence_departmental_rule_id: int
+    action: AdherenceDepartmentalRuleAction
+    condition: AdherenceRuleCondition
+    amount: int
+    unit: AdherenceRuleUnit
+    per_amount: _wrappers_pb2.Int32Value
+    per_unit: AdherenceRuleUnit
+    def __init__(self, adherence_departmental_rule_clause_id: _Optional[int] = ..., adherence_departmental_rule_id: _Optional[int] = ..., action: _Optional[_Union[AdherenceDepartmentalRuleAction, _Mapping]] = ..., condition: _Optional[_Union[AdherenceRuleCondition, str]] = ..., amount: _Optional[int] = ..., unit: _Optional[_Union[AdherenceRuleUnit, str]] = ..., per_amount: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., per_unit: _Optional[_Union[AdherenceRuleUnit, str]] = ...) -> None: ...
+
+class AdherenceAgentRule(_message.Message):
+    __slots__ = ("adherence_agent_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id")
+    ADHERENCE_AGENT_RULE_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    SELECTED_ENTITY_FIELD_NUMBER: _ClassVar[int]
+    RULE_REQUIREMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
+    ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
+    adherence_agent_rule_id: int
+    name: str
+    selected_entity: ConfigEntity
+    rule_requirement_type: AdherenceRuleRequirementType
+    adherence_rule_notification_config_id: int
+    def __init__(self, adherence_agent_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ...) -> None: ...
+
+class AdherenceAgentRuleAction(_message.Message):
+    __slots__ = ("action_type",)
+    ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    action_type: AdherenceAgentRuleActionType
+    def __init__(self, action_type: _Optional[_Union[AdherenceAgentRuleActionType, str]] = ...) -> None: ...
+
+class AdherenceAgentRuleClause(_message.Message):
+    __slots__ = ("adherence_agent_rule_clause_id", "adherence_agent_rule_id", "action", "condition", "amount", "unit")
+    ADHERENCE_AGENT_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
+    ADHERENCE_AGENT_RULE_ID_FIELD_NUMBER: _ClassVar[int]
+    ACTION_FIELD_NUMBER: _ClassVar[int]
+    CONDITION_FIELD_NUMBER: _ClassVar[int]
+    AMOUNT_FIELD_NUMBER: _ClassVar[int]
+    UNIT_FIELD_NUMBER: _ClassVar[int]
+    adherence_agent_rule_clause_id: int
+    adherence_agent_rule_id: int
+    action: AdherenceAgentRuleAction
+    condition: AdherenceRuleCondition
+    amount: int
+    unit: AdherenceRuleUnit
+    def __init__(self, adherence_agent_rule_clause_id: _Optional[int] = ..., adherence_agent_rule_id: _Optional[int] = ..., action: _Optional[_Union[AdherenceAgentRuleAction, _Mapping]] = ..., condition: _Optional[_Union[AdherenceRuleCondition, str]] = ..., amount: _Optional[int] = ..., unit: _Optional[_Union[AdherenceRuleUnit, str]] = ...) -> None: ...
