@@ -96,7 +96,7 @@ class TimeFilter(_message.Message):
     def __init__(self, eq: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., gte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lte: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., gt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., lt: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Category(_message.Message):
-    __slots__ = ("category_id", "author_id", "title", "description", "skill_profiles", "version", "call_types", "is_system", "category_type")
+    __slots__ = ("category_id", "author_id", "title", "description", "skill_profiles", "version", "call_types", "is_system", "category_type", "skill_profile_group_sids")
     CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -106,6 +106,7 @@ class Category(_message.Message):
     CALL_TYPES_FIELD_NUMBER: _ClassVar[int]
     IS_SYSTEM_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_TYPE_FIELD_NUMBER: _ClassVar[int]
+    SKILL_PROFILE_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
     category_id: int
     author_id: str
     title: str
@@ -115,7 +116,8 @@ class Category(_message.Message):
     call_types: _containers.RepeatedScalarFieldContainer[_acd_pb2.CallType.Enum]
     is_system: bool
     category_type: CategoryType
-    def __init__(self, category_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., skill_profiles: _Optional[_Iterable[int]] = ..., version: _Optional[int] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., is_system: bool = ..., category_type: _Optional[_Union[CategoryType, str]] = ...) -> None: ...
+    skill_profile_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, category_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., skill_profiles: _Optional[_Iterable[int]] = ..., version: _Optional[int] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., is_system: bool = ..., category_type: _Optional[_Union[CategoryType, str]] = ..., skill_profile_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class Evaluation(_message.Message):
     __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "call_sid", "score", "evaluation_state", "evaluation_sections", "completed_at", "deleted_at", "agent_user_id", "call_type", "transcript_sid", "custom_fields", "deleted_by", "is_recoverable")
