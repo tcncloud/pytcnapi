@@ -1,6 +1,7 @@
+from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -91,3 +92,26 @@ class BillingUpdateRateDefinitionEvent(_message.Message):
     rate_definition: str
     user_id: str
     def __init__(self, rate_definition: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
+
+class BillingRatedItemsGeneratedEvent(_message.Message):
+    __slots__ = ("rated_items",)
+    class RatedItem(_message.Message):
+        __slots__ = ("rated_item_id", "billing_cycle", "event_log_id", "module_name", "org_id", "rate_definition_id", "sku_id")
+        RATED_ITEM_ID_FIELD_NUMBER: _ClassVar[int]
+        BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
+        EVENT_LOG_ID_FIELD_NUMBER: _ClassVar[int]
+        MODULE_NAME_FIELD_NUMBER: _ClassVar[int]
+        ORG_ID_FIELD_NUMBER: _ClassVar[int]
+        RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
+        SKU_ID_FIELD_NUMBER: _ClassVar[int]
+        rated_item_id: str
+        billing_cycle: str
+        event_log_id: str
+        module_name: str
+        org_id: str
+        rate_definition_id: str
+        sku_id: str
+        def __init__(self, rated_item_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., event_log_id: _Optional[str] = ..., module_name: _Optional[str] = ..., org_id: _Optional[str] = ..., rate_definition_id: _Optional[str] = ..., sku_id: _Optional[str] = ...) -> None: ...
+    RATED_ITEMS_FIELD_NUMBER: _ClassVar[int]
+    rated_items: _containers.RepeatedCompositeFieldContainer[BillingRatedItemsGeneratedEvent.RatedItem]
+    def __init__(self, rated_items: _Optional[_Iterable[_Union[BillingRatedItemsGeneratedEvent.RatedItem, _Mapping]]] = ...) -> None: ...
