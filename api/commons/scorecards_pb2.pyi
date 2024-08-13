@@ -32,6 +32,12 @@ class FailType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FAIL_SECTION: _ClassVar[FailType]
     FAIL_SCORECARD: _ClassVar[FailType]
 
+class QuestionFocus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    QUESTION_FOCUS_UNSPECIFIED: _ClassVar[QuestionFocus]
+    QUESTION_FOCUS_AGENT: _ClassVar[QuestionFocus]
+    QUESTION_FOCUS_CUSTOMER: _ClassVar[QuestionFocus]
+
 class ScorecardState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     SCORECARD_IS_DRAFT: _ClassVar[ScorecardState]
@@ -66,6 +72,9 @@ SCORE_EVEN_WEIGHTED_SUM: ScoreType
 FAIL_QUESTION: FailType
 FAIL_SECTION: FailType
 FAIL_SCORECARD: FailType
+QUESTION_FOCUS_UNSPECIFIED: QuestionFocus
+QUESTION_FOCUS_AGENT: QuestionFocus
+QUESTION_FOCUS_CUSTOMER: QuestionFocus
 SCORECARD_IS_DRAFT: ScorecardState
 SCORECARD_IS_READY: ScorecardState
 SCORECARD_IS_IN_USE: ScorecardState
@@ -302,18 +311,20 @@ class AutoEvaluationSection(_message.Message):
     def __init__(self, auto_evaluation_section_id: _Optional[int] = ..., auto_evaluation_id: _Optional[int] = ..., section_id: _Optional[int] = ..., sort_order: _Optional[int] = ..., deleted_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., auto_evaluation_questions: _Optional[_Iterable[_Union[AutoEvaluationQuestion, _Mapping]]] = ..., risk_level: _Optional[_Union[RiskLevel, str]] = ...) -> None: ...
 
 class Question(_message.Message):
-    __slots__ = ("question_id", "author_id", "question", "description", "categories")
+    __slots__ = ("question_id", "author_id", "question", "description", "categories", "focus")
     QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     CATEGORIES_FIELD_NUMBER: _ClassVar[int]
+    FOCUS_FIELD_NUMBER: _ClassVar[int]
     question_id: int
     author_id: str
     question: str
     description: str
     categories: _containers.RepeatedCompositeFieldContainer[Category]
-    def __init__(self, question_id: _Optional[int] = ..., author_id: _Optional[str] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., categories: _Optional[_Iterable[_Union[Category, _Mapping]]] = ...) -> None: ...
+    focus: QuestionFocus
+    def __init__(self, question_id: _Optional[int] = ..., author_id: _Optional[str] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., categories: _Optional[_Iterable[_Union[Category, _Mapping]]] = ..., focus: _Optional[_Union[QuestionFocus, str]] = ...) -> None: ...
 
 class ScorecardQuestion(_message.Message):
     __slots__ = ("scorecard_question_id", "question", "description", "question_id", "allow_skip", "answers", "multi_select", "scorecard_id", "section_id", "version", "sort_order")
