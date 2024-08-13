@@ -6,7 +6,10 @@ from services.org.hunt_groups.v1alpha1 import entities_pb2 as services_dot_org_d
 
 
 class HuntGroupsServiceStub(object):
-    """HuntGroupsService
+    """HuntGroupsService is the service for managing hunt groups and their related entities.
+
+    Exile Link
+
     """
 
     def __init__(self, channel):
@@ -30,10 +33,28 @@ class HuntGroupsServiceStub(object):
                 request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksRequest.SerializeToString,
                 response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksResponse.FromString,
                 )
+        self.ListHuntGroupAgentTriggers = channel.unary_unary(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListHuntGroupAgentTriggers',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupAgentTriggersRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupAgentTriggersResponse.FromString,
+                )
+        self.CopyHuntGroupAgentTrigger = channel.unary_unary(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CopyHuntGroupAgentTrigger',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupAgentTriggerRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupAgentTriggerResponse.FromString,
+                )
+        self.UpdateHuntGroupAgentTriggers = channel.unary_unary(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateHuntGroupAgentTriggers',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersResponse.FromString,
+                )
 
 
 class HuntGroupsServiceServicer(object):
-    """HuntGroupsService
+    """HuntGroupsService is the service for managing hunt groups and their related entities.
+
+    Exile Link
+
     """
 
     def ListHuntGroupExileLinks(self, request, context):
@@ -62,6 +83,31 @@ class HuntGroupsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListHuntGroupAgentTriggers(self, request, context):
+        """
+        Agent Triggers
+
+
+        ListHuntGroupAgentTriggers returns a list of agent triggers for the given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyHuntGroupAgentTrigger(self, request, context):
+        """CopyHuntGroupAgentTrigger copys an agent trigger to the given hunt group in the same org.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateHuntGroupAgentTriggers(self, request, context):
+        """UpdateHuntGroupAgentTriggers updates all agent triggers for the given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_HuntGroupsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -80,6 +126,21 @@ def add_HuntGroupsServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksRequest.FromString,
                     response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksResponse.SerializeToString,
             ),
+            'ListHuntGroupAgentTriggers': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListHuntGroupAgentTriggers,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupAgentTriggersRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupAgentTriggersResponse.SerializeToString,
+            ),
+            'CopyHuntGroupAgentTrigger': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyHuntGroupAgentTrigger,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupAgentTriggerRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupAgentTriggerResponse.SerializeToString,
+            ),
+            'UpdateHuntGroupAgentTriggers': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateHuntGroupAgentTriggers,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
             'services.org.hunt_groups.v1alpha1.HuntGroupsService', rpc_method_handlers)
@@ -88,7 +149,10 @@ def add_HuntGroupsServiceServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class HuntGroupsService(object):
-    """HuntGroupsService
+    """HuntGroupsService is the service for managing hunt groups and their related entities.
+
+    Exile Link
+
     """
 
     @staticmethod
@@ -139,5 +203,56 @@ class HuntGroupsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateHuntGroupExileLinks',
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksRequest.SerializeToString,
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListHuntGroupAgentTriggers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListHuntGroupAgentTriggers',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupAgentTriggersRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupAgentTriggersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyHuntGroupAgentTrigger(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CopyHuntGroupAgentTrigger',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupAgentTriggerRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupAgentTriggerResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateHuntGroupAgentTriggers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateHuntGroupAgentTriggers',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

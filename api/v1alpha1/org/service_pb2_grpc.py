@@ -2321,6 +2321,7 @@ class OrgServicer(object):
 
     def ListAgentTriggers(self, request, context):
         """ListAgentTriggers returns a list of agent triggers for the given hunt group.
+        DEPRECATED: Use services.org.hunt_groups.v1alpha1.ListHuntGroupAgentTriggers instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2328,6 +2329,7 @@ class OrgServicer(object):
 
     def CopyAgentTrigger(self, request, context):
         """CopyAgentTrigger copys an agent trigger to the given hunt group in the same org.
+        DEPRECATED: Use services.org.hunt_groups.v1alpha1.CopyHuntGroupAgentTrigger instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2335,6 +2337,7 @@ class OrgServicer(object):
 
     def UpdateAgentTriggers(self, request, context):
         """UpdateAgentTriggers updates all agent triggers for the given hunt group.
+        DEPRECATED: Use services.org.hunt_groups.v1alpha1.UpdateHuntGroupAgentTriggers instead
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
