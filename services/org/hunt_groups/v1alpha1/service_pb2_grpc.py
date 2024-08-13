@@ -20,6 +20,16 @@ class HuntGroupsServiceStub(object):
                 request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupExileLinksRequest.SerializeToString,
                 response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupExileLinksResponse.FromString,
                 )
+        self.CopyHuntGroupExileLink = channel.unary_unary(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CopyHuntGroupExileLink',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupExileLinkRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupExileLinkResponse.FromString,
+                )
+        self.UpdateHuntGroupExileLinks = channel.unary_unary(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateHuntGroupExileLinks',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksResponse.FromString,
+                )
 
 
 class HuntGroupsServiceServicer(object):
@@ -27,7 +37,27 @@ class HuntGroupsServiceServicer(object):
     """
 
     def ListHuntGroupExileLinks(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """ListHuntGroupExileLinks returns a list of Exile links for a given hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyHuntGroupExileLink(self, request, context):
+        """CopyHuntGroupExileLink copies an exile link from one hunt group to another.
+        It will create a new exile link in the destination hunt group with the same
+        settings/parameters as the source exile link.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateHuntGroupExileLinks(self, request, context):
+        """UpdateHuntGroupExileLinks updates the exile links for a hunt group.
+        It will create any new exile links that do not already exist in the hunt group,
+        update any existing exile links with the new settings/parameters, and
+        delete any exile links that are not in the request.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -39,6 +69,16 @@ def add_HuntGroupsServiceServicer_to_server(servicer, server):
                     servicer.ListHuntGroupExileLinks,
                     request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupExileLinksRequest.FromString,
                     response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupExileLinksResponse.SerializeToString,
+            ),
+            'CopyHuntGroupExileLink': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyHuntGroupExileLink,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupExileLinkRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupExileLinkResponse.SerializeToString,
+            ),
+            'UpdateHuntGroupExileLinks': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateHuntGroupExileLinks,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -65,5 +105,39 @@ class HuntGroupsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListHuntGroupExileLinks',
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupExileLinksRequest.SerializeToString,
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListHuntGroupExileLinksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyHuntGroupExileLink(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CopyHuntGroupExileLink',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupExileLinkRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupExileLinkResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateHuntGroupExileLinks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateHuntGroupExileLinks',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupExileLinksResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

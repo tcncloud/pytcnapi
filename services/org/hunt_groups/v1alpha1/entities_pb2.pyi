@@ -53,3 +53,27 @@ class ListHuntGroupExileLinksResponse(_message.Message):
     EXILE_LINKS_FIELD_NUMBER: _ClassVar[int]
     exile_links: _containers.RepeatedCompositeFieldContainer[ExileLink]
     def __init__(self, exile_links: _Optional[_Iterable[_Union[ExileLink, _Mapping]]] = ...) -> None: ...
+
+class CopyHuntGroupExileLinkRequest(_message.Message):
+    __slots__ = ("to_hunt_group_sid", "exile_link")
+    TO_HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    EXILE_LINK_FIELD_NUMBER: _ClassVar[int]
+    to_hunt_group_sid: int
+    exile_link: ExileLink
+    def __init__(self, to_hunt_group_sid: _Optional[int] = ..., exile_link: _Optional[_Union[ExileLink, _Mapping]] = ...) -> None: ...
+
+class CopyHuntGroupExileLinkResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class UpdateHuntGroupExileLinksRequest(_message.Message):
+    __slots__ = ("hunt_group_sid", "exile_links")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    EXILE_LINKS_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: int
+    exile_links: _containers.RepeatedCompositeFieldContainer[ExileLink]
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., exile_links: _Optional[_Iterable[_Union[ExileLink, _Mapping]]] = ...) -> None: ...
+
+class UpdateHuntGroupExileLinksResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
