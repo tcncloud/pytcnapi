@@ -504,6 +504,11 @@ class P3ApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_p3api__pb2.ListSmsNumbersReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_p3api__pb2.ListSmsNumbersRes.FromString,
                 )
+        self.GetMailMerge = channel.unary_unary(
+                '/api.v0alpha.P3Api/GetMailMerge',
+                request_serializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeRes.FromString,
+                )
 
 
 class P3ApiServicer(object):
@@ -1327,6 +1332,12 @@ class P3ApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetMailMerge(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_P3ApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1819,6 +1830,11 @@ def add_P3ApiServicer_to_server(servicer, server):
                     servicer.ListSmsNumbers,
                     request_deserializer=api_dot_v0alpha_dot_p3api__pb2.ListSmsNumbersReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_p3api__pb2.ListSmsNumbersRes.SerializeToString,
+            ),
+            'GetMailMerge': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetMailMerge,
+                    request_deserializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -3493,5 +3509,22 @@ class P3Api(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.P3Api/ListSmsNumbers',
             api_dot_v0alpha_dot_p3api__pb2.ListSmsNumbersReq.SerializeToString,
             api_dot_v0alpha_dot_p3api__pb2.ListSmsNumbersRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetMailMerge(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.P3Api/GetMailMerge',
+            api_dot_v0alpha_dot_p3api__pb2.GetMailMergeReq.SerializeToString,
+            api_dot_v0alpha_dot_p3api__pb2.GetMailMergeRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

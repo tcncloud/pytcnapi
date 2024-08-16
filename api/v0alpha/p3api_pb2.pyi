@@ -3018,3 +3018,109 @@ class ListSmsNumbersRes(_message.Message):
     SMS_NUMBERS_FIELD_NUMBER: _ClassVar[int]
     sms_numbers: _containers.RepeatedCompositeFieldContainer[_omnichannel_pb2.SmsNumber]
     def __init__(self, sms_numbers: _Optional[_Iterable[_Union[_omnichannel_pb2.SmsNumber, _Mapping]]] = ...) -> None: ...
+
+class GetMailMergeReq(_message.Message):
+    __slots__ = ("client_sid", "agent_sid", "data", "hunt_group_sid")
+    CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    DATA_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    client_sid: int
+    agent_sid: int
+    data: MailMergeData
+    hunt_group_sid: int
+    def __init__(self, client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., data: _Optional[_Union[MailMergeData, _Mapping]] = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
+
+class GetMailMergeRes(_message.Message):
+    __slots__ = ("agent_info", "custom_data", "data_collect", "data_dip", "ivr", "scheduled_call", "tts", "zip_phone_metadata", "journey_retrieved_data", "integration_data")
+    class AgentInfoEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class CustomDataEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class DataCollectEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class DataDipEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class IvrEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class ScheduledCallEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class TtsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class ZipPhoneMetadataEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class JourneyRetrievedDataEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    class IntegrationDataEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    AGENT_INFO_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_DATA_FIELD_NUMBER: _ClassVar[int]
+    DATA_COLLECT_FIELD_NUMBER: _ClassVar[int]
+    DATA_DIP_FIELD_NUMBER: _ClassVar[int]
+    IVR_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULED_CALL_FIELD_NUMBER: _ClassVar[int]
+    TTS_FIELD_NUMBER: _ClassVar[int]
+    ZIP_PHONE_METADATA_FIELD_NUMBER: _ClassVar[int]
+    JOURNEY_RETRIEVED_DATA_FIELD_NUMBER: _ClassVar[int]
+    INTEGRATION_DATA_FIELD_NUMBER: _ClassVar[int]
+    agent_info: _containers.ScalarMap[str, str]
+    custom_data: _containers.ScalarMap[str, str]
+    data_collect: _containers.ScalarMap[str, str]
+    data_dip: _containers.ScalarMap[str, str]
+    ivr: _containers.ScalarMap[str, str]
+    scheduled_call: _containers.ScalarMap[str, str]
+    tts: _containers.ScalarMap[str, str]
+    zip_phone_metadata: _containers.ScalarMap[str, str]
+    journey_retrieved_data: _containers.ScalarMap[str, str]
+    integration_data: _containers.ScalarMap[str, str]
+    def __init__(self, agent_info: _Optional[_Mapping[str, str]] = ..., custom_data: _Optional[_Mapping[str, str]] = ..., data_collect: _Optional[_Mapping[str, str]] = ..., data_dip: _Optional[_Mapping[str, str]] = ..., ivr: _Optional[_Mapping[str, str]] = ..., scheduled_call: _Optional[_Mapping[str, str]] = ..., tts: _Optional[_Mapping[str, str]] = ..., zip_phone_metadata: _Optional[_Mapping[str, str]] = ..., journey_retrieved_data: _Optional[_Mapping[str, str]] = ..., integration_data: _Optional[_Mapping[str, str]] = ...) -> None: ...
