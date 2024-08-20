@@ -940,6 +940,36 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorResponse.FromString,
                 )
+        self.CreateAdherenceRuleNotificationConfig = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateAdherenceRuleNotificationConfig',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigResponse.FromString,
+                )
+        self.CreateAdherenceRuleNotificationConfigEntry = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateAdherenceRuleNotificationConfigEntry',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigEntryRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigEntryResponse.FromString,
+                )
+        self.CreateAdherenceDepartmentalRule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateAdherenceDepartmentalRule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleResponse.FromString,
+                )
+        self.CreateAdherenceDepartmentalRuleClause = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateAdherenceDepartmentalRuleClause',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleClauseRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleClauseResponse.FromString,
+                )
+        self.CreateAdherenceAgentRule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateAdherenceAgentRule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleResponse.FromString,
+                )
+        self.CreateAdherenceAgentRuleClause = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateAdherenceAgentRuleClause',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleClauseRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleClauseResponse.FromString,
+                )
 
 
 class WFMServicer(object):
@@ -1044,7 +1074,7 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetClientHistoryCacheInfo(self, request, context):
-        """Gets the state of the cache for the given @org_id, and if the cache's state is not_loaded, or loading_failed,
+        """Gets the state of the cache for the org sending the request, and if the cache's state is not_loaded, or loading_failed,
         it will start the loading task before returning the current state.
         DEPRECATED as of Dec/13/2023 - Use PerformInitialClientSetup instead.
         Errors:
@@ -3303,6 +3333,69 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateAdherenceRuleNotificationConfig(self, request, context):
+        """Creates the given adherence @notification_config for the org sending the request.
+        Errors:
+        - grpc.Invalid: the values on the given @notification_config are invalid.
+        - grpc.Internal: error occurs when creating the given @notification_config.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateAdherenceRuleNotificationConfigEntry(self, request, context):
+        """Creates the given adherence @notification_config_entry for the org sending the request.
+        Errors:
+        - grpc.Invalid: the values on the given @notification_config_entry are invalid.
+        - grpc.Internal: error occurs when creating the given @notification_config_entry.
+        - grpc.NotFound: notification config with the @notification_config_sid does not exist.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateAdherenceDepartmentalRule(self, request, context):
+        """Creates the given adherence departmental @rule for the org sending the request.
+        Errors:
+        - grpc.Invalid: the values on the given @rule are invalid.
+        - grpc.Internal: error occurs when creating the given @rule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateAdherenceDepartmentalRuleClause(self, request, context):
+        """Creates the given adherence departmental rule @clause for the org sending the request.
+        Errors:
+        - grpc.Invalid: the values on the given @clause are invalid.
+        - grpc.Internal: error occurs when creating the given @clause.
+        - grpc.NotFound: departmental rule with the @departmetal_rule_sid does not exist.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateAdherenceAgentRule(self, request, context):
+        """Creates the given adherence agent @rule for the org sending the request.
+        Errors:
+        - grpc.Invalid: the values on the given @rule are invalid.
+        - grpc.Internal: error occurs when creating the given @rule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateAdherenceAgentRuleClause(self, request, context):
+        """Creates the given adherence agent rule @clause for the org sending the request.
+        Errors:
+        - grpc.Invalid: the values on the given @clause are invalid.
+        - grpc.Internal: error occurs when creating the given @clause.
+        - grpc.NotFound: agent rule with the @agent_rule_sid does not exist.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -4230,6 +4323,36 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteRgbaColor,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorResponse.SerializeToString,
+            ),
+            'CreateAdherenceRuleNotificationConfig': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAdherenceRuleNotificationConfig,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigResponse.SerializeToString,
+            ),
+            'CreateAdherenceRuleNotificationConfigEntry': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAdherenceRuleNotificationConfigEntry,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigEntryRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigEntryResponse.SerializeToString,
+            ),
+            'CreateAdherenceDepartmentalRule': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAdherenceDepartmentalRule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleResponse.SerializeToString,
+            ),
+            'CreateAdherenceDepartmentalRuleClause': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAdherenceDepartmentalRuleClause,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleClauseRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleClauseResponse.SerializeToString,
+            ),
+            'CreateAdherenceAgentRule': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAdherenceAgentRule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleResponse.SerializeToString,
+            ),
+            'CreateAdherenceAgentRuleClause': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateAdherenceAgentRuleClause,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleClauseRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleClauseResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -7384,5 +7507,107 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteRgbaColor',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteRgbaColorResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAdherenceRuleNotificationConfig(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAdherenceRuleNotificationConfig',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAdherenceRuleNotificationConfigEntry(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAdherenceRuleNotificationConfigEntry',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigEntryRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceRuleNotificationConfigEntryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAdherenceDepartmentalRule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAdherenceDepartmentalRule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAdherenceDepartmentalRuleClause(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAdherenceDepartmentalRuleClause',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleClauseRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceDepartmentalRuleClauseResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAdherenceAgentRule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAdherenceAgentRule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateAdherenceAgentRuleClause(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateAdherenceAgentRuleClause',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleClauseRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAdherenceAgentRuleClauseResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
