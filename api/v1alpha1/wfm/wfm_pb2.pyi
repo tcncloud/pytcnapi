@@ -22,6 +22,14 @@ class PerformInitialClientSetupResponse(_message.Message):
     setup_status: _wfm_pb2.InitialSetupStatus
     def __init__(self, setup_status: _Optional[_Union[_wfm_pb2.InitialSetupStatus, _Mapping]] = ...) -> None: ...
 
+class CreateInitialDemoActivitiesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class CreateInitialDemoActivitiesResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class Skill(_message.Message):
     __slots__ = ("skill_sid", "client_skill_type", "name", "delete_date", "client_skill_sid", "proficiency")
     SKILL_SID_FIELD_NUMBER: _ClassVar[int]

@@ -20,6 +20,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupResponse.FromString,
                 )
+        self.CreateInitialDemoActivities = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateInitialDemoActivities',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInitialDemoActivitiesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInitialDemoActivitiesResponse.FromString,
+                )
         self.ListSkillProfiles = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListSkillProfiles',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfilesReq.SerializeToString,
@@ -982,6 +987,18 @@ class WFMServicer(object):
         A new setup task will only be started if the client hasn't done one before, or their setup failed previously.
         Errors:
         - grpc.Internal: error occurs when performing the initial setup.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateInitialDemoActivities(self, request, context):
+        """Create an initial set of demo activities for the org sending the requests.
+        If any non skill activities already exist matching the names of the demo non skill activities, a second copy will not be created.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occurs when creating the activities or checking if they already exist.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3404,6 +3421,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupResponse.SerializeToString,
             ),
+            'CreateInitialDemoActivities': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateInitialDemoActivities,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInitialDemoActivitiesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInitialDemoActivitiesResponse.SerializeToString,
+            ),
             'ListSkillProfiles': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSkillProfiles,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSkillProfilesReq.FromString,
@@ -4379,6 +4401,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/PerformInitialClientSetup',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PerformInitialClientSetupResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateInitialDemoActivities(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateInitialDemoActivities',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInitialDemoActivitiesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateInitialDemoActivitiesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

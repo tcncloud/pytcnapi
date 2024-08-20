@@ -257,6 +257,7 @@ class SchedulingActivityClassification(int, metaclass=_enum_type_wrapper.EnumTyp
     STANDARD_SCHEDULING_ACTIVITY: _ClassVar[SchedulingActivityClassification]
     ON_CALL_ACTIVITY: _ClassVar[SchedulingActivityClassification]
     TIME_OFF_ACTIVITY: _ClassVar[SchedulingActivityClassification]
+    MEETING_ACTIVITY: _ClassVar[SchedulingActivityClassification]
 
 class AdherenceRuleNotificationMedium(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -491,6 +492,7 @@ CANCELLED_PETITION: AgentLeavePetitionStatus
 STANDARD_SCHEDULING_ACTIVITY: SchedulingActivityClassification
 ON_CALL_ACTIVITY: SchedulingActivityClassification
 TIME_OFF_ACTIVITY: SchedulingActivityClassification
+MEETING_ACTIVITY: SchedulingActivityClassification
 ADHERENCE_RULE_NOTIFICATION_MEDIUM_IN_PRODUCT: AdherenceRuleNotificationMedium
 ADHERENCE_RULE_NOTIFICATION_MEDIUM_EMAIL: AdherenceRuleNotificationMedium
 ADHERENCE_RULE_REQUIREMENT_TYPE_NOT_USED: AdherenceRuleRequirementType
