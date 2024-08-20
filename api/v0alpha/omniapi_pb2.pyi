@@ -242,7 +242,7 @@ class UpdateCampaignRes(_message.Message):
     def __init__(self, notifier_id: _Optional[str] = ...) -> None: ...
 
 class ListConversationsReq(_message.Message):
-    __slots__ = ("channel_types", "field_mask", "statuses", "by_time", "by_assigned_user")
+    __slots__ = ("channel_types", "field_mask", "statuses", "by_time", "by_assigned_user", "by_conversation_sids")
     class ByTime(_message.Message):
         __slots__ = ("start_time", "end_time", "page_size", "page_token")
         START_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -265,17 +265,28 @@ class ListConversationsReq(_message.Message):
         page_size: int
         page_token: str
         def __init__(self, user_id: _Optional[str] = ..., statuses: _Optional[_Iterable[_Union[_omnichannel_pb2.ConversationStatus, str]]] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
+    class ByConversationSids(_message.Message):
+        __slots__ = ("conversation_sids", "page_size", "page_token")
+        CONVERSATION_SIDS_FIELD_NUMBER: _ClassVar[int]
+        PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+        PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+        conversation_sids: _containers.RepeatedScalarFieldContainer[str]
+        page_size: int
+        page_token: str
+        def __init__(self, conversation_sids: _Optional[_Iterable[str]] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
     CHANNEL_TYPES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     STATUSES_FIELD_NUMBER: _ClassVar[int]
     BY_TIME_FIELD_NUMBER: _ClassVar[int]
     BY_ASSIGNED_USER_FIELD_NUMBER: _ClassVar[int]
+    BY_CONVERSATION_SIDS_FIELD_NUMBER: _ClassVar[int]
     channel_types: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
     field_mask: _field_mask_pb2.FieldMask
     statuses: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ConversationStatus]
     by_time: ListConversationsReq.ByTime
     by_assigned_user: ListConversationsReq.ByAssignedUser
-    def __init__(self, channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., statuses: _Optional[_Iterable[_Union[_omnichannel_pb2.ConversationStatus, str]]] = ..., by_time: _Optional[_Union[ListConversationsReq.ByTime, _Mapping]] = ..., by_assigned_user: _Optional[_Union[ListConversationsReq.ByAssignedUser, _Mapping]] = ...) -> None: ...
+    by_conversation_sids: ListConversationsReq.ByConversationSids
+    def __init__(self, channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., statuses: _Optional[_Iterable[_Union[_omnichannel_pb2.ConversationStatus, str]]] = ..., by_time: _Optional[_Union[ListConversationsReq.ByTime, _Mapping]] = ..., by_assigned_user: _Optional[_Union[ListConversationsReq.ByAssignedUser, _Mapping]] = ..., by_conversation_sids: _Optional[_Union[ListConversationsReq.ByConversationSids, _Mapping]] = ...) -> None: ...
 
 class ListConversationsRes(_message.Message):
     __slots__ = ("conversations", "next_page_token")
