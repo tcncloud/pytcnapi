@@ -24,6 +24,7 @@ class SchemaType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     SCHEMA_TYPE_FLOAT_ARRAY: _ClassVar[SchemaType]
     SCHEMA_TYPE_STRING_ARRAY: _ClassVar[SchemaType]
     SCHEMA_TYPE_BOOL_ARRAY: _ClassVar[SchemaType]
+    SCHEMA_TYPE_MAP: _ClassVar[SchemaType]
 
 class DatasourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -43,6 +44,7 @@ SCHEMA_TYPE_INT_ARRAY: SchemaType
 SCHEMA_TYPE_FLOAT_ARRAY: SchemaType
 SCHEMA_TYPE_STRING_ARRAY: SchemaType
 SCHEMA_TYPE_BOOL_ARRAY: SchemaType
+SCHEMA_TYPE_MAP: SchemaType
 DATASOURCE_TYPE_UNSPECIFIED: DatasourceType
 DATASOURCE_TYPE_VFS: DatasourceType
 DATASOURCE_TYPE_CLICKHOUSE: DatasourceType
