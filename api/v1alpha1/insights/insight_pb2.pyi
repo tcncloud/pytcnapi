@@ -42,6 +42,12 @@ class OutputConfigurationColumnSummaryType(int, metaclass=_enum_type_wrapper.Enu
     OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_SUM: _ClassVar[OutputConfigurationColumnSummaryType]
     OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MIN: _ClassVar[OutputConfigurationColumnSummaryType]
     OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MAX: _ClassVar[OutputConfigurationColumnSummaryType]
+
+class InsightContextualActionType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    INSIGHT_CONTEXTUAL_ACTION_TYPE_UNSPECIFIED: _ClassVar[InsightContextualActionType]
+    INSIGHT_CONTEXTUAL_ACTION_TYPE_LINK: _ClassVar[InsightContextualActionType]
+    INSIGHT_CONTEXTUAL_ACTION_TYPE_COMPONENT: _ClassVar[InsightContextualActionType]
 OUTPUT_CONFIGURATION_TYPE_UNSPECIFIED: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_TABLE: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: OutputConfigurationType
@@ -65,6 +71,9 @@ OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_AVG: OutputConfigurationColumnSummaryTy
 OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_SUM: OutputConfigurationColumnSummaryType
 OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MIN: OutputConfigurationColumnSummaryType
 OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MAX: OutputConfigurationColumnSummaryType
+INSIGHT_CONTEXTUAL_ACTION_TYPE_UNSPECIFIED: InsightContextualActionType
+INSIGHT_CONTEXTUAL_ACTION_TYPE_LINK: InsightContextualActionType
+INSIGHT_CONTEXTUAL_ACTION_TYPE_COMPONENT: InsightContextualActionType
 
 class Insight(_message.Message):
     __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight")
@@ -232,7 +241,7 @@ class TableVisualization(_message.Message):
     def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ...) -> None: ...
 
 class TableColumnConfig(_message.Message):
-    __slots__ = ("column_name", "column_width", "hide_column", "renamed_as", "operations", "column_summary", "description", "sort_direction")
+    __slots__ = ("column_name", "column_width", "hide_column", "renamed_as", "operations", "column_summary", "description", "sort_direction", "insight_contextual_action")
     COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     COLUMN_WIDTH_FIELD_NUMBER: _ClassVar[int]
     HIDE_COLUMN_FIELD_NUMBER: _ClassVar[int]
@@ -241,6 +250,7 @@ class TableColumnConfig(_message.Message):
     COLUMN_SUMMARY_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     SORT_DIRECTION_FIELD_NUMBER: _ClassVar[int]
+    INSIGHT_CONTEXTUAL_ACTION_FIELD_NUMBER: _ClassVar[int]
     column_name: str
     column_width: int
     hide_column: bool
@@ -249,7 +259,8 @@ class TableColumnConfig(_message.Message):
     column_summary: OutputConfigurationColumnSummaryType
     description: str
     sort_direction: ColumnSort
-    def __init__(self, column_name: _Optional[str] = ..., column_width: _Optional[int] = ..., hide_column: bool = ..., renamed_as: _Optional[str] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[OutputConfigurationColumnSummaryType, str]] = ..., description: _Optional[str] = ..., sort_direction: _Optional[_Union[ColumnSort, str]] = ...) -> None: ...
+    insight_contextual_action: InsightContextualAction
+    def __init__(self, column_name: _Optional[str] = ..., column_width: _Optional[int] = ..., hide_column: bool = ..., renamed_as: _Optional[str] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[OutputConfigurationColumnSummaryType, str]] = ..., description: _Optional[str] = ..., sort_direction: _Optional[_Union[ColumnSort, str]] = ..., insight_contextual_action: _Optional[_Union[InsightContextualAction, _Mapping]] = ...) -> None: ...
 
 class FormatSeries(_message.Message):
     __slots__ = ("format_parts",)
@@ -266,6 +277,46 @@ class ColumnOperation(_message.Message):
     float_value: float
     format_series: FormatSeries
     def __init__(self, operation_type: _Optional[_Union[OperationType, str]] = ..., float_value: _Optional[float] = ..., format_series: _Optional[_Union[FormatSeries, _Mapping]] = ...) -> None: ...
+
+class InsightContextualAction(_message.Message):
+    __slots__ = ("type", "link", "component")
+    TYPE_FIELD_NUMBER: _ClassVar[int]
+    LINK_FIELD_NUMBER: _ClassVar[int]
+    COMPONENT_FIELD_NUMBER: _ClassVar[int]
+    type: InsightContextualActionType
+    link: LinkAction
+    component: ComponentAction
+    def __init__(self, type: _Optional[_Union[InsightContextualActionType, str]] = ..., link: _Optional[_Union[LinkAction, _Mapping]] = ..., component: _Optional[_Union[ComponentAction, _Mapping]] = ...) -> None: ...
+
+class LinkAction(_message.Message):
+    __slots__ = ("link_elements", "component_value")
+    class ComponentValueEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    LINK_ELEMENTS_FIELD_NUMBER: _ClassVar[int]
+    COMPONENT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    link_elements: _containers.RepeatedScalarFieldContainer[str]
+    component_value: _containers.ScalarMap[str, str]
+    def __init__(self, link_elements: _Optional[_Iterable[str]] = ..., component_value: _Optional[_Mapping[str, str]] = ...) -> None: ...
+
+class ComponentAction(_message.Message):
+    __slots__ = ("component_name", "component_value")
+    class ComponentValueEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    COMPONENT_NAME_FIELD_NUMBER: _ClassVar[int]
+    COMPONENT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    component_name: str
+    component_value: _containers.ScalarMap[str, str]
+    def __init__(self, component_name: _Optional[str] = ..., component_value: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class OutputConfiguration(_message.Message):
     __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization")
