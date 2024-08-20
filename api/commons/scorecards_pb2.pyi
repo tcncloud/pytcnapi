@@ -367,7 +367,7 @@ class ScorecardQuestion(_message.Message):
     def __init__(self, scorecard_question_id: _Optional[int] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., question_id: _Optional[int] = ..., allow_skip: bool = ..., answers: _Optional[_Iterable[_Union[ScorecardQuestion.Answer, _Mapping]]] = ..., multi_select: _Optional[_Union[ScorecardQuestion.MultiSelect, _Mapping]] = ..., scorecard_id: _Optional[int] = ..., section_id: _Optional[int] = ..., version: _Optional[int] = ..., sort_order: _Optional[int] = ...) -> None: ...
 
 class Section(_message.Message):
-    __slots__ = ("section_id", "scorecard_id", "title", "description", "weight", "questions", "version", "sort_order", "auto_questions")
+    __slots__ = ("section_id", "scorecard_id", "title", "description", "weight", "questions", "version", "sort_order", "auto_questions", "smart_questions")
     SECTION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -377,6 +377,7 @@ class Section(_message.Message):
     VERSION_FIELD_NUMBER: _ClassVar[int]
     SORT_ORDER_FIELD_NUMBER: _ClassVar[int]
     AUTO_QUESTIONS_FIELD_NUMBER: _ClassVar[int]
+    SMART_QUESTIONS_FIELD_NUMBER: _ClassVar[int]
     section_id: int
     scorecard_id: int
     title: str
@@ -386,7 +387,8 @@ class Section(_message.Message):
     version: int
     sort_order: int
     auto_questions: _containers.RepeatedCompositeFieldContainer[AutoQuestion]
-    def __init__(self, section_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., questions: _Optional[_Iterable[_Union[ScorecardQuestion, _Mapping]]] = ..., version: _Optional[int] = ..., sort_order: _Optional[int] = ..., auto_questions: _Optional[_Iterable[_Union[AutoQuestion, _Mapping]]] = ...) -> None: ...
+    smart_questions: _containers.RepeatedCompositeFieldContainer[SmartQuestion]
+    def __init__(self, section_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., questions: _Optional[_Iterable[_Union[ScorecardQuestion, _Mapping]]] = ..., version: _Optional[int] = ..., sort_order: _Optional[int] = ..., auto_questions: _Optional[_Iterable[_Union[AutoQuestion, _Mapping]]] = ..., smart_questions: _Optional[_Iterable[_Union[SmartQuestion, _Mapping]]] = ...) -> None: ...
 
 class Scorecard(_message.Message):
     __slots__ = ("scorecard_id", "author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "distribute_weights", "category", "sections", "version", "state", "is_ad_hoc", "custom_field_keys", "call_types", "updated_at")
@@ -462,3 +464,34 @@ class AutoQuestion(_message.Message):
     question_id: int
     risk_level: RiskLevel
     def __init__(self, auto_question_id: _Optional[int] = ..., flag_sid: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., auto_section_id: _Optional[int] = ..., sort_order: _Optional[int] = ..., flag_expression: _Optional[_Union[AutoQuestion.FlagExpr, _Mapping]] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., question_id: _Optional[int] = ..., risk_level: _Optional[_Union[RiskLevel, str]] = ...) -> None: ...
+
+class SmartQuestion(_message.Message):
+    __slots__ = ("smart_question_id", "scorecard_id", "section_id", "question_id", "description", "question", "answers", "focus", "sort_order")
+    class Answer(_message.Message):
+        __slots__ = ("answer", "points", "fail_type")
+        ANSWER_FIELD_NUMBER: _ClassVar[int]
+        POINTS_FIELD_NUMBER: _ClassVar[int]
+        FAIL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        answer: str
+        points: int
+        fail_type: FailType
+        def __init__(self, answer: _Optional[str] = ..., points: _Optional[int] = ..., fail_type: _Optional[_Union[FailType, str]] = ...) -> None: ...
+    SMART_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
+    SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
+    SECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    QUESTION_FIELD_NUMBER: _ClassVar[int]
+    ANSWERS_FIELD_NUMBER: _ClassVar[int]
+    FOCUS_FIELD_NUMBER: _ClassVar[int]
+    SORT_ORDER_FIELD_NUMBER: _ClassVar[int]
+    smart_question_id: int
+    scorecard_id: int
+    section_id: int
+    question_id: int
+    description: str
+    question: str
+    answers: _containers.RepeatedCompositeFieldContainer[SmartQuestion.Answer]
+    focus: QuestionFocus
+    sort_order: int
+    def __init__(self, smart_question_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., section_id: _Optional[int] = ..., question_id: _Optional[int] = ..., description: _Optional[str] = ..., question: _Optional[str] = ..., answers: _Optional[_Iterable[_Union[SmartQuestion.Answer, _Mapping]]] = ..., focus: _Optional[_Union[QuestionFocus, str]] = ..., sort_order: _Optional[int] = ...) -> None: ...

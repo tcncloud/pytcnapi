@@ -11,6 +11,7 @@ from api.v1alpha1.scorecards import question_pb2 as api_dot_v1alpha1_dot_scoreca
 from api.v1alpha1.scorecards import scorecard_pb2 as api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2
 from api.v1alpha1.scorecards import scorecard_question_pb2 as api_dot_v1alpha1_dot_scorecards_dot_scorecard__question__pb2
 from api.v1alpha1.scorecards import section_pb2 as api_dot_v1alpha1_dot_scorecards_dot_section__pb2
+from api.v1alpha1.scorecards import smart_question_pb2 as api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2
 
 
 class ScorecardsStub(object):
@@ -256,6 +257,11 @@ class ScorecardsStub(object):
                 '/api.v1alpha1.scorecards.Scorecards/RestoreEvaluation',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationResponse.FromString,
+                )
+        self.CreateSmartQuestion = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/CreateSmartQuestion',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionResponse.FromString,
                 )
 
 
@@ -591,6 +597,13 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateSmartQuestion(self, request, context):
+        """CreateSmartQuestion creates a scorecard smart question.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ScorecardsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -828,6 +841,11 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.RestoreEvaluation,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationResponse.SerializeToString,
+            ),
+            'CreateSmartQuestion': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSmartQuestion,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1635,5 +1653,22 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/RestoreEvaluation',
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.RestoreEvaluationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateSmartQuestion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/CreateSmartQuestion',
+            api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
