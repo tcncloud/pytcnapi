@@ -20,10 +20,12 @@ class CreateExileConfigurationRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[_entities_pb2.ExileConfigurationType, str]] = ..., parameters: _Optional[str] = ...) -> None: ...
 
 class CreateExileConfigurationResponse(_message.Message):
-    __slots__ = ("exile_configuration_id",)
+    __slots__ = ("exile_configuration_id", "exile_configuration")
     EXILE_CONFIGURATION_ID_FIELD_NUMBER: _ClassVar[int]
+    EXILE_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
     exile_configuration_id: str
-    def __init__(self, exile_configuration_id: _Optional[str] = ...) -> None: ...
+    exile_configuration: _entities_pb2.ExileConfiguration
+    def __init__(self, exile_configuration_id: _Optional[str] = ..., exile_configuration: _Optional[_Union[_entities_pb2.ExileConfiguration, _Mapping]] = ...) -> None: ...
 
 class UpdateExileConfigurationRequest(_message.Message):
     __slots__ = ("configuration", "field_mask")

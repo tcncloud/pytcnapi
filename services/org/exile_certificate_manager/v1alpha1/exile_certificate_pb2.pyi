@@ -16,10 +16,12 @@ class CreateExileCertificateRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class CreateExileCertificateResponse(_message.Message):
-    __slots__ = ("encoded_exile_certificate",)
+    __slots__ = ("encoded_exile_certificate", "exile_certificate")
     ENCODED_EXILE_CERTIFICATE_FIELD_NUMBER: _ClassVar[int]
+    EXILE_CERTIFICATE_FIELD_NUMBER: _ClassVar[int]
     encoded_exile_certificate: str
-    def __init__(self, encoded_exile_certificate: _Optional[str] = ...) -> None: ...
+    exile_certificate: _entities_pb2.ExileCertificate
+    def __init__(self, encoded_exile_certificate: _Optional[str] = ..., exile_certificate: _Optional[_Union[_entities_pb2.ExileCertificate, _Mapping]] = ...) -> None: ...
 
 class RevokeExileCertificateRequest(_message.Message):
     __slots__ = ("exile_certificate_id",)
