@@ -10,14 +10,16 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListProjectsRequest(_message.Message):
-    __slots__ = ("parent", "page_size", "page_token")
+    __slots__ = ("parent", "page_size", "page_token", "filter")
     PARENT_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    FILTER_FIELD_NUMBER: _ClassVar[int]
     parent: str
     page_size: int
     page_token: str
-    def __init__(self, parent: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
+    filter: str
+    def __init__(self, parent: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., filter: _Optional[str] = ...) -> None: ...
 
 class ListProjectsResponse(_message.Message):
     __slots__ = ("projects", "next_page_token")
