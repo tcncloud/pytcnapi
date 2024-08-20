@@ -1,9 +1,15 @@
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Optional
+from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class MatchingConfig(_message.Message):
+    __slots__ = ("country_code_prefix",)
+    COUNTRY_CODE_PREFIX_FIELD_NUMBER: _ClassVar[int]
+    country_code_prefix: CountryCodePrefix
+    def __init__(self, country_code_prefix: _Optional[_Union[CountryCodePrefix, _Mapping]] = ...) -> None: ...
 
 class CountryCodePrefix(_message.Message):
     __slots__ = ("country_code", "prefixes", "matching_rule_id", "name")
