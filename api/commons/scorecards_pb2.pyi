@@ -198,14 +198,16 @@ class EvaluationSection(_message.Message):
 class EvaluationQuestion(_message.Message):
     __slots__ = ("evaluation_question_id", "evaluation_id", "scorecard_question_id", "skipped", "points", "answers", "evaluation_section_id", "comment", "sort_order")
     class Answer(_message.Message):
-        __slots__ = ("answer_option", "points", "fail_type")
+        __slots__ = ("answer_option", "points", "fail_type", "answer_points")
         ANSWER_OPTION_FIELD_NUMBER: _ClassVar[int]
         POINTS_FIELD_NUMBER: _ClassVar[int]
         FAIL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        ANSWER_POINTS_FIELD_NUMBER: _ClassVar[int]
         answer_option: str
         points: int
         fail_type: FailType
-        def __init__(self, answer_option: _Optional[str] = ..., points: _Optional[int] = ..., fail_type: _Optional[_Union[FailType, str]] = ...) -> None: ...
+        answer_points: int
+        def __init__(self, answer_option: _Optional[str] = ..., points: _Optional[int] = ..., fail_type: _Optional[_Union[FailType, str]] = ..., answer_points: _Optional[int] = ...) -> None: ...
     EVALUATION_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -329,14 +331,16 @@ class Question(_message.Message):
 class ScorecardQuestion(_message.Message):
     __slots__ = ("scorecard_question_id", "question", "description", "question_id", "allow_skip", "answers", "multi_select", "scorecard_id", "section_id", "version", "sort_order")
     class Answer(_message.Message):
-        __slots__ = ("answer_option", "points", "fail_type")
+        __slots__ = ("answer_option", "points", "fail_type", "answer_points")
         ANSWER_OPTION_FIELD_NUMBER: _ClassVar[int]
         POINTS_FIELD_NUMBER: _ClassVar[int]
         FAIL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        ANSWER_POINTS_FIELD_NUMBER: _ClassVar[int]
         answer_option: str
         points: int
         fail_type: FailType
-        def __init__(self, answer_option: _Optional[str] = ..., points: _Optional[int] = ..., fail_type: _Optional[_Union[FailType, str]] = ...) -> None: ...
+        answer_points: int
+        def __init__(self, answer_option: _Optional[str] = ..., points: _Optional[int] = ..., fail_type: _Optional[_Union[FailType, str]] = ..., answer_points: _Optional[int] = ...) -> None: ...
     class MultiSelect(_message.Message):
         __slots__ = ("max_points",)
         MAX_POINTS_FIELD_NUMBER: _ClassVar[int]
