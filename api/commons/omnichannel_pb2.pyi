@@ -133,6 +133,7 @@ class OmniMessageStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OMNI_OUTBOUND_MESSAGE_UNSUBSCRIBED: _ClassVar[OmniMessageStatus]
     OMNI_OUTBOUND_MESSAGE_MARKED_AS_SPAM: _ClassVar[OmniMessageStatus]
     OMNI_OUTBOUND_MESSAGE_BLOCKED: _ClassVar[OmniMessageStatus]
+    OMNI_OUTBOUND_MESSAGE_UNCONFIRMED_DELIVERY: _ClassVar[OmniMessageStatus]
     OMNI_SYSTEM_MESSAGE: _ClassVar[OmniMessageStatus]
 
 class OmniConversationResult(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
@@ -298,6 +299,7 @@ OMNI_OUTBOUND_MESSAGE_CLICKED: OmniMessageStatus
 OMNI_OUTBOUND_MESSAGE_UNSUBSCRIBED: OmniMessageStatus
 OMNI_OUTBOUND_MESSAGE_MARKED_AS_SPAM: OmniMessageStatus
 OMNI_OUTBOUND_MESSAGE_BLOCKED: OmniMessageStatus
+OMNI_OUTBOUND_MESSAGE_UNCONFIRMED_DELIVERY: OmniMessageStatus
 OMNI_SYSTEM_MESSAGE: OmniMessageStatus
 NONE: OmniConversationResult
 ABANDONED: OmniConversationResult
