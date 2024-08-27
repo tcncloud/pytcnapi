@@ -1,7 +1,7 @@
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Optional as _Optional
+from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -70,6 +70,13 @@ class StandardReportFilter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     FILTER_BY_POUND_KEY: _ClassVar[StandardReportFilter]
     FILTER_BY_MACHINE_HANGUP_AND_UNCONNECTED: _ClassVar[StandardReportFilter]
     FILTER_BY_EXCLUDING_CANCELED_AND_INVALID: _ClassVar[StandardReportFilter]
+
+class OperatorLanguageDirection(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    OPERATOR_LANGUAGE_DIRECTION_UNSPECIFIED: _ClassVar[OperatorLanguageDirection]
+    OPERATOR_LANGUAGE_DIRECTION_DEFAULT: _ClassVar[OperatorLanguageDirection]
+    OPERATOR_LANGUAGE_DIRECTION_LEFT_TO_RIGHT: _ClassVar[OperatorLanguageDirection]
+    OPERATOR_LANGUAGE_DIRECTION_RIGHT_TO_LEFT: _ClassVar[OperatorLanguageDirection]
 BY_NAME_ASC: BroadcastTemplateOrdering
 BY_NAME_DESC: BroadcastTemplateOrdering
 BY_TEMPLATE_NUMBER_ASC: BroadcastTemplateOrdering
@@ -121,13 +128,27 @@ FILTER_BY_STAR_KEY: StandardReportFilter
 FILTER_BY_POUND_KEY: StandardReportFilter
 FILTER_BY_MACHINE_HANGUP_AND_UNCONNECTED: StandardReportFilter
 FILTER_BY_EXCLUDING_CANCELED_AND_INVALID: StandardReportFilter
+OPERATOR_LANGUAGE_DIRECTION_UNSPECIFIED: OperatorLanguageDirection
+OPERATOR_LANGUAGE_DIRECTION_DEFAULT: OperatorLanguageDirection
+OPERATOR_LANGUAGE_DIRECTION_LEFT_TO_RIGHT: OperatorLanguageDirection
+OPERATOR_LANGUAGE_DIRECTION_RIGHT_TO_LEFT: OperatorLanguageDirection
+
+class OperatorDisplayLanguage(_message.Message):
+    __slots__ = ("value",)
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    value: str
+    def __init__(self, value: _Optional[str] = ...) -> None: ...
 
 class LocalePreferences(_message.Message):
-    __slots__ = ("language_tag", "use_script_direction_right_to_left", "default_currency")
+    __slots__ = ("language_tag", "use_script_direction_right_to_left", "default_currency", "operator_display_language", "operator_language_direction")
     LANGUAGE_TAG_FIELD_NUMBER: _ClassVar[int]
     USE_SCRIPT_DIRECTION_RIGHT_TO_LEFT_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_CURRENCY_FIELD_NUMBER: _ClassVar[int]
+    OPERATOR_DISPLAY_LANGUAGE_FIELD_NUMBER: _ClassVar[int]
+    OPERATOR_LANGUAGE_DIRECTION_FIELD_NUMBER: _ClassVar[int]
     language_tag: str
     use_script_direction_right_to_left: bool
     default_currency: str
-    def __init__(self, language_tag: _Optional[str] = ..., use_script_direction_right_to_left: bool = ..., default_currency: _Optional[str] = ...) -> None: ...
+    operator_display_language: OperatorDisplayLanguage
+    operator_language_direction: OperatorLanguageDirection
+    def __init__(self, language_tag: _Optional[str] = ..., use_script_direction_right_to_left: bool = ..., default_currency: _Optional[str] = ..., operator_display_language: _Optional[_Union[OperatorDisplayLanguage, _Mapping]] = ..., operator_language_direction: _Optional[_Union[OperatorLanguageDirection, str]] = ...) -> None: ...

@@ -406,7 +406,7 @@ class Label(_message.Message):
     def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., color: _Optional[str] = ..., label_id: _Optional[str] = ..., deleted: bool = ...) -> None: ...
 
 class UserDetails(_message.Message):
-    __slots__ = ("user_id", "user_name", "organization_name", "location_name", "p3_permission_group", "permission_groups", "default_region", "allowed_regions", "disabled", "partner_agent_id", "agent_sid", "org_id", "linkback_numbers", "caller_ids", "login_sid", "default_app", "user_caller_id", "hunt_group_sid", "hunt_group_name", "skills", "first_name", "last_name", "created", "last_updated", "password_reset_required", "agent_profile_group_id", "label_entities", "delegated", "time_zone_override", "email", "email_verified", "trusts")
+    __slots__ = ("user_id", "user_name", "organization_name", "location_name", "p3_permission_group", "permission_groups", "default_region", "allowed_regions", "disabled", "partner_agent_id", "agent_sid", "org_id", "linkback_numbers", "caller_ids", "login_sid", "default_app", "user_caller_id", "hunt_group_sid", "hunt_group_name", "skills", "first_name", "last_name", "created", "last_updated", "password_reset_required", "agent_profile_group_id", "label_entities", "delegated", "time_zone_override", "email", "email_verified", "locale_preferences_override", "trusts")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     USER_NAME_FIELD_NUMBER: _ClassVar[int]
     ORGANIZATION_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -438,6 +438,7 @@ class UserDetails(_message.Message):
     TIME_ZONE_OVERRIDE_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
     EMAIL_VERIFIED_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_PREFERENCES_OVERRIDE_FIELD_NUMBER: _ClassVar[int]
     TRUSTS_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     user_name: str
@@ -470,8 +471,9 @@ class UserDetails(_message.Message):
     time_zone_override: _org_pb2.TimeZoneWrapper
     email: str
     email_verified: bool
+    locale_preferences_override: _org_preferences_pb2.LocalePreferences
     trusts: _containers.RepeatedCompositeFieldContainer[_trusts_pb2.Trust]
-    def __init__(self, user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., organization_name: _Optional[str] = ..., location_name: _Optional[str] = ..., p3_permission_group: _Optional[str] = ..., permission_groups: _Optional[_Iterable[_Union[PermissionGroup, _Mapping]]] = ..., default_region: _Optional[str] = ..., allowed_regions: _Optional[_Iterable[str]] = ..., disabled: bool = ..., partner_agent_id: _Optional[str] = ..., agent_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., login_sid: _Optional[int] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: bool = ..., agent_profile_group_id: _Optional[str] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., delegated: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ..., email_verified: bool = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., user_name: _Optional[str] = ..., organization_name: _Optional[str] = ..., location_name: _Optional[str] = ..., p3_permission_group: _Optional[str] = ..., permission_groups: _Optional[_Iterable[_Union[PermissionGroup, _Mapping]]] = ..., default_region: _Optional[str] = ..., allowed_regions: _Optional[_Iterable[str]] = ..., disabled: bool = ..., partner_agent_id: _Optional[str] = ..., agent_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., login_sid: _Optional[int] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: bool = ..., agent_profile_group_id: _Optional[str] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., delegated: bool = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., email: _Optional[str] = ..., email_verified: bool = ..., locale_preferences_override: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ..., trusts: _Optional[_Iterable[_Union[_trusts_pb2.Trust, _Mapping]]] = ...) -> None: ...
 
 class AgentUser(_message.Message):
     __slots__ = ("user_id", "name", "user_name", "hunt_group_name", "skills", "partner_agent_id", "callback_extension", "callback_number", "hunt_group_sid", "agent_sid", "user_caller_id", "first_name", "last_name", "created", "last_updated", "agent_profile_group_id", "delegated", "agent_profile_group_name", "disabled", "has_agent_perm", "time_zone_override", "email", "label_entities", "permission_groups")
@@ -636,7 +638,7 @@ class AssignAgentProfileGroupsResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateUserRequest(_message.Message):
-    __slots__ = ("user_id", "first_name", "last_name", "partner_agent_id", "time_zone_override", "linkback_numbers", "caller_ids", "user_name", "default_app", "user_caller_id", "password_reset_required", "agent_profile_group_id", "label_entities", "email", "field_mask")
+    __slots__ = ("user_id", "first_name", "last_name", "partner_agent_id", "time_zone_override", "linkback_numbers", "caller_ids", "user_name", "default_app", "user_caller_id", "password_reset_required", "agent_profile_group_id", "label_entities", "email", "locale_preferences_override", "field_mask")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
     LAST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -651,6 +653,7 @@ class UpdateUserRequest(_message.Message):
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     LABEL_ENTITIES_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_PREFERENCES_OVERRIDE_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     first_name: str
@@ -666,15 +669,16 @@ class UpdateUserRequest(_message.Message):
     agent_profile_group_id: str
     label_entities: _containers.RepeatedCompositeFieldContainer[Label]
     email: str
+    locale_preferences_override: _org_preferences_pb2.LocalePreferences
     field_mask: _field_mask_pb2.FieldMask
-    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., user_name: _Optional[str] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., password_reset_required: bool = ..., agent_profile_group_id: _Optional[str] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., email: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., user_name: _Optional[str] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., password_reset_required: bool = ..., agent_profile_group_id: _Optional[str] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., email: _Optional[str] = ..., locale_preferences_override: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateUserResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class UpdateMyUserRequest(_message.Message):
-    __slots__ = ("first_name", "last_name", "partner_agent_id", "time_zone_override", "linkback_numbers", "caller_ids", "user_name", "default_app", "password_reset_required", "agent_profile_group_id", "label_entities", "email", "field_mask")
+    __slots__ = ("first_name", "last_name", "partner_agent_id", "time_zone_override", "linkback_numbers", "caller_ids", "user_name", "default_app", "password_reset_required", "agent_profile_group_id", "label_entities", "email", "locale_preferences_override", "field_mask")
     FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
     LAST_NAME_FIELD_NUMBER: _ClassVar[int]
     PARTNER_AGENT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -687,6 +691,7 @@ class UpdateMyUserRequest(_message.Message):
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     LABEL_ENTITIES_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_PREFERENCES_OVERRIDE_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     first_name: str
     last_name: str
@@ -700,8 +705,9 @@ class UpdateMyUserRequest(_message.Message):
     agent_profile_group_id: str
     label_entities: _containers.RepeatedCompositeFieldContainer[Label]
     email: str
+    locale_preferences_override: _org_preferences_pb2.LocalePreferences
     field_mask: _field_mask_pb2.FieldMask
-    def __init__(self, first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., user_name: _Optional[str] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., password_reset_required: bool = ..., agent_profile_group_id: _Optional[str] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., email: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+    def __init__(self, first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., user_name: _Optional[str] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., password_reset_required: bool = ..., agent_profile_group_id: _Optional[str] = ..., label_entities: _Optional[_Iterable[_Union[Label, _Mapping]]] = ..., email: _Optional[str] = ..., locale_preferences_override: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateMyUserResponse(_message.Message):
     __slots__ = ()
@@ -3204,7 +3210,7 @@ class GetClientInfoDisplayTemplateResponse(_message.Message):
     def __init__(self, client_info_display_template: _Optional[_Union[ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
 
 class CreateUserRequest(_message.Message):
-    __slots__ = ("org_id", "first_name", "last_name", "email", "user_name", "password", "permission_group_ids", "hunt_group_sid", "partner_agent_id", "p3_permission_group_id", "linkback_numbers", "caller_ids", "default_app", "user_caller_id", "agent_profile_group_id", "labels", "time_zone_override")
+    __slots__ = ("org_id", "first_name", "last_name", "email", "user_name", "password", "permission_group_ids", "hunt_group_sid", "partner_agent_id", "p3_permission_group_id", "linkback_numbers", "caller_ids", "default_app", "user_caller_id", "agent_profile_group_id", "labels", "time_zone_override", "locale_preferences_override")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
     LAST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -3222,6 +3228,7 @@ class CreateUserRequest(_message.Message):
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_OVERRIDE_FIELD_NUMBER: _ClassVar[int]
+    LOCALE_PREFERENCES_OVERRIDE_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     first_name: str
     last_name: str
@@ -3239,7 +3246,8 @@ class CreateUserRequest(_message.Message):
     agent_profile_group_id: str
     labels: _containers.RepeatedScalarFieldContainer[str]
     time_zone_override: _org_pb2.TimeZoneWrapper
-    def __init__(self, org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., email: _Optional[str] = ..., user_name: _Optional[str] = ..., password: _Optional[str] = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., hunt_group_sid: _Optional[int] = ..., partner_agent_id: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., agent_profile_group_id: _Optional[str] = ..., labels: _Optional[_Iterable[str]] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ...) -> None: ...
+    locale_preferences_override: _org_preferences_pb2.LocalePreferences
+    def __init__(self, org_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., email: _Optional[str] = ..., user_name: _Optional[str] = ..., password: _Optional[str] = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., hunt_group_sid: _Optional[int] = ..., partner_agent_id: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., caller_ids: _Optional[_Iterable[str]] = ..., default_app: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., agent_profile_group_id: _Optional[str] = ..., labels: _Optional[_Iterable[str]] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., locale_preferences_override: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ...) -> None: ...
 
 class CreateUserResponse(_message.Message):
     __slots__ = ("user_id",)
