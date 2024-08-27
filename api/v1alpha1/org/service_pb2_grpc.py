@@ -2686,7 +2686,7 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListP3PermissionGroups(self, request, context):
-        """P3Permissions
+        """P3 PERMISSIONS
 
         ListP3PermissionGroups returns the list of p3 permission groups
         for the user's org.
@@ -2750,7 +2750,9 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def RefreshMfaLockout(self, request, context):
-        """RefreshMfaLockout resets the lockout timer for the given user.
+        """MFA
+
+        RefreshMfaLockout resets the lockout timer for the given user.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2829,7 +2831,9 @@ class OrgServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def CreateBusinessHours(self, request, context):
-        """CreateBusinessHours persists times businesses are available.
+        """BUSINESS HOURS
+
+        CreateBusinessHours persists times businesses are available.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
