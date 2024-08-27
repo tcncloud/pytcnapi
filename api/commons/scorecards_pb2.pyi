@@ -499,3 +499,70 @@ class SmartQuestion(_message.Message):
     focus: QuestionFocus
     sort_order: int
     def __init__(self, smart_question_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., section_id: _Optional[int] = ..., question_id: _Optional[int] = ..., description: _Optional[str] = ..., question: _Optional[str] = ..., answers: _Optional[_Iterable[_Union[SmartQuestion.Answer, _Mapping]]] = ..., focus: _Optional[_Union[QuestionFocus, str]] = ..., sort_order: _Optional[int] = ...) -> None: ...
+
+class SmartEvaluation(_message.Message):
+    __slots__ = ("smart_evaluation_id", "scorecard_id", "transcript_sid", "agent_user_id", "score", "scoring_version", "scorecard_version", "complete_time", "delete_time", "smart_evaluation_sections")
+    SMART_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
+    SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    SCORE_FIELD_NUMBER: _ClassVar[int]
+    SCORING_VERSION_FIELD_NUMBER: _ClassVar[int]
+    SCORECARD_VERSION_FIELD_NUMBER: _ClassVar[int]
+    COMPLETE_TIME_FIELD_NUMBER: _ClassVar[int]
+    DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
+    SMART_EVALUATION_SECTIONS_FIELD_NUMBER: _ClassVar[int]
+    smart_evaluation_id: int
+    scorecard_id: int
+    transcript_sid: int
+    agent_user_id: str
+    score: float
+    scoring_version: int
+    scorecard_version: int
+    complete_time: _timestamp_pb2.Timestamp
+    delete_time: _timestamp_pb2.Timestamp
+    smart_evaluation_sections: _containers.RepeatedCompositeFieldContainer[SmartEvaluationSection]
+    def __init__(self, smart_evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., transcript_sid: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., score: _Optional[float] = ..., scoring_version: _Optional[int] = ..., scorecard_version: _Optional[int] = ..., complete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., smart_evaluation_sections: _Optional[_Iterable[_Union[SmartEvaluationSection, _Mapping]]] = ...) -> None: ...
+
+class SmartEvaluationSection(_message.Message):
+    __slots__ = ("section_id", "points", "possible_points", "create_time", "delete_time", "smart_evaluation_questions")
+    SECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    POINTS_FIELD_NUMBER: _ClassVar[int]
+    POSSIBLE_POINTS_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
+    SMART_EVALUATION_QUESTIONS_FIELD_NUMBER: _ClassVar[int]
+    section_id: int
+    points: int
+    possible_points: int
+    create_time: _timestamp_pb2.Timestamp
+    delete_time: _timestamp_pb2.Timestamp
+    smart_evaluation_questions: _containers.RepeatedCompositeFieldContainer[SmartEvaluationQuestion]
+    def __init__(self, section_id: _Optional[int] = ..., points: _Optional[int] = ..., possible_points: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., smart_evaluation_questions: _Optional[_Iterable[_Union[SmartEvaluationQuestion, _Mapping]]] = ...) -> None: ...
+
+class SmartEvaluationQuestion(_message.Message):
+    __slots__ = ("smart_question_id", "points", "possible_points", "answer", "create_time", "delete_time")
+    class Answer(_message.Message):
+        __slots__ = ("answer", "points", "fail_type", "answer_points")
+        ANSWER_FIELD_NUMBER: _ClassVar[int]
+        POINTS_FIELD_NUMBER: _ClassVar[int]
+        FAIL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        ANSWER_POINTS_FIELD_NUMBER: _ClassVar[int]
+        answer: str
+        points: int
+        fail_type: FailType
+        answer_points: int
+        def __init__(self, answer: _Optional[str] = ..., points: _Optional[int] = ..., fail_type: _Optional[_Union[FailType, str]] = ..., answer_points: _Optional[int] = ...) -> None: ...
+    SMART_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
+    POINTS_FIELD_NUMBER: _ClassVar[int]
+    POSSIBLE_POINTS_FIELD_NUMBER: _ClassVar[int]
+    ANSWER_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
+    smart_question_id: int
+    points: int
+    possible_points: int
+    answer: SmartEvaluationQuestion.Answer
+    create_time: _timestamp_pb2.Timestamp
+    delete_time: _timestamp_pb2.Timestamp
+    def __init__(self, smart_question_id: _Optional[int] = ..., points: _Optional[int] = ..., possible_points: _Optional[int] = ..., answer: _Optional[_Union[SmartEvaluationQuestion.Answer, _Mapping]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

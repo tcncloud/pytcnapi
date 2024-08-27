@@ -11,6 +11,7 @@ from api.v1alpha1.scorecards import question_pb2 as api_dot_v1alpha1_dot_scoreca
 from api.v1alpha1.scorecards import scorecard_pb2 as api_dot_v1alpha1_dot_scorecards_dot_scorecard__pb2
 from api.v1alpha1.scorecards import scorecard_question_pb2 as api_dot_v1alpha1_dot_scorecards_dot_scorecard__question__pb2
 from api.v1alpha1.scorecards import section_pb2 as api_dot_v1alpha1_dot_scorecards_dot_section__pb2
+from api.v1alpha1.scorecards import smart_evaluation_pb2 as api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2
 from api.v1alpha1.scorecards import smart_question_pb2 as api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2
 
 
@@ -272,6 +273,21 @@ class ScorecardsStub(object):
                 '/api.v1alpha1.scorecards.Scorecards/DeleteSmartQuestion',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionResponse.FromString,
+                )
+        self.ListSmartEvaluations = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/ListSmartEvaluations',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.ListSmartEvaluationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.ListSmartEvaluationsResponse.FromString,
+                )
+        self.DeleteSmartEvaluation = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/DeleteSmartEvaluation',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.DeleteSmartEvaluationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.DeleteSmartEvaluationResponse.FromString,
+                )
+        self.GetSmartEvaluation = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/GetSmartEvaluation',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.GetSmartEvaluationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.GetSmartEvaluationResponse.FromString,
                 )
 
 
@@ -628,6 +644,27 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListSmartEvaluations(self, request, context):
+        """ListSmartEvaluations lists smart evaluations
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSmartEvaluation(self, request, context):
+        """DeleteSmartEvaluation deletes a smart evaluation
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSmartEvaluation(self, request, context):
+        """GetSmartEvaluation gets a smart evaluation
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ScorecardsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -880,6 +917,21 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.DeleteSmartQuestion,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionResponse.SerializeToString,
+            ),
+            'ListSmartEvaluations': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSmartEvaluations,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.ListSmartEvaluationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.ListSmartEvaluationsResponse.SerializeToString,
+            ),
+            'DeleteSmartEvaluation': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteSmartEvaluation,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.DeleteSmartEvaluationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.DeleteSmartEvaluationResponse.SerializeToString,
+            ),
+            'GetSmartEvaluation': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSmartEvaluation,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.GetSmartEvaluationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.GetSmartEvaluationResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1738,5 +1790,56 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/DeleteSmartQuestion',
             api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSmartEvaluations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/ListSmartEvaluations',
+            api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.ListSmartEvaluationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.ListSmartEvaluationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSmartEvaluation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/DeleteSmartEvaluation',
+            api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.DeleteSmartEvaluationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.DeleteSmartEvaluationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSmartEvaluation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/GetSmartEvaluation',
+            api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.GetSmartEvaluationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_smart__evaluation__pb2.GetSmartEvaluationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
