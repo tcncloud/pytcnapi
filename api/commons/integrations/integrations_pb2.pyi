@@ -1006,7 +1006,7 @@ class VerificationFlow(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., experian_query_balance: _Optional[_Union[VerificationExperianQueryBalance, _Mapping]] = ..., experian_link_data: _Optional[_Union[VerificationExperianLinkData, _Mapping]] = ..., experian_zip_dob: _Optional[_Union[VerificationExperianZipDob, _Mapping]] = ..., authorize_net_customer_profile: _Optional[_Union[VerificationAuthorizeNetCustomerProfile, _Mapping]] = ..., authorize_net_link_data: _Optional[_Union[VerificationAuthorizeNetLinkData, _Mapping]] = ..., journey: _Optional[_Union[VerificationJourney, _Mapping]] = ..., newzware_lookup_phone: _Optional[_Union[VerificationNewzwareLookupPhone, _Mapping]] = ..., newzware_account_inquiry: _Optional[_Union[VerificationNewzwareAccountInquiry, _Mapping]] = ..., verification_fields: _Optional[_Iterable[_Union[FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class FieldDefinition(_message.Message):
-    __slots__ = ("name", "alt_name", "display_name", "field_type", "validation_type", "formats", "invoice_type", "helper_text")
+    __slots__ = ("name", "alt_name", "display_name", "field_type", "validation_type", "formats", "invoice_type", "helper_text", "required")
     NAME_FIELD_NUMBER: _ClassVar[int]
     ALT_NAME_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -1015,6 +1015,7 @@ class FieldDefinition(_message.Message):
     FORMATS_FIELD_NUMBER: _ClassVar[int]
     INVOICE_TYPE_FIELD_NUMBER: _ClassVar[int]
     HELPER_TEXT_FIELD_NUMBER: _ClassVar[int]
+    REQUIRED_FIELD_NUMBER: _ClassVar[int]
     name: str
     alt_name: str
     display_name: str
@@ -1023,7 +1024,8 @@ class FieldDefinition(_message.Message):
     formats: _containers.RepeatedScalarFieldContainer[str]
     invoice_type: InvoiceDisplayType
     helper_text: HelperText
-    def __init__(self, name: _Optional[str] = ..., alt_name: _Optional[str] = ..., display_name: _Optional[str] = ..., field_type: _Optional[_Union[ValueType, str]] = ..., validation_type: _Optional[_Union[Validation, str]] = ..., formats: _Optional[_Iterable[str]] = ..., invoice_type: _Optional[_Union[InvoiceDisplayType, str]] = ..., helper_text: _Optional[_Union[HelperText, _Mapping]] = ...) -> None: ...
+    required: bool
+    def __init__(self, name: _Optional[str] = ..., alt_name: _Optional[str] = ..., display_name: _Optional[str] = ..., field_type: _Optional[_Union[ValueType, str]] = ..., validation_type: _Optional[_Union[Validation, str]] = ..., formats: _Optional[_Iterable[str]] = ..., invoice_type: _Optional[_Union[InvoiceDisplayType, str]] = ..., helper_text: _Optional[_Union[HelperText, _Mapping]] = ..., required: bool = ...) -> None: ...
 
 class HelperText(_message.Message):
     __slots__ = ("text",)
