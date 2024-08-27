@@ -1,4 +1,5 @@
 from api.commons import insights_pb2 as _insights_pb2
+from api.v1alpha1.explorer import entities_pb2 as _entities_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -76,7 +77,7 @@ INSIGHT_CONTEXTUAL_ACTION_TYPE_LINK: InsightContextualActionType
 INSIGHT_CONTEXTUAL_ACTION_TYPE_COMPONENT: InsightContextualActionType
 
 class Insight(_message.Message):
-    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight")
+    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type")
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -86,6 +87,7 @@ class Insight(_message.Message):
     INSIGHT_PERMISSION_TYPE_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     STANDARD_INSIGHT_FIELD_NUMBER: _ClassVar[int]
+    DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     insight_id: int
     name: str
     description: str
@@ -95,7 +97,8 @@ class Insight(_message.Message):
     insight_permission_type: _insights_pb2.InsightPermissionType
     resource_id: str
     standard_insight: bool
-    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ...) -> None: ...
+    datasource_type: _entities_pb2.DatasourceType
+    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ...) -> None: ...
 
 class PublishInsightRequest(_message.Message):
     __slots__ = ("resource_id", "destination_resource_id")
