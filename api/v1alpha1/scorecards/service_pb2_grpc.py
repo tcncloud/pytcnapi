@@ -263,6 +263,16 @@ class ScorecardsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionResponse.FromString,
                 )
+        self.UpdateSmartQuestion = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/UpdateSmartQuestion',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.UpdateSmartQuestionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.UpdateSmartQuestionResponse.FromString,
+                )
+        self.DeleteSmartQuestion = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/DeleteSmartQuestion',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionResponse.FromString,
+                )
 
 
 class ScorecardsServicer(object):
@@ -604,6 +614,20 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateSmartQuestion(self, request, context):
+        """UpdateSmartQuestion updates a smart question.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSmartQuestion(self, request, context):
+        """DeleteSmartQuestion deletes a smart question.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ScorecardsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -846,6 +870,16 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.CreateSmartQuestion,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionResponse.SerializeToString,
+            ),
+            'UpdateSmartQuestion': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateSmartQuestion,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.UpdateSmartQuestionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.UpdateSmartQuestionResponse.SerializeToString,
+            ),
+            'DeleteSmartQuestion': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteSmartQuestion,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1670,5 +1704,39 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/CreateSmartQuestion',
             api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.CreateSmartQuestionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateSmartQuestion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/UpdateSmartQuestion',
+            api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.UpdateSmartQuestionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.UpdateSmartQuestionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSmartQuestion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/DeleteSmartQuestion',
+            api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_smart__question__pb2.DeleteSmartQuestionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
