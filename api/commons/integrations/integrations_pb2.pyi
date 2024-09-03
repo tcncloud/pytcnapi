@@ -841,6 +841,22 @@ FLOW_TYPE_PAYMENT: FlowType
 FLOW_TYPE_VERIFICATION: FlowType
 FLOW_TYPE_EXECUTE: FlowType
 
+class Receipt(_message.Message):
+    __slots__ = ("fields",)
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
+    fields: _containers.RepeatedCompositeFieldContainer[ReceiptField]
+    def __init__(self, fields: _Optional[_Iterable[_Union[ReceiptField, _Mapping]]] = ...) -> None: ...
+
+class ReceiptField(_message.Message):
+    __slots__ = ("name", "display_name", "value")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    display_name: str
+    value: str
+    def __init__(self, name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+
 class Invoices(_message.Message):
     __slots__ = ("top_level_fields", "invoices")
     TOP_LEVEL_FIELDS_FIELD_NUMBER: _ClassVar[int]
