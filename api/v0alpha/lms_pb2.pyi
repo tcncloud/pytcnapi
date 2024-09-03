@@ -2200,15 +2200,17 @@ class ListCollectionsRes(_message.Message):
     def __init__(self, collections: _Optional[_Iterable[_Union[CollectionMetadata, _Mapping]]] = ...) -> None: ...
 
 class SearchCollectionsPaginatedReq(_message.Message):
-    __slots__ = ("collection_ids", "search", "page_size")
+    __slots__ = ("collection_ids", "search", "page_size", "last_id")
     COLLECTION_IDS_FIELD_NUMBER: _ClassVar[int]
     SEARCH_FIELD_NUMBER: _ClassVar[int]
     FROM_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    LAST_ID_FIELD_NUMBER: _ClassVar[int]
     collection_ids: _containers.RepeatedScalarFieldContainer[str]
     search: Search
     page_size: int
-    def __init__(self, collection_ids: _Optional[_Iterable[str]] = ..., search: _Optional[_Union[Search, _Mapping]] = ..., page_size: _Optional[int] = ..., **kwargs) -> None: ...
+    last_id: str
+    def __init__(self, collection_ids: _Optional[_Iterable[str]] = ..., search: _Optional[_Union[Search, _Mapping]] = ..., page_size: _Optional[int] = ..., last_id: _Optional[str] = ..., **kwargs) -> None: ...
 
 class Search(_message.Message):
     __slots__ = ("term", "fuzziness", "substring", "negate", "case_sensitive", "value")
@@ -2227,12 +2229,16 @@ class Search(_message.Message):
     def __init__(self, term: _Optional[str] = ..., fuzziness: _Optional[int] = ..., substring: bool = ..., negate: bool = ..., case_sensitive: bool = ..., value: _Optional[str] = ...) -> None: ...
 
 class PaginatedSearchRes(_message.Message):
-    __slots__ = ("entries", "total")
+    __slots__ = ("entries", "total", "more_results", "last_id")
     ENTRIES_FIELD_NUMBER: _ClassVar[int]
     TOTAL_FIELD_NUMBER: _ClassVar[int]
+    MORE_RESULTS_FIELD_NUMBER: _ClassVar[int]
+    LAST_ID_FIELD_NUMBER: _ClassVar[int]
     entries: _containers.RepeatedCompositeFieldContainer[CollectionEntry]
     total: int
-    def __init__(self, entries: _Optional[_Iterable[_Union[CollectionEntry, _Mapping]]] = ..., total: _Optional[int] = ...) -> None: ...
+    more_results: bool
+    last_id: str
+    def __init__(self, entries: _Optional[_Iterable[_Union[CollectionEntry, _Mapping]]] = ..., total: _Optional[int] = ..., more_results: bool = ..., last_id: _Optional[str] = ...) -> None: ...
 
 class GetCollectionEntriesReq(_message.Message):
     __slots__ = ("collection_id", "page_size", "search_after_id")
