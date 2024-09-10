@@ -3885,6 +3885,16 @@ class CreateAdherenceRuleNotificationConfigEntryResponse(_message.Message):
     adherence_rule_notification_config_entry_id: int
     def __init__(self, adherence_rule_notification_config_entry_id: _Optional[int] = ...) -> None: ...
 
+class ListAdherenceRuleNotificationConfigsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAdherenceRuleNotificationConfigsResponse(_message.Message):
+    __slots__ = ("notification_configs",)
+    NOTIFICATION_CONFIGS_FIELD_NUMBER: _ClassVar[int]
+    notification_configs: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AdherenceRuleNotificationConfig]
+    def __init__(self, notification_configs: _Optional[_Iterable[_Union[_wfm_pb2.AdherenceRuleNotificationConfig, _Mapping]]] = ...) -> None: ...
+
 class CreateAdherenceDepartmentalRuleRequest(_message.Message):
     __slots__ = ("rule",)
     RULE_FIELD_NUMBER: _ClassVar[int]
@@ -3909,6 +3919,16 @@ class CreateAdherenceDepartmentalRuleClauseResponse(_message.Message):
     adherence_departmental_rule_clause_id: int
     def __init__(self, adherence_departmental_rule_clause_id: _Optional[int] = ...) -> None: ...
 
+class ListAdherenceDepartmentalRulesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAdherenceDepartmentalRulesResponse(_message.Message):
+    __slots__ = ("rules",)
+    RULES_FIELD_NUMBER: _ClassVar[int]
+    rules: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AdherenceDepartmentalRule]
+    def __init__(self, rules: _Optional[_Iterable[_Union[_wfm_pb2.AdherenceDepartmentalRule, _Mapping]]] = ...) -> None: ...
+
 class CreateAdherenceAgentRuleRequest(_message.Message):
     __slots__ = ("rule",)
     RULE_FIELD_NUMBER: _ClassVar[int]
@@ -3932,3 +3952,13 @@ class CreateAdherenceAgentRuleClauseResponse(_message.Message):
     ADHERENCE_AGENT_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
     adherence_agent_rule_clause_id: int
     def __init__(self, adherence_agent_rule_clause_id: _Optional[int] = ...) -> None: ...
+
+class ListAdherenceAgentRulesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAdherenceAgentRulesResponse(_message.Message):
+    __slots__ = ("rules",)
+    RULES_FIELD_NUMBER: _ClassVar[int]
+    rules: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AdherenceAgentRule]
+    def __init__(self, rules: _Optional[_Iterable[_Union[_wfm_pb2.AdherenceAgentRule, _Mapping]]] = ...) -> None: ...

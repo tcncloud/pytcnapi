@@ -848,14 +848,18 @@ class Receipt(_message.Message):
     def __init__(self, fields: _Optional[_Iterable[_Union[ReceiptField, _Mapping]]] = ...) -> None: ...
 
 class ReceiptField(_message.Message):
-    __slots__ = ("name", "display_name", "value")
+    __slots__ = ("name", "display_name", "value", "validation_type", "format")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
+    VALIDATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FORMAT_FIELD_NUMBER: _ClassVar[int]
     name: str
     display_name: str
     value: str
-    def __init__(self, name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    validation_type: Validation
+    format: str
+    def __init__(self, name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ..., validation_type: _Optional[_Union[Validation, str]] = ..., format: _Optional[str] = ...) -> None: ...
 
 class Invoices(_message.Message):
     __slots__ = ("top_level_fields", "invoices")
@@ -880,16 +884,20 @@ class Item(_message.Message):
     def __init__(self, fields: _Optional[_Iterable[_Union[InvoiceField, _Mapping]]] = ...) -> None: ...
 
 class InvoiceField(_message.Message):
-    __slots__ = ("item_type", "name", "display_name", "value")
+    __slots__ = ("item_type", "name", "display_name", "value", "validation_type", "format")
     ITEM_TYPE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
+    VALIDATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FORMAT_FIELD_NUMBER: _ClassVar[int]
     item_type: InvoiceDisplayType
     name: str
     display_name: str
     value: str
-    def __init__(self, item_type: _Optional[_Union[InvoiceDisplayType, str]] = ..., name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
+    validation_type: Validation
+    format: str
+    def __init__(self, item_type: _Optional[_Union[InvoiceDisplayType, str]] = ..., name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ..., validation_type: _Optional[_Union[Validation, str]] = ..., format: _Optional[str] = ...) -> None: ...
 
 class InvoiceTemplate(_message.Message):
     __slots__ = ("account_fields", "invoice_descriptions")

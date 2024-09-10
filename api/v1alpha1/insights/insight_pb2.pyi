@@ -49,6 +49,7 @@ class InsightContextualActionType(int, metaclass=_enum_type_wrapper.EnumTypeWrap
     INSIGHT_CONTEXTUAL_ACTION_TYPE_UNSPECIFIED: _ClassVar[InsightContextualActionType]
     INSIGHT_CONTEXTUAL_ACTION_TYPE_LINK: _ClassVar[InsightContextualActionType]
     INSIGHT_CONTEXTUAL_ACTION_TYPE_COMPONENT: _ClassVar[InsightContextualActionType]
+    INSIGHT_CONTEXTUAL_ACTION_TYPE_DRILL_THROUGH: _ClassVar[InsightContextualActionType]
 OUTPUT_CONFIGURATION_TYPE_UNSPECIFIED: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_TABLE: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: OutputConfigurationType
@@ -75,6 +76,7 @@ OUTPUT_CONFIGURATION_COLUMN_SUMMARY_TYPE_MAX: OutputConfigurationColumnSummaryTy
 INSIGHT_CONTEXTUAL_ACTION_TYPE_UNSPECIFIED: InsightContextualActionType
 INSIGHT_CONTEXTUAL_ACTION_TYPE_LINK: InsightContextualActionType
 INSIGHT_CONTEXTUAL_ACTION_TYPE_COMPONENT: InsightContextualActionType
+INSIGHT_CONTEXTUAL_ACTION_TYPE_DRILL_THROUGH: InsightContextualActionType
 
 class Insight(_message.Message):
     __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type")
@@ -282,14 +284,16 @@ class ColumnOperation(_message.Message):
     def __init__(self, operation_type: _Optional[_Union[OperationType, str]] = ..., float_value: _Optional[float] = ..., format_series: _Optional[_Union[FormatSeries, _Mapping]] = ...) -> None: ...
 
 class InsightContextualAction(_message.Message):
-    __slots__ = ("type", "link", "component")
+    __slots__ = ("type", "link", "component", "drill_through")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     LINK_FIELD_NUMBER: _ClassVar[int]
     COMPONENT_FIELD_NUMBER: _ClassVar[int]
+    DRILL_THROUGH_FIELD_NUMBER: _ClassVar[int]
     type: InsightContextualActionType
     link: LinkAction
     component: ComponentAction
-    def __init__(self, type: _Optional[_Union[InsightContextualActionType, str]] = ..., link: _Optional[_Union[LinkAction, _Mapping]] = ..., component: _Optional[_Union[ComponentAction, _Mapping]] = ...) -> None: ...
+    drill_through: DrillThroughAction
+    def __init__(self, type: _Optional[_Union[InsightContextualActionType, str]] = ..., link: _Optional[_Union[LinkAction, _Mapping]] = ..., component: _Optional[_Union[ComponentAction, _Mapping]] = ..., drill_through: _Optional[_Union[DrillThroughAction, _Mapping]] = ...) -> None: ...
 
 class LinkAction(_message.Message):
     __slots__ = ("link_elements", "component_value")
@@ -320,6 +324,22 @@ class ComponentAction(_message.Message):
     component_name: str
     component_value: _containers.ScalarMap[str, str]
     def __init__(self, component_name: _Optional[str] = ..., component_value: _Optional[_Mapping[str, str]] = ...) -> None: ...
+
+class DrillThroughAction(_message.Message):
+    __slots__ = ("insight_resource_id", "drill_through_parameters")
+    INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
+    DRILL_THROUGH_PARAMETERS_FIELD_NUMBER: _ClassVar[int]
+    insight_resource_id: str
+    drill_through_parameters: _containers.RepeatedCompositeFieldContainer[DrillThroughParameter]
+    def __init__(self, insight_resource_id: _Optional[str] = ..., drill_through_parameters: _Optional[_Iterable[_Union[DrillThroughParameter, _Mapping]]] = ...) -> None: ...
+
+class DrillThroughParameter(_message.Message):
+    __slots__ = ("parameter_name", "column_name")
+    PARAMETER_NAME_FIELD_NUMBER: _ClassVar[int]
+    COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
+    parameter_name: str
+    column_name: str
+    def __init__(self, parameter_name: _Optional[str] = ..., column_name: _Optional[str] = ...) -> None: ...
 
 class OutputConfiguration(_message.Message):
     __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization")

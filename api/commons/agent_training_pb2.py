@@ -26,7 +26,7 @@ from api.commons import acd_pb2 as api_dot_commons_dot_acd__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/agent_training.proto\x12\x0b\x61pi.commons\x1a\x15\x61pi/commons/acd.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb5\x05\n\x13LearningOpportunity\x12\x36\n\x17learning_opportunity_id\x18\x02 \x01(\x03R\x15learningOpportunityId\x12\x19\n\x08\x63\x61ll_sid\x18\x03 \x01(\x03R\x07\x63\x61llSid\x12\x37\n\tcall_type\x18\x04 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x08\x63\x61llType\x12%\n\x0etranscript_sid\x18\x05 \x01(\x03R\rtranscriptSid\x12\"\n\ragent_user_id\x18\x06 \x01(\tR\x0b\x61gentUserId\x12!\n\x0cstart_offset\x18\x07 \x01(\x05R\x0bstartOffset\x12\x1d\n\nend_offset\x18\x08 \x01(\x05R\tendOffset\x12 \n\x0b\x64\x65scription\x18\t \x01(\tR\x0b\x64\x65scription\x12\x39\n\ncreated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x14\n\x05title\x18\x0c \x01(\tR\x05title\x12>\n\x06status\x18\r \x01(\x0e\x32&.api.commons.LearningOpportunityStatusR\x06status\x12>\n\x06origin\x18\x0e \x01(\x0e\x32&.api.commons.LearningOpportunityOriginR\x06origin\x12&\n\x0f\x63reator_user_id\x18\x0f \x01(\tR\rcreatorUserId\x12%\n\revaluation_id\x18\x10 \x01(\x03H\x00R\x0c\x65valuationId\x12.\n\x12\x61uto_evaluation_id\x18\x11 \x01(\x03H\x00R\x10\x61utoEvaluationIdB\x13\n\x11origin_identifier\"R\n\x0e\x43\x61llIdentifier\x12\x10\n\x03sid\x18\x01 \x01(\x03R\x03sid\x12.\n\x04type\x18\x02 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x04type*B\n\x19LearningOpportunityStatus\x12\x0f\n\x0bSTATUS_OPEN\x10\x00\x12\x14\n\x10STATUS_COMPLETED\x10\x01*\x98\x01\n\x19LearningOpportunityOrigin\x12\r\n\tUNDEFINED\x10\x00\x12\x16\n\x12QUALITY_EVALUATION\x10\x01\x12\x13\n\x0f\x41UTO_EVALUATION\x10\x02\x12\x13\n\x0f\x46LAG_EVALUATION\x10\x03\x12\x10\n\x0c\x43ONVERSATION\x10\x04\x12\x18\n\x14\x46LAGGED_CONVERSATION\x10\x05\x42r\n\x0f\x63om.api.commonsB\x12\x41gentTrainingProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n api/commons/agent_training.proto\x12\x0b\x61pi.commons\x1a\x15\x61pi/commons/acd.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe7\x05\n\x13LearningOpportunity\x12\x36\n\x17learning_opportunity_id\x18\x02 \x01(\x03R\x15learningOpportunityId\x12\x19\n\x08\x63\x61ll_sid\x18\x03 \x01(\x03R\x07\x63\x61llSid\x12\x37\n\tcall_type\x18\x04 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x08\x63\x61llType\x12%\n\x0etranscript_sid\x18\x05 \x01(\x03R\rtranscriptSid\x12\"\n\ragent_user_id\x18\x06 \x01(\tR\x0b\x61gentUserId\x12!\n\x0cstart_offset\x18\x07 \x01(\x05R\x0bstartOffset\x12\x1d\n\nend_offset\x18\x08 \x01(\x05R\tendOffset\x12 \n\x0b\x64\x65scription\x18\t \x01(\tR\x0b\x64\x65scription\x12\x39\n\ncreated_at\x18\n \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tcreatedAt\x12\x14\n\x05title\x18\x0c \x01(\tR\x05title\x12>\n\x06status\x18\r \x01(\x0e\x32&.api.commons.LearningOpportunityStatusR\x06status\x12>\n\x06origin\x18\x0e \x01(\x0e\x32&.api.commons.LearningOpportunityOriginR\x06origin\x12&\n\x0f\x63reator_user_id\x18\x0f \x01(\tR\rcreatorUserId\x12%\n\revaluation_id\x18\x10 \x01(\x03H\x00R\x0c\x65valuationId\x12.\n\x12\x61uto_evaluation_id\x18\x11 \x01(\x03H\x00R\x10\x61utoEvaluationId\x12\x30\n\x13smart_evaluation_id\x18\x12 \x01(\x03H\x00R\x11smartEvaluationIdB\x13\n\x11origin_identifier\"R\n\x0e\x43\x61llIdentifier\x12\x10\n\x03sid\x18\x01 \x01(\x03R\x03sid\x12.\n\x04type\x18\x02 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x04type*B\n\x19LearningOpportunityStatus\x12\x0f\n\x0bSTATUS_OPEN\x10\x00\x12\x14\n\x10STATUS_COMPLETED\x10\x01*\xae\x01\n\x19LearningOpportunityOrigin\x12\r\n\tUNDEFINED\x10\x00\x12\x16\n\x12QUALITY_EVALUATION\x10\x01\x12\x13\n\x0f\x41UTO_EVALUATION\x10\x02\x12\x13\n\x0f\x46LAG_EVALUATION\x10\x03\x12\x10\n\x0c\x43ONVERSATION\x10\x04\x12\x18\n\x14\x46LAGGED_CONVERSATION\x10\x05\x12\x14\n\x10SMART_EVALUATION\x10\x06\x42r\n\x0f\x63om.api.commonsB\x12\x41gentTrainingProtoP\x01\xa2\x02\x03\x41\x43X\xaa\x02\x0b\x41pi.Commons\xca\x02\x0b\x41pi\\Commons\xe2\x02\x17\x41pi\\Commons\\GPBMetadata\xea\x02\x0c\x41pi::Commonsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,12 +34,12 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.commons.agent_training_
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\017com.api.commonsB\022AgentTrainingProtoP\001\242\002\003ACX\252\002\013Api.Commons\312\002\013Api\\Commons\342\002\027Api\\Commons\\GPBMetadata\352\002\014Api::Commons'
-  _globals['_LEARNINGOPPORTUNITYSTATUS']._serialized_start=885
-  _globals['_LEARNINGOPPORTUNITYSTATUS']._serialized_end=951
-  _globals['_LEARNINGOPPORTUNITYORIGIN']._serialized_start=954
-  _globals['_LEARNINGOPPORTUNITYORIGIN']._serialized_end=1106
+  _globals['_LEARNINGOPPORTUNITYSTATUS']._serialized_start=935
+  _globals['_LEARNINGOPPORTUNITYSTATUS']._serialized_end=1001
+  _globals['_LEARNINGOPPORTUNITYORIGIN']._serialized_start=1004
+  _globals['_LEARNINGOPPORTUNITYORIGIN']._serialized_end=1178
   _globals['_LEARNINGOPPORTUNITY']._serialized_start=106
-  _globals['_LEARNINGOPPORTUNITY']._serialized_end=799
-  _globals['_CALLIDENTIFIER']._serialized_start=801
-  _globals['_CALLIDENTIFIER']._serialized_end=883
+  _globals['_LEARNINGOPPORTUNITY']._serialized_end=849
+  _globals['_CALLIDENTIFIER']._serialized_start=851
+  _globals['_CALLIDENTIFIER']._serialized_end=933
 # @@protoc_insertion_point(module_scope)

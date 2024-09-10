@@ -39,6 +39,11 @@ class AgentTrainingServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.FromString,
                 )
+        self.ListManagerDashboards = channel.unary_unary(
+                '/api.v1alpha1.agenttraining.AgentTrainingService/ListManagerDashboards',
+                request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.FromString,
+                )
         self.UpdateLearningOpportunity = channel.unary_unary(
                 '/api.v1alpha1.agenttraining.AgentTrainingService/UpdateLearningOpportunity',
                 request_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.UpdateLearningOpportunityRequest.SerializeToString,
@@ -94,6 +99,13 @@ class AgentTrainingServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListManagerDashboards(self, request, context):
+        """ListManagerDashboards lists manager dashboards.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def UpdateLearningOpportunity(self, request, context):
         """UpdateLearningOpportunity updates a learning opportunity.
         """
@@ -140,6 +152,11 @@ def add_AgentTrainingServiceServicer_to_server(servicer, server):
             ),
             'ListDashboards': grpc.unary_unary_rpc_method_handler(
                     servicer.ListDashboards,
+                    request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.SerializeToString,
+            ),
+            'ListManagerDashboards': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListManagerDashboards,
                     request_deserializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.SerializeToString,
             ),
@@ -248,6 +265,23 @@ class AgentTrainingService(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/ListDashboards',
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListManagerDashboards(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.agenttraining.AgentTrainingService/ListManagerDashboards',
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsRequest.SerializeToString,
             api_dot_v1alpha1_dot_agenttraining_dot_learning__opportunity__pb2.ListDashboardsResponse.FromString,
             options, channel_credentials,
