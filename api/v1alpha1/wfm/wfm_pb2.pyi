@@ -3885,6 +3885,16 @@ class CreateAdherenceRuleNotificationConfigEntryResponse(_message.Message):
     adherence_rule_notification_config_entry_id: int
     def __init__(self, adherence_rule_notification_config_entry_id: _Optional[int] = ...) -> None: ...
 
+class DeleteAdherenceRuleNotificationConfigEntryRequest(_message.Message):
+    __slots__ = ("adherence_rule_notification_config_entry_id",)
+    ADHERENCE_RULE_NOTIFICATION_CONFIG_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
+    adherence_rule_notification_config_entry_id: int
+    def __init__(self, adherence_rule_notification_config_entry_id: _Optional[int] = ...) -> None: ...
+
+class DeleteAdherenceRuleNotificationConfigEntryResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class ListAdherenceRuleNotificationConfigsRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
@@ -3919,6 +3929,16 @@ class CreateAdherenceDepartmentalRuleClauseResponse(_message.Message):
     adherence_departmental_rule_clause_id: int
     def __init__(self, adherence_departmental_rule_clause_id: _Optional[int] = ...) -> None: ...
 
+class DeleteAdherenceDepartmentalRuleClauseRequest(_message.Message):
+    __slots__ = ("adherence_departmental_rule_clause_id",)
+    ADHERENCE_DEPARTMENTAL_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
+    adherence_departmental_rule_clause_id: int
+    def __init__(self, adherence_departmental_rule_clause_id: _Optional[int] = ...) -> None: ...
+
+class DeleteAdherenceDepartmentalRuleClauseResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class ListAdherenceDepartmentalRulesRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
@@ -3952,6 +3972,16 @@ class CreateAdherenceAgentRuleClauseResponse(_message.Message):
     ADHERENCE_AGENT_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
     adherence_agent_rule_clause_id: int
     def __init__(self, adherence_agent_rule_clause_id: _Optional[int] = ...) -> None: ...
+
+class DeleteAdherenceAgentRuleClauseRequest(_message.Message):
+    __slots__ = ("adherence_agent_rule_clause_id",)
+    ADHERENCE_AGENT_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
+    adherence_agent_rule_clause_id: int
+    def __init__(self, adherence_agent_rule_clause_id: _Optional[int] = ...) -> None: ...
+
+class DeleteAdherenceAgentRuleClauseResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class ListAdherenceAgentRulesRequest(_message.Message):
     __slots__ = ()
