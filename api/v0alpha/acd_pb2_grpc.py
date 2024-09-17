@@ -327,6 +327,11 @@ class AcdStub(object):
                 request_serializer=api_dot_v0alpha_dot_acd__pb2.PopulateWorkflowFieldsReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_acd__pb2.PopulateWorkflowFieldsRes.FromString,
                 )
+        self.ValidateField = channel.unary_unary(
+                '/api.v0alpha.Acd/ValidateField',
+                request_serializer=api_dot_v0alpha_dot_acd__pb2.ValidateFieldReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_acd__pb2.ValidateFieldRes.FromString,
+                )
 
 
 class AcdServicer(object):
@@ -715,6 +720,12 @@ class AcdServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ValidateField(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_AcdServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1012,6 +1023,11 @@ def add_AcdServicer_to_server(servicer, server):
                     servicer.PopulateWorkflowFields,
                     request_deserializer=api_dot_v0alpha_dot_acd__pb2.PopulateWorkflowFieldsReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_acd__pb2.PopulateWorkflowFieldsRes.SerializeToString,
+            ),
+            'ValidateField': grpc.unary_unary_rpc_method_handler(
+                    servicer.ValidateField,
+                    request_deserializer=api_dot_v0alpha_dot_acd__pb2.ValidateFieldReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_acd__pb2.ValidateFieldRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2041,5 +2057,22 @@ class Acd(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/PopulateWorkflowFields',
             api_dot_v0alpha_dot_acd__pb2.PopulateWorkflowFieldsReq.SerializeToString,
             api_dot_v0alpha_dot_acd__pb2.PopulateWorkflowFieldsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ValidateField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Acd/ValidateField',
+            api_dot_v0alpha_dot_acd__pb2.ValidateFieldReq.SerializeToString,
+            api_dot_v0alpha_dot_acd__pb2.ValidateFieldRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

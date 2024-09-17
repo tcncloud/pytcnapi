@@ -866,3 +866,21 @@ class PopulateWorkflowFieldsRes(_message.Message):
     VALUES_FIELD_NUMBER: _ClassVar[int]
     values: _containers.MessageMap[str, _service_pb2.Value]
     def __init__(self, values: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
+
+class ValidateFieldReq(_message.Message):
+    __slots__ = ("voice_session_sid", "validation_type", "field_name")
+    VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    VALIDATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    voice_session_sid: int
+    validation_type: _integrations_pb2.Validation
+    field_name: str
+    def __init__(self, voice_session_sid: _Optional[int] = ..., validation_type: _Optional[_Union[_integrations_pb2.Validation, str]] = ..., field_name: _Optional[str] = ...) -> None: ...
+
+class ValidateFieldRes(_message.Message):
+    __slots__ = ("valid", "reason")
+    VALID_FIELD_NUMBER: _ClassVar[int]
+    REASON_FIELD_NUMBER: _ClassVar[int]
+    valid: bool
+    reason: str
+    def __init__(self, valid: bool = ..., reason: _Optional[str] = ...) -> None: ...
