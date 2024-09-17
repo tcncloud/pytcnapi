@@ -51,6 +51,7 @@ class TimeZone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TIME_ZONE_PACIFIC_CHATHAM: _ClassVar[TimeZone]
     TIME_ZONE_ASIA_SINGAPORE: _ClassVar[TimeZone]
     TIME_ZONE_ASIA_JAPAN: _ClassVar[TimeZone]
+    TIME_ZONE_AMERICA_SANTIAGO: _ClassVar[TimeZone]
 
 class DisplayLanguage(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -814,6 +815,7 @@ TIME_ZONE_PACIFIC_AUCKLAND: TimeZone
 TIME_ZONE_PACIFIC_CHATHAM: TimeZone
 TIME_ZONE_ASIA_SINGAPORE: TimeZone
 TIME_ZONE_ASIA_JAPAN: TimeZone
+TIME_ZONE_AMERICA_SANTIAGO: TimeZone
 DISPLAY_LANGUAGE_SPANISH: DisplayLanguage
 DISPLAY_LANGUAGE_FRENCH_CANADA: DisplayLanguage
 DISPLAY_LANGUAGE_PORTUGUESE: DisplayLanguage
