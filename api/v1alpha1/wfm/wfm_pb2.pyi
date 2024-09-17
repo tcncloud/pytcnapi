@@ -1297,6 +1297,32 @@ class GetOnCallSchedulingActivityRes(_message.Message):
     on_call_scheduling_activity: SchedulingActivity
     def __init__(self, on_call_scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ...) -> None: ...
 
+class ListPatternsForSchedulingActivityClassificationsRequest(_message.Message):
+    __slots__ = ("parent_entity", "scheduling_activity_classifications")
+    PARENT_ENTITY_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULING_ACTIVITY_CLASSIFICATIONS_FIELD_NUMBER: _ClassVar[int]
+    parent_entity: ParentEntity
+    scheduling_activity_classifications: _containers.RepeatedScalarFieldContainer[_wfm_pb2.SchedulingActivityClassification]
+    def __init__(self, parent_entity: _Optional[_Union[ParentEntity, _Mapping]] = ..., scheduling_activity_classifications: _Optional[_Iterable[_Union[_wfm_pb2.SchedulingActivityClassification, str]]] = ...) -> None: ...
+
+class ListPatternsForSchedulingActivityClassificationsResponse(_message.Message):
+    __slots__ = ("open_times_patterns", "agent_availability_patterns")
+    OPEN_TIMES_PATTERNS_FIELD_NUMBER: _ClassVar[int]
+    AGENT_AVAILABILITY_PATTERNS_FIELD_NUMBER: _ClassVar[int]
+    open_times_patterns: _containers.RepeatedCompositeFieldContainer[OpenTimesPattern]
+    agent_availability_patterns: _containers.RepeatedCompositeFieldContainer[AgentAvailabilityPattern]
+    def __init__(self, open_times_patterns: _Optional[_Iterable[_Union[OpenTimesPattern, _Mapping]]] = ..., agent_availability_patterns: _Optional[_Iterable[_Union[AgentAvailabilityPattern, _Mapping]]] = ...) -> None: ...
+
+class GetTimeOffSchedulingActivityRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetTimeOffSchedulingActivityResponse(_message.Message):
+    __slots__ = ("scheduling_activity",)
+    SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    scheduling_activity: SchedulingActivity
+    def __init__(self, scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ...) -> None: ...
+
 class AgentGroup(_message.Message):
     __slots__ = ("agent_group_sid", "parent_entity", "name", "description", "datetime_set_to_inactive", "schedule_scenario_sid", "member_constraint_rules", "member_wfm_agents", "member_skill_proficiencies", "member_agent_availability_patterns")
     AGENT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]

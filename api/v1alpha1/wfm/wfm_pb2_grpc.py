@@ -340,6 +340,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityRes.FromString,
                 )
+        self.ListPatternsForSchedulingActivityClassifications = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListPatternsForSchedulingActivityClassifications',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListPatternsForSchedulingActivityClassificationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListPatternsForSchedulingActivityClassificationsResponse.FromString,
+                )
+        self.GetTimeOffSchedulingActivity = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetTimeOffSchedulingActivity',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTimeOffSchedulingActivityRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTimeOffSchedulingActivityResponse.FromString,
+                )
         self.CreateAgentGroup = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateAgentGroup',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.SerializeToString,
@@ -1820,6 +1830,30 @@ class WFMServicer(object):
         Errors:
         -grpc.NotFound: the on call scheduling activity for the org is not found.
         -grpc.Internal: error occurs when getting on call scheduling activity.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPatternsForSchedulingActivityClassifications(self, request, context):
+        """Lists the Open Time and Agent Availability patterns for the given @parent_entity and @scheduling_activity_classifications, for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the arguments in the request are invalid.
+        - grpc.Internal: error occurs getting the patterns or their scheduling activity sids.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetTimeOffSchedulingActivity(self, request, context):
+        """Gets the time off scheduling activity for the org sending the request.
+        Required permissions:
+        NONE
+        Errors:
+        -grpc.NotFound: the time off scheduling activity for the org is not found.
+        -grpc.Internal: error occurs when getting time off scheduling activity.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -3837,6 +3871,16 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityRes.SerializeToString,
             ),
+            'ListPatternsForSchedulingActivityClassifications': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPatternsForSchedulingActivityClassifications,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListPatternsForSchedulingActivityClassificationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListPatternsForSchedulingActivityClassificationsResponse.SerializeToString,
+            ),
+            'GetTimeOffSchedulingActivity': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetTimeOffSchedulingActivity,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTimeOffSchedulingActivityRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTimeOffSchedulingActivityResponse.SerializeToString,
+            ),
             'CreateAgentGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAgentGroup,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentGroupReq.FromString,
@@ -5615,6 +5659,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetOnCallSchedulingActivity',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPatternsForSchedulingActivityClassifications(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListPatternsForSchedulingActivityClassifications',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListPatternsForSchedulingActivityClassificationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListPatternsForSchedulingActivityClassificationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetTimeOffSchedulingActivity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetTimeOffSchedulingActivity',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTimeOffSchedulingActivityRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetTimeOffSchedulingActivityResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
