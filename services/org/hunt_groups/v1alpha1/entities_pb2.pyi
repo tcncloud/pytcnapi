@@ -233,3 +233,19 @@ class UpdateHuntGroupAgentTriggersRequest(_message.Message):
 class UpdateHuntGroupAgentTriggersResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class AdminCopyHuntGroupToOrganizationRequest(_message.Message):
+    __slots__ = ("from_organization_id", "to_organization_id", "hunt_group_sid", "new_hunt_group_name")
+    FROM_ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
+    TO_ORGANIZATION_ID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    NEW_HUNT_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
+    from_organization_id: str
+    to_organization_id: str
+    hunt_group_sid: int
+    new_hunt_group_name: str
+    def __init__(self, from_organization_id: _Optional[str] = ..., to_organization_id: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., new_hunt_group_name: _Optional[str] = ...) -> None: ...
+
+class AdminCopyHuntGroupToOrganizationResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
