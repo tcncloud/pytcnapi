@@ -473,3 +473,11 @@ class RuleResponse(_message.Message):
     permit: bool
     plugin_response: str
     def __init__(self, rule_text: _Optional[str] = ..., permit: bool = ..., plugin_response: _Optional[str] = ...) -> None: ...
+
+class InvalidScrubListEntry(_message.Message):
+    __slots__ = ("entry", "error_message")
+    ENTRY_FIELD_NUMBER: _ClassVar[int]
+    ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    entry: str
+    error_message: str
+    def __init__(self, entry: _Optional[str] = ..., error_message: _Optional[str] = ...) -> None: ...

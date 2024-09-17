@@ -143,18 +143,22 @@ class ScrubListsRes(_message.Message):
     def __init__(self, lists: _Optional[_Iterable[_Union[ScrubListRes, _Mapping]]] = ...) -> None: ...
 
 class ScrubListRes(_message.Message):
-    __slots__ = ("list_id", "read_only", "content_type", "entries_added", "invalid_entries")
+    __slots__ = ("list_id", "read_only", "content_type", "entries_added", "invalid_entries", "total_invalid", "invalid_list")
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
     READ_ONLY_FIELD_NUMBER: _ClassVar[int]
     CONTENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     ENTRIES_ADDED_FIELD_NUMBER: _ClassVar[int]
     INVALID_ENTRIES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_INVALID_FIELD_NUMBER: _ClassVar[int]
+    INVALID_LIST_FIELD_NUMBER: _ClassVar[int]
     list_id: str
     read_only: bool
     content_type: _compliance_pb2.ContentType
     entries_added: int
     invalid_entries: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, list_id: _Optional[str] = ..., read_only: bool = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., entries_added: _Optional[int] = ..., invalid_entries: _Optional[_Iterable[str]] = ...) -> None: ...
+    total_invalid: int
+    invalid_list: _containers.RepeatedCompositeFieldContainer[_compliance_pb2.InvalidScrubListEntry]
+    def __init__(self, list_id: _Optional[str] = ..., read_only: bool = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., entries_added: _Optional[int] = ..., invalid_entries: _Optional[_Iterable[str]] = ..., total_invalid: _Optional[int] = ..., invalid_list: _Optional[_Iterable[_Union[_compliance_pb2.InvalidScrubListEntry, _Mapping]]] = ...) -> None: ...
 
 class DeleteScrubListReq(_message.Message):
     __slots__ = ("list_id",)
