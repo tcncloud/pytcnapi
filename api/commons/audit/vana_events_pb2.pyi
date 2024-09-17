@@ -1,3 +1,4 @@
+from api.commons import acd_pb2 as _acd_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -79,7 +80,27 @@ class VanaPhraseCorrectionEvent(_message.Message):
     def __init__(self, start_offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., end_offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., original_text: _Optional[str] = ..., proposed_text: _Optional[str] = ..., url: _Optional[str] = ..., channel: _Optional[int] = ...) -> None: ...
 
 class VanaCreateTranscriptEvent(_message.Message):
-    __slots__ = ("transcript_sid",)
+    __slots__ = ("transcript_sid", "call", "sms")
+    class Call(_message.Message):
+        __slots__ = ("call_sid", "call_type", "talk_time", "audio_time")
+        CALL_SID_FIELD_NUMBER: _ClassVar[int]
+        CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        TALK_TIME_FIELD_NUMBER: _ClassVar[int]
+        AUDIO_TIME_FIELD_NUMBER: _ClassVar[int]
+        call_sid: int
+        call_type: _acd_pb2.CallType.Enum
+        talk_time: _duration_pb2.Duration
+        audio_time: _duration_pb2.Duration
+        def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., talk_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., audio_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    class Sms(_message.Message):
+        __slots__ = ("conversation_sid",)
+        CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+        conversation_sid: int
+        def __init__(self, conversation_sid: _Optional[int] = ...) -> None: ...
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_FIELD_NUMBER: _ClassVar[int]
+    SMS_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: int
-    def __init__(self, transcript_sid: _Optional[int] = ...) -> None: ...
+    call: VanaCreateTranscriptEvent.Call
+    sms: VanaCreateTranscriptEvent.Sms
+    def __init__(self, transcript_sid: _Optional[int] = ..., call: _Optional[_Union[VanaCreateTranscriptEvent.Call, _Mapping]] = ..., sms: _Optional[_Union[VanaCreateTranscriptEvent.Sms, _Mapping]] = ...) -> None: ...
