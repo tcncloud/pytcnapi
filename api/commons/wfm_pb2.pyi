@@ -870,7 +870,7 @@ class AdherenceDepartmentalRuleAction(_message.Message):
     def __init__(self, action_type: _Optional[_Union[AdherenceDepartmentalRuleActionType, str]] = ...) -> None: ...
 
 class AdherenceDepartmentalRule(_message.Message):
-    __slots__ = ("adherence_departmental_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id", "rule_range", "custom_range", "clauses")
+    __slots__ = ("adherence_departmental_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id", "rule_range", "custom_range", "rule_clauses")
     ADHERENCE_DEPARTMENTAL_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SELECTED_ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -878,7 +878,7 @@ class AdherenceDepartmentalRule(_message.Message):
     ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
     RULE_RANGE_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_RANGE_FIELD_NUMBER: _ClassVar[int]
-    CLAUSES_FIELD_NUMBER: _ClassVar[int]
+    RULE_CLAUSES_FIELD_NUMBER: _ClassVar[int]
     adherence_departmental_rule_id: int
     name: str
     selected_entity: ConfigEntity
@@ -886,8 +886,8 @@ class AdherenceDepartmentalRule(_message.Message):
     adherence_rule_notification_config_id: int
     rule_range: AdherenceRuleRange
     custom_range: DatetimeRange
-    clauses: _containers.RepeatedCompositeFieldContainer[AdherenceDepartmentalRule]
-    def __init__(self, adherence_departmental_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., rule_range: _Optional[_Union[AdherenceRuleRange, str]] = ..., custom_range: _Optional[_Union[DatetimeRange, _Mapping]] = ..., clauses: _Optional[_Iterable[_Union[AdherenceDepartmentalRule, _Mapping]]] = ...) -> None: ...
+    rule_clauses: _containers.RepeatedCompositeFieldContainer[AdherenceDepartmentalRuleClause]
+    def __init__(self, adherence_departmental_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., rule_range: _Optional[_Union[AdherenceRuleRange, str]] = ..., custom_range: _Optional[_Union[DatetimeRange, _Mapping]] = ..., rule_clauses: _Optional[_Iterable[_Union[AdherenceDepartmentalRuleClause, _Mapping]]] = ...) -> None: ...
 
 class AdherenceDepartmentalRuleClause(_message.Message):
     __slots__ = ("adherence_departmental_rule_clause_id", "adherence_departmental_rule_id", "action", "condition", "amount", "unit", "per_amount", "per_unit")
@@ -910,20 +910,20 @@ class AdherenceDepartmentalRuleClause(_message.Message):
     def __init__(self, adherence_departmental_rule_clause_id: _Optional[int] = ..., adherence_departmental_rule_id: _Optional[int] = ..., action: _Optional[_Union[AdherenceDepartmentalRuleAction, _Mapping]] = ..., condition: _Optional[_Union[AdherenceRuleCondition, str]] = ..., amount: _Optional[int] = ..., unit: _Optional[_Union[AdherenceRuleUnit, str]] = ..., per_amount: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., per_unit: _Optional[_Union[AdherenceRuleUnit, str]] = ...) -> None: ...
 
 class AdherenceAgentRule(_message.Message):
-    __slots__ = ("adherence_agent_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id", "clauses")
+    __slots__ = ("adherence_agent_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id", "rule_clauses")
     ADHERENCE_AGENT_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SELECTED_ENTITY_FIELD_NUMBER: _ClassVar[int]
     RULE_REQUIREMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
-    CLAUSES_FIELD_NUMBER: _ClassVar[int]
+    RULE_CLAUSES_FIELD_NUMBER: _ClassVar[int]
     adherence_agent_rule_id: int
     name: str
     selected_entity: ConfigEntity
     rule_requirement_type: AdherenceRuleRequirementType
     adherence_rule_notification_config_id: int
-    clauses: _containers.RepeatedCompositeFieldContainer[AdherenceAgentRuleClause]
-    def __init__(self, adherence_agent_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., clauses: _Optional[_Iterable[_Union[AdherenceAgentRuleClause, _Mapping]]] = ...) -> None: ...
+    rule_clauses: _containers.RepeatedCompositeFieldContainer[AdherenceAgentRuleClause]
+    def __init__(self, adherence_agent_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., rule_clauses: _Optional[_Iterable[_Union[AdherenceAgentRuleClause, _Mapping]]] = ...) -> None: ...
 
 class AdherenceAgentRuleAction(_message.Message):
     __slots__ = ("action_type",)
