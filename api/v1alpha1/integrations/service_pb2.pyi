@@ -1392,10 +1392,12 @@ class Action(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., restructure_before: _Optional[_Mapping[str, str]] = ..., restructure_after: _Optional[_Mapping[str, str]] = ..., action_definition_name: _Optional[str] = ..., opts: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class Template(_message.Message):
-    __slots__ = ("invoice_template",)
+    __slots__ = ("invoice_template", "receipt_template")
     INVOICE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    RECEIPT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     invoice_template: _integrations_pb2.Invoices
-    def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ...) -> None: ...
+    receipt_template: _integrations_pb2.Receipt
+    def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ..., receipt_template: _Optional[_Union[_integrations_pb2.Receipt, _Mapping]] = ...) -> None: ...
 
 class PopulateIntegrationLinkReq(_message.Message):
     __slots__ = ("client_sid", "agent_sid", "call_sid", "call_type", "scheduled_callback_id", "integration_link")
