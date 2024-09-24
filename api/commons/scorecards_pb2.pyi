@@ -1,4 +1,5 @@
 from api.commons import acd_pb2 as _acd_pb2
+from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -395,7 +396,7 @@ class Section(_message.Message):
     def __init__(self, section_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., questions: _Optional[_Iterable[_Union[ScorecardQuestion, _Mapping]]] = ..., version: _Optional[int] = ..., sort_order: _Optional[int] = ..., auto_questions: _Optional[_Iterable[_Union[AutoQuestion, _Mapping]]] = ..., smart_questions: _Optional[_Iterable[_Union[SmartQuestion, _Mapping]]] = ...) -> None: ...
 
 class Scorecard(_message.Message):
-    __slots__ = ("scorecard_id", "author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "distribute_weights", "category", "sections", "version", "state", "is_ad_hoc", "custom_field_keys", "call_types", "updated_at")
+    __slots__ = ("scorecard_id", "author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "distribute_weights", "category", "sections", "version", "state", "is_ad_hoc", "custom_field_keys", "call_types", "updated_at", "channels")
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -413,6 +414,7 @@ class Scorecard(_message.Message):
     CUSTOM_FIELD_KEYS_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPES_FIELD_NUMBER: _ClassVar[int]
     UPDATED_AT_FIELD_NUMBER: _ClassVar[int]
+    CHANNELS_FIELD_NUMBER: _ClassVar[int]
     scorecard_id: int
     author_id: str
     title: str
@@ -430,7 +432,8 @@ class Scorecard(_message.Message):
     custom_field_keys: _containers.RepeatedScalarFieldContainer[str]
     call_types: _containers.RepeatedScalarFieldContainer[_acd_pb2.CallType.Enum]
     updated_at: _timestamp_pb2.Timestamp
-    def __init__(self, scorecard_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[ScoreType, str]] = ..., evaluation_type: _Optional[_Union[EvaluationType, str]] = ..., allow_feedback: bool = ..., distribute_weights: bool = ..., category: _Optional[_Union[Category, _Mapping]] = ..., sections: _Optional[_Iterable[_Union[Section, _Mapping]]] = ..., version: _Optional[int] = ..., state: _Optional[_Union[ScorecardState, str]] = ..., is_ad_hoc: bool = ..., custom_field_keys: _Optional[_Iterable[str]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    channels: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
+    def __init__(self, scorecard_id: _Optional[int] = ..., author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[ScoreType, str]] = ..., evaluation_type: _Optional[_Union[EvaluationType, str]] = ..., allow_feedback: bool = ..., distribute_weights: bool = ..., category: _Optional[_Union[Category, _Mapping]] = ..., sections: _Optional[_Iterable[_Union[Section, _Mapping]]] = ..., version: _Optional[int] = ..., state: _Optional[_Union[ScorecardState, str]] = ..., is_ad_hoc: bool = ..., custom_field_keys: _Optional[_Iterable[str]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., channels: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ...) -> None: ...
 
 class AutoQuestion(_message.Message):
     __slots__ = ("auto_question_id", "flag_sid", "scorecard_id", "auto_section_id", "sort_order", "flag_expression", "question", "description", "question_id", "risk_level")
