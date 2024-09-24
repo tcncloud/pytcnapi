@@ -15,6 +15,7 @@ class OutputConfigurationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     OUTPUT_CONFIGURATION_TYPE_TABLE: _ClassVar[OutputConfigurationType]
     OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: _ClassVar[OutputConfigurationType]
     OUTPUT_CONFIGURATION_TYPE_PIE_CHART: _ClassVar[OutputConfigurationType]
+    OUTPUT_CONFIGURATION_TYPE_FIXED_WIDTH: _ClassVar[OutputConfigurationType]
 
 class OperationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -29,6 +30,7 @@ class OperationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OPERATION_TYPE_DIVIDE: _ClassVar[OperationType]
     OPERATION_TYPE_FORMAT_NUMBER: _ClassVar[OperationType]
     OPERATION_TYPE_PRECISION: _ClassVar[OperationType]
+    OPERATION_TYPE_PAD: _ClassVar[OperationType]
 
 class ColumnSort(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -54,6 +56,7 @@ OUTPUT_CONFIGURATION_TYPE_UNSPECIFIED: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_TABLE: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_PIE_CHART: OutputConfigurationType
+OUTPUT_CONFIGURATION_TYPE_FIXED_WIDTH: OutputConfigurationType
 OPERATION_TYPE_UNSPECIFIED: OperationType
 OPERATION_TYPE_DATE: OperationType
 OPERATION_TYPE_PREFIX: OperationType
@@ -65,6 +68,7 @@ OPERATION_TYPE_MULTIPLY: OperationType
 OPERATION_TYPE_DIVIDE: OperationType
 OPERATION_TYPE_FORMAT_NUMBER: OperationType
 OPERATION_TYPE_PRECISION: OperationType
+OPERATION_TYPE_PAD: OperationType
 COLUMN_SORT_UNSPECIFIED: ColumnSort
 COLUMN_SORT_ASCENDING: ColumnSort
 COLUMN_SORT_DESCENDING: ColumnSort
@@ -273,15 +277,27 @@ class FormatSeries(_message.Message):
     format_parts: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, format_parts: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class PadOperation(_message.Message):
+    __slots__ = ("pad_character", "pad_left", "pad_size")
+    PAD_CHARACTER_FIELD_NUMBER: _ClassVar[int]
+    PAD_LEFT_FIELD_NUMBER: _ClassVar[int]
+    PAD_SIZE_FIELD_NUMBER: _ClassVar[int]
+    pad_character: str
+    pad_left: bool
+    pad_size: int
+    def __init__(self, pad_character: _Optional[str] = ..., pad_left: bool = ..., pad_size: _Optional[int] = ...) -> None: ...
+
 class ColumnOperation(_message.Message):
-    __slots__ = ("operation_type", "float_value", "format_series")
+    __slots__ = ("operation_type", "float_value", "format_series", "pad_operation")
     OPERATION_TYPE_FIELD_NUMBER: _ClassVar[int]
     FLOAT_VALUE_FIELD_NUMBER: _ClassVar[int]
     FORMAT_SERIES_FIELD_NUMBER: _ClassVar[int]
+    PAD_OPERATION_FIELD_NUMBER: _ClassVar[int]
     operation_type: OperationType
     float_value: float
     format_series: FormatSeries
-    def __init__(self, operation_type: _Optional[_Union[OperationType, str]] = ..., float_value: _Optional[float] = ..., format_series: _Optional[_Union[FormatSeries, _Mapping]] = ...) -> None: ...
+    pad_operation: PadOperation
+    def __init__(self, operation_type: _Optional[_Union[OperationType, str]] = ..., float_value: _Optional[float] = ..., format_series: _Optional[_Union[FormatSeries, _Mapping]] = ..., pad_operation: _Optional[_Union[PadOperation, _Mapping]] = ...) -> None: ...
 
 class InsightContextualAction(_message.Message):
     __slots__ = ("type", "link", "component", "drill_through")
