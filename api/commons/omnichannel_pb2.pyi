@@ -786,12 +786,10 @@ class OmniSuspend(_message.Message):
     def __init__(self, primary_asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class OmniCloseConversation(_message.Message):
-    __slots__ = ("primary_asm_session_sid", "user_name")
+    __slots__ = ("primary_asm_session_sid",)
     PRIMARY_ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
-    USER_NAME_FIELD_NUMBER: _ClassVar[int]
     primary_asm_session_sid: _wrappers_pb2.Int64Value
-    user_name: str
-    def __init__(self, primary_asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., user_name: _Optional[str] = ...) -> None: ...
+    def __init__(self, primary_asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class OmniQueueInformation(_message.Message):
     __slots__ = ("position",)
