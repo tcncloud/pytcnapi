@@ -53,6 +53,11 @@ class HuntGroupsServiceStub(object):
                 request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminCopyHuntGroupToOrganizationRequest.SerializeToString,
                 response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminCopyHuntGroupToOrganizationResponse.FromString,
                 )
+        self.AdminListHuntGroups = channel.unary_unary(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/AdminListHuntGroups',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsResponse.FromString,
+                )
 
 
 class HuntGroupsServiceServicer(object):
@@ -126,6 +131,13 @@ class HuntGroupsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def AdminListHuntGroups(self, request, context):
+        """AdminListHuntGroups returns a list of hunt groups for the given organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_HuntGroupsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -163,6 +175,11 @@ def add_HuntGroupsServiceServicer_to_server(servicer, server):
                     servicer.AdminCopyHuntGroupToOrganization,
                     request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminCopyHuntGroupToOrganizationRequest.FromString,
                     response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminCopyHuntGroupToOrganizationResponse.SerializeToString,
+            ),
+            'AdminListHuntGroups': grpc.unary_unary_rpc_method_handler(
+                    servicer.AdminListHuntGroups,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -294,5 +311,22 @@ class HuntGroupsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/AdminCopyHuntGroupToOrganization',
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminCopyHuntGroupToOrganizationRequest.SerializeToString,
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminCopyHuntGroupToOrganizationResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def AdminListHuntGroups(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/AdminListHuntGroups',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

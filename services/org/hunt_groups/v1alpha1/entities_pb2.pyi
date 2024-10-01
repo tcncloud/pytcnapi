@@ -249,3 +249,22 @@ class AdminCopyHuntGroupToOrganizationRequest(_message.Message):
 class AdminCopyHuntGroupToOrganizationResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class AdminListHuntGroupsRequest(_message.Message):
+    __slots__ = ("org_id",)
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    def __init__(self, org_id: _Optional[str] = ...) -> None: ...
+
+class AdminListHuntGroupsResponse(_message.Message):
+    __slots__ = ("hunt_groups",)
+    class HuntGroup(_message.Message):
+        __slots__ = ("hunt_group_sid", "hunt_group_name")
+        HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+        HUNT_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
+        hunt_group_sid: int
+        hunt_group_name: str
+        def __init__(self, hunt_group_sid: _Optional[int] = ..., hunt_group_name: _Optional[str] = ...) -> None: ...
+    HUNT_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    hunt_groups: _containers.RepeatedCompositeFieldContainer[AdminListHuntGroupsResponse.HuntGroup]
+    def __init__(self, hunt_groups: _Optional[_Iterable[_Union[AdminListHuntGroupsResponse.HuntGroup, _Mapping]]] = ...) -> None: ...
