@@ -410,6 +410,7 @@ class Validation(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     VALIDATION_YEAR_4_DIGIT: _ClassVar[Validation]
     VALIDATION_LAST_4_SSN: _ClassVar[Validation]
     VALIDATION_US_ZIP: _ClassVar[Validation]
+    VALIDATION_CC_EXPIRATION_DATE: _ClassVar[Validation]
     VALIDATION_INTEGER: _ClassVar[Validation]
     VALIDATION_FLOAT: _ClassVar[Validation]
     VALIDATION_CURRENCY_USD: _ClassVar[Validation]
@@ -844,6 +845,7 @@ VALIDATION_MONTH_2_DIGIT: Validation
 VALIDATION_YEAR_4_DIGIT: Validation
 VALIDATION_LAST_4_SSN: Validation
 VALIDATION_US_ZIP: Validation
+VALIDATION_CC_EXPIRATION_DATE: Validation
 VALIDATION_INTEGER: Validation
 VALIDATION_FLOAT: Validation
 VALIDATION_CURRENCY_USD: Validation
