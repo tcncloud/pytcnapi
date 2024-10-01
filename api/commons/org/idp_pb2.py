@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x61pi/commons/org/idp.proto\x12\x0f\x61pi.commons.org\"\xa5\x01\n\tIdpClient\x12\"\n\ridp_client_id\x18\x01 \x01(\tR\x0bidpClientId\x12\x16\n\x06secret\x18\x02 \x01(\tR\x06secret\x12#\n\rredirect_uris\x18\x03 \x03(\tR\x0credirectUris\x12#\n\rtrusted_peers\x18\x04 \x03(\tR\x0ctrustedPeers\x12\x12\n\x04name\x18\x05 \x01(\tR\x04nameB}\n\x13\x63om.api.commons.orgB\x08IdpProtoP\x01\xa2\x02\x03\x41\x43O\xaa\x02\x0f\x41pi.Commons.Org\xca\x02\x0f\x41pi\\Commons\\Org\xe2\x02\x1b\x41pi\\Commons\\Org\\GPBMetadata\xea\x02\x11\x41pi::Commons::Orgb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x61pi/commons/org/idp.proto\x12\x0f\x61pi.commons.org\"\xc4\x01\n\tIdpClient\x12\"\n\ridp_client_id\x18\x01 \x01(\tR\x0bidpClientId\x12\x16\n\x06secret\x18\x02 \x01(\tR\x06secret\x12#\n\rredirect_uris\x18\x03 \x03(\tR\x0credirectUris\x12#\n\rtrusted_peers\x18\x04 \x03(\tR\x0ctrustedPeers\x12\x12\n\x04name\x18\x05 \x01(\tR\x04name\x12\x1d\n\nbilling_id\x18\x06 \x01(\tR\tbillingIdB}\n\x13\x63om.api.commons.orgB\x08IdpProtoP\x01\xa2\x02\x03\x41\x43O\xaa\x02\x0f\x41pi.Commons.Org\xca\x02\x0f\x41pi\\Commons\\Org\xe2\x02\x1b\x41pi\\Commons\\Org\\GPBMetadata\xea\x02\x11\x41pi::Commons::Orgb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,5 +33,5 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\023com.api.commons.orgB\010IdpProtoP\001\242\002\003ACO\252\002\017Api.Commons.Org\312\002\017Api\\Commons\\Org\342\002\033Api\\Commons\\Org\\GPBMetadata\352\002\021Api::Commons::Org'
   _globals['_IDPCLIENT']._serialized_start=47
-  _globals['_IDPCLIENT']._serialized_end=212
+  _globals['_IDPCLIENT']._serialized_end=243
 # @@protoc_insertion_point(module_scope)

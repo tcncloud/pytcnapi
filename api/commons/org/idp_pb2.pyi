@@ -6,15 +6,17 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Optional as _Op
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class IdpClient(_message.Message):
-    __slots__ = ("idp_client_id", "secret", "redirect_uris", "trusted_peers", "name")
+    __slots__ = ("idp_client_id", "secret", "redirect_uris", "trusted_peers", "name", "billing_id")
     IDP_CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     SECRET_FIELD_NUMBER: _ClassVar[int]
     REDIRECT_URIS_FIELD_NUMBER: _ClassVar[int]
     TRUSTED_PEERS_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    BILLING_ID_FIELD_NUMBER: _ClassVar[int]
     idp_client_id: str
     secret: str
     redirect_uris: _containers.RepeatedScalarFieldContainer[str]
     trusted_peers: _containers.RepeatedScalarFieldContainer[str]
     name: str
-    def __init__(self, idp_client_id: _Optional[str] = ..., secret: _Optional[str] = ..., redirect_uris: _Optional[_Iterable[str]] = ..., trusted_peers: _Optional[_Iterable[str]] = ..., name: _Optional[str] = ...) -> None: ...
+    billing_id: str
+    def __init__(self, idp_client_id: _Optional[str] = ..., secret: _Optional[str] = ..., redirect_uris: _Optional[_Iterable[str]] = ..., trusted_peers: _Optional[_Iterable[str]] = ..., name: _Optional[str] = ..., billing_id: _Optional[str] = ...) -> None: ...
