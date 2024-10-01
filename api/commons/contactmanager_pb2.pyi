@@ -11,8 +11,26 @@ class DeDuplicationMergeStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapp
     __slots__ = ()
     KEEP_EXISTING_LIST: _ClassVar[DeDuplicationMergeStrategy]
     REPLACE_EXISTING_LIST: _ClassVar[DeDuplicationMergeStrategy]
+
+class ContactListStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    CONTACT_LIST_STATUS_NEW: _ClassVar[ContactListStatus]
+
+class ContactEntryStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    CONTACT_ENTRY_STATUS_NEW: _ClassVar[ContactEntryStatus]
+    CONTACT_ENTRY_STATUS_INUSE: _ClassVar[ContactEntryStatus]
+    CONTACT_ENTRY_STATUS_NOTREF: _ClassVar[ContactEntryStatus]
+    CONTACT_ENTRY_STATUS_DONE: _ClassVar[ContactEntryStatus]
+    CONTACT_ENTRY_STATUS_EXPIRED: _ClassVar[ContactEntryStatus]
 KEEP_EXISTING_LIST: DeDuplicationMergeStrategy
 REPLACE_EXISTING_LIST: DeDuplicationMergeStrategy
+CONTACT_LIST_STATUS_NEW: ContactListStatus
+CONTACT_ENTRY_STATUS_NEW: ContactEntryStatus
+CONTACT_ENTRY_STATUS_INUSE: ContactEntryStatus
+CONTACT_ENTRY_STATUS_NOTREF: ContactEntryStatus
+CONTACT_ENTRY_STATUS_DONE: ContactEntryStatus
+CONTACT_ENTRY_STATUS_EXPIRED: ContactEntryStatus
 
 class ContactManagerEntry(_message.Message):
     __slots__ = ("contact_manager_entry_id", "contact_manager_entry_list_id", "key", "value", "type", "date_created")

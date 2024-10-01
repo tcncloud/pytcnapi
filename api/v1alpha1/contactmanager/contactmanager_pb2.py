@@ -22,12 +22,13 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from api.commons import classifier_pb2 as api_dot_commons_dot_classifier__pb2
 from api.commons import contactmanager_pb2 as api_dot_commons_dot_contactmanager__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0api/v1alpha1/contactmanager/contactmanager.proto\x12\x1b\x61pi.v1alpha1.contactmanager\x1a api/commons/contactmanager.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x90\x01\n\x15GetContactListRequest\x12=\n\x0crequest_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0brequestMask\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12!\n\nproject_id\x18\x03 \x01(\x03\x42\x02\x30\x01R\tprojectId\"\x8f\x01\n\x16GetContactListResponse\x12\x61\n\x14\x63ontact_manager_list\x18\x02 \x03(\x0b\x32/.api.v1alpha1.contactmanager.ContactManagerListR\x12\x63ontactManagerListJ\x04\x08\x01\x10\x02R\x0c\x63ontact_list\"\x8e\x01\n\x1bListContactEntryListRequest\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12\x1d\n\nproject_id\x18\x03 \x01(\tR\tprojectId\"\x99\x01\n\x1cListContactEntryListResponse\x12\x64\n\x15\x63ontact_manager_entry\x18\x02 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x13\x63ontactManagerEntryJ\x04\x08\x01\x10\x02R\rcontact_entry\"X\n\x19GetEncContactEntryRequest\x12;\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x15\x63ontactManagerEntryId\"\x97\x01\n\x1aGetEncContactEntryResponse\x12\x64\n\x15\x63ontact_manager_entry\x18\x02 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x13\x63ontactManagerEntryJ\x04\x08\x01\x10\x02R\rcontact_entry\"\xbf\x01\n\x1cGetKYCEncContactEntryRequest\x12!\n\nproject_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12V\n\x0ckyc_response\x18\x04 \x03(\x0b\x32\x33.api.v1alpha1.contactmanager.ContactManagerEntryValR\x0bkycResponseJ\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04R\tentry_valR\rmin_kyc_limit\"\x92\x01\n\x1dGetKYCEncContactEntryResponse\x12\x1a\n\x08verified\x18\x01 \x01(\x08R\x08verified\x12U\n\rcontact_entry\x18\x02 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x0c\x63ontactEntry\"8\n\x11GetKYCKeysRequest\x12#\n\x0bproject_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\nprojectSid\"D\n\x12GetKYCKeysResponse\x12\x1d\n\nentry_type\x18\x01 \x03(\tR\tentryTypeJ\x04\x08\x02\x10\x03R\tkyc_limit\"\x93\x02\n\x13\x43ontactManagerEntry\x12;\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x15\x63ontactManagerEntryId\x12\x44\n\x1d\x63ontact_manager_entry_list_id\x18\x02 \x01(\x03\x42\x02\x30\x01R\x19\x63ontactManagerEntryListId\x12\x10\n\x03key\x18\x03 \x01(\tR\x03key\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\x12\x12\n\x04type\x18\x05 \x01(\tR\x04type\x12=\n\x0c\x64\x61te_created\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\"\xdf\x02\n\x12\x43ontactManagerList\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12!\n\nproject_id\x18\x03 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12\x1b\n\tfile_name\x18\x04 \x01(\tR\x08\x66ileName\x12 \n\x0b\x64\x65scription\x18\x05 \x01(\tR\x0b\x64\x65scription\x12!\n\x0clist_details\x18\x06 \x03(\tR\x0blistDetails\x12\x14\n\x03ttl\x18\x07 \x01(\x03\x42\x02\x30\x01R\x03ttl\x12=\n\x0c\x64\x61te_created\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\x12\x1d\n\nis_deleted\x18\t \x01(\x08R\tisDeleted\"B\n\x16\x43ontactManagerEntryVal\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\"\x8d\x01\n\x16\x41\x64\x64\x43ontactEntryRequest\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x38\n\x05\x65ntry\x18\x02 \x03(\x0b\x32\".api.v1alpha1.contactmanager.EntryR\x05\x65ntry\"E\n\x05\x45ntry\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\x12\x12\n\x04type\x18\x03 \x01(\tR\x04type\"<\n\x17\x41\x64\x64\x43ontactEntryResponse\x12!\n\ncontact_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\tcontactId\"\xd6\x01\n\x17\x45\x64itContactEntryRequest\x12\x35\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03R\x14\x63ontactManagerListId\x12\x37\n\x18\x63ontact_manager_entry_id\x18\x02 \x01(\x03R\x15\x63ontactManagerEntryId\x12K\n\x0c\x65\x64ited_entry\x18\x03 \x03(\x0b\x32(.api.v1alpha1.contactmanager.EditedEntryR\x0b\x65\x64itedEntry\"\x8d\x01\n\x0b\x45\x64itedEntry\x12@\n\x1d\x63ontact_manager_entry_list_id\x18\x01 \x01(\x03R\x19\x63ontactManagerEntryListId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n\x05value\x18\x03 \x01(\tR\x05value\x12\x12\n\x04type\x18\x04 \x01(\tR\x04type\"\x1a\n\x18\x45\x64itContactEntryResponse\"]\n\x1bListContactsByEntityRequest\x12!\n\nproject_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12\x1b\n\tentity_id\x18\x02 \x01(\tR\x08\x65ntityId\"\x84\x01\n\x1cListContactsByEntityResponse\x12\x64\n\x15\x63ontact_manager_entry\x18\x01 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x13\x63ontactManagerEntryB\xc4\x01\n\x1f\x63om.api.v1alpha1.contactmanagerB\x13\x43ontactmanagerProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x1b\x41pi.V1alpha1.Contactmanager\xca\x02\x1b\x41pi\\V1alpha1\\Contactmanager\xe2\x02\'Api\\V1alpha1\\Contactmanager\\GPBMetadata\xea\x02\x1d\x41pi::V1alpha1::Contactmanagerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0api/v1alpha1/contactmanager/contactmanager.proto\x12\x1b\x61pi.v1alpha1.contactmanager\x1a\x1c\x61pi/commons/classifier.proto\x1a api/commons/contactmanager.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x90\x01\n\x15GetContactListRequest\x12=\n\x0crequest_mask\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0brequestMask\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12!\n\nproject_id\x18\x03 \x01(\x03\x42\x02\x30\x01R\tprojectId\"\x8f\x01\n\x16GetContactListResponse\x12\x61\n\x14\x63ontact_manager_list\x18\x02 \x03(\x0b\x32/.api.v1alpha1.contactmanager.ContactManagerListR\x12\x63ontactManagerListJ\x04\x08\x01\x10\x02R\x0c\x63ontact_list\"\x8e\x01\n\x1bListContactEntryListRequest\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12\x1d\n\nproject_id\x18\x03 \x01(\tR\tprojectId\"\x99\x01\n\x1cListContactEntryListResponse\x12\x64\n\x15\x63ontact_manager_entry\x18\x02 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x13\x63ontactManagerEntryJ\x04\x08\x01\x10\x02R\rcontact_entry\"X\n\x19GetEncContactEntryRequest\x12;\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x15\x63ontactManagerEntryId\"\x97\x01\n\x1aGetEncContactEntryResponse\x12\x64\n\x15\x63ontact_manager_entry\x18\x02 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x13\x63ontactManagerEntryJ\x04\x08\x01\x10\x02R\rcontact_entry\"\xbf\x01\n\x1cGetKYCEncContactEntryRequest\x12!\n\nproject_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12V\n\x0ckyc_response\x18\x04 \x03(\x0b\x32\x33.api.v1alpha1.contactmanager.ContactManagerEntryValR\x0bkycResponseJ\x04\x08\x02\x10\x03J\x04\x08\x03\x10\x04R\tentry_valR\rmin_kyc_limit\"\x92\x01\n\x1dGetKYCEncContactEntryResponse\x12\x1a\n\x08verified\x18\x01 \x01(\x08R\x08verified\x12U\n\rcontact_entry\x18\x02 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x0c\x63ontactEntry\"8\n\x11GetKYCKeysRequest\x12#\n\x0bproject_sid\x18\x01 \x01(\x03\x42\x02\x30\x01R\nprojectSid\"D\n\x12GetKYCKeysResponse\x12\x1d\n\nentry_type\x18\x01 \x03(\tR\tentryTypeJ\x04\x08\x02\x10\x03R\tkyc_limit\"\xcc\x02\n\x13\x43ontactManagerEntry\x12;\n\x18\x63ontact_manager_entry_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x15\x63ontactManagerEntryId\x12\x44\n\x1d\x63ontact_manager_entry_list_id\x18\x02 \x01(\x03\x42\x02\x30\x01R\x19\x63ontactManagerEntryListId\x12\x10\n\x03key\x18\x03 \x01(\tR\x03key\x12\x14\n\x05value\x18\x04 \x01(\tR\x05value\x12\x12\n\x04type\x18\x05 \x01(\tR\x04type\x12=\n\x0c\x64\x61te_created\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\x12\x37\n\x06status\x18\x07 \x01(\x0e\x32\x1f.api.commons.ContactEntryStatusR\x06status\"\x97\x03\n\x12\x43ontactManagerList\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x15\n\x06org_id\x18\x02 \x01(\tR\x05orgId\x12!\n\nproject_id\x18\x03 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12\x1b\n\tfile_name\x18\x04 \x01(\tR\x08\x66ileName\x12 \n\x0b\x64\x65scription\x18\x05 \x01(\tR\x0b\x64\x65scription\x12!\n\x0clist_details\x18\x06 \x03(\tR\x0blistDetails\x12\x14\n\x03ttl\x18\x07 \x01(\x03\x42\x02\x30\x01R\x03ttl\x12=\n\x0c\x64\x61te_created\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x0b\x64\x61teCreated\x12\x1d\n\nis_deleted\x18\t \x01(\x08R\tisDeleted\x12\x36\n\x06status\x18\n \x01(\x0e\x32\x1e.api.commons.ContactListStatusR\x06status\"B\n\x16\x43ontactManagerEntryVal\x12\x12\n\x04type\x18\x01 \x01(\tR\x04type\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\"\x8d\x01\n\x16\x41\x64\x64\x43ontactEntryRequest\x12\x39\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\x14\x63ontactManagerListId\x12\x38\n\x05\x65ntry\x18\x02 \x03(\x0b\x32\".api.v1alpha1.contactmanager.EntryR\x05\x65ntry\"E\n\x05\x45ntry\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\x12\x12\n\x04type\x18\x03 \x01(\tR\x04type\"<\n\x17\x41\x64\x64\x43ontactEntryResponse\x12!\n\ncontact_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\tcontactId\"\xd6\x01\n\x17\x45\x64itContactEntryRequest\x12\x35\n\x17\x63ontact_manager_list_id\x18\x01 \x01(\x03R\x14\x63ontactManagerListId\x12\x37\n\x18\x63ontact_manager_entry_id\x18\x02 \x01(\x03R\x15\x63ontactManagerEntryId\x12K\n\x0c\x65\x64ited_entry\x18\x03 \x03(\x0b\x32(.api.v1alpha1.contactmanager.EditedEntryR\x0b\x65\x64itedEntry\"\x8d\x01\n\x0b\x45\x64itedEntry\x12@\n\x1d\x63ontact_manager_entry_list_id\x18\x01 \x01(\x03R\x19\x63ontactManagerEntryListId\x12\x12\n\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n\x05value\x18\x03 \x01(\tR\x05value\x12\x12\n\x04type\x18\x04 \x01(\tR\x04type\"\x1a\n\x18\x45\x64itContactEntryResponse\"]\n\x1bListContactsByEntityRequest\x12!\n\nproject_id\x18\x01 \x01(\x03\x42\x02\x30\x01R\tprojectId\x12\x1b\n\tentity_id\x18\x02 \x01(\tR\x08\x65ntityId\"\x84\x01\n\x1cListContactsByEntityResponse\x12\x64\n\x15\x63ontact_manager_entry\x18\x01 \x03(\x0b\x32\x30.api.v1alpha1.contactmanager.ContactManagerEntryR\x13\x63ontactManagerEntry\"\xb2\x01\n\x1aGetContactFieldTypeRequest\x12\x1d\n\nfield_name\x18\x01 \x01(\tR\tfieldName\x12\x1f\n\x0b\x66ield_value\x18\x02 \x01(\tR\nfieldValue\x12\x45\n\nfield_type\x18\x03 \x01(\x0e\x32!.api.commons.ClassifierEntityTypeH\x00R\tfieldType\x88\x01\x01\x42\r\n\x0b_field_type\"_\n\x1bGetContactFieldTypeResponse\x12@\n\nfield_type\x18\x01 \x01(\x0e\x32!.api.commons.ClassifierEntityTypeR\tfieldTypeB\xc4\x01\n\x1f\x63om.api.v1alpha1.contactmanagerB\x13\x43ontactmanagerProtoP\x01\xa2\x02\x03\x41VC\xaa\x02\x1b\x41pi.V1alpha1.Contactmanager\xca\x02\x1b\x41pi\\V1alpha1\\Contactmanager\xe2\x02\'Api\\V1alpha1\\Contactmanager\\GPBMetadata\xea\x02\x1d\x41pi::V1alpha1::Contactmanagerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -61,46 +62,50 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_ADDCONTACTENTRYRESPONSE'].fields_by_name['contact_id']._serialized_options = b'0\001'
   _globals['_LISTCONTACTSBYENTITYREQUEST'].fields_by_name['project_id']._loaded_options = None
   _globals['_LISTCONTACTSBYENTITYREQUEST'].fields_by_name['project_id']._serialized_options = b'0\001'
-  _globals['_GETCONTACTLISTREQUEST']._serialized_start=183
-  _globals['_GETCONTACTLISTREQUEST']._serialized_end=327
-  _globals['_GETCONTACTLISTRESPONSE']._serialized_start=330
-  _globals['_GETCONTACTLISTRESPONSE']._serialized_end=473
-  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_start=476
-  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_end=618
-  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_start=621
-  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_end=774
-  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_start=776
-  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_end=864
-  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_start=867
-  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_end=1018
-  _globals['_GETKYCENCCONTACTENTRYREQUEST']._serialized_start=1021
-  _globals['_GETKYCENCCONTACTENTRYREQUEST']._serialized_end=1212
-  _globals['_GETKYCENCCONTACTENTRYRESPONSE']._serialized_start=1215
-  _globals['_GETKYCENCCONTACTENTRYRESPONSE']._serialized_end=1361
-  _globals['_GETKYCKEYSREQUEST']._serialized_start=1363
-  _globals['_GETKYCKEYSREQUEST']._serialized_end=1419
-  _globals['_GETKYCKEYSRESPONSE']._serialized_start=1421
-  _globals['_GETKYCKEYSRESPONSE']._serialized_end=1489
-  _globals['_CONTACTMANAGERENTRY']._serialized_start=1492
-  _globals['_CONTACTMANAGERENTRY']._serialized_end=1767
-  _globals['_CONTACTMANAGERLIST']._serialized_start=1770
-  _globals['_CONTACTMANAGERLIST']._serialized_end=2121
-  _globals['_CONTACTMANAGERENTRYVAL']._serialized_start=2123
-  _globals['_CONTACTMANAGERENTRYVAL']._serialized_end=2189
-  _globals['_ADDCONTACTENTRYREQUEST']._serialized_start=2192
-  _globals['_ADDCONTACTENTRYREQUEST']._serialized_end=2333
-  _globals['_ENTRY']._serialized_start=2335
-  _globals['_ENTRY']._serialized_end=2404
-  _globals['_ADDCONTACTENTRYRESPONSE']._serialized_start=2406
-  _globals['_ADDCONTACTENTRYRESPONSE']._serialized_end=2466
-  _globals['_EDITCONTACTENTRYREQUEST']._serialized_start=2469
-  _globals['_EDITCONTACTENTRYREQUEST']._serialized_end=2683
-  _globals['_EDITEDENTRY']._serialized_start=2686
-  _globals['_EDITEDENTRY']._serialized_end=2827
-  _globals['_EDITCONTACTENTRYRESPONSE']._serialized_start=2829
-  _globals['_EDITCONTACTENTRYRESPONSE']._serialized_end=2855
-  _globals['_LISTCONTACTSBYENTITYREQUEST']._serialized_start=2857
-  _globals['_LISTCONTACTSBYENTITYREQUEST']._serialized_end=2950
-  _globals['_LISTCONTACTSBYENTITYRESPONSE']._serialized_start=2953
-  _globals['_LISTCONTACTSBYENTITYRESPONSE']._serialized_end=3085
+  _globals['_GETCONTACTLISTREQUEST']._serialized_start=213
+  _globals['_GETCONTACTLISTREQUEST']._serialized_end=357
+  _globals['_GETCONTACTLISTRESPONSE']._serialized_start=360
+  _globals['_GETCONTACTLISTRESPONSE']._serialized_end=503
+  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_start=506
+  _globals['_LISTCONTACTENTRYLISTREQUEST']._serialized_end=648
+  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_start=651
+  _globals['_LISTCONTACTENTRYLISTRESPONSE']._serialized_end=804
+  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_start=806
+  _globals['_GETENCCONTACTENTRYREQUEST']._serialized_end=894
+  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_start=897
+  _globals['_GETENCCONTACTENTRYRESPONSE']._serialized_end=1048
+  _globals['_GETKYCENCCONTACTENTRYREQUEST']._serialized_start=1051
+  _globals['_GETKYCENCCONTACTENTRYREQUEST']._serialized_end=1242
+  _globals['_GETKYCENCCONTACTENTRYRESPONSE']._serialized_start=1245
+  _globals['_GETKYCENCCONTACTENTRYRESPONSE']._serialized_end=1391
+  _globals['_GETKYCKEYSREQUEST']._serialized_start=1393
+  _globals['_GETKYCKEYSREQUEST']._serialized_end=1449
+  _globals['_GETKYCKEYSRESPONSE']._serialized_start=1451
+  _globals['_GETKYCKEYSRESPONSE']._serialized_end=1519
+  _globals['_CONTACTMANAGERENTRY']._serialized_start=1522
+  _globals['_CONTACTMANAGERENTRY']._serialized_end=1854
+  _globals['_CONTACTMANAGERLIST']._serialized_start=1857
+  _globals['_CONTACTMANAGERLIST']._serialized_end=2264
+  _globals['_CONTACTMANAGERENTRYVAL']._serialized_start=2266
+  _globals['_CONTACTMANAGERENTRYVAL']._serialized_end=2332
+  _globals['_ADDCONTACTENTRYREQUEST']._serialized_start=2335
+  _globals['_ADDCONTACTENTRYREQUEST']._serialized_end=2476
+  _globals['_ENTRY']._serialized_start=2478
+  _globals['_ENTRY']._serialized_end=2547
+  _globals['_ADDCONTACTENTRYRESPONSE']._serialized_start=2549
+  _globals['_ADDCONTACTENTRYRESPONSE']._serialized_end=2609
+  _globals['_EDITCONTACTENTRYREQUEST']._serialized_start=2612
+  _globals['_EDITCONTACTENTRYREQUEST']._serialized_end=2826
+  _globals['_EDITEDENTRY']._serialized_start=2829
+  _globals['_EDITEDENTRY']._serialized_end=2970
+  _globals['_EDITCONTACTENTRYRESPONSE']._serialized_start=2972
+  _globals['_EDITCONTACTENTRYRESPONSE']._serialized_end=2998
+  _globals['_LISTCONTACTSBYENTITYREQUEST']._serialized_start=3000
+  _globals['_LISTCONTACTSBYENTITYREQUEST']._serialized_end=3093
+  _globals['_LISTCONTACTSBYENTITYRESPONSE']._serialized_start=3096
+  _globals['_LISTCONTACTSBYENTITYRESPONSE']._serialized_end=3228
+  _globals['_GETCONTACTFIELDTYPEREQUEST']._serialized_start=3231
+  _globals['_GETCONTACTFIELDTYPEREQUEST']._serialized_end=3409
+  _globals['_GETCONTACTFIELDTYPERESPONSE']._serialized_start=3411
+  _globals['_GETCONTACTFIELDTYPERESPONSE']._serialized_end=3506
 # @@protoc_insertion_point(module_scope)
