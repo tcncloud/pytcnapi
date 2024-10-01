@@ -169,6 +169,11 @@ class IntegrationsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ProcessWorkflowReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ProcessWorkflowRes.FromString,
                 )
+        self.InsertPrivateField = channel.unary_unary(
+                '/api.v1alpha1.integrations.Integrations/InsertPrivateField',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.InsertPrivateFieldReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.InsertPrivateFieldRes.FromString,
+                )
 
 
 class IntegrationsServicer(object):
@@ -389,6 +394,12 @@ class IntegrationsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def InsertPrivateField(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IntegrationsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -546,6 +557,11 @@ def add_IntegrationsServicer_to_server(servicer, server):
                     servicer.ProcessWorkflow,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ProcessWorkflowReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.ProcessWorkflowRes.SerializeToString,
+            ),
+            'InsertPrivateField': grpc.unary_unary_rpc_method_handler(
+                    servicer.InsertPrivateField,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.InsertPrivateFieldReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.InsertPrivateFieldRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1081,5 +1097,22 @@ class Integrations(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/ProcessWorkflow',
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.ProcessWorkflowReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.ProcessWorkflowRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def InsertPrivateField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/InsertPrivateField',
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.InsertPrivateFieldReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.InsertPrivateFieldRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

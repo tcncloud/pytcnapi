@@ -7,11 +7,19 @@ from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
+from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
+
+class PrivateFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    UNKNOWN: _ClassVar[PrivateFieldType]
+    PRIVATE_KEY: _ClassVar[PrivateFieldType]
+UNKNOWN: PrivateFieldType
+PRIVATE_KEY: PrivateFieldType
 
 class ListJourneyConfigsReq(_message.Message):
     __slots__ = ()
@@ -1460,3 +1468,19 @@ class ProcessWorkflowRes(_message.Message):
     success: bool
     data: _containers.MessageMap[str, Value]
     def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, Value]] = ...) -> None: ...
+
+class InsertPrivateFieldReq(_message.Message):
+    __slots__ = ("name", "value", "private_field_type")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    PRIVATE_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    value: str
+    private_field_type: PrivateFieldType
+    def __init__(self, name: _Optional[str] = ..., value: _Optional[str] = ..., private_field_type: _Optional[_Union[PrivateFieldType, str]] = ...) -> None: ...
+
+class InsertPrivateFieldRes(_message.Message):
+    __slots__ = ("private_field_id",)
+    PRIVATE_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
+    private_field_id: int
+    def __init__(self, private_field_id: _Optional[int] = ...) -> None: ...
