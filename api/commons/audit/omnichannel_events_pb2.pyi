@@ -571,3 +571,45 @@ class OmnichannelManualApproveTaskRequeueEvent(_message.Message):
     user_id: str
     asm_session_sid: int
     def __init__(self, task: _Optional[_Union[_omnichannel_pb2.OmniTask, _Mapping]] = ..., user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
+
+class OmnichannelMessageSentEvent(_message.Message):
+    __slots__ = ("message_sid", "channel_type", "sent_from", "sent_to", "message_size", "attachment_size", "sender_type", "user_id")
+    MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    SENT_FROM_FIELD_NUMBER: _ClassVar[int]
+    SENT_TO_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    ATTACHMENT_SIZE_FIELD_NUMBER: _ClassVar[int]
+    SENDER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    message_sid: int
+    channel_type: _omnichannel_pb2.ChannelType
+    sent_from: str
+    sent_to: str
+    message_size: int
+    attachment_size: int
+    sender_type: _omnichannel_pb2.OmniSenderType
+    user_id: str
+    def __init__(self, message_sid: _Optional[int] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., sent_from: _Optional[str] = ..., sent_to: _Optional[str] = ..., message_size: _Optional[int] = ..., attachment_size: _Optional[int] = ..., sender_type: _Optional[_Union[_omnichannel_pb2.OmniSenderType, str]] = ..., user_id: _Optional[str] = ...) -> None: ...
+
+class OmnichannelProviderResponseEvent(_message.Message):
+    __slots__ = ("omni_message_sid", "channel_type", "sent_from", "sent_to", "message_size", "attachment_size", "sender_type", "user_id", "provider_message_count")
+    OMNI_MESSAGE_SID_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    SENT_FROM_FIELD_NUMBER: _ClassVar[int]
+    SENT_TO_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+    ATTACHMENT_SIZE_FIELD_NUMBER: _ClassVar[int]
+    SENDER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    PROVIDER_MESSAGE_COUNT_FIELD_NUMBER: _ClassVar[int]
+    omni_message_sid: int
+    channel_type: _omnichannel_pb2.ChannelType
+    sent_from: str
+    sent_to: str
+    message_size: int
+    attachment_size: int
+    sender_type: _omnichannel_pb2.OmniSenderType
+    user_id: str
+    provider_message_count: int
+    def __init__(self, omni_message_sid: _Optional[int] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., sent_from: _Optional[str] = ..., sent_to: _Optional[str] = ..., message_size: _Optional[int] = ..., attachment_size: _Optional[int] = ..., sender_type: _Optional[_Union[_omnichannel_pb2.OmniSenderType, str]] = ..., user_id: _Optional[str] = ..., provider_message_count: _Optional[int] = ...) -> None: ...
