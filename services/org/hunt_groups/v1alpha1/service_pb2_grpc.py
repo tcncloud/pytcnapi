@@ -48,6 +48,11 @@ class HuntGroupsServiceStub(object):
                 request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersRequest.SerializeToString,
                 response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersResponse.FromString,
                 )
+        self.CopyHuntGroupToOrganization = channel.unary_unary(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CopyHuntGroupToOrganization',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupToOrganizationRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupToOrganizationResponse.FromString,
+                )
         self.AdminCopyHuntGroupToOrganization = channel.unary_unary(
                 '/services.org.hunt_groups.v1alpha1.HuntGroupsService/AdminCopyHuntGroupToOrganization',
                 request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminCopyHuntGroupToOrganizationRequest.SerializeToString,
@@ -118,12 +123,22 @@ class HuntGroupsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AdminCopyHuntGroupToOrganization(self, request, context):
+    def CopyHuntGroupToOrganization(self, request, context):
         """
         Hunt Group
 
 
-        AdminCopyHuntGroupToOrganization copies a hunt group to a different organization.
+        CopyHuntGroupToOrganization copies a hunt group to a different organization.
+        The destination organization must be a child of the source organization.
+        This would create a new hunt group in the destination organization with the same
+        settings/parameters and all associated data (skill, call-queue config) as the source hunt group.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def AdminCopyHuntGroupToOrganization(self, request, context):
+        """AdminCopyHuntGroupToOrganization copies a hunt group to a different organization.
         This will create a new hunt group in the destination organization with the same
         settings/parameters and all associated data (skill, call-queue config) as the source hunt group.
         """
@@ -170,6 +185,11 @@ def add_HuntGroupsServiceServicer_to_server(servicer, server):
                     servicer.UpdateHuntGroupAgentTriggers,
                     request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersRequest.FromString,
                     response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersResponse.SerializeToString,
+            ),
+            'CopyHuntGroupToOrganization': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyHuntGroupToOrganization,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupToOrganizationRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupToOrganizationResponse.SerializeToString,
             ),
             'AdminCopyHuntGroupToOrganization': grpc.unary_unary_rpc_method_handler(
                     servicer.AdminCopyHuntGroupToOrganization,
@@ -294,6 +314,23 @@ class HuntGroupsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateHuntGroupAgentTriggers',
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersRequest.SerializeToString,
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateHuntGroupAgentTriggersResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyHuntGroupToOrganization(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CopyHuntGroupToOrganization',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupToOrganizationRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CopyHuntGroupToOrganizationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
