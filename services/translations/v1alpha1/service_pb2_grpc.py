@@ -34,6 +34,11 @@ class TranslationsServiceStub(object):
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsRequest.SerializeToString,
                 response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsResponse.FromString,
                 )
+        self.CreateTranslation = channel.unary_unary(
+                '/services.translations.v1alpha1.TranslationsService/CreateTranslation',
+                request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.CreateTranslationRequest.SerializeToString,
+                response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.CreateTranslationResponse.FromString,
+                )
         self.UpdateTranslation = channel.unary_unary(
                 '/services.translations.v1alpha1.TranslationsService/UpdateTranslation',
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.UpdateTranslationRequest.SerializeToString,
@@ -123,6 +128,18 @@ class TranslationsServiceServicer(object):
         """Lists localization contexts
         Required permissions:
         - PERMISSION_CUSTOMER_SUPPORT
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateTranslation(self, request, context):
+        """Creates a new Translation
+        Required permissions:
+        - PERMISSION_CUSTOMER_SUPPORT
+        Errors:
+        - grpc.InvalidArgument: The request is not valid.
+        - grpc.AlreadyExists: The template already exists for the given context and language (use override method).
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -246,6 +263,11 @@ def add_TranslationsServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsRequest.FromString,
                     response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsResponse.SerializeToString,
             ),
+            'CreateTranslation': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateTranslation,
+                    request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.CreateTranslationRequest.FromString,
+                    response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.CreateTranslationResponse.SerializeToString,
+            ),
             'UpdateTranslation': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateTranslation,
                     request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.UpdateTranslationRequest.FromString,
@@ -366,6 +388,23 @@ class TranslationsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/ListContexts',
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsRequest.SerializeToString,
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.ListContextsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateTranslation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/CreateTranslation',
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.CreateTranslationRequest.SerializeToString,
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.CreateTranslationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

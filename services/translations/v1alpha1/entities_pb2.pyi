@@ -70,6 +70,24 @@ class ListTranslationsResponse(_message.Message):
     translations: _containers.RepeatedCompositeFieldContainer[Translation]
     def __init__(self, translations: _Optional[_Iterable[_Union[Translation, _Mapping]]] = ...) -> None: ...
 
+class CreateTranslationRequest(_message.Message):
+    __slots__ = ("context", "template", "language_tag", "translation")
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    LANGUAGE_TAG_FIELD_NUMBER: _ClassVar[int]
+    TRANSLATION_FIELD_NUMBER: _ClassVar[int]
+    context: str
+    template: str
+    language_tag: str
+    translation: str
+    def __init__(self, context: _Optional[str] = ..., template: _Optional[str] = ..., language_tag: _Optional[str] = ..., translation: _Optional[str] = ...) -> None: ...
+
+class CreateTranslationResponse(_message.Message):
+    __slots__ = ("translation",)
+    TRANSLATION_FIELD_NUMBER: _ClassVar[int]
+    translation: Translation
+    def __init__(self, translation: _Optional[_Union[Translation, _Mapping]] = ...) -> None: ...
+
 class UpdateTranslationRequest(_message.Message):
     __slots__ = ("translation_id", "translation")
     TRANSLATION_ID_FIELD_NUMBER: _ClassVar[int]
