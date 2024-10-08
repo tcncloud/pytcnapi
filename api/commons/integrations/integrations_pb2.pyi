@@ -904,18 +904,20 @@ class Receipt(_message.Message):
     def __init__(self, fields: _Optional[_Iterable[_Union[ReceiptField, _Mapping]]] = ...) -> None: ...
 
 class ReceiptField(_message.Message):
-    __slots__ = ("name", "display_name", "value", "validation_type", "format")
+    __slots__ = ("name", "display_name", "value", "validation_type", "format", "copiable")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     VALIDATION_TYPE_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
+    COPIABLE_FIELD_NUMBER: _ClassVar[int]
     name: str
     display_name: str
     value: str
     validation_type: Validation
     format: str
-    def __init__(self, name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ..., validation_type: _Optional[_Union[Validation, str]] = ..., format: _Optional[str] = ...) -> None: ...
+    copiable: bool
+    def __init__(self, name: _Optional[str] = ..., display_name: _Optional[str] = ..., value: _Optional[str] = ..., validation_type: _Optional[_Union[Validation, str]] = ..., format: _Optional[str] = ..., copiable: bool = ...) -> None: ...
 
 class Invoices(_message.Message):
     __slots__ = ("top_level_fields", "invoices")
