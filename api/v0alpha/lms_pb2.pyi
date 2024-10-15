@@ -2091,6 +2091,41 @@ class ViewQueueReq(_message.Message):
     number_of_records: int
     def __init__(self, newer_than: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., no_newer_than: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., after_event_id: _Optional[int] = ..., number_of_records: _Optional[int] = ...) -> None: ...
 
+class RetypeCollectionReq(_message.Message):
+    __slots__ = ("collection_id", "primary_key", "field_types", "as_copy")
+    class FieldTypesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: _lms_pb2.FieldType
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_lms_pb2.FieldType, str]] = ...) -> None: ...
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    PRIMARY_KEY_FIELD_NUMBER: _ClassVar[int]
+    FIELD_TYPES_FIELD_NUMBER: _ClassVar[int]
+    AS_COPY_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    primary_key: _containers.RepeatedScalarFieldContainer[str]
+    field_types: _containers.ScalarMap[str, _lms_pb2.FieldType]
+    as_copy: bool
+    def __init__(self, collection_id: _Optional[str] = ..., primary_key: _Optional[_Iterable[str]] = ..., field_types: _Optional[_Mapping[str, _lms_pb2.FieldType]] = ..., as_copy: bool = ...) -> None: ...
+
+class RetypeCollectionRes(_message.Message):
+    __slots__ = ("collection_id", "inserted_count", "updated_count", "rejected_count", "ignored_count", "rejected_entry_ids")
+    COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
+    INSERTED_COUNT_FIELD_NUMBER: _ClassVar[int]
+    UPDATED_COUNT_FIELD_NUMBER: _ClassVar[int]
+    REJECTED_COUNT_FIELD_NUMBER: _ClassVar[int]
+    IGNORED_COUNT_FIELD_NUMBER: _ClassVar[int]
+    REJECTED_ENTRY_IDS_FIELD_NUMBER: _ClassVar[int]
+    collection_id: str
+    inserted_count: int
+    updated_count: int
+    rejected_count: int
+    ignored_count: int
+    rejected_entry_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, collection_id: _Optional[str] = ..., inserted_count: _Optional[int] = ..., updated_count: _Optional[int] = ..., rejected_count: _Optional[int] = ..., ignored_count: _Optional[int] = ..., rejected_entry_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
 class CollectionMetadata(_message.Message):
     __slots__ = ("collection_id", "collection_name", "fields", "deleted", "created_by", "created_on", "last_queried", "query_count", "entry_count", "last_updated", "search_count", "last_searched", "primary_key")
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]

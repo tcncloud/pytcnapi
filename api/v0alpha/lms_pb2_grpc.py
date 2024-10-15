@@ -200,6 +200,11 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.CollectionMetadata.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.RetypeCollection = channel.unary_unary(
+                '/api.v0alpha.LMS/RetypeCollection',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.RetypeCollectionReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.RetypeCollectionRes.FromString,
+                )
         self.DeleteCollection = channel.unary_unary(
                 '/api.v0alpha.LMS/DeleteCollection',
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.DeleteCollectionReq.SerializeToString,
@@ -542,6 +547,12 @@ class LMSServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def RetypeCollection(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteCollection(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -879,6 +890,11 @@ def add_LMSServicer_to_server(servicer, server):
                     servicer.UpdateCollection,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.CollectionMetadata.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'RetypeCollection': grpc.unary_unary_rpc_method_handler(
+                    servicer.RetypeCollection,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.RetypeCollectionReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.RetypeCollectionRes.SerializeToString,
             ),
             'DeleteCollection': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteCollection,
@@ -1626,6 +1642,23 @@ class LMS(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/UpdateCollection',
             api_dot_v0alpha_dot_lms__pb2.CollectionMetadata.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RetypeCollection(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/RetypeCollection',
+            api_dot_v0alpha_dot_lms__pb2.RetypeCollectionReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.RetypeCollectionRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
