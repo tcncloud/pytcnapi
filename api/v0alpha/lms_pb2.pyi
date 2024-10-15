@@ -2092,7 +2092,7 @@ class ViewQueueReq(_message.Message):
     def __init__(self, newer_than: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., no_newer_than: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., after_event_id: _Optional[int] = ..., number_of_records: _Optional[int] = ...) -> None: ...
 
 class CollectionMetadata(_message.Message):
-    __slots__ = ("collection_id", "collection_name", "fields", "deleted", "created_by", "created_on", "last_queried", "query_count", "entry_count", "last_updated", "search_count", "last_searched")
+    __slots__ = ("collection_id", "collection_name", "fields", "deleted", "created_by", "created_on", "last_queried", "query_count", "entry_count", "last_updated", "search_count", "last_searched", "primary_key")
     COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     COLLECTION_NAME_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
@@ -2105,6 +2105,7 @@ class CollectionMetadata(_message.Message):
     LAST_UPDATED_FIELD_NUMBER: _ClassVar[int]
     SEARCH_COUNT_FIELD_NUMBER: _ClassVar[int]
     LAST_SEARCHED_FIELD_NUMBER: _ClassVar[int]
+    PRIMARY_KEY_FIELD_NUMBER: _ClassVar[int]
     collection_id: str
     collection_name: str
     fields: _containers.RepeatedCompositeFieldContainer[CollectionFieldMetadata]
@@ -2117,7 +2118,8 @@ class CollectionMetadata(_message.Message):
     last_updated: _timestamp_pb2.Timestamp
     search_count: int
     last_searched: _timestamp_pb2.Timestamp
-    def __init__(self, collection_id: _Optional[str] = ..., collection_name: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[CollectionFieldMetadata, _Mapping]]] = ..., deleted: bool = ..., created_by: _Optional[str] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_queried: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., query_count: _Optional[int] = ..., entry_count: _Optional[int] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., search_count: _Optional[int] = ..., last_searched: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    primary_key: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, collection_id: _Optional[str] = ..., collection_name: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[CollectionFieldMetadata, _Mapping]]] = ..., deleted: bool = ..., created_by: _Optional[str] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_queried: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., query_count: _Optional[int] = ..., entry_count: _Optional[int] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., search_count: _Optional[int] = ..., last_searched: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., primary_key: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CollectionEntry(_message.Message):
     __slots__ = ("collection_id", "entry_id", "fields", "last_updated")
