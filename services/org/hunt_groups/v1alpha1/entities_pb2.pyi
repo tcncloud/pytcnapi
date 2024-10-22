@@ -181,20 +181,22 @@ class TriggerCallTypes(_message.Message):
     def __init__(self, outbound: bool = ..., inbound: bool = ..., manual: bool = ..., preview: bool = ...) -> None: ...
 
 class TriggerActionOption(_message.Message):
-    __slots__ = ("action", "display_message", "advance_to_status", "web_link_sid", "integration_link_sid", "exile_link_sid")
+    __slots__ = ("action", "display_message", "advance_to_status", "web_link_sid", "integration_link_sid", "exile_link_sid", "pause_code")
     ACTION_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     ADVANCE_TO_STATUS_FIELD_NUMBER: _ClassVar[int]
     WEB_LINK_SID_FIELD_NUMBER: _ClassVar[int]
     INTEGRATION_LINK_SID_FIELD_NUMBER: _ClassVar[int]
     EXILE_LINK_SID_FIELD_NUMBER: _ClassVar[int]
+    PAUSE_CODE_FIELD_NUMBER: _ClassVar[int]
     action: TriggerAction
     display_message: str
     advance_to_status: AgentStatus
     web_link_sid: int
     integration_link_sid: int
     exile_link_sid: int
-    def __init__(self, action: _Optional[_Union[TriggerAction, str]] = ..., display_message: _Optional[str] = ..., advance_to_status: _Optional[_Union[AgentStatus, str]] = ..., web_link_sid: _Optional[int] = ..., integration_link_sid: _Optional[int] = ..., exile_link_sid: _Optional[int] = ...) -> None: ...
+    pause_code: TriggerPauseCode
+    def __init__(self, action: _Optional[_Union[TriggerAction, str]] = ..., display_message: _Optional[str] = ..., advance_to_status: _Optional[_Union[AgentStatus, str]] = ..., web_link_sid: _Optional[int] = ..., integration_link_sid: _Optional[int] = ..., exile_link_sid: _Optional[int] = ..., pause_code: _Optional[_Union[TriggerPauseCode, _Mapping]] = ...) -> None: ...
 
 class ListHuntGroupAgentTriggersRequest(_message.Message):
     __slots__ = ("hunt_group_sid",)
