@@ -2716,6 +2716,30 @@ class BuildDraftScheduleRes(_message.Message):
     scheduling_result_metric: _wfm_pb2.SchedulingResultMetric
     def __init__(self, draft_schedule: _Optional[_Union[DraftSchedule, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ..., scheduling_result_metric: _Optional[_Union[_wfm_pb2.SchedulingResultMetric, _Mapping]] = ...) -> None: ...
 
+class PollBuildInProgressRequest(_message.Message):
+    __slots__ = ("draft_schedule_sid",)
+    DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
+    draft_schedule_sid: int
+    def __init__(self, draft_schedule_sid: _Optional[int] = ...) -> None: ...
+
+class PollBuildInProgressResponse(_message.Message):
+    __slots__ = ("build_start_datetime", "build_in_progress")
+    BUILD_START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    BUILD_IN_PROGRESS_FIELD_NUMBER: _ClassVar[int]
+    build_start_datetime: _timestamp_pb2.Timestamp
+    build_in_progress: bool
+    def __init__(self, build_start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., build_in_progress: bool = ...) -> None: ...
+
+class CancelBuildInProgressRequest(_message.Message):
+    __slots__ = ("draft_schedule_sid",)
+    DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
+    draft_schedule_sid: int
+    def __init__(self, draft_schedule_sid: _Optional[int] = ...) -> None: ...
+
+class CancelBuildInProgressResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class PublishDraftScheduleReq(_message.Message):
     __slots__ = ("draft_schedule_sid", "node_selector", "datetime_range", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "ignore_diagnostics_errors")
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]

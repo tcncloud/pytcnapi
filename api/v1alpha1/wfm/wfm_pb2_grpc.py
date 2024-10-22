@@ -600,6 +600,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildDraftScheduleReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildDraftScheduleRes.FromString,
                 )
+        self.PollBuildInProgress = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/PollBuildInProgress',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PollBuildInProgressRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PollBuildInProgressResponse.FromString,
+                )
+        self.CancelBuildInProgress = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CancelBuildInProgress',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CancelBuildInProgressRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CancelBuildInProgressResponse.FromString,
+                )
         self.PublishDraftSchedule = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/PublishDraftSchedule',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PublishDraftScheduleReq.SerializeToString,
@@ -2570,6 +2580,29 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def PollBuildInProgress(self, request, context):
+        """Polls the scheduler to check if there is currently a build in progress for the given @draft_schedule_sid.
+        If there is a build in progress @build_in_progress will be true and the @build_start_datetime will be set with the time that the build process started.
+        Errors:
+        - grpc.Invalid: the @draft_schedule_sid is invalid.
+        - grpc.NotFound: the @draft_schedule_sid does not exist for the org sending the request.
+        - grpc.Internal: error chceking for the build in progress.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CancelBuildInProgress(self, request, context):
+        """Cancels the build in progress for the given @draft_schedule_sid.
+        Errors:
+        - grpc.Invalid: the @draft_schedule_sid is invalid.
+        - grpc.NotFound: there is no build in progress to be cancelled for the org sending the request.
+        - grpc.Internal: error when cancelling the build or updating the build in progress table.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def PublishDraftSchedule(self, request, context):
         """Publishes the shift instances of the given @draft_schedule_sid to the published schedule of the org sending the request.
         Overlapping shift instances that aren't locked will be replaced with the instances from the draft schedule.
@@ -4315,6 +4348,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.BuildDraftSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildDraftScheduleReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildDraftScheduleRes.SerializeToString,
+            ),
+            'PollBuildInProgress': grpc.unary_unary_rpc_method_handler(
+                    servicer.PollBuildInProgress,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PollBuildInProgressRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PollBuildInProgressResponse.SerializeToString,
+            ),
+            'CancelBuildInProgress': grpc.unary_unary_rpc_method_handler(
+                    servicer.CancelBuildInProgress,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CancelBuildInProgressRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CancelBuildInProgressResponse.SerializeToString,
             ),
             'PublishDraftSchedule': grpc.unary_unary_rpc_method_handler(
                     servicer.PublishDraftSchedule,
@@ -6778,6 +6821,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/BuildDraftSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildDraftScheduleReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildDraftScheduleRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PollBuildInProgress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/PollBuildInProgress',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PollBuildInProgressRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.PollBuildInProgressResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CancelBuildInProgress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CancelBuildInProgress',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CancelBuildInProgressRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CancelBuildInProgressResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
