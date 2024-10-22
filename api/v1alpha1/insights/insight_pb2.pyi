@@ -52,6 +52,12 @@ class InsightContextualActionType(int, metaclass=_enum_type_wrapper.EnumTypeWrap
     INSIGHT_CONTEXTUAL_ACTION_TYPE_LINK: _ClassVar[InsightContextualActionType]
     INSIGHT_CONTEXTUAL_ACTION_TYPE_COMPONENT: _ClassVar[InsightContextualActionType]
     INSIGHT_CONTEXTUAL_ACTION_TYPE_DRILL_THROUGH: _ClassVar[InsightContextualActionType]
+
+class QuoteCharacter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    QUOTE_CHARACTER_UNSPECIFIED: _ClassVar[QuoteCharacter]
+    QUOTE_CHARACTER_DOUBLE_QUOTE: _ClassVar[QuoteCharacter]
+    QUOTE_CHARACTER_SINGLE_QUOTE: _ClassVar[QuoteCharacter]
 OUTPUT_CONFIGURATION_TYPE_UNSPECIFIED: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_TABLE: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: OutputConfigurationType
@@ -81,6 +87,9 @@ INSIGHT_CONTEXTUAL_ACTION_TYPE_UNSPECIFIED: InsightContextualActionType
 INSIGHT_CONTEXTUAL_ACTION_TYPE_LINK: InsightContextualActionType
 INSIGHT_CONTEXTUAL_ACTION_TYPE_COMPONENT: InsightContextualActionType
 INSIGHT_CONTEXTUAL_ACTION_TYPE_DRILL_THROUGH: InsightContextualActionType
+QUOTE_CHARACTER_UNSPECIFIED: QuoteCharacter
+QUOTE_CHARACTER_DOUBLE_QUOTE: QuoteCharacter
+QUOTE_CHARACTER_SINGLE_QUOTE: QuoteCharacter
 
 class Insight(_message.Message):
     __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type")
@@ -244,10 +253,16 @@ class ListVfsSchemasResponse(_message.Message):
     def __init__(self, vfs_schemas: _Optional[_Iterable[_Union[GetVfsSchemaResponse, _Mapping]]] = ...) -> None: ...
 
 class TableVisualization(_message.Message):
-    __slots__ = ("table_column_details",)
+    __slots__ = ("table_column_details", "delimiter", "quote_character", "no_header")
     TABLE_COLUMN_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    DELIMITER_FIELD_NUMBER: _ClassVar[int]
+    QUOTE_CHARACTER_FIELD_NUMBER: _ClassVar[int]
+    NO_HEADER_FIELD_NUMBER: _ClassVar[int]
     table_column_details: _containers.RepeatedCompositeFieldContainer[TableColumnConfig]
-    def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ...) -> None: ...
+    delimiter: str
+    quote_character: QuoteCharacter
+    no_header: bool
+    def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ..., delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ...) -> None: ...
 
 class TableColumnConfig(_message.Message):
     __slots__ = ("column_name", "column_width", "hide_column", "renamed_as", "operations", "column_summary", "description", "sort_direction", "insight_contextual_action")
