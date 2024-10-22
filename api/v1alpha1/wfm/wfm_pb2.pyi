@@ -4078,3 +4078,57 @@ class ListAdherenceAgentRulesResponse(_message.Message):
     RULES_FIELD_NUMBER: _ClassVar[int]
     rules: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AdherenceAgentRule]
     def __init__(self, rules: _Optional[_Iterable[_Union[_wfm_pb2.AdherenceAgentRule, _Mapping]]] = ...) -> None: ...
+
+class AgentGetScheduleRequest(_message.Message):
+    __slots__ = ("datetime_range",)
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ...) -> None: ...
+
+class AgentGetScheduleResponse(_message.Message):
+    __slots__ = ("shift_instances",)
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
+
+class AgentListLeavePetitionsRequest(_message.Message):
+    __slots__ = ("datetime_range", "include_archived")
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_ARCHIVED_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    include_archived: bool
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., include_archived: bool = ...) -> None: ...
+
+class AgentListLeavePetitionsResponse(_message.Message):
+    __slots__ = ("agent_leave_petitions",)
+    AGENT_LEAVE_PETITIONS_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petitions: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.AgentLeavePetition]
+    def __init__(self, agent_leave_petitions: _Optional[_Iterable[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]]] = ...) -> None: ...
+
+class AgentCreateLeavePetitionRequest(_message.Message):
+    __slots__ = ("requested_datetime_ranges", "petition_comment", "requested_hours_off")
+    REQUESTED_DATETIME_RANGES_FIELD_NUMBER: _ClassVar[int]
+    PETITION_COMMENT_FIELD_NUMBER: _ClassVar[int]
+    REQUESTED_HOURS_OFF_FIELD_NUMBER: _ClassVar[int]
+    requested_datetime_ranges: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.DatetimeRange]
+    petition_comment: str
+    requested_hours_off: float
+    def __init__(self, requested_datetime_ranges: _Optional[_Iterable[_Union[_wfm_pb2.DatetimeRange, _Mapping]]] = ..., petition_comment: _Optional[str] = ..., requested_hours_off: _Optional[float] = ...) -> None: ...
+
+class AgentCreateLeavePetitionResponse(_message.Message):
+    __slots__ = ("agent_leave_petition",)
+    AGENT_LEAVE_PETITION_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition: _wfm_pb2.AgentLeavePetition
+    def __init__(self, agent_leave_petition: _Optional[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]] = ...) -> None: ...
+
+class AgentCancelLeavePetitionRequest(_message.Message):
+    __slots__ = ("agent_leave_petition_id",)
+    AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition_id: int
+    def __init__(self, agent_leave_petition_id: _Optional[int] = ...) -> None: ...
+
+class AgentCancelLeavePetitionResponse(_message.Message):
+    __slots__ = ("agent_leave_petition",)
+    AGENT_LEAVE_PETITION_FIELD_NUMBER: _ClassVar[int]
+    agent_leave_petition: _wfm_pb2.AgentLeavePetition
+    def __init__(self, agent_leave_petition: _Optional[_Union[_wfm_pb2.AgentLeavePetition, _Mapping]] = ...) -> None: ...

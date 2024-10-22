@@ -79,6 +79,11 @@ class TranslationsServiceStub(object):
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextRequest.SerializeToString,
                 response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextResponse.FromString,
                 )
+        self.DeleteTranslationsByTemplate = channel.unary_unary(
+                '/services.translations.v1alpha1.TranslationsService/DeleteTranslationsByTemplate',
+                request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DeleteTranslationsByTemplateRequest.SerializeToString,
+                response_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DeleteTranslationsByTemplateResponse.FromString,
+                )
         self.BulkDeleteTranslations = channel.unary_unary(
                 '/services.translations.v1alpha1.TranslationsService/BulkDeleteTranslations',
                 request_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.BulkDeleteTranslationsRequest.SerializeToString,
@@ -229,6 +234,18 @@ class TranslationsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteTranslationsByTemplate(self, request, context):
+        """Delete translations by template and context
+        Required permissions:
+        - PERMISSION_CUSTOMER_SUPPORT
+        Errors:
+        - grpc.InvalidArgument: The request is not valid.
+        - grpc.NotFound: No translations found for the given template and context.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def BulkDeleteTranslations(self, request, context):
         """Bulk delete translations
         Required permissions:
@@ -307,6 +324,11 @@ def add_TranslationsServiceServicer_to_server(servicer, server):
                     servicer.DisableContext,
                     request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextRequest.FromString,
                     response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextResponse.SerializeToString,
+            ),
+            'DeleteTranslationsByTemplate': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteTranslationsByTemplate,
+                    request_deserializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DeleteTranslationsByTemplateRequest.FromString,
+                    response_serializer=services_dot_translations_dot_v1alpha1_dot_entities__pb2.DeleteTranslationsByTemplateResponse.SerializeToString,
             ),
             'BulkDeleteTranslations': grpc.unary_unary_rpc_method_handler(
                     servicer.BulkDeleteTranslations,
@@ -541,6 +563,23 @@ class TranslationsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/DisableContext',
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextRequest.SerializeToString,
             services_dot_translations_dot_v1alpha1_dot_entities__pb2.DisableContextResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteTranslationsByTemplate(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.translations.v1alpha1.TranslationsService/DeleteTranslationsByTemplate',
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.DeleteTranslationsByTemplateRequest.SerializeToString,
+            services_dot_translations_dot_v1alpha1_dot_entities__pb2.DeleteTranslationsByTemplateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

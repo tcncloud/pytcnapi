@@ -206,6 +206,18 @@ class DisableContextResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class DeleteTranslationsByTemplateRequest(_message.Message):
+    __slots__ = ("template", "context")
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    CONTEXT_FIELD_NUMBER: _ClassVar[int]
+    template: str
+    context: str
+    def __init__(self, template: _Optional[str] = ..., context: _Optional[str] = ...) -> None: ...
+
+class DeleteTranslationsByTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class BulkDeleteTranslationsRequest(_message.Message):
     __slots__ = ("translation_ids",)
     TRANSLATION_IDS_FIELD_NUMBER: _ClassVar[int]
