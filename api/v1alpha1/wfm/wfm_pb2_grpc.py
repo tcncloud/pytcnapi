@@ -1045,26 +1045,6 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteAdherenceAgentRuleClauseRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteAdherenceAgentRuleClauseResponse.FromString,
                 )
-        self.AgentGetSchedule = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/AgentGetSchedule',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentGetScheduleRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentGetScheduleResponse.FromString,
-                )
-        self.AgentListLeavePetitions = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/AgentListLeavePetitions',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentListLeavePetitionsRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentListLeavePetitionsResponse.FromString,
-                )
-        self.AgentCreateLeavePetition = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/AgentCreateLeavePetition',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCreateLeavePetitionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCreateLeavePetitionResponse.FromString,
-                )
-        self.AgentCancelLeavePetition = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/AgentCancelLeavePetition',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionResponse.FromString,
-                )
 
 
 class WFMServicer(object):
@@ -3666,68 +3646,6 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def AgentGetSchedule(self, request, context):
-        """**************************************************************************************************************************************************
-
-        **************************************************************************************************************************************************
-
-        ***************************************************************AGENT PORTAL RPCS*********************************************************************
-
-        **************************************************************************************************************************************************
-
-        **************************************************************************************************************************************************
-
-        Gets the published schedule for the corresponding @datetime_range for the agent and org sending the request.
-        Errors:
-        - grpc.Invalid: the @datetime_range, @metric_types are invalid.
-        - grpc.Internal: error occurs when getting the published schedule.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AgentListLeavePetitions(self, request, context):
-        """Lists agent leave petitions over the @datetime_range for the agent and org sending the request.
-        If no @datetime_range is provided, petitions will be returned across all datetimes.
-        If @include_archived is true, archived agent leave petitions will be returned as well, otherwise archived requests will not be included.
-        If no agent leave petitions are found for the given parameters, an empty list will be returned.
-        Errors:
-        - grpc.Invalid: the request data is invalid.
-        - grpc.Internal: error occurs when listing the agent leave petitions.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AgentCreateLeavePetition(self, request, context):
-        """Creates an agent leave petition to request time off over the @requested_datetime_ranges for the agent and org sending the request.
-        The @petition_comment must be set with a value.
-        The @requested_datetime_ranges may not overlap each other.
-        The number of working hours requested off should be set in @requested_hours_off.
-        The @requested_hours_off does not need to relate directly to the datetime range being requested off,
-        for example in the case where a 14 hour schedulable range is being taken off but 8 hours of work will be paid out with PTO.
-        The usage of @requested_hours_off hours will depend on org policy, but is not yet implemented.
-        Errors:
-        - grpc.Invalid: the request data is invalid.
-        - grpc.Internal: error occurs when creating the time off request.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def AgentCancelLeavePetition(self, request, context):
-        """Cancels the given @agent_leave_petition_id for the agent and organization sending the request.
-        If @agent_leave_petition_id has a status of APPROVED_PETITION, the agent's schedule will have time off blocks removed,
-        but any desired shifts must be added by the user after that leave is canceled.
-        Errors:
-        - grpc.Invalid: the request data is invalid, the @agent_leave_petition_id is already canceled.
-        - grpc.Internal: error occurs when canceling the agent leave petition, or removing time off shifts from the agent's schedule.
-        - grpc.NotFound: the @agent_leave_petition_id does not exist for the org sending the request.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_WFMServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -4760,26 +4678,6 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.DeleteAdherenceAgentRuleClause,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteAdherenceAgentRuleClauseRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteAdherenceAgentRuleClauseResponse.SerializeToString,
-            ),
-            'AgentGetSchedule': grpc.unary_unary_rpc_method_handler(
-                    servicer.AgentGetSchedule,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentGetScheduleRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentGetScheduleResponse.SerializeToString,
-            ),
-            'AgentListLeavePetitions': grpc.unary_unary_rpc_method_handler(
-                    servicer.AgentListLeavePetitions,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentListLeavePetitionsRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentListLeavePetitionsResponse.SerializeToString,
-            ),
-            'AgentCreateLeavePetition': grpc.unary_unary_rpc_method_handler(
-                    servicer.AgentCreateLeavePetition,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCreateLeavePetitionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCreateLeavePetitionResponse.SerializeToString,
-            ),
-            'AgentCancelLeavePetition': grpc.unary_unary_rpc_method_handler(
-                    servicer.AgentCancelLeavePetition,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -8291,73 +8189,5 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteAdherenceAgentRuleClause',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteAdherenceAgentRuleClauseRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteAdherenceAgentRuleClauseResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AgentGetSchedule(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/AgentGetSchedule',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentGetScheduleRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentGetScheduleResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AgentListLeavePetitions(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/AgentListLeavePetitions',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentListLeavePetitionsRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentListLeavePetitionsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AgentCreateLeavePetition(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/AgentCreateLeavePetition',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCreateLeavePetitionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCreateLeavePetitionResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def AgentCancelLeavePetition(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/AgentCancelLeavePetition',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
