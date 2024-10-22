@@ -70,7 +70,7 @@ class DeleteIntegrationConfigReq(_message.Message):
     def __init__(self, integration_id: _Optional[_Union[_integrations_pb2.IntegrationType, str]] = ..., name: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class ProcessReq(_message.Message):
-    __slots__ = ("request_id", "integration_id", "method_id", "config_name", "config_id", "params", "conds", "call_sid", "call_type")
+    __slots__ = ("request_id", "integration_id", "method_id", "config_name", "config_id", "params", "conds", "call_sid", "call_type", "request_origin")
     class ParamsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -87,6 +87,7 @@ class ProcessReq(_message.Message):
     CONDS_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_ORIGIN_FIELD_NUMBER: _ClassVar[int]
     request_id: str
     integration_id: _integrations_pb2.IntegrationType
     method_id: _integrations_pb2.RequestMethod
@@ -96,7 +97,8 @@ class ProcessReq(_message.Message):
     conds: _containers.RepeatedCompositeFieldContainer[Condition]
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
-    def __init__(self, request_id: _Optional[str] = ..., integration_id: _Optional[_Union[_integrations_pb2.IntegrationType, str]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., config_name: _Optional[str] = ..., config_id: _Optional[str] = ..., params: _Optional[_Mapping[str, Value]] = ..., conds: _Optional[_Iterable[_Union[Condition, _Mapping]]] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
+    request_origin: _integrations_pb2.RequestOrigin
+    def __init__(self, request_id: _Optional[str] = ..., integration_id: _Optional[_Union[_integrations_pb2.IntegrationType, str]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., config_name: _Optional[str] = ..., config_id: _Optional[str] = ..., params: _Optional[_Mapping[str, Value]] = ..., conds: _Optional[_Iterable[_Union[Condition, _Mapping]]] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ...) -> None: ...
 
 class ProcessRes(_message.Message):
     __slots__ = ("result", "data", "integration", "method", "transaction_id")
@@ -983,7 +985,7 @@ class IntegrationConfig(_message.Message):
     def __init__(self, id: _Optional[str] = ..., integration_id: _Optional[_Union[_integrations_pb2.IntegrationType, str]] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., params: _Optional[_Union[Values, _Mapping]] = ..., deleted: bool = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., alias: _Optional[_Union[MapString, _Mapping]] = ..., conds: _Optional[_Union[Conditions, _Mapping]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ...) -> None: ...
 
 class IntegrationTransaction(_message.Message):
-    __slots__ = ("integration_transaction_id", "task_id", "integration_id", "method_id", "transaction_type", "request_source", "result", "amount_collected", "request_data", "response_data", "created_on", "config_name", "conds")
+    __slots__ = ("integration_transaction_id", "task_id", "integration_id", "method_id", "transaction_type", "request_source", "result", "amount_collected", "request_data", "response_data", "created_on", "config_name", "conds", "request_origin")
     INTEGRATION_TRANSACTION_ID_FIELD_NUMBER: _ClassVar[int]
     TASK_ID_FIELD_NUMBER: _ClassVar[int]
     INTEGRATION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -997,6 +999,7 @@ class IntegrationTransaction(_message.Message):
     CREATED_ON_FIELD_NUMBER: _ClassVar[int]
     CONFIG_NAME_FIELD_NUMBER: _ClassVar[int]
     CONDS_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_ORIGIN_FIELD_NUMBER: _ClassVar[int]
     integration_transaction_id: str
     task_id: str
     integration_id: _integrations_pb2.IntegrationType
@@ -1010,7 +1013,8 @@ class IntegrationTransaction(_message.Message):
     created_on: _timestamp_pb2.Timestamp
     config_name: str
     conds: Conditions
-    def __init__(self, integration_transaction_id: _Optional[str] = ..., task_id: _Optional[str] = ..., integration_id: _Optional[_Union[_integrations_pb2.IntegrationType, str]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., transaction_type: _Optional[_Union[_integrations_pb2.TransactionType, str]] = ..., request_source: _Optional[_Union[_integrations_pb2.RequestSource, str]] = ..., result: _Optional[_Union[_integrations_pb2.TransactionResult, str]] = ..., amount_collected: _Optional[float] = ..., request_data: _Optional[_Union[Values, _Mapping]] = ..., response_data: _Optional[_Union[Values, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., config_name: _Optional[str] = ..., conds: _Optional[_Union[Conditions, _Mapping]] = ...) -> None: ...
+    request_origin: _integrations_pb2.RequestOrigin
+    def __init__(self, integration_transaction_id: _Optional[str] = ..., task_id: _Optional[str] = ..., integration_id: _Optional[_Union[_integrations_pb2.IntegrationType, str]] = ..., method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., transaction_type: _Optional[_Union[_integrations_pb2.TransactionType, str]] = ..., request_source: _Optional[_Union[_integrations_pb2.RequestSource, str]] = ..., result: _Optional[_Union[_integrations_pb2.TransactionResult, str]] = ..., amount_collected: _Optional[float] = ..., request_data: _Optional[_Union[Values, _Mapping]] = ..., response_data: _Optional[_Union[Values, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., config_name: _Optional[str] = ..., conds: _Optional[_Union[Conditions, _Mapping]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ...) -> None: ...
 
 class MapString(_message.Message):
     __slots__ = ("values",)
@@ -1430,7 +1434,7 @@ class PopulateIntegrationLinkRes(_message.Message):
     def __init__(self, integration_link: _Optional[_Union[_huntgroup_pb2.IntegrationLink, _Mapping]] = ...) -> None: ...
 
 class ProcessWorkflowReq(_message.Message):
-    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params", "call_sid", "call_type")
+    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params", "call_sid", "call_type", "request_origin")
     class ParamsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -1445,6 +1449,7 @@ class ProcessWorkflowReq(_message.Message):
     PARAMS_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_ORIGIN_FIELD_NUMBER: _ClassVar[int]
     portal_link_id: str
     portal_id: str
     segment: int
@@ -1452,7 +1457,8 @@ class ProcessWorkflowReq(_message.Message):
     params: _containers.MessageMap[str, Value]
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
-    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
+    request_origin: _integrations_pb2.RequestOrigin
+    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ...) -> None: ...
 
 class ProcessWorkflowRes(_message.Message):
     __slots__ = ("success", "data")

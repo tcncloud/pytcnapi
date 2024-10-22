@@ -296,7 +296,7 @@ class GetReceiptRes(_message.Message):
     def __init__(self, receipt_id: _Optional[str] = ..., request: _Optional[_Mapping[str, Value]] = ..., response: _Optional[_Mapping[str, Value]] = ..., amount_paid: _Optional[float] = ..., amount_paid_key: _Optional[str] = ..., payment_flow: _Optional[_Union[_integrations_pb2.PaymentFlow, _Mapping]] = ...) -> None: ...
 
 class ProcessWorkflowReq(_message.Message):
-    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params")
+    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params", "request_origin")
     class ParamsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -309,12 +309,14 @@ class ProcessWorkflowReq(_message.Message):
     SEGMENT_FIELD_NUMBER: _ClassVar[int]
     CHOICE_FIELD_NUMBER: _ClassVar[int]
     PARAMS_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_ORIGIN_FIELD_NUMBER: _ClassVar[int]
     portal_link_id: str
     portal_id: str
     segment: int
     choice: int
     params: _containers.MessageMap[str, Value]
-    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ...) -> None: ...
+    request_origin: _integrations_pb2.RequestOrigin
+    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ...) -> None: ...
 
 class ProcessWorkflowRes(_message.Message):
     __slots__ = ("success", "data")

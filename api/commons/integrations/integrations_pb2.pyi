@@ -364,6 +364,15 @@ class RequestSource(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REQUEST_SOURCE_CHAT: _ClassVar[RequestSource]
     REQUEST_SOURCE_LMS: _ClassVar[RequestSource]
 
+class RequestOrigin(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    REQUEST_ORIGIN_UNKNOWN: _ClassVar[RequestOrigin]
+    REQUEST_ORIGIN_IVR: _ClassVar[RequestOrigin]
+    REQUEST_ORIGIN_AGENT_ASSISTED: _ClassVar[RequestOrigin]
+    REQUEST_ORIGIN_INTEGRATION_LINK: _ClassVar[RequestOrigin]
+    REQUEST_ORIGIN_FLOWS: _ClassVar[RequestOrigin]
+    REQUEST_ORIGIN_TEXT_2_PAY: _ClassVar[RequestOrigin]
+
 class TransactionResult(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     TRANSACTION_RESULT_SUCCESS: _ClassVar[TransactionResult]
@@ -820,6 +829,12 @@ REQUEST_SOURCE_WEB: RequestSource
 REQUEST_SOURCE_SMS: RequestSource
 REQUEST_SOURCE_CHAT: RequestSource
 REQUEST_SOURCE_LMS: RequestSource
+REQUEST_ORIGIN_UNKNOWN: RequestOrigin
+REQUEST_ORIGIN_IVR: RequestOrigin
+REQUEST_ORIGIN_AGENT_ASSISTED: RequestOrigin
+REQUEST_ORIGIN_INTEGRATION_LINK: RequestOrigin
+REQUEST_ORIGIN_FLOWS: RequestOrigin
+REQUEST_ORIGIN_TEXT_2_PAY: RequestOrigin
 TRANSACTION_RESULT_SUCCESS: TransactionResult
 TRANSACTION_RESULT_FAILED: TransactionResult
 VALUE_TYPE_UNKNOWN: ValueType
