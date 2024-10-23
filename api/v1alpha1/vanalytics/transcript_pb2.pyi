@@ -1,4 +1,5 @@
 from api.commons import acd_pb2 as _acd_pb2
+from api.commons import vanalytics_pb2 as _vanalytics_pb2
 from api.v1alpha1.vanalytics.aclpb import aclpb_pb2 as _aclpb_pb2
 from api.v1alpha1.vanalytics import expr_pb2 as _expr_pb2
 from api.v1alpha1.vanalytics import transcript_summary_pb2 as _transcript_summary_pb2
@@ -599,7 +600,7 @@ class Transcript(_message.Message):
     def __init__(self, transcript_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., results: _Optional[_Iterable[_Union[Result, _Mapping]]] = ..., silence: _Optional[_Union[Silence, _Mapping]] = ..., talk_time: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., talk_over: _Optional[_Union[TalkOver, _Mapping]] = ..., caller_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., audio_time: _Optional[int] = ..., audio_bytes: _Optional[int] = ..., group_name: _Optional[str] = ..., agent_call_log: _Optional[_Union[_aclpb_pb2.AgentCallLog, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., number_format: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, AgentResponse]] = ..., summary: _Optional[_Union[_transcript_summary_pb2.TranscriptSummary, _Mapping]] = ...) -> None: ...
 
 class Result(_message.Message):
-    __slots__ = ("channel", "segments", "agent_first_name", "agent_last_name", "agent_user_name", "begin_time", "duration", "text", "hunt_group_sid")
+    __slots__ = ("channel", "segments", "agent_first_name", "agent_last_name", "agent_user_name", "begin_time", "duration", "text", "hunt_group_sid", "sentiment")
     CHANNEL_FIELD_NUMBER: _ClassVar[int]
     SEGMENTS_FIELD_NUMBER: _ClassVar[int]
     AGENT_FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -609,6 +610,7 @@ class Result(_message.Message):
     DURATION_FIELD_NUMBER: _ClassVar[int]
     TEXT_FIELD_NUMBER: _ClassVar[int]
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    SENTIMENT_FIELD_NUMBER: _ClassVar[int]
     channel: int
     segments: _containers.RepeatedCompositeFieldContainer[Segment]
     agent_first_name: str
@@ -618,7 +620,40 @@ class Result(_message.Message):
     duration: int
     text: str
     hunt_group_sid: int
-    def __init__(self, channel: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Segment, _Mapping]]] = ..., agent_first_name: _Optional[str] = ..., agent_last_name: _Optional[str] = ..., agent_user_name: _Optional[str] = ..., begin_time: _Optional[int] = ..., duration: _Optional[int] = ..., text: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
+    sentiment: Sentiment
+    def __init__(self, channel: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Segment, _Mapping]]] = ..., agent_first_name: _Optional[str] = ..., agent_last_name: _Optional[str] = ..., agent_user_name: _Optional[str] = ..., begin_time: _Optional[int] = ..., duration: _Optional[int] = ..., text: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., sentiment: _Optional[_Union[Sentiment, _Mapping]] = ...) -> None: ...
+
+class Sentiment(_message.Message):
+    __slots__ = ("overall", "worst", "dominant", "last", "samples")
+    class Sample(_message.Message):
+        __slots__ = ("estimate", "offset", "duration")
+        ESTIMATE_FIELD_NUMBER: _ClassVar[int]
+        OFFSET_FIELD_NUMBER: _ClassVar[int]
+        DURATION_FIELD_NUMBER: _ClassVar[int]
+        estimate: Sentiment.Estimate
+        offset: _duration_pb2.Duration
+        duration: _duration_pb2.Duration
+        def __init__(self, estimate: _Optional[_Union[Sentiment.Estimate, _Mapping]] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    class Estimate(_message.Message):
+        __slots__ = ("positive", "neutral", "negative")
+        POSITIVE_FIELD_NUMBER: _ClassVar[int]
+        NEUTRAL_FIELD_NUMBER: _ClassVar[int]
+        NEGATIVE_FIELD_NUMBER: _ClassVar[int]
+        positive: float
+        neutral: float
+        negative: float
+        def __init__(self, positive: _Optional[float] = ..., neutral: _Optional[float] = ..., negative: _Optional[float] = ...) -> None: ...
+    OVERALL_FIELD_NUMBER: _ClassVar[int]
+    WORST_FIELD_NUMBER: _ClassVar[int]
+    DOMINANT_FIELD_NUMBER: _ClassVar[int]
+    LAST_FIELD_NUMBER: _ClassVar[int]
+    SAMPLES_FIELD_NUMBER: _ClassVar[int]
+    overall: Sentiment.Estimate
+    worst: _vanalytics_pb2.TranscriptSentimentTone
+    dominant: _vanalytics_pb2.TranscriptSentimentTone
+    last: _vanalytics_pb2.TranscriptSentimentTone
+    samples: _containers.RepeatedCompositeFieldContainer[Sentiment.Sample]
+    def __init__(self, overall: _Optional[_Union[Sentiment.Estimate, _Mapping]] = ..., worst: _Optional[_Union[_vanalytics_pb2.TranscriptSentimentTone, str]] = ..., dominant: _Optional[_Union[_vanalytics_pb2.TranscriptSentimentTone, str]] = ..., last: _Optional[_Union[_vanalytics_pb2.TranscriptSentimentTone, str]] = ..., samples: _Optional[_Iterable[_Union[Sentiment.Sample, _Mapping]]] = ...) -> None: ...
 
 class Segment(_message.Message):
     __slots__ = ("begin_time", "confidence", "duration", "text", "words")
