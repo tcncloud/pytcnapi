@@ -1332,10 +1332,14 @@ class GenerateEpicKeyPairRes(_message.Message):
     def __init__(self, production_public_key: _Optional[str] = ..., non_production_public_key: _Optional[str] = ...) -> None: ...
 
 class PortalSegment(_message.Message):
-    __slots__ = ("workflow_choices",)
+    __slots__ = ("workflow_choices", "header_text", "footer_text")
     WORKFLOW_CHOICES_FIELD_NUMBER: _ClassVar[int]
+    HEADER_TEXT_FIELD_NUMBER: _ClassVar[int]
+    FOOTER_TEXT_FIELD_NUMBER: _ClassVar[int]
     workflow_choices: _containers.RepeatedCompositeFieldContainer[PortalWorkflow]
-    def __init__(self, workflow_choices: _Optional[_Iterable[_Union[PortalWorkflow, _Mapping]]] = ...) -> None: ...
+    header_text: str
+    footer_text: str
+    def __init__(self, workflow_choices: _Optional[_Iterable[_Union[PortalWorkflow, _Mapping]]] = ..., header_text: _Optional[str] = ..., footer_text: _Optional[str] = ...) -> None: ...
 
 class PortalWorkflow(_message.Message):
     __slots__ = ("actions", "template", "form_fields", "header_text", "footer_text", "demo_mode", "demo_fail_conditions", "demo_pass_conditions", "demo_results", "workflow_definition_name")
