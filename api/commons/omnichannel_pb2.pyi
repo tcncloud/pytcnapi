@@ -218,6 +218,26 @@ class WhatsAppNumberProvider(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     UNKNOWN_WHATSAPP_PROVIDER: _ClassVar[WhatsAppNumberProvider]
     WHATSAPP_SMS_PROVIDER: _ClassVar[WhatsAppNumberProvider]
+
+class OmniMessageType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    OMNI_MESSAGE_TYPE_TEXT_MESSAGE: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_TYPING_NOTIFICATION: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_REASSIGNMENT_NOTIFICATION: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_ASSIGN_CONVERSATION: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_UNASSIGN_CONVERSATION: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_ATTACHMENT: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_ATTACHMENT_UPLOAD_URL: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_REQUEST_ATTACHMENT_UPLOAD_URL: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_CLOSE_CONVERSATION: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_START_WRAP_UP: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_FINISH_WRAP_UP: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_UNKNOWN: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_SUSPEND: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_QUEUE_INFORMATION: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_REQUEST_QUEUE_INFORMATION: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_OFFLOADED_TEXT_MESSAGE: _ClassVar[OmniMessageType]
+    OMNI_MESSAGE_TYPE_CANNED_MESSAGE: _ClassVar[OmniMessageType]
 SMS_SHORT_CODE_TYPE: SmsNumberType
 SMS_ALPHANUMERIC_TYPE: SmsNumberType
 SMS_NUMBER_TYPE: SmsNumberType
@@ -354,6 +374,23 @@ CAMPAIGN_DIRECTION_INBOUND: CampaignDirection
 CAMPAIGN_DIRECTION_OUTBOUND: CampaignDirection
 UNKNOWN_WHATSAPP_PROVIDER: WhatsAppNumberProvider
 WHATSAPP_SMS_PROVIDER: WhatsAppNumberProvider
+OMNI_MESSAGE_TYPE_TEXT_MESSAGE: OmniMessageType
+OMNI_MESSAGE_TYPE_TYPING_NOTIFICATION: OmniMessageType
+OMNI_MESSAGE_TYPE_REASSIGNMENT_NOTIFICATION: OmniMessageType
+OMNI_MESSAGE_TYPE_ASSIGN_CONVERSATION: OmniMessageType
+OMNI_MESSAGE_TYPE_UNASSIGN_CONVERSATION: OmniMessageType
+OMNI_MESSAGE_TYPE_ATTACHMENT: OmniMessageType
+OMNI_MESSAGE_TYPE_ATTACHMENT_UPLOAD_URL: OmniMessageType
+OMNI_MESSAGE_TYPE_REQUEST_ATTACHMENT_UPLOAD_URL: OmniMessageType
+OMNI_MESSAGE_TYPE_CLOSE_CONVERSATION: OmniMessageType
+OMNI_MESSAGE_TYPE_START_WRAP_UP: OmniMessageType
+OMNI_MESSAGE_TYPE_FINISH_WRAP_UP: OmniMessageType
+OMNI_MESSAGE_TYPE_UNKNOWN: OmniMessageType
+OMNI_MESSAGE_TYPE_SUSPEND: OmniMessageType
+OMNI_MESSAGE_TYPE_QUEUE_INFORMATION: OmniMessageType
+OMNI_MESSAGE_TYPE_REQUEST_QUEUE_INFORMATION: OmniMessageType
+OMNI_MESSAGE_TYPE_OFFLOADED_TEXT_MESSAGE: OmniMessageType
+OMNI_MESSAGE_TYPE_CANNED_MESSAGE: OmniMessageType
 
 class OmniCampaign(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url", "compliance_config")
