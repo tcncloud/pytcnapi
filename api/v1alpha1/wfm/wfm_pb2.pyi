@@ -2683,7 +2683,7 @@ class UpdateDraftScheduleRes(_message.Message):
     def __init__(self, draft_schedule: _Optional[_Union[DraftSchedule, _Mapping]] = ...) -> None: ...
 
 class BuildDraftScheduleReq(_message.Message):
-    __slots__ = ("draft_schedule_sid", "schedule_scenario_sid", "schedule_scenario_scheduling_range", "node_selector", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "auto_generate_agents")
+    __slots__ = ("draft_schedule_sid", "schedule_scenario_sid", "schedule_scenario_scheduling_range", "node_selector", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "auto_generate_agents", "scheduling_target")
     DRAFT_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_SCENARIO_SCHEDULING_RANGE_FIELD_NUMBER: _ClassVar[int]
@@ -2694,6 +2694,7 @@ class BuildDraftScheduleReq(_message.Message):
     INCLUDE_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     AUTO_GENERATE_AGENTS_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULING_TARGET_FIELD_NUMBER: _ClassVar[int]
     draft_schedule_sid: int
     schedule_scenario_sid: int
     schedule_scenario_scheduling_range: _wfm_pb2.DatetimeRange
@@ -2704,7 +2705,8 @@ class BuildDraftScheduleReq(_message.Message):
     include_scheduling_activity: bool
     include_activity: bool
     auto_generate_agents: bool
-    def __init__(self, draft_schedule_sid: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., schedule_scenario_scheduling_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., include_shift_instances: bool = ..., include_shift_template: bool = ..., include_shift_segments: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ..., auto_generate_agents: bool = ...) -> None: ...
+    scheduling_target: SchedulingTarget
+    def __init__(self, draft_schedule_sid: _Optional[int] = ..., schedule_scenario_sid: _Optional[int] = ..., schedule_scenario_scheduling_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., include_shift_instances: bool = ..., include_shift_template: bool = ..., include_shift_segments: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ..., auto_generate_agents: bool = ..., scheduling_target: _Optional[_Union[SchedulingTarget, _Mapping]] = ...) -> None: ...
 
 class BuildDraftScheduleRes(_message.Message):
     __slots__ = ("draft_schedule", "diagnostics", "scheduling_result_metric")
