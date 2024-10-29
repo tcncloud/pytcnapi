@@ -1160,7 +1160,7 @@ class ManualApprovalSettings(_message.Message):
     def __init__(self, allowed: bool = ..., confirm: bool = ..., sms_allowed: bool = ..., sms_number_confirmation: bool = ..., disable_reject_option_for_approvers: bool = ...) -> None: ...
 
 class ListHuntGroupWebLinksReq(_message.Message):
-    __slots__ = ("hunt_group_sid", "call_sid", "call_type", "service_id", "scheduled_callback_id", "session_sid", "isInitialPreview")
+    __slots__ = ("hunt_group_sid", "call_sid", "call_type", "service_id", "scheduled_callback_id", "session_sid", "isInitialPreview", "task_sid")
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -1168,6 +1168,7 @@ class ListHuntGroupWebLinksReq(_message.Message):
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     ISINITIALPREVIEW_FIELD_NUMBER: _ClassVar[int]
+    TASK_SID_FIELD_NUMBER: _ClassVar[int]
     hunt_group_sid: int
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
@@ -1175,7 +1176,8 @@ class ListHuntGroupWebLinksReq(_message.Message):
     scheduled_callback_id: str
     session_sid: int
     isInitialPreview: bool
-    def __init__(self, hunt_group_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., service_id: _Optional[str] = ..., scheduled_callback_id: _Optional[str] = ..., session_sid: _Optional[int] = ..., isInitialPreview: bool = ...) -> None: ...
+    task_sid: int
+    def __init__(self, hunt_group_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., service_id: _Optional[str] = ..., scheduled_callback_id: _Optional[str] = ..., session_sid: _Optional[int] = ..., isInitialPreview: bool = ..., task_sid: _Optional[int] = ...) -> None: ...
 
 class ListHuntGroupWebLinksRes(_message.Message):
     __slots__ = ("web_links",)
