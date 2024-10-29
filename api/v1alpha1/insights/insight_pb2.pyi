@@ -16,6 +16,7 @@ class OutputConfigurationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: _ClassVar[OutputConfigurationType]
     OUTPUT_CONFIGURATION_TYPE_PIE_CHART: _ClassVar[OutputConfigurationType]
     OUTPUT_CONFIGURATION_TYPE_FIXED_WIDTH: _ClassVar[OutputConfigurationType]
+    OUTPUT_CONFIGURATION_TYPE_TIMELINE: _ClassVar[OutputConfigurationType]
 
 class OperationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -63,6 +64,7 @@ OUTPUT_CONFIGURATION_TYPE_TABLE: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_PIE_CHART: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_FIXED_WIDTH: OutputConfigurationType
+OUTPUT_CONFIGURATION_TYPE_TIMELINE: OutputConfigurationType
 OPERATION_TYPE_UNSPECIFIED: OperationType
 OPERATION_TYPE_DATE: OperationType
 OPERATION_TYPE_PREFIX: OperationType
