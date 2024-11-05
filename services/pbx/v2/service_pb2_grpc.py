@@ -39,6 +39,11 @@ class PBXServiceStub(object):
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountRequest.SerializeToString,
                 response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountResponse.FromString,
                 )
+        self.GetSIPAccountByUserId = channel.unary_unary(
+                '/services.pbx.v2.PBXService/GetSIPAccountByUserId',
+                request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdRequest.SerializeToString,
+                response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdResponse.FromString,
+                )
         self.ListSIPAccounts = channel.unary_unary(
                 '/services.pbx.v2.PBXService/ListSIPAccounts',
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.SerializeToString,
@@ -132,6 +137,21 @@ class PBXServiceServicer(object):
 
     def GetSIPAccount(self, request, context):
         """Returns details of the SIP Account associated with the sip_id
+        Required permissions:
+        PBX-MANAGER
+        Errors:
+        - grpc.InvalidArgument: The request is invalid.
+        - grpc.PermissionDenied: Caller doesn't have the required permissions.
+        - grpc.Internal: An internal error occurred.
+        - grpc.NotFound: The group does not exist or is not in the caller's ORG.
+        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetSIPAccountByUserId(self, request, context):
+        """Returns details of the SIP Account associated with the org_user_id
         Required permissions:
         PBX-MANAGER
         Errors:
@@ -265,6 +285,11 @@ def add_PBXServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountRequest.FromString,
                     response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountResponse.SerializeToString,
             ),
+            'GetSIPAccountByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSIPAccountByUserId,
+                    request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdRequest.FromString,
+                    response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdResponse.SerializeToString,
+            ),
             'ListSIPAccounts': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSIPAccounts,
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.FromString,
@@ -387,6 +412,23 @@ class PBXService(object):
         return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/GetSIPAccount',
             services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountRequest.SerializeToString,
             services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSIPAccountByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/GetSIPAccountByUserId',
+            services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdRequest.SerializeToString,
+            services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

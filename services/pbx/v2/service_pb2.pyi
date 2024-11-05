@@ -82,6 +82,18 @@ class ListSIPAccountsResponse(_message.Message):
     sip_accounts: _containers.RepeatedCompositeFieldContainer[SIPAccount]
     def __init__(self, sip_accounts: _Optional[_Iterable[_Union[SIPAccount, _Mapping]]] = ...) -> None: ...
 
+class GetSIPAccountByUserIdRequest(_message.Message):
+    __slots__ = ("org_user_id",)
+    ORG_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    org_user_id: str
+    def __init__(self, org_user_id: _Optional[str] = ...) -> None: ...
+
+class GetSIPAccountByUserIdResponse(_message.Message):
+    __slots__ = ("sip_account",)
+    SIP_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
+    sip_account: SIPAccount
+    def __init__(self, sip_account: _Optional[_Union[SIPAccount, _Mapping]] = ...) -> None: ...
+
 class GetSIPAccountRequest(_message.Message):
     __slots__ = ("sip_account_id",)
     SIP_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
