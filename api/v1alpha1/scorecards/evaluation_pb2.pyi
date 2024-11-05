@@ -1,5 +1,9 @@
+from api.commons import acd_pb2 as _acd_pb2
+from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from api.commons import scorecards_pb2 as _scorecards_pb2
+from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -170,3 +174,61 @@ class RestoreEvaluationResponse(_message.Message):
     EVALUATION_FIELD_NUMBER: _ClassVar[int]
     evaluation: _scorecards_pb2.Evaluation
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
+
+class SampleAgentConversationsRequest(_message.Message):
+    __slots__ = ("scorecard_id", "start_time", "end_time", "max_agent_evaluations", "sample_percentage", "agent_user_ids")
+    SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
+    START_TIME_FIELD_NUMBER: _ClassVar[int]
+    END_TIME_FIELD_NUMBER: _ClassVar[int]
+    MAX_AGENT_EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
+    SAMPLE_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    scorecard_id: int
+    start_time: _timestamp_pb2.Timestamp
+    end_time: _timestamp_pb2.Timestamp
+    max_agent_evaluations: int
+    sample_percentage: int
+    agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, scorecard_id: _Optional[int] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., max_agent_evaluations: _Optional[int] = ..., sample_percentage: _Optional[int] = ..., agent_user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class SampleAgentConversationsResponse(_message.Message):
+    __slots__ = ("agent_conversations",)
+    AGENT_CONVERSATIONS_FIELD_NUMBER: _ClassVar[int]
+    agent_conversations: _containers.RepeatedCompositeFieldContainer[AgentConversation]
+    def __init__(self, agent_conversations: _Optional[_Iterable[_Union[AgentConversation, _Mapping]]] = ...) -> None: ...
+
+class AgentConversation(_message.Message):
+    __slots__ = ("transcript_sid", "channel", "agent_user_id", "start_time", "call_metadata", "sms_metadata")
+    class CallMetadata(_message.Message):
+        __slots__ = ("call_sid", "call_type", "call_duration", "speech_duration", "silence_duration")
+        CALL_SID_FIELD_NUMBER: _ClassVar[int]
+        CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        CALL_DURATION_FIELD_NUMBER: _ClassVar[int]
+        SPEECH_DURATION_FIELD_NUMBER: _ClassVar[int]
+        SILENCE_DURATION_FIELD_NUMBER: _ClassVar[int]
+        call_sid: int
+        call_type: _acd_pb2.CallType.Enum
+        call_duration: _duration_pb2.Duration
+        speech_duration: _duration_pb2.Duration
+        silence_duration: _duration_pb2.Duration
+        def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., call_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., speech_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., silence_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    class SmsMetadata(_message.Message):
+        __slots__ = ("conversation_sid", "campaign_sid")
+        CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+        CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
+        conversation_sid: int
+        campaign_sid: int
+        def __init__(self, conversation_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ...) -> None: ...
+    TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_FIELD_NUMBER: _ClassVar[int]
+    AGENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    START_TIME_FIELD_NUMBER: _ClassVar[int]
+    CALL_METADATA_FIELD_NUMBER: _ClassVar[int]
+    SMS_METADATA_FIELD_NUMBER: _ClassVar[int]
+    transcript_sid: int
+    channel: _omnichannel_pb2.ChannelType
+    agent_user_id: str
+    start_time: _timestamp_pb2.Timestamp
+    call_metadata: AgentConversation.CallMetadata
+    sms_metadata: AgentConversation.SmsMetadata
+    def __init__(self, transcript_sid: _Optional[int] = ..., channel: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., agent_user_id: _Optional[str] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_metadata: _Optional[_Union[AgentConversation.CallMetadata, _Mapping]] = ..., sms_metadata: _Optional[_Union[AgentConversation.SmsMetadata, _Mapping]] = ...) -> None: ...

@@ -209,6 +209,11 @@ class ScorecardsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.SampleCallsByCategoryRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.SampleCallsByCategoryResponse.FromString,
                 )
+        self.SampleAgentConversations = channel.unary_unary(
+                '/api.v1alpha1.scorecards.Scorecards/SampleAgentConversations',
+                request_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.SampleAgentConversationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.SampleAgentConversationsResponse.FromString,
+                )
         self.CreateAutoQuestion = channel.unary_unary(
                 '/api.v1alpha1.scorecards.Scorecards/CreateAutoQuestion',
                 request_serializer=api_dot_v1alpha1_dot_scorecards_dot_auto__question__pb2.CreateAutoQuestionRequest.SerializeToString,
@@ -553,6 +558,13 @@ class ScorecardsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SampleAgentConversations(self, request, context):
+        """SampleAgentConversations
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateAutoQuestion(self, request, context):
         """CreateAutoQuestion creates an auto question
         """
@@ -852,6 +864,11 @@ def add_ScorecardsServicer_to_server(servicer, server):
                     servicer.SampleCallsByCategory,
                     request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.SampleCallsByCategoryRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_scorecards_dot_category__pb2.SampleCallsByCategoryResponse.SerializeToString,
+            ),
+            'SampleAgentConversations': grpc.unary_unary_rpc_method_handler(
+                    servicer.SampleAgentConversations,
+                    request_deserializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.SampleAgentConversationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.SampleAgentConversationsResponse.SerializeToString,
             ),
             'CreateAutoQuestion': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAutoQuestion,
@@ -1569,6 +1586,23 @@ class Scorecards(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/SampleCallsByCategory',
             api_dot_v1alpha1_dot_scorecards_dot_category__pb2.SampleCallsByCategoryRequest.SerializeToString,
             api_dot_v1alpha1_dot_scorecards_dot_category__pb2.SampleCallsByCategoryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SampleAgentConversations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.scorecards.Scorecards/SampleAgentConversations',
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.SampleAgentConversationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_scorecards_dot_evaluation__pb2.SampleAgentConversationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

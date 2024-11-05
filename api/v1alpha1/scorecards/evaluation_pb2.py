@@ -22,11 +22,15 @@ _runtime_version.ValidateProtobufRuntimeVersion(
 _sym_db = _symbol_database.Default()
 
 
+from api.commons import acd_pb2 as api_dot_commons_dot_acd__pb2
+from api.commons import omnichannel_pb2 as api_dot_commons_dot_omnichannel__pb2
 from api.commons import scorecards_pb2 as api_dot_commons_dot_scorecards__pb2
+from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(api/v1alpha1/scorecards/evaluation.proto\x12\x17\x61pi.v1alpha1.scorecards\x1a\x1c\x61pi/commons/scorecards.proto\x1a google/protobuf/field_mask.proto\"R\n\x17\x43reateEvaluationRequest\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"S\n\x18\x43reateEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\x8f\x01\n\x17UpdateEvaluationRequest\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\x12;\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMask\"S\n\x18UpdateEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\">\n\x17\x44\x65leteEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"S\n\x18\x44\x65leteEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\";\n\x14GetEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"P\n\x15GetEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"=\n\x16ScoreEvaluationRequest\x12#\n\revaluation_id\x18\x03 \x01(\x03R\x0c\x65valuationId\"R\n\x17ScoreEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\xbf\x02\n\x16ListEvaluationsRequest\x12\x1b\n\tscorer_id\x18\x02 \x03(\tR\x08scorerId\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\x12?\n\rreturn_fields\x18\n \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0creturnFields\x12\x1d\n\nis_deleted\x18\x0b \x01(\x08R\tisDeleted\"T\n\x17ListEvaluationsResponse\x12\x39\n\x0b\x65valuations\x18\x01 \x03(\x0b\x32\x17.api.commons.EvaluationR\x0b\x65valuations\"\x8e\x01\n\x1dPreviewEvaluationScoreRequest\x12\x37\n\nevaluation\x18\x02 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\x12\x34\n\tscorecard\x18\x03 \x01(\x0b\x32\x16.api.commons.ScorecardR\tscorecard\"Y\n\x1ePreviewEvaluationScoreResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\xbe\x02\n\x1dListEvaluationsByOrgIdRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x1b\n\tscorer_id\x18\x02 \x03(\tR\x08scorerId\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\x12?\n\rreturn_fields\x18\n \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0creturnFields\"\\\n\x1e\x44\x65leteEvaluationByOrgIdRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"\xa3\x02\n\x1c\x42ulkDeleteEvaluationsRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12%\n\x0e\x65valuation_ids\x18\x02 \x03(\x03R\revaluationIds\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\x12\x1b\n\tscorer_id\x18\x07 \x03(\tR\x08scorerId\"5\n\x1d\x42ulkDeleteEvaluationsResponse\x12\x14\n\x05\x63ount\x18\x01 \x01(\x03R\x05\x63ount\"X\n\x18RestoreEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\x12\x17\n\x07user_id\x18\x03 \x01(\tR\x06userId\"T\n\x19RestoreEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluationB\xac\x01\n\x1b\x63om.api.v1alpha1.scorecardsB\x0f\x45valuationProtoP\x01\xa2\x02\x03\x41VS\xaa\x02\x17\x41pi.V1alpha1.Scorecards\xca\x02\x17\x41pi\\V1alpha1\\Scorecards\xe2\x02#Api\\V1alpha1\\Scorecards\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Scorecardsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(api/v1alpha1/scorecards/evaluation.proto\x12\x17\x61pi.v1alpha1.scorecards\x1a\x15\x61pi/commons/acd.proto\x1a\x1d\x61pi/commons/omnichannel.proto\x1a\x1c\x61pi/commons/scorecards.proto\x1a\x1egoogle/protobuf/duration.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"R\n\x17\x43reateEvaluationRequest\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"S\n\x18\x43reateEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\x8f\x01\n\x17UpdateEvaluationRequest\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\x12;\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\nupdateMask\"S\n\x18UpdateEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\">\n\x17\x44\x65leteEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"S\n\x18\x44\x65leteEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\";\n\x14GetEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"P\n\x15GetEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"=\n\x16ScoreEvaluationRequest\x12#\n\revaluation_id\x18\x03 \x01(\x03R\x0c\x65valuationId\"R\n\x17ScoreEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\xbf\x02\n\x16ListEvaluationsRequest\x12\x1b\n\tscorer_id\x18\x02 \x03(\tR\x08scorerId\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\x12?\n\rreturn_fields\x18\n \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0creturnFields\x12\x1d\n\nis_deleted\x18\x0b \x01(\x08R\tisDeleted\"T\n\x17ListEvaluationsResponse\x12\x39\n\x0b\x65valuations\x18\x01 \x03(\x0b\x32\x17.api.commons.EvaluationR\x0b\x65valuations\"\x8e\x01\n\x1dPreviewEvaluationScoreRequest\x12\x37\n\nevaluation\x18\x02 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\x12\x34\n\tscorecard\x18\x03 \x01(\x0b\x32\x16.api.commons.ScorecardR\tscorecard\"Y\n\x1ePreviewEvaluationScoreResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\xbe\x02\n\x1dListEvaluationsByOrgIdRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12\x1b\n\tscorer_id\x18\x02 \x03(\tR\x08scorerId\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\x12?\n\rreturn_fields\x18\n \x01(\x0b\x32\x1a.google.protobuf.FieldMaskR\x0creturnFields\"\\\n\x1e\x44\x65leteEvaluationByOrgIdRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\"\xa3\x02\n\x1c\x42ulkDeleteEvaluationsRequest\x12\x15\n\x06org_id\x18\x01 \x01(\tR\x05orgId\x12%\n\x0e\x65valuation_ids\x18\x02 \x03(\x03R\revaluationIds\x12:\n\x0c\x63ompleted_at\x18\x03 \x01(\x0b\x32\x17.api.commons.TimeFilterR\x0b\x63ompletedAt\x12!\n\x0c\x63\x61tegory_ids\x18\x04 \x03(\x03R\x0b\x63\x61tegoryIds\x12$\n\x0e\x61gent_user_ids\x18\x05 \x03(\tR\x0c\x61gentUserIds\x12#\n\rscorecard_ids\x18\x06 \x03(\x03R\x0cscorecardIds\x12\x1b\n\tscorer_id\x18\x07 \x03(\tR\x08scorerId\"5\n\x1d\x42ulkDeleteEvaluationsResponse\x12\x14\n\x05\x63ount\x18\x01 \x01(\x03R\x05\x63ount\"X\n\x18RestoreEvaluationRequest\x12#\n\revaluation_id\x18\x02 \x01(\x03R\x0c\x65valuationId\x12\x17\n\x07user_id\x18\x03 \x01(\tR\x06userId\"T\n\x19RestoreEvaluationResponse\x12\x37\n\nevaluation\x18\x01 \x01(\x0b\x32\x17.api.commons.EvaluationR\nevaluation\"\xbd\x02\n\x1fSampleAgentConversationsRequest\x12!\n\x0cscorecard_id\x18\x03 \x01(\x03R\x0bscorecardId\x12\x39\n\nstart_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12\x35\n\x08\x65nd_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\x07\x65ndTime\x12\x32\n\x15max_agent_evaluations\x18\x06 \x01(\x05R\x13maxAgentEvaluations\x12+\n\x11sample_percentage\x18\x07 \x01(\x05R\x10samplePercentage\x12$\n\x0e\x61gent_user_ids\x18\x08 \x03(\tR\x0c\x61gentUserIds\"\x7f\n SampleAgentConversationsResponse\x12[\n\x13\x61gent_conversations\x18\x01 \x03(\x0b\x32*.api.v1alpha1.scorecards.AgentConversationR\x12\x61gentConversations\"\xa2\x06\n\x11\x41gentConversation\x12%\n\x0etranscript_sid\x18\x01 \x01(\x03R\rtranscriptSid\x12\x32\n\x07\x63hannel\x18\x02 \x01(\x0e\x32\x18.api.commons.ChannelTypeR\x07\x63hannel\x12\"\n\ragent_user_id\x18\x03 \x01(\tR\x0b\x61gentUserId\x12\x39\n\nstart_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampR\tstartTime\x12^\n\rcall_metadata\x18\n \x01(\x0b\x32\x37.api.v1alpha1.scorecards.AgentConversation.CallMetadataH\x00R\x0c\x63\x61llMetadata\x12[\n\x0csms_metadata\x18\x0b \x01(\x0b\x32\x36.api.v1alpha1.scorecards.AgentConversation.SmsMetadataH\x00R\x0bsmsMetadata\x1a\xac\x02\n\x0c\x43\x61llMetadata\x12\x19\n\x08\x63\x61ll_sid\x18\x01 \x01(\x03R\x07\x63\x61llSid\x12\x37\n\tcall_type\x18\x02 \x01(\x0e\x32\x1a.api.commons.CallType.EnumR\x08\x63\x61llType\x12>\n\rcall_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0c\x63\x61llDuration\x12\x42\n\x0fspeech_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0espeechDuration\x12\x44\n\x10silence_duration\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationR\x0fsilenceDuration\x1a[\n\x0bSmsMetadata\x12)\n\x10\x63onversation_sid\x18\x01 \x01(\x03R\x0f\x63onversationSid\x12!\n\x0c\x63\x61mpaign_sid\x18\x02 \x01(\x03R\x0b\x63\x61mpaignSidB\n\n\x08metadataB\xac\x01\n\x1b\x63om.api.v1alpha1.scorecardsB\x0f\x45valuationProtoP\x01\xa2\x02\x03\x41VS\xaa\x02\x17\x41pi.V1alpha1.Scorecards\xca\x02\x17\x41pi\\V1alpha1\\Scorecards\xe2\x02#Api\\V1alpha1\\Scorecards\\GPBMetadata\xea\x02\x19\x41pi::V1alpha1::Scorecardsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,44 +38,54 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.v1alpha1.scorecards.eva
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
   _globals['DESCRIPTOR']._serialized_options = b'\n\033com.api.v1alpha1.scorecardsB\017EvaluationProtoP\001\242\002\003AVS\252\002\027Api.V1alpha1.Scorecards\312\002\027Api\\V1alpha1\\Scorecards\342\002#Api\\V1alpha1\\Scorecards\\GPBMetadata\352\002\031Api::V1alpha1::Scorecards'
-  _globals['_CREATEEVALUATIONREQUEST']._serialized_start=133
-  _globals['_CREATEEVALUATIONREQUEST']._serialized_end=215
-  _globals['_CREATEEVALUATIONRESPONSE']._serialized_start=217
-  _globals['_CREATEEVALUATIONRESPONSE']._serialized_end=300
-  _globals['_UPDATEEVALUATIONREQUEST']._serialized_start=303
-  _globals['_UPDATEEVALUATIONREQUEST']._serialized_end=446
-  _globals['_UPDATEEVALUATIONRESPONSE']._serialized_start=448
-  _globals['_UPDATEEVALUATIONRESPONSE']._serialized_end=531
-  _globals['_DELETEEVALUATIONREQUEST']._serialized_start=533
-  _globals['_DELETEEVALUATIONREQUEST']._serialized_end=595
-  _globals['_DELETEEVALUATIONRESPONSE']._serialized_start=597
-  _globals['_DELETEEVALUATIONRESPONSE']._serialized_end=680
-  _globals['_GETEVALUATIONREQUEST']._serialized_start=682
-  _globals['_GETEVALUATIONREQUEST']._serialized_end=741
-  _globals['_GETEVALUATIONRESPONSE']._serialized_start=743
-  _globals['_GETEVALUATIONRESPONSE']._serialized_end=823
-  _globals['_SCOREEVALUATIONREQUEST']._serialized_start=825
-  _globals['_SCOREEVALUATIONREQUEST']._serialized_end=886
-  _globals['_SCOREEVALUATIONRESPONSE']._serialized_start=888
-  _globals['_SCOREEVALUATIONRESPONSE']._serialized_end=970
-  _globals['_LISTEVALUATIONSREQUEST']._serialized_start=973
-  _globals['_LISTEVALUATIONSREQUEST']._serialized_end=1292
-  _globals['_LISTEVALUATIONSRESPONSE']._serialized_start=1294
-  _globals['_LISTEVALUATIONSRESPONSE']._serialized_end=1378
-  _globals['_PREVIEWEVALUATIONSCOREREQUEST']._serialized_start=1381
-  _globals['_PREVIEWEVALUATIONSCOREREQUEST']._serialized_end=1523
-  _globals['_PREVIEWEVALUATIONSCORERESPONSE']._serialized_start=1525
-  _globals['_PREVIEWEVALUATIONSCORERESPONSE']._serialized_end=1614
-  _globals['_LISTEVALUATIONSBYORGIDREQUEST']._serialized_start=1617
-  _globals['_LISTEVALUATIONSBYORGIDREQUEST']._serialized_end=1935
-  _globals['_DELETEEVALUATIONBYORGIDREQUEST']._serialized_start=1937
-  _globals['_DELETEEVALUATIONBYORGIDREQUEST']._serialized_end=2029
-  _globals['_BULKDELETEEVALUATIONSREQUEST']._serialized_start=2032
-  _globals['_BULKDELETEEVALUATIONSREQUEST']._serialized_end=2323
-  _globals['_BULKDELETEEVALUATIONSRESPONSE']._serialized_start=2325
-  _globals['_BULKDELETEEVALUATIONSRESPONSE']._serialized_end=2378
-  _globals['_RESTOREEVALUATIONREQUEST']._serialized_start=2380
-  _globals['_RESTOREEVALUATIONREQUEST']._serialized_end=2468
-  _globals['_RESTOREEVALUATIONRESPONSE']._serialized_start=2470
-  _globals['_RESTOREEVALUATIONRESPONSE']._serialized_end=2554
+  _globals['_CREATEEVALUATIONREQUEST']._serialized_start=252
+  _globals['_CREATEEVALUATIONREQUEST']._serialized_end=334
+  _globals['_CREATEEVALUATIONRESPONSE']._serialized_start=336
+  _globals['_CREATEEVALUATIONRESPONSE']._serialized_end=419
+  _globals['_UPDATEEVALUATIONREQUEST']._serialized_start=422
+  _globals['_UPDATEEVALUATIONREQUEST']._serialized_end=565
+  _globals['_UPDATEEVALUATIONRESPONSE']._serialized_start=567
+  _globals['_UPDATEEVALUATIONRESPONSE']._serialized_end=650
+  _globals['_DELETEEVALUATIONREQUEST']._serialized_start=652
+  _globals['_DELETEEVALUATIONREQUEST']._serialized_end=714
+  _globals['_DELETEEVALUATIONRESPONSE']._serialized_start=716
+  _globals['_DELETEEVALUATIONRESPONSE']._serialized_end=799
+  _globals['_GETEVALUATIONREQUEST']._serialized_start=801
+  _globals['_GETEVALUATIONREQUEST']._serialized_end=860
+  _globals['_GETEVALUATIONRESPONSE']._serialized_start=862
+  _globals['_GETEVALUATIONRESPONSE']._serialized_end=942
+  _globals['_SCOREEVALUATIONREQUEST']._serialized_start=944
+  _globals['_SCOREEVALUATIONREQUEST']._serialized_end=1005
+  _globals['_SCOREEVALUATIONRESPONSE']._serialized_start=1007
+  _globals['_SCOREEVALUATIONRESPONSE']._serialized_end=1089
+  _globals['_LISTEVALUATIONSREQUEST']._serialized_start=1092
+  _globals['_LISTEVALUATIONSREQUEST']._serialized_end=1411
+  _globals['_LISTEVALUATIONSRESPONSE']._serialized_start=1413
+  _globals['_LISTEVALUATIONSRESPONSE']._serialized_end=1497
+  _globals['_PREVIEWEVALUATIONSCOREREQUEST']._serialized_start=1500
+  _globals['_PREVIEWEVALUATIONSCOREREQUEST']._serialized_end=1642
+  _globals['_PREVIEWEVALUATIONSCORERESPONSE']._serialized_start=1644
+  _globals['_PREVIEWEVALUATIONSCORERESPONSE']._serialized_end=1733
+  _globals['_LISTEVALUATIONSBYORGIDREQUEST']._serialized_start=1736
+  _globals['_LISTEVALUATIONSBYORGIDREQUEST']._serialized_end=2054
+  _globals['_DELETEEVALUATIONBYORGIDREQUEST']._serialized_start=2056
+  _globals['_DELETEEVALUATIONBYORGIDREQUEST']._serialized_end=2148
+  _globals['_BULKDELETEEVALUATIONSREQUEST']._serialized_start=2151
+  _globals['_BULKDELETEEVALUATIONSREQUEST']._serialized_end=2442
+  _globals['_BULKDELETEEVALUATIONSRESPONSE']._serialized_start=2444
+  _globals['_BULKDELETEEVALUATIONSRESPONSE']._serialized_end=2497
+  _globals['_RESTOREEVALUATIONREQUEST']._serialized_start=2499
+  _globals['_RESTOREEVALUATIONREQUEST']._serialized_end=2587
+  _globals['_RESTOREEVALUATIONRESPONSE']._serialized_start=2589
+  _globals['_RESTOREEVALUATIONRESPONSE']._serialized_end=2673
+  _globals['_SAMPLEAGENTCONVERSATIONSREQUEST']._serialized_start=2676
+  _globals['_SAMPLEAGENTCONVERSATIONSREQUEST']._serialized_end=2993
+  _globals['_SAMPLEAGENTCONVERSATIONSRESPONSE']._serialized_start=2995
+  _globals['_SAMPLEAGENTCONVERSATIONSRESPONSE']._serialized_end=3122
+  _globals['_AGENTCONVERSATION']._serialized_start=3125
+  _globals['_AGENTCONVERSATION']._serialized_end=3927
+  _globals['_AGENTCONVERSATION_CALLMETADATA']._serialized_start=3522
+  _globals['_AGENTCONVERSATION_CALLMETADATA']._serialized_end=3822
+  _globals['_AGENTCONVERSATION_SMSMETADATA']._serialized_start=3824
+  _globals['_AGENTCONVERSATION_SMSMETADATA']._serialized_end=3915
 # @@protoc_insertion_point(module_scope)
