@@ -1,6 +1,7 @@
 from api.commons import insights_pb2 as _insights_pb2
 from api.v1alpha1.explorer import entities_pb2 as _entities_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -94,7 +95,7 @@ QUOTE_CHARACTER_DOUBLE_QUOTE: QuoteCharacter
 QUOTE_CHARACTER_SINGLE_QUOTE: QuoteCharacter
 
 class Insight(_message.Message):
-    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type", "datasource_name")
+    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type", "datasource_name", "create_time", "update_time")
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -106,6 +107,8 @@ class Insight(_message.Message):
     STANDARD_INSIGHT_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_NAME_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     insight_id: int
     name: str
     description: str
@@ -117,7 +120,9 @@ class Insight(_message.Message):
     standard_insight: bool
     datasource_type: _entities_pb2.DatasourceType
     datasource_name: str
-    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ...) -> None: ...
+    create_time: _timestamp_pb2.Timestamp
+    update_time: _timestamp_pb2.Timestamp
+    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class PublishInsightRequest(_message.Message):
     __slots__ = ("resource_id", "destination_resource_id")
@@ -150,6 +155,12 @@ class ListInsightsRequest(_message.Message):
     INSIGHT_PERMISSION_TYPES_FIELD_NUMBER: _ClassVar[int]
     insight_permission_types: _containers.RepeatedScalarFieldContainer[_insights_pb2.InsightPermissionType]
     def __init__(self, insight_permission_types: _Optional[_Iterable[_Union[_insights_pb2.InsightPermissionType, str]]] = ...) -> None: ...
+
+class ListInsightsStreamResponse(_message.Message):
+    __slots__ = ("insights",)
+    INSIGHTS_FIELD_NUMBER: _ClassVar[int]
+    insights: Insight
+    def __init__(self, insights: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class ListInsightsResponse(_message.Message):
     __slots__ = ("insights",)
@@ -377,7 +388,7 @@ class DrillThroughParameter(_message.Message):
     def __init__(self, parameter_name: _Optional[str] = ..., column_name: _Optional[str] = ...) -> None: ...
 
 class OutputConfiguration(_message.Message):
-    __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization")
+    __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization", "create_time", "update_time")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_CONFIGURATION_TITLE_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_CONFIGURATION_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -385,6 +396,8 @@ class OutputConfiguration(_message.Message):
     IS_DEFAULT_FIELD_NUMBER: _ClassVar[int]
     BLOB_FIELD_NUMBER: _ClassVar[int]
     TABLE_VISUALIZATION_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
     output_configuration_title: str
     output_configuration_type: OutputConfigurationType
@@ -392,7 +405,9 @@ class OutputConfiguration(_message.Message):
     is_default: bool
     blob: str
     table_visualization: TableVisualization
-    def __init__(self, resource_id: _Optional[str] = ..., output_configuration_title: _Optional[str] = ..., output_configuration_type: _Optional[_Union[OutputConfigurationType, str]] = ..., insight_resource_id: _Optional[str] = ..., is_default: bool = ..., blob: _Optional[str] = ..., table_visualization: _Optional[_Union[TableVisualization, _Mapping]] = ...) -> None: ...
+    create_time: _timestamp_pb2.Timestamp
+    update_time: _timestamp_pb2.Timestamp
+    def __init__(self, resource_id: _Optional[str] = ..., output_configuration_title: _Optional[str] = ..., output_configuration_type: _Optional[_Union[OutputConfigurationType, str]] = ..., insight_resource_id: _Optional[str] = ..., is_default: bool = ..., blob: _Optional[str] = ..., table_visualization: _Optional[_Union[TableVisualization, _Mapping]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class CreateOutputConfigurationRequest(_message.Message):
     __slots__ = ("output_configuration",)

@@ -24,6 +24,11 @@ class InsightsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsResponse.FromString,
                 )
+        self.ListInsightsStream = channel.unary_stream(
+                '/api.v1alpha1.insights.Insights/ListInsightsStream',
+                request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsStreamResponse.FromString,
+                )
         self.ListOrgInsights = channel.unary_unary(
                 '/api.v1alpha1.insights.Insights/ListOrgInsights',
                 request_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOrgInsightsRequest.SerializeToString,
@@ -128,6 +133,13 @@ class InsightsServicer(object):
 
     def ListInsights(self, request, context):
         """ListInsights lists insights
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListInsightsStream(self, request, context):
+        """ListInsightsStream lists insights with streaming
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -272,6 +284,11 @@ def add_InsightsServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsResponse.SerializeToString,
             ),
+            'ListInsightsStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListInsightsStream,
+                    request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsStreamResponse.SerializeToString,
+            ),
             'ListOrgInsights': grpc.unary_unary_rpc_method_handler(
                     servicer.ListOrgInsights,
                     request_deserializer=api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListOrgInsightsRequest.FromString,
@@ -403,6 +420,23 @@ class Insights(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.insights.Insights/ListInsights',
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsRequest.SerializeToString,
             api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListInsightsStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.insights.Insights/ListInsightsStream',
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_insights_dot_insight__pb2.ListInsightsStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
