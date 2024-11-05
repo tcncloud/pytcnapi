@@ -984,18 +984,20 @@ class RndEnrichmentProcess(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., field: _Optional[str] = ..., date_last_contact_field: _Optional[str] = ...) -> None: ...
 
 class CjsImportProcess(_message.Message):
-    __slots__ = ("cjs_collection_id", "enabled", "cron", "timezone", "dedup")
+    __slots__ = ("cjs_collection_id", "enabled", "cron", "timezone", "dedup", "use_zero_values")
     CJS_COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     CRON_FIELD_NUMBER: _ClassVar[int]
     TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     DEDUP_FIELD_NUMBER: _ClassVar[int]
+    USE_ZERO_VALUES_FIELD_NUMBER: _ClassVar[int]
     cjs_collection_id: str
     enabled: bool
     cron: str
     timezone: str
     dedup: bool
-    def __init__(self, cjs_collection_id: _Optional[str] = ..., enabled: bool = ..., cron: _Optional[str] = ..., timezone: _Optional[str] = ..., dedup: bool = ...) -> None: ...
+    use_zero_values: bool
+    def __init__(self, cjs_collection_id: _Optional[str] = ..., enabled: bool = ..., cron: _Optional[str] = ..., timezone: _Optional[str] = ..., dedup: bool = ..., use_zero_values: bool = ...) -> None: ...
 
 class CjsExportProcess(_message.Message):
     __slots__ = ("cjs_collection_id", "header", "run_type", "cjs_collection_name", "overwrite", "update", "update_key_field")
@@ -1016,7 +1018,7 @@ class CjsExportProcess(_message.Message):
     def __init__(self, cjs_collection_id: _Optional[str] = ..., header: _Optional[_Union[ExportHeader, _Mapping]] = ..., run_type: _Optional[_Union[_lms_pb2.RunType, str]] = ..., cjs_collection_name: _Optional[str] = ..., overwrite: bool = ..., update: bool = ..., update_key_field: _Optional[str] = ...) -> None: ...
 
 class CjsEnrichmentProcess(_message.Message):
-    __slots__ = ("cjs_collection_id", "key_field", "enrich_type", "primary_source", "cjs_key_field_name", "column_overwrite", "dedup_key_policy")
+    __slots__ = ("cjs_collection_id", "key_field", "enrich_type", "primary_source", "cjs_key_field_name", "column_overwrite", "dedup_key_policy", "use_zero_values")
     CJS_COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_FIELD_NUMBER: _ClassVar[int]
     ENRICH_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -1024,6 +1026,7 @@ class CjsEnrichmentProcess(_message.Message):
     CJS_KEY_FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     COLUMN_OVERWRITE_FIELD_NUMBER: _ClassVar[int]
     DEDUP_KEY_POLICY_FIELD_NUMBER: _ClassVar[int]
+    USE_ZERO_VALUES_FIELD_NUMBER: _ClassVar[int]
     cjs_collection_id: str
     key_field: str
     enrich_type: _lms_pb2.EnrichmentType
@@ -1031,7 +1034,8 @@ class CjsEnrichmentProcess(_message.Message):
     cjs_key_field_name: str
     column_overwrite: bool
     dedup_key_policy: _lms_pb2.DedupKeyPolicy
-    def __init__(self, cjs_collection_id: _Optional[str] = ..., key_field: _Optional[str] = ..., enrich_type: _Optional[_Union[_lms_pb2.EnrichmentType, str]] = ..., primary_source: _Optional[_Union[_lms_pb2.PrimarySource, str]] = ..., cjs_key_field_name: _Optional[str] = ..., column_overwrite: bool = ..., dedup_key_policy: _Optional[_Union[_lms_pb2.DedupKeyPolicy, str]] = ...) -> None: ...
+    use_zero_values: bool
+    def __init__(self, cjs_collection_id: _Optional[str] = ..., key_field: _Optional[str] = ..., enrich_type: _Optional[_Union[_lms_pb2.EnrichmentType, str]] = ..., primary_source: _Optional[_Union[_lms_pb2.PrimarySource, str]] = ..., cjs_key_field_name: _Optional[str] = ..., column_overwrite: bool = ..., dedup_key_policy: _Optional[_Union[_lms_pb2.DedupKeyPolicy, str]] = ..., use_zero_values: bool = ...) -> None: ...
 
 class AppendProcess(_message.Message):
     __slots__ = ("fts_id",)
@@ -1755,7 +1759,7 @@ class ReshapeProcess(_message.Message):
     def __init__(self, actions: _Optional[_Iterable[_Union[ReshapeAction, _Mapping]]] = ...) -> None: ...
 
 class ReshapeAction(_message.Message):
-    __slots__ = ("field", "matching_type", "predicate", "rename", "add_value", "add_field", "add_date", "subtract_value", "subtract_field", "convert", "remove_field", "add_new_field", "change_currency_type", "divide", "multiply", "modulo", "merge", "set_field_value", "add_new_field_from_field", "set_field_from_field", "pad", "trim", "extract")
+    __slots__ = ("field", "matching_type", "predicate", "operations", "rename", "add_value", "add_field", "add_date", "subtract_value", "subtract_field", "convert", "remove_field", "add_new_field", "change_currency_type", "divide", "multiply", "modulo", "merge", "set_field_value", "add_new_field_from_field", "set_field_from_field", "pad", "trim", "extract")
     class Rename(_message.Message):
         __slots__ = ("new_name",)
         NEW_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -1904,6 +1908,7 @@ class ReshapeAction(_message.Message):
     FIELD_FIELD_NUMBER: _ClassVar[int]
     MATCHING_TYPE_FIELD_NUMBER: _ClassVar[int]
     PREDICATE_FIELD_NUMBER: _ClassVar[int]
+    OPERATIONS_FIELD_NUMBER: _ClassVar[int]
     RENAME_FIELD_NUMBER: _ClassVar[int]
     ADD_VALUE_FIELD_NUMBER: _ClassVar[int]
     ADD_FIELD_FIELD_NUMBER: _ClassVar[int]
@@ -1927,6 +1932,7 @@ class ReshapeAction(_message.Message):
     field: str
     matching_type: _lms_pb2.RecordType
     predicate: FilterCheck
+    operations: FilterOperation
     rename: ReshapeAction.Rename
     add_value: ReshapeAction.AddValue
     add_field: ReshapeAction.AddField
@@ -1947,7 +1953,7 @@ class ReshapeAction(_message.Message):
     pad: ReshapeAction.Pad
     trim: ReshapeAction.Trim
     extract: ReshapeAction.Extract
-    def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., divide: _Optional[_Union[ReshapeAction.Divide, _Mapping]] = ..., multiply: _Optional[_Union[ReshapeAction.Multiply, _Mapping]] = ..., modulo: _Optional[_Union[ReshapeAction.Modulo, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
+    def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., operations: _Optional[_Union[FilterOperation, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., divide: _Optional[_Union[ReshapeAction.Divide, _Mapping]] = ..., multiply: _Optional[_Union[ReshapeAction.Multiply, _Mapping]] = ..., modulo: _Optional[_Union[ReshapeAction.Modulo, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
 
 class ContactManagerSink(_message.Message):
     __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime")
