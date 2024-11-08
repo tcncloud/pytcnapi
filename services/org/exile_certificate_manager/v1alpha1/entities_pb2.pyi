@@ -14,12 +14,16 @@ class ExileConfigurationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     EXILE_CONFIGURATION_TYPE_ARTIVA_RM: _ClassVar[ExileConfigurationType]
     EXILE_CONFIGURATION_TYPE_FACS: _ClassVar[ExileConfigurationType]
     EXILE_CONFIGURATION_TYPE_VELOSIDY: _ClassVar[ExileConfigurationType]
+    EXILE_CONFIGURATION_TYPE_LATITUDE_CLASSIC: _ClassVar[ExileConfigurationType]
+    EXILE_CONFIGURATION_TYPE_LATITUDE_LIQUID: _ClassVar[ExileConfigurationType]
 EXILE_CONFIGURATION_TYPE_UNSPECIFIED: ExileConfigurationType
 EXILE_CONFIGURATION_TYPE_NONE: ExileConfigurationType
 EXILE_CONFIGURATION_TYPE_ARTIVA_HCX: ExileConfigurationType
 EXILE_CONFIGURATION_TYPE_ARTIVA_RM: ExileConfigurationType
 EXILE_CONFIGURATION_TYPE_FACS: ExileConfigurationType
 EXILE_CONFIGURATION_TYPE_VELOSIDY: ExileConfigurationType
+EXILE_CONFIGURATION_TYPE_LATITUDE_CLASSIC: ExileConfigurationType
+EXILE_CONFIGURATION_TYPE_LATITUDE_LIQUID: ExileConfigurationType
 
 class ExileCertificate(_message.Message):
     __slots__ = ("exile_certificate_id", "org_id", "name", "description", "hash", "expiration_date", "creation_date", "request_by", "revoked", "exile_configuration_id", "renewal_instance")
