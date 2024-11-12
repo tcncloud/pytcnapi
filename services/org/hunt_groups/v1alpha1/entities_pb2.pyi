@@ -284,3 +284,24 @@ class AdminListHuntGroupsResponse(_message.Message):
     HUNT_GROUPS_FIELD_NUMBER: _ClassVar[int]
     hunt_groups: _containers.RepeatedCompositeFieldContainer[AdminListHuntGroupsResponse.HuntGroup]
     def __init__(self, hunt_groups: _Optional[_Iterable[_Union[AdminListHuntGroupsResponse.HuntGroup, _Mapping]]] = ...) -> None: ...
+
+class ListAgentScriptsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAgentScriptsResponse(_message.Message):
+    __slots__ = ("scripts",)
+    class Script(_message.Message):
+        __slots__ = ("script", "hunt_group_sids", "outbound_broadcast_template_sids", "inbound_broadcast_template_sids")
+        SCRIPT_FIELD_NUMBER: _ClassVar[int]
+        HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+        OUTBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
+        INBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
+        script: _huntgroup_pb2.HuntGroupScript
+        hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
+        outbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
+        inbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
+        def __init__(self, script: _Optional[_Union[_huntgroup_pb2.HuntGroupScript, _Mapping]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., outbound_broadcast_template_sids: _Optional[_Iterable[int]] = ..., inbound_broadcast_template_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+    SCRIPTS_FIELD_NUMBER: _ClassVar[int]
+    scripts: _containers.RepeatedCompositeFieldContainer[ListAgentScriptsResponse.Script]
+    def __init__(self, scripts: _Optional[_Iterable[_Union[ListAgentScriptsResponse.Script, _Mapping]]] = ...) -> None: ...

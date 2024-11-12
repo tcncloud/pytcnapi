@@ -63,6 +63,11 @@ class HuntGroupsServiceStub(object):
                 request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsRequest.SerializeToString,
                 response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsResponse.FromString,
                 )
+        self.ListAgentScripts = channel.unary_stream(
+                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListAgentScripts',
+                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsRequest.SerializeToString,
+                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsResponse.FromString,
+                )
 
 
 class HuntGroupsServiceServicer(object):
@@ -153,6 +158,13 @@ class HuntGroupsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAgentScripts(self, request, context):
+        """ListAgentScripts returns a list of agent scripts for the given organization.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_HuntGroupsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -200,6 +212,11 @@ def add_HuntGroupsServiceServicer_to_server(servicer, server):
                     servicer.AdminListHuntGroups,
                     request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsRequest.FromString,
                     response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsResponse.SerializeToString,
+            ),
+            'ListAgentScripts': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListAgentScripts,
+                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsRequest.FromString,
+                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -365,5 +382,22 @@ class HuntGroupsService(object):
         return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/AdminListHuntGroups',
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsRequest.SerializeToString,
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.AdminListHuntGroupsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAgentScripts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListAgentScripts',
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsRequest.SerializeToString,
+            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
