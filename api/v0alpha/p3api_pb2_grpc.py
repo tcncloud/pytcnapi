@@ -509,6 +509,11 @@ class P3ApiStub(object):
                 request_serializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeRes.FromString,
                 )
+        self.ListDistinctPauseCodes = channel.unary_unary(
+                '/api.v0alpha.P3Api/ListDistinctPauseCodes',
+                request_serializer=api_dot_v0alpha_dot_p3api__pb2.ListDistinctPauseCodesRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_p3api__pb2.ListDistinctPauseCodesResponse.FromString,
+                )
 
 
 class P3ApiServicer(object):
@@ -1338,6 +1343,17 @@ class P3ApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListDistinctPauseCodes(self, request, context):
+        """Retrieves the pause codes from all the sets of the org sending the request.
+        Duplicates codes between sets will be removed and only one copy kept.
+        Resulting pause codes will be sorted alphabetically in ascending order.
+        Errors:
+        - grpc.Internal: error occurs when getting the pause codes.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_P3ApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1835,6 +1851,11 @@ def add_P3ApiServicer_to_server(servicer, server):
                     servicer.GetMailMerge,
                     request_deserializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_p3api__pb2.GetMailMergeRes.SerializeToString,
+            ),
+            'ListDistinctPauseCodes': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListDistinctPauseCodes,
+                    request_deserializer=api_dot_v0alpha_dot_p3api__pb2.ListDistinctPauseCodesRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_p3api__pb2.ListDistinctPauseCodesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -3526,5 +3547,22 @@ class P3Api(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.P3Api/GetMailMerge',
             api_dot_v0alpha_dot_p3api__pb2.GetMailMergeReq.SerializeToString,
             api_dot_v0alpha_dot_p3api__pb2.GetMailMergeRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListDistinctPauseCodes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.P3Api/ListDistinctPauseCodes',
+            api_dot_v0alpha_dot_p3api__pb2.ListDistinctPauseCodesRequest.SerializeToString,
+            api_dot_v0alpha_dot_p3api__pb2.ListDistinctPauseCodesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

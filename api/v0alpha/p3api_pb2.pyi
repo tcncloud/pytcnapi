@@ -3126,3 +3126,13 @@ class GetMailMergeRes(_message.Message):
     journey_retrieved_data: _containers.ScalarMap[str, str]
     integration_data: _containers.ScalarMap[str, str]
     def __init__(self, agent_info: _Optional[_Mapping[str, str]] = ..., custom_data: _Optional[_Mapping[str, str]] = ..., data_collect: _Optional[_Mapping[str, str]] = ..., data_dip: _Optional[_Mapping[str, str]] = ..., ivr: _Optional[_Mapping[str, str]] = ..., scheduled_call: _Optional[_Mapping[str, str]] = ..., tts: _Optional[_Mapping[str, str]] = ..., zip_phone_metadata: _Optional[_Mapping[str, str]] = ..., journey_retrieved_data: _Optional[_Mapping[str, str]] = ..., integration_data: _Optional[_Mapping[str, str]] = ...) -> None: ...
+
+class ListDistinctPauseCodesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListDistinctPauseCodesResponse(_message.Message):
+    __slots__ = ("pause_codes",)
+    PAUSE_CODES_FIELD_NUMBER: _ClassVar[int]
+    pause_codes: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, pause_codes: _Optional[_Iterable[str]] = ...) -> None: ...
