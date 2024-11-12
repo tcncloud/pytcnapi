@@ -1260,18 +1260,20 @@ class ListNonSkillActivityAssociationsRes(_message.Message):
     def __init__(self, non_skill_activity_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class SchedulingActivity(_message.Message):
-    __slots__ = ("scheduling_activity_sid", "is_skill_activity", "activity_sid", "member_non_skill_activity", "activity_classification")
+    __slots__ = ("scheduling_activity_sid", "is_skill_activity", "activity_sid", "member_non_skill_activity", "activity_classification", "pause_codes")
     SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     IS_SKILL_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_NON_SKILL_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     ACTIVITY_CLASSIFICATION_FIELD_NUMBER: _ClassVar[int]
+    PAUSE_CODES_FIELD_NUMBER: _ClassVar[int]
     scheduling_activity_sid: int
     is_skill_activity: bool
     activity_sid: _wrappers_pb2.Int64Value
     member_non_skill_activity: NonSkillActivity
     activity_classification: _wfm_pb2.SchedulingActivityClassification
-    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., is_skill_activity: bool = ..., activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., member_non_skill_activity: _Optional[_Union[NonSkillActivity, _Mapping]] = ..., activity_classification: _Optional[_Union[_wfm_pb2.SchedulingActivityClassification, str]] = ...) -> None: ...
+    pause_codes: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., is_skill_activity: bool = ..., activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., member_non_skill_activity: _Optional[_Union[NonSkillActivity, _Mapping]] = ..., activity_classification: _Optional[_Union[_wfm_pb2.SchedulingActivityClassification, str]] = ..., pause_codes: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ListCandidateSchedulingActivitiesReq(_message.Message):
     __slots__ = ("parent_of_rule", "schedule_scenario_sid")
@@ -1282,6 +1284,16 @@ class ListCandidateSchedulingActivitiesReq(_message.Message):
     def __init__(self, parent_of_rule: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
 
 class ListCandidateSchedulingActivitiesRes(_message.Message):
+    __slots__ = ("scheduling_activities",)
+    SCHEDULING_ACTIVITIES_FIELD_NUMBER: _ClassVar[int]
+    scheduling_activities: _containers.RepeatedCompositeFieldContainer[SchedulingActivity]
+    def __init__(self, scheduling_activities: _Optional[_Iterable[_Union[SchedulingActivity, _Mapping]]] = ...) -> None: ...
+
+class ListSchedulingActivitiesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListSchedulingActivitiesResponse(_message.Message):
     __slots__ = ("scheduling_activities",)
     SCHEDULING_ACTIVITIES_FIELD_NUMBER: _ClassVar[int]
     scheduling_activities: _containers.RepeatedCompositeFieldContainer[SchedulingActivity]

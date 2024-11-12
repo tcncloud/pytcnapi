@@ -335,6 +335,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListCandidateSchedulingActivitiesReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListCandidateSchedulingActivitiesRes.FromString,
                 )
+        self.ListSchedulingActivities = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListSchedulingActivities',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSchedulingActivitiesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSchedulingActivitiesResponse.FromString,
+                )
         self.GetOnCallSchedulingActivity = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/GetOnCallSchedulingActivity',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.SerializeToString,
@@ -1878,6 +1883,16 @@ class WFMServicer(object):
         - grpc.Invalid: the @parent_of_rule is invalid.
         - grpc.NotFound: @parent_of_rule doesn't exist
         - grpc.Internal: error occurs when applying inheritance or getting the nodes from @parent_of_rule.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListSchedulingActivities(self, request, context):
+        """Lists all the scheduling activities for the org making the request.
+        Their member non skill activities and pause codes will always be included.
+        Errors:
+        - grpc.Internal: error occurs when getting the activities or its members.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4084,6 +4099,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListCandidateSchedulingActivitiesReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListCandidateSchedulingActivitiesRes.SerializeToString,
             ),
+            'ListSchedulingActivities': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListSchedulingActivities,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSchedulingActivitiesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSchedulingActivitiesResponse.SerializeToString,
+            ),
             'GetOnCallSchedulingActivity': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOnCallSchedulingActivity,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.FromString,
@@ -5920,6 +5940,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListCandidateSchedulingActivities',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListCandidateSchedulingActivitiesReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListCandidateSchedulingActivitiesRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListSchedulingActivities(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListSchedulingActivities',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSchedulingActivitiesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListSchedulingActivitiesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
