@@ -185,6 +185,7 @@ class OmniConversationMetadataName(int, metaclass=_enum_type_wrapper.EnumTypeWra
     HANDLE_TIME: _ClassVar[OmniConversationMetadataName]
     TRANSCRIPT_PATH: _ClassVar[OmniConversationMetadataName]
     OMNI_CONVERSATION_METADATA_NAME_FLOW_DATA: _ClassVar[OmniConversationMetadataName]
+    OMNI_CONVERSATION_METADATA_NAME_VOICE_DATA: _ClassVar[OmniConversationMetadataName]
     OMNI_CONVERSATION_METADATA_NAME_TIMER_WAIT: _ClassVar[OmniConversationMetadataName]
     OMNI_CONVERSATION_METADATA_NAME_TIMER_TALK: _ClassVar[OmniConversationMetadataName]
     OMNI_CONVERSATION_METADATA_NAME_TIMER_TALK_INITIAL_AGENT_RESPONSE: _ClassVar[OmniConversationMetadataName]
@@ -353,6 +354,7 @@ CUSTOMER_WAIT_TIME: OmniConversationMetadataName
 HANDLE_TIME: OmniConversationMetadataName
 TRANSCRIPT_PATH: OmniConversationMetadataName
 OMNI_CONVERSATION_METADATA_NAME_FLOW_DATA: OmniConversationMetadataName
+OMNI_CONVERSATION_METADATA_NAME_VOICE_DATA: OmniConversationMetadataName
 OMNI_CONVERSATION_METADATA_NAME_TIMER_WAIT: OmniConversationMetadataName
 OMNI_CONVERSATION_METADATA_NAME_TIMER_TALK: OmniConversationMetadataName
 OMNI_CONVERSATION_METADATA_NAME_TIMER_TALK_INITIAL_AGENT_RESPONSE: OmniConversationMetadataName
