@@ -2737,12 +2737,18 @@ class PollBuildInProgressRequest(_message.Message):
     def __init__(self, draft_schedule_sid: _Optional[int] = ...) -> None: ...
 
 class PollBuildInProgressResponse(_message.Message):
-    __slots__ = ("build_start_datetime", "build_in_progress")
+    __slots__ = ("build_start_datetime", "build_in_progress", "build_end_datetime", "build_status", "diagnostics")
     BUILD_START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     BUILD_IN_PROGRESS_FIELD_NUMBER: _ClassVar[int]
+    BUILD_END_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    BUILD_STATUS_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
     build_start_datetime: _timestamp_pb2.Timestamp
     build_in_progress: bool
-    def __init__(self, build_start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., build_in_progress: bool = ...) -> None: ...
+    build_end_datetime: _timestamp_pb2.Timestamp
+    build_status: _wfm_pb2.BuildDraftStatus
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, build_start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., build_in_progress: bool = ..., build_end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., build_status: _Optional[_Union[_wfm_pb2.BuildDraftStatus, str]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class CancelBuildInProgressRequest(_message.Message):
     __slots__ = ("draft_schedule_sid",)
@@ -2751,8 +2757,10 @@ class CancelBuildInProgressRequest(_message.Message):
     def __init__(self, draft_schedule_sid: _Optional[int] = ...) -> None: ...
 
 class CancelBuildInProgressResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("canceled_build",)
+    CANCELED_BUILD_FIELD_NUMBER: _ClassVar[int]
+    canceled_build: bool
+    def __init__(self, canceled_build: bool = ...) -> None: ...
 
 class PublishDraftScheduleReq(_message.Message):
     __slots__ = ("draft_schedule_sid", "node_selector", "datetime_range", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "ignore_diagnostics_errors")

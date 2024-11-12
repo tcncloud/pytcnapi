@@ -2597,7 +2597,12 @@ class WFMServicer(object):
 
     def PollBuildInProgress(self, request, context):
         """Polls the scheduler to check if there is currently a build in progress for the given @draft_schedule_sid.
-        If there is a build in progress @build_in_progress will be true and the @build_start_datetime will be set with the time that the build process started.
+        If there is a build in progress @build_in_progress will be true.
+        As long as there has been a build started for the given @draft_schedule_sid, @build_start_datetime will be set with the time that the build process started.
+        If a build has been completed for the draft, @build_end_datetime will be set with the time that the build ended, otherwise it will be None.
+        The @build_status gives the status of the most recent build for the draft.
+        The @diagnostics will be set with any diagnostics encountered during the most recent build.
+        Any errors encountered during the build process will be returned as INTERNAL_ERROR diagnostics.
         Errors:
         - grpc.Invalid: the @draft_schedule_sid is invalid.
         - grpc.NotFound: the @draft_schedule_sid does not exist for the org sending the request.
@@ -2609,9 +2614,9 @@ class WFMServicer(object):
 
     def CancelBuildInProgress(self, request, context):
         """Cancels the build in progress for the given @draft_schedule_sid.
+        If there was a build to cancel, @canceled_build will be returned as true, otherwise it will be false.
         Errors:
         - grpc.Invalid: the @draft_schedule_sid is invalid.
-        - grpc.NotFound: there is no build in progress to be cancelled for the org sending the request.
         - grpc.Internal: error when cancelling the build or updating the build in progress table.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)

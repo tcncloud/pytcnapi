@@ -212,6 +212,14 @@ class SchedulingTargetType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     COVERAGE: _ClassVar[SchedulingTargetType]
     SERVICE_LEVEL: _ClassVar[SchedulingTargetType]
 
+class BuildDraftStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    NO_BUILD: _ClassVar[BuildDraftStatus]
+    IN_PROGRESS: _ClassVar[BuildDraftStatus]
+    SUCCEEDED: _ClassVar[BuildDraftStatus]
+    FAILED: _ClassVar[BuildDraftStatus]
+    CANCELED: _ClassVar[BuildDraftStatus]
+
 class BitmapType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
     COMPLETE: _ClassVar[BitmapType]
@@ -465,6 +473,11 @@ DRAFT: ScheduleType
 PUBLISHED: ScheduleType
 COVERAGE: SchedulingTargetType
 SERVICE_LEVEL: SchedulingTargetType
+NO_BUILD: BuildDraftStatus
+IN_PROGRESS: BuildDraftStatus
+SUCCEEDED: BuildDraftStatus
+FAILED: BuildDraftStatus
+CANCELED: BuildDraftStatus
 COMPLETE: BitmapType
 ONLY_WEEKMAPS: BitmapType
 ONLY_CALENDAR_ITEMS: BitmapType
