@@ -50,30 +50,38 @@ DATASOURCE_TYPE_VFS: DatasourceType
 DATASOURCE_TYPE_CLICKHOUSE: DatasourceType
 
 class SchemaField(_message.Message):
-    __slots__ = ("name", "column_type", "is_primary_key", "is_low_cardinality", "column_description")
+    __slots__ = ("name", "column_type", "is_primary_key", "is_low_cardinality", "column_description", "is_time_filter", "is_default_time_filter")
     NAME_FIELD_NUMBER: _ClassVar[int]
     COLUMN_TYPE_FIELD_NUMBER: _ClassVar[int]
     IS_PRIMARY_KEY_FIELD_NUMBER: _ClassVar[int]
     IS_LOW_CARDINALITY_FIELD_NUMBER: _ClassVar[int]
     COLUMN_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    IS_TIME_FILTER_FIELD_NUMBER: _ClassVar[int]
+    IS_DEFAULT_TIME_FILTER_FIELD_NUMBER: _ClassVar[int]
     name: str
     column_type: SchemaType
     is_primary_key: bool
     is_low_cardinality: bool
     column_description: str
-    def __init__(self, name: _Optional[str] = ..., column_type: _Optional[_Union[SchemaType, str]] = ..., is_primary_key: bool = ..., is_low_cardinality: bool = ..., column_description: _Optional[str] = ...) -> None: ...
+    is_time_filter: bool
+    is_default_time_filter: bool
+    def __init__(self, name: _Optional[str] = ..., column_type: _Optional[_Union[SchemaType, str]] = ..., is_primary_key: bool = ..., is_low_cardinality: bool = ..., column_description: _Optional[str] = ..., is_time_filter: bool = ..., is_default_time_filter: bool = ...) -> None: ...
 
 class Schema(_message.Message):
-    __slots__ = ("name", "datasource_type", "fields", "table_description")
+    __slots__ = ("name", "datasource_type", "fields", "table_description", "category", "sub_category")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     TABLE_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    SUB_CATEGORY_FIELD_NUMBER: _ClassVar[int]
     name: str
     datasource_type: DatasourceType
     fields: _containers.RepeatedCompositeFieldContainer[SchemaField]
     table_description: str
-    def __init__(self, name: _Optional[str] = ..., datasource_type: _Optional[_Union[DatasourceType, str]] = ..., fields: _Optional[_Iterable[_Union[SchemaField, _Mapping]]] = ..., table_description: _Optional[str] = ...) -> None: ...
+    category: str
+    sub_category: str
+    def __init__(self, name: _Optional[str] = ..., datasource_type: _Optional[_Union[DatasourceType, str]] = ..., fields: _Optional[_Iterable[_Union[SchemaField, _Mapping]]] = ..., table_description: _Optional[str] = ..., category: _Optional[str] = ..., sub_category: _Optional[str] = ...) -> None: ...
 
 class Parameters(_message.Message):
     __slots__ = ("parameters",)
