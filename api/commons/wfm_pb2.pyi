@@ -822,24 +822,6 @@ class AgentStateSequence(_message.Message):
     state_segments: _containers.RepeatedCompositeFieldContainer[AgentStateSegment]
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ...) -> None: ...
 
-class AdherenceAgentState(_message.Message):
-    __slots__ = ("wfm_agent_sid", "start_datetime", "adm_states", "pause_code")
-    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
-    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
-    ADM_STATES_FIELD_NUMBER: _ClassVar[int]
-    PAUSE_CODE_FIELD_NUMBER: _ClassVar[int]
-    wfm_agent_sid: int
-    start_datetime: _timestamp_pb2.Timestamp
-    adm_states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
-    pause_code: str
-    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., adm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., pause_code: _Optional[str] = ...) -> None: ...
-
-class AdherenceAgentStates(_message.Message):
-    __slots__ = ("agent_states",)
-    AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
-    agent_states: _containers.RepeatedCompositeFieldContainer[AdherenceAgentState]
-    def __init__(self, agent_states: _Optional[_Iterable[_Union[AdherenceAgentState, _Mapping]]] = ...) -> None: ...
-
 class AgentLeavePetition(_message.Message):
     __slots__ = ("agent_leave_petition_id", "wfm_agent_sid", "petition_status", "petition_comment", "response_comment", "requested_datetime_ranges", "created_time", "archived_time", "resolved_time", "resolved_by_user_id", "requested_hours_off")
     AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]

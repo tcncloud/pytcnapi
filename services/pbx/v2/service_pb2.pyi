@@ -82,18 +82,6 @@ class ListSIPAccountsResponse(_message.Message):
     sip_accounts: _containers.RepeatedCompositeFieldContainer[SIPAccount]
     def __init__(self, sip_accounts: _Optional[_Iterable[_Union[SIPAccount, _Mapping]]] = ...) -> None: ...
 
-class ListSIPAccountsByRingGroupIdRequest(_message.Message):
-    __slots__ = ("ring_group_id",)
-    RING_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
-    ring_group_id: str
-    def __init__(self, ring_group_id: _Optional[str] = ...) -> None: ...
-
-class ListSIPAccountsByRingGroupIdResponse(_message.Message):
-    __slots__ = ("sip_accounts",)
-    SIP_ACCOUNTS_FIELD_NUMBER: _ClassVar[int]
-    sip_accounts: _containers.RepeatedCompositeFieldContainer[SIPAccount]
-    def __init__(self, sip_accounts: _Optional[_Iterable[_Union[SIPAccount, _Mapping]]] = ...) -> None: ...
-
 class GetSIPAccountByUserIdRequest(_message.Message):
     __slots__ = ("org_user_id",)
     ORG_USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -135,18 +123,6 @@ class ListRingGroupsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListRingGroupsResponse(_message.Message):
-    __slots__ = ("groups",)
-    GROUPS_FIELD_NUMBER: _ClassVar[int]
-    groups: _containers.RepeatedCompositeFieldContainer[RingGroup]
-    def __init__(self, groups: _Optional[_Iterable[_Union[RingGroup, _Mapping]]] = ...) -> None: ...
-
-class ListRingGroupsBySipIdRequest(_message.Message):
-    __slots__ = ("sip_account_id",)
-    SIP_ACCOUNT_ID_FIELD_NUMBER: _ClassVar[int]
-    sip_account_id: str
-    def __init__(self, sip_account_id: _Optional[str] = ...) -> None: ...
-
-class ListRingGroupsBySipIdResponse(_message.Message):
     __slots__ = ("groups",)
     GROUPS_FIELD_NUMBER: _ClassVar[int]
     groups: _containers.RepeatedCompositeFieldContainer[RingGroup]
