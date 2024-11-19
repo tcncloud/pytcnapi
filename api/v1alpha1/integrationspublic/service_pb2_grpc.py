@@ -49,6 +49,11 @@ class IntegrationsPublicStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowRes.FromString,
                 )
+        self.GetLinkDetails = channel.unary_unary(
+                '/api.v1alpha1.integrationspublic.IntegrationsPublic/GetLinkDetails',
+                request_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetLinkDetailsReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetLinkDetailsRes.FromString,
+                )
 
 
 class IntegrationsPublicServicer(object):
@@ -96,6 +101,12 @@ class IntegrationsPublicServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetLinkDetails(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IntegrationsPublicServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -133,6 +144,11 @@ def add_IntegrationsPublicServicer_to_server(servicer, server):
                     servicer.ProcessWorkflow,
                     request_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowRes.SerializeToString,
+            ),
+            'GetLinkDetails': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetLinkDetails,
+                    request_deserializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetLinkDetailsReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetLinkDetailsRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -260,5 +276,22 @@ class IntegrationsPublic(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrationspublic.IntegrationsPublic/ProcessWorkflow',
             api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowReq.SerializeToString,
             api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.ProcessWorkflowRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetLinkDetails(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrationspublic.IntegrationsPublic/GetLinkDetails',
+            api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetLinkDetailsReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrationspublic_dot_service__pb2.GetLinkDetailsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -1,4 +1,5 @@
 from api.commons.integrations import integrations_pb2 as _integrations_pb2
+from api.v1alpha1.integrations import portals_pb2 as _portals_pb2
 from api.v1alpha1.integrations import service_pb2 as _service_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -332,3 +333,23 @@ class ProcessWorkflowRes(_message.Message):
     success: bool
     data: _containers.MessageMap[str, Value]
     def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, Value]] = ...) -> None: ...
+
+class GetLinkDetailsReq(_message.Message):
+    __slots__ = ("entity",)
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: PortalLinkId
+    def __init__(self, entity: _Optional[_Union[PortalLinkId, _Mapping]] = ...) -> None: ...
+
+class GetLinkDetailsRes(_message.Message):
+    __slots__ = ("portal", "portal_config", "expired", "completed", "portal_definition")
+    PORTAL_FIELD_NUMBER: _ClassVar[int]
+    PORTAL_CONFIG_FIELD_NUMBER: _ClassVar[int]
+    EXPIRED_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_FIELD_NUMBER: _ClassVar[int]
+    PORTAL_DEFINITION_FIELD_NUMBER: _ClassVar[int]
+    portal: _service_pb2.Portal
+    portal_config: PortalConfig
+    expired: bool
+    completed: bool
+    portal_definition: _portals_pb2.PortalDefinition
+    def __init__(self, portal: _Optional[_Union[_service_pb2.Portal, _Mapping]] = ..., portal_config: _Optional[_Union[PortalConfig, _Mapping]] = ..., expired: bool = ..., completed: bool = ..., portal_definition: _Optional[_Union[_portals_pb2.PortalDefinition, _Mapping]] = ...) -> None: ...
