@@ -68,31 +68,6 @@ class HuntGroupsServiceStub(object):
                 request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsRequest.SerializeToString,
                 response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsResponse.FromString,
                 )
-        self.CreateAgentClientInfoDisplayTemplate = channel.unary_unary(
-                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CreateAgentClientInfoDisplayTemplate',
-                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CreateAgentClientInfoDisplayTemplateRequest.SerializeToString,
-                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CreateAgentClientInfoDisplayTemplateResponse.FromString,
-                )
-        self.UpdateAgentClientInfoDisplayTemplate = channel.unary_unary(
-                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateAgentClientInfoDisplayTemplate',
-                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateAgentClientInfoDisplayTemplateRequest.SerializeToString,
-                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateAgentClientInfoDisplayTemplateResponse.FromString,
-                )
-        self.GetAgentClientInfoDisplayTemplate = channel.unary_unary(
-                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/GetAgentClientInfoDisplayTemplate',
-                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.GetAgentClientInfoDisplayTemplateRequest.SerializeToString,
-                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.GetAgentClientInfoDisplayTemplateResponse.FromString,
-                )
-        self.ListAgentClientInfoDisplayTemplates = channel.unary_unary(
-                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListAgentClientInfoDisplayTemplates',
-                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentClientInfoDisplayTemplatesRequest.SerializeToString,
-                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentClientInfoDisplayTemplatesResponse.FromString,
-                )
-        self.DeleteAgentClientInfoDisplayTemplate = channel.unary_unary(
-                '/services.org.hunt_groups.v1alpha1.HuntGroupsService/DeleteAgentClientInfoDisplayTemplate',
-                request_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.DeleteAgentClientInfoDisplayTemplateRequest.SerializeToString,
-                response_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.DeleteAgentClientInfoDisplayTemplateResponse.FromString,
-                )
 
 
 class HuntGroupsServiceServicer(object):
@@ -190,41 +165,6 @@ class HuntGroupsServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def CreateAgentClientInfoDisplayTemplate(self, request, context):
-        """CreateAgentClientInfoDisplayTemplate persists the given template.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def UpdateAgentClientInfoDisplayTemplate(self, request, context):
-        """UpdateAgentClientInfoDisplayTemplate persists changes to the given template.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetAgentClientInfoDisplayTemplate(self, request, context):
-        """GetAgentClientInfoDisplayTemplate returns requested template.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListAgentClientInfoDisplayTemplates(self, request, context):
-        """ListAgentClientInfoDisplayTemplates returns org related templates.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def DeleteAgentClientInfoDisplayTemplate(self, request, context):
-        """DeleteAgentClientInfoDisplayTemplate removes the requested template.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_HuntGroupsServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -277,31 +217,6 @@ def add_HuntGroupsServiceServicer_to_server(servicer, server):
                     servicer.ListAgentScripts,
                     request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsRequest.FromString,
                     response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsResponse.SerializeToString,
-            ),
-            'CreateAgentClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
-                    servicer.CreateAgentClientInfoDisplayTemplate,
-                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CreateAgentClientInfoDisplayTemplateRequest.FromString,
-                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CreateAgentClientInfoDisplayTemplateResponse.SerializeToString,
-            ),
-            'UpdateAgentClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateAgentClientInfoDisplayTemplate,
-                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateAgentClientInfoDisplayTemplateRequest.FromString,
-                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateAgentClientInfoDisplayTemplateResponse.SerializeToString,
-            ),
-            'GetAgentClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetAgentClientInfoDisplayTemplate,
-                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.GetAgentClientInfoDisplayTemplateRequest.FromString,
-                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.GetAgentClientInfoDisplayTemplateResponse.SerializeToString,
-            ),
-            'ListAgentClientInfoDisplayTemplates': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListAgentClientInfoDisplayTemplates,
-                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentClientInfoDisplayTemplatesRequest.FromString,
-                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentClientInfoDisplayTemplatesResponse.SerializeToString,
-            ),
-            'DeleteAgentClientInfoDisplayTemplate': grpc.unary_unary_rpc_method_handler(
-                    servicer.DeleteAgentClientInfoDisplayTemplate,
-                    request_deserializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.DeleteAgentClientInfoDisplayTemplateRequest.FromString,
-                    response_serializer=services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.DeleteAgentClientInfoDisplayTemplateResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -484,90 +399,5 @@ class HuntGroupsService(object):
         return grpc.experimental.unary_stream(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListAgentScripts',
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsRequest.SerializeToString,
             services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentScriptsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def CreateAgentClientInfoDisplayTemplate(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/CreateAgentClientInfoDisplayTemplate',
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CreateAgentClientInfoDisplayTemplateRequest.SerializeToString,
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.CreateAgentClientInfoDisplayTemplateResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def UpdateAgentClientInfoDisplayTemplate(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/UpdateAgentClientInfoDisplayTemplate',
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateAgentClientInfoDisplayTemplateRequest.SerializeToString,
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.UpdateAgentClientInfoDisplayTemplateResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetAgentClientInfoDisplayTemplate(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/GetAgentClientInfoDisplayTemplate',
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.GetAgentClientInfoDisplayTemplateRequest.SerializeToString,
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.GetAgentClientInfoDisplayTemplateResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListAgentClientInfoDisplayTemplates(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/ListAgentClientInfoDisplayTemplates',
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentClientInfoDisplayTemplatesRequest.SerializeToString,
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.ListAgentClientInfoDisplayTemplatesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def DeleteAgentClientInfoDisplayTemplate(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.org.hunt_groups.v1alpha1.HuntGroupsService/DeleteAgentClientInfoDisplayTemplate',
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.DeleteAgentClientInfoDisplayTemplateRequest.SerializeToString,
-            services_dot_org_dot_hunt__groups_dot_v1alpha1_dot_entities__pb2.DeleteAgentClientInfoDisplayTemplateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

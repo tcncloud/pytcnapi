@@ -29,11 +29,6 @@ class PBXServiceStub(object):
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsRequest.SerializeToString,
                 response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsResponse.FromString,
                 )
-        self.ListRingGroupsBySipId = channel.unary_unary(
-                '/services.pbx.v2.PBXService/ListRingGroupsBySipId',
-                request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsBySipIdRequest.SerializeToString,
-                response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsBySipIdResponse.FromString,
-                )
         self.GetRingGroup = channel.unary_unary(
                 '/services.pbx.v2.PBXService/GetRingGroup',
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupRequest.SerializeToString,
@@ -53,11 +48,6 @@ class PBXServiceStub(object):
                 '/services.pbx.v2.PBXService/ListSIPAccounts',
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.SerializeToString,
                 response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsResponse.FromString,
-                )
-        self.ListSIPAccountsByRingGroupId = channel.unary_unary(
-                '/services.pbx.v2.PBXService/ListSIPAccountsByRingGroupId',
-                request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsByRingGroupIdRequest.SerializeToString,
-                response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsByRingGroupIdResponse.FromString,
                 )
         self.UpdateSIPAccount = channel.unary_unary(
                 '/services.pbx.v2.PBXService/UpdateSIPAccount',
@@ -130,21 +120,6 @@ class PBXServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListRingGroupsBySipId(self, request, context):
-        """Returns details of all Ring Groups associated with a specific sip account
-        Required permissions:
-        PBX-MANAGER
-        Errors:
-        - grpc.InvalidArgument: The request is invalid.
-        - grpc.PermissionDenied: Caller doesn't have the required permissions.
-        - grpc.Internal: An internal error occurred.
-        - grpc.NotFound: The sip account does not exist or is not in the caller's ORG.
-        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetRingGroup(self, request, context):
         """Returns details of the Ring Group associated with the ring_group_id
         Required permissions:
@@ -196,21 +171,6 @@ class PBXServiceServicer(object):
         PBX-MANAGER
         Errors:
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
-        - grpc.Internal: An internal error occurred.
-        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def ListSIPAccountsByRingGroupId(self, request, context):
-        """Returns details of all SIP Accounts associated with a specific ring group
-        Required permissions:
-        PBX-MANAGER
-        Errors:
-        - grpc.InvalidArgument: The request is invalid.
-        - grpc.PermissionDenied: Caller doesn't have the required permissions.
-        - grpc.NotFound: The group does not exist or is not in the caller's ORG.
         - grpc.Internal: An internal error occurred.
         - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
@@ -315,11 +275,6 @@ def add_PBXServiceServicer_to_server(servicer, server):
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsRequest.FromString,
                     response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsResponse.SerializeToString,
             ),
-            'ListRingGroupsBySipId': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListRingGroupsBySipId,
-                    request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsBySipIdRequest.FromString,
-                    response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsBySipIdResponse.SerializeToString,
-            ),
             'GetRingGroup': grpc.unary_unary_rpc_method_handler(
                     servicer.GetRingGroup,
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetRingGroupRequest.FromString,
@@ -339,11 +294,6 @@ def add_PBXServiceServicer_to_server(servicer, server):
                     servicer.ListSIPAccounts,
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.FromString,
                     response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsResponse.SerializeToString,
-            ),
-            'ListSIPAccountsByRingGroupId': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListSIPAccountsByRingGroupId,
-                    request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsByRingGroupIdRequest.FromString,
-                    response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsByRingGroupIdResponse.SerializeToString,
             ),
             'UpdateSIPAccount': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateSIPAccount,
@@ -432,23 +382,6 @@ class PBXService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ListRingGroupsBySipId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/ListRingGroupsBySipId',
-            services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsBySipIdRequest.SerializeToString,
-            services_dot_pbx_dot_v2_dot_service__pb2.ListRingGroupsBySipIdResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetRingGroup(request,
             target,
             options=(),
@@ -513,23 +446,6 @@ class PBXService(object):
         return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/ListSIPAccounts',
             services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.SerializeToString,
             services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListSIPAccountsByRingGroupId(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/ListSIPAccountsByRingGroupId',
-            services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsByRingGroupIdRequest.SerializeToString,
-            services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsByRingGroupIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

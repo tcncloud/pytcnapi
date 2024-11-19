@@ -935,11 +935,6 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.FromString,
                 )
-        self.ListAdherenceAgentStates = channel.unary_unary(
-                '/api.v1alpha1.wfm.WFM/ListAdherenceAgentStates',
-                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesRequest.SerializeToString,
-                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesResponse.FromString,
-                )
         self.UpsertRealTimeManagementStateColor = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/UpsertRealTimeManagementStateColor',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorRequest.SerializeToString,
@@ -3441,19 +3436,6 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def ListAdherenceAgentStates(self, request, context):
-        """Gets the agent states for the given @wfm_agent_sids from the given @start_datetime to the @end_datetime
-        or the current time if not set (start time not inclusive, end time inclusive).
-        Agent states will be grouped by wfm_agent_sid and ordered by date in ascending order.
-        If zero states are found for a given agent, it will not be included in the resulting map.
-        Errors:
-        - grpc.Invalid: arguments in the request are invalid.
-        - grpc.Internal: error occurs when getting the states.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def UpsertRealTimeManagementStateColor(self, request, context):
         """Sets the given @state to be associated with the given @rgba_color_id for the org sending the request.
         Errors:
@@ -4712,11 +4694,6 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListRealTimeManagementStates,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.SerializeToString,
-            ),
-            'ListAdherenceAgentStates': grpc.unary_unary_rpc_method_handler(
-                    servicer.ListAdherenceAgentStates,
-                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesRequest.FromString,
-                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesResponse.SerializeToString,
             ),
             'UpsertRealTimeManagementStateColor': grpc.unary_unary_rpc_method_handler(
                     servicer.UpsertRealTimeManagementStateColor,
@@ -7999,23 +7976,6 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListRealTimeManagementStates',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListRealTimeManagementStatesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def ListAdherenceAgentStates(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAdherenceAgentStates',
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesRequest.SerializeToString,
-            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
