@@ -297,7 +297,7 @@ class GetReceiptRes(_message.Message):
     def __init__(self, receipt_id: _Optional[str] = ..., request: _Optional[_Mapping[str, Value]] = ..., response: _Optional[_Mapping[str, Value]] = ..., amount_paid: _Optional[float] = ..., amount_paid_key: _Optional[str] = ..., payment_flow: _Optional[_Union[_integrations_pb2.PaymentFlow, _Mapping]] = ...) -> None: ...
 
 class ProcessWorkflowReq(_message.Message):
-    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params", "request_origin")
+    __slots__ = ("portal_link_id", "portal_id", "segment", "choice", "params", "request_origin", "session_id")
     class ParamsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -311,16 +311,18 @@ class ProcessWorkflowReq(_message.Message):
     CHOICE_FIELD_NUMBER: _ClassVar[int]
     PARAMS_FIELD_NUMBER: _ClassVar[int]
     REQUEST_ORIGIN_FIELD_NUMBER: _ClassVar[int]
+    SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     portal_link_id: str
     portal_id: str
     segment: int
     choice: int
     params: _containers.MessageMap[str, Value]
     request_origin: _integrations_pb2.RequestOrigin
-    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ...) -> None: ...
+    session_id: str
+    def __init__(self, portal_link_id: _Optional[str] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., params: _Optional[_Mapping[str, Value]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ..., session_id: _Optional[str] = ...) -> None: ...
 
 class ProcessWorkflowRes(_message.Message):
-    __slots__ = ("success", "data")
+    __slots__ = ("success", "data", "session_id")
     class DataEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -330,9 +332,11 @@ class ProcessWorkflowRes(_message.Message):
         def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[Value, _Mapping]] = ...) -> None: ...
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     DATA_FIELD_NUMBER: _ClassVar[int]
+    SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     success: bool
     data: _containers.MessageMap[str, Value]
-    def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, Value]] = ...) -> None: ...
+    session_id: str
+    def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, Value]] = ..., session_id: _Optional[str] = ...) -> None: ...
 
 class GetLinkDetailsReq(_message.Message):
     __slots__ = ("entity",)
