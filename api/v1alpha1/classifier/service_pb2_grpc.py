@@ -19,6 +19,16 @@ class ClassifierFileTemplatesStub(object):
                 request_serializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ParseFileRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ParseFileResponse.FromString,
                 )
+        self.ListEvents = channel.unary_unary(
+                '/api.v1alpha1.classifier.ClassifierFileTemplates/ListEvents',
+                request_serializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ListEventsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ListEventsResponse.FromString,
+                )
+        self.PeekList = channel.unary_unary(
+                '/api.v1alpha1.classifier.ClassifierFileTemplates/PeekList',
+                request_serializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.PeekListRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.PeekListResponse.FromString,
+                )
         self.UpdateFileTemplate = channel.unary_unary(
                 '/api.v1alpha1.classifier.ClassifierFileTemplates/UpdateFileTemplate',
                 request_serializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.UpdateFileTemplateRequest.SerializeToString,
@@ -45,6 +55,18 @@ class ClassifierFileTemplatesServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def ParseFile(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListEvents(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def PeekList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -81,6 +103,16 @@ def add_ClassifierFileTemplatesServicer_to_server(servicer, server):
                     servicer.ParseFile,
                     request_deserializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ParseFileRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ParseFileResponse.SerializeToString,
+            ),
+            'ListEvents': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListEvents,
+                    request_deserializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ListEventsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.ListEventsResponse.SerializeToString,
+            ),
+            'PeekList': grpc.unary_unary_rpc_method_handler(
+                    servicer.PeekList,
+                    request_deserializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.PeekListRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_classifier_dot_service__pb2.PeekListResponse.SerializeToString,
             ),
             'UpdateFileTemplate': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateFileTemplate,
@@ -126,6 +158,40 @@ class ClassifierFileTemplates(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.classifier.ClassifierFileTemplates/ParseFile',
             api_dot_v1alpha1_dot_classifier_dot_service__pb2.ParseFileRequest.SerializeToString,
             api_dot_v1alpha1_dot_classifier_dot_service__pb2.ParseFileResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListEvents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.classifier.ClassifierFileTemplates/ListEvents',
+            api_dot_v1alpha1_dot_classifier_dot_service__pb2.ListEventsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_classifier_dot_service__pb2.ListEventsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def PeekList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.classifier.ClassifierFileTemplates/PeekList',
+            api_dot_v1alpha1_dot_classifier_dot_service__pb2.PeekListRequest.SerializeToString,
+            api_dot_v1alpha1_dot_classifier_dot_service__pb2.PeekListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
