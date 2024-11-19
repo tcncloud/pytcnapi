@@ -25,6 +25,16 @@ class ExplorerServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryResponse.FromString,
                 )
+        self.GetSupportQuery = channel.unary_unary(
+                '/api.v1alpha1.explorer.ExplorerService/GetSupportQuery',
+                request_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.SupportQueryRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.SupportQueryResponse.FromString,
+                )
+        self.GetQueryExplain = channel.unary_unary(
+                '/api.v1alpha1.explorer.ExplorerService/GetQueryExplain',
+                request_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainResponse.FromString,
+                )
 
 
 class ExplorerServiceServicer(object):
@@ -45,6 +55,18 @@ class ExplorerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetSupportQuery(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetQueryExplain(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ExplorerServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -57,6 +79,16 @@ def add_ExplorerServiceServicer_to_server(servicer, server):
                     servicer.Query,
                     request_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryResponse.SerializeToString,
+            ),
+            'GetSupportQuery': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSupportQuery,
+                    request_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.SupportQueryRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.SupportQueryResponse.SerializeToString,
+            ),
+            'GetQueryExplain': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetQueryExplain,
+                    request_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -100,5 +132,39 @@ class ExplorerService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.explorer.ExplorerService/Query',
             api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryRequest.SerializeToString,
             api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetSupportQuery(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.explorer.ExplorerService/GetSupportQuery',
+            api_dot_v1alpha1_dot_explorer_dot_service__pb2.SupportQueryRequest.SerializeToString,
+            api_dot_v1alpha1_dot_explorer_dot_service__pb2.SupportQueryResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetQueryExplain(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.explorer.ExplorerService/GetQueryExplain',
+            api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainRequest.SerializeToString,
+            api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

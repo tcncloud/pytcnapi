@@ -58,3 +58,37 @@ class QueryResponse(_message.Message):
     result_url: str
     result_size_bytes: int
     def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ...) -> None: ...
+
+class SupportQueryRequest(_message.Message):
+    __slots__ = ("query_request",)
+    QUERY_REQUEST_FIELD_NUMBER: _ClassVar[int]
+    query_request: QueryRequest
+    def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ...) -> None: ...
+
+class SupportQueryResponse(_message.Message):
+    __slots__ = ("result_url", "result_size_bytes")
+    RESULT_URL_FIELD_NUMBER: _ClassVar[int]
+    RESULT_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
+    result_url: str
+    result_size_bytes: int
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ...) -> None: ...
+
+class QueryExplainRequest(_message.Message):
+    __slots__ = ("query_request",)
+    QUERY_REQUEST_FIELD_NUMBER: _ClassVar[int]
+    query_request: QueryRequest
+    def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ...) -> None: ...
+
+class QueryExplainResponse(_message.Message):
+    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain")
+    RESULT_URL_FIELD_NUMBER: _ClassVar[int]
+    RESULT_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
+    PRQL_FIELD_NUMBER: _ClassVar[int]
+    SQL_FIELD_NUMBER: _ClassVar[int]
+    EXPLAIN_FIELD_NUMBER: _ClassVar[int]
+    result_url: str
+    result_size_bytes: int
+    prql: str
+    sql: str
+    explain: str
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ...) -> None: ...
