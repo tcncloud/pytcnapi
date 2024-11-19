@@ -337,7 +337,7 @@ class Highlight(_message.Message):
     def __init__(self, prefix: _Optional[str] = ..., suffix: _Optional[str] = ...) -> None: ...
 
 class SearchTranscriptsResponse(_message.Message):
-    __slots__ = ("hits", "next_page_token")
+    __slots__ = ("hits", "next_page_token", "total")
     class Hit(_message.Message):
         __slots__ = ("transcript",)
         TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
@@ -345,9 +345,11 @@ class SearchTranscriptsResponse(_message.Message):
         def __init__(self, transcript: _Optional[_Union[Transcript, _Mapping]] = ...) -> None: ...
     HITS_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_FIELD_NUMBER: _ClassVar[int]
     hits: _containers.RepeatedCompositeFieldContainer[SearchTranscriptsResponse.Hit]
     next_page_token: str
-    def __init__(self, hits: _Optional[_Iterable[_Union[SearchTranscriptsResponse.Hit, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
+    total: int
+    def __init__(self, hits: _Optional[_Iterable[_Union[SearchTranscriptsResponse.Hit, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., total: _Optional[int] = ...) -> None: ...
 
 class TranscriptBoolQuery(_message.Message):
     __slots__ = ("transcript",)
