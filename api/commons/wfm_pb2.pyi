@@ -252,6 +252,7 @@ class RealTimeManagementState(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     NOT_READY: _ClassVar[RealTimeManagementState]
     WRAP_UP: _ClassVar[RealTimeManagementState]
     LOGGED_OUT: _ClassVar[RealTimeManagementState]
+    PAUSE: _ClassVar[RealTimeManagementState]
 
 class AgentLeavePetitionStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -499,6 +500,7 @@ READY: RealTimeManagementState
 NOT_READY: RealTimeManagementState
 WRAP_UP: RealTimeManagementState
 LOGGED_OUT: RealTimeManagementState
+PAUSE: RealTimeManagementState
 UNSPECIFIED_PETITION_STATUS: AgentLeavePetitionStatus
 PENDING_PETITION: AgentLeavePetitionStatus
 APPROVED_PETITION: AgentLeavePetitionStatus
