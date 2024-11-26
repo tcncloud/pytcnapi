@@ -32,6 +32,12 @@ class TranscriptSentimentTone(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     TRANSCRIPT_SENTIMENT_TONE_NEGATIVE: _ClassVar[TranscriptSentimentTone]
     TRANSCRIPT_SENTIMENT_TONE_NEUTRAL: _ClassVar[TranscriptSentimentTone]
     TRANSCRIPT_SENTIMENT_TONE_POSITIVE: _ClassVar[TranscriptSentimentTone]
+
+class RecordingType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    RECORDING_TYPE_TCN: _ClassVar[RecordingType]
+    RECORDING_TYPE_EXTERNAL: _ClassVar[RecordingType]
+    RECORDING_TYPE_VOICEMAIL: _ClassVar[RecordingType]
 TODAY: Interval
 YESTERDAY: Interval
 THIS_WEEK: Interval
@@ -52,3 +58,6 @@ TRANSCRIPT_SENTIMENT_TONE_UNKNOWN: TranscriptSentimentTone
 TRANSCRIPT_SENTIMENT_TONE_NEGATIVE: TranscriptSentimentTone
 TRANSCRIPT_SENTIMENT_TONE_NEUTRAL: TranscriptSentimentTone
 TRANSCRIPT_SENTIMENT_TONE_POSITIVE: TranscriptSentimentTone
+RECORDING_TYPE_TCN: RecordingType
+RECORDING_TYPE_EXTERNAL: RecordingType
+RECORDING_TYPE_VOICEMAIL: RecordingType

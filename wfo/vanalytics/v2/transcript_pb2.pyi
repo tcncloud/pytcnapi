@@ -164,7 +164,7 @@ class Sms(_message.Message):
     def __init__(self, conversation_sid: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Sms.Thread, _Mapping]]] = ..., phone: _Optional[_Union[Sms.Phone, _Mapping]] = ..., caller_id: _Optional[str] = ..., campaign_sid: _Optional[int] = ...) -> None: ...
 
 class Call(_message.Message):
-    __slots__ = ("call_sid", "call_type", "audio_time", "threads", "silence", "talk_over", "talk_time", "caller_id", "group_name", "agent_response", "hunt_group_sids", "number_format", "agent_call_log", "phone", "audio_bytes")
+    __slots__ = ("call_sid", "call_type", "audio_time", "threads", "silence", "talk_over", "talk_time", "caller_id", "group_name", "agent_response", "hunt_group_sids", "number_format", "agent_call_log", "phone", "audio_bytes", "recording_type")
     class AgentResponseEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -263,6 +263,7 @@ class Call(_message.Message):
     AGENT_CALL_LOG_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
     AUDIO_BYTES_FIELD_NUMBER: _ClassVar[int]
+    RECORDING_TYPE_FIELD_NUMBER: _ClassVar[int]
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
     audio_time: int
@@ -278,7 +279,8 @@ class Call(_message.Message):
     agent_call_log: _agent_call_log_pb2.AgentCallLog
     phone: Call.Phone
     audio_bytes: int
-    def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ..., silence: _Optional[_Union[Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., caller_id: _Optional[str] = ..., group_name: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, Call.AgentResponse]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., number_format: _Optional[str] = ..., agent_call_log: _Optional[_Union[_agent_call_log_pb2.AgentCallLog, _Mapping]] = ..., phone: _Optional[_Union[Call.Phone, _Mapping]] = ..., audio_bytes: _Optional[int] = ...) -> None: ...
+    recording_type: _vanalytics_pb2.RecordingType
+    def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ..., silence: _Optional[_Union[Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., caller_id: _Optional[str] = ..., group_name: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, Call.AgentResponse]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., number_format: _Optional[str] = ..., agent_call_log: _Optional[_Union[_agent_call_log_pb2.AgentCallLog, _Mapping]] = ..., phone: _Optional[_Union[Call.Phone, _Mapping]] = ..., audio_bytes: _Optional[int] = ..., recording_type: _Optional[_Union[_vanalytics_pb2.RecordingType, str]] = ...) -> None: ...
 
 class Sentiment(_message.Message):
     __slots__ = ("overall", "worst", "dominant", "last", "samples")
@@ -488,7 +490,12 @@ class TranscriptQuery(_message.Message):
         sms: TranscriptQuery.Sms
         def __init__(self, call: _Optional[_Union[TranscriptQuery.Call, _Mapping]] = ..., sms: _Optional[_Union[TranscriptQuery.Sms, _Mapping]] = ...) -> None: ...
     class Call(_message.Message):
-        __slots__ = ("call_sid", "audio_time", "call_type", "silence", "talk_over", "talk_time", "caller_id", "group_name", "agent_response", "hunt_group_sids", "agent_call_log", "audio_bytes")
+        __slots__ = ("call_sid", "audio_time", "call_type", "silence", "talk_over", "talk_time", "caller_id", "group_name", "agent_response", "hunt_group_sids", "agent_call_log", "audio_bytes", "recording_type")
+        class RecordingType(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[_vanalytics_pb2.RecordingType]
+            def __init__(self, any: _Optional[_Iterable[_Union[_vanalytics_pb2.RecordingType, str]]] = ...) -> None: ...
         class AudioBytes(_message.Message):
             __slots__ = ("gte", "lte", "gt", "lt")
             GTE_FIELD_NUMBER: _ClassVar[int]
@@ -711,6 +718,7 @@ class TranscriptQuery(_message.Message):
         HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
         AGENT_CALL_LOG_FIELD_NUMBER: _ClassVar[int]
         AUDIO_BYTES_FIELD_NUMBER: _ClassVar[int]
+        RECORDING_TYPE_FIELD_NUMBER: _ClassVar[int]
         call_sid: TranscriptQuery.Call.CallSid
         audio_time: TranscriptQuery.Call.AudioTime
         call_type: TranscriptQuery.Call.CallType
@@ -723,7 +731,8 @@ class TranscriptQuery(_message.Message):
         hunt_group_sids: TranscriptQuery.Call.HuntGroupSids
         agent_call_log: _agent_call_log_pb2.AgentCallLogQuery
         audio_bytes: TranscriptQuery.Call.AudioBytes
-        def __init__(self, call_sid: _Optional[_Union[TranscriptQuery.Call.CallSid, _Mapping]] = ..., audio_time: _Optional[_Union[TranscriptQuery.Call.AudioTime, _Mapping]] = ..., call_type: _Optional[_Union[TranscriptQuery.Call.CallType, _Mapping]] = ..., silence: _Optional[_Union[TranscriptQuery.Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[TranscriptQuery.Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[TranscriptQuery.Call.TalkTime, _Mapping]] = ..., caller_id: _Optional[_Union[TranscriptQuery.Call.CallerId, _Mapping]] = ..., group_name: _Optional[_Union[TranscriptQuery.Call.GroupName, _Mapping]] = ..., agent_response: _Optional[_Union[TranscriptQuery.Call.AgentResponse, _Mapping]] = ..., hunt_group_sids: _Optional[_Union[TranscriptQuery.Call.HuntGroupSids, _Mapping]] = ..., agent_call_log: _Optional[_Union[_agent_call_log_pb2.AgentCallLogQuery, _Mapping]] = ..., audio_bytes: _Optional[_Union[TranscriptQuery.Call.AudioBytes, _Mapping]] = ...) -> None: ...
+        recording_type: TranscriptQuery.Call.RecordingType
+        def __init__(self, call_sid: _Optional[_Union[TranscriptQuery.Call.CallSid, _Mapping]] = ..., audio_time: _Optional[_Union[TranscriptQuery.Call.AudioTime, _Mapping]] = ..., call_type: _Optional[_Union[TranscriptQuery.Call.CallType, _Mapping]] = ..., silence: _Optional[_Union[TranscriptQuery.Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[TranscriptQuery.Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[TranscriptQuery.Call.TalkTime, _Mapping]] = ..., caller_id: _Optional[_Union[TranscriptQuery.Call.CallerId, _Mapping]] = ..., group_name: _Optional[_Union[TranscriptQuery.Call.GroupName, _Mapping]] = ..., agent_response: _Optional[_Union[TranscriptQuery.Call.AgentResponse, _Mapping]] = ..., hunt_group_sids: _Optional[_Union[TranscriptQuery.Call.HuntGroupSids, _Mapping]] = ..., agent_call_log: _Optional[_Union[_agent_call_log_pb2.AgentCallLogQuery, _Mapping]] = ..., audio_bytes: _Optional[_Union[TranscriptQuery.Call.AudioBytes, _Mapping]] = ..., recording_type: _Optional[_Union[TranscriptQuery.Call.RecordingType, _Mapping]] = ...) -> None: ...
     class Sms(_message.Message):
         __slots__ = ("conversation_sid", "campaign_sid")
         class ConversationSid(_message.Message):
