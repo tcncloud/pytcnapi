@@ -2490,6 +2490,85 @@ class PerformanceMetricV2(_message.Message):
     total_productive_fte_with_shrinkage_applied: float
     def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., total_fte_intervals_required: _Optional[float] = ..., total_fte_intervals_achieved: _Optional[float] = ..., num_intervals_with_call_ftes: _Optional[int] = ..., num_intervals_with_shift_ftes: _Optional[int] = ..., num_intervals_with_call_ftes_but_no_shifts: _Optional[int] = ..., num_intervals_with_shifts_but_no_call_ftes: _Optional[int] = ..., total_underscheduled_call_ftes: _Optional[float] = ..., total_overscheduled_call_ftes: _Optional[float] = ..., interval_width_in_minutes: _Optional[int] = ..., metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., fte_occupancy_intervals: _Optional[_Iterable[_Union[FTERequiredVsAchievedOccupancyInterval, _Mapping]]] = ..., service_level_intervals: _Optional[_Iterable[_Union[ServiceLevelInterval, _Mapping]]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[PerformanceMetricForSkillCollectionV2, _Mapping]]] = ..., total_required_fte: _Optional[float] = ..., total_achieved_fte: _Optional[float] = ..., total_productive_fte: _Optional[float] = ..., total_achieved_fte_with_shrinkage_applied: _Optional[float] = ..., total_productive_fte_with_shrinkage_applied: _Optional[float] = ...) -> None: ...
 
+class PerformanceMetricV3(_message.Message):
+    __slots__ = ("metrics_all_skills", "metrics_by_skill_collection")
+    class MetricByCollection(_message.Message):
+        __slots__ = ("skill_collection", "metric")
+        SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
+        METRIC_FIELD_NUMBER: _ClassVar[int]
+        skill_collection: _wfm_pb2.SkillProfileCategory
+        metric: Basic_PerformanceMetricV3
+        def __init__(self, skill_collection: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., metric: _Optional[_Union[Basic_PerformanceMetricV3, _Mapping]] = ...) -> None: ...
+    METRICS_ALL_SKILLS_FIELD_NUMBER: _ClassVar[int]
+    METRICS_BY_SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    metrics_all_skills: Basic_PerformanceMetricV3
+    metrics_by_skill_collection: _containers.RepeatedCompositeFieldContainer[PerformanceMetricV3.MetricByCollection]
+    def __init__(self, metrics_all_skills: _Optional[_Union[Basic_PerformanceMetricV3, _Mapping]] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[PerformanceMetricV3.MetricByCollection, _Mapping]]] = ...) -> None: ...
+
+class Basic_PerformanceMetricV3(_message.Message):
+    __slots__ = ("date_range", "interval_width_in_minutes", "total_required_fte", "total_achieved_fte", "total_productive_fte", "total_achieved_fte_with_shrinkage_applied", "total_productive_fte_with_shrinkage_applied", "num_intervals_with_call_ftes", "num_intervals_with_shift_ftes", "num_intervals_with_call_ftes_but_no_shifts", "num_intervals_with_shifts_but_no_call_ftes", "total_underscheduled_call_ftes", "total_overscheduled_call_ftes", "service_level_achieved_percent_calls", "service_level_achieved_target_seconds", "estimated_total_agent_shortfall_for_service_level", "metric_intervals")
+    DATE_RANGE_FIELD_NUMBER: _ClassVar[int]
+    INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_REQUIRED_FTE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_ACHIEVED_FTE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_PRODUCTIVE_FTE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_ACHIEVED_FTE_WITH_SHRINKAGE_APPLIED_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_PRODUCTIVE_FTE_WITH_SHRINKAGE_APPLIED_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_SHIFT_FTES_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_CALL_FTES_BUT_NO_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    NUM_INTERVALS_WITH_SHIFTS_BUT_NO_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_UNDERSCHEDULED_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_OVERSCHEDULED_CALL_FTES_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_LEVEL_ACHIEVED_PERCENT_CALLS_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_LEVEL_ACHIEVED_TARGET_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    ESTIMATED_TOTAL_AGENT_SHORTFALL_FOR_SERVICE_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    METRIC_INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    date_range: _wfm_pb2.DatetimeRange
+    interval_width_in_minutes: int
+    total_required_fte: float
+    total_achieved_fte: float
+    total_productive_fte: float
+    total_achieved_fte_with_shrinkage_applied: float
+    total_productive_fte_with_shrinkage_applied: float
+    num_intervals_with_call_ftes: int
+    num_intervals_with_shift_ftes: int
+    num_intervals_with_call_ftes_but_no_shifts: int
+    num_intervals_with_shifts_but_no_call_ftes: int
+    total_underscheduled_call_ftes: float
+    total_overscheduled_call_ftes: float
+    service_level_achieved_percent_calls: float
+    service_level_achieved_target_seconds: int
+    estimated_total_agent_shortfall_for_service_level: int
+    metric_intervals: _containers.RepeatedCompositeFieldContainer[V3_MetricIntervalStat]
+    def __init__(self, date_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., interval_width_in_minutes: _Optional[int] = ..., total_required_fte: _Optional[float] = ..., total_achieved_fte: _Optional[float] = ..., total_productive_fte: _Optional[float] = ..., total_achieved_fte_with_shrinkage_applied: _Optional[float] = ..., total_productive_fte_with_shrinkage_applied: _Optional[float] = ..., num_intervals_with_call_ftes: _Optional[int] = ..., num_intervals_with_shift_ftes: _Optional[int] = ..., num_intervals_with_call_ftes_but_no_shifts: _Optional[int] = ..., num_intervals_with_shifts_but_no_call_ftes: _Optional[int] = ..., total_underscheduled_call_ftes: _Optional[float] = ..., total_overscheduled_call_ftes: _Optional[float] = ..., service_level_achieved_percent_calls: _Optional[float] = ..., service_level_achieved_target_seconds: _Optional[int] = ..., estimated_total_agent_shortfall_for_service_level: _Optional[int] = ..., metric_intervals: _Optional[_Iterable[_Union[V3_MetricIntervalStat, _Mapping]]] = ...) -> None: ...
+
+class V3_MetricIntervalStat(_message.Message):
+    __slots__ = ("start_datetime", "required_fte", "achieved_fte", "achieved_fte_with_shrinkage_applied", "productive_fte", "productive_fte_with_shrinkage_applied", "achieved_service_level_percent", "estimated_agent_shortfall_for_target_service_level", "num_calls", "num_agents", "erlang_required_agents")
+    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    REQUIRED_FTE_FIELD_NUMBER: _ClassVar[int]
+    ACHIEVED_FTE_FIELD_NUMBER: _ClassVar[int]
+    ACHIEVED_FTE_WITH_SHRINKAGE_APPLIED_FIELD_NUMBER: _ClassVar[int]
+    PRODUCTIVE_FTE_FIELD_NUMBER: _ClassVar[int]
+    PRODUCTIVE_FTE_WITH_SHRINKAGE_APPLIED_FIELD_NUMBER: _ClassVar[int]
+    ACHIEVED_SERVICE_LEVEL_PERCENT_FIELD_NUMBER: _ClassVar[int]
+    ESTIMATED_AGENT_SHORTFALL_FOR_TARGET_SERVICE_LEVEL_FIELD_NUMBER: _ClassVar[int]
+    NUM_CALLS_FIELD_NUMBER: _ClassVar[int]
+    NUM_AGENTS_FIELD_NUMBER: _ClassVar[int]
+    ERLANG_REQUIRED_AGENTS_FIELD_NUMBER: _ClassVar[int]
+    start_datetime: _timestamp_pb2.Timestamp
+    required_fte: float
+    achieved_fte: float
+    achieved_fte_with_shrinkage_applied: float
+    productive_fte: float
+    productive_fte_with_shrinkage_applied: float
+    achieved_service_level_percent: float
+    estimated_agent_shortfall_for_target_service_level: float
+    num_calls: int
+    num_agents: int
+    erlang_required_agents: int
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., required_fte: _Optional[float] = ..., achieved_fte: _Optional[float] = ..., achieved_fte_with_shrinkage_applied: _Optional[float] = ..., productive_fte: _Optional[float] = ..., productive_fte_with_shrinkage_applied: _Optional[float] = ..., achieved_service_level_percent: _Optional[float] = ..., estimated_agent_shortfall_for_target_service_level: _Optional[float] = ..., num_calls: _Optional[int] = ..., num_agents: _Optional[int] = ..., erlang_required_agents: _Optional[int] = ...) -> None: ...
+
 class ServiceLevelInterval(_message.Message):
     __slots__ = ("start_datetime", "service_level_achieved")
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
@@ -3163,28 +3242,36 @@ class PerformanceMetricParameter(_message.Message):
     def __init__(self, metric_type: _Optional[_Union[_wfm_pb2.PerformanceMetricType, str]] = ..., service_level_target_duration_seconds: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class GetPerformanceMetricsReq(_message.Message):
-    __slots__ = ("schedule_selector", "node_selector", "datetime_range", "metric_params", "interval_width_in_minutes", "resync_call_stats")
+    __slots__ = ("schedule_selector", "node_selector", "datetime_range", "metric_params", "interval_width_in_minutes", "resync_call_stats", "service_level_target_percentage", "service_level_target_duration_seconds")
     SCHEDULE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
     NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
     DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
     METRIC_PARAMS_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
     RESYNC_CALL_STATS_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_LEVEL_TARGET_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    SERVICE_LEVEL_TARGET_DURATION_SECONDS_FIELD_NUMBER: _ClassVar[int]
     schedule_selector: _wfm_pb2.ScheduleSelector
     node_selector: ParentEntity
     datetime_range: _wfm_pb2.DatetimeRange
     metric_params: _containers.RepeatedCompositeFieldContainer[PerformanceMetricParameter]
     interval_width_in_minutes: int
     resync_call_stats: bool
-    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., metric_params: _Optional[_Iterable[_Union[PerformanceMetricParameter, _Mapping]]] = ..., interval_width_in_minutes: _Optional[int] = ..., resync_call_stats: bool = ...) -> None: ...
+    service_level_target_percentage: int
+    service_level_target_duration_seconds: int
+    def __init__(self, schedule_selector: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., metric_params: _Optional[_Iterable[_Union[PerformanceMetricParameter, _Mapping]]] = ..., interval_width_in_minutes: _Optional[int] = ..., resync_call_stats: bool = ..., service_level_target_percentage: _Optional[int] = ..., service_level_target_duration_seconds: _Optional[int] = ...) -> None: ...
 
 class GetPerformanceMetricsRes(_message.Message):
-    __slots__ = ("performance_metrics", "performance_metrics_v2")
+    __slots__ = ("performance_metrics", "performance_metrics_v2", "performance_metrics_v3", "diagnostics")
     PERFORMANCE_METRICS_FIELD_NUMBER: _ClassVar[int]
     PERFORMANCE_METRICS_V2_FIELD_NUMBER: _ClassVar[int]
+    PERFORMANCE_METRICS_V3_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
     performance_metrics: _containers.RepeatedCompositeFieldContainer[PerformanceMetric]
     performance_metrics_v2: _containers.RepeatedCompositeFieldContainer[PerformanceMetricV2]
-    def __init__(self, performance_metrics: _Optional[_Iterable[_Union[PerformanceMetric, _Mapping]]] = ..., performance_metrics_v2: _Optional[_Iterable[_Union[PerformanceMetricV2, _Mapping]]] = ...) -> None: ...
+    performance_metrics_v3: PerformanceMetricV3
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, performance_metrics: _Optional[_Iterable[_Union[PerformanceMetric, _Mapping]]] = ..., performance_metrics_v2: _Optional[_Iterable[_Union[PerformanceMetricV2, _Mapping]]] = ..., performance_metrics_v3: _Optional[_Union[PerformanceMetricV3, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class SchedulingTarget(_message.Message):
     __slots__ = ("scheduling_target_sid", "scheduling_target_type", "scheduling_target_percentage", "service_level_target_duration_seconds", "node_entity")
@@ -3768,6 +3855,29 @@ class ListRealTimeManagementStatesResponse(_message.Message):
     STATES_FIELD_NUMBER: _ClassVar[int]
     states: _containers.RepeatedScalarFieldContainer[_wfm_pb2.RealTimeManagementState]
     def __init__(self, states: _Optional[_Iterable[_Union[_wfm_pb2.RealTimeManagementState, str]]] = ...) -> None: ...
+
+class ListAdherenceAgentStatesRequest(_message.Message):
+    __slots__ = ("wfm_agent_sids", "start_datetime", "end_datetime")
+    WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    END_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    start_datetime: _timestamp_pb2.Timestamp
+    end_datetime: _timestamp_pb2.Timestamp
+    def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class ListAdherenceAgentStatesResponse(_message.Message):
+    __slots__ = ("agent_states",)
+    class AgentStatesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: _wfm_pb2.AdherenceAgentStates
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_wfm_pb2.AdherenceAgentStates, _Mapping]] = ...) -> None: ...
+    AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
+    agent_states: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStates]
+    def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ...) -> None: ...
 
 class RealTimeManagementStateColor(_message.Message):
     __slots__ = ("state", "color")

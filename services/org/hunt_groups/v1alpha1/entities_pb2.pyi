@@ -305,3 +305,57 @@ class ListAgentScriptsResponse(_message.Message):
     SCRIPTS_FIELD_NUMBER: _ClassVar[int]
     scripts: _containers.RepeatedCompositeFieldContainer[ListAgentScriptsResponse.Script]
     def __init__(self, scripts: _Optional[_Iterable[_Union[ListAgentScriptsResponse.Script, _Mapping]]] = ...) -> None: ...
+
+class CreateAgentClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("template",)
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class CreateAgentClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ("template_sid",)
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    def __init__(self, template_sid: _Optional[int] = ...) -> None: ...
+
+class UpdateAgentClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("template",)
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class UpdateAgentClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetAgentClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("template_sid",)
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    def __init__(self, template_sid: _Optional[int] = ...) -> None: ...
+
+class GetAgentClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ("template",)
+    TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    template: _huntgroup_pb2.ClientInfoDisplayTemplate
+    def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ...) -> None: ...
+
+class ListAgentClientInfoDisplayTemplatesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAgentClientInfoDisplayTemplatesResponse(_message.Message):
+    __slots__ = ("templates",)
+    TEMPLATES_FIELD_NUMBER: _ClassVar[int]
+    templates: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.ClientInfoDisplayTemplate]
+    def __init__(self, templates: _Optional[_Iterable[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]]] = ...) -> None: ...
+
+class DeleteAgentClientInfoDisplayTemplateRequest(_message.Message):
+    __slots__ = ("template_sid",)
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    def __init__(self, template_sid: _Optional[int] = ...) -> None: ...
+
+class DeleteAgentClientInfoDisplayTemplateResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
