@@ -481,3 +481,19 @@ class InvalidScrubListEntry(_message.Message):
     entry: str
     error_message: str
     def __init__(self, entry: _Optional[str] = ..., error_message: _Optional[str] = ...) -> None: ...
+
+class Decomposition(_message.Message):
+    __slots__ = ("name", "start_digit", "end_digit")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    START_DIGIT_FIELD_NUMBER: _ClassVar[int]
+    END_DIGIT_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    start_digit: int
+    end_digit: int
+    def __init__(self, name: _Optional[str] = ..., start_digit: _Optional[int] = ..., end_digit: _Optional[int] = ...) -> None: ...
+
+class Decompositions(_message.Message):
+    __slots__ = ("items",)
+    ITEMS_FIELD_NUMBER: _ClassVar[int]
+    items: _containers.RepeatedCompositeFieldContainer[Decomposition]
+    def __init__(self, items: _Optional[_Iterable[_Union[Decomposition, _Mapping]]] = ...) -> None: ...

@@ -71,6 +71,11 @@ class ComplianceStub(object):
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.CreateScrubListReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_compliance__pb2.ScrubListRes.FromString,
                 )
+        self.UpdateScrubList = channel.unary_unary(
+                '/api.v0alpha.Compliance/UpdateScrubList',
+                request_serializer=api_dot_v0alpha_dot_compliance__pb2.UpdateScrubListRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_compliance__pb2.UpdateScrubListResponse.FromString,
+                )
         self.AddScrubListEntries = channel.unary_unary(
                 '/api.v0alpha.Compliance/AddScrubListEntries',
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.AddScrubListEntriesReq.SerializeToString,
@@ -413,6 +418,16 @@ class ComplianceServicer(object):
 
     def CreateScrubList(self, request, context):
         """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateScrubList(self, request, context):
+        """Updates a scrub list metadata
+        The method will return an UpdateScrubListResponse.
+        Required permissions:
+        PERMISSION_COMPLIANCE
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -970,6 +985,11 @@ def add_ComplianceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.CreateScrubListReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_compliance__pb2.ScrubListRes.SerializeToString,
             ),
+            'UpdateScrubList': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateScrubList,
+                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.UpdateScrubListRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_compliance__pb2.UpdateScrubListResponse.SerializeToString,
+            ),
             'AddScrubListEntries': grpc.unary_unary_rpc_method_handler(
                     servicer.AddScrubListEntries,
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.AddScrubListEntriesReq.FromString,
@@ -1439,6 +1459,23 @@ class Compliance(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/CreateScrubList',
             api_dot_v0alpha_dot_compliance__pb2.CreateScrubListReq.SerializeToString,
             api_dot_v0alpha_dot_compliance__pb2.ScrubListRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateScrubList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/UpdateScrubList',
+            api_dot_v0alpha_dot_compliance__pb2.UpdateScrubListRequest.SerializeToString,
+            api_dot_v0alpha_dot_compliance__pb2.UpdateScrubListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

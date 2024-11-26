@@ -71,20 +71,34 @@ class ScrubList(_message.Message):
     def __init__(self, list_id: _Optional[str] = ..., entries: _Optional[_Iterable[_Union[ScrubEntry, _Mapping]]] = ...) -> None: ...
 
 class CreateScrubListReq(_message.Message):
-    __slots__ = ("list_id", "list", "content_type", "country_code", "scrub_entry_details", "durable")
+    __slots__ = ("list_id", "list", "content_type", "country_code", "scrub_entry_details", "durable", "decompositions")
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
     LIST_FIELD_NUMBER: _ClassVar[int]
     CONTENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     SCRUB_ENTRY_DETAILS_FIELD_NUMBER: _ClassVar[int]
     DURABLE_FIELD_NUMBER: _ClassVar[int]
+    DECOMPOSITIONS_FIELD_NUMBER: _ClassVar[int]
     list_id: str
     list: _containers.RepeatedScalarFieldContainer[str]
     content_type: _compliance_pb2.ContentType
     country_code: str
     scrub_entry_details: _containers.RepeatedCompositeFieldContainer[_compliance_pb2.ScrubEntryDetails]
     durable: bool
-    def __init__(self, list_id: _Optional[str] = ..., list: _Optional[_Iterable[str]] = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., country_code: _Optional[str] = ..., scrub_entry_details: _Optional[_Iterable[_Union[_compliance_pb2.ScrubEntryDetails, _Mapping]]] = ..., durable: bool = ...) -> None: ...
+    decompositions: _compliance_pb2.Decompositions
+    def __init__(self, list_id: _Optional[str] = ..., list: _Optional[_Iterable[str]] = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., country_code: _Optional[str] = ..., scrub_entry_details: _Optional[_Iterable[_Union[_compliance_pb2.ScrubEntryDetails, _Mapping]]] = ..., durable: bool = ..., decompositions: _Optional[_Union[_compliance_pb2.Decompositions, _Mapping]] = ...) -> None: ...
+
+class UpdateScrubListRequest(_message.Message):
+    __slots__ = ("list_id", "decompositions")
+    LIST_ID_FIELD_NUMBER: _ClassVar[int]
+    DECOMPOSITIONS_FIELD_NUMBER: _ClassVar[int]
+    list_id: str
+    decompositions: _compliance_pb2.Decompositions
+    def __init__(self, list_id: _Optional[str] = ..., decompositions: _Optional[_Union[_compliance_pb2.Decompositions, _Mapping]] = ...) -> None: ...
+
+class UpdateScrubListResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
 
 class AddScrubListEntriesReq(_message.Message):
     __slots__ = ("list_id", "list", "content_type", "country_code", "scrub_entry_details")
@@ -175,7 +189,7 @@ class SearchScrubListReq(_message.Message):
     def __init__(self, list_id: _Optional[str] = ..., term: _Optional[str] = ...) -> None: ...
 
 class ScrubEntry(_message.Message):
-    __slots__ = ("country_sid", "list_id", "source_id", "source_field", "notes", "content", "expiration_date", "result", "type", "country_code", "created_on", "created_by")
+    __slots__ = ("country_sid", "list_id", "source_id", "source_field", "notes", "content", "expiration_date", "result", "type", "country_code", "is_wild_card", "created_on", "created_by")
     COUNTRY_SID_FIELD_NUMBER: _ClassVar[int]
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
     SOURCE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -186,6 +200,7 @@ class ScrubEntry(_message.Message):
     RESULT_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    IS_WILD_CARD_FIELD_NUMBER: _ClassVar[int]
     CREATED_ON_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_FIELD_NUMBER: _ClassVar[int]
     country_sid: int
@@ -198,9 +213,10 @@ class ScrubEntry(_message.Message):
     result: _wrappers_pb2.StringValue
     type: _compliance_pb2.ContentType
     country_code: _wrappers_pb2.StringValue
+    is_wild_card: bool
     created_on: _timestamp_pb2.Timestamp
     created_by: _wrappers_pb2.StringValue
-    def __init__(self, country_sid: _Optional[int] = ..., list_id: _Optional[str] = ..., source_id: _Optional[int] = ..., source_field: _Optional[str] = ..., notes: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., content: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., expiration_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., result: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., country_code: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
+    def __init__(self, country_sid: _Optional[int] = ..., list_id: _Optional[str] = ..., source_id: _Optional[int] = ..., source_field: _Optional[str] = ..., notes: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., content: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., expiration_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., result: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., country_code: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., is_wild_card: bool = ..., created_on: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class RuleAutoCompleteReq(_message.Message):
     __slots__ = ("phrase", "cursor")
