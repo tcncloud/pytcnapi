@@ -732,6 +732,18 @@ class ListForecastIntervalsReq(_message.Message):
     skill_profile_category: _wfm_pb2.SkillProfileCategory
     def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
+class ListForecastIntervalsV2Request(_message.Message):
+    __slots__ = ("skill_profile_category",)
+    SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
+    skill_profile_category: _wfm_pb2.SkillProfileCategory
+    def __init__(self, skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
+
+class ListForecastIntervalsV2Response(_message.Message):
+    __slots__ = ("intervals",)
+    INTERVALS_FIELD_NUMBER: _ClassVar[int]
+    intervals: _containers.RepeatedCompositeFieldContainer[CallDataByInterval]
+    def __init__(self, intervals: _Optional[_Iterable[_Union[CallDataByInterval, _Mapping]]] = ...) -> None: ...
+
 class UpsertRegressionForecastReq(_message.Message):
     __slots__ = ("regression_template", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "skill_profile_sids_to_forecast")
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]

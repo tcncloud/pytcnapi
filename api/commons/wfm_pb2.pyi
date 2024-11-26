@@ -186,6 +186,7 @@ class DiagnosticCode(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     NO_OPEN_TIMES_SET_OR_INHERITED_BY_PROGRAM: _ClassVar[DiagnosticCode]
     TOUR_AGENT_COLLECTIONS_NEEDED_TO_SCHEDULE_TOUR: _ClassVar[DiagnosticCode]
     NO_PREDICTED_CALLS_IN_SCHEDULING_RANGE: _ClassVar[DiagnosticCode]
+    SHIFT_TEMPLATE_MIN_WIDTH_DOW_MISMATCH: _ClassVar[DiagnosticCode]
 
 class PerformanceMetricType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -461,6 +462,7 @@ SCHEDULABLE_AGENTS_DO_NOT_MEET_TEMPLATE_MAXIMUM: DiagnosticCode
 NO_OPEN_TIMES_SET_OR_INHERITED_BY_PROGRAM: DiagnosticCode
 TOUR_AGENT_COLLECTIONS_NEEDED_TO_SCHEDULE_TOUR: DiagnosticCode
 NO_PREDICTED_CALLS_IN_SCHEDULING_RANGE: DiagnosticCode
+SHIFT_TEMPLATE_MIN_WIDTH_DOW_MISMATCH: DiagnosticCode
 FTE_REQUIRED_VS_ACHIEVED_SIMPLE: PerformanceMetricType
 FTE_REQUIRED_VS_ACHIEVED_EXTENDED: PerformanceMetricType
 SERVICE_LEVEL_ANALYSIS: PerformanceMetricType

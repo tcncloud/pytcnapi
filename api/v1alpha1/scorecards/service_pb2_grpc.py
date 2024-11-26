@@ -608,7 +608,7 @@ class ScorecardsServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def StreamAutoEvaluations(self, request, context):
-        """StreamAutoEvaluations streams a list of auto evaluations
+        """DEPRECATED. Use ListAutoEvaluations.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')

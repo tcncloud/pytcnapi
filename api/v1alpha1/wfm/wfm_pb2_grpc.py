@@ -200,6 +200,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
                 )
+        self.ListForecastIntervalsV2 = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListForecastIntervalsV2',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsV2Request.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsV2Response.FromString,
+                )
         self.BuildRegressionForecastByInterval = channel.unary_stream(
                 '/api.v1alpha1.wfm.WFM/BuildRegressionForecastByInterval',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildRegressionForecastByIntervalReq.SerializeToString,
@@ -1523,6 +1528,16 @@ class WFMServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def ListForecastIntervals(self, request, context):
+        """Gets the forecast data intervals for the given @skill_profile_category.
+        Errors:
+        - grpc.Invalid: the @skill_profile_category in the request is invalid.
+        - grpc.Internal: error occurs when getting the forecast data intervals.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListForecastIntervalsV2(self, request, context):
         """Gets the forecast data intervals for the given @skill_profile_category.
         Errors:
         - grpc.Invalid: the @skill_profile_category in the request is invalid.
@@ -4016,6 +4031,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.SerializeToString,
             ),
+            'ListForecastIntervalsV2': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListForecastIntervalsV2,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsV2Request.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsV2Response.SerializeToString,
+            ),
             'BuildRegressionForecastByInterval': grpc.unary_stream_rpc_method_handler(
                     servicer.BuildRegressionForecastByInterval,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.BuildRegressionForecastByIntervalReq.FromString,
@@ -5548,6 +5568,23 @@ class WFM(object):
         return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.wfm.WFM/ListForecastIntervals',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CallDataByInterval.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListForecastIntervalsV2(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListForecastIntervalsV2',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsV2Request.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListForecastIntervalsV2Response.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
