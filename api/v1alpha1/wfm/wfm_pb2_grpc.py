@@ -345,6 +345,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityRes.FromString,
                 )
+        self.CreateSchedulingActivityPauseCodes = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateSchedulingActivityPauseCodes',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSchedulingActivityPauseCodesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSchedulingActivityPauseCodesResponse.FromString,
+                )
+        self.DeleteSchedulingActivityPauseCodes = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeleteSchedulingActivityPauseCodes',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingActivityPauseCodesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingActivityPauseCodesResponse.FromString,
+                )
         self.ListPatternsForSchedulingActivityClassifications = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListPatternsForSchedulingActivityClassifications',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListPatternsForSchedulingActivityClassificationsRequest.SerializeToString,
@@ -1915,6 +1925,33 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateSchedulingActivityPauseCodes(self, request, context):
+        """Creates the given @pause_codes for the given @scheduling_activity_sid.
+        If a pause code already exists for that scheduling activity a new one won't be created.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the paremeters in the request are invalid.
+        - grpc.NotFound: the scheduling activity for the org is not found.
+        - grpc.Internal: error occurs when creating the pause codes.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteSchedulingActivityPauseCodes(self, request, context):
+        """Deletes the given @pause_codes from the given @scheduling_activity_sid.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Invalid: the paremeters in the request are invalid.
+        - grpc.NotFound: the scheduling activity for the org is not found.
+        - grpc.Internal: error occurs when deleting the pause codes.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListPatternsForSchedulingActivityClassifications(self, request, context):
         """Lists the Open Time and Agent Availability patterns for the given @parent_entity and @scheduling_activity_classifications for the org sending the request.
         Required permissions:
@@ -3446,6 +3483,7 @@ class WFMServicer(object):
         or the current time if not set (start time not inclusive, end time inclusive).
         Agent states will be grouped by wfm_agent_sid and ordered by date in ascending order.
         If zero states are found for a given agent, it will not be included in the resulting map.
+        It also returns the latest datetime amongst all the states returned.
         Errors:
         - grpc.Invalid: arguments in the request are invalid.
         - grpc.Internal: error occurs when getting the states.
@@ -4122,6 +4160,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.GetOnCallSchedulingActivity,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityRes.SerializeToString,
+            ),
+            'CreateSchedulingActivityPauseCodes': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSchedulingActivityPauseCodes,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSchedulingActivityPauseCodesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSchedulingActivityPauseCodesResponse.SerializeToString,
+            ),
+            'DeleteSchedulingActivityPauseCodes': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteSchedulingActivityPauseCodes,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingActivityPauseCodesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingActivityPauseCodesResponse.SerializeToString,
             ),
             'ListPatternsForSchedulingActivityClassifications': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPatternsForSchedulingActivityClassifications,
@@ -5993,6 +6041,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetOnCallSchedulingActivity',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetOnCallSchedulingActivityRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateSchedulingActivityPauseCodes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateSchedulingActivityPauseCodes',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSchedulingActivityPauseCodesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateSchedulingActivityPauseCodesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteSchedulingActivityPauseCodes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeleteSchedulingActivityPauseCodes',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingActivityPauseCodesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteSchedulingActivityPauseCodesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

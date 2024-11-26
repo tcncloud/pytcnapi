@@ -1309,6 +1309,30 @@ class GetOnCallSchedulingActivityRes(_message.Message):
     on_call_scheduling_activity: SchedulingActivity
     def __init__(self, on_call_scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ...) -> None: ...
 
+class CreateSchedulingActivityPauseCodesRequest(_message.Message):
+    __slots__ = ("scheduling_activity_sid", "pause_codes")
+    SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
+    PAUSE_CODES_FIELD_NUMBER: _ClassVar[int]
+    scheduling_activity_sid: int
+    pause_codes: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., pause_codes: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class CreateSchedulingActivityPauseCodesResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class DeleteSchedulingActivityPauseCodesRequest(_message.Message):
+    __slots__ = ("scheduling_activity_sid", "pause_codes")
+    SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
+    PAUSE_CODES_FIELD_NUMBER: _ClassVar[int]
+    scheduling_activity_sid: int
+    pause_codes: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., pause_codes: _Optional[_Iterable[str]] = ...) -> None: ...
+
+class DeleteSchedulingActivityPauseCodesResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class ListPatternsForSchedulingActivityClassificationsRequest(_message.Message):
     __slots__ = ("parent_entity", "scheduling_activity_classifications")
     PARENT_ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -3867,7 +3891,7 @@ class ListAdherenceAgentStatesRequest(_message.Message):
     def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ListAdherenceAgentStatesResponse(_message.Message):
-    __slots__ = ("agent_states",)
+    __slots__ = ("agent_states", "latest_agent_state_datetime")
     class AgentStatesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -3876,8 +3900,10 @@ class ListAdherenceAgentStatesResponse(_message.Message):
         value: _wfm_pb2.AdherenceAgentStates
         def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_wfm_pb2.AdherenceAgentStates, _Mapping]] = ...) -> None: ...
     AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
+    LATEST_AGENT_STATE_DATETIME_FIELD_NUMBER: _ClassVar[int]
     agent_states: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStates]
-    def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ...) -> None: ...
+    latest_agent_state_datetime: _timestamp_pb2.Timestamp
+    def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ..., latest_agent_state_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class RealTimeManagementStateColor(_message.Message):
     __slots__ = ("state", "color")
