@@ -2603,13 +2603,15 @@ class EHREntityType(_message.Message):
     def __init__(self, epic_entity: _Optional[_Union[EpicEntityType, str]] = ...) -> None: ...
 
 class FinviEntrypoint(_message.Message):
-    __slots__ = ("pool_id", "cron_interval", "disabled", "timezone")
+    __slots__ = ("pool_id", "cron_interval", "disabled", "timezone", "filename_pattern")
     POOL_ID_FIELD_NUMBER: _ClassVar[int]
     CRON_INTERVAL_FIELD_NUMBER: _ClassVar[int]
     DISABLED_FIELD_NUMBER: _ClassVar[int]
     TIMEZONE_FIELD_NUMBER: _ClassVar[int]
+    FILENAME_PATTERN_FIELD_NUMBER: _ClassVar[int]
     pool_id: str
     cron_interval: str
     disabled: bool
     timezone: str
-    def __init__(self, pool_id: _Optional[str] = ..., cron_interval: _Optional[str] = ..., disabled: bool = ..., timezone: _Optional[str] = ...) -> None: ...
+    filename_pattern: str
+    def __init__(self, pool_id: _Optional[str] = ..., cron_interval: _Optional[str] = ..., disabled: bool = ..., timezone: _Optional[str] = ..., filename_pattern: _Optional[str] = ...) -> None: ...
