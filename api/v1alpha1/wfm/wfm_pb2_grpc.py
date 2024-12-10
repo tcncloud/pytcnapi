@@ -3475,6 +3475,7 @@ class WFMServicer(object):
         """List the real time agent states for published schedule and the org sending the request, starting on the given @start_datetime.
         If the @end_datetime is set, all agent state sequences will be returned for the range between @start_datetime and @end_datetime.
         If @end_datetime is not set, the agent state sequences will be returned over a 24 hour period or until the current time, whichever is shorter.
+        DEPRECATED as of Dec/10/2024 - Use ListRealTimeManagementStates instead.
         Errors:
         - grpc.Invalid: the @start_datetime is invalid or beyond the current datetime.
         - grpc.Internal: error occurs when listing the agent states.
