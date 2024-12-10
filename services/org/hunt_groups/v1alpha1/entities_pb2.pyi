@@ -359,3 +359,25 @@ class DeleteAgentClientInfoDisplayTemplateRequest(_message.Message):
 class DeleteAgentClientInfoDisplayTemplateResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class AssignAgentClientInfoDisplayTemplateToHuntGroupsRequest(_message.Message):
+    __slots__ = ("template_sid", "hunt_group_sids")
+    TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+    template_sid: int
+    hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, template_sid: _Optional[int] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class AssignAgentClientInfoDisplayTemplateToHuntGroupsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class UnassignAgentClientInfoDisplayTemplateFromHuntGroupsRequest(_message.Message):
+    __slots__ = ("hunt_group_sids",)
+    HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, hunt_group_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class UnassignAgentClientInfoDisplayTemplateFromHuntGroupsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
