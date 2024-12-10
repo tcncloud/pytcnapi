@@ -35,6 +35,11 @@ class ExplorerServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainResponse.FromString,
                 )
+        self.GetWeeksOfData = channel.unary_unary(
+                '/api.v1alpha1.explorer.ExplorerService/GetWeeksOfData',
+                request_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.GetWeeksOfDataRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.GetWeeksOfDataResponse.FromString,
+                )
 
 
 class ExplorerServiceServicer(object):
@@ -67,6 +72,13 @@ class ExplorerServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetWeeksOfData(self, request, context):
+        """GetWeeksOfData returns the number of weeks of data an org is limited to and the cutoff date.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ExplorerServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -89,6 +101,11 @@ def add_ExplorerServiceServicer_to_server(servicer, server):
                     servicer.GetQueryExplain,
                     request_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainResponse.SerializeToString,
+            ),
+            'GetWeeksOfData': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetWeeksOfData,
+                    request_deserializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.GetWeeksOfDataRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_explorer_dot_service__pb2.GetWeeksOfDataResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -166,5 +183,22 @@ class ExplorerService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.explorer.ExplorerService/GetQueryExplain',
             api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainRequest.SerializeToString,
             api_dot_v1alpha1_dot_explorer_dot_service__pb2.QueryExplainResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetWeeksOfData(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.explorer.ExplorerService/GetWeeksOfData',
+            api_dot_v1alpha1_dot_explorer_dot_service__pb2.GetWeeksOfDataRequest.SerializeToString,
+            api_dot_v1alpha1_dot_explorer_dot_service__pb2.GetWeeksOfDataResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

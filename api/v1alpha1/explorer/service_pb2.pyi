@@ -9,6 +9,20 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class GetWeeksOfDataRequest(_message.Message):
+    __slots__ = ("org_id",)
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    def __init__(self, org_id: _Optional[str] = ...) -> None: ...
+
+class GetWeeksOfDataResponse(_message.Message):
+    __slots__ = ("weeks_of_data", "access_start_date")
+    WEEKS_OF_DATA_FIELD_NUMBER: _ClassVar[int]
+    ACCESS_START_DATE_FIELD_NUMBER: _ClassVar[int]
+    weeks_of_data: int
+    access_start_date: _timestamp_pb2.Timestamp
+    def __init__(self, weeks_of_data: _Optional[int] = ..., access_start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
 class ListDatasourceSchemasRequest(_message.Message):
     __slots__ = ("datasource_names", "datasource_type")
     DATASOURCE_NAMES_FIELD_NUMBER: _ClassVar[int]
