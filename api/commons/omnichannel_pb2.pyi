@@ -149,6 +149,7 @@ class OmniTaskStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OMNI_TASK_SENDING: _ClassVar[OmniTaskStatus]
     OMNI_TASK_SENDING_FAILED: _ClassVar[OmniTaskStatus]
     OMNI_TASK_SENDING_INCOMPLETE: _ClassVar[OmniTaskStatus]
+    OMNI_TASK_SENDING_INVALID: _ClassVar[OmniTaskStatus]
     OMNI_TASK_SENT: _ClassVar[OmniTaskStatus]
     OMNI_TASK_RECEIVED: _ClassVar[OmniTaskStatus]
     OMNI_TASK_CANCELLED: _ClassVar[OmniTaskStatus]
@@ -330,6 +331,7 @@ OMNI_TASK_WAITING_FOR_APPROVAL: OmniTaskStatus
 OMNI_TASK_SENDING: OmniTaskStatus
 OMNI_TASK_SENDING_FAILED: OmniTaskStatus
 OMNI_TASK_SENDING_INCOMPLETE: OmniTaskStatus
+OMNI_TASK_SENDING_INVALID: OmniTaskStatus
 OMNI_TASK_SENT: OmniTaskStatus
 OMNI_TASK_RECEIVED: OmniTaskStatus
 OMNI_TASK_CANCELLED: OmniTaskStatus
