@@ -1,5 +1,6 @@
 from api.commons import insights_pb2 as _insights_pb2
 from api.v1alpha1.explorer import entities_pb2 as _entities_pb2
+from api.v1alpha1.insights import insight_content_pb2 as _insight_content_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -18,6 +19,7 @@ class OutputConfigurationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper)
     OUTPUT_CONFIGURATION_TYPE_PIE_CHART: _ClassVar[OutputConfigurationType]
     OUTPUT_CONFIGURATION_TYPE_FIXED_WIDTH: _ClassVar[OutputConfigurationType]
     OUTPUT_CONFIGURATION_TYPE_TIMELINE: _ClassVar[OutputConfigurationType]
+    OUTPUT_CONFIGURATION_TYPE_TEXT_VALUES: _ClassVar[OutputConfigurationType]
 
 class OperationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -66,6 +68,7 @@ OUTPUT_CONFIGURATION_TYPE_MULTI_SERIES: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_PIE_CHART: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_FIXED_WIDTH: OutputConfigurationType
 OUTPUT_CONFIGURATION_TYPE_TIMELINE: OutputConfigurationType
+OUTPUT_CONFIGURATION_TYPE_TEXT_VALUES: OutputConfigurationType
 OPERATION_TYPE_UNSPECIFIED: OperationType
 OPERATION_TYPE_DATE: OperationType
 OPERATION_TYPE_PREFIX: OperationType
@@ -95,7 +98,7 @@ QUOTE_CHARACTER_DOUBLE_QUOTE: QuoteCharacter
 QUOTE_CHARACTER_SINGLE_QUOTE: QuoteCharacter
 
 class Insight(_message.Message):
-    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type", "datasource_name", "create_time", "update_time")
+    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type", "datasource_name", "create_time", "update_time", "pipeline")
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -109,6 +112,7 @@ class Insight(_message.Message):
     DATASOURCE_NAME_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    PIPELINE_FIELD_NUMBER: _ClassVar[int]
     insight_id: int
     name: str
     description: str
@@ -122,7 +126,8 @@ class Insight(_message.Message):
     datasource_name: str
     create_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
-    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    pipeline: _insight_content_pb2.Pipeline
+    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., pipeline: _Optional[_Union[_insight_content_pb2.Pipeline, _Mapping]] = ...) -> None: ...
 
 class PublishInsightRequest(_message.Message):
     __slots__ = ("resource_id", "destination_resource_id")
@@ -278,6 +283,41 @@ class TableVisualization(_message.Message):
     quote_character: QuoteCharacter
     no_header: bool
     def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ..., delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ...) -> None: ...
+
+class CardVisualization(_message.Message):
+    __slots__ = ("text_values",)
+    TEXT_VALUES_FIELD_NUMBER: _ClassVar[int]
+    text_values: _containers.RepeatedCompositeFieldContainer[TextValue]
+    def __init__(self, text_values: _Optional[_Iterable[_Union[TextValue, _Mapping]]] = ...) -> None: ...
+
+class TextValue(_message.Message):
+    __slots__ = ("conditions",)
+    CONDITIONS_FIELD_NUMBER: _ClassVar[int]
+    conditions: _containers.RepeatedCompositeFieldContainer[TextValueCondition]
+    def __init__(self, conditions: _Optional[_Iterable[_Union[TextValueCondition, _Mapping]]] = ...) -> None: ...
+
+class TextValueCondition(_message.Message):
+    __slots__ = ("expression", "size", "operations", "icon_name", "icon_color")
+    class Color(_message.Message):
+        __slots__ = ("red", "green", "blue")
+        RED_FIELD_NUMBER: _ClassVar[int]
+        GREEN_FIELD_NUMBER: _ClassVar[int]
+        BLUE_FIELD_NUMBER: _ClassVar[int]
+        red: int
+        green: int
+        blue: int
+        def __init__(self, red: _Optional[int] = ..., green: _Optional[int] = ..., blue: _Optional[int] = ...) -> None: ...
+    EXPRESSION_FIELD_NUMBER: _ClassVar[int]
+    SIZE_FIELD_NUMBER: _ClassVar[int]
+    OPERATIONS_FIELD_NUMBER: _ClassVar[int]
+    ICON_NAME_FIELD_NUMBER: _ClassVar[int]
+    ICON_COLOR_FIELD_NUMBER: _ClassVar[int]
+    expression: _insight_content_pb2.ExpressionNode
+    size: int
+    operations: _containers.RepeatedCompositeFieldContainer[ColumnOperation]
+    icon_name: str
+    icon_color: TextValueCondition.Color
+    def __init__(self, expression: _Optional[_Union[_insight_content_pb2.ExpressionNode, _Mapping]] = ..., size: _Optional[int] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., icon_name: _Optional[str] = ..., icon_color: _Optional[_Union[TextValueCondition.Color, _Mapping]] = ...) -> None: ...
 
 class TableColumnConfig(_message.Message):
     __slots__ = ("column_name", "column_width", "hide_column", "renamed_as", "operations", "column_summary", "description", "sort_direction", "insight_contextual_action")
