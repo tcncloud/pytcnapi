@@ -88,16 +88,18 @@ class NewsArticleDetails(_message.Message):
     def __init__(self, new_article_sid: _Optional[int] = ..., title: _Optional[str] = ..., content: _Optional[str] = ..., status: _Optional[_Union[_newsroom_pb2.ArticleStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., author: _Optional[str] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
 
 class PublishedArticleDetails(_message.Message):
-    __slots__ = ("published_article_sid", "news_article_details", "date_published", "display_to_user")
+    __slots__ = ("published_article_sid", "news_article_details", "date_published", "display_to_user", "always_display")
     PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     NEWS_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     DATE_PUBLISHED_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_TO_USER_FIELD_NUMBER: _ClassVar[int]
+    ALWAYS_DISPLAY_FIELD_NUMBER: _ClassVar[int]
     published_article_sid: int
     news_article_details: NewsArticleDetails
     date_published: _timestamp_pb2.Timestamp
     display_to_user: bool
-    def __init__(self, published_article_sid: _Optional[int] = ..., news_article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ..., date_published: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., display_to_user: bool = ...) -> None: ...
+    always_display: bool
+    def __init__(self, published_article_sid: _Optional[int] = ..., news_article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ..., date_published: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., display_to_user: bool = ..., always_display: bool = ...) -> None: ...
 
 class UserActivity(_message.Message):
     __slots__ = ("user_activity_log_sid", "date_created", "user_activity_details")
@@ -231,3 +233,125 @@ class UploadNewsArticleImageResponse(_message.Message):
     IMAGE_FIELD_NUMBER: _ClassVar[int]
     image: NewsArticleImage
     def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class CreateClientArticleRequest(_message.Message):
+    __slots__ = ("title", "content", "author", "image_reference_id")
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    CONTENT_FIELD_NUMBER: _ClassVar[int]
+    AUTHOR_FIELD_NUMBER: _ClassVar[int]
+    IMAGE_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
+    title: str
+    content: str
+    author: str
+    image_reference_id: str
+    def __init__(self, title: _Optional[str] = ..., content: _Optional[str] = ..., author: _Optional[str] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
+
+class CreateClientArticleResponse(_message.Message):
+    __slots__ = ("article_details",)
+    ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    article_details: NewsArticleDetails
+    def __init__(self, article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ...) -> None: ...
+
+class UpdateClientArticleRequest(_message.Message):
+    __slots__ = ("article_details", "field_mask")
+    ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    article_details: NewsArticleDetails
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class UpdateClientArticleResponse(_message.Message):
+    __slots__ = ("article_details",)
+    ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    article_details: NewsArticleDetails
+    def __init__(self, article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ...) -> None: ...
+
+class ListClientArticlesRequest(_message.Message):
+    __slots__ = ("statuses", "field_mask")
+    STATUSES_FIELD_NUMBER: _ClassVar[int]
+    FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
+    statuses: _containers.RepeatedScalarFieldContainer[_newsroom_pb2.ArticleStatus]
+    field_mask: _field_mask_pb2.FieldMask
+    def __init__(self, statuses: _Optional[_Iterable[_Union[_newsroom_pb2.ArticleStatus, str]]] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
+
+class ListClientArticlesResponse(_message.Message):
+    __slots__ = ("article_details",)
+    ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    article_details: _containers.RepeatedCompositeFieldContainer[NewsArticleDetails]
+    def __init__(self, article_details: _Optional[_Iterable[_Union[NewsArticleDetails, _Mapping]]] = ...) -> None: ...
+
+class CreatePublishedClientArticleRequest(_message.Message):
+    __slots__ = ("new_article_sid", "display_to_user", "article_link", "always_show")
+    NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_TO_USER_FIELD_NUMBER: _ClassVar[int]
+    ARTICLE_LINK_FIELD_NUMBER: _ClassVar[int]
+    ALWAYS_SHOW_FIELD_NUMBER: _ClassVar[int]
+    new_article_sid: int
+    display_to_user: bool
+    article_link: str
+    always_show: bool
+    def __init__(self, new_article_sid: _Optional[int] = ..., display_to_user: bool = ..., article_link: _Optional[str] = ..., always_show: bool = ...) -> None: ...
+
+class CreatePublishedClientArticleResponse(_message.Message):
+    __slots__ = ("published_article_details",)
+    PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    published_article_details: PublishedArticleDetails
+    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
+
+class GetPublishedClientArticleByIdRequest(_message.Message):
+    __slots__ = ("published_article_sid",)
+    PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+    published_article_sid: int
+    def __init__(self, published_article_sid: _Optional[int] = ...) -> None: ...
+
+class GetPublishedClientArticleByIdResponse(_message.Message):
+    __slots__ = ("published_article_details",)
+    PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    published_article_details: PublishedArticleDetails
+    def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
+
+class StoreClientArticleImageRequest(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class StoreClientArticleImageResponse(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class ListImagesForClientArticleRequest(_message.Message):
+    __slots__ = ("new_article_sid",)
+    NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+    new_article_sid: int
+    def __init__(self, new_article_sid: _Optional[int] = ...) -> None: ...
+
+class ListImagesForClientArticleResponse(_message.Message):
+    __slots__ = ("news_article_images",)
+    NEWS_ARTICLE_IMAGES_FIELD_NUMBER: _ClassVar[int]
+    news_article_images: _containers.RepeatedCompositeFieldContainer[NewsArticleImage]
+    def __init__(self, news_article_images: _Optional[_Iterable[_Union[NewsArticleImage, _Mapping]]] = ...) -> None: ...
+
+class UploadClientArticleImageRequest(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class UploadClientArticleImageResponse(_message.Message):
+    __slots__ = ("image",)
+    IMAGE_FIELD_NUMBER: _ClassVar[int]
+    image: NewsArticleImage
+    def __init__(self, image: _Optional[_Union[NewsArticleImage, _Mapping]] = ...) -> None: ...
+
+class ListPublishedClientArticlesRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListPublishedClientArticlesResponse(_message.Message):
+    __slots__ = ("published_article_details",)
+    PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    published_article_details: _containers.RepeatedCompositeFieldContainer[PublishedArticleDetails]
+    def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedArticleDetails, _Mapping]]] = ...) -> None: ...
