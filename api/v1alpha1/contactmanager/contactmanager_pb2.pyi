@@ -1,3 +1,4 @@
+from api.commons.audit import audit_pb2 as _audit_pb2
 from api.commons import classifier_pb2 as _classifier_pb2
 from api.commons import contactmanager_pb2 as _contactmanager_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
@@ -88,7 +89,7 @@ class GetKYCKeysResponse(_message.Message):
     def __init__(self, entry_type: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ContactManagerEntry(_message.Message):
-    __slots__ = ("contact_manager_entry_id", "contact_manager_entry_list_id", "key", "value", "type", "date_created", "status")
+    __slots__ = ("contact_manager_entry_id", "contact_manager_entry_list_id", "key", "value", "type", "date_created", "status", "date_modified", "ttl", "file_name", "field")
     CONTACT_MANAGER_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
     CONTACT_MANAGER_ENTRY_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_NUMBER: _ClassVar[int]
@@ -96,6 +97,10 @@ class ContactManagerEntry(_message.Message):
     TYPE_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
+    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    TTL_FIELD_NUMBER: _ClassVar[int]
+    FILE_NAME_FIELD_NUMBER: _ClassVar[int]
+    FIELD_FIELD_NUMBER: _ClassVar[int]
     contact_manager_entry_id: int
     contact_manager_entry_list_id: int
     key: str
@@ -103,10 +108,14 @@ class ContactManagerEntry(_message.Message):
     type: str
     date_created: _timestamp_pb2.Timestamp
     status: _contactmanager_pb2.ContactEntryStatus
-    def __init__(self, contact_manager_entry_id: _Optional[int] = ..., contact_manager_entry_list_id: _Optional[int] = ..., key: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[_contactmanager_pb2.ContactEntryStatus, str]] = ...) -> None: ...
+    date_modified: _timestamp_pb2.Timestamp
+    ttl: int
+    file_name: _containers.RepeatedScalarFieldContainer[str]
+    field: _containers.RepeatedCompositeFieldContainer[ContactField]
+    def __init__(self, contact_manager_entry_id: _Optional[int] = ..., contact_manager_entry_list_id: _Optional[int] = ..., key: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[_contactmanager_pb2.ContactEntryStatus, str]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ttl: _Optional[int] = ..., file_name: _Optional[_Iterable[str]] = ..., field: _Optional[_Iterable[_Union[ContactField, _Mapping]]] = ...) -> None: ...
 
 class ContactManagerList(_message.Message):
-    __slots__ = ("contact_manager_list_id", "org_id", "project_id", "file_name", "description", "list_details", "ttl", "date_created", "is_deleted", "status")
+    __slots__ = ("contact_manager_list_id", "org_id", "project_id", "file_name", "description", "list_details", "ttl", "date_created", "is_deleted", "status", "contact_manager_list_name")
     CONTACT_MANAGER_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -117,6 +126,7 @@ class ContactManagerList(_message.Message):
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     IS_DELETED_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGER_LIST_NAME_FIELD_NUMBER: _ClassVar[int]
     contact_manager_list_id: int
     org_id: str
     project_id: int
@@ -127,7 +137,8 @@ class ContactManagerList(_message.Message):
     date_created: _timestamp_pb2.Timestamp
     is_deleted: bool
     status: _contactmanager_pb2.ContactListStatus
-    def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[int] = ..., file_name: _Optional[str] = ..., description: _Optional[str] = ..., list_details: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_deleted: bool = ..., status: _Optional[_Union[_contactmanager_pb2.ContactListStatus, str]] = ...) -> None: ...
+    contact_manager_list_name: str
+    def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[int] = ..., file_name: _Optional[str] = ..., description: _Optional[str] = ..., list_details: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_deleted: bool = ..., status: _Optional[_Union[_contactmanager_pb2.ContactListStatus, str]] = ..., contact_manager_list_name: _Optional[str] = ...) -> None: ...
 
 class ContactManagerEntryVal(_message.Message):
     __slots__ = ("type", "value")
@@ -234,3 +245,33 @@ class GetContactFieldTypeResponse(_message.Message):
     FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
     field_type: _classifier_pb2.ClassifierEntityType
     def __init__(self, field_type: _Optional[_Union[_classifier_pb2.ClassifierEntityType, str]] = ...) -> None: ...
+
+class ListContactActivityLogRequest(_message.Message):
+    __slots__ = ("org_id", "project_id", "contact_manager_entry_id")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGER_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    project_id: str
+    contact_manager_entry_id: int
+    def __init__(self, org_id: _Optional[str] = ..., project_id: _Optional[str] = ..., contact_manager_entry_id: _Optional[int] = ...) -> None: ...
+
+class ListContactActivityLogResponse(_message.Message):
+    __slots__ = ("contact_activity_log",)
+    CONTACT_ACTIVITY_LOG_FIELD_NUMBER: _ClassVar[int]
+    contact_activity_log: _containers.RepeatedCompositeFieldContainer[ContactActivityLog]
+    def __init__(self, contact_activity_log: _Optional[_Iterable[_Union[ContactActivityLog, _Mapping]]] = ...) -> None: ...
+
+class ContactActivityLog(_message.Message):
+    __slots__ = ("org_id", "project_id", "contact_manager_entry_id", "event_user", "event")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGER_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
+    EVENT_USER_FIELD_NUMBER: _ClassVar[int]
+    EVENT_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    project_id: str
+    contact_manager_entry_id: int
+    event_user: str
+    event: _audit_pb2.AuditEvent
+    def __init__(self, org_id: _Optional[str] = ..., project_id: _Optional[str] = ..., contact_manager_entry_id: _Optional[int] = ..., event_user: _Optional[str] = ..., event: _Optional[_Union[_audit_pb2.AuditEvent, _Mapping]] = ...) -> None: ...
