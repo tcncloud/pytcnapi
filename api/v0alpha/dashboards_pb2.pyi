@@ -1,5 +1,6 @@
 from annotations import authz_pb2 as _authz_pb2
 from annotations.perms import license_pb2 as _license_pb2
+from api.commons import bireportgenerator_pb2 as _bireportgenerator_pb2
 from api.commons import org_pb2 as _org_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
@@ -183,14 +184,16 @@ class DashboardType(_message.Message):
     def __init__(self, historic: _Optional[_Union[HistoricConfig, _Mapping]] = ..., real_time: _Optional[_Union[RealTimeConfig, _Mapping]] = ...) -> None: ...
 
 class HistoricConfig(_message.Message):
-    __slots__ = ("time_span_simple", "time_span_range", "time_zone")
+    __slots__ = ("time_span_simple", "time_span_range", "time_zone", "time_period")
     TIME_SPAN_SIMPLE_FIELD_NUMBER: _ClassVar[int]
     TIME_SPAN_RANGE_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
+    TIME_PERIOD_FIELD_NUMBER: _ClassVar[int]
     time_span_simple: TimeSpan.Interval
     time_span_range: TimeSpan.Range
     time_zone: _org_pb2.TimeZone
-    def __init__(self, time_span_simple: _Optional[_Union[TimeSpan.Interval, str]] = ..., time_span_range: _Optional[_Union[TimeSpan.Range, _Mapping]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ...) -> None: ...
+    time_period: _bireportgenerator_pb2.TimePeriod
+    def __init__(self, time_span_simple: _Optional[_Union[TimeSpan.Interval, str]] = ..., time_span_range: _Optional[_Union[TimeSpan.Range, _Mapping]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ...) -> None: ...
 
 class RealTimeConfig(_message.Message):
     __slots__ = ()

@@ -836,11 +836,35 @@ class AdherenceAgentState(_message.Message):
     pause_code: str
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., adm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., pause_code: _Optional[str] = ...) -> None: ...
 
+class AdherenceAgentStateViolation(_message.Message):
+    __slots__ = ("wfm_agent_sid", "start_datetime", "expected_rtm_states", "expected_pause_code", "actual_rtm_states", "actual_pause_code", "violation_duration_seconds")
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    EXPECTED_RTM_STATES_FIELD_NUMBER: _ClassVar[int]
+    EXPECTED_PAUSE_CODE_FIELD_NUMBER: _ClassVar[int]
+    ACTUAL_RTM_STATES_FIELD_NUMBER: _ClassVar[int]
+    ACTUAL_PAUSE_CODE_FIELD_NUMBER: _ClassVar[int]
+    VIOLATION_DURATION_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid: int
+    start_datetime: _timestamp_pb2.Timestamp
+    expected_rtm_states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
+    expected_pause_code: str
+    actual_rtm_states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
+    actual_pause_code: str
+    violation_duration_seconds: int
+    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expected_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., expected_pause_code: _Optional[str] = ..., actual_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., actual_pause_code: _Optional[str] = ..., violation_duration_seconds: _Optional[int] = ...) -> None: ...
+
 class AdherenceAgentStates(_message.Message):
     __slots__ = ("agent_states",)
     AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
     agent_states: _containers.RepeatedCompositeFieldContainer[AdherenceAgentState]
     def __init__(self, agent_states: _Optional[_Iterable[_Union[AdherenceAgentState, _Mapping]]] = ...) -> None: ...
+
+class AdherenceAgentStateViolations(_message.Message):
+    __slots__ = ("violations",)
+    VIOLATIONS_FIELD_NUMBER: _ClassVar[int]
+    violations: _containers.RepeatedCompositeFieldContainer[AdherenceAgentStateViolation]
+    def __init__(self, violations: _Optional[_Iterable[_Union[AdherenceAgentStateViolation, _Mapping]]] = ...) -> None: ...
 
 class AgentLeavePetition(_message.Message):
     __slots__ = ("agent_leave_petition_id", "wfm_agent_sid", "petition_status", "petition_comment", "response_comment", "requested_datetime_ranges", "created_time", "archived_time", "resolved_time", "resolved_by_user_id", "requested_hours_off")

@@ -324,10 +324,12 @@ class GetTempUserTokenRes(_message.Message):
     def __init__(self, region_id: _Optional[str] = ..., token: _Optional[str] = ...) -> None: ...
 
 class GetTempUserTokenByUserIdReq(_message.Message):
-    __slots__ = ("user_id",)
+    __slots__ = ("user_id", "org_id")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
-    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+    org_id: str
+    def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ...) -> None: ...
 
 class GetTempUserTokenByUserIdRes(_message.Message):
     __slots__ = ("region_id", "token")

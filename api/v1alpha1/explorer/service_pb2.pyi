@@ -1,4 +1,5 @@
 from annotations import authz_pb2 as _authz_pb2
+from api.commons import bireportgenerator_pb2 as _bireportgenerator_pb2
 from api.v1alpha1.explorer import entities_pb2 as _entities_pb2
 from api.v1alpha1.insights import insight_content_pb2 as _insight_content_pb2
 from google.api import annotations_pb2 as _annotations_pb2
@@ -39,7 +40,7 @@ class ListDatasourceSchemasResponse(_message.Message):
     def __init__(self, schemas: _Optional[_Iterable[_Union[_entities_pb2.Schema, _Mapping]]] = ...) -> None: ...
 
 class QueryRequest(_message.Message):
-    __slots__ = ("datasource_name", "datasource_type", "pipeline", "prql", "insight_body", "org_ids", "start_time", "end_time", "timezone", "pipeline_parameters", "ui_trace_id", "comment", "format")
+    __slots__ = ("datasource_name", "datasource_type", "pipeline", "prql", "insight_body", "org_ids", "start_time", "end_time", "timezone", "pipeline_parameters", "ui_trace_id", "comment", "format", "time_period", "report_date")
     DATASOURCE_NAME_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     PIPELINE_FIELD_NUMBER: _ClassVar[int]
@@ -53,6 +54,8 @@ class QueryRequest(_message.Message):
     UI_TRACE_ID_FIELD_NUMBER: _ClassVar[int]
     COMMENT_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
+    TIME_PERIOD_FIELD_NUMBER: _ClassVar[int]
+    REPORT_DATE_FIELD_NUMBER: _ClassVar[int]
     datasource_name: str
     datasource_type: _entities_pb2.DatasourceType
     pipeline: str
@@ -66,7 +69,9 @@ class QueryRequest(_message.Message):
     ui_trace_id: str
     comment: str
     format: _entities_pb2.ExportFormat
-    def __init__(self, datasource_name: _Optional[str] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., pipeline: _Optional[str] = ..., prql: _Optional[str] = ..., insight_body: _Optional[_Union[_insight_content_pb2.Pipeline, _Mapping]] = ..., org_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., timezone: _Optional[str] = ..., pipeline_parameters: _Optional[_Union[_entities_pb2.Parameters, _Mapping]] = ..., ui_trace_id: _Optional[str] = ..., comment: _Optional[str] = ..., format: _Optional[_Union[_entities_pb2.ExportFormat, str]] = ...) -> None: ...
+    time_period: _bireportgenerator_pb2.TimePeriod
+    report_date: _timestamp_pb2.Timestamp
+    def __init__(self, datasource_name: _Optional[str] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., pipeline: _Optional[str] = ..., prql: _Optional[str] = ..., insight_body: _Optional[_Union[_insight_content_pb2.Pipeline, _Mapping]] = ..., org_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., timezone: _Optional[str] = ..., pipeline_parameters: _Optional[_Union[_entities_pb2.Parameters, _Mapping]] = ..., ui_trace_id: _Optional[str] = ..., comment: _Optional[str] = ..., format: _Optional[_Union[_entities_pb2.ExportFormat, str]] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., report_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class QueryResponse(_message.Message):
     __slots__ = ("result_url", "result_size_bytes", "time_filtered_datasources")

@@ -4067,17 +4067,19 @@ class ListRealTimeManagementStatesResponse(_message.Message):
     def __init__(self, states: _Optional[_Iterable[_Union[_wfm_pb2.RealTimeManagementState, str]]] = ...) -> None: ...
 
 class ListAdherenceAgentStatesRequest(_message.Message):
-    __slots__ = ("wfm_agent_sids", "start_datetime", "end_datetime")
+    __slots__ = ("wfm_agent_sids", "start_datetime", "end_datetime", "include_violations")
     WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     END_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_VIOLATIONS_FIELD_NUMBER: _ClassVar[int]
     wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
     start_datetime: _timestamp_pb2.Timestamp
     end_datetime: _timestamp_pb2.Timestamp
-    def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    include_violations: bool
+    def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., include_violations: bool = ...) -> None: ...
 
 class ListAdherenceAgentStatesResponse(_message.Message):
-    __slots__ = ("agent_states", "latest_agent_state_datetime")
+    __slots__ = ("agent_states", "latest_agent_state_datetime", "agent_state_violations")
     class AgentStatesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -4085,11 +4087,20 @@ class ListAdherenceAgentStatesResponse(_message.Message):
         key: int
         value: _wfm_pb2.AdherenceAgentStates
         def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_wfm_pb2.AdherenceAgentStates, _Mapping]] = ...) -> None: ...
+    class AgentStateViolationsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: _wfm_pb2.AdherenceAgentStateViolations
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_wfm_pb2.AdherenceAgentStateViolations, _Mapping]] = ...) -> None: ...
     AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
     LATEST_AGENT_STATE_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    AGENT_STATE_VIOLATIONS_FIELD_NUMBER: _ClassVar[int]
     agent_states: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStates]
     latest_agent_state_datetime: _timestamp_pb2.Timestamp
-    def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ..., latest_agent_state_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    agent_state_violations: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStateViolations]
+    def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ..., latest_agent_state_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_state_violations: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStateViolations]] = ...) -> None: ...
 
 class RealTimeManagementStateColor(_message.Message):
     __slots__ = ("state", "color")
