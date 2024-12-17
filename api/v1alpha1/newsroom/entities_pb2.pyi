@@ -355,15 +355,3 @@ class ListPublishedClientArticlesResponse(_message.Message):
     PUBLISHED_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     published_article_details: _containers.RepeatedCompositeFieldContainer[PublishedArticleDetails]
     def __init__(self, published_article_details: _Optional[_Iterable[_Union[PublishedArticleDetails, _Mapping]]] = ...) -> None: ...
-
-class GetClientArticleByIdRequest(_message.Message):
-    __slots__ = ("new_article_sid",)
-    NEW_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
-    new_article_sid: int
-    def __init__(self, new_article_sid: _Optional[int] = ...) -> None: ...
-
-class GetClientArticleByIdResponse(_message.Message):
-    __slots__ = ("article_details",)
-    ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
-    article_details: NewsArticleDetails
-    def __init__(self, article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ...) -> None: ...
