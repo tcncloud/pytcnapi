@@ -428,7 +428,7 @@ class DrillThroughParameter(_message.Message):
     def __init__(self, parameter_name: _Optional[str] = ..., column_name: _Optional[str] = ...) -> None: ...
 
 class OutputConfiguration(_message.Message):
-    __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization", "create_time", "update_time")
+    __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization", "card_visualization", "create_time", "update_time")
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_CONFIGURATION_TITLE_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_CONFIGURATION_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -436,6 +436,7 @@ class OutputConfiguration(_message.Message):
     IS_DEFAULT_FIELD_NUMBER: _ClassVar[int]
     BLOB_FIELD_NUMBER: _ClassVar[int]
     TABLE_VISUALIZATION_FIELD_NUMBER: _ClassVar[int]
+    CARD_VISUALIZATION_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
@@ -445,9 +446,10 @@ class OutputConfiguration(_message.Message):
     is_default: bool
     blob: str
     table_visualization: TableVisualization
+    card_visualization: CardVisualization
     create_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
-    def __init__(self, resource_id: _Optional[str] = ..., output_configuration_title: _Optional[str] = ..., output_configuration_type: _Optional[_Union[OutputConfigurationType, str]] = ..., insight_resource_id: _Optional[str] = ..., is_default: bool = ..., blob: _Optional[str] = ..., table_visualization: _Optional[_Union[TableVisualization, _Mapping]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, resource_id: _Optional[str] = ..., output_configuration_title: _Optional[str] = ..., output_configuration_type: _Optional[_Union[OutputConfigurationType, str]] = ..., insight_resource_id: _Optional[str] = ..., is_default: bool = ..., blob: _Optional[str] = ..., table_visualization: _Optional[_Union[TableVisualization, _Mapping]] = ..., card_visualization: _Optional[_Union[CardVisualization, _Mapping]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class CreateOutputConfigurationRequest(_message.Message):
     __slots__ = ("output_configuration",)

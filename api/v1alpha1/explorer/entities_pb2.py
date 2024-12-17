@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$api/v1alpha1/explorer/entities.proto\x12\x15\x61pi.v1alpha1.explorer\"\xc3\x02\n\x0bSchemaField\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x42\n\x0b\x63olumn_type\x18\x02 \x01(\x0e\x32!.api.v1alpha1.explorer.SchemaTypeR\ncolumnType\x12$\n\x0eis_primary_key\x18\x03 \x01(\x08R\x0cisPrimaryKey\x12,\n\x12is_low_cardinality\x18\x04 \x01(\x08R\x10isLowCardinality\x12-\n\x12\x63olumn_description\x18\x05 \x01(\tR\x11\x63olumnDescription\x12$\n\x0eis_time_filter\x18\x06 \x01(\x08R\x0cisTimeFilter\x12\x33\n\x16is_default_time_filter\x18\x07 \x01(\x08R\x13isDefaultTimeFilter\"\x94\x02\n\x06Schema\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12N\n\x0f\x64\x61tasource_type\x18\x02 \x01(\x0e\x32%.api.v1alpha1.explorer.DatasourceTypeR\x0e\x64\x61tasourceType\x12:\n\x06\x66ields\x18\x03 \x03(\x0b\x32\".api.v1alpha1.explorer.SchemaFieldR\x06\x66ields\x12+\n\x11table_description\x18\x04 \x01(\tR\x10tableDescription\x12\x1a\n\x08\x63\x61tegory\x18\x05 \x01(\tR\x08\x63\x61tegory\x12!\n\x0csub_category\x18\x06 \x01(\tR\x0bsubCategory\"\x8b\x02\n\nParameters\x12Q\n\nparameters\x18\x01 \x03(\x0b\x32\x31.api.v1alpha1.explorer.Parameters.ParametersEntryR\nparameters\x1a>\n\tParameter\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\x12\x1b\n\tdata_type\x18\x03 \x01(\tR\x08\x64\x61taType\x1aj\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x41\n\x05value\x18\x02 \x01(\x0b\x32+.api.v1alpha1.explorer.Parameters.ParameterR\x05value:\x02\x38\x01*_\n\x0c\x45xportFormat\x12\x1d\n\x19REPORT_FORMAT_UNSPECIFIED\x10\x00\x12\x15\n\x11REPORT_FORMAT_CSV\x10\x01\x12\x19\n\x15REPORT_FORMAT_PARQUET\x10\x02*\xa5\x02\n\nSchemaType\x12\x1b\n\x17SCHEMA_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fSCHEMA_TYPE_INT\x10\x02\x12\x15\n\x11SCHEMA_TYPE_FLOAT\x10\x03\x12\x16\n\x12SCHEMA_TYPE_STRING\x10\x05\x12\x14\n\x10SCHEMA_TYPE_BOOL\x10\x06\x12\x19\n\x15SCHEMA_TYPE_TIMESTAMP\x10\x07\x12\x19\n\x15SCHEMA_TYPE_INT_ARRAY\x10\x08\x12\x1b\n\x17SCHEMA_TYPE_FLOAT_ARRAY\x10\t\x12\x1c\n\x18SCHEMA_TYPE_STRING_ARRAY\x10\n\x12\x1a\n\x16SCHEMA_TYPE_BOOL_ARRAY\x10\x0b\x12\x13\n\x0fSCHEMA_TYPE_MAP\x10\x0c*j\n\x0e\x44\x61tasourceType\x12\x1f\n\x1b\x44\x41TASOURCE_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x41TASOURCE_TYPE_VFS\x10\x01\x12\x1e\n\x1a\x44\x41TASOURCE_TYPE_CLICKHOUSE\x10\x02\x42\xa0\x01\n\x19\x63om.api.v1alpha1.explorerB\rEntitiesProtoP\x01\xa2\x02\x03\x41VE\xaa\x02\x15\x41pi.V1alpha1.Explorer\xca\x02\x15\x41pi\\V1alpha1\\Explorer\xe2\x02!Api\\V1alpha1\\Explorer\\GPBMetadata\xea\x02\x17\x41pi::V1alpha1::Explorerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$api/v1alpha1/explorer/entities.proto\x12\x15\x61pi.v1alpha1.explorer\"\xe9\x02\n\x0bSchemaField\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x42\n\x0b\x63olumn_type\x18\x02 \x01(\x0e\x32!.api.v1alpha1.explorer.SchemaTypeR\ncolumnType\x12$\n\x0eis_primary_key\x18\x03 \x01(\x08R\x0cisPrimaryKey\x12,\n\x12is_low_cardinality\x18\x04 \x01(\x08R\x10isLowCardinality\x12-\n\x12\x63olumn_description\x18\x05 \x01(\tR\x11\x63olumnDescription\x12$\n\x0eis_time_filter\x18\x06 \x01(\x08R\x0cisTimeFilter\x12\x33\n\x16is_default_time_filter\x18\x07 \x01(\x08R\x13isDefaultTimeFilter\x12$\n\x0eis_join_column\x18\x08 \x01(\x08R\x0cisJoinColumn\"\x94\x02\n\x06Schema\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12N\n\x0f\x64\x61tasource_type\x18\x02 \x01(\x0e\x32%.api.v1alpha1.explorer.DatasourceTypeR\x0e\x64\x61tasourceType\x12:\n\x06\x66ields\x18\x03 \x03(\x0b\x32\".api.v1alpha1.explorer.SchemaFieldR\x06\x66ields\x12+\n\x11table_description\x18\x04 \x01(\tR\x10tableDescription\x12\x1a\n\x08\x63\x61tegory\x18\x05 \x01(\tR\x08\x63\x61tegory\x12!\n\x0csub_category\x18\x06 \x01(\tR\x0bsubCategory\"\x8b\x02\n\nParameters\x12Q\n\nparameters\x18\x01 \x03(\x0b\x32\x31.api.v1alpha1.explorer.Parameters.ParametersEntryR\nparameters\x1a>\n\tParameter\x12\x14\n\x05value\x18\x02 \x01(\tR\x05value\x12\x1b\n\tdata_type\x18\x03 \x01(\tR\x08\x64\x61taType\x1aj\n\x0fParametersEntry\x12\x10\n\x03key\x18\x01 \x01(\tR\x03key\x12\x41\n\x05value\x18\x02 \x01(\x0b\x32+.api.v1alpha1.explorer.Parameters.ParameterR\x05value:\x02\x38\x01*_\n\x0c\x45xportFormat\x12\x1d\n\x19REPORT_FORMAT_UNSPECIFIED\x10\x00\x12\x15\n\x11REPORT_FORMAT_CSV\x10\x01\x12\x19\n\x15REPORT_FORMAT_PARQUET\x10\x02*\xa5\x02\n\nSchemaType\x12\x1b\n\x17SCHEMA_TYPE_UNSPECIFIED\x10\x00\x12\x13\n\x0fSCHEMA_TYPE_INT\x10\x02\x12\x15\n\x11SCHEMA_TYPE_FLOAT\x10\x03\x12\x16\n\x12SCHEMA_TYPE_STRING\x10\x05\x12\x14\n\x10SCHEMA_TYPE_BOOL\x10\x06\x12\x19\n\x15SCHEMA_TYPE_TIMESTAMP\x10\x07\x12\x19\n\x15SCHEMA_TYPE_INT_ARRAY\x10\x08\x12\x1b\n\x17SCHEMA_TYPE_FLOAT_ARRAY\x10\t\x12\x1c\n\x18SCHEMA_TYPE_STRING_ARRAY\x10\n\x12\x1a\n\x16SCHEMA_TYPE_BOOL_ARRAY\x10\x0b\x12\x13\n\x0fSCHEMA_TYPE_MAP\x10\x0c*j\n\x0e\x44\x61tasourceType\x12\x1f\n\x1b\x44\x41TASOURCE_TYPE_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x41TASOURCE_TYPE_VFS\x10\x01\x12\x1e\n\x1a\x44\x41TASOURCE_TYPE_CLICKHOUSE\x10\x02\x42\xa0\x01\n\x19\x63om.api.v1alpha1.explorerB\rEntitiesProtoP\x01\xa2\x02\x03\x41VE\xaa\x02\x15\x41pi.V1alpha1.Explorer\xca\x02\x15\x41pi\\V1alpha1\\Explorer\xe2\x02!Api\\V1alpha1\\Explorer\\GPBMetadata\xea\x02\x17\x41pi::V1alpha1::Explorerb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,20 +34,20 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'\n\031com.api.v1alpha1.explorerB\rEntitiesProtoP\001\242\002\003AVE\252\002\025Api.V1alpha1.Explorer\312\002\025Api\\V1alpha1\\Explorer\342\002!Api\\V1alpha1\\Explorer\\GPBMetadata\352\002\027Api::V1alpha1::Explorer'
   _globals['_PARAMETERS_PARAMETERSENTRY']._loaded_options = None
   _globals['_PARAMETERS_PARAMETERSENTRY']._serialized_options = b'8\001'
-  _globals['_EXPORTFORMAT']._serialized_start=938
-  _globals['_EXPORTFORMAT']._serialized_end=1033
-  _globals['_SCHEMATYPE']._serialized_start=1036
-  _globals['_SCHEMATYPE']._serialized_end=1329
-  _globals['_DATASOURCETYPE']._serialized_start=1331
-  _globals['_DATASOURCETYPE']._serialized_end=1437
+  _globals['_EXPORTFORMAT']._serialized_start=976
+  _globals['_EXPORTFORMAT']._serialized_end=1071
+  _globals['_SCHEMATYPE']._serialized_start=1074
+  _globals['_SCHEMATYPE']._serialized_end=1367
+  _globals['_DATASOURCETYPE']._serialized_start=1369
+  _globals['_DATASOURCETYPE']._serialized_end=1475
   _globals['_SCHEMAFIELD']._serialized_start=64
-  _globals['_SCHEMAFIELD']._serialized_end=387
-  _globals['_SCHEMA']._serialized_start=390
-  _globals['_SCHEMA']._serialized_end=666
-  _globals['_PARAMETERS']._serialized_start=669
-  _globals['_PARAMETERS']._serialized_end=936
-  _globals['_PARAMETERS_PARAMETER']._serialized_start=766
-  _globals['_PARAMETERS_PARAMETER']._serialized_end=828
-  _globals['_PARAMETERS_PARAMETERSENTRY']._serialized_start=830
-  _globals['_PARAMETERS_PARAMETERSENTRY']._serialized_end=936
+  _globals['_SCHEMAFIELD']._serialized_end=425
+  _globals['_SCHEMA']._serialized_start=428
+  _globals['_SCHEMA']._serialized_end=704
+  _globals['_PARAMETERS']._serialized_start=707
+  _globals['_PARAMETERS']._serialized_end=974
+  _globals['_PARAMETERS_PARAMETER']._serialized_start=804
+  _globals['_PARAMETERS_PARAMETER']._serialized_end=866
+  _globals['_PARAMETERS_PARAMETERSENTRY']._serialized_start=868
+  _globals['_PARAMETERS_PARAMETERSENTRY']._serialized_end=974
 # @@protoc_insertion_point(module_scope)

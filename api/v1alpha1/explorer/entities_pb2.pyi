@@ -50,7 +50,7 @@ DATASOURCE_TYPE_VFS: DatasourceType
 DATASOURCE_TYPE_CLICKHOUSE: DatasourceType
 
 class SchemaField(_message.Message):
-    __slots__ = ("name", "column_type", "is_primary_key", "is_low_cardinality", "column_description", "is_time_filter", "is_default_time_filter")
+    __slots__ = ("name", "column_type", "is_primary_key", "is_low_cardinality", "column_description", "is_time_filter", "is_default_time_filter", "is_join_column")
     NAME_FIELD_NUMBER: _ClassVar[int]
     COLUMN_TYPE_FIELD_NUMBER: _ClassVar[int]
     IS_PRIMARY_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -58,6 +58,7 @@ class SchemaField(_message.Message):
     COLUMN_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     IS_TIME_FILTER_FIELD_NUMBER: _ClassVar[int]
     IS_DEFAULT_TIME_FILTER_FIELD_NUMBER: _ClassVar[int]
+    IS_JOIN_COLUMN_FIELD_NUMBER: _ClassVar[int]
     name: str
     column_type: SchemaType
     is_primary_key: bool
@@ -65,7 +66,8 @@ class SchemaField(_message.Message):
     column_description: str
     is_time_filter: bool
     is_default_time_filter: bool
-    def __init__(self, name: _Optional[str] = ..., column_type: _Optional[_Union[SchemaType, str]] = ..., is_primary_key: bool = ..., is_low_cardinality: bool = ..., column_description: _Optional[str] = ..., is_time_filter: bool = ..., is_default_time_filter: bool = ...) -> None: ...
+    is_join_column: bool
+    def __init__(self, name: _Optional[str] = ..., column_type: _Optional[_Union[SchemaType, str]] = ..., is_primary_key: bool = ..., is_low_cardinality: bool = ..., column_description: _Optional[str] = ..., is_time_filter: bool = ..., is_default_time_filter: bool = ..., is_join_column: bool = ...) -> None: ...
 
 class Schema(_message.Message):
     __slots__ = ("name", "datasource_type", "fields", "table_description", "category", "sub_category")
