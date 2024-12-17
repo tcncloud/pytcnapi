@@ -122,6 +122,11 @@ class NewsroomAPIStub(object):
                 request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedClientArticlesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedClientArticlesResponse.FromString,
                 )
+        self.GetClientArticleById = channel.unary_unary(
+                '/api.v1alpha1.newsroom.NewsroomAPI/GetClientArticleById',
+                request_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetClientArticleByIdRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetClientArticleByIdResponse.FromString,
+                )
 
 
 class NewsroomAPIServicer(object):
@@ -277,6 +282,13 @@ class NewsroomAPIServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetClientArticleById(self, request, context):
+        """get client article details by the id
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_NewsroomAPIServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -384,6 +396,11 @@ def add_NewsroomAPIServicer_to_server(servicer, server):
                     servicer.ListPublishedClientArticles,
                     request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedClientArticlesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedClientArticlesResponse.SerializeToString,
+            ),
+            'GetClientArticleById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetClientArticleById,
+                    request_deserializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetClientArticleByIdRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetClientArticleByIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -752,5 +769,22 @@ class NewsroomAPI(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/ListPublishedClientArticles',
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedClientArticlesRequest.SerializeToString,
             api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.ListPublishedClientArticlesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetClientArticleById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.newsroom.NewsroomAPI/GetClientArticleById',
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetClientArticleByIdRequest.SerializeToString,
+            api_dot_v1alpha1_dot_newsroom_dot_entities__pb2.GetClientArticleByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

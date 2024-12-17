@@ -3842,6 +3842,180 @@ class ReplaceAgentOnScheduleRes(_message.Message):
     diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
     def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
+class CreatePublishedShiftRequest(_message.Message):
+    __slots__ = ("shift_template_sid", "start_datetime", "is_locked", "wfm_agent_sids")
+    SHIFT_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    IS_LOCKED_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    shift_template_sid: int
+    start_datetime: _timestamp_pb2.Timestamp
+    is_locked: bool
+    wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, shift_template_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_locked: bool = ..., wfm_agent_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class CreatePublishedShiftResponse(_message.Message):
+    __slots__ = ("shift_instances", "diagnostics")
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class CreatePublishedShiftWithSegmentsRequest(_message.Message):
+    __slots__ = ("shift_instance", "ignore_diagnostics_errors")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    IGNORE_DIAGNOSTICS_ERRORS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    ignore_diagnostics_errors: bool
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., ignore_diagnostics_errors: bool = ...) -> None: ...
+
+class CreatePublishedShiftWithSegmentsResponse(_message.Message):
+    __slots__ = ("shift_instance", "diagnostics")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class UpdatePublishedShiftRequest(_message.Message):
+    __slots__ = ("shift_instance_sid", "start_datetime", "width_in_minutes", "wfm_agent_sid", "is_locked", "planned_shrinkage_percent")
+    SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
+    START_DATETIME_FIELD_NUMBER: _ClassVar[int]
+    WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    IS_LOCKED_FIELD_NUMBER: _ClassVar[int]
+    PLANNED_SHRINKAGE_PERCENT_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sid: int
+    start_datetime: _timestamp_pb2.Timestamp
+    width_in_minutes: int
+    wfm_agent_sid: int
+    is_locked: bool
+    planned_shrinkage_percent: float
+    def __init__(self, shift_instance_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., width_in_minutes: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., is_locked: bool = ..., planned_shrinkage_percent: _Optional[float] = ...) -> None: ...
+
+class UpdatePublishedShiftResponse(_message.Message):
+    __slots__ = ("shift_instance", "diagnostics")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class UpdatePublishedShiftWithSegmentsRequest(_message.Message):
+    __slots__ = ("shift_instance", "ignore_diagnostics_errors")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    IGNORE_DIAGNOSTICS_ERRORS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    ignore_diagnostics_errors: bool
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., ignore_diagnostics_errors: bool = ...) -> None: ...
+
+class UpdatePublishedShiftWithSegmentsResponse(_message.Message):
+    __slots__ = ("shift_instance", "diagnostics")
+    SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance: ShiftInstance
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class SplitPublishedShiftRequest(_message.Message):
+    __slots__ = ("shift_instance_sid", "time_to_split")
+    SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
+    TIME_TO_SPLIT_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sid: int
+    time_to_split: _timestamp_pb2.Timestamp
+    def __init__(self, shift_instance_sid: _Optional[int] = ..., time_to_split: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class SplitPublishedShiftResponse(_message.Message):
+    __slots__ = ("shift_instances", "diagnostics")
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class SwapPublishedShiftsRequest(_message.Message):
+    __slots__ = ("wfm_agent_sid1", "wfm_agent_sid2", "shift_instance_sids")
+    WFM_AGENT_SID1_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID2_FIELD_NUMBER: _ClassVar[int]
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    wfm_agent_sid1: int
+    wfm_agent_sid2: int
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, wfm_agent_sid1: _Optional[int] = ..., wfm_agent_sid2: _Optional[int] = ..., shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class SwapPublishedShiftsResponse(_message.Message):
+    __slots__ = ("shift_instances", "diagnostics")
+    SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class DeletePublishedShiftsRequest(_message.Message):
+    __slots__ = ("shift_instance_sids",)
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class DeletePublishedShiftsResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ReplaceAgentOnPublishedScheduleRequest(_message.Message):
+    __slots__ = ("datetime_range", "node_selector", "wfm_agent_sid_to_remove", "wfm_agent_sid_to_add", "skip_overlapping_shifts")
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_TO_REMOVE_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_TO_ADD_FIELD_NUMBER: _ClassVar[int]
+    SKIP_OVERLAPPING_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    node_selector: ParentEntity
+    wfm_agent_sid_to_remove: int
+    wfm_agent_sid_to_add: int
+    skip_overlapping_shifts: bool
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., wfm_agent_sid_to_remove: _Optional[int] = ..., wfm_agent_sid_to_add: _Optional[int] = ..., skip_overlapping_shifts: bool = ...) -> None: ...
+
+class ReplaceAgentOnPublishedScheduleResponse(_message.Message):
+    __slots__ = ("updated_shift_instances", "diagnostics")
+    UPDATED_SHIFT_INSTANCES_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    updated_shift_instances: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, updated_shift_instances: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class RemoveAgentFromPublishedScheduleRequest(_message.Message):
+    __slots__ = ("datetime_range", "wfm_agent_sid", "node_selector", "schedule_scenario_sid")
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    NODE_SELECTOR_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_SCENARIO_SID_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    wfm_agent_sid: int
+    node_selector: ParentEntity
+    schedule_scenario_sid: int
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., wfm_agent_sid: _Optional[int] = ..., node_selector: _Optional[_Union[ParentEntity, _Mapping]] = ..., schedule_scenario_sid: _Optional[int] = ...) -> None: ...
+
+class RemoveAgentFromPublishedScheduleResponse(_message.Message):
+    __slots__ = ("unassigned_wfm_agent_sid", "updated_shifts")
+    UNASSIGNED_WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    UPDATED_SHIFTS_FIELD_NUMBER: _ClassVar[int]
+    unassigned_wfm_agent_sid: int
+    updated_shifts: _containers.RepeatedCompositeFieldContainer[ShiftInstance]
+    def __init__(self, unassigned_wfm_agent_sid: _Optional[int] = ..., updated_shifts: _Optional[_Iterable[_Union[ShiftInstance, _Mapping]]] = ...) -> None: ...
+
+class CopyShiftsToPublishedScheduleRequest(_message.Message):
+    __slots__ = ("shift_instance_sids",)
+    SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
+    shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
+
+class CopyShiftsToPublishedScheduleResponse(_message.Message):
+    __slots__ = ("diagnostics",)
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class RgbaColor(_message.Message):
     __slots__ = ("red", "green", "blue", "alpha", "name", "rgba_color_id")
     RED_FIELD_NUMBER: _ClassVar[int]

@@ -910,6 +910,56 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
                 )
+        self.CreatePublishedShift = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreatePublishedShift',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftResponse.FromString,
+                )
+        self.CreatePublishedShiftWithSegments = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreatePublishedShiftWithSegments',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftWithSegmentsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftWithSegmentsResponse.FromString,
+                )
+        self.UpdatePublishedShift = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdatePublishedShift',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftResponse.FromString,
+                )
+        self.UpdatePublishedShiftWithSegments = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdatePublishedShiftWithSegments',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftWithSegmentsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftWithSegmentsResponse.FromString,
+                )
+        self.SplitPublishedShift = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/SplitPublishedShift',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitPublishedShiftRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitPublishedShiftResponse.FromString,
+                )
+        self.SwapPublishedShifts = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/SwapPublishedShifts',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapPublishedShiftsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapPublishedShiftsResponse.FromString,
+                )
+        self.DeletePublishedShifts = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/DeletePublishedShifts',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeletePublishedShiftsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeletePublishedShiftsResponse.FromString,
+                )
+        self.ReplaceAgentOnPublishedSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ReplaceAgentOnPublishedSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnPublishedScheduleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnPublishedScheduleResponse.FromString,
+                )
+        self.RemoveAgentFromPublishedSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/RemoveAgentFromPublishedSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromPublishedScheduleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromPublishedScheduleResponse.FromString,
+                )
+        self.CopyShiftsToPublishedSchedule = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CopyShiftsToPublishedSchedule',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftsToPublishedScheduleRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftsToPublishedScheduleResponse.FromString,
+                )
         self.CreateAgentLeavePetition = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/CreateAgentLeavePetition',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateAgentLeavePetitionRequest.SerializeToString,
@@ -2542,6 +2592,7 @@ class WFMServicer(object):
 
     def DeleteShiftInstances(self, request, context):
         """Deletes shift instances with the corresponding @shift_instance_sids for the org sending the request.
+        Only deletes draft shifts. To delete published shifts use the DeletePublishedShifts endpoint.
         Errors:
         -grpc.Invalid: the @shift_instance_sids are invalid for the org making the request.
         -grpc.NotFound: the shift instances with the given @shift_instance_sids don't exist.
@@ -2812,6 +2863,7 @@ class WFMServicer(object):
         """Creates a shift instance for the org sending the request with the provided parameters.
         If @wfm_agent_sids is empty, then the shift instance will be created for a newly created unassigned agent.
         A shift instance will be created for each wfm agent sid provided.
+        Can only create shifts for the draft schedule. Published shifts require the CreatePublishedShift endpoint.
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when creating the shift instance.
@@ -2825,6 +2877,7 @@ class WFMServicer(object):
         """Creates the @shift_instance with any member shift segments and shift segment call stats for the org sending the request.
         If @ignore_diagnostics_errors any diagnostics encountered will be returned as warnings, and the shift will still be created.
         Otherwise, any diagnostics triggered by the given @shift_instance will be returned and the shift will not be created.
+        Can only create shifts for the draft schedule. Published shifts with segments require the CreatePublishedShiftWithSegments endpoint.
         Errors:
         -grpc.Invalid: one or more fields in the request have invalid values.
         -grpc.NotFound: the fields referenced in @shift_instance or its member shift segments don't exist for the org.
@@ -2839,6 +2892,7 @@ class WFMServicer(object):
         Any shift segments will be split between the two shift instances at @time_to_split.
         If the @time_to_split creates instances shorter then the minimum length specified by the shift template,
         warning diagnostics will be returned and the instance will still be split.
+        Can only split a shift on the draft schedule. To split a published shift use the SplitPublishedShift endpoint.
         Errors:
         -grpc.Invalid: one or more fields in the request have invalid values, or @time_to_split is not at least 5 minutes from the start or end of @shift_instance_sid.
         -grpc.NotFound: the @shift_instance_sid does't exist for the org sending the request.
@@ -2853,9 +2907,11 @@ class WFMServicer(object):
         Returns the swapped @shift_instances after they are succesfully updated.
         If there are other shifts for the given @wfm_agent_sids with an overlap conflict, diagnostics will be returned instead.
         All @shift_instance_sids must belong to the same schedule, and be from a draft schedule.
+        Is only capable of swapping shifts on the draft schedule. To include shifts on the published schedule use the SwapPublishedShifts endpoint.
+        If there is an overlap conflict with the swap, a diagnostic will be returned and the shifts will not be updated.
         Errors:
-        - grpc.Invalid: one or more fields in the request have invalid values.
-        - grpc.NotFound: wfm_agent_sid_1, wfm_agent_sid_2, or shift_instance_sids do not exist for the org sending the request.
+        - grpc.Invalid: one or more fields in the request have invalid values, or one of the @shift_instance_sids does not belong to either @wfm_agent_sid_1 nor @wfm_agent_sid_2 or is on a published schedule.
+        - grpc.NotFound: @wfm_agent_sid_1, @wfm_agent_sid_2, or @shift_instance_sids do not exist for the org sending the request.
         - grpc.Internal: error occurs when swapping the shift instances.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -2875,9 +2931,12 @@ class WFMServicer(object):
 
     def UpdateShiftInstanceV2(self, request, context):
         """Updates a shift instance for the org sending the request with the provided parameters.
+        Can only update a shift on the draft schedule. To update a published shift use the UpdatePublishedShift endpoint.
+        If the width of the shift is changed, the lengths of the shift segments will be adjusted proportionally.
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.Internal: error occurs when updating the shift instance.
+        - grpc.NotFound: @shift_instance_sid does not exist for the org sending the request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2891,9 +2950,11 @@ class WFMServicer(object):
 
         Any existing shift segments belonging to @shift_instance will be deleted and replaced with the ones in the given @shift_instance.
         If no segments are provided, the existing segments will still be deleted and the instances will be left without any.
+        Can only update a shift on the draft schedule. To update a published shift use the UpdatePublishedShiftWithSegments endpoint.
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when updating the @shift_instance or replacing their member shift segments.
+        - grpc.NotFound: @shift_instance_sid does not exist for the org sending the request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -2904,6 +2965,7 @@ class WFMServicer(object):
         If there are any overlap conflicts on @destination_schedule and @overlap_as_warning is set to false,
         then @shift_instance_sids will not be copied, and a list of diagnostics detailing the overlaps will be returned.
         If @overlap_as_warning is set to true, overlap conflicts will not prevent the shifts from being copied, and the overlap diagnostics will be returned after as warning messages instead.
+        This endpoint can only copy shifts to a draft schedule. To copy shifts to the published schedule use the CopyShiftsToPublishedSchedule endpoint.
         Errors:
         - grpc.Invalid: one or more fields in the request have invalid values.
         - grpc.NotFound: the @shift_instance_sids or @destination_schedule does not exist for the org sending the request.
@@ -3355,6 +3417,7 @@ class WFMServicer(object):
         """Replaces @wfm_agent_sid_to_remove with @wfm_agent_sid_to_add for the given parameters and the org sending the request.
         If @skip_overlapping_shifts, shifts with an overlap conflict will be skipped, otherwise overlap conflicts will cause a diagnostic to be returned.
         Does not enforce skill proficiencies. To check skill proficiencies for shift replacement use ListValidAgentsForReplacement.
+        Only replaces the agent on the draft schedule. To replace the agent on a published schedule use the ReplaceAgentOnPublishedSchedule endpoint.
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when replacing the @wfm_agent_sid_to_remove.
@@ -3367,6 +3430,7 @@ class WFMServicer(object):
         """Removes the @wfm_agent_sid from @schedule_selector over @datetime_range for the org sending the request.
         Creates a new unassigned agent with the same active agent group associations as @wfm_agent_sid for @schedule_scenario_sid.
         The unassigned agent will be assigned to shifts belonging to @wfm_agent_sid, returning newly created unassigned agent's SID and the updated shifts.
+        Only removes agents from a draft schedule. To remove agents from the published schedule use the RemoveAgentFromPublishedSchedule endpoint.
         Errors:
         - grpc.Invalid: the request data is invalid.
         - grpc.Internal: error occurs when creating the unassigned agent or updating the shifts.
@@ -3375,8 +3439,155 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreatePublishedShift(self, request, context):
+        """*************************************************************SCHEDULER PUBLISHED SCHEDULE EDITING RPCS*******************************************************************
+
+        Creates a published shift instance for the org sending the request with the provided parameters, with shift segments matching @shift_template_sid.
+        If @wfm_agent_sids is empty, then the shift instance will be created for a newly created unassigned agent.
+        A shift instance will be created for each wfm agent sid provided.
+        Can only create shifts for the published schedule. Draft shifts require the CreateShiftInstanceV2 endpoint.
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.Internal: error occurs when creating the shift instance.
+        - grpc.NotFound: the @shift_template_sid, or @wfm_agent_sids do not exist for the org sending the request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreatePublishedShiftWithSegments(self, request, context):
+        """Creates the @shift_instance with any member shift segments and shift segment call stats for the org sending the request.
+        If @ignore_diagnostics_errors any diagnostics encountered will be returned as warnings, and the shift will still be created.
+        Otherwise, any diagnostics triggered by the given @shift_instance will be returned and the shift will not be created.
+        Can only create shifts for the published schedule. Draft shifts with segments require the CreateShiftInstanceWithSegments endpoint.
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.NotFound: the fields referenced in @shift_instance or its member shift segments don't exist for the org.
+        - grpc.Internal: error occurs when creating the shift instance or its members.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdatePublishedShift(self, request, context):
+        """Updates a shift instance on the published schedule for the org sending the request with the provided parameters.
+        Can only update a shift on the published schedule. To update a draft shift use the UpdateShiftInstanceV2 endpoint.
+        If the width of the shift is changed, the lengths of the shift segments will be adjusted proportionally.
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.Internal: error occurs when updating the shift instance.
+        - grpc.NotFound: @shift_instance_sid does not exist for the org sending the request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdatePublishedShiftWithSegments(self, request, context):
+        """Runs diagnostics on the given published @shift_instance for the org sending the request.
+        If @ignore_diagnostics_errors is True, the shift will be updated regardless of diagnostic errors and any diagnostics will be returned as warnings.
+        Otherwise, the shift will only be updated if there are no diagnostic errors.
+        Only the @start_datetime, @is_locked, @width_in_minutes and @wfm_agent_sid fields of the shift will be updated.
+
+        Any existing shift segments belonging to @shift_instance will be deleted and replaced with the ones in the given @shift_instance.
+        If no segments are provided, the existing segments will still be deleted and the instances will be left without any.
+        Can only update a shift on the published schedule. To update a draft shift use the UpdateShiftInstanceWithSegments endpoint.
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when updating the @shift_instance or replacing their member shift segments.
+        - grpc.NotFound: @shift_instance_sid does not exist for the org sending the request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SplitPublishedShift(self, request, context):
+        """Splits the published @shift_instance_sid into two, at the given @time_to_split, returning the updated and new @shift_instances.
+        Any shift segments will be split between the two shift instances at @time_to_split.
+        If the @time_to_split creates instances shorter then the minimum length specified by the shift template,
+        warning diagnostics will be returned and the instance will still be split.
+        Can only split a shift on the published schedule. To split a draft shift use the SplitShiftInstance endpoint.
+        Errors:
+        -grpc.Invalid: one or more fields in the request have invalid values, or @time_to_split is not at least 5 minutes from the start or end of @shift_instance_sid.
+        -grpc.NotFound: the @shift_instance_sid does't exist for the org sending the request.
+        -grpc.Internal: error occurs when creating or updating the shift instances.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SwapPublishedShifts(self, request, context):
+        """Swaps shift instances with the given @shift_instance_sids that belong to @wfm_agent_sid1 to belong to @wfm_agent_sid2 (and viceversa).
+        Returns the swapped @shift_instances after they are succesfully updated.
+        If there are other shifts for the given @wfm_agent_sids with an overlap conflict, diagnostics will be returned instead.
+        All @shift_instance_sids must belong to the same schedule, and be from a draft schedule.
+        Is capable of swapping shifts on the published schedule, but is not restricted from swapping shifts on the draft schedule as well.
+        Users without permissions to swap published shifts can swap draft shifts with the SwapShiftInstances endpoint.
+        If there is an overlap conflict with the swap, a diagnostic will be returned and the shifts will not be updated.
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values, or one of the @shift_instance_sids does not belong to either @wfm_agent_sid_1 nor @wfm_agent_sid_2.
+        - grpc.NotFound: @wfm_agent_sid_1, @wfm_agent_sid_2, or @shift_instance_sids do not exist for the org sending the request.
+        - grpc.Internal: error occurs when swapping the shift instances.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeletePublishedShifts(self, request, context):
+        """Deletes the published shift instances with the corresponding @shift_instance_sids for the org sending the request.
+        Only deletes published shifts. To delete draft shifts use the DeleteShiftInstances endpoint.
+        Errors:
+        -grpc.Invalid: the @shift_instance_sids are invalid for the org making the request.
+        -grpc.NotFound: the shift instances with the given @shift_instance_sids don't exist.
+        -grpc.Internal: error occurs when removing the shift instances.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReplaceAgentOnPublishedSchedule(self, request, context):
+        """Replaces @wfm_agent_sid_to_remove with @wfm_agent_sid_to_add on the shifts for the given parameters on the published schedule for the org sending the request.
+        If @skip_overlapping_shifts, shifts with an overlap conflict will be skipped, otherwise overlap conflicts will cause a diagnostic to be returned.
+        Does not enforce skill proficiencies. To check skill proficiencies for shift replacement use ListValidAgentsForReplacement.
+        Only replaces the agent on the published schedule. To replace the agent on a draft schedule use the ReplaceAgentOnScheduleV1 endpoint.
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when replacing the @wfm_agent_sid_to_remove.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def RemoveAgentFromPublishedSchedule(self, request, context):
+        """Removes the @wfm_agent_sid from published schedule over @datetime_range for the org sending the request.
+        Creates a new unassigned agent with the same active agent group associations as @wfm_agent_sid for @schedule_scenario_sid.
+        The unassigned agent will be assigned to shifts belonging to @wfm_agent_sid, returning newly created unassigned agent's SID and the updated shifts.
+        Only removes agents from the published schedule. To remove agents from a draft schedule use the RemoveAgentFromSchedule endpoint.
+        Errors:
+        - grpc.Invalid: the request data is invalid.
+        - grpc.Internal: error occurs when creating the unassigned agent or updating the shifts.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CopyShiftsToPublishedSchedule(self, request, context):
+        """Copies the given @shift_instance_sids to published schedule for the org sending the request.
+        If there are any overlap conflicts on published schedule and @overlap_as_warning is set to false,
+        then @shift_instance_sids will not be copied, and a list of diagnostics detailing the overlaps will be returned.
+        This endpoint can only copy shifts to the published schedule. To copy shifts to a draft schedule use the CopyShiftInstancesToSchedule endpoint.
+        Errors:
+        - grpc.Invalid: one or more fields in the request have invalid values.
+        - grpc.NotFound: the @shift_instance_sids do not exist for the org sending the request.
+        - grpc.Internal: error occurs when copying the shift instances.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def CreateAgentLeavePetition(self, request, context):
-        """Creates an agent leave petition to request time off for the @wfm_agent_sid over the @requested_datetime_ranges for the org sending the request.
+        """*************************************************************LEAVE MANAGEMENT RPCS*******************************************************************
+
+        Creates an agent leave petition to request time off for the @wfm_agent_sid over the @requested_datetime_ranges for the org sending the request.
         The @petition_comment must be set with a value.
         The @requested_datetime_ranges may not overlap each other.
         The number of working hours requested off should be set in @requested_hours_off.
@@ -4741,6 +4952,56 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.RemoveAgentFromSchedule,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.SerializeToString,
+            ),
+            'CreatePublishedShift': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePublishedShift,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftResponse.SerializeToString,
+            ),
+            'CreatePublishedShiftWithSegments': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePublishedShiftWithSegments,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftWithSegmentsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftWithSegmentsResponse.SerializeToString,
+            ),
+            'UpdatePublishedShift': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdatePublishedShift,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftResponse.SerializeToString,
+            ),
+            'UpdatePublishedShiftWithSegments': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdatePublishedShiftWithSegments,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftWithSegmentsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftWithSegmentsResponse.SerializeToString,
+            ),
+            'SplitPublishedShift': grpc.unary_unary_rpc_method_handler(
+                    servicer.SplitPublishedShift,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitPublishedShiftRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitPublishedShiftResponse.SerializeToString,
+            ),
+            'SwapPublishedShifts': grpc.unary_unary_rpc_method_handler(
+                    servicer.SwapPublishedShifts,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapPublishedShiftsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapPublishedShiftsResponse.SerializeToString,
+            ),
+            'DeletePublishedShifts': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeletePublishedShifts,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeletePublishedShiftsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeletePublishedShiftsResponse.SerializeToString,
+            ),
+            'ReplaceAgentOnPublishedSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReplaceAgentOnPublishedSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnPublishedScheduleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnPublishedScheduleResponse.SerializeToString,
+            ),
+            'RemoveAgentFromPublishedSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveAgentFromPublishedSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromPublishedScheduleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromPublishedScheduleResponse.SerializeToString,
+            ),
+            'CopyShiftsToPublishedSchedule': grpc.unary_unary_rpc_method_handler(
+                    servicer.CopyShiftsToPublishedSchedule,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftsToPublishedScheduleRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftsToPublishedScheduleResponse.SerializeToString,
             ),
             'CreateAgentLeavePetition': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateAgentLeavePetition,
@@ -7983,6 +8244,176 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromSchedule',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromScheduleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreatePublishedShift(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreatePublishedShift',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreatePublishedShiftWithSegments(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreatePublishedShiftWithSegments',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftWithSegmentsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreatePublishedShiftWithSegmentsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdatePublishedShift(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdatePublishedShift',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdatePublishedShiftWithSegments(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdatePublishedShiftWithSegments',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftWithSegmentsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdatePublishedShiftWithSegmentsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SplitPublishedShift(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/SplitPublishedShift',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitPublishedShiftRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SplitPublishedShiftResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SwapPublishedShifts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/SwapPublishedShifts',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapPublishedShiftsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SwapPublishedShiftsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeletePublishedShifts(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/DeletePublishedShifts',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeletePublishedShiftsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeletePublishedShiftsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReplaceAgentOnPublishedSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ReplaceAgentOnPublishedSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnPublishedScheduleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ReplaceAgentOnPublishedScheduleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveAgentFromPublishedSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/RemoveAgentFromPublishedSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromPublishedScheduleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.RemoveAgentFromPublishedScheduleResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CopyShiftsToPublishedSchedule(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CopyShiftsToPublishedSchedule',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftsToPublishedScheduleRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CopyShiftsToPublishedScheduleResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
