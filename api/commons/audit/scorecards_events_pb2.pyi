@@ -1,5 +1,6 @@
 from api.commons import acd_pb2 as _acd_pb2
 from api.commons import scorecards_pb2 as _scorecards_pb2
+from google.protobuf import duration_pb2 as _duration_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -390,3 +391,27 @@ class ScorecardsCreateAutoEvaluationEvent(_message.Message):
     risk_level: _scorecards_pb2.RiskLevel
     auto_evaluation: _scorecards_pb2.AutoEvaluation
     def __init__(self, auto_evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., risk_level: _Optional[_Union[_scorecards_pb2.RiskLevel, str]] = ..., auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
+
+class ScorecardsCreateSmartEvaluationEvent(_message.Message):
+    __slots__ = ("smart_evaluation_id", "transcript_sid", "call", "sms")
+    class Call(_message.Message):
+        __slots__ = ("call_sid", "call_type")
+        CALL_SID_FIELD_NUMBER: _ClassVar[int]
+        CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        call_sid: int
+        call_type: _acd_pb2.CallType.Enum
+        def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
+    class Sms(_message.Message):
+        __slots__ = ("conversation_sid",)
+        CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+        conversation_sid: int
+        def __init__(self, conversation_sid: _Optional[int] = ...) -> None: ...
+    SMART_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
+    TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_FIELD_NUMBER: _ClassVar[int]
+    SMS_FIELD_NUMBER: _ClassVar[int]
+    smart_evaluation_id: int
+    transcript_sid: int
+    call: ScorecardsCreateSmartEvaluationEvent.Call
+    sms: ScorecardsCreateSmartEvaluationEvent.Sms
+    def __init__(self, smart_evaluation_id: _Optional[int] = ..., transcript_sid: _Optional[int] = ..., call: _Optional[_Union[ScorecardsCreateSmartEvaluationEvent.Call, _Mapping]] = ..., sms: _Optional[_Union[ScorecardsCreateSmartEvaluationEvent.Sms, _Mapping]] = ...) -> None: ...

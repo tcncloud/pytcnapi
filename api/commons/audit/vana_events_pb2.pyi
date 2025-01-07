@@ -104,3 +104,47 @@ class VanaCreateTranscriptEvent(_message.Message):
     call: VanaCreateTranscriptEvent.Call
     sms: VanaCreateTranscriptEvent.Sms
     def __init__(self, transcript_sid: _Optional[int] = ..., call: _Optional[_Union[VanaCreateTranscriptEvent.Call, _Mapping]] = ..., sms: _Optional[_Union[VanaCreateTranscriptEvent.Sms, _Mapping]] = ...) -> None: ...
+
+class VanaCreateSentimentEvent(_message.Message):
+    __slots__ = ("transcript_sid", "call", "sms")
+    class Call(_message.Message):
+        __slots__ = ("call_sid", "call_type")
+        CALL_SID_FIELD_NUMBER: _ClassVar[int]
+        CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        call_sid: int
+        call_type: _acd_pb2.CallType.Enum
+        def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
+    class Sms(_message.Message):
+        __slots__ = ("conversation_sid",)
+        CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+        conversation_sid: int
+        def __init__(self, conversation_sid: _Optional[int] = ...) -> None: ...
+    TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_FIELD_NUMBER: _ClassVar[int]
+    SMS_FIELD_NUMBER: _ClassVar[int]
+    transcript_sid: int
+    call: VanaCreateSentimentEvent.Call
+    sms: VanaCreateSentimentEvent.Sms
+    def __init__(self, transcript_sid: _Optional[int] = ..., call: _Optional[_Union[VanaCreateSentimentEvent.Call, _Mapping]] = ..., sms: _Optional[_Union[VanaCreateSentimentEvent.Sms, _Mapping]] = ...) -> None: ...
+
+class VanaCreateSummaryEvent(_message.Message):
+    __slots__ = ("transcript_sid", "call", "sms")
+    class Call(_message.Message):
+        __slots__ = ("call_sid", "call_type")
+        CALL_SID_FIELD_NUMBER: _ClassVar[int]
+        CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+        call_sid: int
+        call_type: _acd_pb2.CallType.Enum
+        def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
+    class Sms(_message.Message):
+        __slots__ = ("conversation_sid",)
+        CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+        conversation_sid: int
+        def __init__(self, conversation_sid: _Optional[int] = ...) -> None: ...
+    TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_FIELD_NUMBER: _ClassVar[int]
+    SMS_FIELD_NUMBER: _ClassVar[int]
+    transcript_sid: int
+    call: VanaCreateSummaryEvent.Call
+    sms: VanaCreateSummaryEvent.Sms
+    def __init__(self, transcript_sid: _Optional[int] = ..., call: _Optional[_Union[VanaCreateSummaryEvent.Call, _Mapping]] = ..., sms: _Optional[_Union[VanaCreateSummaryEvent.Sms, _Mapping]] = ...) -> None: ...
