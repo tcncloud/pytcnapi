@@ -54,12 +54,14 @@ class ListPoolsResponse(_message.Message):
     def __init__(self, pools: _Optional[_Iterable[_Union[Pool, _Mapping]]] = ...) -> None: ...
 
 class Pool(_message.Message):
-    __slots__ = ("id", "desc")
+    __slots__ = ("id", "name", "desc")
     ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     DESC_FIELD_NUMBER: _ClassVar[int]
     id: str
+    name: str
     desc: str
-    def __init__(self, id: _Optional[str] = ..., desc: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., desc: _Optional[str] = ...) -> None: ...
 
 class GetPublicKeyReq(_message.Message):
     __slots__ = ()
