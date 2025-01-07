@@ -90,7 +90,8 @@ class PBXServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def ListPBXUsers(self, request, context):
-        """Returns details of all PBX Users associated with the authenticated callers ORG
+        """DEPRECATED: This method is deprecated and may be removed in future versions. (No longer need PBX Users)
+        Returns details of all PBX Users associated with the authenticated callers ORG
         Required permissions:
         PBX-MANAGER
         Errors:
@@ -103,7 +104,8 @@ class PBXServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetPBXUser(self, request, context):
-        """Returns details of the PBX User associated with the pbx_user_id
+        """DEPRECATED: This method is deprecated and may be removed in future versions. (No longer need PBX Users)
+        Returns details of the PBX User associated with the pbx_user_id
         Required permissions:
         PBX-MANAGER
         Errors:

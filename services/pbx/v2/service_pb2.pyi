@@ -32,19 +32,29 @@ class PBXUser(_message.Message):
     sip_account_ids: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, pbx_user_id: _Optional[str] = ..., org_user_id: _Optional[str] = ..., sip_account_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
+class SIPAccountRingGroup(_message.Message):
+    __slots__ = ("ring_group_id", "ring_group_name")
+    RING_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    RING_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
+    ring_group_id: str
+    ring_group_name: str
+    def __init__(self, ring_group_id: _Optional[str] = ..., ring_group_name: _Optional[str] = ...) -> None: ...
+
 class SIPAccount(_message.Message):
-    __slots__ = ("sip_id", "is_active", "extension", "ring_group_ids", "org_user_id")
+    __slots__ = ("sip_id", "is_active", "extension", "ring_group_ids", "org_user_id", "ring_groups")
     SIP_ID_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTENSION_FIELD_NUMBER: _ClassVar[int]
     RING_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
     ORG_USER_ID_FIELD_NUMBER: _ClassVar[int]
+    RING_GROUPS_FIELD_NUMBER: _ClassVar[int]
     sip_id: str
     is_active: bool
     extension: str
     ring_group_ids: _containers.RepeatedScalarFieldContainer[str]
     org_user_id: str
-    def __init__(self, sip_id: _Optional[str] = ..., is_active: bool = ..., extension: _Optional[str] = ..., ring_group_ids: _Optional[_Iterable[str]] = ..., org_user_id: _Optional[str] = ...) -> None: ...
+    ring_groups: _containers.RepeatedCompositeFieldContainer[SIPAccountRingGroup]
+    def __init__(self, sip_id: _Optional[str] = ..., is_active: bool = ..., extension: _Optional[str] = ..., ring_group_ids: _Optional[_Iterable[str]] = ..., org_user_id: _Optional[str] = ..., ring_groups: _Optional[_Iterable[_Union[SIPAccountRingGroup, _Mapping]]] = ...) -> None: ...
 
 class RingGroup(_message.Message):
     __slots__ = ("id", "name", "description", "extension", "ring_strategy", "sip_account_ids")
