@@ -563,16 +563,18 @@ class HuntGroupDetails(_message.Message):
         agent_count: int
         def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., type: _Optional[_Union[HuntGroupType, str]] = ..., modify_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_count: _Optional[int] = ...) -> None: ...
     class ClientInfoDisplayTemplateDetails(_message.Message):
-        __slots__ = ("name", "description", "display_all_fields", "defined_field_count")
+        __slots__ = ("name", "description", "display_all_fields", "defined_field_count", "template_sid")
         NAME_FIELD_NUMBER: _ClassVar[int]
         DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
         DISPLAY_ALL_FIELDS_FIELD_NUMBER: _ClassVar[int]
         DEFINED_FIELD_COUNT_FIELD_NUMBER: _ClassVar[int]
+        TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
         name: str
         description: str
         display_all_fields: bool
         defined_field_count: int
-        def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., display_all_fields: bool = ..., defined_field_count: _Optional[int] = ...) -> None: ...
+        template_sid: int
+        def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., display_all_fields: bool = ..., defined_field_count: _Optional[int] = ..., template_sid: _Optional[int] = ...) -> None: ...
     class WebLinkDetails(_message.Message):
         __slots__ = ("name", "description", "base_url", "parameter_count")
         NAME_FIELD_NUMBER: _ClassVar[int]
