@@ -837,7 +837,7 @@ class AdherenceAgentState(_message.Message):
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., adm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., pause_code: _Optional[str] = ...) -> None: ...
 
 class AdherenceAgentStateViolation(_message.Message):
-    __slots__ = ("wfm_agent_sid", "start_datetime", "expected_rtm_states", "expected_pause_code", "actual_rtm_states", "actual_pause_code", "violation_duration_seconds")
+    __slots__ = ("wfm_agent_sid", "start_datetime", "expected_rtm_states", "expected_pause_code", "actual_rtm_states", "actual_pause_code", "violation_duration_seconds", "expected_pause_codes")
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     EXPECTED_RTM_STATES_FIELD_NUMBER: _ClassVar[int]
@@ -845,6 +845,7 @@ class AdherenceAgentStateViolation(_message.Message):
     ACTUAL_RTM_STATES_FIELD_NUMBER: _ClassVar[int]
     ACTUAL_PAUSE_CODE_FIELD_NUMBER: _ClassVar[int]
     VIOLATION_DURATION_SECONDS_FIELD_NUMBER: _ClassVar[int]
+    EXPECTED_PAUSE_CODES_FIELD_NUMBER: _ClassVar[int]
     wfm_agent_sid: int
     start_datetime: _timestamp_pb2.Timestamp
     expected_rtm_states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
@@ -852,7 +853,8 @@ class AdherenceAgentStateViolation(_message.Message):
     actual_rtm_states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
     actual_pause_code: str
     violation_duration_seconds: int
-    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expected_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., expected_pause_code: _Optional[str] = ..., actual_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., actual_pause_code: _Optional[str] = ..., violation_duration_seconds: _Optional[int] = ...) -> None: ...
+    expected_pause_codes: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expected_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., expected_pause_code: _Optional[str] = ..., actual_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., actual_pause_code: _Optional[str] = ..., violation_duration_seconds: _Optional[int] = ..., expected_pause_codes: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class AdherenceAgentStates(_message.Message):
     __slots__ = ("agent_states",)
