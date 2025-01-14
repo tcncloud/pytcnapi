@@ -426,18 +426,6 @@ class ProcessScrubListDeleteUploadRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
-class ScrubListDeleteRequest(_message.Message):
-    __slots__ = ("list_id", "notification_message")
-    LIST_ID_FIELD_NUMBER: _ClassVar[int]
-    NOTIFICATION_MESSAGE_FIELD_NUMBER: _ClassVar[int]
-    list_id: str
-    notification_message: str
-    def __init__(self, list_id: _Optional[str] = ..., notification_message: _Optional[str] = ...) -> None: ...
-
-class ScrubListDeleteResponse(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
-
 class ExportScrubListReq(_message.Message):
     __slots__ = ("list_id",)
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
