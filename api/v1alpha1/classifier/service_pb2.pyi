@@ -111,7 +111,7 @@ class ListEventsRequest(_message.Message):
 class ListEventsResponse(_message.Message):
     __slots__ = ("rows",)
     class Row(_message.Message):
-        __slots__ = ("input_record_count", "output_record_count", "discarded_record_count", "begin", "end", "element_id", "entrypoints", "parent_ids", "columns", "total_queue_wait_seconds", "total_processing_seconds", "msgs")
+        __slots__ = ("input_record_count", "output_record_count", "discarded_record_count", "begin", "end", "element_id", "entrypoints", "parent_ids", "columns", "total_queue_wait_seconds", "total_processing_seconds", "total_queue_wait_milliseconds", "total_processing_milliseconds", "msgs")
         INPUT_RECORD_COUNT_FIELD_NUMBER: _ClassVar[int]
         OUTPUT_RECORD_COUNT_FIELD_NUMBER: _ClassVar[int]
         DISCARDED_RECORD_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -123,6 +123,8 @@ class ListEventsResponse(_message.Message):
         COLUMNS_FIELD_NUMBER: _ClassVar[int]
         TOTAL_QUEUE_WAIT_SECONDS_FIELD_NUMBER: _ClassVar[int]
         TOTAL_PROCESSING_SECONDS_FIELD_NUMBER: _ClassVar[int]
+        TOTAL_QUEUE_WAIT_MILLISECONDS_FIELD_NUMBER: _ClassVar[int]
+        TOTAL_PROCESSING_MILLISECONDS_FIELD_NUMBER: _ClassVar[int]
         MSGS_FIELD_NUMBER: _ClassVar[int]
         input_record_count: int
         output_record_count: int
@@ -135,8 +137,10 @@ class ListEventsResponse(_message.Message):
         columns: _containers.RepeatedScalarFieldContainer[str]
         total_queue_wait_seconds: int
         total_processing_seconds: int
+        total_queue_wait_milliseconds: int
+        total_processing_milliseconds: int
         msgs: _containers.RepeatedScalarFieldContainer[str]
-        def __init__(self, input_record_count: _Optional[int] = ..., output_record_count: _Optional[int] = ..., discarded_record_count: _Optional[int] = ..., begin: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., element_id: _Optional[str] = ..., entrypoints: _Optional[_Iterable[str]] = ..., parent_ids: _Optional[_Iterable[str]] = ..., columns: _Optional[_Iterable[str]] = ..., total_queue_wait_seconds: _Optional[int] = ..., total_processing_seconds: _Optional[int] = ..., msgs: _Optional[_Iterable[str]] = ...) -> None: ...
+        def __init__(self, input_record_count: _Optional[int] = ..., output_record_count: _Optional[int] = ..., discarded_record_count: _Optional[int] = ..., begin: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., element_id: _Optional[str] = ..., entrypoints: _Optional[_Iterable[str]] = ..., parent_ids: _Optional[_Iterable[str]] = ..., columns: _Optional[_Iterable[str]] = ..., total_queue_wait_seconds: _Optional[int] = ..., total_processing_seconds: _Optional[int] = ..., total_queue_wait_milliseconds: _Optional[int] = ..., total_processing_milliseconds: _Optional[int] = ..., msgs: _Optional[_Iterable[str]] = ...) -> None: ...
     ROWS_FIELD_NUMBER: _ClassVar[int]
     rows: _containers.RepeatedCompositeFieldContainer[ListEventsResponse.Row]
     def __init__(self, rows: _Optional[_Iterable[_Union[ListEventsResponse.Row, _Mapping]]] = ...) -> None: ...
