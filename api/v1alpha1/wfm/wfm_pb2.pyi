@@ -1,4 +1,5 @@
 from annotations import authz_pb2 as _authz_pb2
+from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from api.commons import org_pb2 as _org_pb2
 from api.commons import wfm_pb2 as _wfm_pb2
 from google.api import annotations_pb2 as _annotations_pb2
@@ -47,7 +48,7 @@ class Skill(_message.Message):
     def __init__(self, skill_sid: _Optional[int] = ..., client_skill_type: _Optional[_Union[_wfm_pb2.SkillType.Enum, str]] = ..., name: _Optional[str] = ..., delete_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., client_skill_sid: _Optional[int] = ..., proficiency: _Optional[int] = ...) -> None: ...
 
 class SkillProfile(_message.Message):
-    __slots__ = ("skill_profile_sid", "name", "description", "create_date", "unnamed", "inactive_as_of_date", "skills", "skills_count", "occurrence", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual")
+    __slots__ = ("skill_profile_sid", "name", "description", "create_date", "unnamed", "inactive_as_of_date", "skills", "skills_count", "occurrence", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "channel_types")
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -62,6 +63,7 @@ class SkillProfile(_message.Message):
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     ARE_AVERAGES_MANUAL_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_TYPES_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
     name: str
     description: str
@@ -76,7 +78,8 @@ class SkillProfile(_message.Message):
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     are_averages_manual: bool
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., unnamed: bool = ..., inactive_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., skills_count: _Optional[int] = ..., occurrence: _Optional[float] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ...) -> None: ...
+    channel_types: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., unnamed: bool = ..., inactive_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., skills_count: _Optional[int] = ..., occurrence: _Optional[float] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ...) -> None: ...
 
 class SkillProfileGroup(_message.Message):
     __slots__ = ("skill_profile_group_sid", "name", "description", "create_time", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "skill_profile_sids", "datetime_set_to_inactive")
@@ -105,12 +108,14 @@ class SkillProfileGroup(_message.Message):
     def __init__(self, skill_profile_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., skill_profile_sids: _Optional[_Iterable[int]] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ListSkillProfilesReq(_message.Message):
-    __slots__ = ("active_only", "with_skills")
+    __slots__ = ("active_only", "with_skills", "channel_types")
     ACTIVE_ONLY_FIELD_NUMBER: _ClassVar[int]
     WITH_SKILLS_FIELD_NUMBER: _ClassVar[int]
+    CHANNEL_TYPES_FIELD_NUMBER: _ClassVar[int]
     active_only: bool
     with_skills: bool
-    def __init__(self, active_only: bool = ..., with_skills: bool = ...) -> None: ...
+    channel_types: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
+    def __init__(self, active_only: bool = ..., with_skills: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ...) -> None: ...
 
 class ListSkillProfilesRes(_message.Message):
     __slots__ = ("skill_profiles",)

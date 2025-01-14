@@ -41,12 +41,14 @@ class ListContactEntryListRequest(_message.Message):
     def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
 
 class ListContactEntryListResponse(_message.Message):
-    __slots__ = ("contact_manager_entry", "next_page_token")
+    __slots__ = ("contact_manager_entry", "next_page_token", "cm_entry")
     CONTACT_MANAGER_ENTRY_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    CM_ENTRY_FIELD_NUMBER: _ClassVar[int]
     contact_manager_entry: _containers.RepeatedCompositeFieldContainer[ContactManagerEntry]
     next_page_token: str
-    def __init__(self, contact_manager_entry: _Optional[_Iterable[_Union[ContactManagerEntry, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
+    cm_entry: _containers.RepeatedCompositeFieldContainer[ContactManagerEntry]
+    def __init__(self, contact_manager_entry: _Optional[_Iterable[_Union[ContactManagerEntry, _Mapping]]] = ..., next_page_token: _Optional[str] = ..., cm_entry: _Optional[_Iterable[_Union[ContactManagerEntry, _Mapping]]] = ...) -> None: ...
 
 class GetEncContactEntryRequest(_message.Message):
     __slots__ = ("contact_manager_entry_id",)
@@ -89,7 +91,7 @@ class GetKYCKeysResponse(_message.Message):
     def __init__(self, entry_type: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ContactManagerEntry(_message.Message):
-    __slots__ = ("contact_manager_entry_id", "contact_manager_entry_list_id", "key", "value", "type", "date_created", "status", "date_modified", "ttl", "file_name", "field")
+    __slots__ = ("contact_manager_entry_id", "contact_manager_entry_list_id", "key", "value", "type", "date_created", "status", "date_modified", "ttl", "file_name", "field", "expiry_date")
     CONTACT_MANAGER_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
     CONTACT_MANAGER_ENTRY_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_NUMBER: _ClassVar[int]
@@ -101,6 +103,7 @@ class ContactManagerEntry(_message.Message):
     TTL_FIELD_NUMBER: _ClassVar[int]
     FILE_NAME_FIELD_NUMBER: _ClassVar[int]
     FIELD_FIELD_NUMBER: _ClassVar[int]
+    EXPIRY_DATE_FIELD_NUMBER: _ClassVar[int]
     contact_manager_entry_id: int
     contact_manager_entry_list_id: int
     key: str
@@ -112,7 +115,8 @@ class ContactManagerEntry(_message.Message):
     ttl: int
     file_name: _containers.RepeatedScalarFieldContainer[str]
     field: _containers.RepeatedCompositeFieldContainer[ContactField]
-    def __init__(self, contact_manager_entry_id: _Optional[int] = ..., contact_manager_entry_list_id: _Optional[int] = ..., key: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[_contactmanager_pb2.ContactEntryStatus, str]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ttl: _Optional[int] = ..., file_name: _Optional[_Iterable[str]] = ..., field: _Optional[_Iterable[_Union[ContactField, _Mapping]]] = ...) -> None: ...
+    expiry_date: _timestamp_pb2.Timestamp
+    def __init__(self, contact_manager_entry_id: _Optional[int] = ..., contact_manager_entry_list_id: _Optional[int] = ..., key: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[str] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[_contactmanager_pb2.ContactEntryStatus, str]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., ttl: _Optional[int] = ..., file_name: _Optional[_Iterable[str]] = ..., field: _Optional[_Iterable[_Union[ContactField, _Mapping]]] = ..., expiry_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ContactManagerList(_message.Message):
     __slots__ = ("contact_manager_list_id", "org_id", "project_id", "file_name", "description", "list_details", "ttl", "date_created", "is_deleted", "status", "contact_manager_list_name")

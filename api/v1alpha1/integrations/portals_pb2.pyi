@@ -221,6 +221,20 @@ class DeletePluginInstanceRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
+class ClonePluginInstanceReq(_message.Message):
+    __slots__ = ("entity", "new_plugin_name")
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    NEW_PLUGIN_NAME_FIELD_NUMBER: _ClassVar[int]
+    entity: _service_pb2.PluginInstanceId
+    new_plugin_name: str
+    def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstanceId, _Mapping]] = ..., new_plugin_name: _Optional[str] = ...) -> None: ...
+
+class ClonePluginInstanceRes(_message.Message):
+    __slots__ = ("entity",)
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: _service_pb2.PluginInstanceId
+    def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstanceId, _Mapping]] = ...) -> None: ...
+
 class ListPluginInstanceReq(_message.Message):
     __slots__ = ("entity", "mask", "page_size", "page")
     ENTITY_FIELD_NUMBER: _ClassVar[int]

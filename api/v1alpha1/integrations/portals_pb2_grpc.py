@@ -110,6 +110,11 @@ class PortalManagerApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.DeletePluginInstanceReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.DeletePluginInstanceRes.FromString,
                 )
+        self.ClonePluginInstance = channel.unary_unary(
+                '/api.v1alpha1.integrations.PortalManagerApi/ClonePluginInstance',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ClonePluginInstanceReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ClonePluginInstanceRes.FromString,
+                )
         self.ListPluginInstance = channel.unary_unary(
                 '/api.v1alpha1.integrations.PortalManagerApi/ListPluginInstance',
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ListPluginInstanceReq.SerializeToString,
@@ -272,6 +277,12 @@ class PortalManagerApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ClonePluginInstance(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListPluginInstance(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -419,6 +430,11 @@ def add_PortalManagerApiServicer_to_server(servicer, server):
                     servicer.DeletePluginInstance,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.DeletePluginInstanceReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.DeletePluginInstanceRes.SerializeToString,
+            ),
+            'ClonePluginInstance': grpc.unary_unary_rpc_method_handler(
+                    servicer.ClonePluginInstance,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ClonePluginInstanceReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ClonePluginInstanceRes.SerializeToString,
             ),
             'ListPluginInstance': grpc.unary_unary_rpc_method_handler(
                     servicer.ListPluginInstance,
@@ -790,6 +806,23 @@ class PortalManagerApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.PortalManagerApi/DeletePluginInstance',
             api_dot_v1alpha1_dot_integrations_dot_portals__pb2.DeletePluginInstanceReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_portals__pb2.DeletePluginInstanceRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ClonePluginInstance(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.PortalManagerApi/ClonePluginInstance',
+            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ClonePluginInstanceReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_portals__pb2.ClonePluginInstanceRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
