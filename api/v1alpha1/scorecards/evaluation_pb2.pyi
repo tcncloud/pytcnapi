@@ -74,7 +74,7 @@ class ScoreEvaluationResponse(_message.Message):
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class ListEvaluationsRequest(_message.Message):
-    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields", "is_deleted", "channel_types", "order_by", "page_size", "page_token")
+    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields", "is_deleted", "channel_types")
     SCORER_ID_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -83,9 +83,6 @@ class ListEvaluationsRequest(_message.Message):
     RETURN_FIELDS_FIELD_NUMBER: _ClassVar[int]
     IS_DELETED_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_TYPES_FIELD_NUMBER: _ClassVar[int]
-    ORDER_BY_FIELD_NUMBER: _ClassVar[int]
-    PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
-    PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     scorer_id: _containers.RepeatedScalarFieldContainer[str]
     completed_at: _scorecards_pb2.TimeFilter
     category_ids: _containers.RepeatedScalarFieldContainer[int]
@@ -94,18 +91,13 @@ class ListEvaluationsRequest(_message.Message):
     return_fields: _field_mask_pb2.FieldMask
     is_deleted: bool
     channel_types: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
-    order_by: str
-    page_size: int
-    page_token: str
-    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., is_deleted: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ..., order_by: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
+    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., is_deleted: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ...) -> None: ...
 
 class ListEvaluationsResponse(_message.Message):
-    __slots__ = ("evaluations", "next_page_token")
+    __slots__ = ("evaluations",)
     EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
-    NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     evaluations: _containers.RepeatedCompositeFieldContainer[_scorecards_pb2.Evaluation]
-    next_page_token: str
-    def __init__(self, evaluations: _Optional[_Iterable[_Union[_scorecards_pb2.Evaluation, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
+    def __init__(self, evaluations: _Optional[_Iterable[_Union[_scorecards_pb2.Evaluation, _Mapping]]] = ...) -> None: ...
 
 class PreviewEvaluationScoreRequest(_message.Message):
     __slots__ = ("evaluation", "scorecard")
