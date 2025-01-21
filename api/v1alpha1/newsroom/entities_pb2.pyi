@@ -88,26 +88,30 @@ class NewsArticleDetails(_message.Message):
     def __init__(self, new_article_sid: _Optional[int] = ..., title: _Optional[str] = ..., content: _Optional[str] = ..., status: _Optional[_Union[_newsroom_pb2.ArticleStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., author: _Optional[str] = ..., image_reference_id: _Optional[str] = ...) -> None: ...
 
 class PublishedArticleDetails(_message.Message):
-    __slots__ = ("published_article_sid", "news_article_details", "date_published", "display_to_user", "always_display")
+    __slots__ = ("published_article_sid", "news_article_details", "date_published", "display_to_user", "always_display", "is_client_article")
     PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     NEWS_ARTICLE_DETAILS_FIELD_NUMBER: _ClassVar[int]
     DATE_PUBLISHED_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_TO_USER_FIELD_NUMBER: _ClassVar[int]
     ALWAYS_DISPLAY_FIELD_NUMBER: _ClassVar[int]
+    IS_CLIENT_ARTICLE_FIELD_NUMBER: _ClassVar[int]
     published_article_sid: int
     news_article_details: NewsArticleDetails
     date_published: _timestamp_pb2.Timestamp
     display_to_user: bool
     always_display: bool
-    def __init__(self, published_article_sid: _Optional[int] = ..., news_article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ..., date_published: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., display_to_user: bool = ..., always_display: bool = ...) -> None: ...
+    is_client_article: bool
+    def __init__(self, published_article_sid: _Optional[int] = ..., news_article_details: _Optional[_Union[NewsArticleDetails, _Mapping]] = ..., date_published: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., display_to_user: bool = ..., always_display: bool = ..., is_client_article: bool = ...) -> None: ...
 
 class UserActivity(_message.Message):
     __slots__ = ("user_activity_log_sid", "date_created", "user_activity_details")
     class UserActivityDetails(_message.Message):
-        __slots__ = ("published_article_sid",)
+        __slots__ = ("published_article_sid", "published_client_article_sid")
         PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
+        PUBLISHED_CLIENT_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
         published_article_sid: int
-        def __init__(self, published_article_sid: _Optional[int] = ...) -> None: ...
+        published_client_article_sid: int
+        def __init__(self, published_article_sid: _Optional[int] = ..., published_client_article_sid: _Optional[int] = ...) -> None: ...
     USER_ACTIVITY_LOG_SID_FIELD_NUMBER: _ClassVar[int]
     DATE_CREATED_FIELD_NUMBER: _ClassVar[int]
     USER_ACTIVITY_DETAILS_FIELD_NUMBER: _ClassVar[int]
@@ -157,12 +161,14 @@ class GetPublishedArticleByIdResponse(_message.Message):
     def __init__(self, published_article_details: _Optional[_Union[PublishedArticleDetails, _Mapping]] = ...) -> None: ...
 
 class UserActivityRequest(_message.Message):
-    __slots__ = ("published_article_sid", "force")
+    __slots__ = ("published_article_sid", "force", "published_client_article_sid")
     PUBLISHED_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     FORCE_FIELD_NUMBER: _ClassVar[int]
+    PUBLISHED_CLIENT_ARTICLE_SID_FIELD_NUMBER: _ClassVar[int]
     published_article_sid: int
     force: bool
-    def __init__(self, published_article_sid: _Optional[int] = ..., force: bool = ...) -> None: ...
+    published_client_article_sid: int
+    def __init__(self, published_article_sid: _Optional[int] = ..., force: bool = ..., published_client_article_sid: _Optional[int] = ...) -> None: ...
 
 class UserActivityResponse(_message.Message):
     __slots__ = ("user_activity",)
