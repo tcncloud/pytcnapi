@@ -1253,8 +1253,10 @@ class UpdateNonSkillActivityRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListNonSkillActivitiesReq(_message.Message):
-    __slots__ = ()
-    def __init__(self) -> None: ...
+    __slots__ = ("include_inactive",)
+    INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
+    include_inactive: bool
+    def __init__(self, include_inactive: bool = ...) -> None: ...
 
 class ListNonSkillActivitiesRes(_message.Message):
     __slots__ = ("non_skill_activities",)
