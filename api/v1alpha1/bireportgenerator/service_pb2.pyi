@@ -1,4 +1,5 @@
 from annotations import authz_pb2 as _authz_pb2
+from api.commons import bireportgenerator_pb2 as _bireportgenerator_pb2
 from api.v1alpha1.bireportgenerator import entities_pb2 as _entities_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
@@ -79,3 +80,17 @@ class GenerateReportRequest(_message.Message):
 class GenerateReportResponse(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
+
+class ListReportLogsStreamRequest(_message.Message):
+    __slots__ = ("start_time", "end_time")
+    START_TIME_FIELD_NUMBER: _ClassVar[int]
+    END_TIME_FIELD_NUMBER: _ClassVar[int]
+    start_time: _timestamp_pb2.Timestamp
+    end_time: _timestamp_pb2.Timestamp
+    def __init__(self, start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class ListReportLogsStreamResponse(_message.Message):
+    __slots__ = ("report_log",)
+    REPORT_LOG_FIELD_NUMBER: _ClassVar[int]
+    report_log: _entities_pb2.ReportLog
+    def __init__(self, report_log: _Optional[_Union[_entities_pb2.ReportLog, _Mapping]] = ...) -> None: ...

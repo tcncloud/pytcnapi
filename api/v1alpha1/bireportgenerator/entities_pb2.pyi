@@ -2,6 +2,7 @@ from api.commons import bireportgenerator_pb2 as _bireportgenerator_pb2
 from api.commons import enums_pb2 as _enums_pb2
 from api.commons import org_pb2 as _org_pb2
 from api.commons import types_pb2 as _types_pb2
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -50,3 +51,33 @@ class ReportJob(_message.Message):
     cron_expression: _types_pb2.CronExpression
     transfer_options: _bireportgenerator_pb2.TransferOptions
     def __init__(self, report_job_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., dashboard_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., delivery_times: _Optional[_Union[_bireportgenerator_pb2.DeliveryTimes, _Mapping]] = ..., day_filter: _Optional[_Union[_bireportgenerator_pb2.DayFilter, _Mapping]] = ..., months: _Optional[_Iterable[_Union[_enums_pb2.Month, str]]] = ..., format_options: _Optional[_Union[_bireportgenerator_pb2.FormatOptions, _Mapping]] = ..., delivery_options: _Optional[_Union[_bireportgenerator_pb2.DeliveryOptions, _Mapping]] = ..., is_active: bool = ..., send_empty_report: bool = ..., dashboard_resource_id: _Optional[str] = ..., time_zone_wrapper: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hide_csv_footer: bool = ..., transfer_config_sid: _Optional[int] = ..., cron_expression: _Optional[_Union[_types_pb2.CronExpression, _Mapping]] = ..., transfer_options: _Optional[_Union[_bireportgenerator_pb2.TransferOptions, _Mapping]] = ...) -> None: ...
+
+class ReportLog(_message.Message):
+    __slots__ = ("org_id", "report_log_id", "report_job_id", "execution_id", "report_name", "job_requested_time", "job_completed_time", "success", "failure_reason", "attempt_number", "max_attempts", "create_time", "update_time")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    REPORT_LOG_ID_FIELD_NUMBER: _ClassVar[int]
+    REPORT_JOB_ID_FIELD_NUMBER: _ClassVar[int]
+    EXECUTION_ID_FIELD_NUMBER: _ClassVar[int]
+    REPORT_NAME_FIELD_NUMBER: _ClassVar[int]
+    JOB_REQUESTED_TIME_FIELD_NUMBER: _ClassVar[int]
+    JOB_COMPLETED_TIME_FIELD_NUMBER: _ClassVar[int]
+    SUCCESS_FIELD_NUMBER: _ClassVar[int]
+    FAILURE_REASON_FIELD_NUMBER: _ClassVar[int]
+    ATTEMPT_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    MAX_ATTEMPTS_FIELD_NUMBER: _ClassVar[int]
+    CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    report_log_id: int
+    report_job_id: int
+    execution_id: str
+    report_name: str
+    job_requested_time: _timestamp_pb2.Timestamp
+    job_completed_time: _timestamp_pb2.Timestamp
+    success: bool
+    failure_reason: str
+    attempt_number: int
+    max_attempts: int
+    create_time: _timestamp_pb2.Timestamp
+    update_time: _timestamp_pb2.Timestamp
+    def __init__(self, org_id: _Optional[str] = ..., report_log_id: _Optional[int] = ..., report_job_id: _Optional[int] = ..., execution_id: _Optional[str] = ..., report_name: _Optional[str] = ..., job_requested_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., job_completed_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., success: bool = ..., failure_reason: _Optional[str] = ..., attempt_number: _Optional[int] = ..., max_attempts: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

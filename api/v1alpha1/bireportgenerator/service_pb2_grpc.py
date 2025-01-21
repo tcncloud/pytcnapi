@@ -45,6 +45,11 @@ class BIReportGeneratorServiceStub(object):
                 request_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportResponse.FromString,
                 )
+        self.ListReportLogsStream = channel.unary_stream(
+                '/api.v1alpha1.bireportgenerator.BIReportGeneratorService/ListReportLogsStream',
+                request_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.ListReportLogsStreamRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.ListReportLogsStreamResponse.FromString,
+                )
 
 
 class BIReportGeneratorServiceServicer(object):
@@ -92,6 +97,13 @@ class BIReportGeneratorServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListReportLogsStream(self, request, context):
+        """ListReportLogsStream lists report logs with streaming
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_BIReportGeneratorServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -124,6 +136,11 @@ def add_BIReportGeneratorServiceServicer_to_server(servicer, server):
                     servicer.GenerateReport,
                     request_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportResponse.SerializeToString,
+            ),
+            'ListReportLogsStream': grpc.unary_stream_rpc_method_handler(
+                    servicer.ListReportLogsStream,
+                    request_deserializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.ListReportLogsStreamRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.ListReportLogsStreamResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -235,5 +252,22 @@ class BIReportGeneratorService(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.bireportgenerator.BIReportGeneratorService/GenerateReport',
             api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportRequest.SerializeToString,
             api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.GenerateReportResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListReportLogsStream(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/api.v1alpha1.bireportgenerator.BIReportGeneratorService/ListReportLogsStream',
+            api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.ListReportLogsStreamRequest.SerializeToString,
+            api_dot_v1alpha1_dot_bireportgenerator_dot_service__pb2.ListReportLogsStreamResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
