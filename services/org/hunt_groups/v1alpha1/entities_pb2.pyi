@@ -345,10 +345,23 @@ class ListAgentClientInfoDisplayTemplatesRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAgentClientInfoDisplayTemplatesResponse(_message.Message):
-    __slots__ = ("templates",)
+    __slots__ = ("templates", "display_templates")
+    class TemplateInfo(_message.Message):
+        __slots__ = ("template", "hunt_group_sids", "outbound_broadcast_template_sids", "inbound_broadcast_template_sids")
+        TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+        HUNT_GROUP_SIDS_FIELD_NUMBER: _ClassVar[int]
+        OUTBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
+        INBOUND_BROADCAST_TEMPLATE_SIDS_FIELD_NUMBER: _ClassVar[int]
+        template: _huntgroup_pb2.ClientInfoDisplayTemplate
+        hunt_group_sids: _containers.RepeatedScalarFieldContainer[int]
+        outbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
+        inbound_broadcast_template_sids: _containers.RepeatedScalarFieldContainer[int]
+        def __init__(self, template: _Optional[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., outbound_broadcast_template_sids: _Optional[_Iterable[int]] = ..., inbound_broadcast_template_sids: _Optional[_Iterable[int]] = ...) -> None: ...
     TEMPLATES_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_TEMPLATES_FIELD_NUMBER: _ClassVar[int]
     templates: _containers.RepeatedCompositeFieldContainer[_huntgroup_pb2.ClientInfoDisplayTemplate]
-    def __init__(self, templates: _Optional[_Iterable[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]]] = ...) -> None: ...
+    display_templates: _containers.RepeatedCompositeFieldContainer[ListAgentClientInfoDisplayTemplatesResponse.TemplateInfo]
+    def __init__(self, templates: _Optional[_Iterable[_Union[_huntgroup_pb2.ClientInfoDisplayTemplate, _Mapping]]] = ..., display_templates: _Optional[_Iterable[_Union[ListAgentClientInfoDisplayTemplatesResponse.TemplateInfo, _Mapping]]] = ...) -> None: ...
 
 class DeleteAgentClientInfoDisplayTemplateRequest(_message.Message):
     __slots__ = ("template_sid",)
