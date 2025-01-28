@@ -191,9 +191,11 @@ class FilenamePart(_message.Message):
     def __init__(self, type: _Optional[_Union[FilenamePartType, str]] = ..., static_text: _Optional[str] = ..., date_parts: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class TransferOptions(_message.Message):
-    __slots__ = ("transfer_config_sid", "filename_parts")
+    __slots__ = ("transfer_config_sid", "filename_parts", "delivery_definition_title")
     TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
     FILENAME_PARTS_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_DEFINITION_TITLE_FIELD_NUMBER: _ClassVar[int]
     transfer_config_sid: str
     filename_parts: _containers.RepeatedCompositeFieldContainer[FilenamePart]
-    def __init__(self, transfer_config_sid: _Optional[str] = ..., filename_parts: _Optional[_Iterable[_Union[FilenamePart, _Mapping]]] = ...) -> None: ...
+    delivery_definition_title: str
+    def __init__(self, transfer_config_sid: _Optional[str] = ..., filename_parts: _Optional[_Iterable[_Union[FilenamePart, _Mapping]]] = ..., delivery_definition_title: _Optional[str] = ...) -> None: ...
