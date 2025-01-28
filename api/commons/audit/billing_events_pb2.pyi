@@ -5,6 +5,18 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class BillingAccumulateItemsEvent(_message.Message):
+    __slots__ = ("org_id", "product_type", "event_log_ids", "billing_cycle")
+    ORG_ID_FIELD_NUMBER: _ClassVar[int]
+    PRODUCT_TYPE_FIELD_NUMBER: _ClassVar[int]
+    EVENT_LOG_IDS_FIELD_NUMBER: _ClassVar[int]
+    BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
+    org_id: str
+    product_type: int
+    event_log_ids: _containers.RepeatedScalarFieldContainer[int]
+    billing_cycle: str
+    def __init__(self, org_id: _Optional[str] = ..., product_type: _Optional[int] = ..., event_log_ids: _Optional[_Iterable[int]] = ..., billing_cycle: _Optional[str] = ...) -> None: ...
+
 class BillingCommitBillingPlanEvent(_message.Message):
     __slots__ = ("billing_plan_id", "user_id")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
