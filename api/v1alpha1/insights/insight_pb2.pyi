@@ -276,16 +276,20 @@ class ListVfsSchemasResponse(_message.Message):
     def __init__(self, vfs_schemas: _Optional[_Iterable[_Union[GetVfsSchemaResponse, _Mapping]]] = ...) -> None: ...
 
 class TableVisualization(_message.Message):
-    __slots__ = ("table_column_details", "delimiter", "quote_character", "no_header")
+    __slots__ = ("table_column_details", "delimiter", "quote_character", "no_header", "header_background_color", "header_text_color")
     TABLE_COLUMN_DETAILS_FIELD_NUMBER: _ClassVar[int]
     DELIMITER_FIELD_NUMBER: _ClassVar[int]
     QUOTE_CHARACTER_FIELD_NUMBER: _ClassVar[int]
     NO_HEADER_FIELD_NUMBER: _ClassVar[int]
+    HEADER_BACKGROUND_COLOR_FIELD_NUMBER: _ClassVar[int]
+    HEADER_TEXT_COLOR_FIELD_NUMBER: _ClassVar[int]
     table_column_details: _containers.RepeatedCompositeFieldContainer[TableColumnConfig]
     delimiter: str
     quote_character: QuoteCharacter
     no_header: bool
-    def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ..., delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ...) -> None: ...
+    header_background_color: str
+    header_text_color: str
+    def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ..., delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ..., header_background_color: _Optional[str] = ..., header_text_color: _Optional[str] = ...) -> None: ...
 
 class CardVisualization(_message.Message):
     __slots__ = ("text_values",)
