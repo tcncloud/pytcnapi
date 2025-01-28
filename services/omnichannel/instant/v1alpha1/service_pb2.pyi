@@ -34,20 +34,26 @@ class StreamCallerEventsResponse(_message.Message):
     def __init__(self, event: _Optional[_Iterable[_Union[CallerEvent, _Mapping]]] = ...) -> None: ...
 
 class AgentEvent(_message.Message):
-    __slots__ = ("org_id", "client_sid", "agent_sid", "user_id", "event_time", "event_data")
+    __slots__ = ("org_id", "client_sid", "agent_sid", "user_id", "event_time", "agent_first_name", "agent_last_name", "hunt_group_name", "event_data")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     EVENT_TIME_FIELD_NUMBER: _ClassVar[int]
+    AGENT_FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+    AGENT_LAST_NAME_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
     EVENT_DATA_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     client_sid: int
     agent_sid: int
     user_id: str
     event_time: _timestamp_pb2.Timestamp
+    agent_first_name: str
+    agent_last_name: str
+    hunt_group_name: str
     event_data: str
-    def __init__(self, org_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., user_id: _Optional[str] = ..., event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., event_data: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., user_id: _Optional[str] = ..., event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_first_name: _Optional[str] = ..., agent_last_name: _Optional[str] = ..., hunt_group_name: _Optional[str] = ..., event_data: _Optional[str] = ...) -> None: ...
 
 class CallerEvent(_message.Message):
     __slots__ = ("org_id", "client_sid", "caller_sid", "caller_type", "event_time", "event_data")
