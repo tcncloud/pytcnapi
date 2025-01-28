@@ -25,7 +25,7 @@ REVIEW_STATUS_DONE: ReviewStatus
 REVIEW_STATUS_NONE: ReviewStatus
 
 class Transcript(_message.Message):
-    __slots__ = ("call", "sms", "channel", "start_time", "delete_time", "flag_summary", "transcript_sid", "summary")
+    __slots__ = ("call", "sms", "chat", "channel", "start_time", "delete_time", "flag_summary", "transcript_sid", "summary")
     class Skills(_message.Message):
         __slots__ = ("need", "want")
         NEED_FIELD_NUMBER: _ClassVar[int]
@@ -35,6 +35,7 @@ class Transcript(_message.Message):
         def __init__(self, need: _Optional[_Iterable[str]] = ..., want: _Optional[_Iterable[str]] = ...) -> None: ...
     CALL_FIELD_NUMBER: _ClassVar[int]
     SMS_FIELD_NUMBER: _ClassVar[int]
+    CHAT_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     DELETE_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -43,13 +44,14 @@ class Transcript(_message.Message):
     SUMMARY_FIELD_NUMBER: _ClassVar[int]
     call: Call
     sms: Sms
+    chat: Chat
     channel: _omnichannel_pb2.ChannelType
     start_time: _timestamp_pb2.Timestamp
     delete_time: _timestamp_pb2.Timestamp
     flag_summary: FlagSummary
     transcript_sid: int
     summary: _transcript_summary_pb2.TranscriptSummary
-    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., channel: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ..., summary: _Optional[_Union[_transcript_summary_pb2.TranscriptSummary, _Mapping]] = ...) -> None: ...
+    def __init__(self, call: _Optional[_Union[Call, _Mapping]] = ..., sms: _Optional[_Union[Sms, _Mapping]] = ..., chat: _Optional[_Union[Chat, _Mapping]] = ..., channel: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., flag_summary: _Optional[_Union[FlagSummary, _Mapping]] = ..., transcript_sid: _Optional[int] = ..., summary: _Optional[_Union[_transcript_summary_pb2.TranscriptSummary, _Mapping]] = ...) -> None: ...
 
 class FlagSummary(_message.Message):
     __slots__ = ("count", "priority_sum", "priority_max", "need_review", "flags", "review_status")
@@ -282,6 +284,45 @@ class Call(_message.Message):
     recording_type: _vanalytics_pb2.RecordingType
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., audio_time: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Call.Thread, _Mapping]]] = ..., silence: _Optional[_Union[Call.Silence, _Mapping]] = ..., talk_over: _Optional[_Union[Call.TalkOver, _Mapping]] = ..., talk_time: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., caller_id: _Optional[str] = ..., group_name: _Optional[str] = ..., agent_response: _Optional[_Mapping[str, Call.AgentResponse]] = ..., hunt_group_sids: _Optional[_Iterable[int]] = ..., number_format: _Optional[str] = ..., agent_call_log: _Optional[_Union[_agent_call_log_pb2.AgentCallLog, _Mapping]] = ..., phone: _Optional[_Union[Call.Phone, _Mapping]] = ..., audio_bytes: _Optional[int] = ..., recording_type: _Optional[_Union[_vanalytics_pb2.RecordingType, str]] = ...) -> None: ...
 
+class Chat(_message.Message):
+    __slots__ = ("conversation_sid", "threads", "phone", "customer_name", "campaign_sid", "email_address")
+    class Thread(_message.Message):
+        __slots__ = ("id", "segments", "user_id", "sentiment")
+        ID_FIELD_NUMBER: _ClassVar[int]
+        SEGMENTS_FIELD_NUMBER: _ClassVar[int]
+        USER_ID_FIELD_NUMBER: _ClassVar[int]
+        SENTIMENT_FIELD_NUMBER: _ClassVar[int]
+        id: int
+        segments: _containers.RepeatedCompositeFieldContainer[Chat.Segment]
+        user_id: str
+        sentiment: Sentiment
+        def __init__(self, id: _Optional[int] = ..., segments: _Optional[_Iterable[_Union[Chat.Segment, _Mapping]]] = ..., user_id: _Optional[str] = ..., sentiment: _Optional[_Union[Sentiment, _Mapping]] = ...) -> None: ...
+    class Segment(_message.Message):
+        __slots__ = ("text", "offset")
+        TEXT_FIELD_NUMBER: _ClassVar[int]
+        OFFSET_FIELD_NUMBER: _ClassVar[int]
+        text: str
+        offset: _duration_pb2.Duration
+        def __init__(self, text: _Optional[str] = ..., offset: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    class Phone(_message.Message):
+        __slots__ = ("raw",)
+        RAW_FIELD_NUMBER: _ClassVar[int]
+        raw: str
+        def __init__(self, raw: _Optional[str] = ...) -> None: ...
+    CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+    THREADS_FIELD_NUMBER: _ClassVar[int]
+    PHONE_FIELD_NUMBER: _ClassVar[int]
+    CUSTOMER_NAME_FIELD_NUMBER: _ClassVar[int]
+    CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    conversation_sid: int
+    threads: _containers.RepeatedCompositeFieldContainer[Chat.Thread]
+    phone: Chat.Phone
+    customer_name: str
+    campaign_sid: int
+    email_address: str
+    def __init__(self, conversation_sid: _Optional[int] = ..., threads: _Optional[_Iterable[_Union[Chat.Thread, _Mapping]]] = ..., phone: _Optional[_Union[Chat.Phone, _Mapping]] = ..., customer_name: _Optional[str] = ..., campaign_sid: _Optional[int] = ..., email_address: _Optional[str] = ...) -> None: ...
+
 class Sentiment(_message.Message):
     __slots__ = ("overall", "worst", "dominant", "last", "samples")
     class Sample(_message.Message):
@@ -483,12 +524,14 @@ class TranscriptQuery(_message.Message):
         any: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
         def __init__(self, any: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ...) -> None: ...
     class Metadata(_message.Message):
-        __slots__ = ("call", "sms")
+        __slots__ = ("call", "sms", "chat")
         CALL_FIELD_NUMBER: _ClassVar[int]
         SMS_FIELD_NUMBER: _ClassVar[int]
+        CHAT_FIELD_NUMBER: _ClassVar[int]
         call: TranscriptQuery.Call
         sms: TranscriptQuery.Sms
-        def __init__(self, call: _Optional[_Union[TranscriptQuery.Call, _Mapping]] = ..., sms: _Optional[_Union[TranscriptQuery.Sms, _Mapping]] = ...) -> None: ...
+        chat: TranscriptQuery.Chat
+        def __init__(self, call: _Optional[_Union[TranscriptQuery.Call, _Mapping]] = ..., sms: _Optional[_Union[TranscriptQuery.Sms, _Mapping]] = ..., chat: _Optional[_Union[TranscriptQuery.Chat, _Mapping]] = ...) -> None: ...
     class Call(_message.Message):
         __slots__ = ("call_sid", "audio_time", "call_type", "silence", "talk_over", "talk_time", "caller_id", "group_name", "agent_response", "hunt_group_sids", "agent_call_log", "audio_bytes", "recording_type")
         class RecordingType(_message.Message):
@@ -750,6 +793,37 @@ class TranscriptQuery(_message.Message):
         conversation_sid: TranscriptQuery.Sms.ConversationSid
         campaign_sid: TranscriptQuery.Sms.CampaignSid
         def __init__(self, conversation_sid: _Optional[_Union[TranscriptQuery.Sms.ConversationSid, _Mapping]] = ..., campaign_sid: _Optional[_Union[TranscriptQuery.Sms.CampaignSid, _Mapping]] = ...) -> None: ...
+    class Chat(_message.Message):
+        __slots__ = ("conversation_sid", "campaign_sid", "customer_name", "email_address")
+        class ConversationSid(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[int]
+            def __init__(self, any: _Optional[_Iterable[int]] = ...) -> None: ...
+        class CampaignSid(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[int]
+            def __init__(self, any: _Optional[_Iterable[int]] = ...) -> None: ...
+        class CustomerName(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        class EmailAddress(_message.Message):
+            __slots__ = ("any",)
+            ANY_FIELD_NUMBER: _ClassVar[int]
+            any: _containers.RepeatedScalarFieldContainer[str]
+            def __init__(self, any: _Optional[_Iterable[str]] = ...) -> None: ...
+        CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+        CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
+        CUSTOMER_NAME_FIELD_NUMBER: _ClassVar[int]
+        EMAIL_ADDRESS_FIELD_NUMBER: _ClassVar[int]
+        conversation_sid: TranscriptQuery.Chat.ConversationSid
+        campaign_sid: TranscriptQuery.Chat.CampaignSid
+        customer_name: TranscriptQuery.Chat.CustomerName
+        email_address: TranscriptQuery.Chat.EmailAddress
+        def __init__(self, conversation_sid: _Optional[_Union[TranscriptQuery.Chat.ConversationSid, _Mapping]] = ..., campaign_sid: _Optional[_Union[TranscriptQuery.Chat.CampaignSid, _Mapping]] = ..., customer_name: _Optional[_Union[TranscriptQuery.Chat.CustomerName, _Mapping]] = ..., email_address: _Optional[_Union[TranscriptQuery.Chat.EmailAddress, _Mapping]] = ...) -> None: ...
     class Threads(_message.Message):
         __slots__ = ("id", "text", "user_id")
         class UserId(_message.Message):
