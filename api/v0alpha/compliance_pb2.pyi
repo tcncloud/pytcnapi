@@ -157,7 +157,7 @@ class ScrubListsRes(_message.Message):
     def __init__(self, lists: _Optional[_Iterable[_Union[ScrubListRes, _Mapping]]] = ...) -> None: ...
 
 class ScrubListRes(_message.Message):
-    __slots__ = ("list_id", "read_only", "content_type", "entries_added", "invalid_entries", "total_invalid", "invalid_list")
+    __slots__ = ("list_id", "read_only", "content_type", "entries_added", "invalid_entries", "total_invalid", "invalid_list", "country_code", "decompositions")
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
     READ_ONLY_FIELD_NUMBER: _ClassVar[int]
     CONTENT_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -165,6 +165,8 @@ class ScrubListRes(_message.Message):
     INVALID_ENTRIES_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INVALID_FIELD_NUMBER: _ClassVar[int]
     INVALID_LIST_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    DECOMPOSITIONS_FIELD_NUMBER: _ClassVar[int]
     list_id: str
     read_only: bool
     content_type: _compliance_pb2.ContentType
@@ -172,7 +174,9 @@ class ScrubListRes(_message.Message):
     invalid_entries: _containers.RepeatedScalarFieldContainer[str]
     total_invalid: int
     invalid_list: _containers.RepeatedCompositeFieldContainer[_compliance_pb2.InvalidScrubListEntry]
-    def __init__(self, list_id: _Optional[str] = ..., read_only: bool = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., entries_added: _Optional[int] = ..., invalid_entries: _Optional[_Iterable[str]] = ..., total_invalid: _Optional[int] = ..., invalid_list: _Optional[_Iterable[_Union[_compliance_pb2.InvalidScrubListEntry, _Mapping]]] = ...) -> None: ...
+    country_code: str
+    decompositions: _compliance_pb2.Decompositions
+    def __init__(self, list_id: _Optional[str] = ..., read_only: bool = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., entries_added: _Optional[int] = ..., invalid_entries: _Optional[_Iterable[str]] = ..., total_invalid: _Optional[int] = ..., invalid_list: _Optional[_Iterable[_Union[_compliance_pb2.InvalidScrubListEntry, _Mapping]]] = ..., country_code: _Optional[str] = ..., decompositions: _Optional[_Union[_compliance_pb2.Decompositions, _Mapping]] = ...) -> None: ...
 
 class DeleteScrubListReq(_message.Message):
     __slots__ = ("list_id",)
@@ -391,18 +395,20 @@ class GetScrubListUploadUrlRes(_message.Message):
     def __init__(self, url: _Optional[str] = ..., filename: _Optional[str] = ..., bucket: _Optional[str] = ...) -> None: ...
 
 class ProcessScrubListUploadReq(_message.Message):
-    __slots__ = ("filename", "list_id", "content_type", "notification_message", "country_code")
+    __slots__ = ("filename", "list_id", "content_type", "notification_message", "country_code", "decompositions")
     FILENAME_FIELD_NUMBER: _ClassVar[int]
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
     CONTENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     NOTIFICATION_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
+    DECOMPOSITIONS_FIELD_NUMBER: _ClassVar[int]
     filename: str
     list_id: str
     content_type: _compliance_pb2.ContentType
     notification_message: str
     country_code: str
-    def __init__(self, filename: _Optional[str] = ..., list_id: _Optional[str] = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., notification_message: _Optional[str] = ..., country_code: _Optional[str] = ...) -> None: ...
+    decompositions: _compliance_pb2.Decompositions
+    def __init__(self, filename: _Optional[str] = ..., list_id: _Optional[str] = ..., content_type: _Optional[_Union[_compliance_pb2.ContentType, str]] = ..., notification_message: _Optional[str] = ..., country_code: _Optional[str] = ..., decompositions: _Optional[_Union[_compliance_pb2.Decompositions, _Mapping]] = ...) -> None: ...
 
 class ProcessScrubListUploadRes(_message.Message):
     __slots__ = ("entries_added", "invalid_entries")
