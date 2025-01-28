@@ -760,20 +760,24 @@ class ReplaceConfig(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferMember(_message.Message):
-    __slots__ = ("identifier", "display_label", "member_type", "agent_session", "caller_sid", "outbound_id")
+    __slots__ = ("identifier", "display_label", "member_type", "phone_number", "is_muted", "agent_session", "caller_sid", "outbound_id")
     IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_LABEL_FIELD_NUMBER: _ClassVar[int]
     MEMBER_TYPE_FIELD_NUMBER: _ClassVar[int]
+    PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
+    IS_MUTED_FIELD_NUMBER: _ClassVar[int]
     AGENT_SESSION_FIELD_NUMBER: _ClassVar[int]
     CALLER_SID_FIELD_NUMBER: _ClassVar[int]
     OUTBOUND_ID_FIELD_NUMBER: _ClassVar[int]
     identifier: str
     display_label: str
     member_type: TransferMemberType
+    phone_number: str
+    is_muted: bool
     agent_session: AgentSession
     caller_sid: CallerSid
     outbound_id: str
-    def __init__(self, identifier: _Optional[str] = ..., display_label: _Optional[str] = ..., member_type: _Optional[_Union[TransferMemberType, str]] = ..., agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., outbound_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, identifier: _Optional[str] = ..., display_label: _Optional[str] = ..., member_type: _Optional[_Union[TransferMemberType, str]] = ..., phone_number: _Optional[str] = ..., is_muted: bool = ..., agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., outbound_id: _Optional[str] = ...) -> None: ...
 
 class AgentAlert(_message.Message):
     __slots__ = ("backoffice_message", "directed_call_ringing", "directed_call_hangup")
