@@ -40,21 +40,55 @@ class SIPAccountRingGroup(_message.Message):
     ring_group_name: str
     def __init__(self, ring_group_id: _Optional[str] = ..., ring_group_name: _Optional[str] = ...) -> None: ...
 
+class OrgSkill(_message.Message):
+    __slots__ = ("skill_sid", "skill_name")
+    SKILL_SID_FIELD_NUMBER: _ClassVar[int]
+    SKILL_NAME_FIELD_NUMBER: _ClassVar[int]
+    skill_sid: str
+    skill_name: str
+    def __init__(self, skill_sid: _Optional[str] = ..., skill_name: _Optional[str] = ...) -> None: ...
+
+class OrgPermissionGroup(_message.Message):
+    __slots__ = ("permission_group_id", "permission_group_name")
+    PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
+    PERMISSION_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
+    permission_group_id: str
+    permission_group_name: str
+    def __init__(self, permission_group_id: _Optional[str] = ..., permission_group_name: _Optional[str] = ...) -> None: ...
+
+class OrgHuntGroup(_message.Message):
+    __slots__ = ("hunt_group_sid", "hunt_group_name")
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
+    hunt_group_sid: str
+    hunt_group_name: str
+    def __init__(self, hunt_group_sid: _Optional[str] = ..., hunt_group_name: _Optional[str] = ...) -> None: ...
+
 class SIPAccount(_message.Message):
-    __slots__ = ("sip_id", "is_active", "extension", "ring_group_ids", "org_user_id", "ring_groups")
+    __slots__ = ("sip_id", "is_active", "extension", "ring_group_ids", "org_user_id", "ring_groups", "org_username", "org_full_name", "org_hunt_group", "org_skills", "org_permission_groups")
     SIP_ID_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTENSION_FIELD_NUMBER: _ClassVar[int]
     RING_GROUP_IDS_FIELD_NUMBER: _ClassVar[int]
     ORG_USER_ID_FIELD_NUMBER: _ClassVar[int]
     RING_GROUPS_FIELD_NUMBER: _ClassVar[int]
+    ORG_USERNAME_FIELD_NUMBER: _ClassVar[int]
+    ORG_FULL_NAME_FIELD_NUMBER: _ClassVar[int]
+    ORG_HUNT_GROUP_FIELD_NUMBER: _ClassVar[int]
+    ORG_SKILLS_FIELD_NUMBER: _ClassVar[int]
+    ORG_PERMISSION_GROUPS_FIELD_NUMBER: _ClassVar[int]
     sip_id: str
     is_active: bool
     extension: str
     ring_group_ids: _containers.RepeatedScalarFieldContainer[str]
     org_user_id: str
     ring_groups: _containers.RepeatedCompositeFieldContainer[SIPAccountRingGroup]
-    def __init__(self, sip_id: _Optional[str] = ..., is_active: bool = ..., extension: _Optional[str] = ..., ring_group_ids: _Optional[_Iterable[str]] = ..., org_user_id: _Optional[str] = ..., ring_groups: _Optional[_Iterable[_Union[SIPAccountRingGroup, _Mapping]]] = ...) -> None: ...
+    org_username: str
+    org_full_name: str
+    org_hunt_group: OrgHuntGroup
+    org_skills: _containers.RepeatedCompositeFieldContainer[OrgSkill]
+    org_permission_groups: _containers.RepeatedCompositeFieldContainer[OrgPermissionGroup]
+    def __init__(self, sip_id: _Optional[str] = ..., is_active: bool = ..., extension: _Optional[str] = ..., ring_group_ids: _Optional[_Iterable[str]] = ..., org_user_id: _Optional[str] = ..., ring_groups: _Optional[_Iterable[_Union[SIPAccountRingGroup, _Mapping]]] = ..., org_username: _Optional[str] = ..., org_full_name: _Optional[str] = ..., org_hunt_group: _Optional[_Union[OrgHuntGroup, _Mapping]] = ..., org_skills: _Optional[_Iterable[_Union[OrgSkill, _Mapping]]] = ..., org_permission_groups: _Optional[_Iterable[_Union[OrgPermissionGroup, _Mapping]]] = ...) -> None: ...
 
 class RingGroup(_message.Message):
     __slots__ = ("id", "name", "description", "extension", "ring_strategy", "sip_account_ids")
