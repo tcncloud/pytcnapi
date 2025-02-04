@@ -12,7 +12,7 @@ class Pipeline(_message.Message):
     def __init__(self, nodes: _Optional[_Iterable[_Union[Node, _Mapping]]] = ...) -> None: ...
 
 class Node(_message.Message):
-    __slots__ = ("node_id", "type", "title", "input_ids", "output_ids", "from_node", "filter_node", "derive_node", "group_node", "join_node", "select_node", "aggregate_node", "take_node", "json_node", "map_node", "replace_node", "sort_node", "string_manipulation_node")
+    __slots__ = ("node_id", "type", "title", "input_ids", "output_ids", "from_node", "filter_node", "derive_node", "group_node", "join_node", "select_node", "aggregate_node", "take_node", "json_node", "map_node", "replace_node", "sort_node", "string_manipulation_node", "transpose_node")
     NODE_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -31,6 +31,7 @@ class Node(_message.Message):
     REPLACE_NODE_FIELD_NUMBER: _ClassVar[int]
     SORT_NODE_FIELD_NUMBER: _ClassVar[int]
     STRING_MANIPULATION_NODE_FIELD_NUMBER: _ClassVar[int]
+    TRANSPOSE_NODE_FIELD_NUMBER: _ClassVar[int]
     node_id: str
     type: str
     title: str
@@ -49,7 +50,8 @@ class Node(_message.Message):
     replace_node: ReplaceNode
     sort_node: SortNode
     string_manipulation_node: StringManipulationNode
-    def __init__(self, node_id: _Optional[str] = ..., type: _Optional[str] = ..., title: _Optional[str] = ..., input_ids: _Optional[_Iterable[str]] = ..., output_ids: _Optional[_Iterable[str]] = ..., from_node: _Optional[_Union[FromNode, _Mapping]] = ..., filter_node: _Optional[_Union[FilterNode, _Mapping]] = ..., derive_node: _Optional[_Union[DeriveNode, _Mapping]] = ..., group_node: _Optional[_Union[GroupNode, _Mapping]] = ..., join_node: _Optional[_Union[JoinNode, _Mapping]] = ..., select_node: _Optional[_Union[SelectNode, _Mapping]] = ..., aggregate_node: _Optional[_Union[AggregateNode, _Mapping]] = ..., take_node: _Optional[_Union[TakeNode, _Mapping]] = ..., json_node: _Optional[_Union[JsonNode, _Mapping]] = ..., map_node: _Optional[_Union[MapNode, _Mapping]] = ..., replace_node: _Optional[_Union[ReplaceNode, _Mapping]] = ..., sort_node: _Optional[_Union[SortNode, _Mapping]] = ..., string_manipulation_node: _Optional[_Union[StringManipulationNode, _Mapping]] = ...) -> None: ...
+    transpose_node: TransposeNode
+    def __init__(self, node_id: _Optional[str] = ..., type: _Optional[str] = ..., title: _Optional[str] = ..., input_ids: _Optional[_Iterable[str]] = ..., output_ids: _Optional[_Iterable[str]] = ..., from_node: _Optional[_Union[FromNode, _Mapping]] = ..., filter_node: _Optional[_Union[FilterNode, _Mapping]] = ..., derive_node: _Optional[_Union[DeriveNode, _Mapping]] = ..., group_node: _Optional[_Union[GroupNode, _Mapping]] = ..., join_node: _Optional[_Union[JoinNode, _Mapping]] = ..., select_node: _Optional[_Union[SelectNode, _Mapping]] = ..., aggregate_node: _Optional[_Union[AggregateNode, _Mapping]] = ..., take_node: _Optional[_Union[TakeNode, _Mapping]] = ..., json_node: _Optional[_Union[JsonNode, _Mapping]] = ..., map_node: _Optional[_Union[MapNode, _Mapping]] = ..., replace_node: _Optional[_Union[ReplaceNode, _Mapping]] = ..., sort_node: _Optional[_Union[SortNode, _Mapping]] = ..., string_manipulation_node: _Optional[_Union[StringManipulationNode, _Mapping]] = ..., transpose_node: _Optional[_Union[TransposeNode, _Mapping]] = ...) -> None: ...
 
 class FromNode(_message.Message):
     __slots__ = ("dataset",)
@@ -303,3 +305,22 @@ class StringManipulationNode(_message.Message):
     string_manipulation_split: StringManipulationSplit
     string_manipulation_replace: StringManipulationReplace
     def __init__(self, type: _Optional[str] = ..., source_column_name: _Optional[str] = ..., target_column_name: _Optional[str] = ..., string_manipulation_split: _Optional[_Union[StringManipulationSplit, _Mapping]] = ..., string_manipulation_replace: _Optional[_Union[StringManipulationReplace, _Mapping]] = ...) -> None: ...
+
+class TransposeNode(_message.Message):
+    __slots__ = ("group_by_columns", "key_column", "options")
+    class Option(_message.Message):
+        __slots__ = ("key_name", "value_column", "value_type")
+        KEY_NAME_FIELD_NUMBER: _ClassVar[int]
+        VALUE_COLUMN_FIELD_NUMBER: _ClassVar[int]
+        VALUE_TYPE_FIELD_NUMBER: _ClassVar[int]
+        key_name: str
+        value_column: str
+        value_type: str
+        def __init__(self, key_name: _Optional[str] = ..., value_column: _Optional[str] = ..., value_type: _Optional[str] = ...) -> None: ...
+    GROUP_BY_COLUMNS_FIELD_NUMBER: _ClassVar[int]
+    KEY_COLUMN_FIELD_NUMBER: _ClassVar[int]
+    OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    group_by_columns: _containers.RepeatedScalarFieldContainer[str]
+    key_column: str
+    options: _containers.RepeatedCompositeFieldContainer[TransposeNode.Option]
+    def __init__(self, group_by_columns: _Optional[_Iterable[str]] = ..., key_column: _Optional[str] = ..., options: _Optional[_Iterable[_Union[TransposeNode.Option, _Mapping]]] = ...) -> None: ...
