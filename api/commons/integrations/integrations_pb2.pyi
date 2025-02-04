@@ -1,3 +1,4 @@
+from google.type import money_pb2 as _money_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -993,6 +994,58 @@ class Receipt(_message.Message):
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     fields: _containers.RepeatedCompositeFieldContainer[ReceiptField]
     def __init__(self, fields: _Optional[_Iterable[_Union[ReceiptField, _Mapping]]] = ...) -> None: ...
+
+class Payment(_message.Message):
+    __slots__ = ("fees",)
+    FEES_FIELD_NUMBER: _ClassVar[int]
+    fees: _containers.RepeatedCompositeFieldContainer[Fee]
+    def __init__(self, fees: _Optional[_Iterable[_Union[Fee, _Mapping]]] = ...) -> None: ...
+
+class Fee(_message.Message):
+    __slots__ = ("name", "flat", "percentage", "flat_and_percentage", "lookup", "display", "destination_field")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    FLAT_FIELD_NUMBER: _ClassVar[int]
+    PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    FLAT_AND_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    LOOKUP_FIELD_NUMBER: _ClassVar[int]
+    DISPLAY_FIELD_NUMBER: _ClassVar[int]
+    DESTINATION_FIELD_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    flat: _money_pb2.Money
+    percentage: Percentage
+    flat_and_percentage: FlatAndPercentage
+    lookup: Lookup
+    display: bool
+    destination_field: str
+    def __init__(self, name: _Optional[str] = ..., flat: _Optional[_Union[_money_pb2.Money, _Mapping]] = ..., percentage: _Optional[_Union[Percentage, _Mapping]] = ..., flat_and_percentage: _Optional[_Union[FlatAndPercentage, _Mapping]] = ..., lookup: _Optional[_Union[Lookup, _Mapping]] = ..., display: bool = ..., destination_field: _Optional[str] = ...) -> None: ...
+
+class Percentage(_message.Message):
+    __slots__ = ("integer_value", "fractional_value")
+    INTEGER_VALUE_FIELD_NUMBER: _ClassVar[int]
+    FRACTIONAL_VALUE_FIELD_NUMBER: _ClassVar[int]
+    integer_value: int
+    fractional_value: int
+    def __init__(self, integer_value: _Optional[int] = ..., fractional_value: _Optional[int] = ...) -> None: ...
+
+class FlatAndPercentage(_message.Message):
+    __slots__ = ("flat", "percentage")
+    FLAT_FIELD_NUMBER: _ClassVar[int]
+    PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    flat: _money_pb2.Money
+    percentage: Percentage
+    def __init__(self, flat: _Optional[_Union[_money_pb2.Money, _Mapping]] = ..., percentage: _Optional[_Union[Percentage, _Mapping]] = ...) -> None: ...
+
+class Lookup(_message.Message):
+    __slots__ = ("plugin_instance_id", "method", "response_field", "as_percentage")
+    PLUGIN_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
+    METHOD_FIELD_NUMBER: _ClassVar[int]
+    RESPONSE_FIELD_FIELD_NUMBER: _ClassVar[int]
+    AS_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
+    plugin_instance_id: str
+    method: RequestMethod
+    response_field: str
+    as_percentage: bool
+    def __init__(self, plugin_instance_id: _Optional[str] = ..., method: _Optional[_Union[RequestMethod, str]] = ..., response_field: _Optional[str] = ..., as_percentage: bool = ...) -> None: ...
 
 class ReceiptField(_message.Message):
     __slots__ = ("name", "display_name", "value", "validation_type", "format", "copiable")

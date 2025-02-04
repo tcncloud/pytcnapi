@@ -6,6 +6,7 @@ from api.commons import perms_pb2 as _perms_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.type import money_pb2 as _money_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -1408,12 +1409,14 @@ class Action(_message.Message):
     def __init__(self, plugin_instance_id: _Optional[str] = ..., restructure_before: _Optional[_Mapping[str, str]] = ..., restructure_after: _Optional[_Mapping[str, str]] = ..., action_definition_name: _Optional[str] = ..., opts: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class Template(_message.Message):
-    __slots__ = ("invoice_template", "receipt_template")
+    __slots__ = ("invoice_template", "receipt_template", "payment_template")
     INVOICE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     RECEIPT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
+    PAYMENT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     invoice_template: _integrations_pb2.Invoices
     receipt_template: _integrations_pb2.Receipt
-    def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ..., receipt_template: _Optional[_Union[_integrations_pb2.Receipt, _Mapping]] = ...) -> None: ...
+    payment_template: _integrations_pb2.Payment
+    def __init__(self, invoice_template: _Optional[_Union[_integrations_pb2.Invoices, _Mapping]] = ..., receipt_template: _Optional[_Union[_integrations_pb2.Receipt, _Mapping]] = ..., payment_template: _Optional[_Union[_integrations_pb2.Payment, _Mapping]] = ...) -> None: ...
 
 class PopulateIntegrationLinkReq(_message.Message):
     __slots__ = ("client_sid", "agent_sid", "call_sid", "call_type", "scheduled_callback_id", "integration_link")
@@ -1494,3 +1497,39 @@ class InsertPrivateFieldRes(_message.Message):
     PRIVATE_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
     private_field_id: int
     def __init__(self, private_field_id: _Optional[int] = ...) -> None: ...
+
+class CalculateFeesReq(_message.Message):
+    __slots__ = ("fees", "params", "call_sid", "call_type", "request_origin")
+    class ParamsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: Value
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[Value, _Mapping]] = ...) -> None: ...
+    FEES_FIELD_NUMBER: _ClassVar[int]
+    PARAMS_FIELD_NUMBER: _ClassVar[int]
+    CALL_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_ORIGIN_FIELD_NUMBER: _ClassVar[int]
+    fees: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.Fee]
+    params: _containers.MessageMap[str, Value]
+    call_sid: int
+    call_type: _acd_pb2.CallType.Enum
+    request_origin: _integrations_pb2.RequestOrigin
+    def __init__(self, fees: _Optional[_Iterable[_Union[_integrations_pb2.Fee, _Mapping]]] = ..., params: _Optional[_Mapping[str, Value]] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ...) -> None: ...
+
+class CalculateFeesRes(_message.Message):
+    __slots__ = ("calculated_fees", "total_amount_due")
+    class CalculatedFeesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: _money_pb2.Money
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_money_pb2.Money, _Mapping]] = ...) -> None: ...
+    CALCULATED_FEES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_AMOUNT_DUE_FIELD_NUMBER: _ClassVar[int]
+    calculated_fees: _containers.MessageMap[str, _money_pb2.Money]
+    total_amount_due: _money_pb2.Money
+    def __init__(self, calculated_fees: _Optional[_Mapping[str, _money_pb2.Money]] = ..., total_amount_due: _Optional[_Union[_money_pb2.Money, _Mapping]] = ...) -> None: ...

@@ -1,8 +1,10 @@
+from api.commons import acd_pb2 as _acd_pb2
 from api.commons.integrations import integrations_pb2 as _integrations_pb2
 from api.v1alpha1.integrations import portals_pb2 as _portals_pb2
 from api.v1alpha1.integrations import service_pb2 as _service_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.type import money_pb2 as _money_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -357,3 +359,41 @@ class GetLinkDetailsRes(_message.Message):
     completed: bool
     portal_definition: _portals_pb2.PortalDefinition
     def __init__(self, portal: _Optional[_Union[_service_pb2.Portal, _Mapping]] = ..., portal_config: _Optional[_Union[PortalConfig, _Mapping]] = ..., expired: bool = ..., completed: bool = ..., portal_definition: _Optional[_Union[_portals_pb2.PortalDefinition, _Mapping]] = ...) -> None: ...
+
+class CalculateFeesReq(_message.Message):
+    __slots__ = ("entity", "fees", "params", "call_sid", "call_type", "request_origin")
+    class ParamsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: Value
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[Value, _Mapping]] = ...) -> None: ...
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    FEES_FIELD_NUMBER: _ClassVar[int]
+    PARAMS_FIELD_NUMBER: _ClassVar[int]
+    CALL_SID_FIELD_NUMBER: _ClassVar[int]
+    CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    REQUEST_ORIGIN_FIELD_NUMBER: _ClassVar[int]
+    entity: PortalLinkId
+    fees: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.Fee]
+    params: _containers.MessageMap[str, Value]
+    call_sid: int
+    call_type: _acd_pb2.CallType.Enum
+    request_origin: _integrations_pb2.RequestOrigin
+    def __init__(self, entity: _Optional[_Union[PortalLinkId, _Mapping]] = ..., fees: _Optional[_Iterable[_Union[_integrations_pb2.Fee, _Mapping]]] = ..., params: _Optional[_Mapping[str, Value]] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., request_origin: _Optional[_Union[_integrations_pb2.RequestOrigin, str]] = ...) -> None: ...
+
+class CalculateFeesRes(_message.Message):
+    __slots__ = ("calculated_fees", "total_amount_due")
+    class CalculatedFeesEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: _money_pb2.Money
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[_money_pb2.Money, _Mapping]] = ...) -> None: ...
+    CALCULATED_FEES_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_AMOUNT_DUE_FIELD_NUMBER: _ClassVar[int]
+    calculated_fees: _containers.MessageMap[str, _money_pb2.Money]
+    total_amount_due: _money_pb2.Money
+    def __init__(self, calculated_fees: _Optional[_Mapping[str, _money_pb2.Money]] = ..., total_amount_due: _Optional[_Union[_money_pb2.Money, _Mapping]] = ...) -> None: ...
