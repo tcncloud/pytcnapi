@@ -431,3 +431,19 @@ class EditAttribute(_message.Message):
     to_val: str
     is_edited: bool
     def __init__(self, col_desc: _Optional[int] = ..., from_val: _Optional[str] = ..., to_val: _Optional[str] = ..., is_edited: bool = ...) -> None: ...
+
+class CustomField(_message.Message):
+    __slots__ = ("custom_field_sid", "custom_field_name", "custom_field_value", "custom_field_type", "date_modified", "is_deleted")
+    CUSTOM_FIELD_SID_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_FIELD_VALUE_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
+    DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
+    IS_DELETED_FIELD_NUMBER: _ClassVar[int]
+    custom_field_sid: int
+    custom_field_name: str
+    custom_field_value: str
+    custom_field_type: str
+    date_modified: _timestamp_pb2.Timestamp
+    is_deleted: bool
+    def __init__(self, custom_field_sid: _Optional[int] = ..., custom_field_name: _Optional[str] = ..., custom_field_value: _Optional[str] = ..., custom_field_type: _Optional[str] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_deleted: bool = ...) -> None: ...

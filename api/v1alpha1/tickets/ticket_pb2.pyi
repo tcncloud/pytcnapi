@@ -543,6 +543,64 @@ class ListTicketsByEntityRefResponse(_message.Message):
     tickets: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.Ticket]
     def __init__(self, tickets: _Optional[_Iterable[_Union[_tickets_pb2.Ticket, _Mapping]]] = ...) -> None: ...
 
+class CreateCustomFieldRequest(_message.Message):
+    __slots__ = ("ticket_code", "project_id", "custom_field")
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_FIELD_FIELD_NUMBER: _ClassVar[int]
+    ticket_code: str
+    project_id: int
+    custom_field: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.CustomField]
+    def __init__(self, ticket_code: _Optional[str] = ..., project_id: _Optional[int] = ..., custom_field: _Optional[_Iterable[_Union[_tickets_pb2.CustomField, _Mapping]]] = ...) -> None: ...
+
+class CreateCustomFieldResponse(_message.Message):
+    __slots__ = ("ticket_code", "project_id", "custom_field")
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_FIELD_FIELD_NUMBER: _ClassVar[int]
+    ticket_code: str
+    project_id: int
+    custom_field: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.CustomField]
+    def __init__(self, ticket_code: _Optional[str] = ..., project_id: _Optional[int] = ..., custom_field: _Optional[_Iterable[_Union[_tickets_pb2.CustomField, _Mapping]]] = ...) -> None: ...
+
+class EditCustomFieldRequest(_message.Message):
+    __slots__ = ("ticket_code", "project_id", "edit_value")
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    EDIT_VALUE_FIELD_NUMBER: _ClassVar[int]
+    ticket_code: str
+    project_id: int
+    edit_value: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.CustomField]
+    def __init__(self, ticket_code: _Optional[str] = ..., project_id: _Optional[int] = ..., edit_value: _Optional[_Iterable[_Union[_tickets_pb2.CustomField, _Mapping]]] = ...) -> None: ...
+
+class EditCustomFieldResponse(_message.Message):
+    __slots__ = ("ticket_code", "project_id", "edited_custom_field")
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    EDITED_CUSTOM_FIELD_FIELD_NUMBER: _ClassVar[int]
+    ticket_code: str
+    project_id: int
+    edited_custom_field: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.CustomField]
+    def __init__(self, ticket_code: _Optional[str] = ..., project_id: _Optional[int] = ..., edited_custom_field: _Optional[_Iterable[_Union[_tickets_pb2.CustomField, _Mapping]]] = ...) -> None: ...
+
+class ListCustomFieldsRequest(_message.Message):
+    __slots__ = ("ticket_code", "project_id")
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    ticket_code: str
+    project_id: int
+    def __init__(self, ticket_code: _Optional[str] = ..., project_id: _Optional[int] = ...) -> None: ...
+
+class ListCustomFieldsResponse(_message.Message):
+    __slots__ = ("ticket_code", "project_id", "custom_fields")
+    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CUSTOM_FIELDS_FIELD_NUMBER: _ClassVar[int]
+    ticket_code: str
+    project_id: int
+    custom_fields: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.CustomField]
+    def __init__(self, ticket_code: _Optional[str] = ..., project_id: _Optional[int] = ..., custom_fields: _Optional[_Iterable[_Union[_tickets_pb2.CustomField, _Mapping]]] = ...) -> None: ...
+
 class EntityRef(_message.Message):
     __slots__ = ("org_id", "region_id", "ticket_code", "uri")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]

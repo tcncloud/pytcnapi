@@ -575,6 +575,26 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListConfigEntitiesReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListConfigEntitiesRes.FromString,
                 )
+        self.CreateReasonCode = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/CreateReasonCode',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateReasonCodeRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateReasonCodeResponse.FromString,
+                )
+        self.UpdateReasonCode = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/UpdateReasonCode',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateReasonCodeRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateReasonCodeResponse.FromString,
+                )
+        self.GetDefaultReasonCode = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/GetDefaultReasonCode',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultReasonCodeRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultReasonCodeResponse.FromString,
+                )
+        self.ListReasonCodes = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListReasonCodes',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListReasonCodesRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListReasonCodesResponse.FromString,
+                )
         self.DeleteShiftInstances = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/DeleteShiftInstances',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.DeleteShiftInstancesReq.SerializeToString,
@@ -1960,6 +1980,7 @@ class WFMServicer(object):
         If the rule will belong to a wfm agent, the agent group must be supplied instead to get a relevant set of candidate scheduling activities.
         Member non skill activity of each scheduling activity will be included in the response.
         The on call scheduling activity will always be included.
+        Reason codes will be included with the returned scheduling activities.
         Errors:
         - grpc.Invalid: the @parent_of_rule is invalid.
         - grpc.NotFound: @parent_of_rule doesn't exist
@@ -1973,6 +1994,7 @@ class WFMServicer(object):
         """Lists all the scheduling activities for the org making the request.
         Their member non skill activities and pause codes will always be included.
         Scheduling activities are not checked for an active or inactive state, and neither are their member activities.
+        Reason codes will be included with the returned scheduling activities.
         Errors:
         - grpc.Internal: error occurs when getting the activities or its members.
         """
@@ -1982,6 +2004,7 @@ class WFMServicer(object):
 
     def GetOnCallSchedulingActivity(self, request, context):
         """Gets the on call scheduling activity for the org sending the request.
+        Reason codes will be included with the returned scheduling activity.
         Required permissions:
         NONE
         Errors:
@@ -2587,6 +2610,57 @@ class WFMServicer(object):
         Errors:
         - grpc.Invalid: the @entity_type, or @belongs_to_entity have invalid values.
         - grpc.Internal: error occurs when getting the config entities.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def CreateReasonCode(self, request, context):
+        """Creates the given reason code for the org sending the request.
+        If @reason_code.is_default is true and there is already a default reason code for the @reason_code.scheduling_activity_sid, the existing default reason code must be set to is_default=false first.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.AlreadyExists: the @reason_code is set to default, but there is already a default reason code for the scheduling activity.
+        - grpc.Internal: error occours when creating the reason code.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateReasonCode(self, request, context):
+        """Updates the given reason code for the org sending the request.
+        If @reason_code.is_default is true and there is already a default reason code for the @reason_code.scheduling_activity_sid, the existing default reason code must be set to is_default=false first.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.AlreadyExists: the @reason_code is set to default, but there is already a default reason code for the scheduling activity.
+        - grpc.Internal: error occours when updating the reason code.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetDefaultReasonCode(self, request, context):
+        """Gets the default reason code for the given @scheduling_activity_sid and the org sending the request.
+        If there is currently no default reason code for the scheduling activity, returns nil instead.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occours when getting the default reason code.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListReasonCodes(self, request, context):
+        """Lists the reason codes for @scheduling_activity_sids and the org sending the request.
+        If include_inactive is set to true, inactivate reason codes will be included in the response.
+        Otherwise, only active reason codes will be included.
+        Required permissions:
+        NONE
+        Errors:
+        - grpc.Internal: error occours when listing the reason codes.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -4619,6 +4693,26 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListConfigEntities,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListConfigEntitiesReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListConfigEntitiesRes.SerializeToString,
+            ),
+            'CreateReasonCode': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateReasonCode,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateReasonCodeRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateReasonCodeResponse.SerializeToString,
+            ),
+            'UpdateReasonCode': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateReasonCode,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateReasonCodeRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateReasonCodeResponse.SerializeToString,
+            ),
+            'GetDefaultReasonCode': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDefaultReasonCode,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultReasonCodeRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultReasonCodeResponse.SerializeToString,
+            ),
+            'ListReasonCodes': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListReasonCodes,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListReasonCodesRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListReasonCodesResponse.SerializeToString,
             ),
             'DeleteShiftInstances': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteShiftInstances,
@@ -7107,6 +7201,74 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListConfigEntities',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListConfigEntitiesReq.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListConfigEntitiesRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateReasonCode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/CreateReasonCode',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateReasonCodeRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.CreateReasonCodeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateReasonCode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/UpdateReasonCode',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateReasonCodeRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpdateReasonCodeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetDefaultReasonCode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/GetDefaultReasonCode',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultReasonCodeRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.GetDefaultReasonCodeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListReasonCodes(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListReasonCodes',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListReasonCodesRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListReasonCodesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

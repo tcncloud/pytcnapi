@@ -1287,20 +1287,22 @@ class ListNonSkillActivityAssociationsRes(_message.Message):
     def __init__(self, non_skill_activity_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class SchedulingActivity(_message.Message):
-    __slots__ = ("scheduling_activity_sid", "is_skill_activity", "activity_sid", "member_non_skill_activity", "activity_classification", "pause_codes")
+    __slots__ = ("scheduling_activity_sid", "is_skill_activity", "activity_sid", "member_non_skill_activity", "activity_classification", "pause_codes", "reason_codes")
     SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     IS_SKILL_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_NON_SKILL_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     ACTIVITY_CLASSIFICATION_FIELD_NUMBER: _ClassVar[int]
     PAUSE_CODES_FIELD_NUMBER: _ClassVar[int]
+    REASON_CODES_FIELD_NUMBER: _ClassVar[int]
     scheduling_activity_sid: int
     is_skill_activity: bool
     activity_sid: _wrappers_pb2.Int64Value
     member_non_skill_activity: NonSkillActivity
     activity_classification: _wfm_pb2.SchedulingActivityClassification
     pause_codes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., is_skill_activity: bool = ..., activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., member_non_skill_activity: _Optional[_Union[NonSkillActivity, _Mapping]] = ..., activity_classification: _Optional[_Union[_wfm_pb2.SchedulingActivityClassification, str]] = ..., pause_codes: _Optional[_Iterable[str]] = ...) -> None: ...
+    reason_codes: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.ReasonCode]
+    def __init__(self, scheduling_activity_sid: _Optional[int] = ..., is_skill_activity: bool = ..., activity_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., member_non_skill_activity: _Optional[_Union[NonSkillActivity, _Mapping]] = ..., activity_classification: _Optional[_Union[_wfm_pb2.SchedulingActivityClassification, str]] = ..., pause_codes: _Optional[_Iterable[str]] = ..., reason_codes: _Optional[_Iterable[_Union[_wfm_pb2.ReasonCode, _Mapping]]] = ...) -> None: ...
 
 class ListCandidateSchedulingActivitiesReq(_message.Message):
     __slots__ = ("parent_of_rule", "schedule_scenario_sid")
@@ -2295,6 +2297,66 @@ class ListConfigEntitiesRes(_message.Message):
     schedule_scenarios: ListConfigEntitiesRes.ScheduleScenarioEntities
     def __init__(self, call_center_node: _Optional[_Union[CallCenterNode, _Mapping]] = ..., client_nodes: _Optional[_Union[ListConfigEntitiesRes.ClientNodeEntities, _Mapping]] = ..., location_nodes: _Optional[_Union[ListConfigEntitiesRes.LocationNodeEntities, _Mapping]] = ..., program_nodes: _Optional[_Union[ListConfigEntitiesRes.ProgramNodeEntities, _Mapping]] = ..., agent_groups: _Optional[_Union[ListConfigEntitiesRes.AgentGroupEntities, _Mapping]] = ..., shift_templates: _Optional[_Union[ListConfigEntitiesRes.ShiftTemplateEntities, _Mapping]] = ..., wfm_agents: _Optional[_Union[ListConfigEntitiesRes.WFMAgentEntities, _Mapping]] = ..., placement_rules: _Optional[_Union[ListConfigEntitiesRes.PlacementRuleEntities, _Mapping]] = ..., constraint_rules: _Optional[_Union[ListConfigEntitiesRes.ConstraintRuleEntities, _Mapping]] = ..., non_skill_activities: _Optional[_Union[ListConfigEntitiesRes.NonSkillActivityEntities, _Mapping]] = ..., agent_availability_patterns: _Optional[_Union[ListConfigEntitiesRes.AgentAvailabilityPatternEntities, _Mapping]] = ..., open_times_patterns: _Optional[_Union[ListConfigEntitiesRes.OpenTimesPatternEntities, _Mapping]] = ..., scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ..., skill_proficiencies: _Optional[_Union[ListConfigEntitiesRes.SkillProficiencyEntities, _Mapping]] = ..., schedule_scenarios: _Optional[_Union[ListConfigEntitiesRes.ScheduleScenarioEntities, _Mapping]] = ...) -> None: ...
 
+class CreateReasonCodeRequest(_message.Message):
+    __slots__ = ("reason_code",)
+    REASON_CODE_FIELD_NUMBER: _ClassVar[int]
+    reason_code: _wfm_pb2.ReasonCode
+    def __init__(self, reason_code: _Optional[_Union[_wfm_pb2.ReasonCode, _Mapping]] = ...) -> None: ...
+
+class CreateReasonCodeResponse(_message.Message):
+    __slots__ = ("reason_code_id",)
+    REASON_CODE_ID_FIELD_NUMBER: _ClassVar[int]
+    reason_code_id: int
+    def __init__(self, reason_code_id: _Optional[int] = ...) -> None: ...
+
+class UpdateReasonCodeRequest(_message.Message):
+    __slots__ = ("reason_code",)
+    REASON_CODE_FIELD_NUMBER: _ClassVar[int]
+    reason_code: _wfm_pb2.ReasonCode
+    def __init__(self, reason_code: _Optional[_Union[_wfm_pb2.ReasonCode, _Mapping]] = ...) -> None: ...
+
+class UpdateReasonCodeResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetDefaultReasonCodeRequest(_message.Message):
+    __slots__ = ("scheduling_activity_sid",)
+    SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
+    scheduling_activity_sid: int
+    def __init__(self, scheduling_activity_sid: _Optional[int] = ...) -> None: ...
+
+class GetDefaultReasonCodeResponse(_message.Message):
+    __slots__ = ("default_reason_code",)
+    DEFAULT_REASON_CODE_FIELD_NUMBER: _ClassVar[int]
+    default_reason_code: _wfm_pb2.ReasonCode
+    def __init__(self, default_reason_code: _Optional[_Union[_wfm_pb2.ReasonCode, _Mapping]] = ...) -> None: ...
+
+class ListReasonCodesRequest(_message.Message):
+    __slots__ = ("scheduling_activity_sids", "include_inactive")
+    SCHEDULING_ACTIVITY_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_INACTIVE_FIELD_NUMBER: _ClassVar[int]
+    scheduling_activity_sids: _containers.RepeatedScalarFieldContainer[int]
+    include_inactive: bool
+    def __init__(self, scheduling_activity_sids: _Optional[_Iterable[int]] = ..., include_inactive: bool = ...) -> None: ...
+
+class ListReasonCodesResponse(_message.Message):
+    __slots__ = ("reason_codes_by_scheduling_activity",)
+    class ReasonCodes(_message.Message):
+        __slots__ = ("reason_codes",)
+        REASON_CODES_FIELD_NUMBER: _ClassVar[int]
+        reason_codes: _containers.RepeatedCompositeFieldContainer[_wfm_pb2.ReasonCode]
+        def __init__(self, reason_codes: _Optional[_Iterable[_Union[_wfm_pb2.ReasonCode, _Mapping]]] = ...) -> None: ...
+    class ReasonCodesBySchedulingActivityEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: ListReasonCodesResponse.ReasonCodes
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[ListReasonCodesResponse.ReasonCodes, _Mapping]] = ...) -> None: ...
+    REASON_CODES_BY_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    reason_codes_by_scheduling_activity: _containers.MessageMap[int, ListReasonCodesResponse.ReasonCodes]
+    def __init__(self, reason_codes_by_scheduling_activity: _Optional[_Mapping[int, ListReasonCodesResponse.ReasonCodes]] = ...) -> None: ...
+
 class Diagnostic(_message.Message):
     __slots__ = ("level", "code", "message", "source_entity")
     LEVEL_FIELD_NUMBER: _ClassVar[int]
@@ -2705,7 +2767,7 @@ class ShiftSegmentCallStat(_message.Message):
     def __init__(self, num_calls: _Optional[float] = ..., percent_fit: _Optional[float] = ..., skill_collection: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class ShiftSegment(_message.Message):
-    __slots__ = ("shift_segment_sid", "shift_instance_sid", "order_in_shift_instance", "width_in_minutes", "start_minute_in_shift", "scheduling_activity_sid", "scheduling_activity", "call_stats_by_skill_collection")
+    __slots__ = ("shift_segment_sid", "shift_instance_sid", "order_in_shift_instance", "width_in_minutes", "start_minute_in_shift", "scheduling_activity_sid", "scheduling_activity", "call_stats_by_skill_collection", "reason_code_id")
     SHIFT_SEGMENT_SID_FIELD_NUMBER: _ClassVar[int]
     SHIFT_INSTANCE_SID_FIELD_NUMBER: _ClassVar[int]
     ORDER_IN_SHIFT_INSTANCE_FIELD_NUMBER: _ClassVar[int]
@@ -2714,6 +2776,7 @@ class ShiftSegment(_message.Message):
     SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     CALL_STATS_BY_SKILL_COLLECTION_FIELD_NUMBER: _ClassVar[int]
+    REASON_CODE_ID_FIELD_NUMBER: _ClassVar[int]
     shift_segment_sid: int
     shift_instance_sid: int
     order_in_shift_instance: int
@@ -2722,7 +2785,8 @@ class ShiftSegment(_message.Message):
     scheduling_activity_sid: int
     scheduling_activity: SchedulingActivity
     call_stats_by_skill_collection: _containers.RepeatedCompositeFieldContainer[ShiftSegmentCallStat]
-    def __init__(self, shift_segment_sid: _Optional[int] = ..., shift_instance_sid: _Optional[int] = ..., order_in_shift_instance: _Optional[int] = ..., width_in_minutes: _Optional[int] = ..., start_minute_in_shift: _Optional[int] = ..., scheduling_activity_sid: _Optional[int] = ..., scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ..., call_stats_by_skill_collection: _Optional[_Iterable[_Union[ShiftSegmentCallStat, _Mapping]]] = ...) -> None: ...
+    reason_code_id: int
+    def __init__(self, shift_segment_sid: _Optional[int] = ..., shift_instance_sid: _Optional[int] = ..., order_in_shift_instance: _Optional[int] = ..., width_in_minutes: _Optional[int] = ..., start_minute_in_shift: _Optional[int] = ..., scheduling_activity_sid: _Optional[int] = ..., scheduling_activity: _Optional[_Union[SchedulingActivity, _Mapping]] = ..., call_stats_by_skill_collection: _Optional[_Iterable[_Union[ShiftSegmentCallStat, _Mapping]]] = ..., reason_code_id: _Optional[int] = ...) -> None: ...
 
 class GetPublishedScheduleReq(_message.Message):
     __slots__ = ("datetime_range", "include_shift_instances", "include_shift_template", "include_shift_segments", "include_scheduling_activity", "include_activity", "node_selector")

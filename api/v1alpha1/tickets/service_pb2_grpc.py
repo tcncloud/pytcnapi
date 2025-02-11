@@ -191,6 +191,21 @@ class TicketsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketResponse.FromString,
                 )
+        self.CreateCustomField = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/CreateCustomField',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateCustomFieldRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateCustomFieldResponse.FromString,
+                )
+        self.EditCustomField = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/EditCustomField',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditCustomFieldRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditCustomFieldResponse.FromString,
+                )
+        self.ListCustomFields = channel.unary_unary(
+                '/api.v1alpha1.tickets.Tickets/ListCustomFields',
+                request_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListCustomFieldsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListCustomFieldsResponse.FromString,
+                )
 
 
 class TicketsServicer(object):
@@ -444,6 +459,27 @@ class TicketsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreateCustomField(self, request, context):
+        """Public method to create a Custom Field
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def EditCustomField(self, request, context):
+        """Public method to Edit a Custom Field
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListCustomFields(self, request, context):
+        """Public method to all Custom Fileds
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TicketsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -621,6 +657,21 @@ def add_TicketsServicer_to_server(servicer, server):
                     servicer.ListEntityRefsByTicket,
                     request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketResponse.SerializeToString,
+            ),
+            'CreateCustomField': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateCustomField,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateCustomFieldRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateCustomFieldResponse.SerializeToString,
+            ),
+            'EditCustomField': grpc.unary_unary_rpc_method_handler(
+                    servicer.EditCustomField,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditCustomFieldRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditCustomFieldResponse.SerializeToString,
+            ),
+            'ListCustomFields': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListCustomFields,
+                    request_deserializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListCustomFieldsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListCustomFieldsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1225,5 +1276,56 @@ class Tickets(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListEntityRefsByTicket',
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketRequest.SerializeToString,
             api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListEntityRefsByTicketResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreateCustomField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/CreateCustomField',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateCustomFieldRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.CreateCustomFieldResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def EditCustomField(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/EditCustomField',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditCustomFieldRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.EditCustomFieldResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListCustomFields(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.tickets.Tickets/ListCustomFields',
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListCustomFieldsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_tickets_dot_ticket__pb2.ListCustomFieldsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

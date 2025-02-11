@@ -720,6 +720,24 @@ class OptionTypes(_message.Message):
     availability_option: AvailabilityOption
     def __init__(self, open_times_option: _Optional[_Union[OpenTimesOption, str]] = ..., availability_option: _Optional[_Union[AvailabilityOption, str]] = ...) -> None: ...
 
+class ReasonCode(_message.Message):
+    __slots__ = ("reason_code_id", "name", "scheduling_activity_sid", "is_planned", "is_paid", "is_default", "datetime_set_to_inactive")
+    REASON_CODE_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
+    IS_PLANNED_FIELD_NUMBER: _ClassVar[int]
+    IS_PAID_FIELD_NUMBER: _ClassVar[int]
+    IS_DEFAULT_FIELD_NUMBER: _ClassVar[int]
+    DATETIME_SET_TO_INACTIVE_FIELD_NUMBER: _ClassVar[int]
+    reason_code_id: int
+    name: str
+    scheduling_activity_sid: int
+    is_planned: bool
+    is_paid: bool
+    is_default: bool
+    datetime_set_to_inactive: _timestamp_pb2.Timestamp
+    def __init__(self, reason_code_id: _Optional[int] = ..., name: _Optional[str] = ..., scheduling_activity_sid: _Optional[int] = ..., is_planned: bool = ..., is_paid: bool = ..., is_default: bool = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
 class ScheduleSelector(_message.Message):
     __slots__ = ("schedule_sid", "schedule_type")
     SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
@@ -837,7 +855,7 @@ class AdherenceAgentState(_message.Message):
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., adm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., pause_code: _Optional[str] = ...) -> None: ...
 
 class AdherenceAgentStateViolation(_message.Message):
-    __slots__ = ("wfm_agent_sid", "start_datetime", "expected_rtm_states", "expected_pause_code", "actual_rtm_states", "actual_pause_code", "violation_duration_seconds", "expected_pause_codes")
+    __slots__ = ("wfm_agent_sid", "start_datetime", "expected_rtm_states", "expected_pause_code", "actual_rtm_states", "actual_pause_code", "violation_duration_seconds", "expected_pause_codes", "adherence_agent_state_violation_id")
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     EXPECTED_RTM_STATES_FIELD_NUMBER: _ClassVar[int]
@@ -846,6 +864,7 @@ class AdherenceAgentStateViolation(_message.Message):
     ACTUAL_PAUSE_CODE_FIELD_NUMBER: _ClassVar[int]
     VIOLATION_DURATION_SECONDS_FIELD_NUMBER: _ClassVar[int]
     EXPECTED_PAUSE_CODES_FIELD_NUMBER: _ClassVar[int]
+    ADHERENCE_AGENT_STATE_VIOLATION_ID_FIELD_NUMBER: _ClassVar[int]
     wfm_agent_sid: int
     start_datetime: _timestamp_pb2.Timestamp
     expected_rtm_states: _containers.RepeatedScalarFieldContainer[RealTimeManagementState]
@@ -854,7 +873,8 @@ class AdherenceAgentStateViolation(_message.Message):
     actual_pause_code: str
     violation_duration_seconds: int
     expected_pause_codes: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expected_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., expected_pause_code: _Optional[str] = ..., actual_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., actual_pause_code: _Optional[str] = ..., violation_duration_seconds: _Optional[int] = ..., expected_pause_codes: _Optional[_Iterable[str]] = ...) -> None: ...
+    adherence_agent_state_violation_id: int
+    def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., expected_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., expected_pause_code: _Optional[str] = ..., actual_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., actual_pause_code: _Optional[str] = ..., violation_duration_seconds: _Optional[int] = ..., expected_pause_codes: _Optional[_Iterable[str]] = ..., adherence_agent_state_violation_id: _Optional[int] = ...) -> None: ...
 
 class AdherenceAgentStates(_message.Message):
     __slots__ = ("agent_states",)
