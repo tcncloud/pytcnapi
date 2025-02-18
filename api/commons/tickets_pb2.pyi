@@ -27,6 +27,15 @@ class PhoneNumberType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     MOBILE: _ClassVar[PhoneNumberType]
     OTHER: _ClassVar[PhoneNumberType]
     INVALID_ERROR: _ClassVar[PhoneNumberType]
+
+class TicketCustomFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+    __slots__ = ()
+    TICKET_CUSTOMFIELD_TYPE_BOOLEAN: _ClassVar[TicketCustomFieldType]
+    TICKET_CUSTOMFIELD_TYPE_STRING: _ClassVar[TicketCustomFieldType]
+    TICKET_CUSTOMFIELD_TYPE_NUMBER: _ClassVar[TicketCustomFieldType]
+    TICKET_CUSTOMFIELD_TYPE_DATETIME: _ClassVar[TicketCustomFieldType]
+    TICKET_CUSTOMFIELD_TYPE_MULTISELECT: _ClassVar[TicketCustomFieldType]
+    TICKET_CUSTOMFIELD_TYPE_SINGLESELECT: _ClassVar[TicketCustomFieldType]
 TIME_SCALE_MINUTE: TimeScale
 TIME_SCALE_HOUR: TimeScale
 TIME_SCALE_DAY: TimeScale
@@ -39,6 +48,12 @@ TICKET_STATUS_CLOSE: TicketStatus
 MOBILE: PhoneNumberType
 OTHER: PhoneNumberType
 INVALID_ERROR: PhoneNumberType
+TICKET_CUSTOMFIELD_TYPE_BOOLEAN: TicketCustomFieldType
+TICKET_CUSTOMFIELD_TYPE_STRING: TicketCustomFieldType
+TICKET_CUSTOMFIELD_TYPE_NUMBER: TicketCustomFieldType
+TICKET_CUSTOMFIELD_TYPE_DATETIME: TicketCustomFieldType
+TICKET_CUSTOMFIELD_TYPE_MULTISELECT: TicketCustomFieldType
+TICKET_CUSTOMFIELD_TYPE_SINGLESELECT: TicketCustomFieldType
 
 class Ticket(_message.Message):
     __slots__ = ("ticket_sid", "project_sid", "project_title", "ticket_code", "title", "description", "org_id", "created_by_id", "created_by_name", "created_by_date", "due_date", "assignee_list", "metadata", "ticket_skills", "status", "ticket_sla", "assignee", "ticket_action", "ticket_status", "ticket_assignee", "ticket_participant")
@@ -433,17 +448,19 @@ class EditAttribute(_message.Message):
     def __init__(self, col_desc: _Optional[int] = ..., from_val: _Optional[str] = ..., to_val: _Optional[str] = ..., is_edited: bool = ...) -> None: ...
 
 class CustomField(_message.Message):
-    __slots__ = ("custom_field_sid", "custom_field_name", "custom_field_value", "custom_field_type", "date_modified", "is_deleted")
+    __slots__ = ("custom_field_sid", "custom_field_name", "custom_field_value", "custom_field_type", "date_modified", "is_deleted", "ticket_custom_field_type")
     CUSTOM_FIELD_SID_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_VALUE_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
     DATE_MODIFIED_FIELD_NUMBER: _ClassVar[int]
     IS_DELETED_FIELD_NUMBER: _ClassVar[int]
+    TICKET_CUSTOM_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
     custom_field_sid: int
     custom_field_name: str
     custom_field_value: str
     custom_field_type: str
     date_modified: _timestamp_pb2.Timestamp
     is_deleted: bool
-    def __init__(self, custom_field_sid: _Optional[int] = ..., custom_field_name: _Optional[str] = ..., custom_field_value: _Optional[str] = ..., custom_field_type: _Optional[str] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_deleted: bool = ...) -> None: ...
+    ticket_custom_field_type: TicketCustomFieldType
+    def __init__(self, custom_field_sid: _Optional[int] = ..., custom_field_name: _Optional[str] = ..., custom_field_value: _Optional[str] = ..., custom_field_type: _Optional[str] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_deleted: bool = ..., ticket_custom_field_type: _Optional[_Union[TicketCustomFieldType, str]] = ...) -> None: ...
