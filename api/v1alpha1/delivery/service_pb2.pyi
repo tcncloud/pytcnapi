@@ -12,6 +12,16 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class TriggerDemoOutboundDeliveryReq(_message.Message):
+    __slots__ = ("transfer_config_name",)
+    TRANSFER_CONFIG_NAME_FIELD_NUMBER: _ClassVar[int]
+    transfer_config_name: str
+    def __init__(self, transfer_config_name: _Optional[str] = ...) -> None: ...
+
+class TriggerDemoOutboundDeliveryRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
 class CreateTransferConfigReq(_message.Message):
     __slots__ = ("entity", "mask")
     ENTITY_FIELD_NUMBER: _ClassVar[int]

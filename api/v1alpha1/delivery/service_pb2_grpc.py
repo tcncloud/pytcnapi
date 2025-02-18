@@ -149,6 +149,11 @@ class DeliveryApiStub(object):
                 request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListSMSNumbersReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListSMSNumbersRes.FromString,
                 )
+        self.TriggerDemoOutboundDelivery = channel.unary_unary(
+                '/api.v1alpha1.delivery.DeliveryApi/TriggerDemoOutboundDelivery',
+                request_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.TriggerDemoOutboundDeliveryReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.TriggerDemoOutboundDeliveryRes.FromString,
+                )
 
 
 class DeliveryApiServicer(object):
@@ -316,6 +321,12 @@ class DeliveryApiServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def TriggerDemoOutboundDelivery(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_DeliveryApiServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -453,6 +464,11 @@ def add_DeliveryApiServicer_to_server(servicer, server):
                     servicer.ListSMSNumbers,
                     request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListSMSNumbersReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListSMSNumbersRes.SerializeToString,
+            ),
+            'TriggerDemoOutboundDelivery': grpc.unary_unary_rpc_method_handler(
+                    servicer.TriggerDemoOutboundDelivery,
+                    request_deserializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.TriggerDemoOutboundDeliveryReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_delivery_dot_service__pb2.TriggerDemoOutboundDeliveryRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -920,5 +936,22 @@ class DeliveryApi(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/ListSMSNumbers',
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListSMSNumbersReq.SerializeToString,
             api_dot_v1alpha1_dot_delivery_dot_service__pb2.ListSMSNumbersRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def TriggerDemoOutboundDelivery(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.delivery.DeliveryApi/TriggerDemoOutboundDelivery',
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.TriggerDemoOutboundDeliveryReq.SerializeToString,
+            api_dot_v1alpha1_dot_delivery_dot_service__pb2.TriggerDemoOutboundDeliveryRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
