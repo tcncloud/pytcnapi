@@ -1958,20 +1958,43 @@ class ReshapeAction(_message.Message):
     def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., operations: _Optional[_Union[FilterOperation, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., divide: _Optional[_Union[ReshapeAction.Divide, _Mapping]] = ..., multiply: _Optional[_Union[ReshapeAction.Multiply, _Mapping]] = ..., modulo: _Optional[_Union[ReshapeAction.Modulo, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
 
 class ContactManagerSink(_message.Message):
-    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime")
+    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime", "user_id", "de_duplication_info")
+    class DeDuplicationFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        PHONE_NUMBER: _ClassVar[ContactManagerSink.DeDuplicationFieldType]
+        EMAIL_ADDRESS: _ClassVar[ContactManagerSink.DeDuplicationFieldType]
+    PHONE_NUMBER: ContactManagerSink.DeDuplicationFieldType
+    EMAIL_ADDRESS: ContactManagerSink.DeDuplicationFieldType
+    class DeDuplicationMergeStrategy(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        KEEP_EXISTING_LIST: _ClassVar[ContactManagerSink.DeDuplicationMergeStrategy]
+        REPLACE_EXISTING_LIST: _ClassVar[ContactManagerSink.DeDuplicationMergeStrategy]
+    KEEP_EXISTING_LIST: ContactManagerSink.DeDuplicationMergeStrategy
+    REPLACE_EXISTING_LIST: ContactManagerSink.DeDuplicationMergeStrategy
+    class DeDuplication(_message.Message):
+        __slots__ = ("field_type", "merge_strategy")
+        FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
+        MERGE_STRATEGY_FIELD_NUMBER: _ClassVar[int]
+        field_type: ContactManagerSink.DeDuplicationFieldType
+        merge_strategy: ContactManagerSink.DeDuplicationMergeStrategy
+        def __init__(self, field_type: _Optional[_Union[ContactManagerSink.DeDuplicationFieldType, str]] = ..., merge_strategy: _Optional[_Union[ContactManagerSink.DeDuplicationMergeStrategy, str]] = ...) -> None: ...
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     CONTACT_LIST_NAME_FIELD_NUMBER: _ClassVar[int]
     CONTACT_LIST_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     TTL_FIELD_NUMBER: _ClassVar[int]
     LIFETIME_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    DE_DUPLICATION_INFO_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     contact_list_name: str
     contact_list_description: str
     fields: _containers.RepeatedScalarFieldContainer[str]
     ttl: int
     lifetime: _duration_pb2.Duration
-    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., lifetime: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ...) -> None: ...
+    user_id: str
+    de_duplication_info: ContactManagerSink.DeDuplication
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., lifetime: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., user_id: _Optional[str] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ...) -> None: ...
 
 class SumProcess(_message.Message):
     __slots__ = ("field", "new_name", "group_by", "filter")
