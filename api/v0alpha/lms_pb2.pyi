@@ -1002,7 +1002,7 @@ class CjsImportProcess(_message.Message):
     def __init__(self, cjs_collection_id: _Optional[str] = ..., enabled: bool = ..., cron: _Optional[str] = ..., timezone: _Optional[str] = ..., dedup: bool = ..., use_zero_values: bool = ...) -> None: ...
 
 class CjsExportProcess(_message.Message):
-    __slots__ = ("cjs_collection_id", "header", "run_type", "cjs_collection_name", "overwrite", "update", "update_key_field")
+    __slots__ = ("cjs_collection_id", "header", "run_type", "cjs_collection_name", "overwrite", "update", "update_key_field", "replace_invalid_with_null")
     CJS_COLLECTION_ID_FIELD_NUMBER: _ClassVar[int]
     HEADER_FIELD_NUMBER: _ClassVar[int]
     RUN_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -1010,6 +1010,7 @@ class CjsExportProcess(_message.Message):
     OVERWRITE_FIELD_NUMBER: _ClassVar[int]
     UPDATE_FIELD_NUMBER: _ClassVar[int]
     UPDATE_KEY_FIELD_FIELD_NUMBER: _ClassVar[int]
+    REPLACE_INVALID_WITH_NULL_FIELD_NUMBER: _ClassVar[int]
     cjs_collection_id: str
     header: ExportHeader
     run_type: _lms_pb2.RunType
@@ -1017,7 +1018,8 @@ class CjsExportProcess(_message.Message):
     overwrite: bool
     update: bool
     update_key_field: str
-    def __init__(self, cjs_collection_id: _Optional[str] = ..., header: _Optional[_Union[ExportHeader, _Mapping]] = ..., run_type: _Optional[_Union[_lms_pb2.RunType, str]] = ..., cjs_collection_name: _Optional[str] = ..., overwrite: bool = ..., update: bool = ..., update_key_field: _Optional[str] = ...) -> None: ...
+    replace_invalid_with_null: bool
+    def __init__(self, cjs_collection_id: _Optional[str] = ..., header: _Optional[_Union[ExportHeader, _Mapping]] = ..., run_type: _Optional[_Union[_lms_pb2.RunType, str]] = ..., cjs_collection_name: _Optional[str] = ..., overwrite: bool = ..., update: bool = ..., update_key_field: _Optional[str] = ..., replace_invalid_with_null: bool = ...) -> None: ...
 
 class CjsEnrichmentProcess(_message.Message):
     __slots__ = ("cjs_collection_id", "key_field", "enrich_type", "primary_source", "cjs_key_field_name", "column_overwrite", "dedup_key_policy", "use_zero_values")
