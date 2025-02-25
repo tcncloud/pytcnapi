@@ -12,3 +12,19 @@ class TicketEvent(_message.Message):
     editticket: _tickets_pb2.EditTicket
     created_by_id: str
     def __init__(self, editticket: _Optional[_Union[_tickets_pb2.EditTicket, _Mapping]] = ..., created_by_id: _Optional[str] = ...) -> None: ...
+
+class TicketCustomFieldCreateEvent(_message.Message):
+    __slots__ = ("ticket_custom_field_audit_log", "created_by_id")
+    TICKET_CUSTOM_FIELD_AUDIT_LOG_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    ticket_custom_field_audit_log: _tickets_pb2.TicketCustomFieldAuditLog
+    created_by_id: str
+    def __init__(self, ticket_custom_field_audit_log: _Optional[_Union[_tickets_pb2.TicketCustomFieldAuditLog, _Mapping]] = ..., created_by_id: _Optional[str] = ...) -> None: ...
+
+class TicketCustomFieldEditEvent(_message.Message):
+    __slots__ = ("ticket_custom_field_audit_log", "created_by_id")
+    TICKET_CUSTOM_FIELD_AUDIT_LOG_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    ticket_custom_field_audit_log: _tickets_pb2.TicketCustomFieldAuditLog
+    created_by_id: str
+    def __init__(self, ticket_custom_field_audit_log: _Optional[_Union[_tickets_pb2.TicketCustomFieldAuditLog, _Mapping]] = ..., created_by_id: _Optional[str] = ...) -> None: ...

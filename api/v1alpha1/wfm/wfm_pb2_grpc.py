@@ -1010,6 +1010,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
                 )
+        self.ListAdherenceDiagnostics = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAdherenceDiagnostics',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsResponse.FromString,
+                )
         self.ListAgentStatesForDay = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListAgentStatesForDay',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
@@ -1179,6 +1184,11 @@ class WFMStub(object):
                 '/api.v1alpha1.wfm.WFM/AgentCancelLeavePetition',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionResponse.FromString,
+                )
+        self.SetAgentStateSimulationLevelForOrg = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/SetAgentStateSimulationLevelForOrg',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetAgentStateSimulationLevelForOrgRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetAgentStateSimulationLevelForOrgResponse.FromString,
                 )
 
 
@@ -3768,6 +3778,16 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAdherenceDiagnostics(self, request, context):
+        """Lists any diagnostics found in the WFM Adherence App for the org sending the request.
+        Provides details on any changes the user needs to make for the app to work properly, such as activities that need to have a default reason code assigned.
+        Errors:
+        - grpc.Internal: error occurs when generating the diagnostics.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListAgentStatesForDay(self, request, context):
         """List the real time agent states for published schedule and the org sending the request, starting on the given @start_datetime.
         If the @end_datetime is set, all agent state sequences will be returned for the range between @start_datetime and @end_datetime.
@@ -4165,6 +4185,19 @@ class WFMServicer(object):
         - grpc.Invalid: the request data is invalid, the @agent_leave_petition_id is already canceled.
         - grpc.Internal: error occurs when canceling the agent leave petition, or removing time off shifts from the agent's schedule.
         - grpc.NotFound: the @agent_leave_petition_id does not exist for the org sending the request.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetAgentStateSimulationLevelForOrg(self, request, context):
+        """Sets the adherence service to the @agent_state_simulation_level for the org sending the request.
+        By setting the @agent_state_simulation_level to NO_SIMULATION, the adherence manager will function normally, using the live agent states.
+        By setting the @agent_state_simulation_level to SIMULATED_AGENT_STATES, the adherence manager will instead simulate agent states and their violations.
+        This allows demonstrations of the adherence functions of the app to be done before the client has any agents working.
+        Errors:
+        - grpc.Invalid: the given @agent_state_simulation_level is invalid
+        - grpc.Internal: error occurs when updating the simulation level for the org sending the request.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -5168,6 +5201,11 @@ def add_WFMServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.SerializeToString,
             ),
+            'ListAdherenceDiagnostics': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAdherenceDiagnostics,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsResponse.SerializeToString,
+            ),
             'ListAgentStatesForDay': grpc.unary_unary_rpc_method_handler(
                     servicer.ListAgentStatesForDay,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.FromString,
@@ -5337,6 +5375,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.AgentCancelLeavePetition,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionResponse.SerializeToString,
+            ),
+            'SetAgentStateSimulationLevelForOrg': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetAgentStateSimulationLevelForOrg,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetAgentStateSimulationLevelForOrgRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetAgentStateSimulationLevelForOrgResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -8733,6 +8776,23 @@ class WFM(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def ListAdherenceDiagnostics(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAdherenceDiagnostics',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ListAgentStatesForDay(request,
             target,
             options=(),
@@ -9307,5 +9367,22 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/AgentCancelLeavePetition',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.AgentCancelLeavePetitionResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetAgentStateSimulationLevelForOrg(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/SetAgentStateSimulationLevelForOrg',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetAgentStateSimulationLevelForOrgRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.SetAgentStateSimulationLevelForOrgResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
