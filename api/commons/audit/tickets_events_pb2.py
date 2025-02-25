@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from api.commons import tickets_pb2 as api_dot_commons_dot_tickets__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/commons/audit/tickets_events.proto\x12\x11\x61pi.commons.audit\x1a\x19\x61pi/commons/tickets.proto\"j\n\x0bTicketEvent\x12\x37\n\neditticket\x18\x01 \x01(\x0b\x32\x17.api.commons.EditTicketR\neditticket\x12\"\n\rcreated_by_id\x18\x02 \x01(\tR\x0b\x63reatedByIdB\x91\x01\n\x15\x63om.api.commons.auditB\x12TicketsEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&api/commons/audit/tickets_events.proto\x12\x11\x61pi.commons.audit\x1a\x19\x61pi/commons/tickets.proto\"j\n\x0bTicketEvent\x12\x37\n\neditticket\x18\x01 \x01(\x0b\x32\x17.api.commons.EditTicketR\neditticket\x12\"\n\rcreated_by_id\x18\x02 \x01(\tR\x0b\x63reatedById\"\xac\x01\n\x1cTicketCustomFieldCreateEvent\x12h\n\x1dticket_custom_field_audit_log\x18\x01 \x01(\x0b\x32&.api.commons.TicketCustomFieldAuditLogR\x19ticketCustomFieldAuditLog\x12\"\n\rcreated_by_id\x18\x02 \x01(\tR\x0b\x63reatedById\"\xaa\x01\n\x1aTicketCustomFieldEditEvent\x12h\n\x1dticket_custom_field_audit_log\x18\x01 \x01(\x0b\x32&.api.commons.TicketCustomFieldAuditLogR\x19ticketCustomFieldAuditLog\x12\"\n\rcreated_by_id\x18\x02 \x01(\tR\x0b\x63reatedByIdB\x91\x01\n\x15\x63om.api.commons.auditB\x12TicketsEventsProtoP\x01\xa2\x02\x03\x41\x43\x41\xaa\x02\x11\x41pi.Commons.Audit\xca\x02\x11\x41pi\\Commons\\Audit\xe2\x02\x1d\x41pi\\Commons\\Audit\\GPBMetadata\xea\x02\x13\x41pi::Commons::Auditb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,4 +35,8 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._serialized_options = b'\n\025com.api.commons.auditB\022TicketsEventsProtoP\001\242\002\003ACA\252\002\021Api.Commons.Audit\312\002\021Api\\Commons\\Audit\342\002\035Api\\Commons\\Audit\\GPBMetadata\352\002\023Api::Commons::Audit'
   _globals['_TICKETEVENT']._serialized_start=88
   _globals['_TICKETEVENT']._serialized_end=194
+  _globals['_TICKETCUSTOMFIELDCREATEEVENT']._serialized_start=197
+  _globals['_TICKETCUSTOMFIELDCREATEEVENT']._serialized_end=369
+  _globals['_TICKETCUSTOMFIELDEDITEVENT']._serialized_start=372
+  _globals['_TICKETCUSTOMFIELDEDITEVENT']._serialized_end=542
 # @@protoc_insertion_point(module_scope)
