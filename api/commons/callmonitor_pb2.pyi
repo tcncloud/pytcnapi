@@ -12,10 +12,12 @@ class HoldQueueMonitorStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     HOLD_QUEUE_MONITOR_STATUS_MONITORING: _ClassVar[HoldQueueMonitorStatus]
     HOLD_QUEUE_MONITOR_STATUS_SUCCESS: _ClassVar[HoldQueueMonitorStatus]
     HOLD_QUEUE_MONITOR_STATUS_FAILED: _ClassVar[HoldQueueMonitorStatus]
+    HOLD_QUEUE_MONITOR_STATUS_ENDED: _ClassVar[HoldQueueMonitorStatus]
 HOLD_QUEUE_MONITOR_STATUS_UNSPECIFIED: HoldQueueMonitorStatus
 HOLD_QUEUE_MONITOR_STATUS_MONITORING: HoldQueueMonitorStatus
 HOLD_QUEUE_MONITOR_STATUS_SUCCESS: HoldQueueMonitorStatus
 HOLD_QUEUE_MONITOR_STATUS_FAILED: HoldQueueMonitorStatus
+HOLD_QUEUE_MONITOR_STATUS_ENDED: HoldQueueMonitorStatus
 
 class HoldQueueCallStats(_message.Message):
     __slots__ = ("call_id", "org_id", "campaign_id", "phone_number", "status", "monitor_duration_millis", "monitor_start_time", "monitor_end_time")
