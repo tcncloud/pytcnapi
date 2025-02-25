@@ -4181,6 +4181,43 @@ class ListAdherenceAgentStatesResponse(_message.Message):
     agent_state_violations: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStateViolations]
     def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ..., latest_agent_state_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_state_violations: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStateViolations]] = ...) -> None: ...
 
+class ListAdherenceAgentStateViolationsRequest(_message.Message):
+    __slots__ = ("datetime_range", "wfm_agent_sids", "include_resolved")
+    DATETIME_RANGE_FIELD_NUMBER: _ClassVar[int]
+    WFM_AGENT_SIDS_FIELD_NUMBER: _ClassVar[int]
+    INCLUDE_RESOLVED_FIELD_NUMBER: _ClassVar[int]
+    datetime_range: _wfm_pb2.DatetimeRange
+    wfm_agent_sids: _containers.RepeatedScalarFieldContainer[int]
+    include_resolved: bool
+    def __init__(self, datetime_range: _Optional[_Union[_wfm_pb2.DatetimeRange, _Mapping]] = ..., wfm_agent_sids: _Optional[_Iterable[int]] = ..., include_resolved: bool = ...) -> None: ...
+
+class ListAdherenceAgentStateViolationsResponse(_message.Message):
+    __slots__ = ("agent_state_violations", "diagnostics")
+    class AgentStateViolationsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: _wfm_pb2.AdherenceAgentStateViolations
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_wfm_pb2.AdherenceAgentStateViolations, _Mapping]] = ...) -> None: ...
+    AGENT_STATE_VIOLATIONS_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    agent_state_violations: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStateViolations]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, agent_state_violations: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStateViolations]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
+class ResolveAdherenceAgentStateViolationRequest(_message.Message):
+    __slots__ = ("resolved_violation",)
+    RESOLVED_VIOLATION_FIELD_NUMBER: _ClassVar[int]
+    resolved_violation: _wfm_pb2.AdherenceAgentStateViolation
+    def __init__(self, resolved_violation: _Optional[_Union[_wfm_pb2.AdherenceAgentStateViolation, _Mapping]] = ...) -> None: ...
+
+class ResolveAdherenceAgentStateViolationResponse(_message.Message):
+    __slots__ = ("diagnostics",)
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class RealTimeManagementStateColor(_message.Message):
     __slots__ = ("state", "color")
     STATE_FIELD_NUMBER: _ClassVar[int]

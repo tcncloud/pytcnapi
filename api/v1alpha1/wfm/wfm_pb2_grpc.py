@@ -1025,6 +1025,16 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesResponse.FromString,
                 )
+        self.ListAdherenceAgentStateViolations = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAdherenceAgentStateViolations',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStateViolationsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStateViolationsResponse.FromString,
+                )
+        self.ResolveAdherenceAgentStateViolation = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ResolveAdherenceAgentStateViolation',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResolveAdherenceAgentStateViolationRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResolveAdherenceAgentStateViolationResponse.FromString,
+                )
         self.UpsertRealTimeManagementStateColor = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/UpsertRealTimeManagementStateColor',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.UpsertRealTimeManagementStateColorRequest.SerializeToString,
@@ -3795,6 +3805,35 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAdherenceAgentStateViolations(self, request, context):
+        """Lists the adherence agent states using the given parameters for the org sending the request.
+        Accepts filtering by either @wfm_agent_sids, @datetime_range, or both. At least one of the two fields must be set.
+        If @wfm_agent_sids is nil, violations will be returned for all agents after @start_datetime.
+        If @wfm_agent_sids is set, violations will only be returned for those agents.
+        If @datetime_range is nil, violations starting at any point in time for @wfm_agent_sids will be returned.
+        If @datetime_range is set, any violations that start within @datetime_range will be included.
+        If @include_resolved is true, resolved and unresolved violations will be returned. Otherwise only unresolved violations will be included in the response.
+        Errors:
+        - grpc.Invalid: arguments in the request are invalid.
+        - grpc.Internal: error occurs when getting the violations.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ResolveAdherenceAgentStateViolation(self, request, context):
+        """Resolves the given adherence agent state violation.
+        If the violation is already resolved, then the original resolution will be overwritten.
+        Only updates the @resolved_activity_sid, @resolved_reason_code_id, @resolution_comment, and @resolved_by_user_id fields.
+        The @resolved_by_user_id field will be ignored and overwritten to match the user sending the request.
+        Errors:
+        - grpc.Invalid: arguments in the request are invalid.
+        - grpc.Internal: error occurs when resolving the violation.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def UpsertRealTimeManagementStateColor(self, request, context):
         """Sets the given @state to be associated with the given @rgba_color_id for the org sending the request.
         Errors:
@@ -5143,6 +5182,16 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.ListAdherenceAgentStates,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesResponse.SerializeToString,
+            ),
+            'ListAdherenceAgentStateViolations': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAdherenceAgentStateViolations,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStateViolationsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStateViolationsResponse.SerializeToString,
+            ),
+            'ResolveAdherenceAgentStateViolation': grpc.unary_unary_rpc_method_handler(
+                    servicer.ResolveAdherenceAgentStateViolation,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResolveAdherenceAgentStateViolationRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResolveAdherenceAgentStateViolationResponse.SerializeToString,
             ),
             'UpsertRealTimeManagementStateColor': grpc.unary_unary_rpc_method_handler(
                     servicer.UpsertRealTimeManagementStateColor,
@@ -8731,6 +8780,40 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAdherenceAgentStates',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStatesResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAdherenceAgentStateViolations(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAdherenceAgentStateViolations',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStateViolationsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceAgentStateViolationsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ResolveAdherenceAgentStateViolation(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ResolveAdherenceAgentStateViolation',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResolveAdherenceAgentStateViolationRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ResolveAdherenceAgentStateViolationResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
