@@ -1010,6 +1010,11 @@ class WFMStub(object):
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
                 )
+        self.ListAdherenceDiagnostics = channel.unary_unary(
+                '/api.v1alpha1.wfm.WFM/ListAdherenceDiagnostics',
+                request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsRequest.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsResponse.FromString,
+                )
         self.ListAgentStatesForDay = channel.unary_unary(
                 '/api.v1alpha1.wfm.WFM/ListAgentStatesForDay',
                 request_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAgentStatesForDayRequest.SerializeToString,
@@ -3773,6 +3778,16 @@ class WFMServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListAdherenceDiagnostics(self, request, context):
+        """Lists any diagnostics found in the WFM Adherence App for the org sending the request.
+        Provides details on any changes the user needs to make for the app to work properly, such as activities that need to have a default reason code assigned.
+        Errors:
+        - grpc.Internal: error occurs when generating the diagnostics.
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ListAgentStatesForDay(self, request, context):
         """List the real time agent states for published schedule and the org sending the request, starting on the given @start_datetime.
         If the @end_datetime is set, all agent state sequences will be returned for the range between @start_datetime and @end_datetime.
@@ -5185,6 +5200,11 @@ def add_WFMServicer_to_server(servicer, server):
                     servicer.HelloWorldWFMAdherence,
                     request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.FromString,
                     response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.SerializeToString,
+            ),
+            'ListAdherenceDiagnostics': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListAdherenceDiagnostics,
+                    request_deserializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsRequest.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsResponse.SerializeToString,
             ),
             'ListAgentStatesForDay': grpc.unary_unary_rpc_method_handler(
                     servicer.ListAgentStatesForDay,
@@ -8752,6 +8772,23 @@ class WFM(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/HelloWorldWFMAdherence',
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceRequest.SerializeToString,
             api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.HelloWorldWFMAdherenceResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListAdherenceDiagnostics(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.wfm.WFM/ListAdherenceDiagnostics',
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsRequest.SerializeToString,
+            api_dot_v1alpha1_dot_wfm_dot_wfm__pb2.ListAdherenceDiagnosticsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

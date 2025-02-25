@@ -4121,6 +4121,16 @@ class HelloWorldWFMAdherenceResponse(_message.Message):
     hello_message: str
     def __init__(self, hello_message: _Optional[str] = ...) -> None: ...
 
+class ListAdherenceDiagnosticsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListAdherenceDiagnosticsResponse(_message.Message):
+    __slots__ = ("diagnostics",)
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
+
 class ListAgentStatesForDayRequest(_message.Message):
     __slots__ = ("start_datetime", "end_datetime")
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
@@ -4158,7 +4168,7 @@ class ListAdherenceAgentStatesRequest(_message.Message):
     def __init__(self, wfm_agent_sids: _Optional[_Iterable[int]] = ..., start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., include_violations: bool = ...) -> None: ...
 
 class ListAdherenceAgentStatesResponse(_message.Message):
-    __slots__ = ("agent_states", "latest_agent_state_datetime", "agent_state_violations")
+    __slots__ = ("agent_states", "latest_agent_state_datetime", "agent_state_violations", "diagnostics")
     class AgentStatesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -4176,10 +4186,12 @@ class ListAdherenceAgentStatesResponse(_message.Message):
     AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
     LATEST_AGENT_STATE_DATETIME_FIELD_NUMBER: _ClassVar[int]
     AGENT_STATE_VIOLATIONS_FIELD_NUMBER: _ClassVar[int]
+    DIAGNOSTICS_FIELD_NUMBER: _ClassVar[int]
     agent_states: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStates]
     latest_agent_state_datetime: _timestamp_pb2.Timestamp
     agent_state_violations: _containers.MessageMap[int, _wfm_pb2.AdherenceAgentStateViolations]
-    def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ..., latest_agent_state_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_state_violations: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStateViolations]] = ...) -> None: ...
+    diagnostics: _containers.RepeatedCompositeFieldContainer[Diagnostic]
+    def __init__(self, agent_states: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStates]] = ..., latest_agent_state_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_state_violations: _Optional[_Mapping[int, _wfm_pb2.AdherenceAgentStateViolations]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class ListAdherenceAgentStateViolationsRequest(_message.Message):
     __slots__ = ("datetime_range", "wfm_agent_sids", "include_resolved")
