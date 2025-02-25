@@ -464,23 +464,3 @@ class CustomField(_message.Message):
     is_deleted: bool
     ticket_custom_field_type: TicketCustomFieldType
     def __init__(self, custom_field_sid: _Optional[int] = ..., custom_field_name: _Optional[str] = ..., custom_field_value: _Optional[str] = ..., custom_field_type: _Optional[str] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_deleted: bool = ..., ticket_custom_field_type: _Optional[_Union[TicketCustomFieldType, str]] = ...) -> None: ...
-
-class TicketCustomFieldAuditLog(_message.Message):
-    __slots__ = ("custom_field_attributes", "ticket_code")
-    CUSTOM_FIELD_ATTRIBUTES_FIELD_NUMBER: _ClassVar[int]
-    TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
-    custom_field_attributes: _containers.RepeatedCompositeFieldContainer[CustomFieldAttribute]
-    ticket_code: str
-    def __init__(self, custom_field_attributes: _Optional[_Iterable[_Union[CustomFieldAttribute, _Mapping]]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
-
-class CustomFieldAttribute(_message.Message):
-    __slots__ = ("custom_field_id", "custom_field_type", "edited_value", "previous_value")
-    CUSTOM_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
-    CUSTOM_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
-    EDITED_VALUE_FIELD_NUMBER: _ClassVar[int]
-    PREVIOUS_VALUE_FIELD_NUMBER: _ClassVar[int]
-    custom_field_id: int
-    custom_field_type: TicketCustomFieldType
-    edited_value: str
-    previous_value: str
-    def __init__(self, custom_field_id: _Optional[int] = ..., custom_field_type: _Optional[_Union[TicketCustomFieldType, str]] = ..., edited_value: _Optional[str] = ..., previous_value: _Optional[str] = ...) -> None: ...
