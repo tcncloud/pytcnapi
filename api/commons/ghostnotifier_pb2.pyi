@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GhostNotification(_message.Message):
-    __slots__ = ("reference_id", "any", "status", "omni_conversation", "backoffice_message", "directed_call_ringing", "directed_call_hangup", "agent_queued_calls_notification", "auth_token_expiration_notification")
+    __slots__ = ("reference_id", "any", "status", "omni_conversation", "backoffice_message", "directed_call_ringing", "directed_call_hangup", "agent_queued_calls_notification", "auth_token_expiration_notification", "omni_message_received", "omni_conversation_assigned")
     REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     ANY_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -20,6 +20,8 @@ class GhostNotification(_message.Message):
     DIRECTED_CALL_HANGUP_FIELD_NUMBER: _ClassVar[int]
     AGENT_QUEUED_CALLS_NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
     AUTH_TOKEN_EXPIRATION_NOTIFICATION_FIELD_NUMBER: _ClassVar[int]
+    OMNI_MESSAGE_RECEIVED_FIELD_NUMBER: _ClassVar[int]
+    OMNI_CONVERSATION_ASSIGNED_FIELD_NUMBER: _ClassVar[int]
     reference_id: str
     any: _any_pb2.Any
     status: Status
@@ -29,7 +31,9 @@ class GhostNotification(_message.Message):
     directed_call_hangup: _acd_pb2.AgentDirectedCallHangupAlert
     agent_queued_calls_notification: AgentQueuedCallsNotification
     auth_token_expiration_notification: AuthTokenExpiration
-    def __init__(self, reference_id: _Optional[str] = ..., any: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., status: _Optional[_Union[Status, _Mapping]] = ..., omni_conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., backoffice_message: _Optional[_Union[_acd_pb2.AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[_acd_pb2.AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[_acd_pb2.AgentDirectedCallHangupAlert, _Mapping]] = ..., agent_queued_calls_notification: _Optional[_Union[AgentQueuedCallsNotification, _Mapping]] = ..., auth_token_expiration_notification: _Optional[_Union[AuthTokenExpiration, _Mapping]] = ...) -> None: ...
+    omni_message_received: OmniMessageReceieved
+    omni_conversation_assigned: OmniConversationAssigned
+    def __init__(self, reference_id: _Optional[str] = ..., any: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., status: _Optional[_Union[Status, _Mapping]] = ..., omni_conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., backoffice_message: _Optional[_Union[_acd_pb2.AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[_acd_pb2.AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[_acd_pb2.AgentDirectedCallHangupAlert, _Mapping]] = ..., agent_queued_calls_notification: _Optional[_Union[AgentQueuedCallsNotification, _Mapping]] = ..., auth_token_expiration_notification: _Optional[_Union[AuthTokenExpiration, _Mapping]] = ..., omni_message_received: _Optional[_Union[OmniMessageReceieved, _Mapping]] = ..., omni_conversation_assigned: _Optional[_Union[OmniConversationAssigned, _Mapping]] = ...) -> None: ...
 
 class Status(_message.Message):
     __slots__ = ("code", "message")
@@ -77,3 +81,17 @@ class AuthTokenExpiration(_message.Message):
     token: str
     expiration: _timestamp_pb2.Timestamp
     def __init__(self, token: _Optional[str] = ..., expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class OmniConversationAssigned(_message.Message):
+    __slots__ = ("conversation_sid",)
+    CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+    conversation_sid: int
+    def __init__(self, conversation_sid: _Optional[int] = ...) -> None: ...
+
+class OmniMessageReceieved(_message.Message):
+    __slots__ = ("conversation_sid", "message")
+    CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    conversation_sid: int
+    message: str
+    def __init__(self, conversation_sid: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
