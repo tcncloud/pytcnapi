@@ -591,7 +591,7 @@ class ReRunRes(_message.Message):
     def __init__(self) -> None: ...
 
 class Process(_message.Message):
-    __slots__ = ("expression", "append", "sort", "filter", "gs_export", "p3_export", "compl", "dedup", "cfs_export", "sftp_export", "reshape", "lookup", "entrypoint", "compliance_export", "api_entrypoint", "sftp_import", "scrub", "frequency", "cjs_import", "cjs_export", "cjs_enrich", "web_entrypoint", "delete_scrub_entries", "wfm_export", "link_enrich", "rnd", "consent_enrich", "consent_export", "compliance_processor", "consent_entrypoint", "portal_link_enrich", "bulk_web_entrypoint", "omni_exchange_process", "web_exchange_process", "split", "epic_entry_point", "contact_manager_sink", "sum", "finvi_entrypoint")
+    __slots__ = ("expression", "append", "sort", "filter", "gs_export", "p3_export", "compl", "dedup", "cfs_export", "sftp_export", "reshape", "lookup", "entrypoint", "compliance_export", "api_entrypoint", "sftp_import", "scrub", "frequency", "cjs_import", "cjs_export", "cjs_enrich", "web_entrypoint", "delete_scrub_entries", "wfm_export", "link_enrich", "rnd", "consent_enrich", "consent_export", "compliance_processor", "consent_entrypoint", "portal_link_enrich", "bulk_web_entrypoint", "omni_exchange_process", "web_exchange_process", "split", "epic_entry_point", "contact_manager_sink", "sum", "finvi_entrypoint", "contact_management_enrichment", "ticket_exchange_sink")
     EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     APPEND_FIELD_NUMBER: _ClassVar[int]
     SORT_FIELD_NUMBER: _ClassVar[int]
@@ -631,6 +631,8 @@ class Process(_message.Message):
     CONTACT_MANAGER_SINK_FIELD_NUMBER: _ClassVar[int]
     SUM_FIELD_NUMBER: _ClassVar[int]
     FINVI_ENTRYPOINT_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_MANAGEMENT_ENRICHMENT_FIELD_NUMBER: _ClassVar[int]
+    TICKET_EXCHANGE_SINK_FIELD_NUMBER: _ClassVar[int]
     expression: str
     append: AppendProcess
     sort: SortCriteria
@@ -670,7 +672,9 @@ class Process(_message.Message):
     contact_manager_sink: ContactManagerSink
     sum: SumProcess
     finvi_entrypoint: FinviEntrypoint
-    def __init__(self, expression: _Optional[str] = ..., append: _Optional[_Union[AppendProcess, _Mapping]] = ..., sort: _Optional[_Union[SortCriteria, _Mapping]] = ..., filter: _Optional[_Union[FilterProcess, _Mapping]] = ..., gs_export: _Optional[_Union[GSExportProcess, _Mapping]] = ..., p3_export: _Optional[_Union[P3ExportProcess, _Mapping]] = ..., compl: _Optional[_Union[ComplProcess, _Mapping]] = ..., dedup: _Optional[_Union[DeDupCriteria, _Mapping]] = ..., cfs_export: _Optional[_Union[CFSExportProcess, _Mapping]] = ..., sftp_export: _Optional[_Union[SftpExportProcess, _Mapping]] = ..., reshape: _Optional[_Union[ReshapeProcess, _Mapping]] = ..., lookup: _Optional[_Union[LookupProcess, _Mapping]] = ..., entrypoint: _Optional[_Union[EntrypointProcess, _Mapping]] = ..., compliance_export: _Optional[_Union[ComplianceExportProcess, _Mapping]] = ..., api_entrypoint: _Optional[_Union[ApiEntrypoint, _Mapping]] = ..., sftp_import: _Optional[_Union[SftpImport, _Mapping]] = ..., scrub: _Optional[_Union[ScrubProcess, _Mapping]] = ..., frequency: _Optional[_Union[FrequencyProcess, _Mapping]] = ..., cjs_import: _Optional[_Union[CjsImportProcess, _Mapping]] = ..., cjs_export: _Optional[_Union[CjsExportProcess, _Mapping]] = ..., cjs_enrich: _Optional[_Union[CjsEnrichmentProcess, _Mapping]] = ..., web_entrypoint: _Optional[_Union[WebEntrypointProcess, _Mapping]] = ..., delete_scrub_entries: _Optional[_Union[DeleteScrubEntriesProcess, _Mapping]] = ..., wfm_export: _Optional[_Union[WfmExportProcess, _Mapping]] = ..., link_enrich: _Optional[_Union[PaymentLinkEnrichment, _Mapping]] = ..., rnd: _Optional[_Union[RndEnrichmentProcess, _Mapping]] = ..., consent_enrich: _Optional[_Union[ConsentEnrichmentProcess, _Mapping]] = ..., consent_export: _Optional[_Union[ConsentExportProcess, _Mapping]] = ..., compliance_processor: _Optional[_Union[ComplianceProcessor, _Mapping]] = ..., consent_entrypoint: _Optional[_Union[ConsentEntrypointProcess, _Mapping]] = ..., portal_link_enrich: _Optional[_Union[PortalLinkEnrichment, _Mapping]] = ..., bulk_web_entrypoint: _Optional[_Union[BulkWebEntrypointProcess, _Mapping]] = ..., omni_exchange_process: _Optional[_Union[OmniExchangeProcess, _Mapping]] = ..., web_exchange_process: _Optional[_Union[WebExchangeProcess, _Mapping]] = ..., split: _Optional[_Union[SplitCriteria, _Mapping]] = ..., epic_entry_point: _Optional[_Union[EpicEntrypoint, _Mapping]] = ..., contact_manager_sink: _Optional[_Union[ContactManagerSink, _Mapping]] = ..., sum: _Optional[_Union[SumProcess, _Mapping]] = ..., finvi_entrypoint: _Optional[_Union[FinviEntrypoint, _Mapping]] = ...) -> None: ...
+    contact_management_enrichment: ContactManagementEnrichment
+    ticket_exchange_sink: TicketExchangeSink
+    def __init__(self, expression: _Optional[str] = ..., append: _Optional[_Union[AppendProcess, _Mapping]] = ..., sort: _Optional[_Union[SortCriteria, _Mapping]] = ..., filter: _Optional[_Union[FilterProcess, _Mapping]] = ..., gs_export: _Optional[_Union[GSExportProcess, _Mapping]] = ..., p3_export: _Optional[_Union[P3ExportProcess, _Mapping]] = ..., compl: _Optional[_Union[ComplProcess, _Mapping]] = ..., dedup: _Optional[_Union[DeDupCriteria, _Mapping]] = ..., cfs_export: _Optional[_Union[CFSExportProcess, _Mapping]] = ..., sftp_export: _Optional[_Union[SftpExportProcess, _Mapping]] = ..., reshape: _Optional[_Union[ReshapeProcess, _Mapping]] = ..., lookup: _Optional[_Union[LookupProcess, _Mapping]] = ..., entrypoint: _Optional[_Union[EntrypointProcess, _Mapping]] = ..., compliance_export: _Optional[_Union[ComplianceExportProcess, _Mapping]] = ..., api_entrypoint: _Optional[_Union[ApiEntrypoint, _Mapping]] = ..., sftp_import: _Optional[_Union[SftpImport, _Mapping]] = ..., scrub: _Optional[_Union[ScrubProcess, _Mapping]] = ..., frequency: _Optional[_Union[FrequencyProcess, _Mapping]] = ..., cjs_import: _Optional[_Union[CjsImportProcess, _Mapping]] = ..., cjs_export: _Optional[_Union[CjsExportProcess, _Mapping]] = ..., cjs_enrich: _Optional[_Union[CjsEnrichmentProcess, _Mapping]] = ..., web_entrypoint: _Optional[_Union[WebEntrypointProcess, _Mapping]] = ..., delete_scrub_entries: _Optional[_Union[DeleteScrubEntriesProcess, _Mapping]] = ..., wfm_export: _Optional[_Union[WfmExportProcess, _Mapping]] = ..., link_enrich: _Optional[_Union[PaymentLinkEnrichment, _Mapping]] = ..., rnd: _Optional[_Union[RndEnrichmentProcess, _Mapping]] = ..., consent_enrich: _Optional[_Union[ConsentEnrichmentProcess, _Mapping]] = ..., consent_export: _Optional[_Union[ConsentExportProcess, _Mapping]] = ..., compliance_processor: _Optional[_Union[ComplianceProcessor, _Mapping]] = ..., consent_entrypoint: _Optional[_Union[ConsentEntrypointProcess, _Mapping]] = ..., portal_link_enrich: _Optional[_Union[PortalLinkEnrichment, _Mapping]] = ..., bulk_web_entrypoint: _Optional[_Union[BulkWebEntrypointProcess, _Mapping]] = ..., omni_exchange_process: _Optional[_Union[OmniExchangeProcess, _Mapping]] = ..., web_exchange_process: _Optional[_Union[WebExchangeProcess, _Mapping]] = ..., split: _Optional[_Union[SplitCriteria, _Mapping]] = ..., epic_entry_point: _Optional[_Union[EpicEntrypoint, _Mapping]] = ..., contact_manager_sink: _Optional[_Union[ContactManagerSink, _Mapping]] = ..., sum: _Optional[_Union[SumProcess, _Mapping]] = ..., finvi_entrypoint: _Optional[_Union[FinviEntrypoint, _Mapping]] = ..., contact_management_enrichment: _Optional[_Union[ContactManagementEnrichment, _Mapping]] = ..., ticket_exchange_sink: _Optional[_Union[TicketExchangeSink, _Mapping]] = ...) -> None: ...
 
 class ComplianceProcessor(_message.Message):
     __slots__ = ("rule_set_id", "comm_type", "call_type", "phone_number_field", "email_field", "zip_code_field", "call_metadata", "country_code")
@@ -2642,3 +2646,27 @@ class FinviEntrypoint(_message.Message):
     timezone: str
     filename_pattern: str
     def __init__(self, pool_id: _Optional[str] = ..., cron_interval: _Optional[str] = ..., disabled: bool = ..., timezone: _Optional[str] = ..., filename_pattern: _Optional[str] = ...) -> None: ...
+
+class ContactManagementEnrichment(_message.Message):
+    __slots__ = ("project_id", "contact_list_name", "fields", "de_duplication_info", "insert_if_missing")
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    CONTACT_LIST_NAME_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
+    DE_DUPLICATION_INFO_FIELD_NUMBER: _ClassVar[int]
+    INSERT_IF_MISSING_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    contact_list_name: str
+    fields: _containers.RepeatedScalarFieldContainer[str]
+    de_duplication_info: ContactManagerSink.DeDuplication
+    insert_if_missing: bool
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., insert_if_missing: bool = ...) -> None: ...
+
+class TicketExchangeSink(_message.Message):
+    __slots__ = ("project_id", "template_id", "fields")
+    PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
+    TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
+    FIELDS_FIELD_NUMBER: _ClassVar[int]
+    project_id: str
+    template_id: str
+    fields: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, project_id: _Optional[str] = ..., template_id: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ...) -> None: ...
