@@ -31,6 +31,7 @@ class DatasourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATASOURCE_TYPE_UNSPECIFIED: _ClassVar[DatasourceType]
     DATASOURCE_TYPE_VFS: _ClassVar[DatasourceType]
     DATASOURCE_TYPE_CLICKHOUSE: _ClassVar[DatasourceType]
+    DATASOURCE_TYPE_INSTANT_DATA: _ClassVar[DatasourceType]
 REPORT_FORMAT_UNSPECIFIED: ExportFormat
 REPORT_FORMAT_CSV: ExportFormat
 REPORT_FORMAT_PARQUET: ExportFormat
@@ -48,6 +49,7 @@ SCHEMA_TYPE_MAP: SchemaType
 DATASOURCE_TYPE_UNSPECIFIED: DatasourceType
 DATASOURCE_TYPE_VFS: DatasourceType
 DATASOURCE_TYPE_CLICKHOUSE: DatasourceType
+DATASOURCE_TYPE_INSTANT_DATA: DatasourceType
 
 class SchemaField(_message.Message):
     __slots__ = ("name", "column_type", "is_primary_key", "is_low_cardinality", "column_description", "is_time_filter", "is_default_time_filter", "is_join_column")
