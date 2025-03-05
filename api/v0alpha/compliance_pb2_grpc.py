@@ -91,6 +91,11 @@ class ComplianceStub(object):
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.DeleteScrubListEntriesReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_compliance__pb2.ScrubListRes.FromString,
                 )
+        self.DeleteAllListEntries = channel.unary_unary(
+                '/api.v0alpha.Compliance/DeleteAllListEntries',
+                request_serializer=api_dot_v0alpha_dot_compliance__pb2.DeleteAllListEntriesRequest.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_compliance__pb2.DeleteAllListEntriesResponse.FromString,
+                )
         self.GetScrubList = channel.unary_unary(
                 '/api.v0alpha.Compliance/GetScrubList',
                 request_serializer=api_dot_v0alpha_dot_compliance__pb2.GetScrubListReq.SerializeToString,
@@ -459,6 +464,12 @@ class ComplianceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def DeleteScrubListEntries(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteAllListEntries(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -1016,6 +1027,11 @@ def add_ComplianceServicer_to_server(servicer, server):
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.DeleteScrubListEntriesReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_compliance__pb2.ScrubListRes.SerializeToString,
             ),
+            'DeleteAllListEntries': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteAllListEntries,
+                    request_deserializer=api_dot_v0alpha_dot_compliance__pb2.DeleteAllListEntriesRequest.FromString,
+                    response_serializer=api_dot_v0alpha_dot_compliance__pb2.DeleteAllListEntriesResponse.SerializeToString,
+            ),
             'GetScrubList': grpc.unary_unary_rpc_method_handler(
                     servicer.GetScrubList,
                     request_deserializer=api_dot_v0alpha_dot_compliance__pb2.GetScrubListReq.FromString,
@@ -1543,6 +1559,23 @@ class Compliance(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/DeleteScrubListEntries',
             api_dot_v0alpha_dot_compliance__pb2.DeleteScrubListEntriesReq.SerializeToString,
             api_dot_v0alpha_dot_compliance__pb2.ScrubListRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteAllListEntries(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Compliance/DeleteAllListEntries',
+            api_dot_v0alpha_dot_compliance__pb2.DeleteAllListEntriesRequest.SerializeToString,
+            api_dot_v0alpha_dot_compliance__pb2.DeleteAllListEntriesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

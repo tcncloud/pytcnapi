@@ -1219,3 +1219,13 @@ class ConsentListDownloadRequest(_message.Message):
     CONSENT_PROFILE_ID_FIELD_NUMBER: _ClassVar[int]
     consent_profile_id: str
     def __init__(self, consent_profile_id: _Optional[str] = ...) -> None: ...
+
+class DeleteAllListEntriesRequest(_message.Message):
+    __slots__ = ("list_id",)
+    LIST_ID_FIELD_NUMBER: _ClassVar[int]
+    list_id: str
+    def __init__(self, list_id: _Optional[str] = ...) -> None: ...
+
+class DeleteAllListEntriesResponse(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
