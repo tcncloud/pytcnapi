@@ -305,7 +305,7 @@ class TextValue(_message.Message):
     def __init__(self, conditions: _Optional[_Iterable[_Union[TextValueCondition, _Mapping]]] = ...) -> None: ...
 
 class TextValueCondition(_message.Message):
-    __slots__ = ("expression", "size", "operations", "icon_name", "icon_color", "expression_node")
+    __slots__ = ("expression", "size", "operations", "icon_name", "icon_color", "expression_node", "condition_expression", "result_expression")
     class Color(_message.Message):
         __slots__ = ("red", "green", "blue")
         RED_FIELD_NUMBER: _ClassVar[int]
@@ -321,13 +321,17 @@ class TextValueCondition(_message.Message):
     ICON_NAME_FIELD_NUMBER: _ClassVar[int]
     ICON_COLOR_FIELD_NUMBER: _ClassVar[int]
     EXPRESSION_NODE_FIELD_NUMBER: _ClassVar[int]
+    CONDITION_EXPRESSION_FIELD_NUMBER: _ClassVar[int]
+    RESULT_EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     expression: _insight_content_pb2.ExpressionNode
     size: int
     operations: _containers.RepeatedCompositeFieldContainer[ColumnOperation]
     icon_name: str
     icon_color: TextValueCondition.Color
     expression_node: _pipeline_pb2.ExpressionNode
-    def __init__(self, expression: _Optional[_Union[_insight_content_pb2.ExpressionNode, _Mapping]] = ..., size: _Optional[int] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., icon_name: _Optional[str] = ..., icon_color: _Optional[_Union[TextValueCondition.Color, _Mapping]] = ..., expression_node: _Optional[_Union[_pipeline_pb2.ExpressionNode, _Mapping]] = ...) -> None: ...
+    condition_expression: _pipeline_pb2.ExpressionNode
+    result_expression: _pipeline_pb2.ExpressionNode
+    def __init__(self, expression: _Optional[_Union[_insight_content_pb2.ExpressionNode, _Mapping]] = ..., size: _Optional[int] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., icon_name: _Optional[str] = ..., icon_color: _Optional[_Union[TextValueCondition.Color, _Mapping]] = ..., expression_node: _Optional[_Union[_pipeline_pb2.ExpressionNode, _Mapping]] = ..., condition_expression: _Optional[_Union[_pipeline_pb2.ExpressionNode, _Mapping]] = ..., result_expression: _Optional[_Union[_pipeline_pb2.ExpressionNode, _Mapping]] = ...) -> None: ...
 
 class TableColumnConfig(_message.Message):
     __slots__ = ("column_name", "column_width", "hide_column", "renamed_as", "operations", "column_summary", "description", "sort_direction", "insight_contextual_action")
