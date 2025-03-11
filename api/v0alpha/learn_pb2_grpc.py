@@ -140,11 +140,6 @@ class LearnStub(object):
                 request_serializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageRes.FromString,
                 )
-        self.GetUpdateUrl = channel.unary_unary(
-                '/api.v0alpha.Learn/GetUpdateUrl',
-                request_serializer=api_dot_v0alpha_dot_learn__pb2.GetUpdateUrlReq.SerializeToString,
-                response_deserializer=api_dot_v0alpha_dot_learn__pb2.GetUpdateUrlRes.FromString,
-                )
 
 
 class LearnServicer(object):
@@ -331,13 +326,6 @@ class LearnServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetUpdateUrl(self, request, context):
-        """upload url for file updates
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
 
 def add_LearnServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -465,11 +453,6 @@ def add_LearnServicer_to_server(servicer, server):
                     servicer.UploadStaticImage,
                     request_deserializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_learn__pb2.UploadStaticImageRes.SerializeToString,
-            ),
-            'GetUpdateUrl': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetUpdateUrl,
-                    request_deserializer=api_dot_v0alpha_dot_learn__pb2.GetUpdateUrlReq.FromString,
-                    response_serializer=api_dot_v0alpha_dot_learn__pb2.GetUpdateUrlRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -904,22 +887,5 @@ class Learn(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/UploadStaticImage',
             api_dot_v0alpha_dot_learn__pb2.UploadStaticImageReq.SerializeToString,
             api_dot_v0alpha_dot_learn__pb2.UploadStaticImageRes.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetUpdateUrl(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.Learn/GetUpdateUrl',
-            api_dot_v0alpha_dot_learn__pb2.GetUpdateUrlReq.SerializeToString,
-            api_dot_v0alpha_dot_learn__pb2.GetUpdateUrlRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

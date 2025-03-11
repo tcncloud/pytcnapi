@@ -1,5 +1,4 @@
 from google.protobuf.internal import containers as _containers
-from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from collections.abc import Iterable as _Iterable, Mapping as _Mapping
@@ -7,53 +6,11 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class OperationType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    OPERATION_TYPE_UNSPECIFIED: _ClassVar[OperationType]
-    OPERATION_TYPE_DATE: _ClassVar[OperationType]
-    OPERATION_TYPE_PREFIX: _ClassVar[OperationType]
-    OPERATION_TYPE_SUFFIX: _ClassVar[OperationType]
-    OPERATION_TYPE_DURATION: _ClassVar[OperationType]
-    OPERATION_TYPE_ADD: _ClassVar[OperationType]
-    OPERATION_TYPE_SUBTRACT: _ClassVar[OperationType]
-    OPERATION_TYPE_MULTIPLY: _ClassVar[OperationType]
-    OPERATION_TYPE_DIVIDE: _ClassVar[OperationType]
-    OPERATION_TYPE_FORMAT_NUMBER: _ClassVar[OperationType]
-    OPERATION_TYPE_PRECISION: _ClassVar[OperationType]
-    OPERATION_TYPE_PAD: _ClassVar[OperationType]
-
-class ColumnSummaryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    COLUMN_SUMMARY_TYPE_UNSPECIFIED: _ClassVar[ColumnSummaryType]
-    COLUMN_SUMMARY_TYPE_AVG: _ClassVar[ColumnSummaryType]
-    COLUMN_SUMMARY_TYPE_SUM: _ClassVar[ColumnSummaryType]
-    COLUMN_SUMMARY_TYPE_MIN: _ClassVar[ColumnSummaryType]
-    COLUMN_SUMMARY_TYPE_MAX: _ClassVar[ColumnSummaryType]
-OPERATION_TYPE_UNSPECIFIED: OperationType
-OPERATION_TYPE_DATE: OperationType
-OPERATION_TYPE_PREFIX: OperationType
-OPERATION_TYPE_SUFFIX: OperationType
-OPERATION_TYPE_DURATION: OperationType
-OPERATION_TYPE_ADD: OperationType
-OPERATION_TYPE_SUBTRACT: OperationType
-OPERATION_TYPE_MULTIPLY: OperationType
-OPERATION_TYPE_DIVIDE: OperationType
-OPERATION_TYPE_FORMAT_NUMBER: OperationType
-OPERATION_TYPE_PRECISION: OperationType
-OPERATION_TYPE_PAD: OperationType
-COLUMN_SUMMARY_TYPE_UNSPECIFIED: ColumnSummaryType
-COLUMN_SUMMARY_TYPE_AVG: ColumnSummaryType
-COLUMN_SUMMARY_TYPE_SUM: ColumnSummaryType
-COLUMN_SUMMARY_TYPE_MIN: ColumnSummaryType
-COLUMN_SUMMARY_TYPE_MAX: ColumnSummaryType
-
 class Pipeline(_message.Message):
-    __slots__ = ("nodes", "format_query")
+    __slots__ = ("nodes",)
     NODES_FIELD_NUMBER: _ClassVar[int]
-    FORMAT_QUERY_FIELD_NUMBER: _ClassVar[int]
     nodes: _containers.RepeatedCompositeFieldContainer[Node]
-    format_query: FormatQuery
-    def __init__(self, nodes: _Optional[_Iterable[_Union[Node, _Mapping]]] = ..., format_query: _Optional[_Union[FormatQuery, _Mapping]] = ...) -> None: ...
+    def __init__(self, nodes: _Optional[_Iterable[_Union[Node, _Mapping]]] = ...) -> None: ...
 
 class Node(_message.Message):
     __slots__ = ("node_id", "type", "title", "input_ids", "output_ids", "from_node", "filter_node", "derive_node", "group_node", "join_node", "select_node", "aggregate_node", "take_node", "json_node", "map_node", "replace_node", "sort_node", "string_manipulation_node", "transpose_node")
@@ -368,45 +325,3 @@ class TransposeNode(_message.Message):
     key_column: str
     options: _containers.RepeatedCompositeFieldContainer[TransposeNode.Option]
     def __init__(self, group_by_columns: _Optional[_Iterable[str]] = ..., key_column: _Optional[str] = ..., options: _Optional[_Iterable[_Union[TransposeNode.Option, _Mapping]]] = ...) -> None: ...
-
-class FormatQuery(_message.Message):
-    __slots__ = ("table_column_configs",)
-    TABLE_COLUMN_CONFIGS_FIELD_NUMBER: _ClassVar[int]
-    table_column_configs: _containers.RepeatedCompositeFieldContainer[TableColumnConfig]
-    def __init__(self, table_column_configs: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ...) -> None: ...
-
-class TableColumnConfig(_message.Message):
-    __slots__ = ("operations", "column_summary")
-    OPERATIONS_FIELD_NUMBER: _ClassVar[int]
-    COLUMN_SUMMARY_FIELD_NUMBER: _ClassVar[int]
-    operations: _containers.RepeatedCompositeFieldContainer[ColumnOperation]
-    column_summary: ColumnSummaryType
-    def __init__(self, operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[ColumnSummaryType, str]] = ...) -> None: ...
-
-class FormatSeries(_message.Message):
-    __slots__ = ("format_parts",)
-    FORMAT_PARTS_FIELD_NUMBER: _ClassVar[int]
-    format_parts: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, format_parts: _Optional[_Iterable[str]] = ...) -> None: ...
-
-class PadOperation(_message.Message):
-    __slots__ = ("pad_character", "pad_left", "pad_size")
-    PAD_CHARACTER_FIELD_NUMBER: _ClassVar[int]
-    PAD_LEFT_FIELD_NUMBER: _ClassVar[int]
-    PAD_SIZE_FIELD_NUMBER: _ClassVar[int]
-    pad_character: str
-    pad_left: bool
-    pad_size: int
-    def __init__(self, pad_character: _Optional[str] = ..., pad_left: bool = ..., pad_size: _Optional[int] = ...) -> None: ...
-
-class ColumnOperation(_message.Message):
-    __slots__ = ("operation_type", "float_value", "format_series", "pad_operation")
-    OPERATION_TYPE_FIELD_NUMBER: _ClassVar[int]
-    FLOAT_VALUE_FIELD_NUMBER: _ClassVar[int]
-    FORMAT_SERIES_FIELD_NUMBER: _ClassVar[int]
-    PAD_OPERATION_FIELD_NUMBER: _ClassVar[int]
-    operation_type: OperationType
-    float_value: float
-    format_series: FormatSeries
-    pad_operation: PadOperation
-    def __init__(self, operation_type: _Optional[_Union[OperationType, str]] = ..., float_value: _Optional[float] = ..., format_series: _Optional[_Union[FormatSeries, _Mapping]] = ..., pad_operation: _Optional[_Union[PadOperation, _Mapping]] = ...) -> None: ...

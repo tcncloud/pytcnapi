@@ -37,12 +37,6 @@ class TicketCustomFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     TICKET_CUSTOMFIELD_TYPE_DATETIME: _ClassVar[TicketCustomFieldType]
     TICKET_CUSTOMFIELD_TYPE_MULTISELECT: _ClassVar[TicketCustomFieldType]
     TICKET_CUSTOMFIELD_TYPE_SINGLESELECT: _ClassVar[TicketCustomFieldType]
-
-class TicketCustomFieldStatus(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    Ticket_Custom_Field_Status_Added: _ClassVar[TicketCustomFieldStatus]
-    Ticket_Custom_Field_Status_Updated: _ClassVar[TicketCustomFieldStatus]
-    Ticket_Custom_Field_Status_Deleted: _ClassVar[TicketCustomFieldStatus]
 TIME_SCALE_MINUTE: TimeScale
 TIME_SCALE_HOUR: TimeScale
 TIME_SCALE_DAY: TimeScale
@@ -61,9 +55,6 @@ TICKET_CUSTOMFIELD_TYPE_NUMBER: TicketCustomFieldType
 TICKET_CUSTOMFIELD_TYPE_DATETIME: TicketCustomFieldType
 TICKET_CUSTOMFIELD_TYPE_MULTISELECT: TicketCustomFieldType
 TICKET_CUSTOMFIELD_TYPE_SINGLESELECT: TicketCustomFieldType
-Ticket_Custom_Field_Status_Added: TicketCustomFieldStatus
-Ticket_Custom_Field_Status_Updated: TicketCustomFieldStatus
-Ticket_Custom_Field_Status_Deleted: TicketCustomFieldStatus
 
 class Ticket(_message.Message):
     __slots__ = ("ticket_sid", "project_sid", "project_title", "ticket_code", "title", "description", "org_id", "created_by_id", "created_by_name", "created_by_date", "due_date", "assignee_list", "metadata", "ticket_skills", "status", "ticket_sla", "assignee", "ticket_action", "ticket_status", "ticket_assignee", "ticket_participant")
@@ -484,17 +475,13 @@ class TicketCustomFieldAuditLog(_message.Message):
     def __init__(self, custom_field_attributes: _Optional[_Iterable[_Union[CustomFieldAttribute, _Mapping]]] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class CustomFieldAttribute(_message.Message):
-    __slots__ = ("custom_field_id", "custom_field_type", "edited_value", "previous_value", "custom_field_name", "ticket_custom_field_status")
+    __slots__ = ("custom_field_id", "custom_field_type", "edited_value", "previous_value")
     CUSTOM_FIELD_ID_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
     EDITED_VALUE_FIELD_NUMBER: _ClassVar[int]
     PREVIOUS_VALUE_FIELD_NUMBER: _ClassVar[int]
-    CUSTOM_FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
-    TICKET_CUSTOM_FIELD_STATUS_FIELD_NUMBER: _ClassVar[int]
     custom_field_id: int
     custom_field_type: TicketCustomFieldType
     edited_value: str
     previous_value: str
-    custom_field_name: str
-    ticket_custom_field_status: TicketCustomFieldStatus
-    def __init__(self, custom_field_id: _Optional[int] = ..., custom_field_type: _Optional[_Union[TicketCustomFieldType, str]] = ..., edited_value: _Optional[str] = ..., previous_value: _Optional[str] = ..., custom_field_name: _Optional[str] = ..., ticket_custom_field_status: _Optional[_Union[TicketCustomFieldStatus, str]] = ...) -> None: ...
+    def __init__(self, custom_field_id: _Optional[int] = ..., custom_field_type: _Optional[_Union[TicketCustomFieldType, str]] = ..., edited_value: _Optional[str] = ..., previous_value: _Optional[str] = ...) -> None: ...
