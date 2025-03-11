@@ -75,7 +75,7 @@ class QueryRequest(_message.Message):
     def __init__(self, datasource_name: _Optional[str] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., pipeline: _Optional[str] = ..., prql: _Optional[str] = ..., query_pipeline: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., org_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., timezone: _Optional[str] = ..., pipeline_parameters: _Optional[_Union[_entities_pb2.Parameters, _Mapping]] = ..., ui_trace_id: _Optional[str] = ..., comment: _Optional[str] = ..., format: _Optional[_Union[_entities_pb2.ExportFormat, str]] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., report_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class QueryResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "time_filtered_datasources")
+    __slots__ = ("result_url", "result_size_bytes", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query")
     class TimeFilteredDatasourcesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -86,10 +86,14 @@ class QueryResponse(_message.Message):
     RESULT_URL_FIELD_NUMBER: _ClassVar[int]
     RESULT_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     TIME_FILTERED_DATASOURCES_FIELD_NUMBER: _ClassVar[int]
+    POST_PROCESSING_TABLE_QUERY_FIELD_NUMBER: _ClassVar[int]
+    POST_PROCESSING_SUMMARY_QUERY_FIELD_NUMBER: _ClassVar[int]
     result_url: str
     result_size_bytes: int
     time_filtered_datasources: _containers.ScalarMap[str, bool]
-    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ...) -> None: ...
+    post_processing_table_query: str
+    post_processing_summary_query: str
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ...) -> None: ...
 
 class SupportQueryRequest(_message.Message):
     __slots__ = ("query_request", "debug")
@@ -100,7 +104,7 @@ class SupportQueryRequest(_message.Message):
     def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ..., debug: bool = ...) -> None: ...
 
 class SupportQueryResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources")
+    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query")
     class TimeFilteredDatasourcesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -114,13 +118,17 @@ class SupportQueryResponse(_message.Message):
     SQL_FIELD_NUMBER: _ClassVar[int]
     EXPLAIN_FIELD_NUMBER: _ClassVar[int]
     TIME_FILTERED_DATASOURCES_FIELD_NUMBER: _ClassVar[int]
+    POST_PROCESSING_TABLE_QUERY_FIELD_NUMBER: _ClassVar[int]
+    POST_PROCESSING_SUMMARY_QUERY_FIELD_NUMBER: _ClassVar[int]
     result_url: str
     result_size_bytes: int
     prql: str
     sql: str
     explain: str
     time_filtered_datasources: _containers.ScalarMap[str, bool]
-    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ...) -> None: ...
+    post_processing_table_query: str
+    post_processing_summary_query: str
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ...) -> None: ...
 
 class QueryExplainRequest(_message.Message):
     __slots__ = ("query_request",)
@@ -129,7 +137,7 @@ class QueryExplainRequest(_message.Message):
     def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ...) -> None: ...
 
 class QueryExplainResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources")
+    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query")
     class TimeFilteredDatasourcesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -143,10 +151,14 @@ class QueryExplainResponse(_message.Message):
     SQL_FIELD_NUMBER: _ClassVar[int]
     EXPLAIN_FIELD_NUMBER: _ClassVar[int]
     TIME_FILTERED_DATASOURCES_FIELD_NUMBER: _ClassVar[int]
+    POST_PROCESSING_TABLE_QUERY_FIELD_NUMBER: _ClassVar[int]
+    POST_PROCESSING_SUMMARY_QUERY_FIELD_NUMBER: _ClassVar[int]
     result_url: str
     result_size_bytes: int
     prql: str
     sql: str
     explain: str
     time_filtered_datasources: _containers.ScalarMap[str, bool]
-    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ...) -> None: ...
+    post_processing_table_query: str
+    post_processing_summary_query: str
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ...) -> None: ...
