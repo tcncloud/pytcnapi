@@ -404,3 +404,15 @@ class UploadStaticImageRes(_message.Message):
     IMAGE_FIELD_NUMBER: _ClassVar[int]
     image: LearnImage
     def __init__(self, image: _Optional[_Union[LearnImage, _Mapping]] = ...) -> None: ...
+
+class GetUpdateUrlReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetUpdateUrlRes(_message.Message):
+    __slots__ = ("url", "id")
+    URL_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    url: str
+    id: str
+    def __init__(self, url: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
