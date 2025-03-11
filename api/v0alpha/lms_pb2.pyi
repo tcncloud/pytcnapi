@@ -13,7 +13,8 @@ from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Iterable as _Iterable, Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
@@ -42,6 +43,102 @@ EPIC_ENTITY_TYPE_APPOINTMENT: EpicEntityType
 EPIC_ENTITY_TYPE_MEDICATION: EpicEntityType
 EPIC_ENTITY_TYPE_MEDICATION_REQUEST: EpicEntityType
 EPIC_ENTITY_TYPE_ACCOUNT: EpicEntityType
+
+class PipelineCanvasMetadata(_message.Message):
+    __slots__ = ("pipeline_canvas_sid", "name", "description", "created_date", "last_edited")
+    PIPELINE_CANVAS_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    CREATED_DATE_FIELD_NUMBER: _ClassVar[int]
+    LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas_sid: int
+    name: str
+    description: str
+    created_date: _timestamp_pb2.Timestamp
+    last_edited: _timestamp_pb2.Timestamp
+    def __init__(self, pipeline_canvas_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+
+class PipelineCanvas(_message.Message):
+    __slots__ = ("metadata", "elements")
+    METADATA_FIELD_NUMBER: _ClassVar[int]
+    ELEMENTS_FIELD_NUMBER: _ClassVar[int]
+    metadata: PipelineCanvasMetadata
+    elements: _containers.RepeatedCompositeFieldContainer[Element]
+    def __init__(self, metadata: _Optional[_Union[PipelineCanvasMetadata, _Mapping]] = ..., elements: _Optional[_Iterable[_Union[Element, _Mapping]]] = ...) -> None: ...
+
+class PipelineCanvasPreview(_message.Message):
+    __slots__ = ("metadata", "entrypoints", "exchanges", "element_count")
+    METADATA_FIELD_NUMBER: _ClassVar[int]
+    ENTRYPOINTS_FIELD_NUMBER: _ClassVar[int]
+    EXCHANGES_FIELD_NUMBER: _ClassVar[int]
+    ELEMENT_COUNT_FIELD_NUMBER: _ClassVar[int]
+    metadata: PipelineCanvasMetadata
+    entrypoints: _containers.RepeatedScalarFieldContainer[str]
+    exchanges: _containers.RepeatedScalarFieldContainer[str]
+    element_count: int
+    def __init__(self, metadata: _Optional[_Union[PipelineCanvasMetadata, _Mapping]] = ..., entrypoints: _Optional[_Iterable[str]] = ..., exchanges: _Optional[_Iterable[str]] = ..., element_count: _Optional[int] = ...) -> None: ...
+
+class CreatePipelineCanvasReq(_message.Message):
+    __slots__ = ("name", "description")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    description: str
+    def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class CreatePipelineCanvasRes(_message.Message):
+    __slots__ = ("pipeline_canvas",)
+    PIPELINE_CANVAS_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas: PipelineCanvas
+    def __init__(self, pipeline_canvas: _Optional[_Union[PipelineCanvas, _Mapping]] = ...) -> None: ...
+
+class ListPipelineCanvasesReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class ListPipelineCanvasesRes(_message.Message):
+    __slots__ = ("pipeline_canvas_previews",)
+    PIPELINE_CANVAS_PREVIEWS_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas_previews: _containers.RepeatedCompositeFieldContainer[PipelineCanvasPreview]
+    def __init__(self, pipeline_canvas_previews: _Optional[_Iterable[_Union[PipelineCanvasPreview, _Mapping]]] = ...) -> None: ...
+
+class UpdatePipelineCanvasReq(_message.Message):
+    __slots__ = ("pipeline_canvas_sid", "name", "description")
+    PIPELINE_CANVAS_SID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas_sid: int
+    name: str
+    description: str
+    def __init__(self, pipeline_canvas_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class UpdatePipelineCanvasRes(_message.Message):
+    __slots__ = ("pipeline_canvas",)
+    PIPELINE_CANVAS_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas: PipelineCanvas
+    def __init__(self, pipeline_canvas: _Optional[_Union[PipelineCanvas, _Mapping]] = ...) -> None: ...
+
+class DeletePipelineCanvasReq(_message.Message):
+    __slots__ = ("pipeline_canvas_sid",)
+    PIPELINE_CANVAS_SID_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas_sid: int
+    def __init__(self, pipeline_canvas_sid: _Optional[int] = ...) -> None: ...
+
+class DeletePipelineCanvasRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetPipelineCanvasReq(_message.Message):
+    __slots__ = ("pipeline_canvas_sid",)
+    PIPELINE_CANVAS_SID_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas_sid: int
+    def __init__(self, pipeline_canvas_sid: _Optional[int] = ...) -> None: ...
+
+class GetPipelineCanvasRes(_message.Message):
+    __slots__ = ("pipeline_canvas",)
+    PIPELINE_CANVAS_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas: PipelineCanvas
+    def __init__(self, pipeline_canvas: _Optional[_Union[PipelineCanvas, _Mapping]] = ...) -> None: ...
 
 class ListPoolsRequest(_message.Message):
     __slots__ = ()
@@ -227,7 +324,7 @@ class ElementPK(_message.Message):
     def __init__(self, element_id: _Optional[str] = ...) -> None: ...
 
 class Element(_message.Message):
-    __slots__ = ("element_id", "name", "inputs", "input_is_discard", "transform", "last_status", "labels", "created_date", "last_edited", "description")
+    __slots__ = ("element_id", "name", "inputs", "input_is_discard", "transform", "last_status", "labels", "created_date", "last_edited", "description", "pipeline_canvas_sid")
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     INPUTS_FIELD_NUMBER: _ClassVar[int]
@@ -238,6 +335,7 @@ class Element(_message.Message):
     CREATED_DATE_FIELD_NUMBER: _ClassVar[int]
     LAST_EDITED_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    PIPELINE_CANVAS_SID_FIELD_NUMBER: _ClassVar[int]
     element_id: str
     name: str
     inputs: _containers.RepeatedScalarFieldContainer[str]
@@ -248,7 +346,8 @@ class Element(_message.Message):
     created_date: _timestamp_pb2.Timestamp
     last_edited: _timestamp_pb2.Timestamp
     description: str
-    def __init__(self, element_id: _Optional[str] = ..., name: _Optional[str] = ..., inputs: _Optional[_Iterable[str]] = ..., input_is_discard: _Optional[_Iterable[bool]] = ..., transform: _Optional[_Union[Process, _Mapping]] = ..., last_status: _Optional[_Union[_lms_pb2.PipelineElementStatusType, str]] = ..., labels: _Optional[_Iterable[str]] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., description: _Optional[str] = ...) -> None: ...
+    pipeline_canvas_sid: int
+    def __init__(self, element_id: _Optional[str] = ..., name: _Optional[str] = ..., inputs: _Optional[_Iterable[str]] = ..., input_is_discard: _Optional[_Iterable[bool]] = ..., transform: _Optional[_Union[Process, _Mapping]] = ..., last_status: _Optional[_Union[_lms_pb2.PipelineElementStatusType, str]] = ..., labels: _Optional[_Iterable[str]] = ..., created_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_edited: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., description: _Optional[str] = ..., pipeline_canvas_sid: _Optional[int] = ...) -> None: ...
 
 class PeekListReq(_message.Message):
     __slots__ = ("element_id", "version", "page_size", "page", "process", "peek_at_discards")

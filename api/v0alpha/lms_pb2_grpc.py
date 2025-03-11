@@ -315,6 +315,31 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsRequest.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsResponse.FromString,
                 )
+        self.CreatePipelineCanvas = channel.unary_unary(
+                '/api.v0alpha.LMS/CreatePipelineCanvas',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.CreatePipelineCanvasReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.CreatePipelineCanvasRes.FromString,
+                )
+        self.ListPipelineCanvases = channel.unary_unary(
+                '/api.v0alpha.LMS/ListPipelineCanvases',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.ListPipelineCanvasesReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.ListPipelineCanvasesRes.FromString,
+                )
+        self.UpdatePipelineCanvas = channel.unary_unary(
+                '/api.v0alpha.LMS/UpdatePipelineCanvas',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.UpdatePipelineCanvasReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.UpdatePipelineCanvasRes.FromString,
+                )
+        self.DeletePipelineCanvas = channel.unary_unary(
+                '/api.v0alpha.LMS/DeletePipelineCanvas',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.DeletePipelineCanvasReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.DeletePipelineCanvasRes.FromString,
+                )
+        self.GetPipelineCanvas = channel.unary_unary(
+                '/api.v0alpha.LMS/GetPipelineCanvas',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasRes.FromString,
+                )
 
 
 class LMSServicer(object):
@@ -703,6 +728,36 @@ class LMSServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def CreatePipelineCanvas(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ListPipelineCanvases(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdatePipelineCanvas(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeletePipelineCanvas(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetPipelineCanvas(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LMSServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1005,6 +1060,31 @@ def add_LMSServicer_to_server(servicer, server):
                     servicer.ListPools,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsRequest.FromString,
                     response_serializer=api_dot_v0alpha_dot_lms__pb2.ListPoolsResponse.SerializeToString,
+            ),
+            'CreatePipelineCanvas': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreatePipelineCanvas,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.CreatePipelineCanvasReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.CreatePipelineCanvasRes.SerializeToString,
+            ),
+            'ListPipelineCanvases': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListPipelineCanvases,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.ListPipelineCanvasesReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.ListPipelineCanvasesRes.SerializeToString,
+            ),
+            'UpdatePipelineCanvas': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdatePipelineCanvas,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.UpdatePipelineCanvasReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.UpdatePipelineCanvasRes.SerializeToString,
+            ),
+            'DeletePipelineCanvas': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeletePipelineCanvas,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.DeletePipelineCanvasReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.DeletePipelineCanvasRes.SerializeToString,
+            ),
+            'GetPipelineCanvas': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPipelineCanvas,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2033,5 +2113,90 @@ class LMS(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListPools',
             api_dot_v0alpha_dot_lms__pb2.ListPoolsRequest.SerializeToString,
             api_dot_v0alpha_dot_lms__pb2.ListPoolsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def CreatePipelineCanvas(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/CreatePipelineCanvas',
+            api_dot_v0alpha_dot_lms__pb2.CreatePipelineCanvasReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.CreatePipelineCanvasRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListPipelineCanvases(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/ListPipelineCanvases',
+            api_dot_v0alpha_dot_lms__pb2.ListPipelineCanvasesReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.ListPipelineCanvasesRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdatePipelineCanvas(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/UpdatePipelineCanvas',
+            api_dot_v0alpha_dot_lms__pb2.UpdatePipelineCanvasReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.UpdatePipelineCanvasRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeletePipelineCanvas(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/DeletePipelineCanvas',
+            api_dot_v0alpha_dot_lms__pb2.DeletePipelineCanvasReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.DeletePipelineCanvasRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPipelineCanvas(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/GetPipelineCanvas',
+            api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

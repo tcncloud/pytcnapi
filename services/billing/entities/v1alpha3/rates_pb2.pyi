@@ -3,7 +3,8 @@ from services.billing.entities.v1alpha3 import modules_pb2 as _modules_pb2
 from services.billing.entities.v1alpha3 import omni_pb2 as _omni_pb2
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
-from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Optional, Union as _Union
+from collections.abc import Mapping as _Mapping
+from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
