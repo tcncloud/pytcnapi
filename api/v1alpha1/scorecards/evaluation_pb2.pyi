@@ -187,20 +187,22 @@ class RestoreEvaluationResponse(_message.Message):
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class SampleAgentConversationsRequest(_message.Message):
-    __slots__ = ("scorecard_id", "start_time", "end_time", "max_agent_evaluations", "sample_percentage", "agent_user_ids")
+    __slots__ = ("scorecard_id", "start_time", "end_time", "max_agent_evaluations", "sample_percentage", "agent_user_ids", "filter_sid")
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     END_TIME_FIELD_NUMBER: _ClassVar[int]
     MAX_AGENT_EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
     SAMPLE_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
     AGENT_USER_IDS_FIELD_NUMBER: _ClassVar[int]
+    FILTER_SID_FIELD_NUMBER: _ClassVar[int]
     scorecard_id: int
     start_time: _timestamp_pb2.Timestamp
     end_time: _timestamp_pb2.Timestamp
     max_agent_evaluations: int
     sample_percentage: int
     agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, scorecard_id: _Optional[int] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., max_agent_evaluations: _Optional[int] = ..., sample_percentage: _Optional[int] = ..., agent_user_ids: _Optional[_Iterable[str]] = ...) -> None: ...
+    filter_sid: int
+    def __init__(self, scorecard_id: _Optional[int] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., max_agent_evaluations: _Optional[int] = ..., sample_percentage: _Optional[int] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., filter_sid: _Optional[int] = ...) -> None: ...
 
 class SampleAgentConversationsResponse(_message.Message):
     __slots__ = ("agent_conversations",)
