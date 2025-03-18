@@ -100,7 +100,7 @@ QUOTE_CHARACTER_DOUBLE_QUOTE: QuoteCharacter
 QUOTE_CHARACTER_SINGLE_QUOTE: QuoteCharacter
 
 class Insight(_message.Message):
-    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type", "datasource_name", "create_time", "update_time", "pipeline", "insight_body")
+    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type", "datasource_name", "create_time", "update_time", "pipeline", "insight_body", "export_options")
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -116,6 +116,7 @@ class Insight(_message.Message):
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
     PIPELINE_FIELD_NUMBER: _ClassVar[int]
     INSIGHT_BODY_FIELD_NUMBER: _ClassVar[int]
+    EXPORT_OPTIONS_FIELD_NUMBER: _ClassVar[int]
     insight_id: int
     name: str
     description: str
@@ -131,7 +132,8 @@ class Insight(_message.Message):
     update_time: _timestamp_pb2.Timestamp
     pipeline: _insight_content_pb2.Pipeline
     insight_body: _pipeline_pb2.Pipeline
-    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., pipeline: _Optional[_Union[_insight_content_pb2.Pipeline, _Mapping]] = ..., insight_body: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ...) -> None: ...
+    export_options: ExportOptions
+    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., pipeline: _Optional[_Union[_insight_content_pb2.Pipeline, _Mapping]] = ..., insight_body: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., export_options: _Optional[_Union[ExportOptions, _Mapping]] = ...) -> None: ...
 
 class PublishInsightRequest(_message.Message):
     __slots__ = ("resource_id", "destination_resource_id")
@@ -275,6 +277,16 @@ class ListVfsSchemasResponse(_message.Message):
     VFS_SCHEMAS_FIELD_NUMBER: _ClassVar[int]
     vfs_schemas: _containers.RepeatedCompositeFieldContainer[GetVfsSchemaResponse]
     def __init__(self, vfs_schemas: _Optional[_Iterable[_Union[GetVfsSchemaResponse, _Mapping]]] = ...) -> None: ...
+
+class ExportOptions(_message.Message):
+    __slots__ = ("delimiter", "quote_character", "no_header")
+    DELIMITER_FIELD_NUMBER: _ClassVar[int]
+    QUOTE_CHARACTER_FIELD_NUMBER: _ClassVar[int]
+    NO_HEADER_FIELD_NUMBER: _ClassVar[int]
+    delimiter: str
+    quote_character: QuoteCharacter
+    no_header: bool
+    def __init__(self, delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ...) -> None: ...
 
 class TableVisualization(_message.Message):
     __slots__ = ("table_column_details", "delimiter", "quote_character", "no_header", "header_background_color", "header_text_color")
