@@ -7,6 +7,7 @@ from api.commons import omnichannel_pb2 as _omnichannel_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
+from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -237,7 +238,7 @@ class SwitchSubsessionRes(_message.Message):
     def __init__(self, voice_session_sid: _Optional[int] = ..., voice_registration: _Optional[_Union[VoiceRegistration, _Mapping]] = ...) -> None: ...
 
 class Conversation(_message.Message):
-    __slots__ = ("conversation_sid", "conversation_created_time", "assigned_last_updated_time", "conversation_status", "channel_type", "customer_info", "last_message_time", "skills", "assignment_status", "assignment_type", "sla_timeouts", "conversation_collected_data", "last_message_group_time", "last_message_group_type")
+    __slots__ = ("conversation_sid", "conversation_created_time", "assigned_last_updated_time", "conversation_status", "channel_type", "customer_info", "last_message_time", "skills", "assignment_status", "assignment_type", "sla_timeouts", "conversation_collected_data", "last_message_group_time", "last_message_group_type", "task_sid")
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     CONVERSATION_CREATED_TIME_FIELD_NUMBER: _ClassVar[int]
     ASSIGNED_LAST_UPDATED_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -252,6 +253,7 @@ class Conversation(_message.Message):
     CONVERSATION_COLLECTED_DATA_FIELD_NUMBER: _ClassVar[int]
     LAST_MESSAGE_GROUP_TIME_FIELD_NUMBER: _ClassVar[int]
     LAST_MESSAGE_GROUP_TYPE_FIELD_NUMBER: _ClassVar[int]
+    TASK_SID_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     conversation_created_time: _timestamp_pb2.Timestamp
     assigned_last_updated_time: _timestamp_pb2.Timestamp
@@ -266,7 +268,8 @@ class Conversation(_message.Message):
     conversation_collected_data: _omnichannel_pb2.ConversationCollectedData
     last_message_group_time: _timestamp_pb2.Timestamp
     last_message_group_type: _omnichannel_pb2.OmniSenderType
-    def __init__(self, conversation_sid: _Optional[int] = ..., conversation_created_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assigned_last_updated_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., conversation_status: _Optional[_Union[_omnichannel_pb2.ConversationStatus, str]] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., customer_info: _Optional[_Union[_omnichannel_pb2.ConversationCustomerInformation, _Mapping]] = ..., last_message_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Union[ConversationSkills, _Mapping]] = ..., assignment_status: _Optional[_Union[_omnichannel_pb2.AgentConversationAssignmentStatus, str]] = ..., assignment_type: _Optional[_Union[_omnichannel_pb2.AgentConversationAssignmentType, str]] = ..., sla_timeouts: _Optional[_Union[_omnichannel_pb2.SLATimeouts, _Mapping]] = ..., conversation_collected_data: _Optional[_Union[_omnichannel_pb2.ConversationCollectedData, _Mapping]] = ..., last_message_group_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_message_group_type: _Optional[_Union[_omnichannel_pb2.OmniSenderType, str]] = ...) -> None: ...
+    task_sid: _wrappers_pb2.Int64Value
+    def __init__(self, conversation_sid: _Optional[int] = ..., conversation_created_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., assigned_last_updated_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., conversation_status: _Optional[_Union[_omnichannel_pb2.ConversationStatus, str]] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., customer_info: _Optional[_Union[_omnichannel_pb2.ConversationCustomerInformation, _Mapping]] = ..., last_message_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Union[ConversationSkills, _Mapping]] = ..., assignment_status: _Optional[_Union[_omnichannel_pb2.AgentConversationAssignmentStatus, str]] = ..., assignment_type: _Optional[_Union[_omnichannel_pb2.AgentConversationAssignmentType, str]] = ..., sla_timeouts: _Optional[_Union[_omnichannel_pb2.SLATimeouts, _Mapping]] = ..., conversation_collected_data: _Optional[_Union[_omnichannel_pb2.ConversationCollectedData, _Mapping]] = ..., last_message_group_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_message_group_type: _Optional[_Union[_omnichannel_pb2.OmniSenderType, str]] = ..., task_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class ConversationSkills(_message.Message):
     __slots__ = ("skills",)
