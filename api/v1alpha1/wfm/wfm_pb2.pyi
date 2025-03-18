@@ -3074,20 +3074,22 @@ class DeleteDraftScheduleRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListShiftInstancesBySidReq(_message.Message):
-    __slots__ = ("shift_instance_sids", "include_shift_segments", "include_shift_template", "include_scheduling_activity", "include_activity", "include_shift_segment_call_stats")
+    __slots__ = ("shift_instance_sids", "include_shift_segments", "include_shift_template", "include_scheduling_activity", "include_activity", "include_shift_segment_call_stats", "schedule_type")
     SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SHIFT_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SHIFT_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SHIFT_SEGMENT_CALL_STATS_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_TYPE_FIELD_NUMBER: _ClassVar[int]
     shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
     include_shift_segments: bool
     include_shift_template: bool
     include_scheduling_activity: bool
     include_activity: bool
     include_shift_segment_call_stats: bool
-    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ..., include_shift_template: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ..., include_shift_segment_call_stats: bool = ...) -> None: ...
+    schedule_type: _wfm_pb2.ScheduleType
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_shift_segments: bool = ..., include_shift_template: bool = ..., include_scheduling_activity: bool = ..., include_activity: bool = ..., include_shift_segment_call_stats: bool = ..., schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ...) -> None: ...
 
 class ListShiftInstancesBySidRes(_message.Message):
     __slots__ = ("shift_instances",)
@@ -3284,14 +3286,16 @@ class UpdateShiftInstanceWithSegmentsResponse(_message.Message):
     def __init__(self, shift_instance: _Optional[_Union[ShiftInstance, _Mapping]] = ..., diagnostics: _Optional[_Iterable[_Union[Diagnostic, _Mapping]]] = ...) -> None: ...
 
 class CopyShiftInstancesToScheduleReq(_message.Message):
-    __slots__ = ("destination_schedule", "shift_instance_sids", "overlap_as_warning")
+    __slots__ = ("destination_schedule", "shift_instance_sids", "overlap_as_warning", "source_schedule_type")
     DESTINATION_SCHEDULE_FIELD_NUMBER: _ClassVar[int]
     SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
     OVERLAP_AS_WARNING_FIELD_NUMBER: _ClassVar[int]
+    SOURCE_SCHEDULE_TYPE_FIELD_NUMBER: _ClassVar[int]
     destination_schedule: _wfm_pb2.ScheduleSelector
     shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
     overlap_as_warning: bool
-    def __init__(self, destination_schedule: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., shift_instance_sids: _Optional[_Iterable[int]] = ..., overlap_as_warning: bool = ...) -> None: ...
+    source_schedule_type: _wfm_pb2.ScheduleType
+    def __init__(self, destination_schedule: _Optional[_Union[_wfm_pb2.ScheduleSelector, _Mapping]] = ..., shift_instance_sids: _Optional[_Iterable[int]] = ..., overlap_as_warning: bool = ..., source_schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ...) -> None: ...
 
 class CopyShiftInstancesToScheduleRes(_message.Message):
     __slots__ = ("diagnostics",)
@@ -3334,14 +3338,16 @@ class ListShiftInstanceSidsForScheduleResponse(_message.Message):
     def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ListShiftSegmentsByShiftInstanceSidsReq(_message.Message):
-    __slots__ = ("shift_instance_sids", "include_scheduling_activity", "include_activity")
+    __slots__ = ("shift_instance_sids", "include_scheduling_activity", "include_activity", "schedule_type")
     SHIFT_INSTANCE_SIDS_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_SCHEDULING_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_ACTIVITY_FIELD_NUMBER: _ClassVar[int]
+    SCHEDULE_TYPE_FIELD_NUMBER: _ClassVar[int]
     shift_instance_sids: _containers.RepeatedScalarFieldContainer[int]
     include_scheduling_activity: bool
     include_activity: bool
-    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_scheduling_activity: bool = ..., include_activity: bool = ...) -> None: ...
+    schedule_type: _wfm_pb2.ScheduleType
+    def __init__(self, shift_instance_sids: _Optional[_Iterable[int]] = ..., include_scheduling_activity: bool = ..., include_activity: bool = ..., schedule_type: _Optional[_Union[_wfm_pb2.ScheduleType, str]] = ...) -> None: ...
 
 class ListShiftSegmentsByShiftInstanceSidsRes(_message.Message):
     __slots__ = ("shift_segments",)
