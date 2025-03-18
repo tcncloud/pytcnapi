@@ -416,3 +416,17 @@ class GetUpdateUrlRes(_message.Message):
     url: str
     id: str
     def __init__(self, url: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
+
+class AdvancedSearchReq(_message.Message):
+    __slots__ = ("user_prompt",)
+    USER_PROMPT_FIELD_NUMBER: _ClassVar[int]
+    user_prompt: str
+    def __init__(self, user_prompt: _Optional[str] = ...) -> None: ...
+
+class AdvancedSearchRes(_message.Message):
+    __slots__ = ("answer", "sources")
+    ANSWER_FIELD_NUMBER: _ClassVar[int]
+    SOURCES_FIELD_NUMBER: _ClassVar[int]
+    answer: str
+    sources: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, answer: _Optional[str] = ..., sources: _Optional[_Iterable[str]] = ...) -> None: ...
