@@ -376,12 +376,14 @@ class FormatQuery(_message.Message):
     def __init__(self, table_column_configs: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ...) -> None: ...
 
 class TableColumnConfig(_message.Message):
-    __slots__ = ("operations", "column_summary")
+    __slots__ = ("column_name", "operations", "column_summary")
+    COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     OPERATIONS_FIELD_NUMBER: _ClassVar[int]
     COLUMN_SUMMARY_FIELD_NUMBER: _ClassVar[int]
+    column_name: str
     operations: _containers.RepeatedCompositeFieldContainer[ColumnOperation]
     column_summary: ColumnSummaryType
-    def __init__(self, operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[ColumnSummaryType, str]] = ...) -> None: ...
+    def __init__(self, column_name: _Optional[str] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[ColumnSummaryType, str]] = ...) -> None: ...
 
 class FormatSeries(_message.Message):
     __slots__ = ("format_parts",)
