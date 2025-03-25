@@ -444,10 +444,14 @@ class UpdateCampaignPacingSpeedRes(_message.Message):
 class ListContactListsReq(_message.Message):
     __slots__ = ("field_mask", "by_project")
     class ByProject(_message.Message):
-        __slots__ = ("project_sid",)
+        __slots__ = ("project_sid", "page_size", "page_token")
         PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
+        PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
+        PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
         project_sid: int
-        def __init__(self, project_sid: _Optional[int] = ...) -> None: ...
+        page_size: int
+        page_token: str
+        def __init__(self, project_sid: _Optional[int] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     BY_PROJECT_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
@@ -455,10 +459,12 @@ class ListContactListsReq(_message.Message):
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., by_project: _Optional[_Union[ListContactListsReq.ByProject, _Mapping]] = ...) -> None: ...
 
 class ListContactListsRes(_message.Message):
-    __slots__ = ("contact_lists",)
+    __slots__ = ("contact_lists", "next_page_token")
     CONTACT_LISTS_FIELD_NUMBER: _ClassVar[int]
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     contact_lists: _containers.RepeatedCompositeFieldContainer[_omnichannel_pb2.ContactList]
-    def __init__(self, contact_lists: _Optional[_Iterable[_Union[_omnichannel_pb2.ContactList, _Mapping]]] = ...) -> None: ...
+    next_page_token: str
+    def __init__(self, contact_lists: _Optional[_Iterable[_Union[_omnichannel_pb2.ContactList, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
 
 class GetAvailableHeadersReq(_message.Message):
     __slots__ = ()
