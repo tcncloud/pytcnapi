@@ -2747,18 +2747,28 @@ class FinviEntrypoint(_message.Message):
     def __init__(self, pool_id: _Optional[str] = ..., cron_interval: _Optional[str] = ..., disabled: bool = ..., timezone: _Optional[str] = ..., filename_pattern: _Optional[str] = ...) -> None: ...
 
 class ContactManagementEnrichment(_message.Message):
-    __slots__ = ("project_id", "contact_list_name", "fields", "de_duplication_info", "insert_if_missing")
+    __slots__ = ("project_id", "contact_list_name", "fields", "de_duplication_info", "insert_if_missing", "search_field_type")
+    class SearchFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
+        __slots__ = ()
+        NONE: _ClassVar[ContactManagementEnrichment.SearchFieldType]
+        PHONE_NUMBER: _ClassVar[ContactManagementEnrichment.SearchFieldType]
+        EMAIL_ADDRESS: _ClassVar[ContactManagementEnrichment.SearchFieldType]
+    NONE: ContactManagementEnrichment.SearchFieldType
+    PHONE_NUMBER: ContactManagementEnrichment.SearchFieldType
+    EMAIL_ADDRESS: ContactManagementEnrichment.SearchFieldType
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
     CONTACT_LIST_NAME_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     DE_DUPLICATION_INFO_FIELD_NUMBER: _ClassVar[int]
     INSERT_IF_MISSING_FIELD_NUMBER: _ClassVar[int]
+    SEARCH_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     contact_list_name: str
     fields: _containers.RepeatedScalarFieldContainer[str]
     de_duplication_info: ContactManagerSink.DeDuplication
     insert_if_missing: bool
-    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., insert_if_missing: bool = ...) -> None: ...
+    search_field_type: ContactManagementEnrichment.SearchFieldType
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., insert_if_missing: bool = ..., search_field_type: _Optional[_Union[ContactManagementEnrichment.SearchFieldType, str]] = ...) -> None: ...
 
 class TicketExchangeSink(_message.Message):
     __slots__ = ("project_id", "template_id", "fields")
