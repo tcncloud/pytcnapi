@@ -1,4 +1,5 @@
 from api.commons import ana_pb2 as _ana_pb2
+from api.commons import classifier_pb2 as _classifier_pb2
 from api.commons import country_pb2 as _country_pb2
 from api.commons import enums_pb2 as _enums_pb2
 from api.commons import lms_pb2 as _lms_pb2
@@ -504,10 +505,12 @@ class VoiceAnalyticsPreferences(_message.Message):
 class VoiceAnalytics(_message.Message):
     __slots__ = ()
     class Redact(_message.Message):
-        __slots__ = ("number",)
+        __slots__ = ("number", "redact_entity")
         NUMBER_FIELD_NUMBER: _ClassVar[int]
+        REDACT_ENTITY_FIELD_NUMBER: _ClassVar[int]
         number: VoiceAnalytics.Number
-        def __init__(self, number: _Optional[_Union[VoiceAnalytics.Number, _Mapping]] = ...) -> None: ...
+        redact_entity: _classifier_pb2.ClassifierEntityType
+        def __init__(self, number: _Optional[_Union[VoiceAnalytics.Number, _Mapping]] = ..., redact_entity: _Optional[_Union[_classifier_pb2.ClassifierEntityType, str]] = ...) -> None: ...
     class Number(_message.Message):
         __slots__ = ("kind", "min_consecutive", "max_consecutive", "slop")
         class Kind(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
