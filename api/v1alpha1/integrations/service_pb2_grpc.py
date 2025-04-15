@@ -189,6 +189,11 @@ class IntegrationsStub(object):
                 request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.UpsertIntegrationSettingsReq.SerializeToString,
                 response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.UpsertIntegrationSettingsRes.FromString,
                 )
+        self.DeliverReceipt = channel.unary_unary(
+                '/api.v1alpha1.integrations.Integrations/DeliverReceipt',
+                request_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.DeliverReceiptReq.SerializeToString,
+                response_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.DeliverReceiptRes.FromString,
+                )
 
 
 class IntegrationsServicer(object):
@@ -433,6 +438,12 @@ class IntegrationsServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeliverReceipt(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_IntegrationsServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -610,6 +621,11 @@ def add_IntegrationsServicer_to_server(servicer, server):
                     servicer.UpsertIntegrationSettings,
                     request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.UpsertIntegrationSettingsReq.FromString,
                     response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.UpsertIntegrationSettingsRes.SerializeToString,
+            ),
+            'DeliverReceipt': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeliverReceipt,
+                    request_deserializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.DeliverReceiptReq.FromString,
+                    response_serializer=api_dot_v1alpha1_dot_integrations_dot_service__pb2.DeliverReceiptRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -1213,5 +1229,22 @@ class Integrations(object):
         return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/UpsertIntegrationSettings',
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.UpsertIntegrationSettingsReq.SerializeToString,
             api_dot_v1alpha1_dot_integrations_dot_service__pb2.UpsertIntegrationSettingsRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeliverReceipt(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v1alpha1.integrations.Integrations/DeliverReceipt',
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.DeliverReceiptReq.SerializeToString,
+            api_dot_v1alpha1_dot_integrations_dot_service__pb2.DeliverReceiptRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

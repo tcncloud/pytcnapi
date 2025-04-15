@@ -398,3 +398,21 @@ class CalculateFeesRes(_message.Message):
     calculated_fees: _containers.MessageMap[str, _money_pb2.Money]
     total_amount_due: _money_pb2.Money
     def __init__(self, calculated_fees: _Optional[_Mapping[str, _money_pb2.Money]] = ..., total_amount_due: _Optional[_Union[_money_pb2.Money, _Mapping]] = ...) -> None: ...
+
+class DeliverReceiptReq(_message.Message):
+    __slots__ = ("email_receipt", "receipt_id")
+    EMAIL_RECEIPT_FIELD_NUMBER: _ClassVar[int]
+    RECEIPT_ID_FIELD_NUMBER: _ClassVar[int]
+    email_receipt: EmailReceipt
+    receipt_id: str
+    def __init__(self, email_receipt: _Optional[_Union[EmailReceipt, _Mapping]] = ..., receipt_id: _Optional[str] = ...) -> None: ...
+
+class EmailReceipt(_message.Message):
+    __slots__ = ("to_addr",)
+    TO_ADDR_FIELD_NUMBER: _ClassVar[int]
+    to_addr: str
+    def __init__(self, to_addr: _Optional[str] = ...) -> None: ...
+
+class DeliverReceiptRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...

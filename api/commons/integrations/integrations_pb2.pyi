@@ -1037,10 +1037,14 @@ FLOW_TYPE_VERIFICATION: FlowType
 FLOW_TYPE_EXECUTE: FlowType
 
 class Receipt(_message.Message):
-    __slots__ = ("fields",)
+    __slots__ = ("fields", "campaign_sid", "campaign_module_sid")
     FIELDS_FIELD_NUMBER: _ClassVar[int]
+    CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
+    CAMPAIGN_MODULE_SID_FIELD_NUMBER: _ClassVar[int]
     fields: _containers.RepeatedCompositeFieldContainer[ReceiptField]
-    def __init__(self, fields: _Optional[_Iterable[_Union[ReceiptField, _Mapping]]] = ...) -> None: ...
+    campaign_sid: int
+    campaign_module_sid: int
+    def __init__(self, fields: _Optional[_Iterable[_Union[ReceiptField, _Mapping]]] = ..., campaign_sid: _Optional[int] = ..., campaign_module_sid: _Optional[int] = ...) -> None: ...
 
 class Payment(_message.Message):
     __slots__ = ("fees",)
