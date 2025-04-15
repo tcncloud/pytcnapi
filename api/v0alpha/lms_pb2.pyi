@@ -1628,20 +1628,42 @@ class Email(_message.Message):
     def __init__(self, local_part: _Optional[str] = ..., domain: _Optional[str] = ..., full_address: _Optional[str] = ..., invalid: bool = ...) -> None: ...
 
 class DateTimeModifier(_message.Message):
-    __slots__ = ("years", "weeks", "days", "hours", "minutes", "seconds")
+    __slots__ = ("years", "weeks", "days", "hours", "minutes", "seconds", "duration")
     YEARS_FIELD_NUMBER: _ClassVar[int]
     WEEKS_FIELD_NUMBER: _ClassVar[int]
     DAYS_FIELD_NUMBER: _ClassVar[int]
     HOURS_FIELD_NUMBER: _ClassVar[int]
     MINUTES_FIELD_NUMBER: _ClassVar[int]
     SECONDS_FIELD_NUMBER: _ClassVar[int]
+    DURATION_FIELD_NUMBER: _ClassVar[int]
     years: int
     weeks: int
     days: int
     hours: int
     minutes: int
     seconds: int
-    def __init__(self, years: _Optional[int] = ..., weeks: _Optional[int] = ..., days: _Optional[int] = ..., hours: _Optional[int] = ..., minutes: _Optional[int] = ..., seconds: _Optional[int] = ...) -> None: ...
+    duration: str
+    def __init__(self, years: _Optional[int] = ..., weeks: _Optional[int] = ..., days: _Optional[int] = ..., hours: _Optional[int] = ..., minutes: _Optional[int] = ..., seconds: _Optional[int] = ..., duration: _Optional[str] = ...) -> None: ...
+
+class DateTimeFieldModifier(_message.Message):
+    __slots__ = ("years_field", "weeks_field", "days_field", "hours_field", "minutes_field", "seconds_field", "duration_field", "negate")
+    YEARS_FIELD_FIELD_NUMBER: _ClassVar[int]
+    WEEKS_FIELD_FIELD_NUMBER: _ClassVar[int]
+    DAYS_FIELD_FIELD_NUMBER: _ClassVar[int]
+    HOURS_FIELD_FIELD_NUMBER: _ClassVar[int]
+    MINUTES_FIELD_FIELD_NUMBER: _ClassVar[int]
+    SECONDS_FIELD_FIELD_NUMBER: _ClassVar[int]
+    DURATION_FIELD_FIELD_NUMBER: _ClassVar[int]
+    NEGATE_FIELD_NUMBER: _ClassVar[int]
+    years_field: str
+    weeks_field: str
+    days_field: str
+    hours_field: str
+    minutes_field: str
+    seconds_field: str
+    duration_field: str
+    negate: bool
+    def __init__(self, years_field: _Optional[str] = ..., weeks_field: _Optional[str] = ..., days_field: _Optional[str] = ..., hours_field: _Optional[str] = ..., minutes_field: _Optional[str] = ..., seconds_field: _Optional[str] = ..., duration_field: _Optional[str] = ..., negate: bool = ...) -> None: ...
 
 class DateTime(_message.Message):
     __slots__ = ("raw_value", "format", "precision", "modifier")
@@ -1878,10 +1900,12 @@ class ReshapeAction(_message.Message):
         value: float
         def __init__(self, value: _Optional[float] = ...) -> None: ...
     class AddDate(_message.Message):
-        __slots__ = ("datetime",)
+        __slots__ = ("datetime", "datetime_field_modifier")
         DATETIME_FIELD_NUMBER: _ClassVar[int]
+        DATETIME_FIELD_MODIFIER_FIELD_NUMBER: _ClassVar[int]
         datetime: DateTimeModifier
-        def __init__(self, datetime: _Optional[_Union[DateTimeModifier, _Mapping]] = ...) -> None: ...
+        datetime_field_modifier: DateTimeFieldModifier
+        def __init__(self, datetime: _Optional[_Union[DateTimeModifier, _Mapping]] = ..., datetime_field_modifier: _Optional[_Union[DateTimeFieldModifier, _Mapping]] = ...) -> None: ...
     class AddField(_message.Message):
         __slots__ = ("other_field",)
         OTHER_FIELD_FIELD_NUMBER: _ClassVar[int]
