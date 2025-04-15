@@ -1105,7 +1105,7 @@ class ContactEntry(_message.Message):
     def __init__(self, contact_entry_sid: _Optional[int] = ..., contact_list_sid: _Optional[int] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., field_names: _Optional[_Iterable[str]] = ..., data_fields: _Optional[_Iterable[_Union[OmniDataField, _Mapping]]] = ...) -> None: ...
 
 class OmniTask(_message.Message):
-    __slots__ = ("task_sid", "status", "date_created", "date_modified", "campaign_module_sid", "campaign_sid", "contact_entry_sid", "state", "data_fields", "details", "name", "status_message", "scheduled_time", "task_config")
+    __slots__ = ("task_sid", "status", "date_created", "date_modified", "campaign_module_sid", "campaign_sid", "contact_entry_sid", "state", "data_fields", "details", "name", "status_message", "scheduled_time", "task_config", "timezone_offset")
     class Details(_message.Message):
         __slots__ = ("contact_list_name",)
         CONTACT_LIST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -1125,6 +1125,7 @@ class OmniTask(_message.Message):
     STATUS_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     SCHEDULED_TIME_FIELD_NUMBER: _ClassVar[int]
     TASK_CONFIG_FIELD_NUMBER: _ClassVar[int]
+    TIMEZONE_OFFSET_FIELD_NUMBER: _ClassVar[int]
     task_sid: int
     status: OmniTaskStatus
     date_created: _timestamp_pb2.Timestamp
@@ -1139,7 +1140,8 @@ class OmniTask(_message.Message):
     status_message: _wrappers_pb2.StringValue
     scheduled_time: _timestamp_pb2.Timestamp
     task_config: OmniTaskConfig
-    def __init__(self, task_sid: _Optional[int] = ..., status: _Optional[_Union[OmniTaskStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., campaign_module_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., contact_entry_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., state: _Optional[_Union[OmniTaskState, _Mapping]] = ..., data_fields: _Optional[_Iterable[_Union[OmniDataField, _Mapping]]] = ..., details: _Optional[_Union[OmniTask.Details, _Mapping]] = ..., name: _Optional[str] = ..., status_message: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., task_config: _Optional[_Union[OmniTaskConfig, _Mapping]] = ...) -> None: ...
+    timezone_offset: float
+    def __init__(self, task_sid: _Optional[int] = ..., status: _Optional[_Union[OmniTaskStatus, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., campaign_module_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., contact_entry_sid: _Optional[_Union[_types_pb2.Int64Id, _Mapping]] = ..., state: _Optional[_Union[OmniTaskState, _Mapping]] = ..., data_fields: _Optional[_Iterable[_Union[OmniDataField, _Mapping]]] = ..., details: _Optional[_Union[OmniTask.Details, _Mapping]] = ..., name: _Optional[str] = ..., status_message: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., task_config: _Optional[_Union[OmniTaskConfig, _Mapping]] = ..., timezone_offset: _Optional[float] = ...) -> None: ...
 
 class OmniTaskConfig(_message.Message):
     __slots__ = ("skills", "absolute_timeout_duration", "agent_timeout_duration", "subject", "message", "user_id")
