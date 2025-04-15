@@ -340,6 +340,11 @@ class LMSStub(object):
                 request_serializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasReq.SerializeToString,
                 response_deserializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasRes.FromString,
                 )
+        self.GetPipelineCanvasEvents = channel.unary_unary(
+                '/api.v0alpha.LMS/GetPipelineCanvasEvents',
+                request_serializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasEventsReq.SerializeToString,
+                response_deserializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasEventsRes.FromString,
+                )
 
 
 class LMSServicer(object):
@@ -758,6 +763,12 @@ class LMSServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetPipelineCanvasEvents(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_LMSServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -1085,6 +1096,11 @@ def add_LMSServicer_to_server(servicer, server):
                     servicer.GetPipelineCanvas,
                     request_deserializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasReq.FromString,
                     response_serializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasRes.SerializeToString,
+            ),
+            'GetPipelineCanvasEvents': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetPipelineCanvasEvents,
+                    request_deserializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasEventsReq.FromString,
+                    response_serializer=api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasEventsRes.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -2198,5 +2214,22 @@ class LMS(object):
         return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/GetPipelineCanvas',
             api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasReq.SerializeToString,
             api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasRes.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetPipelineCanvasEvents(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/api.v0alpha.LMS/GetPipelineCanvasEvents',
+            api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasEventsReq.SerializeToString,
+            api_dot_v0alpha_dot_lms__pb2.GetPipelineCanvasEventsRes.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
