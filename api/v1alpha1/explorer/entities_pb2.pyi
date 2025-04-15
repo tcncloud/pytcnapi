@@ -12,8 +12,6 @@ class ExportFormat(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     REPORT_FORMAT_UNSPECIFIED: _ClassVar[ExportFormat]
     REPORT_FORMAT_CSV: _ClassVar[ExportFormat]
     REPORT_FORMAT_PARQUET: _ClassVar[ExportFormat]
-    REPORT_FORMAT_TSV: _ClassVar[ExportFormat]
-    REPORT_FORMAT_TXT: _ClassVar[ExportFormat]
 
 class SchemaType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = ()
@@ -35,24 +33,9 @@ class DatasourceType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     DATASOURCE_TYPE_VFS: _ClassVar[DatasourceType]
     DATASOURCE_TYPE_CLICKHOUSE: _ClassVar[DatasourceType]
     DATASOURCE_TYPE_INSTANT_DATA: _ClassVar[DatasourceType]
-
-class ResultType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    RESULT_TYPE_UNSPECIFIED: _ClassVar[ResultType]
-    RESULT_TYPE_FORMAT: _ClassVar[ResultType]
-    RESULT_TYPE_SUMMARY: _ClassVar[ResultType]
-    RESULT_TYPE_REPORT: _ClassVar[ResultType]
-
-class QuoteCharacter(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    QUOTE_CHARACTER_UNSPECIFIED: _ClassVar[QuoteCharacter]
-    QUOTE_CHARACTER_DOUBLE_QUOTE: _ClassVar[QuoteCharacter]
-    QUOTE_CHARACTER_SINGLE_QUOTE: _ClassVar[QuoteCharacter]
 REPORT_FORMAT_UNSPECIFIED: ExportFormat
 REPORT_FORMAT_CSV: ExportFormat
 REPORT_FORMAT_PARQUET: ExportFormat
-REPORT_FORMAT_TSV: ExportFormat
-REPORT_FORMAT_TXT: ExportFormat
 SCHEMA_TYPE_UNSPECIFIED: SchemaType
 SCHEMA_TYPE_INT: SchemaType
 SCHEMA_TYPE_FLOAT: SchemaType
@@ -68,13 +51,6 @@ DATASOURCE_TYPE_UNSPECIFIED: DatasourceType
 DATASOURCE_TYPE_VFS: DatasourceType
 DATASOURCE_TYPE_CLICKHOUSE: DatasourceType
 DATASOURCE_TYPE_INSTANT_DATA: DatasourceType
-RESULT_TYPE_UNSPECIFIED: ResultType
-RESULT_TYPE_FORMAT: ResultType
-RESULT_TYPE_SUMMARY: ResultType
-RESULT_TYPE_REPORT: ResultType
-QUOTE_CHARACTER_UNSPECIFIED: QuoteCharacter
-QUOTE_CHARACTER_DOUBLE_QUOTE: QuoteCharacter
-QUOTE_CHARACTER_SINGLE_QUOTE: QuoteCharacter
 
 class SchemaField(_message.Message):
     __slots__ = ("name", "column_type", "is_primary_key", "is_low_cardinality", "column_description", "is_time_filter", "is_default_time_filter", "is_join_column")
@@ -131,23 +107,3 @@ class Parameters(_message.Message):
     PARAMETERS_FIELD_NUMBER: _ClassVar[int]
     parameters: _containers.MessageMap[str, Parameters.Parameter]
     def __init__(self, parameters: _Optional[_Mapping[str, Parameters.Parameter]] = ...) -> None: ...
-
-class ResultFile(_message.Message):
-    __slots__ = ("url", "size_bytes")
-    URL_FIELD_NUMBER: _ClassVar[int]
-    SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
-    url: str
-    size_bytes: int
-    def __init__(self, url: _Optional[str] = ..., size_bytes: _Optional[int] = ...) -> None: ...
-
-class ExportOptions(_message.Message):
-    __slots__ = ("delimiter", "quote_character", "no_header", "export_format")
-    DELIMITER_FIELD_NUMBER: _ClassVar[int]
-    QUOTE_CHARACTER_FIELD_NUMBER: _ClassVar[int]
-    NO_HEADER_FIELD_NUMBER: _ClassVar[int]
-    EXPORT_FORMAT_FIELD_NUMBER: _ClassVar[int]
-    delimiter: str
-    quote_character: QuoteCharacter
-    no_header: bool
-    export_format: ExportFormat
-    def __init__(self, delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ..., export_format: _Optional[_Union[ExportFormat, str]] = ...) -> None: ...
