@@ -1534,3 +1534,29 @@ class CalculateFeesRes(_message.Message):
     calculated_fees: _containers.MessageMap[str, _money_pb2.Money]
     total_amount_due: _money_pb2.Money
     def __init__(self, calculated_fees: _Optional[_Mapping[str, _money_pb2.Money]] = ..., total_amount_due: _Optional[_Union[_money_pb2.Money, _Mapping]] = ...) -> None: ...
+
+class IntegrationSettings(_message.Message):
+    __slots__ = ("allowed_integrations",)
+    ALLOWED_INTEGRATIONS_FIELD_NUMBER: _ClassVar[int]
+    allowed_integrations: _containers.RepeatedScalarFieldContainer[_integrations_pb2.IntegrationType]
+    def __init__(self, allowed_integrations: _Optional[_Iterable[_Union[_integrations_pb2.IntegrationType, str]]] = ...) -> None: ...
+
+class GetIntegrationSettingsReq(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetIntegrationSettingsRes(_message.Message):
+    __slots__ = ("allowed_integrations",)
+    ALLOWED_INTEGRATIONS_FIELD_NUMBER: _ClassVar[int]
+    allowed_integrations: _containers.RepeatedScalarFieldContainer[_integrations_pb2.IntegrationType]
+    def __init__(self, allowed_integrations: _Optional[_Iterable[_Union[_integrations_pb2.IntegrationType, str]]] = ...) -> None: ...
+
+class UpsertIntegrationSettingsReq(_message.Message):
+    __slots__ = ("entity",)
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
+    entity: IntegrationSettings
+    def __init__(self, entity: _Optional[_Union[IntegrationSettings, _Mapping]] = ...) -> None: ...
+
+class UpsertIntegrationSettingsRes(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
