@@ -26,7 +26,6 @@ class ClassifierEntityType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     CET_US_SSN: _ClassVar[ClassifierEntityType]
     CET_POSTAL_CODE: _ClassVar[ClassifierEntityType]
     CET_ACCOUNT_NUMBER: _ClassVar[ClassifierEntityType]
-    CET_CURRENCY: _ClassVar[ClassifierEntityType]
 CET_UNKNOWN: ClassifierEntityType
 CET_CREDIT_CARD: ClassifierEntityType
 CET_CRYPTO: ClassifierEntityType
@@ -47,4 +46,3 @@ CET_US_PASSPORT: ClassifierEntityType
 CET_US_SSN: ClassifierEntityType
 CET_POSTAL_CODE: ClassifierEntityType
 CET_ACCOUNT_NUMBER: ClassifierEntityType
-CET_CURRENCY: ClassifierEntityType
