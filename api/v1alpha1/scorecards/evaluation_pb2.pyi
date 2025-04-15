@@ -75,7 +75,7 @@ class ScoreEvaluationResponse(_message.Message):
     def __init__(self, evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class ListEvaluationsRequest(_message.Message):
-    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields", "is_deleted", "channel_types", "order_by", "page_size", "page_token")
+    __slots__ = ("scorer_id", "completed_at", "category_ids", "agent_user_ids", "scorecard_ids", "return_fields", "is_deleted", "channel_types", "order_by", "page_size", "page_token", "statuses")
     SCORER_ID_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
@@ -87,6 +87,7 @@ class ListEvaluationsRequest(_message.Message):
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    STATUSES_FIELD_NUMBER: _ClassVar[int]
     scorer_id: _containers.RepeatedScalarFieldContainer[str]
     completed_at: _scorecards_pb2.TimeFilter
     category_ids: _containers.RepeatedScalarFieldContainer[int]
@@ -98,7 +99,8 @@ class ListEvaluationsRequest(_message.Message):
     order_by: str
     page_size: int
     page_token: str
-    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., is_deleted: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ..., order_by: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
+    statuses: _containers.RepeatedScalarFieldContainer[_scorecards_pb2.EvaluationState]
+    def __init__(self, scorer_id: _Optional[_Iterable[str]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., is_deleted: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ..., order_by: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., statuses: _Optional[_Iterable[_Union[_scorecards_pb2.EvaluationState, str]]] = ...) -> None: ...
 
 class ListEvaluationsResponse(_message.Message):
     __slots__ = ("evaluations", "next_page_token")
@@ -211,7 +213,7 @@ class SampleAgentConversationsResponse(_message.Message):
     def __init__(self, agent_conversations: _Optional[_Iterable[_Union[AgentConversation, _Mapping]]] = ...) -> None: ...
 
 class AgentConversation(_message.Message):
-    __slots__ = ("transcript_sid", "channel", "agent_user_id", "start_time", "call_metadata", "sms_metadata")
+    __slots__ = ("transcript_sid", "channel", "agent_user_id", "start_time", "call_metadata", "sms_metadata", "chat_metadata")
     class CallMetadata(_message.Message):
         __slots__ = ("call_sid", "call_type", "call_duration", "speech_duration", "silence_duration")
         CALL_SID_FIELD_NUMBER: _ClassVar[int]
@@ -232,16 +234,25 @@ class AgentConversation(_message.Message):
         conversation_sid: int
         campaign_sid: int
         def __init__(self, conversation_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ...) -> None: ...
+    class ChatMetadata(_message.Message):
+        __slots__ = ("conversation_sid", "campaign_sid")
+        CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
+        CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
+        conversation_sid: int
+        campaign_sid: int
+        def __init__(self, conversation_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ...) -> None: ...
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_FIELD_NUMBER: _ClassVar[int]
     AGENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     CALL_METADATA_FIELD_NUMBER: _ClassVar[int]
     SMS_METADATA_FIELD_NUMBER: _ClassVar[int]
+    CHAT_METADATA_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: int
     channel: _omnichannel_pb2.ChannelType
     agent_user_id: str
     start_time: _timestamp_pb2.Timestamp
     call_metadata: AgentConversation.CallMetadata
     sms_metadata: AgentConversation.SmsMetadata
-    def __init__(self, transcript_sid: _Optional[int] = ..., channel: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., agent_user_id: _Optional[str] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_metadata: _Optional[_Union[AgentConversation.CallMetadata, _Mapping]] = ..., sms_metadata: _Optional[_Union[AgentConversation.SmsMetadata, _Mapping]] = ...) -> None: ...
+    chat_metadata: AgentConversation.ChatMetadata
+    def __init__(self, transcript_sid: _Optional[int] = ..., channel: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., agent_user_id: _Optional[str] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_metadata: _Optional[_Union[AgentConversation.CallMetadata, _Mapping]] = ..., sms_metadata: _Optional[_Union[AgentConversation.SmsMetadata, _Mapping]] = ..., chat_metadata: _Optional[_Union[AgentConversation.ChatMetadata, _Mapping]] = ...) -> None: ...

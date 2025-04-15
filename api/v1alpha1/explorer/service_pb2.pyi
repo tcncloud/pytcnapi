@@ -41,7 +41,7 @@ class ListDatasourceSchemasResponse(_message.Message):
     def __init__(self, schemas: _Optional[_Iterable[_Union[_entities_pb2.Schema, _Mapping]]] = ...) -> None: ...
 
 class QueryRequest(_message.Message):
-    __slots__ = ("datasource_name", "datasource_type", "pipeline", "prql", "query_pipeline", "org_ids", "start_time", "end_time", "timezone", "pipeline_parameters", "ui_trace_id", "comment", "format", "time_period", "report_date")
+    __slots__ = ("datasource_name", "datasource_type", "pipeline", "prql", "query_pipeline", "org_ids", "start_time", "end_time", "timezone", "pipeline_parameters", "ui_trace_id", "comment", "format", "time_period", "report_date", "export_options", "result_types")
     DATASOURCE_NAME_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     PIPELINE_FIELD_NUMBER: _ClassVar[int]
@@ -57,6 +57,8 @@ class QueryRequest(_message.Message):
     FORMAT_FIELD_NUMBER: _ClassVar[int]
     TIME_PERIOD_FIELD_NUMBER: _ClassVar[int]
     REPORT_DATE_FIELD_NUMBER: _ClassVar[int]
+    EXPORT_OPTIONS_FIELD_NUMBER: _ClassVar[int]
+    RESULT_TYPES_FIELD_NUMBER: _ClassVar[int]
     datasource_name: str
     datasource_type: _entities_pb2.DatasourceType
     pipeline: str
@@ -72,10 +74,12 @@ class QueryRequest(_message.Message):
     format: _entities_pb2.ExportFormat
     time_period: _bireportgenerator_pb2.TimePeriod
     report_date: _timestamp_pb2.Timestamp
-    def __init__(self, datasource_name: _Optional[str] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., pipeline: _Optional[str] = ..., prql: _Optional[str] = ..., query_pipeline: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., org_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., timezone: _Optional[str] = ..., pipeline_parameters: _Optional[_Union[_entities_pb2.Parameters, _Mapping]] = ..., ui_trace_id: _Optional[str] = ..., comment: _Optional[str] = ..., format: _Optional[_Union[_entities_pb2.ExportFormat, str]] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., report_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    export_options: _entities_pb2.ExportOptions
+    result_types: _containers.RepeatedScalarFieldContainer[_entities_pb2.ResultType]
+    def __init__(self, datasource_name: _Optional[str] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., pipeline: _Optional[str] = ..., prql: _Optional[str] = ..., query_pipeline: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., org_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., timezone: _Optional[str] = ..., pipeline_parameters: _Optional[_Union[_entities_pb2.Parameters, _Mapping]] = ..., ui_trace_id: _Optional[str] = ..., comment: _Optional[str] = ..., format: _Optional[_Union[_entities_pb2.ExportFormat, str]] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., report_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., export_options: _Optional[_Union[_entities_pb2.ExportOptions, _Mapping]] = ..., result_types: _Optional[_Iterable[_Union[_entities_pb2.ResultType, str]]] = ...) -> None: ...
 
 class QueryResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query")
+    __slots__ = ("result_url", "result_size_bytes", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query", "result_urls")
     class TimeFilteredDatasourcesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -83,17 +87,26 @@ class QueryResponse(_message.Message):
         key: str
         value: bool
         def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+    class ResultUrlsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: _entities_pb2.ResultFile
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_entities_pb2.ResultFile, _Mapping]] = ...) -> None: ...
     RESULT_URL_FIELD_NUMBER: _ClassVar[int]
     RESULT_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     TIME_FILTERED_DATASOURCES_FIELD_NUMBER: _ClassVar[int]
     POST_PROCESSING_TABLE_QUERY_FIELD_NUMBER: _ClassVar[int]
     POST_PROCESSING_SUMMARY_QUERY_FIELD_NUMBER: _ClassVar[int]
+    RESULT_URLS_FIELD_NUMBER: _ClassVar[int]
     result_url: str
     result_size_bytes: int
     time_filtered_datasources: _containers.ScalarMap[str, bool]
     post_processing_table_query: str
     post_processing_summary_query: str
-    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ...) -> None: ...
+    result_urls: _containers.MessageMap[int, _entities_pb2.ResultFile]
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ..., result_urls: _Optional[_Mapping[int, _entities_pb2.ResultFile]] = ...) -> None: ...
 
 class SupportQueryRequest(_message.Message):
     __slots__ = ("query_request", "debug")
@@ -104,7 +117,7 @@ class SupportQueryRequest(_message.Message):
     def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ..., debug: bool = ...) -> None: ...
 
 class SupportQueryResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query")
+    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query", "result_urls")
     class TimeFilteredDatasourcesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -112,6 +125,13 @@ class SupportQueryResponse(_message.Message):
         key: str
         value: bool
         def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+    class ResultUrlsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: _entities_pb2.ResultFile
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_entities_pb2.ResultFile, _Mapping]] = ...) -> None: ...
     RESULT_URL_FIELD_NUMBER: _ClassVar[int]
     RESULT_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     PRQL_FIELD_NUMBER: _ClassVar[int]
@@ -120,6 +140,7 @@ class SupportQueryResponse(_message.Message):
     TIME_FILTERED_DATASOURCES_FIELD_NUMBER: _ClassVar[int]
     POST_PROCESSING_TABLE_QUERY_FIELD_NUMBER: _ClassVar[int]
     POST_PROCESSING_SUMMARY_QUERY_FIELD_NUMBER: _ClassVar[int]
+    RESULT_URLS_FIELD_NUMBER: _ClassVar[int]
     result_url: str
     result_size_bytes: int
     prql: str
@@ -128,7 +149,8 @@ class SupportQueryResponse(_message.Message):
     time_filtered_datasources: _containers.ScalarMap[str, bool]
     post_processing_table_query: str
     post_processing_summary_query: str
-    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ...) -> None: ...
+    result_urls: _containers.MessageMap[int, _entities_pb2.ResultFile]
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ..., result_urls: _Optional[_Mapping[int, _entities_pb2.ResultFile]] = ...) -> None: ...
 
 class QueryExplainRequest(_message.Message):
     __slots__ = ("query_request",)
@@ -137,7 +159,7 @@ class QueryExplainRequest(_message.Message):
     def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ...) -> None: ...
 
 class QueryExplainResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query")
+    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query", "result_urls")
     class TimeFilteredDatasourcesEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -145,6 +167,13 @@ class QueryExplainResponse(_message.Message):
         key: str
         value: bool
         def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+    class ResultUrlsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: int
+        value: _entities_pb2.ResultFile
+        def __init__(self, key: _Optional[int] = ..., value: _Optional[_Union[_entities_pb2.ResultFile, _Mapping]] = ...) -> None: ...
     RESULT_URL_FIELD_NUMBER: _ClassVar[int]
     RESULT_SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     PRQL_FIELD_NUMBER: _ClassVar[int]
@@ -153,6 +182,7 @@ class QueryExplainResponse(_message.Message):
     TIME_FILTERED_DATASOURCES_FIELD_NUMBER: _ClassVar[int]
     POST_PROCESSING_TABLE_QUERY_FIELD_NUMBER: _ClassVar[int]
     POST_PROCESSING_SUMMARY_QUERY_FIELD_NUMBER: _ClassVar[int]
+    RESULT_URLS_FIELD_NUMBER: _ClassVar[int]
     result_url: str
     result_size_bytes: int
     prql: str
@@ -161,4 +191,5 @@ class QueryExplainResponse(_message.Message):
     time_filtered_datasources: _containers.ScalarMap[str, bool]
     post_processing_table_query: str
     post_processing_summary_query: str
-    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ...) -> None: ...
+    result_urls: _containers.MessageMap[int, _entities_pb2.ResultFile]
+    def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ..., result_urls: _Optional[_Mapping[int, _entities_pb2.ResultFile]] = ...) -> None: ...

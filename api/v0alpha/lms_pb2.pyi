@@ -140,6 +140,34 @@ class GetPipelineCanvasRes(_message.Message):
     pipeline_canvas: PipelineCanvas
     def __init__(self, pipeline_canvas: _Optional[_Union[PipelineCanvas, _Mapping]] = ...) -> None: ...
 
+class GetPipelineCanvasEventsReq(_message.Message):
+    __slots__ = ("pipeline_canvas_sid",)
+    PIPELINE_CANVAS_SID_FIELD_NUMBER: _ClassVar[int]
+    pipeline_canvas_sid: int
+    def __init__(self, pipeline_canvas_sid: _Optional[int] = ...) -> None: ...
+
+class GetPipelineCanvasEventsRes(_message.Message):
+    __slots__ = ("queued_events", "processing_events")
+    class QueuedEventsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: int
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    class ProcessingEventsEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: int
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    QUEUED_EVENTS_FIELD_NUMBER: _ClassVar[int]
+    PROCESSING_EVENTS_FIELD_NUMBER: _ClassVar[int]
+    queued_events: _containers.ScalarMap[str, int]
+    processing_events: _containers.ScalarMap[str, int]
+    def __init__(self, queued_events: _Optional[_Mapping[str, int]] = ..., processing_events: _Optional[_Mapping[str, int]] = ...) -> None: ...
+
 class ListPoolsRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
