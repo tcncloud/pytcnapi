@@ -154,16 +154,18 @@ class ContactManagerEntryVal(_message.Message):
     def __init__(self, type: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class AddContactEntryRequest(_message.Message):
-    __slots__ = ("contact_manager_list_id", "entry", "project_sid", "field")
+    __slots__ = ("contact_manager_list_id", "entry", "project_sid", "field", "country_code")
     CONTACT_MANAGER_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     ENTRY_FIELD_NUMBER: _ClassVar[int]
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
     FIELD_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     contact_manager_list_id: int
     entry: _containers.RepeatedCompositeFieldContainer[Entry]
     project_sid: int
     field: _containers.RepeatedCompositeFieldContainer[ContactField]
-    def __init__(self, contact_manager_list_id: _Optional[int] = ..., entry: _Optional[_Iterable[_Union[Entry, _Mapping]]] = ..., project_sid: _Optional[int] = ..., field: _Optional[_Iterable[_Union[ContactField, _Mapping]]] = ...) -> None: ...
+    country_code: str
+    def __init__(self, contact_manager_list_id: _Optional[int] = ..., entry: _Optional[_Iterable[_Union[Entry, _Mapping]]] = ..., project_sid: _Optional[int] = ..., field: _Optional[_Iterable[_Union[ContactField, _Mapping]]] = ..., country_code: _Optional[str] = ...) -> None: ...
 
 class Entry(_message.Message):
     __slots__ = ("name", "value", "type")

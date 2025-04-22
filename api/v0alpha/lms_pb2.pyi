@@ -66,17 +66,33 @@ class PipelineCanvas(_message.Message):
     elements: _containers.RepeatedCompositeFieldContainer[Element]
     def __init__(self, metadata: _Optional[_Union[PipelineCanvasMetadata, _Mapping]] = ..., elements: _Optional[_Iterable[_Union[Element, _Mapping]]] = ...) -> None: ...
 
+class EntrypointMetadata(_message.Message):
+    __slots__ = ("element_id", "name", "cron_string", "last_run_time", "recent_error_message")
+    ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    CRON_STRING_FIELD_NUMBER: _ClassVar[int]
+    LAST_RUN_TIME_FIELD_NUMBER: _ClassVar[int]
+    RECENT_ERROR_MESSAGE_FIELD_NUMBER: _ClassVar[int]
+    element_id: str
+    name: str
+    cron_string: str
+    last_run_time: _timestamp_pb2.Timestamp
+    recent_error_message: str
+    def __init__(self, element_id: _Optional[str] = ..., name: _Optional[str] = ..., cron_string: _Optional[str] = ..., last_run_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., recent_error_message: _Optional[str] = ...) -> None: ...
+
 class PipelineCanvasPreview(_message.Message):
-    __slots__ = ("metadata", "entrypoints", "exchanges", "element_count")
+    __slots__ = ("metadata", "entrypoints", "exchanges", "element_count", "entrypoint_metadata")
     METADATA_FIELD_NUMBER: _ClassVar[int]
     ENTRYPOINTS_FIELD_NUMBER: _ClassVar[int]
     EXCHANGES_FIELD_NUMBER: _ClassVar[int]
     ELEMENT_COUNT_FIELD_NUMBER: _ClassVar[int]
+    ENTRYPOINT_METADATA_FIELD_NUMBER: _ClassVar[int]
     metadata: PipelineCanvasMetadata
     entrypoints: _containers.RepeatedScalarFieldContainer[str]
     exchanges: _containers.RepeatedScalarFieldContainer[str]
     element_count: int
-    def __init__(self, metadata: _Optional[_Union[PipelineCanvasMetadata, _Mapping]] = ..., entrypoints: _Optional[_Iterable[str]] = ..., exchanges: _Optional[_Iterable[str]] = ..., element_count: _Optional[int] = ...) -> None: ...
+    entrypoint_metadata: _containers.RepeatedCompositeFieldContainer[EntrypointMetadata]
+    def __init__(self, metadata: _Optional[_Union[PipelineCanvasMetadata, _Mapping]] = ..., entrypoints: _Optional[_Iterable[str]] = ..., exchanges: _Optional[_Iterable[str]] = ..., element_count: _Optional[int] = ..., entrypoint_metadata: _Optional[_Iterable[_Union[EntrypointMetadata, _Mapping]]] = ...) -> None: ...
 
 class CreatePipelineCanvasReq(_message.Message):
     __slots__ = ("name", "description")
@@ -147,7 +163,7 @@ class GetPipelineCanvasEventsReq(_message.Message):
     def __init__(self, pipeline_canvas_sid: _Optional[int] = ...) -> None: ...
 
 class GetPipelineCanvasEventsRes(_message.Message):
-    __slots__ = ("queued_events", "processing_events")
+    __slots__ = ("queued_events", "processing_events", "entrypoint_failures")
     class QueuedEventsEntry(_message.Message):
         __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
@@ -162,11 +178,20 @@ class GetPipelineCanvasEventsRes(_message.Message):
         key: str
         value: int
         def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    class EntrypointFailuresEntry(_message.Message):
+        __slots__ = ("key", "value")
+        KEY_FIELD_NUMBER: _ClassVar[int]
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        key: str
+        value: str
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     QUEUED_EVENTS_FIELD_NUMBER: _ClassVar[int]
     PROCESSING_EVENTS_FIELD_NUMBER: _ClassVar[int]
+    ENTRYPOINT_FAILURES_FIELD_NUMBER: _ClassVar[int]
     queued_events: _containers.ScalarMap[str, int]
     processing_events: _containers.ScalarMap[str, int]
-    def __init__(self, queued_events: _Optional[_Mapping[str, int]] = ..., processing_events: _Optional[_Mapping[str, int]] = ...) -> None: ...
+    entrypoint_failures: _containers.ScalarMap[str, str]
+    def __init__(self, queued_events: _Optional[_Mapping[str, int]] = ..., processing_events: _Optional[_Mapping[str, int]] = ..., entrypoint_failures: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class ListPoolsRequest(_message.Message):
     __slots__ = ()
@@ -2145,7 +2170,7 @@ class ReshapeAction(_message.Message):
     def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., operations: _Optional[_Union[FilterOperation, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., divide: _Optional[_Union[ReshapeAction.Divide, _Mapping]] = ..., multiply: _Optional[_Union[ReshapeAction.Multiply, _Mapping]] = ..., modulo: _Optional[_Union[ReshapeAction.Modulo, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
 
 class ContactManagerSink(_message.Message):
-    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime", "user_id", "de_duplication_info")
+    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime", "user_id", "de_duplication_info", "country_code")
     class DeDuplicationFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         PHONE_NUMBER: _ClassVar[ContactManagerSink.DeDuplicationFieldType]
@@ -2173,6 +2198,7 @@ class ContactManagerSink(_message.Message):
     LIFETIME_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     DE_DUPLICATION_INFO_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     contact_list_name: str
     contact_list_description: str
@@ -2181,7 +2207,8 @@ class ContactManagerSink(_message.Message):
     lifetime: _duration_pb2.Duration
     user_id: str
     de_duplication_info: ContactManagerSink.DeDuplication
-    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., lifetime: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., user_id: _Optional[str] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ...) -> None: ...
+    country_code: str
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., lifetime: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., user_id: _Optional[str] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., country_code: _Optional[str] = ...) -> None: ...
 
 class SumProcess(_message.Message):
     __slots__ = ("field", "new_name", "group_by", "filter")
@@ -2829,7 +2856,7 @@ class FinviEntrypoint(_message.Message):
     def __init__(self, pool_id: _Optional[str] = ..., cron_interval: _Optional[str] = ..., disabled: bool = ..., timezone: _Optional[str] = ..., filename_pattern: _Optional[str] = ...) -> None: ...
 
 class ContactManagementEnrichment(_message.Message):
-    __slots__ = ("project_id", "contact_list_name", "fields", "de_duplication_info", "insert_if_missing", "search_field_type")
+    __slots__ = ("project_id", "contact_list_name", "fields", "de_duplication_info", "insert_if_missing", "search_field_type", "country_code")
     class SearchFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         NONE: _ClassVar[ContactManagementEnrichment.SearchFieldType]
@@ -2844,13 +2871,15 @@ class ContactManagementEnrichment(_message.Message):
     DE_DUPLICATION_INFO_FIELD_NUMBER: _ClassVar[int]
     INSERT_IF_MISSING_FIELD_NUMBER: _ClassVar[int]
     SEARCH_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     contact_list_name: str
     fields: _containers.RepeatedScalarFieldContainer[str]
     de_duplication_info: ContactManagerSink.DeDuplication
     insert_if_missing: bool
     search_field_type: ContactManagementEnrichment.SearchFieldType
-    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., insert_if_missing: bool = ..., search_field_type: _Optional[_Union[ContactManagementEnrichment.SearchFieldType, str]] = ...) -> None: ...
+    country_code: str
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., insert_if_missing: bool = ..., search_field_type: _Optional[_Union[ContactManagementEnrichment.SearchFieldType, str]] = ..., country_code: _Optional[str] = ...) -> None: ...
 
 class TicketExchangeSink(_message.Message):
     __slots__ = ("project_id", "template_id", "fields")
