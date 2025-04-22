@@ -2170,7 +2170,7 @@ class ReshapeAction(_message.Message):
     def __init__(self, field: _Optional[str] = ..., matching_type: _Optional[_Union[_lms_pb2.RecordType, str]] = ..., predicate: _Optional[_Union[FilterCheck, _Mapping]] = ..., operations: _Optional[_Union[FilterOperation, _Mapping]] = ..., rename: _Optional[_Union[ReshapeAction.Rename, _Mapping]] = ..., add_value: _Optional[_Union[ReshapeAction.AddValue, _Mapping]] = ..., add_field: _Optional[_Union[ReshapeAction.AddField, _Mapping]] = ..., add_date: _Optional[_Union[ReshapeAction.AddDate, _Mapping]] = ..., subtract_value: _Optional[_Union[ReshapeAction.SubtractValue, _Mapping]] = ..., subtract_field: _Optional[_Union[ReshapeAction.SubtractField, _Mapping]] = ..., convert: _Optional[_Union[ReshapeAction.Convert, _Mapping]] = ..., remove_field: _Optional[_Union[ReshapeAction.RemoveField, _Mapping]] = ..., add_new_field: _Optional[_Union[ReshapeAction.AddNewField, _Mapping]] = ..., change_currency_type: _Optional[_Union[ReshapeAction.ChangeCurrencyType, _Mapping]] = ..., divide: _Optional[_Union[ReshapeAction.Divide, _Mapping]] = ..., multiply: _Optional[_Union[ReshapeAction.Multiply, _Mapping]] = ..., modulo: _Optional[_Union[ReshapeAction.Modulo, _Mapping]] = ..., merge: _Optional[_Union[ReshapeAction.Merge, _Mapping]] = ..., set_field_value: _Optional[_Union[ReshapeAction.SetFieldValue, _Mapping]] = ..., add_new_field_from_field: _Optional[_Union[ReshapeAction.AddNewFieldFromField, _Mapping]] = ..., set_field_from_field: _Optional[_Union[ReshapeAction.SetFieldFromField, _Mapping]] = ..., pad: _Optional[_Union[ReshapeAction.Pad, _Mapping]] = ..., trim: _Optional[_Union[ReshapeAction.Trim, _Mapping]] = ..., extract: _Optional[_Union[ReshapeAction.Extract, _Mapping]] = ...) -> None: ...
 
 class ContactManagerSink(_message.Message):
-    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime", "user_id", "de_duplication_info")
+    __slots__ = ("project_id", "contact_list_name", "contact_list_description", "fields", "ttl", "lifetime", "user_id", "de_duplication_info", "country_code")
     class DeDuplicationFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         PHONE_NUMBER: _ClassVar[ContactManagerSink.DeDuplicationFieldType]
@@ -2198,6 +2198,7 @@ class ContactManagerSink(_message.Message):
     LIFETIME_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     DE_DUPLICATION_INFO_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     contact_list_name: str
     contact_list_description: str
@@ -2206,7 +2207,8 @@ class ContactManagerSink(_message.Message):
     lifetime: _duration_pb2.Duration
     user_id: str
     de_duplication_info: ContactManagerSink.DeDuplication
-    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., lifetime: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., user_id: _Optional[str] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ...) -> None: ...
+    country_code: str
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., contact_list_description: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., lifetime: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., user_id: _Optional[str] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., country_code: _Optional[str] = ...) -> None: ...
 
 class SumProcess(_message.Message):
     __slots__ = ("field", "new_name", "group_by", "filter")
@@ -2854,7 +2856,7 @@ class FinviEntrypoint(_message.Message):
     def __init__(self, pool_id: _Optional[str] = ..., cron_interval: _Optional[str] = ..., disabled: bool = ..., timezone: _Optional[str] = ..., filename_pattern: _Optional[str] = ...) -> None: ...
 
 class ContactManagementEnrichment(_message.Message):
-    __slots__ = ("project_id", "contact_list_name", "fields", "de_duplication_info", "insert_if_missing", "search_field_type")
+    __slots__ = ("project_id", "contact_list_name", "fields", "de_duplication_info", "insert_if_missing", "search_field_type", "country_code")
     class SearchFieldType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         NONE: _ClassVar[ContactManagementEnrichment.SearchFieldType]
@@ -2869,13 +2871,15 @@ class ContactManagementEnrichment(_message.Message):
     DE_DUPLICATION_INFO_FIELD_NUMBER: _ClassVar[int]
     INSERT_IF_MISSING_FIELD_NUMBER: _ClassVar[int]
     SEARCH_FIELD_TYPE_FIELD_NUMBER: _ClassVar[int]
+    COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     project_id: str
     contact_list_name: str
     fields: _containers.RepeatedScalarFieldContainer[str]
     de_duplication_info: ContactManagerSink.DeDuplication
     insert_if_missing: bool
     search_field_type: ContactManagementEnrichment.SearchFieldType
-    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., insert_if_missing: bool = ..., search_field_type: _Optional[_Union[ContactManagementEnrichment.SearchFieldType, str]] = ...) -> None: ...
+    country_code: str
+    def __init__(self, project_id: _Optional[str] = ..., contact_list_name: _Optional[str] = ..., fields: _Optional[_Iterable[str]] = ..., de_duplication_info: _Optional[_Union[ContactManagerSink.DeDuplication, _Mapping]] = ..., insert_if_missing: bool = ..., search_field_type: _Optional[_Union[ContactManagementEnrichment.SearchFieldType, str]] = ..., country_code: _Optional[str] = ...) -> None: ...
 
 class TicketExchangeSink(_message.Message):
     __slots__ = ("project_id", "template_id", "fields")

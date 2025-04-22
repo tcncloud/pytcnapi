@@ -213,18 +213,20 @@ class ChatMessageUserInformation(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
 
 class SendOmniMessageReq(_message.Message):
-    __slots__ = ("conversation_sid", "payload", "campaign_sid", "ui_reference_id", "channel_type")
+    __slots__ = ("conversation_sid", "payload", "campaign_sid", "ui_reference_id", "channel_type", "message_format")
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     PAYLOAD_FIELD_NUMBER: _ClassVar[int]
     CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
     UI_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
+    MESSAGE_FORMAT_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     payload: _omnichannel_pb2.OmniMessagePayload
     campaign_sid: int
     ui_reference_id: str
     channel_type: _omnichannel_pb2.ChannelType
-    def __init__(self, conversation_sid: _Optional[int] = ..., payload: _Optional[_Union[_omnichannel_pb2.OmniMessagePayload, _Mapping]] = ..., campaign_sid: _Optional[int] = ..., ui_reference_id: _Optional[str] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ...) -> None: ...
+    message_format: _omnichannel_pb2.MessageFormat
+    def __init__(self, conversation_sid: _Optional[int] = ..., payload: _Optional[_Union[_omnichannel_pb2.OmniMessagePayload, _Mapping]] = ..., campaign_sid: _Optional[int] = ..., ui_reference_id: _Optional[str] = ..., channel_type: _Optional[_Union[_omnichannel_pb2.ChannelType, str]] = ..., message_format: _Optional[_Union[_omnichannel_pb2.MessageFormat, str]] = ...) -> None: ...
 
 class UpdateCampaignReq(_message.Message):
     __slots__ = ("campaign", "user_id", "field_mask")
