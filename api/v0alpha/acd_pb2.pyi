@@ -885,3 +885,43 @@ class ValidateFieldRes(_message.Message):
     valid: bool
     reason: str
     def __init__(self, valid: bool = ..., reason: _Optional[str] = ...) -> None: ...
+
+class ListAgentsVoiceStatusesRequest(_message.Message):
+    __slots__ = ("skills", "all_skills_required", "page_token")
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
+    ALL_SKILLS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
+    PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    skills: _containers.RepeatedScalarFieldContainer[str]
+    all_skills_required: bool
+    page_token: str
+    def __init__(self, skills: _Optional[_Iterable[str]] = ..., all_skills_required: bool = ..., page_token: _Optional[str] = ...) -> None: ...
+
+class ListAgentsVoiceStatusesReply(_message.Message):
+    __slots__ = ("agent_details", "next_page_token")
+    AGENT_DETAILS_FIELD_NUMBER: _ClassVar[int]
+    NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    agent_details: _containers.RepeatedCompositeFieldContainer[AgentVoiceStatusDetails]
+    next_page_token: str
+    def __init__(self, agent_details: _Optional[_Iterable[_Union[AgentVoiceStatusDetails, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
+
+class AgentVoiceStatusDetails(_message.Message):
+    __slots__ = ("agent_sid", "hunt_group_sid", "current_session_sid", "first_name", "last_name", "status", "status_desc", "skills", "pbx_extensions")
+    AGENT_SID_FIELD_NUMBER: _ClassVar[int]
+    HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
+    CURRENT_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
+    FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
+    LAST_NAME_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    STATUS_DESC_FIELD_NUMBER: _ClassVar[int]
+    SKILLS_FIELD_NUMBER: _ClassVar[int]
+    PBX_EXTENSIONS_FIELD_NUMBER: _ClassVar[int]
+    agent_sid: int
+    hunt_group_sid: int
+    current_session_sid: int
+    first_name: str
+    last_name: str
+    status: int
+    status_desc: _acd_pb2.AgentStatus.Enum
+    skills: _containers.RepeatedScalarFieldContainer[str]
+    pbx_extensions: _containers.RepeatedScalarFieldContainer[str]
+    def __init__(self, agent_sid: _Optional[int] = ..., hunt_group_sid: _Optional[int] = ..., current_session_sid: _Optional[int] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., status: _Optional[int] = ..., status_desc: _Optional[_Union[_acd_pb2.AgentStatus.Enum, str]] = ..., skills: _Optional[_Iterable[str]] = ..., pbx_extensions: _Optional[_Iterable[str]] = ...) -> None: ...
