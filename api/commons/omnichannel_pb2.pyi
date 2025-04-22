@@ -241,11 +241,6 @@ class OmniMessageType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     OMNI_MESSAGE_TYPE_REQUEST_QUEUE_INFORMATION: _ClassVar[OmniMessageType]
     OMNI_MESSAGE_TYPE_OFFLOADED_TEXT_MESSAGE: _ClassVar[OmniMessageType]
     OMNI_MESSAGE_TYPE_CANNED_MESSAGE: _ClassVar[OmniMessageType]
-
-class OmniTaskCarryOverBehavior(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
-    __slots__ = ()
-    OMNI_TASK_CARRY_OVER_PAUSE: _ClassVar[OmniTaskCarryOverBehavior]
-    OMNI_TASK_CARRY_OVER_CANCEL: _ClassVar[OmniTaskCarryOverBehavior]
 SMS_SHORT_CODE_TYPE: SmsNumberType
 SMS_ALPHANUMERIC_TYPE: SmsNumberType
 SMS_NUMBER_TYPE: SmsNumberType
@@ -401,8 +396,6 @@ OMNI_MESSAGE_TYPE_QUEUE_INFORMATION: OmniMessageType
 OMNI_MESSAGE_TYPE_REQUEST_QUEUE_INFORMATION: OmniMessageType
 OMNI_MESSAGE_TYPE_OFFLOADED_TEXT_MESSAGE: OmniMessageType
 OMNI_MESSAGE_TYPE_CANNED_MESSAGE: OmniMessageType
-OMNI_TASK_CARRY_OVER_PAUSE: OmniTaskCarryOverBehavior
-OMNI_TASK_CARRY_OVER_CANCEL: OmniTaskCarryOverBehavior
 
 class OmniCampaign(_message.Message):
     __slots__ = ("campaign_sid", "name", "description", "skills", "start_date", "status", "channel_type", "date_created", "date_modified", "project_sid", "modules", "time_zone", "shorten_url", "compliance_config")
@@ -437,7 +430,7 @@ class OmniCampaign(_message.Message):
     def __init__(self, campaign_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., skills: _Optional[_Union[OmniConversationSkills, _Mapping]] = ..., start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[OmniCampaignStatus, str]] = ..., channel_type: _Optional[_Union[ChannelType, str]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., project_sid: _Optional[int] = ..., modules: _Optional[_Iterable[_Union[OmniCampaignModule, _Mapping]]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., shorten_url: bool = ..., compliance_config: _Optional[_Union[OmniComplianceConfig, _Mapping]] = ...) -> None: ...
 
 class OmniCampaignModule(_message.Message):
-    __slots__ = ("campaign_module_sid", "campaign_sid", "module_type", "status", "config", "date_created", "date_modified", "scheduled_stop_date", "actual_stop_date", "hours_of_operation", "details", "attachments", "hours_of_operation_timezone", "global_timezone_ordering", "task_carry_over_behavior")
+    __slots__ = ("campaign_module_sid", "campaign_sid", "module_type", "status", "config", "date_created", "date_modified", "scheduled_stop_date", "actual_stop_date", "hours_of_operation", "details", "attachments", "hours_of_operation_timezone", "global_timezone_ordering")
     class Details(_message.Message):
         __slots__ = ("total_task_count", "completed_task_count", "connected_inbox_address", "verified_email_address", "pending_task_count", "failed_task_count", "canceled_task_count")
         TOTAL_TASK_COUNT_FIELD_NUMBER: _ClassVar[int]
@@ -469,7 +462,6 @@ class OmniCampaignModule(_message.Message):
     ATTACHMENTS_FIELD_NUMBER: _ClassVar[int]
     HOURS_OF_OPERATION_TIMEZONE_FIELD_NUMBER: _ClassVar[int]
     GLOBAL_TIMEZONE_ORDERING_FIELD_NUMBER: _ClassVar[int]
-    TASK_CARRY_OVER_BEHAVIOR_FIELD_NUMBER: _ClassVar[int]
     campaign_module_sid: int
     campaign_sid: int
     module_type: OmniCampaignModuleType
@@ -484,8 +476,7 @@ class OmniCampaignModule(_message.Message):
     attachments: _containers.RepeatedCompositeFieldContainer[OmniAttachment]
     hours_of_operation_timezone: WeekdayTimeRange
     global_timezone_ordering: bool
-    task_carry_over_behavior: OmniTaskCarryOverBehavior
-    def __init__(self, campaign_module_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., module_type: _Optional[_Union[OmniCampaignModuleType, str]] = ..., status: _Optional[_Union[OmniCampaignModuleStatus, str]] = ..., config: _Optional[_Union[OmniCampaignModuleConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., scheduled_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., actual_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., hours_of_operation: _Optional[_Union[WeekdayTimeRange, _Mapping]] = ..., details: _Optional[_Union[OmniCampaignModule.Details, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., hours_of_operation_timezone: _Optional[_Union[WeekdayTimeRange, _Mapping]] = ..., global_timezone_ordering: bool = ..., task_carry_over_behavior: _Optional[_Union[OmniTaskCarryOverBehavior, str]] = ...) -> None: ...
+    def __init__(self, campaign_module_sid: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., module_type: _Optional[_Union[OmniCampaignModuleType, str]] = ..., status: _Optional[_Union[OmniCampaignModuleStatus, str]] = ..., config: _Optional[_Union[OmniCampaignModuleConfig, _Mapping]] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., scheduled_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., actual_stop_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., hours_of_operation: _Optional[_Union[WeekdayTimeRange, _Mapping]] = ..., details: _Optional[_Union[OmniCampaignModule.Details, _Mapping]] = ..., attachments: _Optional[_Iterable[_Union[OmniAttachment, _Mapping]]] = ..., hours_of_operation_timezone: _Optional[_Union[WeekdayTimeRange, _Mapping]] = ..., global_timezone_ordering: bool = ...) -> None: ...
 
 class OmniCampaignModuleConfig(_message.Message):
     __slots__ = ("api_key_primary", "api_key_secondary", "color_properties", "connected_inbox_sid", "dispositions", "email", "message_body", "email_subject", "sms_number", "header", "sla_timeouts", "sends_per_hour", "unsubscribe_link_sid", "verified_email_sid", "stop_on_task_deplete", "attachments", "compliance_rule_set_id", "payment_portal_ids", "flow_id", "skills", "whatsapp_number", "provider_metadata", "country_code", "country_code_sid", "postal_code_field", "timeout_message_config")
