@@ -1965,6 +1965,16 @@ class ReshapeAction(_message.Message):
         default_value: float
         divisor: float
         def __init__(self, default_value: _Optional[float] = ..., divisor: _Optional[float] = ...) -> None: ...
+    class DivideValue(_message.Message):
+        __slots__ = ("value",)
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        value: float
+        def __init__(self, value: _Optional[float] = ...) -> None: ...
+    class DivideField(_message.Message):
+        __slots__ = ("other_field",)
+        OTHER_FIELD_FIELD_NUMBER: _ClassVar[int]
+        other_field: FieldIndex
+        def __init__(self, other_field: _Optional[_Union[FieldIndex, _Mapping]] = ...) -> None: ...
     class Multiply(_message.Message):
         __slots__ = ("default_value", "multiplier")
         DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -1972,6 +1982,16 @@ class ReshapeAction(_message.Message):
         default_value: float
         multiplier: float
         def __init__(self, default_value: _Optional[float] = ..., multiplier: _Optional[float] = ...) -> None: ...
+    class MultiplyValue(_message.Message):
+        __slots__ = ("value",)
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        value: float
+        def __init__(self, value: _Optional[float] = ...) -> None: ...
+    class MultiplyField(_message.Message):
+        __slots__ = ("other_field",)
+        OTHER_FIELD_FIELD_NUMBER: _ClassVar[int]
+        other_field: FieldIndex
+        def __init__(self, other_field: _Optional[_Union[FieldIndex, _Mapping]] = ...) -> None: ...
     class Modulo(_message.Message):
         __slots__ = ("default_value", "modulus")
         DEFAULT_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -1979,6 +1999,16 @@ class ReshapeAction(_message.Message):
         default_value: int
         modulus: int
         def __init__(self, default_value: _Optional[int] = ..., modulus: _Optional[int] = ...) -> None: ...
+    class ModuloValue(_message.Message):
+        __slots__ = ("value",)
+        VALUE_FIELD_NUMBER: _ClassVar[int]
+        value: float
+        def __init__(self, value: _Optional[float] = ...) -> None: ...
+    class ModuloField(_message.Message):
+        __slots__ = ("other_field",)
+        OTHER_FIELD_FIELD_NUMBER: _ClassVar[int]
+        other_field: FieldIndex
+        def __init__(self, other_field: _Optional[_Union[FieldIndex, _Mapping]] = ...) -> None: ...
     class RemoveField(_message.Message):
         __slots__ = ()
         def __init__(self) -> None: ...
