@@ -175,6 +175,20 @@ class GetPBXUserResponse(_message.Message):
     user: PBXUser
     def __init__(self, user: _Optional[_Union[PBXUser, _Mapping]] = ...) -> None: ...
 
+class GetSIPCredentialsRequest(_message.Message):
+    __slots__ = ()
+    def __init__(self) -> None: ...
+
+class GetSIPCredentialsResponse(_message.Message):
+    __slots__ = ("sip_domain", "user_uri", "session_token")
+    SIP_DOMAIN_FIELD_NUMBER: _ClassVar[int]
+    USER_URI_FIELD_NUMBER: _ClassVar[int]
+    SESSION_TOKEN_FIELD_NUMBER: _ClassVar[int]
+    sip_domain: str
+    user_uri: str
+    session_token: str
+    def __init__(self, sip_domain: _Optional[str] = ..., user_uri: _Optional[str] = ..., session_token: _Optional[str] = ...) -> None: ...
+
 class ListRingGroupsRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
