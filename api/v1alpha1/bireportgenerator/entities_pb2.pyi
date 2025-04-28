@@ -11,28 +11,8 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class ReportParameters(_message.Message):
-    __slots__ = ("parameters",)
-    class Parameter(_message.Message):
-        __slots__ = ("value", "data_type")
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        DATA_TYPE_FIELD_NUMBER: _ClassVar[int]
-        value: str
-        data_type: str
-        def __init__(self, value: _Optional[str] = ..., data_type: _Optional[str] = ...) -> None: ...
-    class ParametersEntry(_message.Message):
-        __slots__ = ("key", "value")
-        KEY_FIELD_NUMBER: _ClassVar[int]
-        VALUE_FIELD_NUMBER: _ClassVar[int]
-        key: str
-        value: ReportParameters.Parameter
-        def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[ReportParameters.Parameter, _Mapping]] = ...) -> None: ...
-    PARAMETERS_FIELD_NUMBER: _ClassVar[int]
-    parameters: _containers.MessageMap[str, ReportParameters.Parameter]
-    def __init__(self, parameters: _Optional[_Mapping[str, ReportParameters.Parameter]] = ...) -> None: ...
-
 class ReportJob(_message.Message):
-    __slots__ = ("report_job_id", "name", "description", "dashboard_id", "time_zone", "time_period", "delivery_times", "day_filter", "months", "format_options", "delivery_options", "is_active", "send_empty_report", "dashboard_resource_id", "time_zone_wrapper", "hide_csv_footer", "transfer_config_sid", "cron_expression", "transfer_options", "report_parameters", "send_only_when_empty")
+    __slots__ = ("report_job_id", "name", "description", "dashboard_id", "time_zone", "time_period", "delivery_times", "day_filter", "months", "format_options", "delivery_options", "is_active", "send_empty_report", "dashboard_resource_id", "time_zone_wrapper", "hide_csv_footer", "transfer_config_sid", "cron_expression", "transfer_options")
     REPORT_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -52,8 +32,6 @@ class ReportJob(_message.Message):
     TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
     CRON_EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     TRANSFER_OPTIONS_FIELD_NUMBER: _ClassVar[int]
-    REPORT_PARAMETERS_FIELD_NUMBER: _ClassVar[int]
-    SEND_ONLY_WHEN_EMPTY_FIELD_NUMBER: _ClassVar[int]
     report_job_id: str
     name: str
     description: str
@@ -73,9 +51,7 @@ class ReportJob(_message.Message):
     transfer_config_sid: int
     cron_expression: _types_pb2.CronExpression
     transfer_options: _bireportgenerator_pb2.TransferOptions
-    report_parameters: ReportParameters
-    send_only_when_empty: bool
-    def __init__(self, report_job_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., dashboard_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., delivery_times: _Optional[_Union[_bireportgenerator_pb2.DeliveryTimes, _Mapping]] = ..., day_filter: _Optional[_Union[_bireportgenerator_pb2.DayFilter, _Mapping]] = ..., months: _Optional[_Iterable[_Union[_enums_pb2.Month, str]]] = ..., format_options: _Optional[_Union[_bireportgenerator_pb2.FormatOptions, _Mapping]] = ..., delivery_options: _Optional[_Union[_bireportgenerator_pb2.DeliveryOptions, _Mapping]] = ..., is_active: bool = ..., send_empty_report: bool = ..., dashboard_resource_id: _Optional[str] = ..., time_zone_wrapper: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hide_csv_footer: bool = ..., transfer_config_sid: _Optional[int] = ..., cron_expression: _Optional[_Union[_types_pb2.CronExpression, _Mapping]] = ..., transfer_options: _Optional[_Union[_bireportgenerator_pb2.TransferOptions, _Mapping]] = ..., report_parameters: _Optional[_Union[ReportParameters, _Mapping]] = ..., send_only_when_empty: bool = ...) -> None: ...
+    def __init__(self, report_job_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., dashboard_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., delivery_times: _Optional[_Union[_bireportgenerator_pb2.DeliveryTimes, _Mapping]] = ..., day_filter: _Optional[_Union[_bireportgenerator_pb2.DayFilter, _Mapping]] = ..., months: _Optional[_Iterable[_Union[_enums_pb2.Month, str]]] = ..., format_options: _Optional[_Union[_bireportgenerator_pb2.FormatOptions, _Mapping]] = ..., delivery_options: _Optional[_Union[_bireportgenerator_pb2.DeliveryOptions, _Mapping]] = ..., is_active: bool = ..., send_empty_report: bool = ..., dashboard_resource_id: _Optional[str] = ..., time_zone_wrapper: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hide_csv_footer: bool = ..., transfer_config_sid: _Optional[int] = ..., cron_expression: _Optional[_Union[_types_pb2.CronExpression, _Mapping]] = ..., transfer_options: _Optional[_Union[_bireportgenerator_pb2.TransferOptions, _Mapping]] = ...) -> None: ...
 
 class ReportLog(_message.Message):
     __slots__ = ("org_id", "report_log_id", "report_job_id", "execution_id", "report_name", "job_requested_time", "job_completed_time", "success", "failure_reason", "attempt_number", "max_attempts", "create_time", "update_time", "dashboard_title", "scheduled_time", "execution_start_time", "execution_end_time", "report_start_date", "report_end_date", "comments", "timezone", "filenames", "insight_count", "delivery_definition_title")
