@@ -49,11 +49,6 @@ class PBXServiceStub(object):
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdRequest.SerializeToString,
                 response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdResponse.FromString,
                 )
-        self.GetSIPCredentials = channel.unary_unary(
-                '/services.pbx.v2.PBXService/GetSIPCredentials',
-                request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPCredentialsRequest.SerializeToString,
-                response_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPCredentialsResponse.FromString,
-                )
         self.ListSIPAccounts = channel.unary_unary(
                 '/services.pbx.v2.PBXService/ListSIPAccounts',
                 request_serializer=services_dot_pbx_dot_v2_dot_service__pb2.ListSIPAccountsRequest.SerializeToString,
@@ -191,19 +186,6 @@ class PBXServiceServicer(object):
         - grpc.PermissionDenied: Caller doesn't have the required permissions.
         - grpc.Internal: An internal error occurred.
         - grpc.NotFound: The group does not exist or is not in the caller's ORG.
-        - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetSIPCredentials(self, request, context):
-        """Returns sip credentials for registering an SIP Account
-        Required permissions:
-        PBX-MANAGER
-        Errors:
-        - grpc.PermissionDenied: Caller doesn't have the required permissions.
-        - grpc.Internal: An internal error occurred.
         - grpc.Unavailable: The operation is currently unavailable. Likely a transient issue with a downstream service.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -354,11 +336,6 @@ def add_PBXServiceServicer_to_server(servicer, server):
                     servicer.GetSIPAccountByUserId,
                     request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdRequest.FromString,
                     response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdResponse.SerializeToString,
-            ),
-            'GetSIPCredentials': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSIPCredentials,
-                    request_deserializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPCredentialsRequest.FromString,
-                    response_serializer=services_dot_pbx_dot_v2_dot_service__pb2.GetSIPCredentialsResponse.SerializeToString,
             ),
             'ListSIPAccounts': grpc.unary_unary_rpc_method_handler(
                     servicer.ListSIPAccounts,
@@ -521,23 +498,6 @@ class PBXService(object):
         return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/GetSIPAccountByUserId',
             services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdRequest.SerializeToString,
             services_dot_pbx_dot_v2_dot_service__pb2.GetSIPAccountByUserIdResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetSIPCredentials(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/services.pbx.v2.PBXService/GetSIPCredentials',
-            services_dot_pbx_dot_v2_dot_service__pb2.GetSIPCredentialsRequest.SerializeToString,
-            services_dot_pbx_dot_v2_dot_service__pb2.GetSIPCredentialsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

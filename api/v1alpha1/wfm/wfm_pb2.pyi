@@ -50,7 +50,7 @@ class Skill(_message.Message):
     def __init__(self, skill_sid: _Optional[int] = ..., client_skill_type: _Optional[_Union[_wfm_pb2.SkillType.Enum, str]] = ..., name: _Optional[str] = ..., delete_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., client_skill_sid: _Optional[int] = ..., proficiency: _Optional[int] = ...) -> None: ...
 
 class SkillProfile(_message.Message):
-    __slots__ = ("skill_profile_sid", "name", "description", "create_date", "unnamed", "inactive_as_of_date", "skills", "skills_count", "occurrence", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "channel_types", "sms", "average_talk_time_in_seconds")
+    __slots__ = ("skill_profile_sid", "name", "description", "create_date", "unnamed", "inactive_as_of_date", "skills", "skills_count", "occurrence", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "channel_types", "sms")
     class SmsMetadata(_message.Message):
         __slots__ = ("average_conversation_length",)
         AVERAGE_CONVERSATION_LENGTH_FIELD_NUMBER: _ClassVar[int]
@@ -72,7 +72,6 @@ class SkillProfile(_message.Message):
     ARE_AVERAGES_MANUAL_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_TYPES_FIELD_NUMBER: _ClassVar[int]
     SMS_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
     name: str
     description: str
@@ -89,11 +88,10 @@ class SkillProfile(_message.Message):
     are_averages_manual: bool
     channel_types: _containers.RepeatedScalarFieldContainer[_omnichannel_pb2.ChannelType]
     sms: SkillProfile.SmsMetadata
-    average_talk_time_in_seconds: float
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., unnamed: bool = ..., inactive_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., skills_count: _Optional[int] = ..., occurrence: _Optional[float] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ..., sms: _Optional[_Union[SkillProfile.SmsMetadata, _Mapping]] = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., unnamed: bool = ..., inactive_as_of_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., skills_count: _Optional[int] = ..., occurrence: _Optional[float] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ..., sms: _Optional[_Union[SkillProfile.SmsMetadata, _Mapping]] = ...) -> None: ...
 
 class SkillProfileGroup(_message.Message):
-    __slots__ = ("skill_profile_group_sid", "name", "description", "create_time", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "skill_profile_sids", "datetime_set_to_inactive", "average_talk_time_in_seconds")
+    __slots__ = ("skill_profile_group_sid", "name", "description", "create_time", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "skill_profile_sids", "datetime_set_to_inactive")
     SKILL_PROFILE_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -105,7 +103,6 @@ class SkillProfileGroup(_message.Message):
     ARE_AVERAGES_MANUAL_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_FIELD_NUMBER: _ClassVar[int]
     DATETIME_SET_TO_INACTIVE_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     skill_profile_group_sid: int
     name: str
     description: str
@@ -117,8 +114,7 @@ class SkillProfileGroup(_message.Message):
     are_averages_manual: bool
     skill_profile_sids: _containers.RepeatedScalarFieldContainer[int]
     datetime_set_to_inactive: _timestamp_pb2.Timestamp
-    average_talk_time_in_seconds: float
-    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., skill_profile_sids: _Optional[_Iterable[int]] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, skill_profile_group_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., skill_profile_sids: _Optional[_Iterable[int]] = ..., datetime_set_to_inactive: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ListSkillProfilesReq(_message.Message):
     __slots__ = ("active_only", "with_skills", "channel_types")
@@ -137,7 +133,7 @@ class ListSkillProfilesRes(_message.Message):
     def __init__(self, skill_profiles: _Optional[_Iterable[_Union[SkillProfile, _Mapping]]] = ...) -> None: ...
 
 class UpdateSkillProfileReq(_message.Message):
-    __slots__ = ("skill_profile_sid", "name", "description", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual", "average_talk_time_in_seconds")
+    __slots__ = ("skill_profile_sid", "name", "description", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "are_averages_manual")
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -146,7 +142,6 @@ class UpdateSkillProfileReq(_message.Message):
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     ARE_AVERAGES_MANUAL_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     skill_profile_sid: int
     name: str
     description: str
@@ -155,8 +150,7 @@ class UpdateSkillProfileReq(_message.Message):
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     are_averages_manual: bool
-    average_talk_time_in_seconds: float
-    def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, skill_profile_sid: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., are_averages_manual: bool = ...) -> None: ...
 
 class UpdateSkillProfileRes(_message.Message):
     __slots__ = ()
@@ -245,7 +239,7 @@ class GetForecastingParametersRes(_message.Message):
     def __init__(self, forecasting_parameters: _Optional[_Union[_wfm_pb2.ForecastingParameters, _Mapping]] = ...) -> None: ...
 
 class HistoricalDataInterval(_message.Message):
-    __slots__ = ("start_datetime", "skill_profile_sid", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_calls", "total_abandoned_calls", "is_delta", "original_average_speed_of_answer_in_seconds", "original_average_handle_time_in_seconds", "original_average_after_call_work_in_seconds", "original_average_time_to_abort_in_seconds", "original_total_calls", "original_total_abandoned_calls", "skill_profile_category", "average_talk_time_in_seconds", "original_average_talk_time_in_seconds")
+    __slots__ = ("start_datetime", "skill_profile_sid", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_calls", "total_abandoned_calls", "is_delta", "original_average_speed_of_answer_in_seconds", "original_average_handle_time_in_seconds", "original_average_after_call_work_in_seconds", "original_average_time_to_abort_in_seconds", "original_total_calls", "original_total_abandoned_calls", "skill_profile_category")
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
@@ -262,8 +256,6 @@ class HistoricalDataInterval(_message.Message):
     ORIGINAL_TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
     ORIGINAL_TOTAL_ABANDONED_CALLS_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
-    ORIGINAL_AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
     skill_profile_sid: int
     average_speed_of_answer_in_seconds: _wrappers_pb2.FloatValue
@@ -280,9 +272,7 @@ class HistoricalDataInterval(_message.Message):
     original_total_calls: int
     original_total_abandoned_calls: int
     skill_profile_category: _wfm_pb2.SkillProfileCategory
-    average_talk_time_in_seconds: _wrappers_pb2.FloatValue
-    original_average_talk_time_in_seconds: _wrappers_pb2.FloatValue
-    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., total_calls: _Optional[int] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., original_average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_total_calls: _Optional[int] = ..., original_total_abandoned_calls: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., average_talk_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_talk_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ...) -> None: ...
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., total_calls: _Optional[int] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., original_average_speed_of_answer_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_handle_time_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_after_call_work_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_average_time_to_abort_in_seconds: _Optional[_Union[_wrappers_pb2.FloatValue, _Mapping]] = ..., original_total_calls: _Optional[int] = ..., original_total_abandoned_calls: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class GetClientHistoryCacheInfoReq(_message.Message):
     __slots__ = ()
@@ -341,7 +331,7 @@ class ListSkillsRes(_message.Message):
     def __init__(self, skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ...) -> None: ...
 
 class CallProfileTemplate(_message.Message):
-    __slots__ = ("call_profile_template_sid", "name", "total_calls_profile", "total_abandoned_calls_profile", "average_speed_of_answer_profile", "average_handle_time_profile", "average_after_call_work_profile", "average_time_to_abort_profile", "fixed_average_speed_of_answer", "fixed_average_handle_time", "fixed_average_after_call_work", "fixed_average_time_to_abort", "default_to_fixed_averages_forecast", "time_zone", "average_talk_time_profile", "fixed_average_talk_time")
+    __slots__ = ("call_profile_template_sid", "name", "total_calls_profile", "total_abandoned_calls_profile", "average_speed_of_answer_profile", "average_handle_time_profile", "average_after_call_work_profile", "average_time_to_abort_profile", "fixed_average_speed_of_answer", "fixed_average_handle_time", "fixed_average_after_call_work", "fixed_average_time_to_abort", "default_to_fixed_averages_forecast", "time_zone")
     CALL_PROFILE_TEMPLATE_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     TOTAL_CALLS_PROFILE_FIELD_NUMBER: _ClassVar[int]
@@ -356,8 +346,6 @@ class CallProfileTemplate(_message.Message):
     FIXED_AVERAGE_TIME_TO_ABORT_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_TO_FIXED_AVERAGES_FORECAST_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_PROFILE_FIELD_NUMBER: _ClassVar[int]
-    FIXED_AVERAGE_TALK_TIME_FIELD_NUMBER: _ClassVar[int]
     call_profile_template_sid: int
     name: str
     total_calls_profile: _wfm_pb2.CallProfileGroupCalls
@@ -372,9 +360,7 @@ class CallProfileTemplate(_message.Message):
     fixed_average_time_to_abort: float
     default_to_fixed_averages_forecast: bool
     time_zone: str
-    average_talk_time_profile: _wfm_pb2.CallProfileGroupAvgs
-    fixed_average_talk_time: float
-    def __init__(self, call_profile_template_sid: _Optional[int] = ..., name: _Optional[str] = ..., total_calls_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupCalls, _Mapping]] = ..., total_abandoned_calls_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupCalls, _Mapping]] = ..., average_speed_of_answer_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_handle_time_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_after_call_work_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_time_to_abort_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., fixed_average_speed_of_answer: _Optional[float] = ..., fixed_average_handle_time: _Optional[float] = ..., fixed_average_after_call_work: _Optional[float] = ..., fixed_average_time_to_abort: _Optional[float] = ..., default_to_fixed_averages_forecast: bool = ..., time_zone: _Optional[str] = ..., average_talk_time_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., fixed_average_talk_time: _Optional[float] = ...) -> None: ...
+    def __init__(self, call_profile_template_sid: _Optional[int] = ..., name: _Optional[str] = ..., total_calls_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupCalls, _Mapping]] = ..., total_abandoned_calls_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupCalls, _Mapping]] = ..., average_speed_of_answer_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_handle_time_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_after_call_work_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., average_time_to_abort_profile: _Optional[_Union[_wfm_pb2.CallProfileGroupAvgs, _Mapping]] = ..., fixed_average_speed_of_answer: _Optional[float] = ..., fixed_average_handle_time: _Optional[float] = ..., fixed_average_after_call_work: _Optional[float] = ..., fixed_average_time_to_abort: _Optional[float] = ..., default_to_fixed_averages_forecast: bool = ..., time_zone: _Optional[str] = ...) -> None: ...
 
 class BuildCallProfileTemplateForSkillProfileReq(_message.Message):
     __slots__ = ("skill_profile_sid", "time_zone")
@@ -533,7 +519,7 @@ class BuildProfileForecastByIntervalReq(_message.Message):
     def __init__(self, call_profile_template: _Optional[_Union[CallProfileTemplate, _Mapping]] = ..., fixed_averages_forecast: bool = ..., skill_profile_sid: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class CallDataByInterval(_message.Message):
-    __slots__ = ("start_datetime", "skill_profile_sid", "total_calls", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_abandoned_calls", "is_delta", "forecast_data_interval_sid", "interval_width_in_minutes", "skill_profile_category", "average_talk_time_in_seconds")
+    __slots__ = ("start_datetime", "skill_profile_sid", "total_calls", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "total_abandoned_calls", "is_delta", "forecast_data_interval_sid", "interval_width_in_minutes", "skill_profile_category")
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SID_FIELD_NUMBER: _ClassVar[int]
     TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
@@ -546,7 +532,6 @@ class CallDataByInterval(_message.Message):
     FORECAST_DATA_INTERVAL_SID_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_CATEGORY_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
     skill_profile_sid: int
     total_calls: int
@@ -559,8 +544,7 @@ class CallDataByInterval(_message.Message):
     forecast_data_interval_sid: int
     interval_width_in_minutes: int
     skill_profile_category: _wfm_pb2.SkillProfileCategory
-    average_talk_time_in_seconds: float
-    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., total_calls: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., forecast_data_interval_sid: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, start_datetime: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skill_profile_sid: _Optional[int] = ..., total_calls: _Optional[int] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., total_abandoned_calls: _Optional[int] = ..., is_delta: bool = ..., forecast_data_interval_sid: _Optional[int] = ..., interval_width_in_minutes: _Optional[int] = ..., skill_profile_category: _Optional[_Union[_wfm_pb2.SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class BuildProfileForecastByIntervalWithStatsReq(_message.Message):
     __slots__ = ("call_profile_template", "fixed_averages_forecast", "skill_profile_sid", "skill_profile_category")
@@ -675,43 +659,39 @@ class ListRegressionTemplatesRes(_message.Message):
     def __init__(self, regression_templates: _Optional[_Iterable[_Union[RegressionTemplate, _Mapping]]] = ...) -> None: ...
 
 class BuildRegressionForecastByIntervalReq(_message.Message):
-    __slots__ = ("average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast", "average_talk_time_in_seconds")
+    __slots__ = ("average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast")
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_TO_FORECAST_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     average_speed_of_answer_in_seconds: float
     average_handle_time_in_seconds: float
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     regression_template: RegressionTemplate
     skill_profile_sids_to_forecast: _containers.RepeatedScalarFieldContainer[int]
-    average_talk_time_in_seconds: float
-    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class BuildRegressionForecastByIntervalWithStatsReq(_message.Message):
-    __slots__ = ("average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast", "average_talk_time_in_seconds")
+    __slots__ = ("average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "regression_template", "skill_profile_sids_to_forecast")
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_TO_FORECAST_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     average_speed_of_answer_in_seconds: float
     average_handle_time_in_seconds: float
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     regression_template: RegressionTemplate
     skill_profile_sids_to_forecast: _containers.RepeatedScalarFieldContainer[int]
-    average_talk_time_in_seconds: float
-    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class GetForecastStatisticsRes(_message.Message):
-    __slots__ = ("num_intervals_measured", "total_calls_historical", "total_calls_predicted", "percent_calls_over_under", "rms_error_calls", "rms_error_ATAB", "rms_error_ASA", "rms_error_ACW", "rms_error_AHT", "are_stats_invalid", "invalid_reason", "rms_error_ATT")
+    __slots__ = ("num_intervals_measured", "total_calls_historical", "total_calls_predicted", "percent_calls_over_under", "rms_error_calls", "rms_error_ATAB", "rms_error_ASA", "rms_error_ACW", "rms_error_AHT", "are_stats_invalid", "invalid_reason")
     NUM_INTERVALS_MEASURED_FIELD_NUMBER: _ClassVar[int]
     TOTAL_CALLS_HISTORICAL_FIELD_NUMBER: _ClassVar[int]
     TOTAL_CALLS_PREDICTED_FIELD_NUMBER: _ClassVar[int]
@@ -723,7 +703,6 @@ class GetForecastStatisticsRes(_message.Message):
     RMS_ERROR_AHT_FIELD_NUMBER: _ClassVar[int]
     ARE_STATS_INVALID_FIELD_NUMBER: _ClassVar[int]
     INVALID_REASON_FIELD_NUMBER: _ClassVar[int]
-    RMS_ERROR_ATT_FIELD_NUMBER: _ClassVar[int]
     num_intervals_measured: int
     total_calls_historical: int
     total_calls_predicted: int
@@ -735,8 +714,7 @@ class GetForecastStatisticsRes(_message.Message):
     rms_error_AHT: float
     are_stats_invalid: bool
     invalid_reason: str
-    rms_error_ATT: float
-    def __init__(self, num_intervals_measured: _Optional[int] = ..., total_calls_historical: _Optional[int] = ..., total_calls_predicted: _Optional[int] = ..., percent_calls_over_under: _Optional[float] = ..., rms_error_calls: _Optional[float] = ..., rms_error_ATAB: _Optional[float] = ..., rms_error_ASA: _Optional[float] = ..., rms_error_ACW: _Optional[float] = ..., rms_error_AHT: _Optional[float] = ..., are_stats_invalid: bool = ..., invalid_reason: _Optional[str] = ..., rms_error_ATT: _Optional[float] = ...) -> None: ...
+    def __init__(self, num_intervals_measured: _Optional[int] = ..., total_calls_historical: _Optional[int] = ..., total_calls_predicted: _Optional[int] = ..., percent_calls_over_under: _Optional[float] = ..., rms_error_calls: _Optional[float] = ..., rms_error_ATAB: _Optional[float] = ..., rms_error_ASA: _Optional[float] = ..., rms_error_ACW: _Optional[float] = ..., rms_error_AHT: _Optional[float] = ..., are_stats_invalid: bool = ..., invalid_reason: _Optional[str] = ...) -> None: ...
 
 class BuildRegressionForecastByIntervalWithStatsRes(_message.Message):
     __slots__ = ("call_data", "forecast_stats")
@@ -781,22 +759,20 @@ class ListForecastIntervalsV2Response(_message.Message):
     def __init__(self, intervals: _Optional[_Iterable[_Union[CallDataByInterval, _Mapping]]] = ...) -> None: ...
 
 class UpsertRegressionForecastReq(_message.Message):
-    __slots__ = ("regression_template", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "skill_profile_sids_to_forecast", "average_talk_time_in_seconds")
+    __slots__ = ("regression_template", "average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "skill_profile_sids_to_forecast")
     REGRESSION_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     SKILL_PROFILE_SIDS_TO_FORECAST_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     regression_template: RegressionTemplate
     average_speed_of_answer_in_seconds: float
     average_handle_time_in_seconds: float
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
     skill_profile_sids_to_forecast: _containers.RepeatedScalarFieldContainer[int]
-    average_talk_time_in_seconds: float
-    def __init__(self, regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, regression_template: _Optional[_Union[RegressionTemplate, _Mapping]] = ..., average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., skill_profile_sids_to_forecast: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class UpsertRegressionForecastRes(_message.Message):
     __slots__ = ()
@@ -886,18 +862,16 @@ class CalculateTrainingDataAveragesForSkillProfileReq(_message.Message):
     def __init__(self, skill_profile_sid: _Optional[int] = ...) -> None: ...
 
 class CalculateTrainingDataAveragesForSkillProfileRes(_message.Message):
-    __slots__ = ("average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds", "average_talk_time_in_seconds")
+    __slots__ = ("average_speed_of_answer_in_seconds", "average_handle_time_in_seconds", "average_after_call_work_in_seconds", "average_time_to_abort_in_seconds")
     AVERAGE_SPEED_OF_ANSWER_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_HANDLE_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_AFTER_CALL_WORK_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     AVERAGE_TIME_TO_ABORT_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
-    AVERAGE_TALK_TIME_IN_SECONDS_FIELD_NUMBER: _ClassVar[int]
     average_speed_of_answer_in_seconds: float
     average_handle_time_in_seconds: float
     average_after_call_work_in_seconds: float
     average_time_to_abort_in_seconds: float
-    average_talk_time_in_seconds: float
-    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ..., average_talk_time_in_seconds: _Optional[float] = ...) -> None: ...
+    def __init__(self, average_speed_of_answer_in_seconds: _Optional[float] = ..., average_handle_time_in_seconds: _Optional[float] = ..., average_after_call_work_in_seconds: _Optional[float] = ..., average_time_to_abort_in_seconds: _Optional[float] = ...) -> None: ...
 
 class UpdateSkillProfileAveragesUsingHistoricalDataReq(_message.Message):
     __slots__ = ("skill_profile_sids", "datetime_range", "exclude_skill_profiles_with_manual_averages", "skill_profile_group_sids")
