@@ -400,12 +400,14 @@ class CalculateFeesRes(_message.Message):
     def __init__(self, calculated_fees: _Optional[_Mapping[str, _money_pb2.Money]] = ..., total_amount_due: _Optional[_Union[_money_pb2.Money, _Mapping]] = ...) -> None: ...
 
 class DeliverReceiptReq(_message.Message):
-    __slots__ = ("email_receipt", "receipt_id")
+    __slots__ = ("entity", "email_receipt", "receipt_id")
+    ENTITY_FIELD_NUMBER: _ClassVar[int]
     EMAIL_RECEIPT_FIELD_NUMBER: _ClassVar[int]
     RECEIPT_ID_FIELD_NUMBER: _ClassVar[int]
+    entity: PortalLinkId
     email_receipt: EmailReceipt
     receipt_id: str
-    def __init__(self, email_receipt: _Optional[_Union[EmailReceipt, _Mapping]] = ..., receipt_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, entity: _Optional[_Union[PortalLinkId, _Mapping]] = ..., email_receipt: _Optional[_Union[EmailReceipt, _Mapping]] = ..., receipt_id: _Optional[str] = ...) -> None: ...
 
 class EmailReceipt(_message.Message):
     __slots__ = ("to_addr",)
