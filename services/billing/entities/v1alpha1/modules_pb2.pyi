@@ -7,13 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BasicConfig(_message.Message):
-    __slots__ = ("rate",)
+    __slots__ = ()
     RATE_FIELD_NUMBER: _ClassVar[int]
     rate: float
     def __init__(self, rate: _Optional[float] = ...) -> None: ...
 
 class BasicUnitConfig(_message.Message):
-    __slots__ = ("unit_size", "rate", "min_units", "max_units")
+    __slots__ = ()
     UNIT_SIZE_FIELD_NUMBER: _ClassVar[int]
     RATE_FIELD_NUMBER: _ClassVar[int]
     MIN_UNITS_FIELD_NUMBER: _ClassVar[int]

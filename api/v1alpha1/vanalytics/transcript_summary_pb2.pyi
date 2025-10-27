@@ -8,19 +8,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetTranscriptSummaryRequest(_message.Message):
-    __slots__ = ("transcript_sid",)
+    __slots__ = ()
     TRANSCRIPT_SID_FIELD_NUMBER: _ClassVar[int]
     transcript_sid: int
     def __init__(self, transcript_sid: _Optional[int] = ...) -> None: ...
 
 class GetTranscriptSummaryResponse(_message.Message):
-    __slots__ = ("transcript_summary",)
+    __slots__ = ()
     TRANSCRIPT_SUMMARY_FIELD_NUMBER: _ClassVar[int]
     transcript_summary: TranscriptSummary
     def __init__(self, transcript_summary: _Optional[_Union[TranscriptSummary, _Mapping]] = ...) -> None: ...
 
 class TranscriptSummary(_message.Message):
-    __slots__ = ("bullet_points", "status")
+    __slots__ = ()
     BULLET_POINTS_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     bullet_points: _containers.RepeatedScalarFieldContainer[str]

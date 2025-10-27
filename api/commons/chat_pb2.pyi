@@ -50,7 +50,7 @@ CHAT_REPLY_FROM_CUSTOMER: ChatMessageType
 CHAT_REPLY_FROM_AGENT: ChatMessageType
 
 class ChatColorProperties(_message.Message):
-    __slots__ = ("primary_color", "header_text_color", "paragraph_text_color")
+    __slots__ = ()
     PRIMARY_COLOR_FIELD_NUMBER: _ClassVar[int]
     HEADER_TEXT_COLOR_FIELD_NUMBER: _ClassVar[int]
     PARAGRAPH_TEXT_COLOR_FIELD_NUMBER: _ClassVar[int]
@@ -60,7 +60,7 @@ class ChatColorProperties(_message.Message):
     def __init__(self, primary_color: _Optional[str] = ..., header_text_color: _Optional[str] = ..., paragraph_text_color: _Optional[str] = ...) -> None: ...
 
 class ChatHeader(_message.Message):
-    __slots__ = ("header", "subheader")
+    __slots__ = ()
     HEADER_FIELD_NUMBER: _ClassVar[int]
     SUBHEADER_FIELD_NUMBER: _ClassVar[int]
     header: str
@@ -68,7 +68,7 @@ class ChatHeader(_message.Message):
     def __init__(self, header: _Optional[str] = ..., subheader: _Optional[str] = ...) -> None: ...
 
 class HoursOfOperation(_message.Message):
-    __slots__ = ("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")
+    __slots__ = ()
     MONDAY_FIELD_NUMBER: _ClassVar[int]
     TUESDAY_FIELD_NUMBER: _ClassVar[int]
     WEDNESDAY_FIELD_NUMBER: _ClassVar[int]
@@ -86,7 +86,7 @@ class HoursOfOperation(_message.Message):
     def __init__(self, monday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., tuesday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., wednesday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., thursday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., friday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., saturday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ..., sunday: _Optional[_Iterable[_Union[HoursOfOperationRange, _Mapping]]] = ...) -> None: ...
 
 class HoursOfOperationRange(_message.Message):
-    __slots__ = ("start_hour", "start_minute", "end_hour", "end_minute")
+    __slots__ = ()
     START_HOUR_FIELD_NUMBER: _ClassVar[int]
     START_MINUTE_FIELD_NUMBER: _ClassVar[int]
     END_HOUR_FIELD_NUMBER: _ClassVar[int]

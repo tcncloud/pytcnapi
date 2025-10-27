@@ -111,7 +111,7 @@ APPROVED: SMSMamStatus
 REJECTED: SMSMamStatus
 
 class SimpleSmsMamData(_message.Message):
-    __slots__ = ("src", "dst", "msg", "sms_group_sid", "sms_task_sid", "is_toll_free", "is_time_zone", "provider_name", "hunt_group_sid", "client_sid", "simple_sms_mam_meta_data", "dst_country_code")
+    __slots__ = ()
     SRC_FIELD_NUMBER: _ClassVar[int]
     DST_FIELD_NUMBER: _ClassVar[int]
     MSG_FIELD_NUMBER: _ClassVar[int]
@@ -139,7 +139,7 @@ class SimpleSmsMamData(_message.Message):
     def __init__(self, src: _Optional[str] = ..., dst: _Optional[str] = ..., msg: _Optional[str] = ..., sms_group_sid: _Optional[int] = ..., sms_task_sid: _Optional[int] = ..., is_toll_free: _Optional[str] = ..., is_time_zone: _Optional[str] = ..., provider_name: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., client_sid: _Optional[int] = ..., simple_sms_mam_meta_data: _Optional[_Iterable[_Union[SimpleSmsMamKeyValue, _Mapping]]] = ..., dst_country_code: _Optional[int] = ...) -> None: ...
 
 class SimpleSmsMamKeyValue(_message.Message):
-    __slots__ = ("key", "value")
+    __slots__ = ()
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     key: str

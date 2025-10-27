@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AccessTokensExpiringEvent(_message.Message):
-    __slots__ = ("org_id", "report")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     REPORT_FIELD_NUMBER: _ClassVar[int]
     org_id: str

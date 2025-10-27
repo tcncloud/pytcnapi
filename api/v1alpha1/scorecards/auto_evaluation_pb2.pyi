@@ -9,21 +9,21 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetAutoEvaluationRequest(_message.Message):
-    __slots__ = ("auto_evaluation_id",)
+    __slots__ = ()
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation_id: int
     def __init__(self, auto_evaluation_id: _Optional[int] = ...) -> None: ...
 
 class GetAutoEvaluationResponse(_message.Message):
-    __slots__ = ("auto_evaluation",)
+    __slots__ = ()
     AUTO_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation: _scorecards_pb2.AutoEvaluation
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
 
 class ListAutoEvaluationsRequest(_message.Message):
-    __slots__ = ("scorecard_ids", "completed_at", "category_ids", "call_sid", "agent_user_ids", "page_size", "order_by", "page_token", "risk_levels", "channel_types")
+    __slots__ = ()
     class CallSidFilter(_message.Message):
-        __slots__ = ("any_of", "eq", "gte", "lte", "gt", "lt")
+        __slots__ = ()
         ANY_OF_FIELD_NUMBER: _ClassVar[int]
         EQ_FIELD_NUMBER: _ClassVar[int]
         GTE_FIELD_NUMBER: _ClassVar[int]
@@ -60,7 +60,7 @@ class ListAutoEvaluationsRequest(_message.Message):
     def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., call_sid: _Optional[_Union[ListAutoEvaluationsRequest.CallSidFilter, _Mapping]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., risk_levels: _Optional[_Iterable[_Union[_scorecards_pb2.RiskLevel, str]]] = ..., channel_types: _Optional[_Iterable[_Union[_omnichannel_pb2.ChannelType, str]]] = ...) -> None: ...
 
 class ListAutoEvaluationsResponse(_message.Message):
-    __slots__ = ("auto_evaluations", "next_page_token")
+    __slots__ = ()
     AUTO_EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     auto_evaluations: _containers.RepeatedCompositeFieldContainer[_scorecards_pb2.AutoEvaluation]
@@ -68,19 +68,19 @@ class ListAutoEvaluationsResponse(_message.Message):
     def __init__(self, auto_evaluations: _Optional[_Iterable[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
 
 class DeleteAutoEvaluationRequest(_message.Message):
-    __slots__ = ("auto_evaluation_id",)
+    __slots__ = ()
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation_id: int
     def __init__(self, auto_evaluation_id: _Optional[int] = ...) -> None: ...
 
 class DeleteAutoEvaluationResponse(_message.Message):
-    __slots__ = ("auto_evaluation",)
+    __slots__ = ()
     AUTO_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation: _scorecards_pb2.AutoEvaluation
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
 
 class StreamAutoEvaluationsRequest(_message.Message):
-    __slots__ = ("scorecard_ids", "completed_at")
+    __slots__ = ()
     SCORECARD_IDS_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
     scorecard_ids: _containers.RepeatedScalarFieldContainer[int]
@@ -88,15 +88,15 @@ class StreamAutoEvaluationsRequest(_message.Message):
     def __init__(self, scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ...) -> None: ...
 
 class StreamAutoEvaluationsResponse(_message.Message):
-    __slots__ = ("auto_evaluation",)
+    __slots__ = ()
     AUTO_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     auto_evaluation: _scorecards_pb2.AutoEvaluation
     def __init__(self, auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
 
 class ListAutoEvaluationsByOrgIdRequest(_message.Message):
-    __slots__ = ("org_id", "scorecard_ids", "completed_at", "category_ids", "call_sid", "agent_user_ids", "page_size", "order_by", "page_token", "risk_levels")
+    __slots__ = ()
     class CallSidFilter(_message.Message):
-        __slots__ = ("any_of", "eq", "gte", "lte", "gt", "lt")
+        __slots__ = ()
         ANY_OF_FIELD_NUMBER: _ClassVar[int]
         EQ_FIELD_NUMBER: _ClassVar[int]
         GTE_FIELD_NUMBER: _ClassVar[int]
@@ -133,7 +133,7 @@ class ListAutoEvaluationsByOrgIdRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., category_ids: _Optional[_Iterable[int]] = ..., call_sid: _Optional[_Union[ListAutoEvaluationsByOrgIdRequest.CallSidFilter, _Mapping]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., risk_levels: _Optional[_Iterable[_Union[_scorecards_pb2.RiskLevel, str]]] = ...) -> None: ...
 
 class DeleteAutoEvaluationByOrgIdRequest(_message.Message):
-    __slots__ = ("org_id", "auto_evaluation_id")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
@@ -141,7 +141,7 @@ class DeleteAutoEvaluationByOrgIdRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_id: _Optional[int] = ...) -> None: ...
 
 class BulkDeleteAutoEvaluationsRequest(_message.Message):
-    __slots__ = ("org_id", "auto_evaluation_ids", "completed_at", "scorecard_ids", "category_ids", "agent_user_ids", "risk_levels")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTO_EVALUATION_IDS_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -159,7 +159,7 @@ class BulkDeleteAutoEvaluationsRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., auto_evaluation_ids: _Optional[_Iterable[int]] = ..., completed_at: _Optional[_Union[_scorecards_pb2.TimeFilter, _Mapping]] = ..., scorecard_ids: _Optional[_Iterable[int]] = ..., category_ids: _Optional[_Iterable[int]] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., risk_levels: _Optional[_Iterable[_Union[_scorecards_pb2.RiskLevel, str]]] = ...) -> None: ...
 
 class BulkDeleteAutoEvaluationsResponse(_message.Message):
-    __slots__ = ("count",)
+    __slots__ = ()
     COUNT_FIELD_NUMBER: _ClassVar[int]
     count: int
     def __init__(self, count: _Optional[int] = ...) -> None: ...

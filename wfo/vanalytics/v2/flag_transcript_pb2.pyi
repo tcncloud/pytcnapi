@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateFlagTranscriptRequest(_message.Message):
-    __slots__ = ("transcript_sids", "flag")
+    __slots__ = ()
     TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
     FLAG_FIELD_NUMBER: _ClassVar[int]
     transcript_sids: _containers.RepeatedScalarFieldContainer[int]

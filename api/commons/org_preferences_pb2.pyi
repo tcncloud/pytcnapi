@@ -135,13 +135,13 @@ OPERATOR_LANGUAGE_DIRECTION_LEFT_TO_RIGHT: OperatorLanguageDirection
 OPERATOR_LANGUAGE_DIRECTION_RIGHT_TO_LEFT: OperatorLanguageDirection
 
 class OperatorDisplayLanguage(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: str
     def __init__(self, value: _Optional[str] = ...) -> None: ...
 
 class LocalePreferences(_message.Message):
-    __slots__ = ("language_tag", "use_script_direction_right_to_left", "default_currency", "operator_display_language", "operator_language_direction")
+    __slots__ = ()
     LANGUAGE_TAG_FIELD_NUMBER: _ClassVar[int]
     USE_SCRIPT_DIRECTION_RIGHT_TO_LEFT_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_CURRENCY_FIELD_NUMBER: _ClassVar[int]
@@ -152,4 +152,4 @@ class LocalePreferences(_message.Message):
     default_currency: str
     operator_display_language: OperatorDisplayLanguage
     operator_language_direction: OperatorLanguageDirection
-    def __init__(self, language_tag: _Optional[str] = ..., use_script_direction_right_to_left: bool = ..., default_currency: _Optional[str] = ..., operator_display_language: _Optional[_Union[OperatorDisplayLanguage, _Mapping]] = ..., operator_language_direction: _Optional[_Union[OperatorLanguageDirection, str]] = ...) -> None: ...
+    def __init__(self, language_tag: _Optional[str] = ..., use_script_direction_right_to_left: _Optional[bool] = ..., default_currency: _Optional[str] = ..., operator_display_language: _Optional[_Union[OperatorDisplayLanguage, _Mapping]] = ..., operator_language_direction: _Optional[_Union[OperatorLanguageDirection, str]] = ...) -> None: ...

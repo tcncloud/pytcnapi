@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import org_pb2 as _org_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -9,9 +11,9 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Organization(_message.Message):
-    __slots__ = ("org_id", "enabled_regions", "region_id", "billing_id", "client_sid", "name", "add_date", "is_manual_only_account", "backoffice_theme", "archived", "crm_id", "time_zone", "callbacks_service_id", "p3_owner_id")
+    __slots__ = ()
     class EnabledRegionsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -45,12 +47,12 @@ class Organization(_message.Message):
     time_zone: _org_pb2.TimeZone
     callbacks_service_id: str
     p3_owner_id: str
-    def __init__(self, org_id: _Optional[str] = ..., enabled_regions: _Optional[_Mapping[str, int]] = ..., region_id: _Optional[str] = ..., billing_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., name: _Optional[str] = ..., add_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_manual_only_account: bool = ..., backoffice_theme: _Optional[_Union[_org_pb2.ClientSkin, str]] = ..., archived: bool = ..., crm_id: _Optional[str] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., callbacks_service_id: _Optional[str] = ..., p3_owner_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., enabled_regions: _Optional[_Mapping[str, int]] = ..., region_id: _Optional[str] = ..., billing_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., name: _Optional[str] = ..., add_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., is_manual_only_account: _Optional[bool] = ..., backoffice_theme: _Optional[_Union[_org_pb2.ClientSkin, str]] = ..., archived: _Optional[bool] = ..., crm_id: _Optional[str] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., callbacks_service_id: _Optional[str] = ..., p3_owner_id: _Optional[str] = ...) -> None: ...
 
 class OrganizationDetails(_message.Message):
-    __slots__ = ("organization", "last_scheduled_date")
+    __slots__ = ()
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     LAST_SCHEDULED_DATE_FIELD_NUMBER: _ClassVar[int]
     organization: Organization
     last_scheduled_date: _timestamp_pb2.Timestamp
-    def __init__(self, organization: _Optional[_Union[Organization, _Mapping]] = ..., last_scheduled_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, organization: _Optional[_Union[Organization, _Mapping]] = ..., last_scheduled_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

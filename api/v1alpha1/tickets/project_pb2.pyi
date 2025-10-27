@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class EnableProjectReq(_message.Message):
-    __slots__ = ("project_sid", "project_code", "project_title", "is_active")
+    __slots__ = ()
     PROJECT_SID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_CODE_FIELD_NUMBER: _ClassVar[int]
     PROJECT_TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -18,26 +18,26 @@ class EnableProjectReq(_message.Message):
     project_code: str
     project_title: str
     is_active: bool
-    def __init__(self, project_sid: _Optional[int] = ..., project_code: _Optional[str] = ..., project_title: _Optional[str] = ..., is_active: bool = ...) -> None: ...
+    def __init__(self, project_sid: _Optional[int] = ..., project_code: _Optional[str] = ..., project_title: _Optional[str] = ..., is_active: _Optional[bool] = ...) -> None: ...
 
 class EnableProjectRes(_message.Message):
-    __slots__ = ("success",)
+    __slots__ = ()
     SUCCESS_FIELD_NUMBER: _ClassVar[int]
     success: bool
-    def __init__(self, success: bool = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ...) -> None: ...
 
 class ListEnabledProjectsReq(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class ListEnabledProjectsRes(_message.Message):
-    __slots__ = ("projects",)
+    __slots__ = ()
     PROJECTS_FIELD_NUMBER: _ClassVar[int]
     projects: _containers.RepeatedCompositeFieldContainer[_tickets_pb2.TicketProject]
     def __init__(self, projects: _Optional[_Iterable[_Union[_tickets_pb2.TicketProject, _Mapping]]] = ...) -> None: ...
 
 class ListTicketAuditLogReq(_message.Message):
-    __slots__ = ("ticket_sid", "ticket_code")
+    __slots__ = ()
     TICKET_SID_FIELD_NUMBER: _ClassVar[int]
     TICKET_CODE_FIELD_NUMBER: _ClassVar[int]
     ticket_sid: int
@@ -45,7 +45,7 @@ class ListTicketAuditLogReq(_message.Message):
     def __init__(self, ticket_sid: _Optional[int] = ..., ticket_code: _Optional[str] = ...) -> None: ...
 
 class ListTicketAuditLogRes(_message.Message):
-    __slots__ = ("events",)
+    __slots__ = ()
     EVENTS_FIELD_NUMBER: _ClassVar[int]
     events: _containers.RepeatedCompositeFieldContainer[_audit_pb2.AuditEvent]
     def __init__(self, events: _Optional[_Iterable[_Union[_audit_pb2.AuditEvent, _Mapping]]] = ...) -> None: ...

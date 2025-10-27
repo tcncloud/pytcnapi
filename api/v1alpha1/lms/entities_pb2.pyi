@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FileTemplateV2(_message.Message):
-    __slots__ = ("legacy_template", "dock_template")
+    __slots__ = ()
     LEGACY_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     DOCK_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     legacy_template: _lms_pb2.FileTemplate
@@ -16,13 +16,13 @@ class FileTemplateV2(_message.Message):
     def __init__(self, legacy_template: _Optional[_Union[_lms_pb2.FileTemplate, _Mapping]] = ..., dock_template: _Optional[_Union[FileTemplate, _Mapping]] = ...) -> None: ...
 
 class FileTemplates(_message.Message):
-    __slots__ = ("templates",)
+    __slots__ = ()
     TEMPLATES_FIELD_NUMBER: _ClassVar[int]
     templates: _containers.RepeatedCompositeFieldContainer[FileTemplateV2]
     def __init__(self, templates: _Optional[_Iterable[_Union[FileTemplateV2, _Mapping]]] = ...) -> None: ...
 
 class FileTemplate(_message.Message):
-    __slots__ = ("org_id", "file_template_id", "filename", "fields", "parse_opts", "foid")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FILE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
@@ -38,7 +38,7 @@ class FileTemplate(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., file_template_id: _Optional[int] = ..., filename: _Optional[str] = ..., fields: _Optional[_Iterable[_Union[Field, _Mapping]]] = ..., parse_opts: _Optional[_Union[ParseOpts, _Mapping]] = ..., foid: _Optional[int] = ...) -> None: ...
 
 class Field(_message.Message):
-    __slots__ = ("syntax_type", "presi_type", "name", "format", "raw_value")
+    __slots__ = ()
     SYNTAX_TYPE_FIELD_NUMBER: _ClassVar[int]
     PRESI_TYPE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -52,7 +52,7 @@ class Field(_message.Message):
     def __init__(self, syntax_type: _Optional[str] = ..., presi_type: _Optional[str] = ..., name: _Optional[str] = ..., format: _Optional[str] = ..., raw_value: _Optional[str] = ...) -> None: ...
 
 class ParseOpts(_message.Message):
-    __slots__ = ("csv", "json", "jsonl", "fixed", "parquet")
+    __slots__ = ()
     CSV_FIELD_NUMBER: _ClassVar[int]
     JSON_FIELD_NUMBER: _ClassVar[int]
     JSONL_FIELD_NUMBER: _ClassVar[int]
@@ -66,7 +66,7 @@ class ParseOpts(_message.Message):
     def __init__(self, csv: _Optional[_Union[OptsCsv, _Mapping]] = ..., json: _Optional[_Union[OptsJson, _Mapping]] = ..., jsonl: _Optional[_Union[OptsJsonL, _Mapping]] = ..., fixed: _Optional[_Union[OptsFixed, _Mapping]] = ..., parquet: _Optional[_Union[OptsParquet, _Mapping]] = ...) -> None: ...
 
 class OptsCsv(_message.Message):
-    __slots__ = ("has_header", "skip_rows", "header", "separator")
+    __slots__ = ()
     HAS_HEADER_FIELD_NUMBER: _ClassVar[int]
     SKIP_ROWS_FIELD_NUMBER: _ClassVar[int]
     HEADER_FIELD_NUMBER: _ClassVar[int]
@@ -75,10 +75,10 @@ class OptsCsv(_message.Message):
     skip_rows: int
     header: _containers.RepeatedScalarFieldContainer[str]
     separator: str
-    def __init__(self, has_header: bool = ..., skip_rows: _Optional[int] = ..., header: _Optional[_Iterable[str]] = ..., separator: _Optional[str] = ...) -> None: ...
+    def __init__(self, has_header: _Optional[bool] = ..., skip_rows: _Optional[int] = ..., header: _Optional[_Iterable[str]] = ..., separator: _Optional[str] = ...) -> None: ...
 
 class OptsJson(_message.Message):
-    __slots__ = ("records_root",)
+    __slots__ = ()
     RECORDS_ROOT_FIELD_NUMBER: _ClassVar[int]
     records_root: str
     def __init__(self, records_root: _Optional[str] = ...) -> None: ...
@@ -88,9 +88,9 @@ class OptsJsonL(_message.Message):
     def __init__(self) -> None: ...
 
 class OptsFixed(_message.Message):
-    __slots__ = ("has_header", "header")
+    __slots__ = ()
     class Field(_message.Message):
-        __slots__ = ("starting_position", "field_length")
+        __slots__ = ()
         STARTING_POSITION_FIELD_NUMBER: _ClassVar[int]
         FIELD_LENGTH_FIELD_NUMBER: _ClassVar[int]
         starting_position: int
@@ -100,14 +100,14 @@ class OptsFixed(_message.Message):
     HEADER_FIELD_NUMBER: _ClassVar[int]
     has_header: bool
     header: _containers.RepeatedCompositeFieldContainer[OptsFixed.Field]
-    def __init__(self, has_header: bool = ..., header: _Optional[_Iterable[_Union[OptsFixed.Field, _Mapping]]] = ...) -> None: ...
+    def __init__(self, has_header: _Optional[bool] = ..., header: _Optional[_Iterable[_Union[OptsFixed.Field, _Mapping]]] = ...) -> None: ...
 
 class OptsParquet(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class NewTemplate(_message.Message):
-    __slots__ = ("org_id", "filename", "data")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
     DATA_FIELD_NUMBER: _ClassVar[int]
@@ -117,7 +117,7 @@ class NewTemplate(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., filename: _Optional[str] = ..., data: _Optional[bytes] = ...) -> None: ...
 
 class ExistingTemplate(_message.Message):
-    __slots__ = ("file_template_id", "parse_opts")
+    __slots__ = ()
     FILE_TEMPLATE_ID_FIELD_NUMBER: _ClassVar[int]
     PARSE_OPTS_FIELD_NUMBER: _ClassVar[int]
     file_template_id: int

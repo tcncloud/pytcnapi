@@ -8,17 +8,17 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AddRoomMemberRequest(_message.Message):
-    __slots__ = ("room_id", "user_id", "admin")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ADMIN_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     user_id: str
     admin: bool
-    def __init__(self, room_id: _Optional[str] = ..., user_id: _Optional[str] = ..., admin: bool = ...) -> None: ...
+    def __init__(self, room_id: _Optional[str] = ..., user_id: _Optional[str] = ..., admin: _Optional[bool] = ...) -> None: ...
 
 class RemoveRoomMemberRequest(_message.Message):
-    __slots__ = ("user_id", "room_id")
+    __slots__ = ()
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
@@ -30,19 +30,19 @@ class RemoveRoomMemberResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class ListRoomMembersRequest(_message.Message):
-    __slots__ = ("room_id",)
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     def __init__(self, room_id: _Optional[str] = ...) -> None: ...
 
 class ListRoomMembersResponse(_message.Message):
-    __slots__ = ("members",)
+    __slots__ = ()
     MEMBERS_FIELD_NUMBER: _ClassVar[int]
     members: _containers.RepeatedCompositeFieldContainer[_room303_pb2.Member]
     def __init__(self, members: _Optional[_Iterable[_Union[_room303_pb2.Member, _Mapping]]] = ...) -> None: ...
 
 class SetAdminForRoomMemberRequest(_message.Message):
-    __slots__ = ("room_id", "user_id")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
@@ -54,13 +54,13 @@ class SetAdminForRoomMemberResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class JoinRoomRequest(_message.Message):
-    __slots__ = ("room_id",)
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     def __init__(self, room_id: _Optional[str] = ...) -> None: ...
 
 class GetRoomMemberRequest(_message.Message):
-    __slots__ = ("room_id", "user_id")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str

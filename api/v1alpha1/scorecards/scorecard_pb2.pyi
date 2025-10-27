@@ -10,19 +10,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateScorecardRequest(_message.Message):
-    __slots__ = ("scorecard",)
+    __slots__ = ()
     SCORECARD_FIELD_NUMBER: _ClassVar[int]
     scorecard: _scorecards_pb2.Scorecard
     def __init__(self, scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class CreateScorecardResponse(_message.Message):
-    __slots__ = ("scorecard",)
+    __slots__ = ()
     SCORECARD_FIELD_NUMBER: _ClassVar[int]
     scorecard: _scorecards_pb2.Scorecard
     def __init__(self, scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class ListScorecardsRequest(_message.Message):
-    __slots__ = ("author_ids", "category_ids", "states", "evaluation_types", "call_types")
+    __slots__ = ()
     AUTHOR_IDS_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]
     STATES_FIELD_NUMBER: _ClassVar[int]
@@ -36,13 +36,13 @@ class ListScorecardsRequest(_message.Message):
     def __init__(self, author_ids: _Optional[_Iterable[str]] = ..., category_ids: _Optional[_Iterable[int]] = ..., states: _Optional[_Iterable[_Union[_scorecards_pb2.ScorecardState, str]]] = ..., evaluation_types: _Optional[_Iterable[_Union[_scorecards_pb2.EvaluationType, str]]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ...) -> None: ...
 
 class ListScorecardsResponse(_message.Message):
-    __slots__ = ("scorecards",)
+    __slots__ = ()
     SCORECARDS_FIELD_NUMBER: _ClassVar[int]
     scorecards: _containers.RepeatedCompositeFieldContainer[_scorecards_pb2.Scorecard]
     def __init__(self, scorecards: _Optional[_Iterable[_Union[_scorecards_pb2.Scorecard, _Mapping]]] = ...) -> None: ...
 
 class UpdateScorecardRequest(_message.Message):
-    __slots__ = ("scorecard", "update_mask")
+    __slots__ = ()
     SCORECARD_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     scorecard: _scorecards_pb2.Scorecard
@@ -50,39 +50,39 @@ class UpdateScorecardRequest(_message.Message):
     def __init__(self, scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateScorecardResponse(_message.Message):
-    __slots__ = ("scorecard",)
+    __slots__ = ()
     SCORECARD_FIELD_NUMBER: _ClassVar[int]
     scorecard: _scorecards_pb2.Scorecard
     def __init__(self, scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class DeleteScorecardRequest(_message.Message):
-    __slots__ = ("scorecard_id",)
+    __slots__ = ()
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     scorecard_id: int
     def __init__(self, scorecard_id: _Optional[int] = ...) -> None: ...
 
 class DeleteScorecardResponse(_message.Message):
-    __slots__ = ("scorecard",)
+    __slots__ = ()
     SCORECARD_FIELD_NUMBER: _ClassVar[int]
     scorecard: _scorecards_pb2.Scorecard
     def __init__(self, scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class GetScorecardRequest(_message.Message):
-    __slots__ = ("scorecard_id", "use_default")
+    __slots__ = ()
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     USE_DEFAULT_FIELD_NUMBER: _ClassVar[int]
     scorecard_id: int
     use_default: bool
-    def __init__(self, scorecard_id: _Optional[int] = ..., use_default: bool = ...) -> None: ...
+    def __init__(self, scorecard_id: _Optional[int] = ..., use_default: _Optional[bool] = ...) -> None: ...
 
 class GetScorecardResponse(_message.Message):
-    __slots__ = ("scorecard",)
+    __slots__ = ()
     SCORECARD_FIELD_NUMBER: _ClassVar[int]
     scorecard: _scorecards_pb2.Scorecard
     def __init__(self, scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class ListScorecardsByOrgIdRequest(_message.Message):
-    __slots__ = ("org_id", "author_ids", "category_ids", "states", "evaluation_types", "call_types")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHOR_IDS_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_IDS_FIELD_NUMBER: _ClassVar[int]

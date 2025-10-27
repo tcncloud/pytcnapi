@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import containers as _containers
@@ -21,7 +23,7 @@ IDLE: StatusState
 CONVERSATION_OPEN: StatusState
 
 class AsmSession(_message.Message):
-    __slots__ = ("asm_session_sid", "asm_session_start", "asm_session_end", "voice_session")
+    __slots__ = ()
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_START_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_END_FIELD_NUMBER: _ClassVar[int]
@@ -30,20 +32,20 @@ class AsmSession(_message.Message):
     asm_session_start: _timestamp_pb2.Timestamp
     asm_session_end: _timestamp_pb2.Timestamp
     voice_session: VoiceSession
-    def __init__(self, asm_session_sid: _Optional[int] = ..., asm_session_start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., asm_session_end: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., voice_session: _Optional[_Union[VoiceSession, _Mapping]] = ...) -> None: ...
+    def __init__(self, asm_session_sid: _Optional[int] = ..., asm_session_start: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., asm_session_end: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., voice_session: _Optional[_Union[VoiceSession, _Mapping]] = ...) -> None: ...
 
 class VoiceSession(_message.Message):
-    __slots__ = ("voice_session_sid", "voice_session_start", "voice_session_end")
+    __slots__ = ()
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     VOICE_SESSION_START_FIELD_NUMBER: _ClassVar[int]
     VOICE_SESSION_END_FIELD_NUMBER: _ClassVar[int]
     voice_session_sid: int
     voice_session_start: _timestamp_pb2.Timestamp
     voice_session_end: _timestamp_pb2.Timestamp
-    def __init__(self, voice_session_sid: _Optional[int] = ..., voice_session_start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., voice_session_end: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, voice_session_sid: _Optional[int] = ..., voice_session_start: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., voice_session_end: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class VoiceRegistration(_message.Message):
-    __slots__ = ("username", "password", "dial_url", "pstn_phone", "default_time_zone", "expiration_timestamp")
+    __slots__ = ()
     USERNAME_FIELD_NUMBER: _ClassVar[int]
     PASSWORD_FIELD_NUMBER: _ClassVar[int]
     DIAL_URL_FIELD_NUMBER: _ClassVar[int]
@@ -59,9 +61,9 @@ class VoiceRegistration(_message.Message):
     def __init__(self, username: _Optional[str] = ..., password: _Optional[str] = ..., dial_url: _Optional[str] = ..., pstn_phone: _Optional[str] = ..., default_time_zone: _Optional[str] = ..., expiration_timestamp: _Optional[int] = ...) -> None: ...
 
 class AsmUserDetails(_message.Message):
-    __slots__ = ("user_id", "name", "agent_sid", "agent_status", "agent_profile_group_name", "current_conversation_sid", "average_customer_wait_time_seconds", "average_time_to_respond_seconds", "last_event_time", "skills", "asm_session_sid", "events", "login_time")
+    __slots__ = ()
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -93,14 +95,14 @@ class AsmUserDetails(_message.Message):
     asm_session_sid: _wrappers_pb2.Int64Value
     events: _containers.RepeatedCompositeFieldContainer[DashboardAgentResponseEvent]
     login_time: _timestamp_pb2.Timestamp
-    def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ..., agent_sid: _Optional[int] = ..., agent_status: _Optional[_Union[StatusState, str]] = ..., agent_profile_group_name: _Optional[str] = ..., current_conversation_sid: _Optional[int] = ..., average_customer_wait_time_seconds: _Optional[int] = ..., average_time_to_respond_seconds: _Optional[int] = ..., last_event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Mapping[str, int]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., events: _Optional[_Iterable[_Union[DashboardAgentResponseEvent, _Mapping]]] = ..., login_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ..., agent_sid: _Optional[int] = ..., agent_status: _Optional[_Union[StatusState, str]] = ..., agent_profile_group_name: _Optional[str] = ..., current_conversation_sid: _Optional[int] = ..., average_customer_wait_time_seconds: _Optional[int] = ..., average_time_to_respond_seconds: _Optional[int] = ..., last_event_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Mapping[str, int]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., events: _Optional[_Iterable[_Union[DashboardAgentResponseEvent, _Mapping]]] = ..., login_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class DashboardAgentResponseEvent(_message.Message):
-    __slots__ = ("response_time_seconds", "time", "is_initial_agent_message")
+    __slots__ = ()
     RESPONSE_TIME_SECONDS_FIELD_NUMBER: _ClassVar[int]
     TIME_FIELD_NUMBER: _ClassVar[int]
     IS_INITIAL_AGENT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     response_time_seconds: int
     time: _timestamp_pb2.Timestamp
     is_initial_agent_message: bool
-    def __init__(self, response_time_seconds: _Optional[int] = ..., time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_initial_agent_message: bool = ...) -> None: ...
+    def __init__(self, response_time_seconds: _Optional[int] = ..., time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., is_initial_agent_message: _Optional[bool] = ...) -> None: ...

@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -8,7 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeliveryFailureEvent(_message.Message):
-    __slots__ = ("delivery_definition_name", "org_id", "transaction_sid", "attachment_names", "failure_time", "failure_error_message", "definition", "original_payload")
+    __slots__ = ()
     DELIVERY_DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     TRANSACTION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -25,10 +27,10 @@ class DeliveryFailureEvent(_message.Message):
     failure_error_message: str
     definition: str
     original_payload: str
-    def __init__(self, delivery_definition_name: _Optional[int] = ..., org_id: _Optional[str] = ..., transaction_sid: _Optional[int] = ..., attachment_names: _Optional[_Iterable[str]] = ..., failure_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., failure_error_message: _Optional[str] = ..., definition: _Optional[str] = ..., original_payload: _Optional[str] = ...) -> None: ...
+    def __init__(self, delivery_definition_name: _Optional[int] = ..., org_id: _Optional[str] = ..., transaction_sid: _Optional[int] = ..., attachment_names: _Optional[_Iterable[str]] = ..., failure_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., failure_error_message: _Optional[str] = ..., definition: _Optional[str] = ..., original_payload: _Optional[str] = ...) -> None: ...
 
 class DeliverySuccessEvent(_message.Message):
-    __slots__ = ("delivery_definition_name", "org_id", "transaction_sid", "attachment_names", "success_time", "success_message")
+    __slots__ = ()
     DELIVERY_DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     TRANSACTION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -41,4 +43,4 @@ class DeliverySuccessEvent(_message.Message):
     attachment_names: _containers.RepeatedScalarFieldContainer[str]
     success_time: _timestamp_pb2.Timestamp
     success_message: str
-    def __init__(self, delivery_definition_name: _Optional[str] = ..., org_id: _Optional[str] = ..., transaction_sid: _Optional[int] = ..., attachment_names: _Optional[_Iterable[str]] = ..., success_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., success_message: _Optional[str] = ...) -> None: ...
+    def __init__(self, delivery_definition_name: _Optional[str] = ..., org_id: _Optional[str] = ..., transaction_sid: _Optional[int] = ..., attachment_names: _Optional[_Iterable[str]] = ..., success_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., success_message: _Optional[str] = ...) -> None: ...

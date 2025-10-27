@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class BasicConfig(_message.Message):
-    __slots__ = ("rate", "rate_decimal")
+    __slots__ = ()
     RATE_FIELD_NUMBER: _ClassVar[int]
     RATE_DECIMAL_FIELD_NUMBER: _ClassVar[int]
     rate: float
@@ -16,7 +16,7 @@ class BasicConfig(_message.Message):
     def __init__(self, rate: _Optional[float] = ..., rate_decimal: _Optional[_Union[_decimal_pb2.Decimal, _Mapping]] = ...) -> None: ...
 
 class BasicUnitConfig(_message.Message):
-    __slots__ = ("unit_size", "rate", "min_units", "max_units", "min_units_per_cycle", "max_units_per_cycle", "rate_decimal")
+    __slots__ = ()
     UNIT_SIZE_FIELD_NUMBER: _ClassVar[int]
     RATE_FIELD_NUMBER: _ClassVar[int]
     MIN_UNITS_FIELD_NUMBER: _ClassVar[int]

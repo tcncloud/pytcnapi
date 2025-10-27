@@ -1,3 +1,5 @@
+import datetime
+
 from annotations import authz_pb2 as _authz_pb2
 from api.commons.billing import detail_pb2 as _detail_pb2
 from api.commons.billing import invoice_pb2 as _invoice_pb2
@@ -22,19 +24,19 @@ INVOICE_FORMAT_PROTO: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class GetBillingPlanReq(_message.Message):
-    __slots__ = ("org_id",)
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class GetBillingPlanRes(_message.Message):
-    __slots__ = ("billing_plan",)
+    __slots__ = ()
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
     billing_plan: _detail_pb2.Plan
     def __init__(self, billing_plan: _Optional[_Union[_detail_pb2.Plan, _Mapping]] = ...) -> None: ...
 
 class UpdateBillingPlanReq(_message.Message):
-    __slots__ = ("billing_details", "org_id")
+    __slots__ = ()
     BILLING_DETAILS_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     billing_details: _containers.RepeatedCompositeFieldContainer[_detail_pb2.Detail]
@@ -42,13 +44,13 @@ class UpdateBillingPlanReq(_message.Message):
     def __init__(self, billing_details: _Optional[_Iterable[_Union[_detail_pb2.Detail, _Mapping]]] = ..., org_id: _Optional[str] = ...) -> None: ...
 
 class UpdateBillingPlanRes(_message.Message):
-    __slots__ = ("billing_plan",)
+    __slots__ = ()
     BILLING_PLAN_FIELD_NUMBER: _ClassVar[int]
     billing_plan: _detail_pb2.Plan
     def __init__(self, billing_plan: _Optional[_Union[_detail_pb2.Plan, _Mapping]] = ...) -> None: ...
 
 class GetInvoiceReq(_message.Message):
-    __slots__ = ("invoice_date", "org_id", "format", "invoice_format")
+    __slots__ = ()
     INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -57,10 +59,10 @@ class GetInvoiceReq(_message.Message):
     org_id: str
     format: InvoiceFormat
     invoice_format: _invoice_pb2.InvoiceFormat
-    def __init__(self, invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_format: _Optional[_Union[_invoice_pb2.InvoiceFormat, str]] = ...) -> None: ...
+    def __init__(self, invoice_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_format: _Optional[_Union[_invoice_pb2.InvoiceFormat, str]] = ...) -> None: ...
 
 class GetInvoiceRes(_message.Message):
-    __slots__ = ("invoice", "proto", "csv_url", "invoice_proto", "invoice_csv_url", "billing_cycle")
+    __slots__ = ()
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     PROTO_FIELD_NUMBER: _ClassVar[int]
     CSV_URL_FIELD_NUMBER: _ClassVar[int]
@@ -76,7 +78,7 @@ class GetInvoiceRes(_message.Message):
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., csv_url: _Optional[str] = ..., invoice_proto: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ..., invoice_csv_url: _Optional[str] = ..., billing_cycle: _Optional[str] = ...) -> None: ...
 
 class ExportGeneratedInvoiceReq(_message.Message):
-    __slots__ = ("invoice_date", "org_id", "format", "invoice_format")
+    __slots__ = ()
     INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -85,10 +87,10 @@ class ExportGeneratedInvoiceReq(_message.Message):
     org_id: str
     format: InvoiceFormat
     invoice_format: _invoice_pb2.InvoiceFormat
-    def __init__(self, invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_format: _Optional[_Union[_invoice_pb2.InvoiceFormat, str]] = ...) -> None: ...
+    def __init__(self, invoice_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., org_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_format: _Optional[_Union[_invoice_pb2.InvoiceFormat, str]] = ...) -> None: ...
 
 class ExportGeneratedInvoiceRes(_message.Message):
-    __slots__ = ("proto", "csv_url", "invoice_proto", "invoice_csv_url", "billing_cycle")
+    __slots__ = ()
     PROTO_FIELD_NUMBER: _ClassVar[int]
     CSV_URL_FIELD_NUMBER: _ClassVar[int]
     INVOICE_PROTO_FIELD_NUMBER: _ClassVar[int]

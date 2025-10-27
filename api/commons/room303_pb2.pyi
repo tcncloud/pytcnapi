@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -47,7 +49,7 @@ ROOM303_MEMBER: ConfigPermissionEnum
 ROOM303_SUPERVISOR: ConfigPermissionEnum
 
 class UserSid(_message.Message):
-    __slots__ = ("user_id", "full_name", "display_name")
+    __slots__ = ()
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     FULL_NAME_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -57,7 +59,7 @@ class UserSid(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., full_name: _Optional[str] = ..., display_name: _Optional[str] = ...) -> None: ...
 
 class Member(_message.Message):
-    __slots__ = ("user_sid", "added_by", "added_at", "room_id", "admin")
+    __slots__ = ()
     USER_SID_FIELD_NUMBER: _ClassVar[int]
     ADDED_BY_FIELD_NUMBER: _ClassVar[int]
     ADDED_AT_FIELD_NUMBER: _ClassVar[int]
@@ -68,10 +70,10 @@ class Member(_message.Message):
     added_at: _timestamp_pb2.Timestamp
     room_id: str
     admin: bool
-    def __init__(self, user_sid: _Optional[_Union[UserSid, _Mapping]] = ..., added_by: _Optional[_Union[UserSid, _Mapping]] = ..., added_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., room_id: _Optional[str] = ..., admin: bool = ...) -> None: ...
+    def __init__(self, user_sid: _Optional[_Union[UserSid, _Mapping]] = ..., added_by: _Optional[_Union[UserSid, _Mapping]] = ..., added_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., room_id: _Optional[str] = ..., admin: _Optional[bool] = ...) -> None: ...
 
 class Room(_message.Message):
-    __slots__ = ("org_id", "room_id", "type", "created_at", "updated_at", "status", "id", "display_name", "config", "permission_group_id")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -92,10 +94,10 @@ class Room(_message.Message):
     display_name: str
     config: RoomConfig
     permission_group_id: _wrappers_pb2.StringValue
-    def __init__(self, org_id: _Optional[str] = ..., room_id: _Optional[str] = ..., type: _Optional[_Union[RoomType, str]] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[RoomStatus, str]] = ..., id: _Optional[str] = ..., display_name: _Optional[str] = ..., config: _Optional[_Union[RoomConfig, _Mapping]] = ..., permission_group_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., room_id: _Optional[str] = ..., type: _Optional[_Union[RoomType, str]] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., status: _Optional[_Union[RoomStatus, str]] = ..., id: _Optional[str] = ..., display_name: _Optional[str] = ..., config: _Optional[_Union[RoomConfig, _Mapping]] = ..., permission_group_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class Message(_message.Message):
-    __slots__ = ("org_id", "message_id", "room_id", "from_user", "status", "received_at", "updated_at", "payload", "unread", "nonce")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -116,10 +118,10 @@ class Message(_message.Message):
     payload: str
     unread: bool
     nonce: str
-    def __init__(self, org_id: _Optional[str] = ..., message_id: _Optional[str] = ..., room_id: _Optional[str] = ..., from_user: _Optional[_Union[UserSid, _Mapping]] = ..., status: _Optional[_Union[MessageStatus, str]] = ..., received_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., payload: _Optional[str] = ..., unread: bool = ..., nonce: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., message_id: _Optional[str] = ..., room_id: _Optional[str] = ..., from_user: _Optional[_Union[UserSid, _Mapping]] = ..., status: _Optional[_Union[MessageStatus, str]] = ..., received_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., updated_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., payload: _Optional[str] = ..., unread: _Optional[bool] = ..., nonce: _Optional[str] = ...) -> None: ...
 
 class MessageStat(_message.Message):
-    __slots__ = ("room_id", "unread_messages")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     UNREAD_MESSAGES_FIELD_NUMBER: _ClassVar[int]
     room_id: str
@@ -127,7 +129,7 @@ class MessageStat(_message.Message):
     def __init__(self, room_id: _Optional[str] = ..., unread_messages: _Optional[int] = ...) -> None: ...
 
 class GlobalConfig(_message.Message):
-    __slots__ = ("create_room", "join_existing_room", "send_message_to_supervisor", "send_message_to_non_supervisor")
+    __slots__ = ()
     CREATE_ROOM_FIELD_NUMBER: _ClassVar[int]
     JOIN_EXISTING_ROOM_FIELD_NUMBER: _ClassVar[int]
     SEND_MESSAGE_TO_SUPERVISOR_FIELD_NUMBER: _ClassVar[int]
@@ -139,7 +141,7 @@ class GlobalConfig(_message.Message):
     def __init__(self, create_room: _Optional[_Union[ConfigPermissionEnum, str]] = ..., join_existing_room: _Optional[_Union[ConfigPermissionEnum, str]] = ..., send_message_to_supervisor: _Optional[_Union[ConfigPermissionEnum, str]] = ..., send_message_to_non_supervisor: _Optional[_Union[ConfigPermissionEnum, str]] = ...) -> None: ...
 
 class RoomConfig(_message.Message):
-    __slots__ = ("add_user", "remove_user", "promote_to_admin", "read_messages", "send_message", "archive_room")
+    __slots__ = ()
     ADD_USER_FIELD_NUMBER: _ClassVar[int]
     REMOVE_USER_FIELD_NUMBER: _ClassVar[int]
     PROMOTE_TO_ADMIN_FIELD_NUMBER: _ClassVar[int]

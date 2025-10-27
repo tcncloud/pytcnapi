@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -107,7 +109,7 @@ DTMFDigit_STAR: DTMFDigit
 DTMFDigit_POUND: DTMFDigit
 
 class AgentSession(_message.Message):
-    __slots__ = ("agent_sid", "tenant_sid", "session_sid", "asm_session_sid", "org_id", "region_id", "user_id")
+    __slots__ = ()
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     TENANT_SID_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -125,7 +127,7 @@ class AgentSession(_message.Message):
     def __init__(self, agent_sid: _Optional[int] = ..., tenant_sid: _Optional[int] = ..., session_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class CallerSid(_message.Message):
-    __slots__ = ("caller_sid", "type", "tenant_sid", "org_id")
+    __slots__ = ()
     CALLER_SID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     TENANT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -761,7 +763,7 @@ class ReplaceConfig(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferMember(_message.Message):
-    __slots__ = ("identifier", "display_label", "member_type", "phone_number", "is_muted", "agent_session", "caller_sid", "outbound_id")
+    __slots__ = ()
     IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_LABEL_FIELD_NUMBER: _ClassVar[int]
     MEMBER_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -778,10 +780,10 @@ class TransferMember(_message.Message):
     agent_session: AgentSession
     caller_sid: CallerSid
     outbound_id: str
-    def __init__(self, identifier: _Optional[str] = ..., display_label: _Optional[str] = ..., member_type: _Optional[_Union[TransferMemberType, str]] = ..., phone_number: _Optional[str] = ..., is_muted: bool = ..., agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., outbound_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, identifier: _Optional[str] = ..., display_label: _Optional[str] = ..., member_type: _Optional[_Union[TransferMemberType, str]] = ..., phone_number: _Optional[str] = ..., is_muted: _Optional[bool] = ..., agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., outbound_id: _Optional[str] = ...) -> None: ...
 
 class AgentAlert(_message.Message):
-    __slots__ = ("backoffice_message", "directed_call_ringing", "directed_call_hangup")
+    __slots__ = ()
     BACKOFFICE_MESSAGE_FIELD_NUMBER: _ClassVar[int]
     DIRECTED_CALL_RINGING_FIELD_NUMBER: _ClassVar[int]
     DIRECTED_CALL_HANGUP_FIELD_NUMBER: _ClassVar[int]
@@ -791,7 +793,7 @@ class AgentAlert(_message.Message):
     def __init__(self, backoffice_message: _Optional[_Union[AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[AgentDirectedCallHangupAlert, _Mapping]] = ...) -> None: ...
 
 class AgentBackofficeMessageAlert(_message.Message):
-    __slots__ = ("expire_duration", "timestamp", "target_agent_session", "message", "id")
+    __slots__ = ()
     EXPIRE_DURATION_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     TARGET_AGENT_SESSION_FIELD_NUMBER: _ClassVar[int]
@@ -802,10 +804,10 @@ class AgentBackofficeMessageAlert(_message.Message):
     target_agent_session: AgentSession
     message: str
     id: str
-    def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., message: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
+    def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., message: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class AgentDirectedCallRingingAlert(_message.Message):
-    __slots__ = ("expire_duration", "timestamp", "target_agent_session", "caller_sid", "caller_id", "destination_number", "id")
+    __slots__ = ()
     EXPIRE_DURATION_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     TARGET_AGENT_SESSION_FIELD_NUMBER: _ClassVar[int]
@@ -820,10 +822,10 @@ class AgentDirectedCallRingingAlert(_message.Message):
     caller_id: str
     destination_number: str
     id: str
-    def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., caller_id: _Optional[str] = ..., destination_number: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
+    def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., caller_id: _Optional[str] = ..., destination_number: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class AgentDirectedCallHangupAlert(_message.Message):
-    __slots__ = ("expire_duration", "timestamp", "target_agent_session", "caller_sid", "id")
+    __slots__ = ()
     EXPIRE_DURATION_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     TARGET_AGENT_SESSION_FIELD_NUMBER: _ClassVar[int]
@@ -834,10 +836,10 @@ class AgentDirectedCallHangupAlert(_message.Message):
     target_agent_session: AgentSession
     caller_sid: CallerSid
     id: str
-    def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., id: _Optional[str] = ...) -> None: ...
+    def __init__(self, expire_duration: _Optional[int] = ..., timestamp: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., target_agent_session: _Optional[_Union[AgentSession, _Mapping]] = ..., caller_sid: _Optional[_Union[CallerSid, _Mapping]] = ..., id: _Optional[str] = ...) -> None: ...
 
 class AgentState(_message.Message):
-    __slots__ = ("status", "status_desc", "paused", "queue", "current_session_id", "last_status_change", "monitoring", "calls_count", "last_sip_code", "agent_peer_is_lost_call", "disabled", "caller_was_suspended", "transfer_members", "agent_peer_is_direct_to_agent", "user_id", "agent_sid", "asm_session_sid", "agent_is_muted", "uuid")
+    __slots__ = ()
     STATUS_FIELD_NUMBER: _ClassVar[int]
     STATUS_DESC_FIELD_NUMBER: _ClassVar[int]
     PAUSED_FIELD_NUMBER: _ClassVar[int]
@@ -876,4 +878,4 @@ class AgentState(_message.Message):
     asm_session_sid: int
     agent_is_muted: bool
     uuid: str
-    def __init__(self, status: _Optional[int] = ..., status_desc: _Optional[_Union[AgentStatus.Enum, str]] = ..., paused: bool = ..., queue: _Optional[str] = ..., current_session_id: _Optional[int] = ..., last_status_change: _Optional[int] = ..., monitoring: bool = ..., calls_count: _Optional[int] = ..., last_sip_code: _Optional[int] = ..., agent_peer_is_lost_call: bool = ..., disabled: bool = ..., caller_was_suspended: bool = ..., transfer_members: _Optional[_Iterable[_Union[TransferMember, _Mapping]]] = ..., agent_peer_is_direct_to_agent: bool = ..., user_id: _Optional[str] = ..., agent_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., agent_is_muted: bool = ..., uuid: _Optional[str] = ...) -> None: ...
+    def __init__(self, status: _Optional[int] = ..., status_desc: _Optional[_Union[AgentStatus.Enum, str]] = ..., paused: _Optional[bool] = ..., queue: _Optional[str] = ..., current_session_id: _Optional[int] = ..., last_status_change: _Optional[int] = ..., monitoring: _Optional[bool] = ..., calls_count: _Optional[int] = ..., last_sip_code: _Optional[int] = ..., agent_peer_is_lost_call: _Optional[bool] = ..., disabled: _Optional[bool] = ..., caller_was_suspended: _Optional[bool] = ..., transfer_members: _Optional[_Iterable[_Union[TransferMember, _Mapping]]] = ..., agent_peer_is_direct_to_agent: _Optional[bool] = ..., user_id: _Optional[str] = ..., agent_sid: _Optional[int] = ..., asm_session_sid: _Optional[int] = ..., agent_is_muted: _Optional[bool] = ..., uuid: _Optional[str] = ...) -> None: ...

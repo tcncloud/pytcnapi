@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import vanalytics_pb2 as _vanalytics_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import descriptor as _descriptor
@@ -8,7 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Uint32Expr(_message.Message):
-    __slots__ = ("gt", "gte", "lt", "lte", "eq", "not_eq", "range")
+    __slots__ = ()
     GT_FIELD_NUMBER: _ClassVar[int]
     GTE_FIELD_NUMBER: _ClassVar[int]
     LT_FIELD_NUMBER: _ClassVar[int]
@@ -26,7 +28,7 @@ class Uint32Expr(_message.Message):
     def __init__(self, gt: _Optional[int] = ..., gte: _Optional[int] = ..., lt: _Optional[int] = ..., lte: _Optional[int] = ..., eq: _Optional[int] = ..., not_eq: _Optional[int] = ..., range: _Optional[_Union[Uint32Range, _Mapping]] = ...) -> None: ...
 
 class Uint32Range(_message.Message):
-    __slots__ = ("to", "include_from", "include_to")
+    __slots__ = ()
     FROM_FIELD_NUMBER: _ClassVar[int]
     TO_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_FROM_FIELD_NUMBER: _ClassVar[int]
@@ -34,10 +36,10 @@ class Uint32Range(_message.Message):
     to: int
     include_from: bool
     include_to: bool
-    def __init__(self, to: _Optional[int] = ..., include_from: bool = ..., include_to: bool = ..., **kwargs) -> None: ...
+    def __init__(self, to: _Optional[int] = ..., include_from: _Optional[bool] = ..., include_to: _Optional[bool] = ..., **kwargs) -> None: ...
 
 class TimestampExpr(_message.Message):
-    __slots__ = ("range", "moment")
+    __slots__ = ()
     RANGE_FIELD_NUMBER: _ClassVar[int]
     MOMENT_FIELD_NUMBER: _ClassVar[int]
     range: TimestampRange
@@ -45,7 +47,7 @@ class TimestampExpr(_message.Message):
     def __init__(self, range: _Optional[_Union[TimestampRange, _Mapping]] = ..., moment: _Optional[_Union[Moment, _Mapping]] = ...) -> None: ...
 
 class Moment(_message.Message):
-    __slots__ = ("time_zone", "interval")
+    __slots__ = ()
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     INTERVAL_FIELD_NUMBER: _ClassVar[int]
     time_zone: str
@@ -53,7 +55,7 @@ class Moment(_message.Message):
     def __init__(self, time_zone: _Optional[str] = ..., interval: _Optional[_Union[_vanalytics_pb2.Interval, str]] = ...) -> None: ...
 
 class TimestampRange(_message.Message):
-    __slots__ = ("to", "include_from", "include_to")
+    __slots__ = ()
     FROM_FIELD_NUMBER: _ClassVar[int]
     TO_FIELD_NUMBER: _ClassVar[int]
     INCLUDE_FROM_FIELD_NUMBER: _ClassVar[int]
@@ -61,4 +63,4 @@ class TimestampRange(_message.Message):
     to: _timestamp_pb2.Timestamp
     include_from: bool
     include_to: bool
-    def __init__(self, to: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., include_from: bool = ..., include_to: bool = ..., **kwargs) -> None: ...
+    def __init__(self, to: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., include_from: _Optional[bool] = ..., include_to: _Optional[bool] = ..., **kwargs) -> None: ...

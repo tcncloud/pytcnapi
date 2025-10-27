@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from services.billing.entities.v1alpha3 import invoice_pb2 as _invoice_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -16,15 +18,15 @@ INVOICE_FORMAT_UNSPECIFIED: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class ExportInvoiceRequest(_message.Message):
-    __slots__ = ("format", "invoice_date")
+    __slots__ = ()
     FORMAT_FIELD_NUMBER: _ClassVar[int]
     INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     format: InvoiceFormat
     invoice_date: _timestamp_pb2.Timestamp
-    def __init__(self, format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ExportInvoiceResponse(_message.Message):
-    __slots__ = ("invoice",)
+    __slots__ = ()
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     invoice: _invoice_pb2.Invoice
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ...) -> None: ...

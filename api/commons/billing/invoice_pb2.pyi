@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -45,7 +47,7 @@ INVOICE_FORMAT_PROTO: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class Invoice(_message.Message):
-    __slots__ = ("items", "invoice_id", "billing_cycle", "create_time", "update_time")
+    __slots__ = ()
     ITEMS_FIELD_NUMBER: _ClassVar[int]
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
@@ -56,10 +58,10 @@ class Invoice(_message.Message):
     billing_cycle: str
     create_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
-    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[int] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[int] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ("invoice_item_sid", "product", "amount", "date_created", "date_modified", "invoice_id")
+    __slots__ = ()
     INVOICE_ITEM_SID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     AMOUNT_FIELD_NUMBER: _ClassVar[int]
@@ -72,4 +74,4 @@ class InvoiceItem(_message.Message):
     date_created: _timestamp_pb2.Timestamp
     date_modified: _timestamp_pb2.Timestamp
     invoice_id: int
-    def __init__(self, invoice_item_sid: _Optional[int] = ..., product: _Optional[_Union[Product, str]] = ..., amount: _Optional[float] = ..., date_created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., invoice_id: _Optional[int] = ...) -> None: ...
+    def __init__(self, invoice_item_sid: _Optional[int] = ..., product: _Optional[_Union[Product, str]] = ..., amount: _Optional[float] = ..., date_created: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., date_modified: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., invoice_id: _Optional[int] = ...) -> None: ...

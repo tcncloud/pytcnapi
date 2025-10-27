@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import acd_pb2 as _acd_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import wrappers_pb2 as _wrappers_pb2
@@ -29,18 +31,18 @@ IDLE: StatusState
 CONVERSATION_OPEN: StatusState
 
 class DashboardAgentInfo(_message.Message):
-    __slots__ = ("user_id", "name", "user_name", "hunt_group_name", "partner_agent_id", "hunt_group_sid", "agent_sid", "user_caller_id", "first_name", "last_name", "created", "last_updated", "agent_profile_group_id", "agent_profile_group_name", "agent_status", "current_conversation_sid", "average_customer_wait_time_seconds", "average_time_to_respond_seconds", "average_conversation_duration_seconds", "login_time", "last_event_time", "events", "skills", "asm_session_sid")
+    __slots__ = ()
     class DashboardAgentResponseEvent(_message.Message):
-        __slots__ = ("response_time_seconds", "time", "is_initial_agent_message")
+        __slots__ = ()
         RESPONSE_TIME_SECONDS_FIELD_NUMBER: _ClassVar[int]
         TIME_FIELD_NUMBER: _ClassVar[int]
         IS_INITIAL_AGENT_MESSAGE_FIELD_NUMBER: _ClassVar[int]
         response_time_seconds: int
         time: _timestamp_pb2.Timestamp
         is_initial_agent_message: bool
-        def __init__(self, response_time_seconds: _Optional[int] = ..., time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., is_initial_agent_message: bool = ...) -> None: ...
+        def __init__(self, response_time_seconds: _Optional[int] = ..., time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., is_initial_agent_message: _Optional[bool] = ...) -> None: ...
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -94,10 +96,10 @@ class DashboardAgentInfo(_message.Message):
     events: _containers.RepeatedCompositeFieldContainer[DashboardAgentInfo.DashboardAgentResponseEvent]
     skills: _containers.ScalarMap[str, int]
     asm_session_sid: _wrappers_pb2.Int64Value
-    def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ..., user_name: _Optional[str] = ..., hunt_group_name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., user_caller_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_profile_group_id: _Optional[str] = ..., agent_profile_group_name: _Optional[str] = ..., agent_status: _Optional[_Union[StatusState, str]] = ..., current_conversation_sid: _Optional[int] = ..., average_customer_wait_time_seconds: _Optional[int] = ..., average_time_to_respond_seconds: _Optional[int] = ..., average_conversation_duration_seconds: _Optional[int] = ..., login_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., last_event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., events: _Optional[_Iterable[_Union[DashboardAgentInfo.DashboardAgentResponseEvent, _Mapping]]] = ..., skills: _Optional[_Mapping[str, int]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
+    def __init__(self, user_id: _Optional[str] = ..., name: _Optional[str] = ..., user_name: _Optional[str] = ..., hunt_group_name: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., hunt_group_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., user_caller_id: _Optional[str] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., agent_profile_group_id: _Optional[str] = ..., agent_profile_group_name: _Optional[str] = ..., agent_status: _Optional[_Union[StatusState, str]] = ..., current_conversation_sid: _Optional[int] = ..., average_customer_wait_time_seconds: _Optional[int] = ..., average_time_to_respond_seconds: _Optional[int] = ..., average_conversation_duration_seconds: _Optional[int] = ..., login_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_event_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., events: _Optional[_Iterable[_Union[DashboardAgentInfo.DashboardAgentResponseEvent, _Mapping]]] = ..., skills: _Optional[_Mapping[str, int]] = ..., asm_session_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class StreamAgentStateRes(_message.Message):
-    __slots__ = ("state", "heart_beat", "call_queue_add", "call_queue_remove")
+    __slots__ = ()
     STATE_FIELD_NUMBER: _ClassVar[int]
     HEART_BEAT_FIELD_NUMBER: _ClassVar[int]
     CALL_QUEUE_ADD_FIELD_NUMBER: _ClassVar[int]
@@ -109,7 +111,7 @@ class StreamAgentStateRes(_message.Message):
     def __init__(self, state: _Optional[_Union[_acd_pb2.AgentState, _Mapping]] = ..., heart_beat: _Optional[_Union[KeepAlive, _Mapping]] = ..., call_queue_add: _Optional[_Union[QueueCallAdd, _Mapping]] = ..., call_queue_remove: _Optional[_Union[QueueCallRemove, _Mapping]] = ...) -> None: ...
 
 class ManagerStreamAgentStateRes(_message.Message):
-    __slots__ = ("state", "heart_beat")
+    __slots__ = ()
     STATE_FIELD_NUMBER: _ClassVar[int]
     HEART_BEAT_FIELD_NUMBER: _ClassVar[int]
     state: _acd_pb2.AgentState
@@ -121,21 +123,21 @@ class KeepAlive(_message.Message):
     def __init__(self) -> None: ...
 
 class QueueCallAdd(_message.Message):
-    __slots__ = ("phone_number", "caller_id", "start_date", "hold_date", "formatted_skills", "agent_specific", "queued_notification_type", "caller_sid", "skills")
+    __slots__ = ()
     class FormattedSkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: str
         def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
     CALLER_ID_FIELD_NUMBER: _ClassVar[int]
     START_DATE_FIELD_NUMBER: _ClassVar[int]
@@ -154,10 +156,10 @@ class QueueCallAdd(_message.Message):
     queued_notification_type: _acd_pb2.QueuedNotificationType
     caller_sid: _acd_pb2.CallerSid
     skills: _containers.ScalarMap[str, bool]
-    def __init__(self, phone_number: _Optional[str] = ..., caller_id: _Optional[str] = ..., start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., hold_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., formatted_skills: _Optional[_Mapping[str, str]] = ..., agent_specific: bool = ..., queued_notification_type: _Optional[_Union[_acd_pb2.QueuedNotificationType, str]] = ..., caller_sid: _Optional[_Union[_acd_pb2.CallerSid, _Mapping]] = ..., skills: _Optional[_Mapping[str, bool]] = ...) -> None: ...
+    def __init__(self, phone_number: _Optional[str] = ..., caller_id: _Optional[str] = ..., start_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., hold_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., formatted_skills: _Optional[_Mapping[str, str]] = ..., agent_specific: _Optional[bool] = ..., queued_notification_type: _Optional[_Union[_acd_pb2.QueuedNotificationType, str]] = ..., caller_sid: _Optional[_Union[_acd_pb2.CallerSid, _Mapping]] = ..., skills: _Optional[_Mapping[str, bool]] = ...) -> None: ...
 
 class QueueCallRemove(_message.Message):
-    __slots__ = ("caller_sid",)
+    __slots__ = ()
     CALLER_SID_FIELD_NUMBER: _ClassVar[int]
     caller_sid: _acd_pb2.CallerSid
     def __init__(self, caller_sid: _Optional[_Union[_acd_pb2.CallerSid, _Mapping]] = ...) -> None: ...

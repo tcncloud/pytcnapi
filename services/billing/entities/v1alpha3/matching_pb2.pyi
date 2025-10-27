@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CountryCodePrefix(_message.Message):
-    __slots__ = ("country_code", "prefixes")
+    __slots__ = ()
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
     country_code: int

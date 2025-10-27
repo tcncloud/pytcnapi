@@ -1,3 +1,5 @@
+import datetime
+
 from annotations import authz_pb2 as _authz_pb2
 from google.api import annotations_pb2 as _annotations_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -33,7 +35,7 @@ WRAPUP: AgentState
 PREPARING_AFTER_IDLE: AgentState
 
 class FollowAgentReq(_message.Message):
-    __slots__ = ("user_id", "asm_session_sid")
+    __slots__ = ()
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
@@ -41,7 +43,7 @@ class FollowAgentReq(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., asm_session_sid: _Optional[int] = ...) -> None: ...
 
 class FollowAgentRes(_message.Message):
-    __slots__ = ("ts", "agent_state_change", "agent_voice_start", "agent_voice_end", "agent_session_end")
+    __slots__ = ()
     TS_FIELD_NUMBER: _ClassVar[int]
     AGENT_STATE_CHANGE_FIELD_NUMBER: _ClassVar[int]
     AGENT_VOICE_START_FIELD_NUMBER: _ClassVar[int]
@@ -52,10 +54,10 @@ class FollowAgentRes(_message.Message):
     agent_voice_start: AgentVoiceStartEvent
     agent_voice_end: AgentVoiceEndEvent
     agent_session_end: AgentSessionEndEvent
-    def __init__(self, ts: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_state_change: _Optional[_Union[AgentStateChangeEvent, _Mapping]] = ..., agent_voice_start: _Optional[_Union[AgentVoiceStartEvent, _Mapping]] = ..., agent_voice_end: _Optional[_Union[AgentVoiceEndEvent, _Mapping]] = ..., agent_session_end: _Optional[_Union[AgentSessionEndEvent, _Mapping]] = ...) -> None: ...
+    def __init__(self, ts: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., agent_state_change: _Optional[_Union[AgentStateChangeEvent, _Mapping]] = ..., agent_voice_start: _Optional[_Union[AgentVoiceStartEvent, _Mapping]] = ..., agent_voice_end: _Optional[_Union[AgentVoiceEndEvent, _Mapping]] = ..., agent_session_end: _Optional[_Union[AgentSessionEndEvent, _Mapping]] = ...) -> None: ...
 
 class AgentStateChangeEvent(_message.Message):
-    __slots__ = ("old_state", "new_state", "empty")
+    __slots__ = ()
     OLD_STATE_FIELD_NUMBER: _ClassVar[int]
     NEW_STATE_FIELD_NUMBER: _ClassVar[int]
     EMPTY_FIELD_NUMBER: _ClassVar[int]
@@ -69,7 +71,7 @@ class EmptyState(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentVoiceStartEvent(_message.Message):
-    __slots__ = ("sip_dial_url",)
+    __slots__ = ()
     SIP_DIAL_URL_FIELD_NUMBER: _ClassVar[int]
     sip_dial_url: str
     def __init__(self, sip_dial_url: _Optional[str] = ...) -> None: ...

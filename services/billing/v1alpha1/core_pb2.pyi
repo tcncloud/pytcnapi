@@ -13,7 +13,7 @@ ORDER_UNSPECIFIED: Order
 ORDER_DESC: Order
 
 class Page(_message.Message):
-    __slots__ = ("limit", "token")
+    __slots__ = ()
     LIMIT_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     limit: int
@@ -21,7 +21,7 @@ class Page(_message.Message):
     def __init__(self, limit: _Optional[int] = ..., token: _Optional[str] = ...) -> None: ...
 
 class Sort(_message.Message):
-    __slots__ = ("key", "direction")
+    __slots__ = ()
     KEY_FIELD_NUMBER: _ClassVar[int]
     DIRECTION_FIELD_NUMBER: _ClassVar[int]
     key: str

@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CommType(_message.Message):
-    __slots__ = ("call_type", "email_type", "sms_type", "whatsapp_type")
+    __slots__ = ()
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     EMAIL_TYPE_FIELD_NUMBER: _ClassVar[int]
     SMS_TYPE_FIELD_NUMBER: _ClassVar[int]

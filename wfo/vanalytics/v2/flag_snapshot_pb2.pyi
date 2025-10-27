@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from wfo.vanalytics.v2 import dncl_list_pb2 as _dncl_list_pb2
@@ -10,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListFlagSnapshotsRequest(_message.Message):
-    __slots__ = ("page_size", "order_by", "page_token", "flag_snapshot_sids", "mask", "transcript_sid")
+    __slots__ = ()
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -26,7 +28,7 @@ class ListFlagSnapshotsRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., flag_snapshot_sids: _Optional[_Iterable[int]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., transcript_sid: _Optional[int] = ...) -> None: ...
 
 class ListFlagSnapshotsResponse(_message.Message):
-    __slots__ = ("next_page_token", "flag_snapshots")
+    __slots__ = ()
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     FLAG_SNAPSHOTS_FIELD_NUMBER: _ClassVar[int]
     next_page_token: str
@@ -34,11 +36,11 @@ class ListFlagSnapshotsResponse(_message.Message):
     def __init__(self, next_page_token: _Optional[str] = ..., flag_snapshots: _Optional[_Iterable[_Union[FlagSnapshot, _Mapping]]] = ...) -> None: ...
 
 class FlagSnapshot(_message.Message):
-    __slots__ = ("flag_snapshot_sid", "flag_sid", "name", "review_group_id", "notify_group_id", "priority", "version", "create_time", "must_review", "must_notify", "bool_expr", "dncl_list")
+    __slots__ = ()
     class BoolExpr(_message.Message):
-        __slots__ = ("filter",)
+        __slots__ = ()
         class Filter(_message.Message):
-            __slots__ = ("filter_sid",)
+            __slots__ = ()
             FILTER_SID_FIELD_NUMBER: _ClassVar[int]
             filter_sid: int
             def __init__(self, filter_sid: _Optional[int] = ...) -> None: ...
@@ -72,4 +74,4 @@ class FlagSnapshot(_message.Message):
     must_notify: bool
     bool_expr: FlagSnapshot.BoolExpr
     dncl_list: _containers.RepeatedCompositeFieldContainer[_dncl_list_pb2.DnclList]
-    def __init__(self, flag_snapshot_sid: _Optional[int] = ..., flag_sid: _Optional[int] = ..., name: _Optional[str] = ..., review_group_id: _Optional[str] = ..., notify_group_id: _Optional[str] = ..., priority: _Optional[int] = ..., version: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., must_review: bool = ..., must_notify: bool = ..., bool_expr: _Optional[_Union[FlagSnapshot.BoolExpr, _Mapping]] = ..., dncl_list: _Optional[_Iterable[_Union[_dncl_list_pb2.DnclList, _Mapping]]] = ...) -> None: ...
+    def __init__(self, flag_snapshot_sid: _Optional[int] = ..., flag_sid: _Optional[int] = ..., name: _Optional[str] = ..., review_group_id: _Optional[str] = ..., notify_group_id: _Optional[str] = ..., priority: _Optional[int] = ..., version: _Optional[int] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., must_review: _Optional[bool] = ..., must_notify: _Optional[bool] = ..., bool_expr: _Optional[_Union[FlagSnapshot.BoolExpr, _Mapping]] = ..., dncl_list: _Optional[_Iterable[_Union[_dncl_list_pb2.DnclList, _Mapping]]] = ...) -> None: ...

@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CancelTasksRequest(_message.Message):
-    __slots__ = ("task_sid",)
+    __slots__ = ()
     TASK_SID_FIELD_NUMBER: _ClassVar[int]
     task_sid: _containers.RepeatedScalarFieldContainer[int]
     def __init__(self, task_sid: _Optional[_Iterable[int]] = ...) -> None: ...
@@ -18,13 +18,13 @@ class CancelTasksResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class BulkCancelTasksRequest(_message.Message):
-    __slots__ = ("filter",)
+    __slots__ = ()
     FILTER_FIELD_NUMBER: _ClassVar[int]
     filter: str
     def __init__(self, filter: _Optional[str] = ...) -> None: ...
 
 class BulkCancelTasksResponse(_message.Message):
-    __slots__ = ("ghost_reference_id",)
+    __slots__ = ()
     GHOST_REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     ghost_reference_id: str
     def __init__(self, ghost_reference_id: _Optional[str] = ...) -> None: ...

@@ -1,3 +1,5 @@
+import datetime
+
 from annotations import authz_pb2 as _authz_pb2
 from api.commons import acd_pb2 as _acd_pb2
 from google.api import annotations_pb2 as _annotations_pb2
@@ -11,31 +13,31 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class StreamAgentEventsRequest(_message.Message):
-    __slots__ = ("org_id",)
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class StreamAgentEventsResponse(_message.Message):
-    __slots__ = ("event",)
+    __slots__ = ()
     EVENT_FIELD_NUMBER: _ClassVar[int]
     event: _containers.RepeatedCompositeFieldContainer[AgentEvent]
     def __init__(self, event: _Optional[_Iterable[_Union[AgentEvent, _Mapping]]] = ...) -> None: ...
 
 class StreamCallerEventsRequest(_message.Message):
-    __slots__ = ("org_id",)
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class StreamCallerEventsResponse(_message.Message):
-    __slots__ = ("event",)
+    __slots__ = ()
     EVENT_FIELD_NUMBER: _ClassVar[int]
     event: _containers.RepeatedCompositeFieldContainer[CallerEvent]
     def __init__(self, event: _Optional[_Iterable[_Union[CallerEvent, _Mapping]]] = ...) -> None: ...
 
 class AgentEvent(_message.Message):
-    __slots__ = ("org_id", "client_sid", "agent_sid", "user_id", "event_time", "agent_first_name", "agent_last_name", "hunt_group_name", "event_data")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -54,10 +56,10 @@ class AgentEvent(_message.Message):
     agent_last_name: str
     hunt_group_name: str
     event_data: str
-    def __init__(self, org_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., user_id: _Optional[str] = ..., event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., agent_first_name: _Optional[str] = ..., agent_last_name: _Optional[str] = ..., hunt_group_name: _Optional[str] = ..., event_data: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., user_id: _Optional[str] = ..., event_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., agent_first_name: _Optional[str] = ..., agent_last_name: _Optional[str] = ..., hunt_group_name: _Optional[str] = ..., event_data: _Optional[str] = ...) -> None: ...
 
 class CallerEvent(_message.Message):
-    __slots__ = ("org_id", "client_sid", "caller_sid", "caller_type", "event_time", "event_data")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
     CALLER_SID_FIELD_NUMBER: _ClassVar[int]
@@ -70,4 +72,4 @@ class CallerEvent(_message.Message):
     caller_type: _acd_pb2.CallType.Enum
     event_time: _timestamp_pb2.Timestamp
     event_data: str
-    def __init__(self, org_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., caller_sid: _Optional[int] = ..., caller_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., event_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., event_data: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., caller_sid: _Optional[int] = ..., caller_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., event_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., event_data: _Optional[str] = ...) -> None: ...

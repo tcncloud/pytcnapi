@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import org_pb2 as _org_pb2
 from api.commons.org import preferences_pb2 as _preferences_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
@@ -15,25 +17,25 @@ class ListBusinessHoursRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_hours",)
+    __slots__ = ()
     BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
     business_hours: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.BusinessHours]
     def __init__(self, business_hours: _Optional[_Iterable[_Union[_preferences_pb2.BusinessHours, _Mapping]]] = ...) -> None: ...
 
 class GetBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class GetBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_hours",)
+    __slots__ = ()
     BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
     business_hours: _preferences_pb2.BusinessHours
     def __init__(self, business_hours: _Optional[_Union[_preferences_pb2.BusinessHours, _Mapping]] = ...) -> None: ...
 
 class SetBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_name", "description", "day_intervals", "timezone")
+    __slots__ = ()
     BUSINESS_HOURS_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     DAY_INTERVALS_FIELD_NUMBER: _ClassVar[int]
@@ -45,13 +47,13 @@ class SetBusinessHoursRequest(_message.Message):
     def __init__(self, business_hours_name: _Optional[str] = ..., description: _Optional[str] = ..., day_intervals: _Optional[_Iterable[_Union[_preferences_pb2.DayInterval, _Mapping]]] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ...) -> None: ...
 
 class SetBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class AddIntervalToBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id", "day_interval")
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     DAY_INTERVAL_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
@@ -63,7 +65,7 @@ class AddIntervalToBusinessHoursResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class RemoveIntervalFromBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id", "day_interval")
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     DAY_INTERVAL_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
@@ -75,7 +77,7 @@ class RemoveIntervalFromBusinessHoursResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateBusinessHoursInfoRequest(_message.Message):
-    __slots__ = ("business_hours_id", "business_hours_name", "description", "timezone", "field_mask")
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_HOURS_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -93,7 +95,7 @@ class UpdateBusinessHoursInfoResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
@@ -103,15 +105,15 @@ class DeleteBusinessHoursResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class EvaluateBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class EvaluateBusinessHoursResponse(_message.Message):
-    __slots__ = ("within_range", "result_expiration")
+    __slots__ = ()
     WITHIN_RANGE_FIELD_NUMBER: _ClassVar[int]
     RESULT_EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     within_range: bool
     result_expiration: _timestamp_pb2.Timestamp
-    def __init__(self, within_range: bool = ..., result_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, within_range: _Optional[bool] = ..., result_expiration: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

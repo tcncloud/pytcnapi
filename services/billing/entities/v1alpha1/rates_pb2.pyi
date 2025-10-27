@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons.audit import event_types_pb2 as _event_types_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from services.billing.entities.v1alpha1 import matching_pb2 as _matching_pb2
@@ -96,7 +98,7 @@ RATE_DEFINITION_CONFIG_TYPE_COMPLIANCE_RND_QUERY: RateDefinitionConfigType
 RATE_DEFINITION_CONFIG_TYPE_COMPLIANCE_RND_QUERY_CACHED: RateDefinitionConfigType
 
 class RateDefinition(_message.Message):
-    __slots__ = ("rate_definition_id", "rate_definition_feature_id", "rate_definition_group_id", "event_type", "config_type", "matching_rule", "matching_config", "config", "create_time", "update_time", "delete_time", "matching_sha")
+    __slots__ = ()
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     RATE_DEFINITION_FEATURE_ID_FIELD_NUMBER: _ClassVar[int]
     RATE_DEFINITION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
@@ -121,10 +123,10 @@ class RateDefinition(_message.Message):
     update_time: _timestamp_pb2.Timestamp
     delete_time: _timestamp_pb2.Timestamp
     matching_sha: str
-    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition_feature_id: _Optional[str] = ..., rate_definition_group_id: _Optional[str] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., config_type: _Optional[_Union[RateDefinitionConfigType, str]] = ..., matching_rule: _Optional[_Union[_matching_pb2.MatchingRule, str]] = ..., matching_config: _Optional[_Union[_matching_pb2.MatchingConfig, _Mapping]] = ..., config: _Optional[_Union[RateDefinitionConfig, _Mapping]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., matching_sha: _Optional[str] = ...) -> None: ...
+    def __init__(self, rate_definition_id: _Optional[str] = ..., rate_definition_feature_id: _Optional[str] = ..., rate_definition_group_id: _Optional[str] = ..., event_type: _Optional[_Union[_event_types_pb2.EventType, str]] = ..., config_type: _Optional[_Union[RateDefinitionConfigType, str]] = ..., matching_rule: _Optional[_Union[_matching_pb2.MatchingRule, str]] = ..., matching_config: _Optional[_Union[_matching_pb2.MatchingConfig, _Mapping]] = ..., config: _Optional[_Union[RateDefinitionConfig, _Mapping]] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., matching_sha: _Optional[str] = ...) -> None: ...
 
 class RateDefinitionConfig(_message.Message):
-    __slots__ = ("agent_seats_config", "agent_text_message_chat_config", "agent_text_message_email_message_config", "agent_text_message_email_size_config", "agent_text_message_sms_config", "task_message_sent_email_message_config", "task_message_sent_email_size_config", "task_message_sent_sms_config", "connected_inbox_poll_config", "manager_text_message_chat_config", "manager_text_message_email_message_config", "manager_text_message_email_size_config", "manager_text_message_sms_config", "customer_text_message_chat_config", "customer_text_message_email_message_config", "customer_text_message_email_size_config", "customer_text_message_sms_config", "agent_text_message_chat_size_config", "manager_text_message_chat_size_config", "customer_text_message_chat_size_config", "connected_inbox_created_config", "agent_text_message_sms_size_config", "manager_text_message_sms_size_config", "customer_text_message_sms_size_config", "task_message_sent_sms_size_config", "agent_chat_message_units_config", "agent_email_message_units_config", "agent_sms_message_units_config", "manager_chat_message_units_config", "manager_email_message_units_config", "manager_sms_message_units_config", "customer_chat_message_units_config", "customer_email_message_units_config", "customer_sms_message_units_config", "system_chat_message_units_config", "system_email_message_units_config", "system_sms_message_units_config", "compliance_rnd_query_config", "compliance_rnd_query_cached_config")
+    __slots__ = ()
     AGENT_SEATS_CONFIG_FIELD_NUMBER: _ClassVar[int]
     AGENT_TEXT_MESSAGE_CHAT_CONFIG_FIELD_NUMBER: _ClassVar[int]
     AGENT_TEXT_MESSAGE_EMAIL_MESSAGE_CONFIG_FIELD_NUMBER: _ClassVar[int]

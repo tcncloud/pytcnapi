@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from services.billing.entities.v1alpha1 import rates_pb2 as _rates_pb2
 from google.protobuf.internal import containers as _containers
@@ -19,17 +21,17 @@ BILLING_PLAN_STATUS_CREATING: BillingPlanStatus
 BILLING_PLAN_STATUS_CREATED: BillingPlanStatus
 
 class BillingPlanSnapshot(_message.Message):
-    __slots__ = ("start_date", "end_date", "rates")
+    __slots__ = ()
     START_DATE_FIELD_NUMBER: _ClassVar[int]
     END_DATE_FIELD_NUMBER: _ClassVar[int]
     RATES_FIELD_NUMBER: _ClassVar[int]
     start_date: _timestamp_pb2.Timestamp
     end_date: _timestamp_pb2.Timestamp
     rates: _containers.RepeatedCompositeFieldContainer[_rates_pb2.RateDefinition]
-    def __init__(self, start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., rates: _Optional[_Iterable[_Union[_rates_pb2.RateDefinition, _Mapping]]] = ...) -> None: ...
+    def __init__(self, start_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., rates: _Optional[_Iterable[_Union[_rates_pb2.RateDefinition, _Mapping]]] = ...) -> None: ...
 
 class BillingPlan(_message.Message):
-    __slots__ = ("billing_plan_id", "create_time", "update_time", "start_time", "end_time", "delete_time", "rate_definition_ids", "status", "actual_start_time")
+    __slots__ = ()
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -48,4 +50,4 @@ class BillingPlan(_message.Message):
     rate_definition_ids: _containers.RepeatedScalarFieldContainer[str]
     status: BillingPlanStatus
     actual_start_time: _timestamp_pb2.Timestamp
-    def __init__(self, billing_plan_id: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., rate_definition_ids: _Optional[_Iterable[str]] = ..., status: _Optional[_Union[BillingPlanStatus, str]] = ..., actual_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, billing_plan_id: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., rate_definition_ids: _Optional[_Iterable[str]] = ..., status: _Optional[_Union[BillingPlanStatus, str]] = ..., actual_start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

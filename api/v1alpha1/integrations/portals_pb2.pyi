@@ -13,7 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class UpsertPortalConfigReq(_message.Message):
-    __slots__ = ("entity", "mask")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalConfig
@@ -21,13 +21,13 @@ class UpsertPortalConfigReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalConfig, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpsertPortalConfigRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalConfigId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalConfigId, _Mapping]] = ...) -> None: ...
 
 class GetPortalConfigRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalConfig
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalConfig, _Mapping]] = ...) -> None: ...
@@ -37,7 +37,7 @@ class DeletePortalConfigRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListPortalConfigsRes(_message.Message):
-    __slots__ = ("entities", "next_page_token")
+    __slots__ = ()
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[_service_pb2.PortalConfig]
@@ -45,7 +45,7 @@ class ListPortalConfigsRes(_message.Message):
     def __init__(self, entities: _Optional[_Iterable[_Union[_service_pb2.PortalConfig, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
 
 class UpdatePortalConfigLogoReq(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalConfig
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalConfig, _Mapping]] = ...) -> None: ...
@@ -55,19 +55,19 @@ class UpdatePortalConfigLogoRes(_message.Message):
     def __init__(self) -> None: ...
 
 class GetPortalConfigLogoReq(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalConfigId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalConfigId, _Mapping]] = ...) -> None: ...
 
 class GetPortalConfigLogoRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: bytes
     def __init__(self, entity: _Optional[bytes] = ...) -> None: ...
 
 class UpsertPortalReq(_message.Message):
-    __slots__ = ("entity", "mask")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.Portal
@@ -75,13 +75,13 @@ class UpsertPortalReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.Portal, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpsertPortalRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalId, _Mapping]] = ...) -> None: ...
 
 class GetPortalReq(_message.Message):
-    __slots__ = ("entity", "mask")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalId
@@ -89,13 +89,13 @@ class GetPortalReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalId, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetPortalRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.Portal
     def __init__(self, entity: _Optional[_Union[_service_pb2.Portal, _Mapping]] = ...) -> None: ...
 
 class DeletePortalReq(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalId, _Mapping]] = ...) -> None: ...
@@ -105,7 +105,7 @@ class DeletePortalRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListPortalsReq(_message.Message):
-    __slots__ = ("entity", "mask", "page_size", "page", "ptypes")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
@@ -119,13 +119,13 @@ class ListPortalsReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalId, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., page_size: _Optional[int] = ..., page: _Optional[int] = ..., ptypes: _Optional[_Iterable[_Union[_service_pb2.PortalType, _Mapping]]] = ...) -> None: ...
 
 class ListPortalsRes(_message.Message):
-    __slots__ = ("entities",)
+    __slots__ = ()
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[_service_pb2.Portal]
     def __init__(self, entities: _Optional[_Iterable[_Union[_service_pb2.Portal, _Mapping]]] = ...) -> None: ...
 
 class ListDetailedPortalsReq(_message.Message):
-    __slots__ = ("entity", "portal_mask", "portal_config_mask", "plugin_instance_mask", "page_size", "page", "ptypes")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     PORTAL_MASK_FIELD_NUMBER: _ClassVar[int]
     PORTAL_CONFIG_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -143,9 +143,9 @@ class ListDetailedPortalsReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalId, _Mapping]] = ..., portal_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., portal_config_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., plugin_instance_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., page_size: _Optional[int] = ..., page: _Optional[int] = ..., ptypes: _Optional[_Iterable[_Union[_service_pb2.PortalType, _Mapping]]] = ...) -> None: ...
 
 class ListDetailedPortalsRes(_message.Message):
-    __slots__ = ("entities",)
+    __slots__ = ()
     class Entity(_message.Message):
-        __slots__ = ("portal", "portal_config", "plugin_instances")
+        __slots__ = ()
         PORTAL_FIELD_NUMBER: _ClassVar[int]
         PORTAL_CONFIG_FIELD_NUMBER: _ClassVar[int]
         PLUGIN_INSTANCES_FIELD_NUMBER: _ClassVar[int]
@@ -158,7 +158,7 @@ class ListDetailedPortalsRes(_message.Message):
     def __init__(self, entities: _Optional[_Iterable[_Union[ListDetailedPortalsRes.Entity, _Mapping]]] = ...) -> None: ...
 
 class GetDetailedPortalReq(_message.Message):
-    __slots__ = ("entity", "portal_mask", "portal_config_mask", "plugin_instance_mask")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     PORTAL_MASK_FIELD_NUMBER: _ClassVar[int]
     PORTAL_CONFIG_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -170,9 +170,9 @@ class GetDetailedPortalReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalId, _Mapping]] = ..., portal_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., portal_config_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., plugin_instance_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetDetailedPortalRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     class Entity(_message.Message):
-        __slots__ = ("portal", "portal_config", "plugin_instances")
+        __slots__ = ()
         PORTAL_FIELD_NUMBER: _ClassVar[int]
         PORTAL_CONFIG_FIELD_NUMBER: _ClassVar[int]
         PLUGIN_INSTANCES_FIELD_NUMBER: _ClassVar[int]
@@ -185,7 +185,7 @@ class GetDetailedPortalRes(_message.Message):
     def __init__(self, entity: _Optional[_Union[GetDetailedPortalRes.Entity, _Mapping]] = ...) -> None: ...
 
 class UpsertPluginInstanceReq(_message.Message):
-    __slots__ = ("entity", "mask")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PluginInstance
@@ -193,13 +193,13 @@ class UpsertPluginInstanceReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstance, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpsertPluginInstanceRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PluginInstanceId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstanceId, _Mapping]] = ...) -> None: ...
 
 class GetPluginInstanceReq(_message.Message):
-    __slots__ = ("entity", "mask")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PluginInstanceId
@@ -207,13 +207,13 @@ class GetPluginInstanceReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstanceId, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetPluginInstanceRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PluginInstance
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstance, _Mapping]] = ...) -> None: ...
 
 class DeletePluginInstanceReq(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PluginInstanceId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstanceId, _Mapping]] = ...) -> None: ...
@@ -223,7 +223,7 @@ class DeletePluginInstanceRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ClonePluginInstanceReq(_message.Message):
-    __slots__ = ("entity", "new_plugin_name")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     NEW_PLUGIN_NAME_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PluginInstanceId
@@ -231,13 +231,13 @@ class ClonePluginInstanceReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstanceId, _Mapping]] = ..., new_plugin_name: _Optional[str] = ...) -> None: ...
 
 class ClonePluginInstanceRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PluginInstanceId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstanceId, _Mapping]] = ...) -> None: ...
 
 class ListPluginInstanceReq(_message.Message):
-    __slots__ = ("entity", "mask", "page_size", "page")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
@@ -249,7 +249,7 @@ class ListPluginInstanceReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PluginInstance, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., page_size: _Optional[int] = ..., page: _Optional[int] = ...) -> None: ...
 
 class ListPluginInstanceRes(_message.Message):
-    __slots__ = ("entities",)
+    __slots__ = ()
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[_service_pb2.PluginInstance]
     def __init__(self, entities: _Optional[_Iterable[_Union[_service_pb2.PluginInstance, _Mapping]]] = ...) -> None: ...
@@ -263,7 +263,7 @@ class ListPluginsRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ListPortalLinksReq(_message.Message):
-    __slots__ = ("entity", "mask", "page_size", "page")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
@@ -275,13 +275,13 @@ class ListPortalLinksReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalLinkId, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., page_size: _Optional[int] = ..., page: _Optional[int] = ...) -> None: ...
 
 class ListPortalLinksRes(_message.Message):
-    __slots__ = ("entities",)
+    __slots__ = ()
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[_service_pb2.PortalLink]
     def __init__(self, entities: _Optional[_Iterable[_Union[_service_pb2.PortalLink, _Mapping]]] = ...) -> None: ...
 
 class GetPortalLinkReq(_message.Message):
-    __slots__ = ("entity", "mask")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     MASK_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalLinkId
@@ -289,13 +289,13 @@ class GetPortalLinkReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalLinkId, _Mapping]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetPortalLinkRes(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalLink
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalLink, _Mapping]] = ...) -> None: ...
 
 class DeletePortalLinkReq(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalLinkId
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalLinkId, _Mapping]] = ...) -> None: ...
@@ -305,7 +305,7 @@ class DeletePortalLinkRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CreatePortalLinksReq(_message.Message):
-    __slots__ = ("entity", "link_datas")
+    __slots__ = ()
     ENTITY_FIELD_NUMBER: _ClassVar[int]
     LINK_DATAS_FIELD_NUMBER: _ClassVar[int]
     entity: _service_pb2.PortalId
@@ -313,15 +313,15 @@ class CreatePortalLinksReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[_service_pb2.PortalId, _Mapping]] = ..., link_datas: _Optional[_Iterable[_Union[_service_pb2.Task, _Mapping]]] = ...) -> None: ...
 
 class CreatePortalLinksRes(_message.Message):
-    __slots__ = ("urls",)
+    __slots__ = ()
     URLS_FIELD_NUMBER: _ClassVar[int]
     urls: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, urls: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ListFlowFieldNamesReq(_message.Message):
-    __slots__ = ("entity",)
+    __slots__ = ()
     class Entity(_message.Message):
-        __slots__ = ("flow", "loc")
+        __slots__ = ()
         FLOW_FIELD_NUMBER: _ClassVar[int]
         LOC_FIELD_NUMBER: _ClassVar[int]
         flow: _integrations_pb2.Flow
@@ -332,31 +332,31 @@ class ListFlowFieldNamesReq(_message.Message):
     def __init__(self, entity: _Optional[_Union[ListFlowFieldNamesReq.Entity, _Mapping]] = ...) -> None: ...
 
 class ListFlowFieldNamesRes(_message.Message):
-    __slots__ = ("field_names",)
+    __slots__ = ()
     FIELD_NAMES_FIELD_NUMBER: _ClassVar[int]
     field_names: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, field_names: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ListAvailableVerificationFieldsReq(_message.Message):
-    __slots__ = ("verification",)
+    __slots__ = ()
     VERIFICATION_FIELD_NUMBER: _ClassVar[int]
     verification: _integrations_pb2.VerificationFlow
     def __init__(self, verification: _Optional[_Union[_integrations_pb2.VerificationFlow, _Mapping]] = ...) -> None: ...
 
 class ListAvailableVerificationFieldsRes(_message.Message):
-    __slots__ = ("verification_fields",)
+    __slots__ = ()
     VERIFICATION_FIELDS_FIELD_NUMBER: _ClassVar[int]
     verification_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
     def __init__(self, verification_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class ListAvailablePaymentFieldsReq(_message.Message):
-    __slots__ = ("payment",)
+    __slots__ = ()
     PAYMENT_FIELD_NUMBER: _ClassVar[int]
     payment: _integrations_pb2.PaymentFlow
     def __init__(self, payment: _Optional[_Union[_integrations_pb2.PaymentFlow, _Mapping]] = ...) -> None: ...
 
 class ListAvailablePaymentFieldsRes(_message.Message):
-    __slots__ = ("payment_fields",)
+    __slots__ = ()
     PAYMENT_FIELDS_FIELD_NUMBER: _ClassVar[int]
     payment_fields: _containers.RepeatedCompositeFieldContainer[_integrations_pb2.FieldDefinition]
     def __init__(self, payment_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
@@ -366,7 +366,7 @@ class ListPortalTypesReq(_message.Message):
     def __init__(self) -> None: ...
 
 class ListPortalTypesResponse(_message.Message):
-    __slots__ = ("values",)
+    __slots__ = ()
     VALUES_FIELD_NUMBER: _ClassVar[int]
     values: _containers.RepeatedCompositeFieldContainer[PortalDefinition]
     def __init__(self, values: _Optional[_Iterable[_Union[PortalDefinition, _Mapping]]] = ...) -> None: ...
@@ -376,13 +376,13 @@ class ListPortalWorkflowsReq(_message.Message):
     def __init__(self) -> None: ...
 
 class ListPortalWorkflowsResponse(_message.Message):
-    __slots__ = ("values",)
+    __slots__ = ()
     VALUES_FIELD_NUMBER: _ClassVar[int]
     values: _containers.RepeatedCompositeFieldContainer[WorkflowDefinition]
     def __init__(self, values: _Optional[_Iterable[_Union[WorkflowDefinition, _Mapping]]] = ...) -> None: ...
 
 class PortalDefinition(_message.Message):
-    __slots__ = ("definition_name", "workflow_requirements")
+    __slots__ = ()
     DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
     WORKFLOW_REQUIREMENTS_FIELD_NUMBER: _ClassVar[int]
     definition_name: str
@@ -390,7 +390,7 @@ class PortalDefinition(_message.Message):
     def __init__(self, definition_name: _Optional[str] = ..., workflow_requirements: _Optional[_Iterable[_Union[WorkflowRequirement, _Mapping]]] = ...) -> None: ...
 
 class WorkflowRequirement(_message.Message):
-    __slots__ = ("max_choices", "flow_type")
+    __slots__ = ()
     MAX_CHOICES_FIELD_NUMBER: _ClassVar[int]
     FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
     max_choices: int
@@ -402,13 +402,13 @@ class ListAllActionDefinitionsReq(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAllActionDefinitionsResponse(_message.Message):
-    __slots__ = ("values",)
+    __slots__ = ()
     VALUES_FIELD_NUMBER: _ClassVar[int]
     values: _containers.RepeatedCompositeFieldContainer[ActionDefinition]
     def __init__(self, values: _Optional[_Iterable[_Union[ActionDefinition, _Mapping]]] = ...) -> None: ...
 
 class WorkflowDefinition(_message.Message):
-    __slots__ = ("flow_type", "definition_name", "action_definitions")
+    __slots__ = ()
     FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
     DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
     ACTION_DEFINITIONS_FIELD_NUMBER: _ClassVar[int]
@@ -418,7 +418,7 @@ class WorkflowDefinition(_message.Message):
     def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., action_definitions: _Optional[_Iterable[_Union[ActionDefinition, _Mapping]]] = ...) -> None: ...
 
 class ActionDefinition(_message.Message):
-    __slots__ = ("flow_type", "definition_name", "method", "req_fields", "res_fields", "plugin_fields", "link_fields", "prev_fields", "form_fields", "template", "opts")
+    __slots__ = ()
     FLOW_TYPE_FIELD_NUMBER: _ClassVar[int]
     DEFINITION_NAME_FIELD_NUMBER: _ClassVar[int]
     METHOD_FIELD_NUMBER: _ClassVar[int]
@@ -444,13 +444,13 @@ class ActionDefinition(_message.Message):
     def __init__(self, flow_type: _Optional[_Union[_integrations_pb2.FlowType, str]] = ..., definition_name: _Optional[str] = ..., method: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ..., req_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., res_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., plugin_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., link_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., prev_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., form_fields: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ..., template: _Optional[_Union[_service_pb2.Template, _Mapping]] = ..., opts: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class ListPluginsByMethodReq(_message.Message):
-    __slots__ = ("method_id",)
+    __slots__ = ()
     METHOD_ID_FIELD_NUMBER: _ClassVar[int]
     method_id: _integrations_pb2.RequestMethod
     def __init__(self, method_id: _Optional[_Union[_integrations_pb2.RequestMethod, str]] = ...) -> None: ...
 
 class ListPluginsByMethodRes(_message.Message):
-    __slots__ = ("entities",)
+    __slots__ = ()
     ENTITIES_FIELD_NUMBER: _ClassVar[int]
     entities: _containers.RepeatedCompositeFieldContainer[_service_pb2.PluginInstance]
     def __init__(self, entities: _Optional[_Iterable[_Union[_service_pb2.PluginInstance, _Mapping]]] = ...) -> None: ...

@@ -7,13 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetUploadFileUrlReq(_message.Message):
-    __slots__ = ("prefix",)
+    __slots__ = ()
     PREFIX_FIELD_NUMBER: _ClassVar[int]
     prefix: str
     def __init__(self, prefix: _Optional[str] = ...) -> None: ...
 
 class GetUploadFileUrlRes(_message.Message):
-    __slots__ = ("url", "id")
+    __slots__ = ()
     URL_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     url: str

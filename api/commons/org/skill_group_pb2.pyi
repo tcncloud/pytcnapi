@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SkillGroup(_message.Message):
-    __slots__ = ("skill_group_id", "org_id", "name", "description", "skill_sets")
+    __slots__ = ()
     SKILL_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -21,7 +21,7 @@ class SkillGroup(_message.Message):
     def __init__(self, skill_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., skill_sets: _Optional[_Iterable[_Union[SkillSet, _Mapping]]] = ...) -> None: ...
 
 class SkillSet(_message.Message):
-    __slots__ = ("proficiency", "skill_sid")
+    __slots__ = ()
     PROFICIENCY_FIELD_NUMBER: _ClassVar[int]
     SKILL_SID_FIELD_NUMBER: _ClassVar[int]
     proficiency: int

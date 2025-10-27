@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class TicketEvent(_message.Message):
-    __slots__ = ("editticket", "created_by_id")
+    __slots__ = ()
     EDITTICKET_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     editticket: _tickets_pb2.EditTicket
@@ -15,7 +15,7 @@ class TicketEvent(_message.Message):
     def __init__(self, editticket: _Optional[_Union[_tickets_pb2.EditTicket, _Mapping]] = ..., created_by_id: _Optional[str] = ...) -> None: ...
 
 class TicketCustomFieldCreateEvent(_message.Message):
-    __slots__ = ("ticket_custom_field_audit_log", "created_by_id")
+    __slots__ = ()
     TICKET_CUSTOM_FIELD_AUDIT_LOG_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     ticket_custom_field_audit_log: _tickets_pb2.TicketCustomFieldAuditLog
@@ -23,7 +23,7 @@ class TicketCustomFieldCreateEvent(_message.Message):
     def __init__(self, ticket_custom_field_audit_log: _Optional[_Union[_tickets_pb2.TicketCustomFieldAuditLog, _Mapping]] = ..., created_by_id: _Optional[str] = ...) -> None: ...
 
 class TicketCustomFieldEditEvent(_message.Message):
-    __slots__ = ("ticket_custom_field_audit_log", "created_by_id")
+    __slots__ = ()
     TICKET_CUSTOM_FIELD_AUDIT_LOG_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     ticket_custom_field_audit_log: _tickets_pb2.TicketCustomFieldAuditLog

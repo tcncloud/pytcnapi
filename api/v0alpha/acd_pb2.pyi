@@ -12,15 +12,15 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AgentGetStatusRequest(_message.Message):
-    __slots__ = ("session_sid", "perform_keep_alive")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     PERFORM_KEEP_ALIVE_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     perform_keep_alive: bool
-    def __init__(self, session_sid: _Optional[int] = ..., perform_keep_alive: bool = ...) -> None: ...
+    def __init__(self, session_sid: _Optional[int] = ..., perform_keep_alive: _Optional[bool] = ...) -> None: ...
 
 class AgentGetStatusReply(_message.Message):
-    __slots__ = ("status", "status_desc", "paused", "queue", "current_session_id", "last_status_change", "monitoring", "calls_count", "last_sip_code", "agent_peer_is_lost_call", "disabled", "keep_alive_succeeded", "transfer_members", "agent_is_muted")
+    __slots__ = ()
     STATUS_FIELD_NUMBER: _ClassVar[int]
     STATUS_DESC_FIELD_NUMBER: _ClassVar[int]
     PAUSED_FIELD_NUMBER: _ClassVar[int]
@@ -49,10 +49,10 @@ class AgentGetStatusReply(_message.Message):
     keep_alive_succeeded: bool
     transfer_members: _containers.RepeatedCompositeFieldContainer[_acd_pb2.TransferMember]
     agent_is_muted: bool
-    def __init__(self, status: _Optional[int] = ..., status_desc: _Optional[_Union[_acd_pb2.AgentStatus.Enum, str]] = ..., paused: bool = ..., queue: _Optional[str] = ..., current_session_id: _Optional[int] = ..., last_status_change: _Optional[int] = ..., monitoring: bool = ..., calls_count: _Optional[int] = ..., last_sip_code: _Optional[int] = ..., agent_peer_is_lost_call: bool = ..., disabled: bool = ..., keep_alive_succeeded: bool = ..., transfer_members: _Optional[_Iterable[_Union[_acd_pb2.TransferMember, _Mapping]]] = ..., agent_is_muted: bool = ...) -> None: ...
+    def __init__(self, status: _Optional[int] = ..., status_desc: _Optional[_Union[_acd_pb2.AgentStatus.Enum, str]] = ..., paused: _Optional[bool] = ..., queue: _Optional[str] = ..., current_session_id: _Optional[int] = ..., last_status_change: _Optional[int] = ..., monitoring: _Optional[bool] = ..., calls_count: _Optional[int] = ..., last_sip_code: _Optional[int] = ..., agent_peer_is_lost_call: _Optional[bool] = ..., disabled: _Optional[bool] = ..., keep_alive_succeeded: _Optional[bool] = ..., transfer_members: _Optional[_Iterable[_Union[_acd_pb2.TransferMember, _Mapping]]] = ..., agent_is_muted: _Optional[bool] = ...) -> None: ...
 
 class AgentGetConnectedPartyRequest(_message.Message):
-    __slots__ = ("session_sid", "user_id")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -60,7 +60,7 @@ class AgentGetConnectedPartyRequest(_message.Message):
     def __init__(self, session_sid: _Optional[int] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class AgentGetConnectedPartyReply(_message.Message):
-    __slots__ = ("call_id", "call_type")
+    __slots__ = ()
     CALL_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     call_id: int
@@ -68,7 +68,7 @@ class AgentGetConnectedPartyReply(_message.Message):
     def __init__(self, call_id: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
 
 class ManagerAgentGetConnectedPartyRequest(_message.Message):
-    __slots__ = ("session_sid", "user_id")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -76,7 +76,7 @@ class ManagerAgentGetConnectedPartyRequest(_message.Message):
     def __init__(self, session_sid: _Optional[int] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class ManagerAgentGetConnectedPartyReply(_message.Message):
-    __slots__ = ("call_id", "call_type")
+    __slots__ = ()
     CALL_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     call_id: int
@@ -84,7 +84,7 @@ class ManagerAgentGetConnectedPartyReply(_message.Message):
     def __init__(self, call_id: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
 
 class AgentIntercomRequest(_message.Message):
-    __slots__ = ("target_agent_id", "session_sid")
+    __slots__ = ()
     TARGET_AGENT_ID_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     target_agent_id: int
@@ -96,7 +96,7 @@ class AgentIntercomReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentIntercomAcceptRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -106,7 +106,7 @@ class AgentIntercomAcceptReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentIntercomRejectRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -116,7 +116,7 @@ class AgentIntercomRejectReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentIntercomCancelRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -126,7 +126,7 @@ class AgentIntercomCancelReply(_message.Message):
     def __init__(self) -> None: ...
 
 class DialManualPrepareRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -136,7 +136,7 @@ class DialManualPrepareReply(_message.Message):
     def __init__(self) -> None: ...
 
 class DialManualCancelRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -146,7 +146,7 @@ class DialManualCancelReply(_message.Message):
     def __init__(self) -> None: ...
 
 class DialPreviewPrepareRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -156,7 +156,7 @@ class DialPreviewPrepareReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentPauseRequest(_message.Message):
-    __slots__ = ("session_sid", "reason")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -168,7 +168,7 @@ class AgentPauseReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentSetReadyRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -178,7 +178,7 @@ class AgentSetReadyReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentGUIBusyRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -188,7 +188,7 @@ class AgentGUIBusyReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentDisconnectRequest(_message.Message):
-    __slots__ = ("reason", "session_sid")
+    __slots__ = ()
     REASON_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     reason: str
@@ -200,7 +200,7 @@ class AgentDisconnectReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentSessionEventReq(_message.Message):
-    __slots__ = ("agent_session_sid", "action_key", "action_value")
+    __slots__ = ()
     AGENT_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     ACTION_KEY_FIELD_NUMBER: _ClassVar[int]
     ACTION_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -214,14 +214,14 @@ class AgentSessionEventRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CallerRequeueRequest(_message.Message):
-    __slots__ = ("new_config_folder", "skills", "replace_skills", "replace_config", "session_sid", "voicemail_box")
+    __slots__ = ()
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     NEW_CONFIG_FOLDER_FIELD_NUMBER: _ClassVar[int]
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     REPLACE_SKILLS_FIELD_NUMBER: _ClassVar[int]
@@ -234,14 +234,14 @@ class CallerRequeueRequest(_message.Message):
     replace_config: _acd_pb2.ReplaceConfig.Enum
     session_sid: int
     voicemail_box: str
-    def __init__(self, new_config_folder: _Optional[str] = ..., skills: _Optional[_Mapping[str, bool]] = ..., replace_skills: bool = ..., replace_config: _Optional[_Union[_acd_pb2.ReplaceConfig.Enum, str]] = ..., session_sid: _Optional[int] = ..., voicemail_box: _Optional[str] = ...) -> None: ...
+    def __init__(self, new_config_folder: _Optional[str] = ..., skills: _Optional[_Mapping[str, bool]] = ..., replace_skills: _Optional[bool] = ..., replace_config: _Optional[_Union[_acd_pb2.ReplaceConfig.Enum, str]] = ..., session_sid: _Optional[int] = ..., voicemail_box: _Optional[str] = ...) -> None: ...
 
 class CallerRequeueReply(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class TransferWarmToAgentCancelRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -251,7 +251,7 @@ class TransferWarmToAgentCancelReply(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferWarmToOutboundCancelRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -261,7 +261,7 @@ class TransferWarmToOutboundCancelReply(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferWarmToAgentApproveRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -271,7 +271,7 @@ class TransferWarmToAgentApproveReply(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferWarmToOutboundApproveRequest(_message.Message):
-    __slots__ = ("session_sid", "member_identifiers")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_IDENTIFIERS_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -283,7 +283,7 @@ class TransferWarmToOutboundApproveReply(_message.Message):
     def __init__(self) -> None: ...
 
 class CallerSendToVoicemailRequest(_message.Message):
-    __slots__ = ("mailbox", "session_sid")
+    __slots__ = ()
     MAILBOX_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     mailbox: str
@@ -295,7 +295,7 @@ class CallerSendToVoicemailReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentInviteTransferCallerToConferenceRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -305,19 +305,19 @@ class AgentInviteTransferCallerToConferenceReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentMonitorCallsRequest(_message.Message):
-    __slots__ = ("monitor", "session_sid")
+    __slots__ = ()
     MONITOR_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     monitor: bool
     session_sid: int
-    def __init__(self, monitor: bool = ..., session_sid: _Optional[int] = ...) -> None: ...
+    def __init__(self, monitor: _Optional[bool] = ..., session_sid: _Optional[int] = ...) -> None: ...
 
 class AgentMonitorCallsReply(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class TransferColdToOutboundRequest(_message.Message):
-    __slots__ = ("caller_id", "destination", "reserved_carriers", "session_sid")
+    __slots__ = ()
     CALLER_ID_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_FIELD_NUMBER: _ClassVar[int]
     RESERVED_CARRIERS_FIELD_NUMBER: _ClassVar[int]
@@ -333,7 +333,7 @@ class TransferColdToOutboundReply(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferColdToAgentRequest(_message.Message):
-    __slots__ = ("destination_agent_id", "session_sid")
+    __slots__ = ()
     DESTINATION_AGENT_ID_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     destination_agent_id: int
@@ -345,7 +345,7 @@ class TransferColdToAgentReply(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferWarmToOutboundStartRequest(_message.Message):
-    __slots__ = ("caller_id", "destination", "reserved_carriers", "caller_hold", "session_sid")
+    __slots__ = ()
     CALLER_ID_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_FIELD_NUMBER: _ClassVar[int]
     RESERVED_CARRIERS_FIELD_NUMBER: _ClassVar[int]
@@ -356,14 +356,14 @@ class TransferWarmToOutboundStartRequest(_message.Message):
     reserved_carriers: _containers.RepeatedScalarFieldContainer[str]
     caller_hold: bool
     session_sid: int
-    def __init__(self, caller_id: _Optional[str] = ..., destination: _Optional[str] = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., caller_hold: bool = ..., session_sid: _Optional[int] = ...) -> None: ...
+    def __init__(self, caller_id: _Optional[str] = ..., destination: _Optional[str] = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., caller_hold: _Optional[bool] = ..., session_sid: _Optional[int] = ...) -> None: ...
 
 class TransferWarmToOutboundStartReply(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class CreateWarmOutboundTransferMemberRequest(_message.Message):
-    __slots__ = ("caller_id", "destination", "reserved_carriers", "session_sid")
+    __slots__ = ()
     CALLER_ID_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_FIELD_NUMBER: _ClassVar[int]
     RESERVED_CARRIERS_FIELD_NUMBER: _ClassVar[int]
@@ -379,7 +379,7 @@ class CreateWarmOutboundTransferMemberReply(_message.Message):
     def __init__(self) -> None: ...
 
 class RemoveTransferMemberRequest(_message.Message):
-    __slots__ = ("member_identifier", "session_sid")
+    __slots__ = ()
     MEMBER_IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     member_identifier: str
@@ -391,14 +391,14 @@ class RemoveTransferMemberReply(_message.Message):
     def __init__(self) -> None: ...
 
 class TransferWarmToAgentStartRequest(_message.Message):
-    __slots__ = ("destination_agent_id", "caller_hold", "session_sid", "skills")
+    __slots__ = ()
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     DESTINATION_AGENT_ID_FIELD_NUMBER: _ClassVar[int]
     CALLER_HOLD_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -407,14 +407,14 @@ class TransferWarmToAgentStartRequest(_message.Message):
     caller_hold: bool
     session_sid: int
     skills: _containers.ScalarMap[str, bool]
-    def __init__(self, destination_agent_id: _Optional[int] = ..., caller_hold: bool = ..., session_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, bool]] = ...) -> None: ...
+    def __init__(self, destination_agent_id: _Optional[int] = ..., caller_hold: _Optional[bool] = ..., session_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, bool]] = ...) -> None: ...
 
 class TransferWarmToAgentStartReply(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class AgentGetCallFromHoldRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -424,7 +424,7 @@ class AgentGetCallFromHoldReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentGetSpecificCallFromHoldRequest(_message.Message):
-    __slots__ = ("call_id", "call_type", "session_sid")
+    __slots__ = ()
     CALL_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -438,7 +438,7 @@ class AgentGetSpecificCallFromHoldReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentPutCallOnHoldRequest(_message.Message):
-    __slots__ = ("hold_type", "session_sid")
+    __slots__ = ()
     HOLD_TYPE_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     hold_type: _acd_pb2.HoldType
@@ -450,15 +450,15 @@ class AgentPutCallOnHoldReply(_message.Message):
     def __init__(self) -> None: ...
 
 class ACDGetAllAgentsStatusesRequest(_message.Message):
-    __slots__ = ("skills", "all_skills_required")
+    __slots__ = ()
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     ALL_SKILLS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     skills: _containers.RepeatedScalarFieldContainer[str]
     all_skills_required: bool
-    def __init__(self, skills: _Optional[_Iterable[str]] = ..., all_skills_required: bool = ...) -> None: ...
+    def __init__(self, skills: _Optional[_Iterable[str]] = ..., all_skills_required: _Optional[bool] = ...) -> None: ...
 
 class AgentStatusDetails(_message.Message):
-    __slots__ = ("sid", "current_session_id", "status", "status_desc", "user_id")
+    __slots__ = ()
     SID_FIELD_NUMBER: _ClassVar[int]
     CURRENT_SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -472,13 +472,13 @@ class AgentStatusDetails(_message.Message):
     def __init__(self, sid: _Optional[int] = ..., current_session_id: _Optional[int] = ..., status: _Optional[int] = ..., status_desc: _Optional[_Union[_acd_pb2.AgentStatus.Enum, str]] = ..., user_id: _Optional[str] = ...) -> None: ...
 
 class ACDGetAllAgentsStatusesReply(_message.Message):
-    __slots__ = ("agent_status_details",)
+    __slots__ = ()
     AGENT_STATUS_DETAILS_FIELD_NUMBER: _ClassVar[int]
     agent_status_details: _containers.RepeatedCompositeFieldContainer[AgentStatusDetails]
     def __init__(self, agent_status_details: _Optional[_Iterable[_Union[AgentStatusDetails, _Mapping]]] = ...) -> None: ...
 
 class AgentReceiveMessageRequest(_message.Message):
-    __slots__ = ("minimum_timestamp", "session_sid")
+    __slots__ = ()
     MINIMUM_TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     minimum_timestamp: int
@@ -486,7 +486,7 @@ class AgentReceiveMessageRequest(_message.Message):
     def __init__(self, minimum_timestamp: _Optional[int] = ..., session_sid: _Optional[int] = ...) -> None: ...
 
 class AgentReceiveMessageReply(_message.Message):
-    __slots__ = ("message", "timestamp")
+    __slots__ = ()
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     message: str
@@ -494,7 +494,7 @@ class AgentReceiveMessageReply(_message.Message):
     def __init__(self, message: _Optional[str] = ..., timestamp: _Optional[int] = ...) -> None: ...
 
 class AgentPBXRejectCallRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -504,7 +504,7 @@ class AgentPBXRejectCallReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentPBXApproveCallRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -514,7 +514,7 @@ class AgentPBXApproveCallReply(_message.Message):
     def __init__(self) -> None: ...
 
 class GetCallerLostPeerRequest(_message.Message):
-    __slots__ = ("call_sid", "call_type")
+    __slots__ = ()
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     call_sid: int
@@ -522,13 +522,13 @@ class GetCallerLostPeerRequest(_message.Message):
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
 
 class GetCallerLostPeerReply(_message.Message):
-    __slots__ = ("hunt_group_sid",)
+    __slots__ = ()
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     hunt_group_sid: int
     def __init__(self, hunt_group_sid: _Optional[int] = ...) -> None: ...
 
 class CallerGetRawEventRequest(_message.Message):
-    __slots__ = ("call_sid", "call_type")
+    __slots__ = ()
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     call_sid: int
@@ -536,27 +536,27 @@ class CallerGetRawEventRequest(_message.Message):
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
 
 class CallerGetRawEventReply(_message.Message):
-    __slots__ = ("event",)
+    __slots__ = ()
     EVENT_FIELD_NUMBER: _ClassVar[int]
     event: CallerEvent
     def __init__(self, event: _Optional[_Union[CallerEvent, _Mapping]] = ...) -> None: ...
 
 class CallerEvent(_message.Message):
-    __slots__ = ("skills", "allSkills")
+    __slots__ = ()
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     class AllSkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     ALLSKILLS_FIELD_NUMBER: _ClassVar[int]
     skills: _containers.ScalarMap[str, bool]
@@ -564,7 +564,7 @@ class CallerEvent(_message.Message):
     def __init__(self, skills: _Optional[_Mapping[str, bool]] = ..., allSkills: _Optional[_Mapping[str, bool]] = ...) -> None: ...
 
 class PeerAgentWithCallerRequest(_message.Message):
-    __slots__ = ("call_sid", "call_type", "session_sid")
+    __slots__ = ()
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
@@ -578,7 +578,7 @@ class PeerAgentWithCallerReply(_message.Message):
     def __init__(self) -> None: ...
 
 class HoldTransferMemberReq(_message.Message):
-    __slots__ = ("session_sid", "member_identifier")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -590,7 +590,7 @@ class HoldTransferMemberRes(_message.Message):
     def __init__(self) -> None: ...
 
 class UnholdTransferMemberReq(_message.Message):
-    __slots__ = ("session_sid", "member_identifier")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_IDENTIFIER_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -602,7 +602,7 @@ class UnholdTransferMemberRes(_message.Message):
     def __init__(self) -> None: ...
 
 class GetAgentCallCountsReq(_message.Message):
-    __slots__ = ("agent_skills", "agent_pbx_extensions")
+    __slots__ = ()
     AGENT_SKILLS_FIELD_NUMBER: _ClassVar[int]
     AGENT_PBX_EXTENSIONS_FIELD_NUMBER: _ClassVar[int]
     agent_skills: _containers.RepeatedScalarFieldContainer[str]
@@ -610,7 +610,7 @@ class GetAgentCallCountsReq(_message.Message):
     def __init__(self, agent_skills: _Optional[_Iterable[str]] = ..., agent_pbx_extensions: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetAgentCallCountsRes(_message.Message):
-    __slots__ = ("agent_calls", "skill_calls", "on_hold_calls")
+    __slots__ = ()
     AGENT_CALLS_FIELD_NUMBER: _ClassVar[int]
     SKILL_CALLS_FIELD_NUMBER: _ClassVar[int]
     ON_HOLD_CALLS_FIELD_NUMBER: _ClassVar[int]
@@ -620,7 +620,7 @@ class GetAgentCallCountsRes(_message.Message):
     def __init__(self, agent_calls: _Optional[int] = ..., skill_calls: _Optional[int] = ..., on_hold_calls: _Optional[int] = ...) -> None: ...
 
 class WarmCallerTransferStartReq(_message.Message):
-    __slots__ = ("session_sid", "call_sid", "call_type", "caller_hold")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -629,14 +629,14 @@ class WarmCallerTransferStartReq(_message.Message):
     call_sid: int
     call_type: _acd_pb2.CallType.Enum
     caller_hold: bool
-    def __init__(self, session_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., caller_hold: bool = ...) -> None: ...
+    def __init__(self, session_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., caller_hold: _Optional[bool] = ...) -> None: ...
 
 class WarmCallerTransferStartRes(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class WarmCallerTransferCancelReq(_message.Message):
-    __slots__ = ("session_sid", "reason")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -648,7 +648,7 @@ class WarmCallerTransferCancelRes(_message.Message):
     def __init__(self) -> None: ...
 
 class WarmCallerTransferApproveReq(_message.Message):
-    __slots__ = ("session_sid", "reason")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -660,7 +660,7 @@ class WarmCallerTransferApproveRes(_message.Message):
     def __init__(self) -> None: ...
 
 class PlaySoundboardEntityReq(_message.Message):
-    __slots__ = ("session_sid", "soundboard_entity_id")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     SOUNDBOARD_ENTITY_ID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -668,13 +668,13 @@ class PlaySoundboardEntityReq(_message.Message):
     def __init__(self, session_sid: _Optional[int] = ..., soundboard_entity_id: _Optional[int] = ...) -> None: ...
 
 class PlaySoundboardEntityRes(_message.Message):
-    __slots__ = ("sound_instance_id",)
+    __slots__ = ()
     SOUND_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     sound_instance_id: str
     def __init__(self, sound_instance_id: _Optional[str] = ...) -> None: ...
 
 class StopSoundboardEntityReq(_message.Message):
-    __slots__ = ("session_sid", "sound_instance_id")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     SOUND_INSTANCE_ID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -686,9 +686,9 @@ class StopSoundboardEntityRes(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateAgentSkillsRequest(_message.Message):
-    __slots__ = ("session_sid", "skills", "replace_skills")
+    __slots__ = ()
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -700,14 +700,14 @@ class UpdateAgentSkillsRequest(_message.Message):
     session_sid: int
     skills: _containers.ScalarMap[str, int]
     replace_skills: bool
-    def __init__(self, session_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, int]] = ..., replace_skills: bool = ...) -> None: ...
+    def __init__(self, session_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, int]] = ..., replace_skills: _Optional[bool] = ...) -> None: ...
 
 class UpdateAgentSkillsReply(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class PlayDTMFRequest(_message.Message):
-    __slots__ = ("session_sid", "dtmf_digits")
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     DTMF_DIGITS_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
@@ -719,7 +719,7 @@ class PlayDTMFReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentMuteRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -729,7 +729,7 @@ class AgentMuteReply(_message.Message):
     def __init__(self) -> None: ...
 
 class AgentUnmuteRequest(_message.Message):
-    __slots__ = ("session_sid",)
+    __slots__ = ()
     SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     session_sid: int
     def __init__(self, session_sid: _Optional[int] = ...) -> None: ...
@@ -739,7 +739,7 @@ class AgentUnmuteReply(_message.Message):
     def __init__(self) -> None: ...
 
 class StartSecureFormReq(_message.Message):
-    __slots__ = ("portal_id", "voice_session_sid")
+    __slots__ = ()
     PORTAL_ID_FIELD_NUMBER: _ClassVar[int]
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     portal_id: str
@@ -751,7 +751,7 @@ class StartSecureFormRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CollectSecureFormFieldReq(_message.Message):
-    __slots__ = ("field_name", "voice_session_sid")
+    __slots__ = ()
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     field_name: str
@@ -763,7 +763,7 @@ class CollectSecureFormFieldRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ResetSecureFormFieldReq(_message.Message):
-    __slots__ = ("voice_session_sid",)
+    __slots__ = ()
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     voice_session_sid: int
     def __init__(self, voice_session_sid: _Optional[int] = ...) -> None: ...
@@ -773,7 +773,7 @@ class ResetSecureFormFieldRes(_message.Message):
     def __init__(self) -> None: ...
 
 class AcceptSecureFormFieldReq(_message.Message):
-    __slots__ = ("voice_session_sid",)
+    __slots__ = ()
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     voice_session_sid: int
     def __init__(self, voice_session_sid: _Optional[int] = ...) -> None: ...
@@ -783,9 +783,9 @@ class AcceptSecureFormFieldRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ProcessSecureFormReq(_message.Message):
-    __slots__ = ("values", "portal_id", "segment", "choice", "voice_session_sid")
+    __slots__ = ()
     class ValuesEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -804,9 +804,9 @@ class ProcessSecureFormReq(_message.Message):
     def __init__(self, values: _Optional[_Mapping[str, _service_pb2.Value]] = ..., portal_id: _Optional[str] = ..., segment: _Optional[int] = ..., choice: _Optional[int] = ..., voice_session_sid: _Optional[int] = ...) -> None: ...
 
 class ProcessSecureFormRes(_message.Message):
-    __slots__ = ("success", "data")
+    __slots__ = ()
     class DataEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -816,12 +816,12 @@ class ProcessSecureFormRes(_message.Message):
     DATA_FIELD_NUMBER: _ClassVar[int]
     success: bool
     data: _containers.MessageMap[str, _service_pb2.Value]
-    def __init__(self, success: bool = ..., data: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
+    def __init__(self, success: _Optional[bool] = ..., data: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
 
 class FinishSecureFormHandlingReq(_message.Message):
-    __slots__ = ("reason", "data", "voice_session_sid")
+    __slots__ = ()
     class DataEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -840,7 +840,7 @@ class FinishSecureFormHandlingRes(_message.Message):
     def __init__(self) -> None: ...
 
 class PopulateWorkflowFieldsReq(_message.Message):
-    __slots__ = ("client_sid", "agent_sid", "call_sid", "call_type", "scheduled_callback_id", "field_definitions")
+    __slots__ = ()
     CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
@@ -856,9 +856,9 @@ class PopulateWorkflowFieldsReq(_message.Message):
     def __init__(self, client_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., scheduled_callback_id: _Optional[str] = ..., field_definitions: _Optional[_Iterable[_Union[_integrations_pb2.FieldDefinition, _Mapping]]] = ...) -> None: ...
 
 class PopulateWorkflowFieldsRes(_message.Message):
-    __slots__ = ("values",)
+    __slots__ = ()
     class ValuesEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -869,7 +869,7 @@ class PopulateWorkflowFieldsRes(_message.Message):
     def __init__(self, values: _Optional[_Mapping[str, _service_pb2.Value]] = ...) -> None: ...
 
 class ValidateFieldReq(_message.Message):
-    __slots__ = ("voice_session_sid", "validation_type", "field_name")
+    __slots__ = ()
     VOICE_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     VALIDATION_TYPE_FIELD_NUMBER: _ClassVar[int]
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -879,25 +879,25 @@ class ValidateFieldReq(_message.Message):
     def __init__(self, voice_session_sid: _Optional[int] = ..., validation_type: _Optional[_Union[_integrations_pb2.Validation, str]] = ..., field_name: _Optional[str] = ...) -> None: ...
 
 class ValidateFieldRes(_message.Message):
-    __slots__ = ("valid", "reason")
+    __slots__ = ()
     VALID_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
     valid: bool
     reason: str
-    def __init__(self, valid: bool = ..., reason: _Optional[str] = ...) -> None: ...
+    def __init__(self, valid: _Optional[bool] = ..., reason: _Optional[str] = ...) -> None: ...
 
 class ListAgentsVoiceStatusesRequest(_message.Message):
-    __slots__ = ("skills", "all_skills_required", "page_token")
+    __slots__ = ()
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     ALL_SKILLS_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     skills: _containers.RepeatedScalarFieldContainer[str]
     all_skills_required: bool
     page_token: str
-    def __init__(self, skills: _Optional[_Iterable[str]] = ..., all_skills_required: bool = ..., page_token: _Optional[str] = ...) -> None: ...
+    def __init__(self, skills: _Optional[_Iterable[str]] = ..., all_skills_required: _Optional[bool] = ..., page_token: _Optional[str] = ...) -> None: ...
 
 class ListAgentsVoiceStatusesReply(_message.Message):
-    __slots__ = ("agent_details", "next_page_token")
+    __slots__ = ()
     AGENT_DETAILS_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     agent_details: _containers.RepeatedCompositeFieldContainer[AgentVoiceStatusDetails]
@@ -905,7 +905,7 @@ class ListAgentsVoiceStatusesReply(_message.Message):
     def __init__(self, agent_details: _Optional[_Iterable[_Union[AgentVoiceStatusDetails, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
 
 class AgentVoiceStatusDetails(_message.Message):
-    __slots__ = ("agent_sid", "hunt_group_sid", "current_session_sid", "first_name", "last_name", "status", "status_desc", "skills", "pbx_extensions")
+    __slots__ = ()
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     CURRENT_SESSION_SID_FIELD_NUMBER: _ClassVar[int]

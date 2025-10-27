@@ -132,7 +132,7 @@ FILENAME_PART_TYPE_REPORT_DATE_TIME: FilenamePartType
 FILENAME_PART_TYPE_STATIC_TEXT: FilenamePartType
 
 class DeliveryTimes(_message.Message):
-    __slots__ = ("delivery_times", "repeat_frequency")
+    __slots__ = ()
     DELIVERY_TIMES_FIELD_NUMBER: _ClassVar[int]
     REPEAT_FREQUENCY_FIELD_NUMBER: _ClassVar[int]
     delivery_times: _containers.RepeatedScalarFieldContainer[int]
@@ -140,7 +140,7 @@ class DeliveryTimes(_message.Message):
     def __init__(self, delivery_times: _Optional[_Iterable[int]] = ..., repeat_frequency: _Optional[_Union[RepeatFrequency, str]] = ...) -> None: ...
 
 class DayOfWeekFilter(_message.Message):
-    __slots__ = ("days_of_weeks", "weeks_of_months")
+    __slots__ = ()
     DAYS_OF_WEEKS_FIELD_NUMBER: _ClassVar[int]
     WEEKS_OF_MONTHS_FIELD_NUMBER: _ClassVar[int]
     days_of_weeks: _containers.RepeatedScalarFieldContainer[_enums_pb2.Weekday.Enum]
@@ -148,15 +148,15 @@ class DayOfWeekFilter(_message.Message):
     def __init__(self, days_of_weeks: _Optional[_Iterable[_Union[_enums_pb2.Weekday.Enum, str]]] = ..., weeks_of_months: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class DayOfMonthFilter(_message.Message):
-    __slots__ = ("day_of_months", "is_last_day_of_month")
+    __slots__ = ()
     DAY_OF_MONTHS_FIELD_NUMBER: _ClassVar[int]
     IS_LAST_DAY_OF_MONTH_FIELD_NUMBER: _ClassVar[int]
     day_of_months: _containers.RepeatedScalarFieldContainer[int]
     is_last_day_of_month: bool
-    def __init__(self, day_of_months: _Optional[_Iterable[int]] = ..., is_last_day_of_month: bool = ...) -> None: ...
+    def __init__(self, day_of_months: _Optional[_Iterable[int]] = ..., is_last_day_of_month: _Optional[bool] = ...) -> None: ...
 
 class DayFilter(_message.Message):
-    __slots__ = ("type", "day_of_week_filter", "day_of_month_filter")
+    __slots__ = ()
     TYPE_FIELD_NUMBER: _ClassVar[int]
     DAY_OF_WEEK_FILTER_FIELD_NUMBER: _ClassVar[int]
     DAY_OF_MONTH_FILTER_FIELD_NUMBER: _ClassVar[int]
@@ -166,7 +166,7 @@ class DayFilter(_message.Message):
     def __init__(self, type: _Optional[_Union[DayFilterType, str]] = ..., day_of_week_filter: _Optional[_Union[DayOfWeekFilter, _Mapping]] = ..., day_of_month_filter: _Optional[_Union[DayOfMonthFilter, _Mapping]] = ...) -> None: ...
 
 class FormatOptions(_message.Message):
-    __slots__ = ("report_format", "filename_parts")
+    __slots__ = ()
     REPORT_FORMAT_FIELD_NUMBER: _ClassVar[int]
     FILENAME_PARTS_FIELD_NUMBER: _ClassVar[int]
     report_format: ReportFormat
@@ -174,7 +174,7 @@ class FormatOptions(_message.Message):
     def __init__(self, report_format: _Optional[_Union[ReportFormat, str]] = ..., filename_parts: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class DeliveryOptions(_message.Message):
-    __slots__ = ("transfer_config_sid", "failure_notification_emails")
+    __slots__ = ()
     TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
     FAILURE_NOTIFICATION_EMAILS_FIELD_NUMBER: _ClassVar[int]
     transfer_config_sid: int
@@ -182,7 +182,7 @@ class DeliveryOptions(_message.Message):
     def __init__(self, transfer_config_sid: _Optional[int] = ..., failure_notification_emails: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class FilenamePart(_message.Message):
-    __slots__ = ("type", "static_text", "date_parts")
+    __slots__ = ()
     TYPE_FIELD_NUMBER: _ClassVar[int]
     STATIC_TEXT_FIELD_NUMBER: _ClassVar[int]
     DATE_PARTS_FIELD_NUMBER: _ClassVar[int]
@@ -192,7 +192,7 @@ class FilenamePart(_message.Message):
     def __init__(self, type: _Optional[_Union[FilenamePartType, str]] = ..., static_text: _Optional[str] = ..., date_parts: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class TransferOptions(_message.Message):
-    __slots__ = ("transfer_config_sid", "filename_parts", "delivery_definition_title")
+    __slots__ = ()
     TRANSFER_CONFIG_SID_FIELD_NUMBER: _ClassVar[int]
     FILENAME_PARTS_FIELD_NUMBER: _ClassVar[int]
     DELIVERY_DEFINITION_TITLE_FIELD_NUMBER: _ClassVar[int]

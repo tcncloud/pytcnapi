@@ -11,7 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListProjectsRequest(_message.Message):
-    __slots__ = ("parent", "page_size", "page_token", "filter")
+    __slots__ = ()
     PARENT_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -23,7 +23,7 @@ class ListProjectsRequest(_message.Message):
     def __init__(self, parent: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., filter: _Optional[str] = ...) -> None: ...
 
 class ListProjectsResponse(_message.Message):
-    __slots__ = ("projects", "next_page_token")
+    __slots__ = ()
     PROJECTS_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     projects: _containers.RepeatedCompositeFieldContainer[_projects_pb2.Project]
@@ -31,13 +31,13 @@ class ListProjectsResponse(_message.Message):
     def __init__(self, projects: _Optional[_Iterable[_Union[_projects_pb2.Project, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
 
 class GetProjectRequest(_message.Message):
-    __slots__ = ("name",)
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     name: str
     def __init__(self, name: _Optional[str] = ...) -> None: ...
 
 class CreateProjectRequest(_message.Message):
-    __slots__ = ("parent", "project")
+    __slots__ = ()
     PARENT_FIELD_NUMBER: _ClassVar[int]
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     parent: str
@@ -45,7 +45,7 @@ class CreateProjectRequest(_message.Message):
     def __init__(self, parent: _Optional[str] = ..., project: _Optional[_Union[_projects_pb2.Project, _Mapping]] = ...) -> None: ...
 
 class UpdateProjectRequest(_message.Message):
-    __slots__ = ("project", "update_mask")
+    __slots__ = ()
     PROJECT_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     project: _projects_pb2.Project
@@ -53,7 +53,7 @@ class UpdateProjectRequest(_message.Message):
     def __init__(self, project: _Optional[_Union[_projects_pb2.Project, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class DeleteProjectRequest(_message.Message):
-    __slots__ = ("name",)
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     name: str
     def __init__(self, name: _Optional[str] = ...) -> None: ...

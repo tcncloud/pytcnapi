@@ -10,31 +10,31 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class DeleteFileTemplateRequest(_message.Message):
-    __slots__ = ("file_template",)
+    __slots__ = ()
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     file_template: _entities_pb2.FileTemplateV2
     def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplateV2, _Mapping]] = ...) -> None: ...
 
 class DeleteFileTemplateResponse(_message.Message):
-    __slots__ = ("file_template",)
+    __slots__ = ()
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     file_template: _entities_pb2.FileTemplateV2
     def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplateV2, _Mapping]] = ...) -> None: ...
 
 class GetFileTemplateRequest(_message.Message):
-    __slots__ = ("file_template",)
+    __slots__ = ()
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     file_template: _entities_pb2.FileTemplateV2
     def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplateV2, _Mapping]] = ...) -> None: ...
 
 class GetFileTemplateResponse(_message.Message):
-    __slots__ = ("file_template",)
+    __slots__ = ()
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     file_template: _entities_pb2.FileTemplateV2
     def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplateV2, _Mapping]] = ...) -> None: ...
 
 class ListFileTemplatesRequest(_message.Message):
-    __slots__ = ("value", "last_id", "page_size")
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     LAST_ID_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
@@ -44,13 +44,13 @@ class ListFileTemplatesRequest(_message.Message):
     def __init__(self, value: _Optional[_Union[_entities_pb2.FileTemplateV2, _Mapping]] = ..., last_id: _Optional[str] = ..., page_size: _Optional[int] = ...) -> None: ...
 
 class ListFileTemplatesResponse(_message.Message):
-    __slots__ = ("file_templates",)
+    __slots__ = ()
     FILE_TEMPLATES_FIELD_NUMBER: _ClassVar[int]
     file_templates: _containers.RepeatedCompositeFieldContainer[_entities_pb2.FileTemplateV2]
     def __init__(self, file_templates: _Optional[_Iterable[_Union[_entities_pb2.FileTemplateV2, _Mapping]]] = ...) -> None: ...
 
 class ParseFileTemplateRequest(_message.Message):
-    __slots__ = ("new_template", "existing_template")
+    __slots__ = ()
     NEW_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     EXISTING_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     new_template: _entities_pb2.NewTemplate
@@ -62,13 +62,13 @@ class ParseFileTemplateResult(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateFileTemplateRequest(_message.Message):
-    __slots__ = ("file_template",)
+    __slots__ = ()
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     file_template: _entities_pb2.FileTemplateV2
     def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplateV2, _Mapping]] = ...) -> None: ...
 
 class UpdateFileTemplateResponse(_message.Message):
-    __slots__ = ("file_template",)
+    __slots__ = ()
     FILE_TEMPLATE_FIELD_NUMBER: _ClassVar[int]
     file_template: _entities_pb2.FileTemplateV2
     def __init__(self, file_template: _Optional[_Union[_entities_pb2.FileTemplateV2, _Mapping]] = ...) -> None: ...

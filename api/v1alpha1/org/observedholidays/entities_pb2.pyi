@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import org_pb2 as _org_pb2
 from api.commons.org import preferences_pb2 as _preferences_pb2
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
@@ -15,25 +17,25 @@ class ListObservedHolidaysRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListObservedHolidaysResponse(_message.Message):
-    __slots__ = ("observed_holidays",)
+    __slots__ = ()
     OBSERVED_HOLIDAYS_FIELD_NUMBER: _ClassVar[int]
     observed_holidays: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.ObservedHolidays]
     def __init__(self, observed_holidays: _Optional[_Iterable[_Union[_preferences_pb2.ObservedHolidays, _Mapping]]] = ...) -> None: ...
 
 class GetObservedHolidaysRequest(_message.Message):
-    __slots__ = ("observed_holidays_id",)
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     observed_holidays_id: str
     def __init__(self, observed_holidays_id: _Optional[str] = ...) -> None: ...
 
 class GetObservedHolidaysResponse(_message.Message):
-    __slots__ = ("observed_holidays",)
+    __slots__ = ()
     OBSERVED_HOLIDAYS_FIELD_NUMBER: _ClassVar[int]
     observed_holidays: _preferences_pb2.ObservedHolidays
     def __init__(self, observed_holidays: _Optional[_Union[_preferences_pb2.ObservedHolidays, _Mapping]] = ...) -> None: ...
 
 class SetObservedHolidaysRequest(_message.Message):
-    __slots__ = ("observed_holidays_name", "description", "timezone", "days")
+    __slots__ = ()
     OBSERVED_HOLIDAYS_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     TIMEZONE_FIELD_NUMBER: _ClassVar[int]
@@ -45,13 +47,13 @@ class SetObservedHolidaysRequest(_message.Message):
     def __init__(self, observed_holidays_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[_preferences_pb2.ObservedHoliday, _Mapping]]] = ...) -> None: ...
 
 class SetObservedHolidaysResponse(_message.Message):
-    __slots__ = ("observed_holidays_id",)
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     observed_holidays_id: str
     def __init__(self, observed_holidays_id: _Optional[str] = ...) -> None: ...
 
 class AddToObservedHolidaysRequest(_message.Message):
-    __slots__ = ("observed_holidays_id", "day")
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     DAY_FIELD_NUMBER: _ClassVar[int]
     observed_holidays_id: str
@@ -63,7 +65,7 @@ class AddToObservedHolidaysResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class RemoveFromObservedHolidaysRequest(_message.Message):
-    __slots__ = ("observed_holidays_id", "day")
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     DAY_FIELD_NUMBER: _ClassVar[int]
     observed_holidays_id: str
@@ -75,7 +77,7 @@ class RemoveFromObservedHolidaysResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateObservedHolidaysInfoRequest(_message.Message):
-    __slots__ = ("observed_holidays_id", "observed_holidays_name", "description", "timezone", "field_mask")
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     OBSERVED_HOLIDAYS_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -93,27 +95,27 @@ class UpdateObservedHolidaysInfoResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteObservedHolidaysRequest(_message.Message):
-    __slots__ = ("observed_holidays_id",)
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     observed_holidays_id: str
     def __init__(self, observed_holidays_id: _Optional[str] = ...) -> None: ...
 
 class DeleteObservedHolidaysResponse(_message.Message):
-    __slots__ = ("observed_holidays_id",)
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     observed_holidays_id: str
     def __init__(self, observed_holidays_id: _Optional[str] = ...) -> None: ...
 
 class EvaluateObservedHolidaysRequest(_message.Message):
-    __slots__ = ("observed_holidays_id",)
+    __slots__ = ()
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     observed_holidays_id: str
     def __init__(self, observed_holidays_id: _Optional[str] = ...) -> None: ...
 
 class EvaluateObservedHolidaysResponse(_message.Message):
-    __slots__ = ("date_matched", "result_expiration")
+    __slots__ = ()
     DATE_MATCHED_FIELD_NUMBER: _ClassVar[int]
     RESULT_EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     date_matched: bool
     result_expiration: _timestamp_pb2.Timestamp
-    def __init__(self, date_matched: bool = ..., result_expiration: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, date_matched: _Optional[bool] = ..., result_expiration: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

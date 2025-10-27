@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -21,7 +23,7 @@ HOLD_QUEUE_MONITOR_STATUS_FAILED: HoldQueueMonitorStatus
 HOLD_QUEUE_MONITOR_STATUS_ENDED: HoldQueueMonitorStatus
 
 class HoldQueueCallStats(_message.Message):
-    __slots__ = ("call_id", "org_id", "campaign_id", "phone_number", "status", "monitor_duration_millis", "monitor_start_time", "monitor_end_time")
+    __slots__ = ()
     CALL_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CAMPAIGN_ID_FIELD_NUMBER: _ClassVar[int]
@@ -38,4 +40,4 @@ class HoldQueueCallStats(_message.Message):
     monitor_duration_millis: int
     monitor_start_time: _timestamp_pb2.Timestamp
     monitor_end_time: _timestamp_pb2.Timestamp
-    def __init__(self, call_id: _Optional[str] = ..., org_id: _Optional[str] = ..., campaign_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., status: _Optional[_Union[HoldQueueMonitorStatus, str]] = ..., monitor_duration_millis: _Optional[int] = ..., monitor_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., monitor_end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, call_id: _Optional[str] = ..., org_id: _Optional[str] = ..., campaign_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., status: _Optional[_Union[HoldQueueMonitorStatus, str]] = ..., monitor_duration_millis: _Optional[int] = ..., monitor_start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., monitor_end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

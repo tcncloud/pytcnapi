@@ -15,13 +15,13 @@ FIELD_NAME_UNSPECIFIED: FlowFieldName
 FIELD_NAME_USER_INPUT: FlowFieldName
 
 class FlowPayload(_message.Message):
-    __slots__ = ("fields",)
+    __slots__ = ()
     FIELDS_FIELD_NUMBER: _ClassVar[int]
     fields: _containers.RepeatedCompositeFieldContainer[FlowField]
     def __init__(self, fields: _Optional[_Iterable[_Union[FlowField, _Mapping]]] = ...) -> None: ...
 
 class FlowField(_message.Message):
-    __slots__ = ("name", "user_input")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     USER_INPUT_FIELD_NUMBER: _ClassVar[int]
     name: FlowFieldName

@@ -5,7 +5,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class LMSPipelineFailureEvent(_message.Message):
-    __slots__ = ("element_id", "element_name", "file_name", "failure_message")
+    __slots__ = ()
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
     ELEMENT_NAME_FIELD_NUMBER: _ClassVar[int]
     FILE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -17,7 +17,7 @@ class LMSPipelineFailureEvent(_message.Message):
     def __init__(self, element_id: _Optional[str] = ..., element_name: _Optional[str] = ..., file_name: _Optional[str] = ..., failure_message: _Optional[str] = ...) -> None: ...
 
 class LMSPipelineNoOutputEvent(_message.Message):
-    __slots__ = ("element_id", "element_name", "file_name", "event_message")
+    __slots__ = ()
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
     ELEMENT_NAME_FIELD_NUMBER: _ClassVar[int]
     FILE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -29,7 +29,7 @@ class LMSPipelineNoOutputEvent(_message.Message):
     def __init__(self, element_id: _Optional[str] = ..., element_name: _Optional[str] = ..., file_name: _Optional[str] = ..., event_message: _Optional[str] = ...) -> None: ...
 
 class LMSPipelineSuccessfulEvent(_message.Message):
-    __slots__ = ("element_id", "element_name", "file_name", "event_message")
+    __slots__ = ()
     ELEMENT_ID_FIELD_NUMBER: _ClassVar[int]
     ELEMENT_NAME_FIELD_NUMBER: _ClassVar[int]
     FILE_NAME_FIELD_NUMBER: _ClassVar[int]

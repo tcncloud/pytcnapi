@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class WFMPublishScheduleEvent(_message.Message):
-    __slots__ = ("published_schedule_sid", "user_ids")
+    __slots__ = ()
     PUBLISHED_SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
     USER_IDS_FIELD_NUMBER: _ClassVar[int]
     published_schedule_sid: int

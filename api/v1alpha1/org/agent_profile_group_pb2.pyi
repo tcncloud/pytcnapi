@@ -8,19 +8,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetAgentProfileGroupRequest(_message.Message):
-    __slots__ = ("agent_profile_group_id",)
+    __slots__ = ()
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     agent_profile_group_id: str
     def __init__(self, agent_profile_group_id: _Optional[str] = ...) -> None: ...
 
 class GetAgentProfileGroupResponse(_message.Message):
-    __slots__ = ("agent_profile_group",)
+    __slots__ = ()
     AGENT_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
     agent_profile_group: _agent_profile_group_pb2.AgentProfileGroup
     def __init__(self, agent_profile_group: _Optional[_Union[_agent_profile_group_pb2.AgentProfileGroup, _Mapping]] = ...) -> None: ...
 
 class UpdateAgentProfileGroupRequest(_message.Message):
-    __slots__ = ("agent_profile_group",)
+    __slots__ = ()
     AGENT_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
     agent_profile_group: _agent_profile_group_pb2.AgentProfileGroup
     def __init__(self, agent_profile_group: _Optional[_Union[_agent_profile_group_pb2.AgentProfileGroup, _Mapping]] = ...) -> None: ...
@@ -34,25 +34,25 @@ class ListAgentProfileGroupsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAgentProfileGroupsResponse(_message.Message):
-    __slots__ = ("agent_profile_groups",)
+    __slots__ = ()
     AGENT_PROFILE_GROUPS_FIELD_NUMBER: _ClassVar[int]
     agent_profile_groups: _containers.RepeatedCompositeFieldContainer[_agent_profile_group_pb2.AgentProfileGroup]
     def __init__(self, agent_profile_groups: _Optional[_Iterable[_Union[_agent_profile_group_pb2.AgentProfileGroup, _Mapping]]] = ...) -> None: ...
 
 class CreateAgentProfileGroupRequest(_message.Message):
-    __slots__ = ("agent_profile_group",)
+    __slots__ = ()
     AGENT_PROFILE_GROUP_FIELD_NUMBER: _ClassVar[int]
     agent_profile_group: _agent_profile_group_pb2.AgentProfileGroup
     def __init__(self, agent_profile_group: _Optional[_Union[_agent_profile_group_pb2.AgentProfileGroup, _Mapping]] = ...) -> None: ...
 
 class CreateAgentProfileGroupResponse(_message.Message):
-    __slots__ = ("agent_profile_group_id",)
+    __slots__ = ()
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     agent_profile_group_id: str
     def __init__(self, agent_profile_group_id: _Optional[str] = ...) -> None: ...
 
 class DeleteAgentProfileGroupRequest(_message.Message):
-    __slots__ = ("agent_profile_group_id",)
+    __slots__ = ()
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     agent_profile_group_id: str
     def __init__(self, agent_profile_group_id: _Optional[str] = ...) -> None: ...
@@ -62,7 +62,7 @@ class DeleteAgentProfileGroupResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class AssignAgentProfileGroupsRequest(_message.Message):
-    __slots__ = ("agent_profile_group_id", "user_ids")
+    __slots__ = ()
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     USER_IDS_FIELD_NUMBER: _ClassVar[int]
     agent_profile_group_id: str

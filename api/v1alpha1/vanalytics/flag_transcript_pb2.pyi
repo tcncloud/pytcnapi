@@ -21,7 +21,7 @@ DONE: FlagReviewStatus
 NONE: FlagReviewStatus
 
 class CreateFlagTranscriptRequest(_message.Message):
-    __slots__ = ("transcript_sids", "flag")
+    __slots__ = ()
     TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
     FLAG_FIELD_NUMBER: _ClassVar[int]
     transcript_sids: _containers.RepeatedScalarFieldContainer[int]
@@ -33,7 +33,7 @@ class CreateFlagTranscriptResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteFlagTranscriptRequest(_message.Message):
-    __slots__ = ("org_id", "transcript_sids", "filter")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     TRANSCRIPT_SIDS_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
@@ -47,32 +47,32 @@ class DeleteFlagTranscriptResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class SearchFlagTranscriptsRequest(_message.Message):
-    __slots__ = ("page_size", "page_token", "flag_sid", "flag_review_status", "notify_group_id", "review_group_id", "start_transcript_sid", "end_transcript_sid", "order_by")
+    __slots__ = ()
     class FlagSid(_message.Message):
-        __slots__ = ("filter", "match")
+        __slots__ = ()
         FILTER_FIELD_NUMBER: _ClassVar[int]
         MATCH_FIELD_NUMBER: _ClassVar[int]
         filter: _containers.RepeatedScalarFieldContainer[int]
         match: int
         def __init__(self, filter: _Optional[_Iterable[int]] = ..., match: _Optional[int] = ...) -> None: ...
     class NotifyGroupId(_message.Message):
-        __slots__ = ("is_null", "filter", "match")
+        __slots__ = ()
         IS_NULL_FIELD_NUMBER: _ClassVar[int]
         FILTER_FIELD_NUMBER: _ClassVar[int]
         MATCH_FIELD_NUMBER: _ClassVar[int]
         is_null: bool
         filter: _containers.RepeatedScalarFieldContainer[str]
         match: int
-        def __init__(self, is_null: bool = ..., filter: _Optional[_Iterable[str]] = ..., match: _Optional[int] = ...) -> None: ...
+        def __init__(self, is_null: _Optional[bool] = ..., filter: _Optional[_Iterable[str]] = ..., match: _Optional[int] = ...) -> None: ...
     class ReviewGroupId(_message.Message):
-        __slots__ = ("is_null", "filter", "match")
+        __slots__ = ()
         IS_NULL_FIELD_NUMBER: _ClassVar[int]
         FILTER_FIELD_NUMBER: _ClassVar[int]
         MATCH_FIELD_NUMBER: _ClassVar[int]
         is_null: bool
         filter: _containers.RepeatedScalarFieldContainer[str]
         match: int
-        def __init__(self, is_null: bool = ..., filter: _Optional[_Iterable[str]] = ..., match: _Optional[int] = ...) -> None: ...
+        def __init__(self, is_null: _Optional[bool] = ..., filter: _Optional[_Iterable[str]] = ..., match: _Optional[int] = ...) -> None: ...
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]
@@ -94,16 +94,16 @@ class SearchFlagTranscriptsRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., flag_sid: _Optional[_Union[SearchFlagTranscriptsRequest.FlagSid, _Mapping]] = ..., flag_review_status: _Optional[_Union[FlagReviewStatus, str]] = ..., notify_group_id: _Optional[_Union[SearchFlagTranscriptsRequest.NotifyGroupId, _Mapping]] = ..., review_group_id: _Optional[_Union[SearchFlagTranscriptsRequest.ReviewGroupId, _Mapping]] = ..., start_transcript_sid: _Optional[int] = ..., end_transcript_sid: _Optional[int] = ..., order_by: _Optional[str] = ...) -> None: ...
 
 class SearchFlagTranscriptsResponse(_message.Message):
-    __slots__ = ("next_page_token", "hits", "total")
+    __slots__ = ()
     class Hit(_message.Message):
-        __slots__ = ("transcript", "flag_snapshot_sids", "reviewed", "flag_sids")
+        __slots__ = ()
         class ReviewedEntry(_message.Message):
-            __slots__ = ("key", "value")
+            __slots__ = ()
             KEY_FIELD_NUMBER: _ClassVar[int]
             VALUE_FIELD_NUMBER: _ClassVar[int]
             key: int
             value: bool
-            def __init__(self, key: _Optional[int] = ..., value: bool = ...) -> None: ...
+            def __init__(self, key: _Optional[int] = ..., value: _Optional[bool] = ...) -> None: ...
         TRANSCRIPT_FIELD_NUMBER: _ClassVar[int]
         FLAG_SNAPSHOT_SIDS_FIELD_NUMBER: _ClassVar[int]
         REVIEWED_FIELD_NUMBER: _ClassVar[int]

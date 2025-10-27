@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
 from google.protobuf import descriptor as _descriptor
@@ -31,7 +33,7 @@ CATEGORY_WORKFORCE_ENGAGEMENT_WORKFORCE_OPTIMIZATION_AI_BUNDLE: Category
 CATEGORY_WORKFORCE_ENGAGEMENT_WORKFORCE_MANAGEMENT_SCHEDULER: Category
 
 class BillingTag(_message.Message):
-    __slots__ = ("billing_tag_id", "name", "create_time", "update_time", "delete_time", "category", "billing_category")
+    __slots__ = ()
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -46,4 +48,4 @@ class BillingTag(_message.Message):
     delete_time: _timestamp_pb2.Timestamp
     category: str
     billing_category: Category
-    def __init__(self, billing_tag_id: _Optional[str] = ..., name: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., category: _Optional[str] = ..., billing_category: _Optional[_Union[Category, str]] = ...) -> None: ...
+    def __init__(self, billing_tag_id: _Optional[str] = ..., name: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., category: _Optional[str] = ..., billing_category: _Optional[_Union[Category, str]] = ...) -> None: ...

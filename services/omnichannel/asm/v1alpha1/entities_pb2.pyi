@@ -13,13 +13,13 @@ class CreateSessionRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateSessionResponse(_message.Message):
-    __slots__ = ("asm_session",)
+    __slots__ = ()
     ASM_SESSION_FIELD_NUMBER: _ClassVar[int]
     asm_session: _session_pb2.AsmSession
     def __init__(self, asm_session: _Optional[_Union[_session_pb2.AsmSession, _Mapping]] = ...) -> None: ...
 
 class EndSessionRequest(_message.Message):
-    __slots__ = ("asm_session_sid", "reason")
+    __slots__ = ()
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     REASON_FIELD_NUMBER: _ClassVar[int]
     asm_session_sid: int
@@ -35,15 +35,15 @@ class GetCurrentSessionRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetCurrentSessionResponse(_message.Message):
-    __slots__ = ("asm_session",)
+    __slots__ = ()
     ASM_SESSION_FIELD_NUMBER: _ClassVar[int]
     asm_session: _session_pb2.AsmSession
     def __init__(self, asm_session: _Optional[_Union[_session_pb2.AsmSession, _Mapping]] = ...) -> None: ...
 
 class EnableVoiceRequest(_message.Message):
-    __slots__ = ("asm_session_sid", "hunt_group_sid", "skills")
+    __slots__ = ()
     class SkillsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -58,7 +58,7 @@ class EnableVoiceRequest(_message.Message):
     def __init__(self, asm_session_sid: _Optional[int] = ..., hunt_group_sid: _Optional[int] = ..., skills: _Optional[_Mapping[str, int]] = ...) -> None: ...
 
 class EnableVoiceResponse(_message.Message):
-    __slots__ = ("voice_session", "voice_registration")
+    __slots__ = ()
     VOICE_SESSION_FIELD_NUMBER: _ClassVar[int]
     VOICE_REGISTRATION_FIELD_NUMBER: _ClassVar[int]
     voice_session: _session_pb2.VoiceSession
@@ -66,7 +66,7 @@ class EnableVoiceResponse(_message.Message):
     def __init__(self, voice_session: _Optional[_Union[_session_pb2.VoiceSession, _Mapping]] = ..., voice_registration: _Optional[_Union[_session_pb2.VoiceRegistration, _Mapping]] = ...) -> None: ...
 
 class DisableVoiceRequest(_message.Message):
-    __slots__ = ("asm_session_sid",)
+    __slots__ = ()
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     asm_session_sid: int
     def __init__(self, asm_session_sid: _Optional[int] = ...) -> None: ...
@@ -80,7 +80,7 @@ class ListAsmUserDetailsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAsmUserDetailsResponse(_message.Message):
-    __slots__ = ("sessions", "asm_user_details")
+    __slots__ = ()
     SESSIONS_FIELD_NUMBER: _ClassVar[int]
     ASM_USER_DETAILS_FIELD_NUMBER: _ClassVar[int]
     sessions: _containers.RepeatedCompositeFieldContainer[_session_pb2.AsmUserDetails]
@@ -88,7 +88,7 @@ class ListAsmUserDetailsResponse(_message.Message):
     def __init__(self, sessions: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ..., asm_user_details: _Optional[_Iterable[_Union[_session_pb2.AsmUserDetails, _Mapping]]] = ...) -> None: ...
 
 class PushEventsRequest(_message.Message):
-    __slots__ = ("ams_session_sid", "asm_events", "asm_session_sid")
+    __slots__ = ()
     AMS_SESSION_SID_FIELD_NUMBER: _ClassVar[int]
     ASM_EVENTS_FIELD_NUMBER: _ClassVar[int]
     ASM_SESSION_SID_FIELD_NUMBER: _ClassVar[int]

@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import bireportgenerator_pb2 as _bireportgenerator_pb2
 from api.commons import enums_pb2 as _enums_pb2
 from api.commons import org_pb2 as _org_pb2
@@ -12,16 +14,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ReportParameters(_message.Message):
-    __slots__ = ("parameters",)
+    __slots__ = ()
     class Parameter(_message.Message):
-        __slots__ = ("value", "data_type")
+        __slots__ = ()
         VALUE_FIELD_NUMBER: _ClassVar[int]
         DATA_TYPE_FIELD_NUMBER: _ClassVar[int]
         value: str
         data_type: str
         def __init__(self, value: _Optional[str] = ..., data_type: _Optional[str] = ...) -> None: ...
     class ParametersEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -32,7 +34,7 @@ class ReportParameters(_message.Message):
     def __init__(self, parameters: _Optional[_Mapping[str, ReportParameters.Parameter]] = ...) -> None: ...
 
 class ReportJob(_message.Message):
-    __slots__ = ("report_job_id", "name", "description", "dashboard_id", "time_zone", "time_period", "delivery_times", "day_filter", "months", "format_options", "delivery_options", "is_active", "send_empty_report", "dashboard_resource_id", "time_zone_wrapper", "hide_csv_footer", "transfer_config_sid", "cron_expression", "transfer_options", "report_parameters", "send_only_when_empty")
+    __slots__ = ()
     REPORT_JOB_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -75,10 +77,10 @@ class ReportJob(_message.Message):
     transfer_options: _bireportgenerator_pb2.TransferOptions
     report_parameters: ReportParameters
     send_only_when_empty: bool
-    def __init__(self, report_job_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., dashboard_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., delivery_times: _Optional[_Union[_bireportgenerator_pb2.DeliveryTimes, _Mapping]] = ..., day_filter: _Optional[_Union[_bireportgenerator_pb2.DayFilter, _Mapping]] = ..., months: _Optional[_Iterable[_Union[_enums_pb2.Month, str]]] = ..., format_options: _Optional[_Union[_bireportgenerator_pb2.FormatOptions, _Mapping]] = ..., delivery_options: _Optional[_Union[_bireportgenerator_pb2.DeliveryOptions, _Mapping]] = ..., is_active: bool = ..., send_empty_report: bool = ..., dashboard_resource_id: _Optional[str] = ..., time_zone_wrapper: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hide_csv_footer: bool = ..., transfer_config_sid: _Optional[int] = ..., cron_expression: _Optional[_Union[_types_pb2.CronExpression, _Mapping]] = ..., transfer_options: _Optional[_Union[_bireportgenerator_pb2.TransferOptions, _Mapping]] = ..., report_parameters: _Optional[_Union[ReportParameters, _Mapping]] = ..., send_only_when_empty: bool = ...) -> None: ...
+    def __init__(self, report_job_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., dashboard_id: _Optional[str] = ..., time_zone: _Optional[str] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., delivery_times: _Optional[_Union[_bireportgenerator_pb2.DeliveryTimes, _Mapping]] = ..., day_filter: _Optional[_Union[_bireportgenerator_pb2.DayFilter, _Mapping]] = ..., months: _Optional[_Iterable[_Union[_enums_pb2.Month, str]]] = ..., format_options: _Optional[_Union[_bireportgenerator_pb2.FormatOptions, _Mapping]] = ..., delivery_options: _Optional[_Union[_bireportgenerator_pb2.DeliveryOptions, _Mapping]] = ..., is_active: _Optional[bool] = ..., send_empty_report: _Optional[bool] = ..., dashboard_resource_id: _Optional[str] = ..., time_zone_wrapper: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., hide_csv_footer: _Optional[bool] = ..., transfer_config_sid: _Optional[int] = ..., cron_expression: _Optional[_Union[_types_pb2.CronExpression, _Mapping]] = ..., transfer_options: _Optional[_Union[_bireportgenerator_pb2.TransferOptions, _Mapping]] = ..., report_parameters: _Optional[_Union[ReportParameters, _Mapping]] = ..., send_only_when_empty: _Optional[bool] = ...) -> None: ...
 
 class ReportLog(_message.Message):
-    __slots__ = ("org_id", "report_log_id", "report_job_id", "execution_id", "report_name", "job_requested_time", "job_completed_time", "success", "failure_reason", "attempt_number", "max_attempts", "create_time", "update_time", "dashboard_title", "scheduled_time", "execution_start_time", "execution_end_time", "report_start_date", "report_end_date", "comments", "timezone", "filenames", "insight_count", "delivery_definition_title")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     REPORT_LOG_ID_FIELD_NUMBER: _ClassVar[int]
     REPORT_JOB_ID_FIELD_NUMBER: _ClassVar[int]
@@ -127,4 +129,4 @@ class ReportLog(_message.Message):
     filenames: _containers.RepeatedScalarFieldContainer[str]
     insight_count: int
     delivery_definition_title: str
-    def __init__(self, org_id: _Optional[str] = ..., report_log_id: _Optional[int] = ..., report_job_id: _Optional[int] = ..., execution_id: _Optional[str] = ..., report_name: _Optional[str] = ..., job_requested_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., job_completed_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., success: bool = ..., failure_reason: _Optional[str] = ..., attempt_number: _Optional[int] = ..., max_attempts: _Optional[int] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., dashboard_title: _Optional[str] = ..., scheduled_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., execution_start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., execution_end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., report_start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., report_end_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., comments: _Optional[_Iterable[str]] = ..., timezone: _Optional[str] = ..., filenames: _Optional[_Iterable[str]] = ..., insight_count: _Optional[int] = ..., delivery_definition_title: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., report_log_id: _Optional[int] = ..., report_job_id: _Optional[int] = ..., execution_id: _Optional[str] = ..., report_name: _Optional[str] = ..., job_requested_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., job_completed_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., success: _Optional[bool] = ..., failure_reason: _Optional[str] = ..., attempt_number: _Optional[int] = ..., max_attempts: _Optional[int] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., dashboard_title: _Optional[str] = ..., scheduled_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., execution_start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., execution_end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., report_start_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., report_end_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., comments: _Optional[_Iterable[str]] = ..., timezone: _Optional[str] = ..., filenames: _Optional[_Iterable[str]] = ..., insight_count: _Optional[int] = ..., delivery_definition_title: _Optional[str] = ...) -> None: ...

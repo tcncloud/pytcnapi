@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateMatchingRuleRequest(_message.Message):
-    __slots__ = ("matching_rule_id", "matching_rule")
+    __slots__ = ()
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     MATCHING_RULE_FIELD_NUMBER: _ClassVar[int]
     matching_rule_id: str
@@ -18,13 +18,13 @@ class CreateMatchingRuleRequest(_message.Message):
     def __init__(self, matching_rule_id: _Optional[str] = ..., matching_rule: _Optional[_Union[_rates_pb2.MatchingRule, _Mapping]] = ...) -> None: ...
 
 class CreateMatchingRuleResponse(_message.Message):
-    __slots__ = ("matching_rule_id",)
+    __slots__ = ()
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     matching_rule_id: str
     def __init__(self, matching_rule_id: _Optional[str] = ...) -> None: ...
 
 class DeleteMatchingRuleRequest(_message.Message):
-    __slots__ = ("matching_rule_id",)
+    __slots__ = ()
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     matching_rule_id: str
     def __init__(self, matching_rule_id: _Optional[str] = ...) -> None: ...
@@ -34,19 +34,19 @@ class DeleteMatchingRuleResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetMatchingRuleRequest(_message.Message):
-    __slots__ = ("matching_rule_id",)
+    __slots__ = ()
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     matching_rule_id: str
     def __init__(self, matching_rule_id: _Optional[str] = ...) -> None: ...
 
 class GetMatchingRuleResponse(_message.Message):
-    __slots__ = ("matching_rule",)
+    __slots__ = ()
     MATCHING_RULE_FIELD_NUMBER: _ClassVar[int]
     matching_rule: _rates_pb2.MatchingRule
     def __init__(self, matching_rule: _Optional[_Union[_rates_pb2.MatchingRule, _Mapping]] = ...) -> None: ...
 
 class ListMatchingRulesRequest(_message.Message):
-    __slots__ = ("matching_rule_id", "filter", "fields", "sort", "page")
+    __slots__ = ()
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
@@ -60,7 +60,7 @@ class ListMatchingRulesRequest(_message.Message):
     def __init__(self, matching_rule_id: _Optional[str] = ..., filter: _Optional[str] = ..., fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., sort: _Optional[_Iterable[_Union[_core_pb2.Sort, _Mapping]]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
 
 class ListMatchingRulesResponse(_message.Message):
-    __slots__ = ("matching_rules", "token")
+    __slots__ = ()
     MATCHING_RULES_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     matching_rules: _containers.RepeatedCompositeFieldContainer[_rates_pb2.MatchingRule]
@@ -68,7 +68,7 @@ class ListMatchingRulesResponse(_message.Message):
     def __init__(self, matching_rules: _Optional[_Iterable[_Union[_rates_pb2.MatchingRule, _Mapping]]] = ..., token: _Optional[str] = ...) -> None: ...
 
 class UpdateMatchingRuleRequest(_message.Message):
-    __slots__ = ("matching_rule_id", "matching_rule", "update_mask")
+    __slots__ = ()
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     MATCHING_RULE_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]

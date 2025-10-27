@@ -1,3 +1,5 @@
+import datetime
+
 from annotations import authz_pb2 as _authz_pb2
 from api.commons import bireportgenerator_pb2 as _bireportgenerator_pb2
 from api.v1alpha1.explorer import entities_pb2 as _entities_pb2
@@ -13,21 +15,21 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetWeeksOfDataRequest(_message.Message):
-    __slots__ = ("org_id",)
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class GetWeeksOfDataResponse(_message.Message):
-    __slots__ = ("weeks_of_data", "access_start_date")
+    __slots__ = ()
     WEEKS_OF_DATA_FIELD_NUMBER: _ClassVar[int]
     ACCESS_START_DATE_FIELD_NUMBER: _ClassVar[int]
     weeks_of_data: int
     access_start_date: _timestamp_pb2.Timestamp
-    def __init__(self, weeks_of_data: _Optional[int] = ..., access_start_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, weeks_of_data: _Optional[int] = ..., access_start_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ListDatasourceSchemasRequest(_message.Message):
-    __slots__ = ("datasource_names", "datasource_type")
+    __slots__ = ()
     DATASOURCE_NAMES_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     datasource_names: _containers.RepeatedScalarFieldContainer[str]
@@ -35,13 +37,13 @@ class ListDatasourceSchemasRequest(_message.Message):
     def __init__(self, datasource_names: _Optional[_Iterable[str]] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ...) -> None: ...
 
 class ListDatasourceSchemasResponse(_message.Message):
-    __slots__ = ("schemas",)
+    __slots__ = ()
     SCHEMAS_FIELD_NUMBER: _ClassVar[int]
     schemas: _containers.RepeatedCompositeFieldContainer[_entities_pb2.Schema]
     def __init__(self, schemas: _Optional[_Iterable[_Union[_entities_pb2.Schema, _Mapping]]] = ...) -> None: ...
 
 class QueryRequest(_message.Message):
-    __slots__ = ("datasource_name", "datasource_type", "pipeline", "prql", "query_pipeline", "org_ids", "start_time", "end_time", "timezone", "pipeline_parameters", "ui_trace_id", "comment", "format", "time_period", "report_date", "export_options", "result_types")
+    __slots__ = ()
     DATASOURCE_NAME_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     PIPELINE_FIELD_NUMBER: _ClassVar[int]
@@ -76,19 +78,19 @@ class QueryRequest(_message.Message):
     report_date: _timestamp_pb2.Timestamp
     export_options: _entities_pb2.ExportOptions
     result_types: _containers.RepeatedScalarFieldContainer[_entities_pb2.ResultType]
-    def __init__(self, datasource_name: _Optional[str] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., pipeline: _Optional[str] = ..., prql: _Optional[str] = ..., query_pipeline: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., org_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., timezone: _Optional[str] = ..., pipeline_parameters: _Optional[_Union[_entities_pb2.Parameters, _Mapping]] = ..., ui_trace_id: _Optional[str] = ..., comment: _Optional[str] = ..., format: _Optional[_Union[_entities_pb2.ExportFormat, str]] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., report_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., export_options: _Optional[_Union[_entities_pb2.ExportOptions, _Mapping]] = ..., result_types: _Optional[_Iterable[_Union[_entities_pb2.ResultType, str]]] = ...) -> None: ...
+    def __init__(self, datasource_name: _Optional[str] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., pipeline: _Optional[str] = ..., prql: _Optional[str] = ..., query_pipeline: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., org_ids: _Optional[_Iterable[str]] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., timezone: _Optional[str] = ..., pipeline_parameters: _Optional[_Union[_entities_pb2.Parameters, _Mapping]] = ..., ui_trace_id: _Optional[str] = ..., comment: _Optional[str] = ..., format: _Optional[_Union[_entities_pb2.ExportFormat, str]] = ..., time_period: _Optional[_Union[_bireportgenerator_pb2.TimePeriod, str]] = ..., report_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., export_options: _Optional[_Union[_entities_pb2.ExportOptions, _Mapping]] = ..., result_types: _Optional[_Iterable[_Union[_entities_pb2.ResultType, str]]] = ...) -> None: ...
 
 class QueryResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query", "result_urls")
+    __slots__ = ()
     class TimeFilteredDatasourcesEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     class ResultUrlsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: int
@@ -109,24 +111,24 @@ class QueryResponse(_message.Message):
     def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ..., result_urls: _Optional[_Mapping[int, _entities_pb2.ResultFile]] = ...) -> None: ...
 
 class SupportQueryRequest(_message.Message):
-    __slots__ = ("query_request", "debug")
+    __slots__ = ()
     QUERY_REQUEST_FIELD_NUMBER: _ClassVar[int]
     DEBUG_FIELD_NUMBER: _ClassVar[int]
     query_request: QueryRequest
     debug: bool
-    def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ..., debug: bool = ...) -> None: ...
+    def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ..., debug: _Optional[bool] = ...) -> None: ...
 
 class SupportQueryResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query", "result_urls")
+    __slots__ = ()
     class TimeFilteredDatasourcesEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     class ResultUrlsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: int
@@ -153,22 +155,22 @@ class SupportQueryResponse(_message.Message):
     def __init__(self, result_url: _Optional[str] = ..., result_size_bytes: _Optional[int] = ..., prql: _Optional[str] = ..., sql: _Optional[str] = ..., explain: _Optional[str] = ..., time_filtered_datasources: _Optional[_Mapping[str, bool]] = ..., post_processing_table_query: _Optional[str] = ..., post_processing_summary_query: _Optional[str] = ..., result_urls: _Optional[_Mapping[int, _entities_pb2.ResultFile]] = ...) -> None: ...
 
 class QueryExplainRequest(_message.Message):
-    __slots__ = ("query_request",)
+    __slots__ = ()
     QUERY_REQUEST_FIELD_NUMBER: _ClassVar[int]
     query_request: QueryRequest
     def __init__(self, query_request: _Optional[_Union[QueryRequest, _Mapping]] = ...) -> None: ...
 
 class QueryExplainResponse(_message.Message):
-    __slots__ = ("result_url", "result_size_bytes", "prql", "sql", "explain", "time_filtered_datasources", "post_processing_table_query", "post_processing_summary_query", "result_urls")
+    __slots__ = ()
     class TimeFilteredDatasourcesEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
-        def __init__(self, key: _Optional[str] = ..., value: bool = ...) -> None: ...
+        def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     class ResultUrlsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: int

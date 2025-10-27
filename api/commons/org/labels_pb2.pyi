@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Label(_message.Message):
-    __slots__ = ("org_id", "name", "description", "color", "label_id", "deleted")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -20,10 +20,10 @@ class Label(_message.Message):
     color: str
     label_id: str
     deleted: bool
-    def __init__(self, org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., color: _Optional[str] = ..., label_id: _Optional[str] = ..., deleted: bool = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., color: _Optional[str] = ..., label_id: _Optional[str] = ..., deleted: _Optional[bool] = ...) -> None: ...
 
 class LabelAssignment(_message.Message):
-    __slots__ = ("label_id", "type", "entity_id", "org_id", "label")
+    __slots__ = ()
     LABEL_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     ENTITY_ID_FIELD_NUMBER: _ClassVar[int]

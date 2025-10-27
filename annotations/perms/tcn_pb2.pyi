@@ -11,7 +11,7 @@ OPTIONS_FIELD_NUMBER: _ClassVar[int]
 options: _descriptor.FieldDescriptor
 
 class Tcn(_message.Message):
-    __slots__ = ("wip", "app", "card", "features")
+    __slots__ = ()
     WIP_FIELD_NUMBER: _ClassVar[int]
     APP_FIELD_NUMBER: _ClassVar[int]
     CARD_FIELD_NUMBER: _ClassVar[int]
@@ -20,4 +20,4 @@ class Tcn(_message.Message):
     app: _license_pb2.Application
     card: _license_pb2.Card
     features: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, wip: bool = ..., app: _Optional[_Union[_license_pb2.Application, str]] = ..., card: _Optional[_Union[_license_pb2.Card, str]] = ..., features: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, wip: _Optional[bool] = ..., app: _Optional[_Union[_license_pb2.Application, str]] = ..., card: _Optional[_Union[_license_pb2.Card, str]] = ..., features: _Optional[_Iterable[str]] = ...) -> None: ...

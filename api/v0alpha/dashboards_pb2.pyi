@@ -1,3 +1,5 @@
+import datetime
+
 from annotations import authz_pb2 as _authz_pb2
 from annotations.perms import license_pb2 as _license_pb2
 from api.commons import bireportgenerator_pb2 as _bireportgenerator_pb2
@@ -15,7 +17,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PublishDashboardRequest(_message.Message):
-    __slots__ = ("resource_id", "destination_resource_id")
+    __slots__ = ()
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
@@ -23,7 +25,7 @@ class PublishDashboardRequest(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., destination_resource_id: _Optional[str] = ...) -> None: ...
 
 class PublishDashboardResponse(_message.Message):
-    __slots__ = ("resource_id",)
+    __slots__ = ()
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
     def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
@@ -33,13 +35,13 @@ class ListDashboardsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListDashboardsResponse(_message.Message):
-    __slots__ = ("dashboard_summaries",)
+    __slots__ = ()
     DASHBOARD_SUMMARIES_FIELD_NUMBER: _ClassVar[int]
     dashboard_summaries: _containers.RepeatedCompositeFieldContainer[DashboardSummary]
     def __init__(self, dashboard_summaries: _Optional[_Iterable[_Union[DashboardSummary, _Mapping]]] = ...) -> None: ...
 
 class DashboardSummary(_message.Message):
-    __slots__ = ("dashboard_id", "title", "description", "panel_count", "resource_id", "standard_dashboard")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -52,14 +54,14 @@ class DashboardSummary(_message.Message):
     panel_count: int
     resource_id: str
     standard_dashboard: bool
-    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., panel_count: _Optional[int] = ..., resource_id: _Optional[str] = ..., standard_dashboard: bool = ...) -> None: ...
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., panel_count: _Optional[int] = ..., resource_id: _Optional[str] = ..., standard_dashboard: _Optional[bool] = ...) -> None: ...
 
 class GetDefaultDashboardRequest(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 
 class SetDefaultDashboardRequest(_message.Message):
-    __slots__ = ("dashboard_id", "resource_id")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
@@ -71,13 +73,13 @@ class ListProductTypesRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListProductTypesResult(_message.Message):
-    __slots__ = ("types",)
+    __slots__ = ()
     TYPES_FIELD_NUMBER: _ClassVar[int]
     types: _containers.RepeatedCompositeFieldContainer[ProductType]
     def __init__(self, types: _Optional[_Iterable[_Union[ProductType, _Mapping]]] = ...) -> None: ...
 
 class ProductType(_message.Message):
-    __slots__ = ("name", "id")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -85,7 +87,7 @@ class ProductType(_message.Message):
     def __init__(self, name: _Optional[str] = ..., id: _Optional[str] = ...) -> None: ...
 
 class DeleteDashboardRequest(_message.Message):
-    __slots__ = ("dashboard_id", "resource_id")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
@@ -93,7 +95,7 @@ class DeleteDashboardRequest(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class GetDashboardRequest(_message.Message):
-    __slots__ = ("dashboard_id", "resource_id", "application")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     APPLICATION_FIELD_NUMBER: _ClassVar[int]
@@ -103,7 +105,7 @@ class GetDashboardRequest(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ..., application: _Optional[_Union[_license_pb2.Application, str]] = ...) -> None: ...
 
 class CreateDashboardRequest(_message.Message):
-    __slots__ = ("title", "description", "layout", "view", "type")
+    __slots__ = ()
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     LAYOUT_FIELD_NUMBER: _ClassVar[int]
@@ -117,7 +119,7 @@ class CreateDashboardRequest(_message.Message):
     def __init__(self, title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ...) -> None: ...
 
 class CreateDashboardResponse(_message.Message):
-    __slots__ = ("dashboard_id", "resource_id")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     dashboard_id: str
@@ -125,13 +127,13 @@ class CreateDashboardResponse(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class DashboardLayout(_message.Message):
-    __slots__ = ("panels",)
+    __slots__ = ()
     PANELS_FIELD_NUMBER: _ClassVar[int]
     panels: _containers.RepeatedCompositeFieldContainer[DashboardPanel]
     def __init__(self, panels: _Optional[_Iterable[_Union[DashboardPanel, _Mapping]]] = ...) -> None: ...
 
 class DashboardPanel(_message.Message):
-    __slots__ = ("panel_source", "row_length", "column_length", "row_start", "column_start")
+    __slots__ = ()
     PANEL_SOURCE_FIELD_NUMBER: _ClassVar[int]
     ROW_LENGTH_FIELD_NUMBER: _ClassVar[int]
     COLUMN_LENGTH_FIELD_NUMBER: _ClassVar[int]
@@ -145,7 +147,7 @@ class DashboardPanel(_message.Message):
     def __init__(self, panel_source: _Optional[_Union[PanelSource, _Mapping]] = ..., row_length: _Optional[int] = ..., column_length: _Optional[int] = ..., row_start: _Optional[int] = ..., column_start: _Optional[int] = ...) -> None: ...
 
 class PanelSource(_message.Message):
-    __slots__ = ("insight_id", "legacy_insight_id", "insight_resource_id", "output_configuration_resource_id")
+    __slots__ = ()
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     LEGACY_INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -157,7 +159,7 @@ class PanelSource(_message.Message):
     def __init__(self, insight_id: _Optional[str] = ..., legacy_insight_id: _Optional[str] = ..., insight_resource_id: _Optional[str] = ..., output_configuration_resource_id: _Optional[str] = ...) -> None: ...
 
 class Dashboard(_message.Message):
-    __slots__ = ("dashboard_id", "title", "description", "layout", "view", "type", "resource_id", "standard_dashboard")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -174,10 +176,10 @@ class Dashboard(_message.Message):
     type: DashboardType
     resource_id: str
     standard_dashboard: bool
-    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ..., resource_id: _Optional[str] = ..., standard_dashboard: bool = ...) -> None: ...
+    def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ..., resource_id: _Optional[str] = ..., standard_dashboard: _Optional[bool] = ...) -> None: ...
 
 class DashboardType(_message.Message):
-    __slots__ = ("historic", "real_time")
+    __slots__ = ()
     HISTORIC_FIELD_NUMBER: _ClassVar[int]
     REAL_TIME_FIELD_NUMBER: _ClassVar[int]
     historic: HistoricConfig
@@ -185,7 +187,7 @@ class DashboardType(_message.Message):
     def __init__(self, historic: _Optional[_Union[HistoricConfig, _Mapping]] = ..., real_time: _Optional[_Union[RealTimeConfig, _Mapping]] = ...) -> None: ...
 
 class HistoricConfig(_message.Message):
-    __slots__ = ("time_span_simple", "time_span_range", "time_zone", "time_period")
+    __slots__ = ()
     TIME_SPAN_SIMPLE_FIELD_NUMBER: _ClassVar[int]
     TIME_SPAN_RANGE_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
@@ -201,7 +203,7 @@ class RealTimeConfig(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateDashboardRequest(_message.Message):
-    __slots__ = ("dashboard_id", "title", "description", "layout", "view", "type", "resource_id")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -219,7 +221,7 @@ class UpdateDashboardRequest(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., type: _Optional[_Union[DashboardType, _Mapping]] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class UpdateDashboardTitleAndDescriptionRequest(_message.Message):
-    __slots__ = ("dashboard_id", "title", "description", "resource_id")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -231,7 +233,7 @@ class UpdateDashboardTitleAndDescriptionRequest(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class UpdateDashboardLayoutRequest(_message.Message):
-    __slots__ = ("dashboard_id", "layout", "resource_id")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     LAYOUT_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -241,7 +243,7 @@ class UpdateDashboardLayoutRequest(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., layout: _Optional[_Union[DashboardLayout, _Mapping]] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class UpdateDashboardViewRequest(_message.Message):
-    __slots__ = ("dashboard_id", "view", "resource_id")
+    __slots__ = ()
     DASHBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     VIEW_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -251,7 +253,7 @@ class UpdateDashboardViewRequest(_message.Message):
     def __init__(self, dashboard_id: _Optional[str] = ..., view: _Optional[_Union[DashboardView, _Mapping]] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class DashboardView(_message.Message):
-    __slots__ = ("org_ids",)
+    __slots__ = ()
     ORG_IDS_FIELD_NUMBER: _ClassVar[int]
     org_ids: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, org_ids: _Optional[_Iterable[str]] = ...) -> None: ...
@@ -279,16 +281,16 @@ class TimeSpan(_message.Message):
     THIS_DAY_LAST_WEEK: TimeSpan.Interval
     PREVIOUS_MONTH: TimeSpan.Interval
     class Range(_message.Message):
-        __slots__ = ("start", "end")
+        __slots__ = ()
         START_FIELD_NUMBER: _ClassVar[int]
         END_FIELD_NUMBER: _ClassVar[int]
         start: _timestamp_pb2.Timestamp
         end: _timestamp_pb2.Timestamp
-        def __init__(self, start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+        def __init__(self, start: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class CreateApplicationDashboardRequest(_message.Message):
-    __slots__ = ("dashboard_resource_id", "org_id", "application")
+    __slots__ = ()
     DASHBOARD_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     APPLICATION_FIELD_NUMBER: _ClassVar[int]
@@ -306,7 +308,7 @@ class ListApplicationsDashboardsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ApplicationDashboards(_message.Message):
-    __slots__ = ("application", "dashboard_summaries")
+    __slots__ = ()
     APPLICATION_FIELD_NUMBER: _ClassVar[int]
     DASHBOARD_SUMMARIES_FIELD_NUMBER: _ClassVar[int]
     application: _license_pb2.Application
@@ -314,13 +316,13 @@ class ApplicationDashboards(_message.Message):
     def __init__(self, application: _Optional[_Union[_license_pb2.Application, str]] = ..., dashboard_summaries: _Optional[_Iterable[_Union[DashboardSummary, _Mapping]]] = ...) -> None: ...
 
 class ListApplicationsDashboardsResponse(_message.Message):
-    __slots__ = ("application_dashboards",)
+    __slots__ = ()
     APPLICATION_DASHBOARDS_FIELD_NUMBER: _ClassVar[int]
     application_dashboards: _containers.RepeatedCompositeFieldContainer[ApplicationDashboards]
     def __init__(self, application_dashboards: _Optional[_Iterable[_Union[ApplicationDashboards, _Mapping]]] = ...) -> None: ...
 
 class DeleteApplicationDashboardRequest(_message.Message):
-    __slots__ = ("application", "dashboard_resource_id", "org_id")
+    __slots__ = ()
     APPLICATION_FIELD_NUMBER: _ClassVar[int]
     DASHBOARD_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]

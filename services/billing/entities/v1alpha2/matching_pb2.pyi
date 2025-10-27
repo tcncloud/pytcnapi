@@ -15,7 +15,7 @@ MATCHING_RULE_UNSPECIFIED: MatchingRule
 MATCHING_RULE_COUNTRY_PREFIX: MatchingRule
 
 class MatchingConfig(_message.Message):
-    __slots__ = ("name", "country_prefix")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_PREFIX_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -23,7 +23,7 @@ class MatchingConfig(_message.Message):
     def __init__(self, name: _Optional[str] = ..., country_prefix: _Optional[_Union[MatchingConfigCountryPrefix, _Mapping]] = ...) -> None: ...
 
 class MatchingConfigCountryPrefix(_message.Message):
-    __slots__ = ("country_code", "prefixes")
+    __slots__ = ()
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
     country_code: int

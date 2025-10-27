@@ -7,13 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class MatchingConfig(_message.Message):
-    __slots__ = ("country_code_prefix",)
+    __slots__ = ()
     COUNTRY_CODE_PREFIX_FIELD_NUMBER: _ClassVar[int]
     country_code_prefix: CountryCodePrefix
     def __init__(self, country_code_prefix: _Optional[_Union[CountryCodePrefix, _Mapping]] = ...) -> None: ...
 
 class CountryCodePrefix(_message.Message):
-    __slots__ = ("country_code", "prefixes", "matching_rule_id", "name")
+    __slots__ = ()
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]

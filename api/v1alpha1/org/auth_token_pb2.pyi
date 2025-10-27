@@ -12,19 +12,19 @@ class CreateAuthTokenRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateAuthTokenResponse(_message.Message):
-    __slots__ = ("auth_token",)
+    __slots__ = ()
     AUTH_TOKEN_FIELD_NUMBER: _ClassVar[int]
     auth_token: _auth_token_pb2.AuthToken
     def __init__(self, auth_token: _Optional[_Union[_auth_token_pb2.AuthToken, _Mapping]] = ...) -> None: ...
 
 class CreateAuthTokenByUserIdRequest(_message.Message):
-    __slots__ = ("user_id",)
+    __slots__ = ()
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     def __init__(self, user_id: _Optional[str] = ...) -> None: ...
 
 class CreateAuthTokenByUserIdResponse(_message.Message):
-    __slots__ = ("auth_token",)
+    __slots__ = ()
     AUTH_TOKEN_FIELD_NUMBER: _ClassVar[int]
     auth_token: _auth_token_pb2.AuthToken
     def __init__(self, auth_token: _Optional[_Union[_auth_token_pb2.AuthToken, _Mapping]] = ...) -> None: ...
@@ -34,25 +34,25 @@ class ListAuthTokensRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAuthTokensResponse(_message.Message):
-    __slots__ = ("auth_tokens",)
+    __slots__ = ()
     AUTH_TOKENS_FIELD_NUMBER: _ClassVar[int]
     auth_tokens: _containers.RepeatedCompositeFieldContainer[_auth_token_pb2.AuthToken]
     def __init__(self, auth_tokens: _Optional[_Iterable[_Union[_auth_token_pb2.AuthToken, _Mapping]]] = ...) -> None: ...
 
 class ListAuthTokensByUserIdRequest(_message.Message):
-    __slots__ = ("user_id",)
+    __slots__ = ()
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     user_id: str
     def __init__(self, user_id: _Optional[str] = ...) -> None: ...
 
 class ListAuthTokensByUserIdResponse(_message.Message):
-    __slots__ = ("auth_tokens",)
+    __slots__ = ()
     AUTH_TOKENS_FIELD_NUMBER: _ClassVar[int]
     auth_tokens: _containers.RepeatedCompositeFieldContainer[_auth_token_pb2.AuthToken]
     def __init__(self, auth_tokens: _Optional[_Iterable[_Union[_auth_token_pb2.AuthToken, _Mapping]]] = ...) -> None: ...
 
 class SetAuthTokenExpirationRequest(_message.Message):
-    __slots__ = ("token",)
+    __slots__ = ()
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     token: str
     def __init__(self, token: _Optional[str] = ...) -> None: ...
@@ -62,7 +62,7 @@ class SetAuthTokenExpirationResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class SetAuthTokenExpirationByUserIdRequest(_message.Message):
-    __slots__ = ("token", "user_id")
+    __slots__ = ()
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     token: str
@@ -74,7 +74,7 @@ class SetAuthTokenExpirationByUserIdResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteAuthTokenRequest(_message.Message):
-    __slots__ = ("token",)
+    __slots__ = ()
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     token: str
     def __init__(self, token: _Optional[str] = ...) -> None: ...
@@ -84,7 +84,7 @@ class DeleteAuthTokenResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteAuthTokenByUserIdRequest(_message.Message):
-    __slots__ = ("token", "user_id")
+    __slots__ = ()
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     token: str

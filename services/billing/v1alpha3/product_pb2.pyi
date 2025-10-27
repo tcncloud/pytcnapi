@@ -12,7 +12,7 @@ class ListProductsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListProductsResponse(_message.Message):
-    __slots__ = ("products",)
+    __slots__ = ()
     PRODUCTS_FIELD_NUMBER: _ClassVar[int]
     products: _containers.RepeatedCompositeFieldContainer[_rates_pb2.Product]
     def __init__(self, products: _Optional[_Iterable[_Union[_rates_pb2.Product, _Mapping]]] = ...) -> None: ...

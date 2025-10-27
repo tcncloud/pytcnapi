@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import ana_pb2 as _ana_pb2
 from api.commons import classifier_pb2 as _classifier_pb2
 from api.commons import country_pb2 as _country_pb2
@@ -16,7 +18,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OrganizationPreferences(_message.Message):
-    __slots__ = ("org_id", "default_country", "time_zone", "display_language", "locale_preferences")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_COUNTRY_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
@@ -30,7 +32,7 @@ class OrganizationPreferences(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., default_country: _Optional[_Union[_country_pb2.Country, str]] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., display_language: _Optional[_Union[_org_pb2.DisplayLanguage, str]] = ..., locale_preferences: _Optional[_Union[_org_preferences_pb2.LocalePreferences, _Mapping]] = ...) -> None: ...
 
 class AgentPreferences(_message.Message):
-    __slots__ = ("org_id", "default_agent_dial_in", "pbx_extension_length", "default_softphone_volume_in", "default_softphone_volume_out", "config_dial_in_numbers", "client_dial_in_numbers", "manual_dial_caller_id_privacy", "use_manual_dial_caller_id_privacy")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_AGENT_DIAL_IN_FIELD_NUMBER: _ClassVar[int]
     PBX_EXTENSION_LENGTH_FIELD_NUMBER: _ClassVar[int]
@@ -49,10 +51,10 @@ class AgentPreferences(_message.Message):
     client_dial_in_numbers: _containers.RepeatedScalarFieldContainer[str]
     manual_dial_caller_id_privacy: bool
     use_manual_dial_caller_id_privacy: bool
-    def __init__(self, org_id: _Optional[str] = ..., default_agent_dial_in: _Optional[str] = ..., pbx_extension_length: _Optional[int] = ..., default_softphone_volume_in: _Optional[int] = ..., default_softphone_volume_out: _Optional[int] = ..., config_dial_in_numbers: _Optional[_Iterable[str]] = ..., client_dial_in_numbers: _Optional[_Iterable[str]] = ..., manual_dial_caller_id_privacy: bool = ..., use_manual_dial_caller_id_privacy: bool = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., default_agent_dial_in: _Optional[str] = ..., pbx_extension_length: _Optional[int] = ..., default_softphone_volume_in: _Optional[int] = ..., default_softphone_volume_out: _Optional[int] = ..., config_dial_in_numbers: _Optional[_Iterable[str]] = ..., client_dial_in_numbers: _Optional[_Iterable[str]] = ..., manual_dial_caller_id_privacy: _Optional[bool] = ..., use_manual_dial_caller_id_privacy: _Optional[bool] = ...) -> None: ...
 
 class ContactPreferences(_message.Message):
-    __slots__ = ("org_id", "default_contact_import_format", "use_contact_import_format", "default_contact_area_code", "use_contact_area_code", "discard_record_default_absent_numbers_handling", "default_contacts_import_randomization", "default_email_column", "default_duplicate_handling")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_CONTACT_IMPORT_FORMAT_FIELD_NUMBER: _ClassVar[int]
     USE_CONTACT_IMPORT_FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -71,10 +73,10 @@ class ContactPreferences(_message.Message):
     default_contacts_import_randomization: bool
     default_email_column: str
     default_duplicate_handling: _org_pb2.DefaultDuplicateHandling
-    def __init__(self, org_id: _Optional[str] = ..., default_contact_import_format: _Optional[_Union[ImportFormat, _Mapping]] = ..., use_contact_import_format: bool = ..., default_contact_area_code: _Optional[_Union[ContactAreaCode, _Mapping]] = ..., use_contact_area_code: bool = ..., discard_record_default_absent_numbers_handling: bool = ..., default_contacts_import_randomization: bool = ..., default_email_column: _Optional[str] = ..., default_duplicate_handling: _Optional[_Union[_org_pb2.DefaultDuplicateHandling, str]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., default_contact_import_format: _Optional[_Union[ImportFormat, _Mapping]] = ..., use_contact_import_format: _Optional[bool] = ..., default_contact_area_code: _Optional[_Union[ContactAreaCode, _Mapping]] = ..., use_contact_area_code: _Optional[bool] = ..., discard_record_default_absent_numbers_handling: _Optional[bool] = ..., default_contacts_import_randomization: _Optional[bool] = ..., default_email_column: _Optional[str] = ..., default_duplicate_handling: _Optional[_Union[_org_pb2.DefaultDuplicateHandling, str]] = ...) -> None: ...
 
 class ImportFormat(_message.Message):
-    __slots__ = ("standard", "custom")
+    __slots__ = ()
     STANDARD_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_NUMBER: _ClassVar[int]
     standard: _org_pb2.StandardImportFormat
@@ -82,7 +84,7 @@ class ImportFormat(_message.Message):
     def __init__(self, standard: _Optional[_Union[_org_pb2.StandardImportFormat, str]] = ..., custom: _Optional[_Union[CustomImportFormat, _Mapping]] = ...) -> None: ...
 
 class CustomImportFormat(_message.Message):
-    __slots__ = ("id", "name")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     id: int
@@ -90,7 +92,7 @@ class CustomImportFormat(_message.Message):
     def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
 
 class ContactAreaCode(_message.Message):
-    __slots__ = ("cfd", "custom")
+    __slots__ = ()
     CFD_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_NUMBER: _ClassVar[int]
     cfd: ContactFieldDescription
@@ -98,7 +100,7 @@ class ContactAreaCode(_message.Message):
     def __init__(self, cfd: _Optional[_Union[ContactFieldDescription, _Mapping]] = ..., custom: _Optional[int] = ...) -> None: ...
 
 class ContactFieldDescription(_message.Message):
-    __slots__ = ("id", "field_name", "is_phone", "display_format_string")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     IS_PHONE_FIELD_NUMBER: _ClassVar[int]
@@ -107,24 +109,24 @@ class ContactFieldDescription(_message.Message):
     field_name: str
     is_phone: bool
     display_format_string: str
-    def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: bool = ..., display_format_string: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., field_name: _Optional[str] = ..., is_phone: _Optional[bool] = ..., display_format_string: _Optional[str] = ...) -> None: ...
 
 class AuthenticationPreferences(_message.Message):
-    __slots__ = ("org_id", "authorization_via_ip", "allowed_ips", "agent_api_key", "enable_2fa", "block_unverified_users", "email_mfa_settings", "duo_mfa_settings", "allow_force_password_reset_interval", "password_reset_day_interval", "user_authorization_via_ip", "force_sso_provider", "enable_totp")
+    __slots__ = ()
     class DuoMfaSettings(_message.Message):
-        __slots__ = ("duo_client_id", "duo_api_host", "enabled")
+        __slots__ = ()
         DUO_CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
         DUO_API_HOST_FIELD_NUMBER: _ClassVar[int]
         ENABLED_FIELD_NUMBER: _ClassVar[int]
         duo_client_id: str
         duo_api_host: str
         enabled: bool
-        def __init__(self, duo_client_id: _Optional[str] = ..., duo_api_host: _Optional[str] = ..., enabled: bool = ...) -> None: ...
+        def __init__(self, duo_client_id: _Optional[str] = ..., duo_api_host: _Optional[str] = ..., enabled: _Optional[bool] = ...) -> None: ...
     class EmailMfaSettings(_message.Message):
-        __slots__ = ("enabled",)
+        __slots__ = ()
         ENABLED_FIELD_NUMBER: _ClassVar[int]
         enabled: bool
-        def __init__(self, enabled: bool = ...) -> None: ...
+        def __init__(self, enabled: _Optional[bool] = ...) -> None: ...
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AUTHORIZATION_VIA_IP_FIELD_NUMBER: _ClassVar[int]
     ALLOWED_IPS_FIELD_NUMBER: _ClassVar[int]
@@ -151,10 +153,10 @@ class AuthenticationPreferences(_message.Message):
     user_authorization_via_ip: bool
     force_sso_provider: bool
     enable_totp: bool
-    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: bool = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: bool = ..., block_unverified_users: bool = ..., email_mfa_settings: _Optional[_Union[AuthenticationPreferences.EmailMfaSettings, _Mapping]] = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ..., allow_force_password_reset_interval: bool = ..., password_reset_day_interval: _Optional[int] = ..., user_authorization_via_ip: bool = ..., force_sso_provider: bool = ..., enable_totp: bool = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., authorization_via_ip: _Optional[bool] = ..., allowed_ips: _Optional[_Iterable[str]] = ..., agent_api_key: _Optional[str] = ..., enable_2fa: _Optional[bool] = ..., block_unverified_users: _Optional[bool] = ..., email_mfa_settings: _Optional[_Union[AuthenticationPreferences.EmailMfaSettings, _Mapping]] = ..., duo_mfa_settings: _Optional[_Union[AuthenticationPreferences.DuoMfaSettings, _Mapping]] = ..., allow_force_password_reset_interval: _Optional[bool] = ..., password_reset_day_interval: _Optional[int] = ..., user_authorization_via_ip: _Optional[bool] = ..., force_sso_provider: _Optional[bool] = ..., enable_totp: _Optional[bool] = ...) -> None: ...
 
 class WebhookPreferences(_message.Message):
-    __slots__ = ("org_id", "push_urls_enabled", "call_result_push_url", "agent_response_push_url")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PUSH_URLS_ENABLED_FIELD_NUMBER: _ClassVar[int]
     CALL_RESULT_PUSH_URL_FIELD_NUMBER: _ClassVar[int]
@@ -163,10 +165,10 @@ class WebhookPreferences(_message.Message):
     push_urls_enabled: bool
     call_result_push_url: str
     agent_response_push_url: str
-    def __init__(self, org_id: _Optional[str] = ..., push_urls_enabled: bool = ..., call_result_push_url: _Optional[str] = ..., agent_response_push_url: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., push_urls_enabled: _Optional[bool] = ..., call_result_push_url: _Optional[str] = ..., agent_response_push_url: _Optional[str] = ...) -> None: ...
 
 class DashboardPreferences(_message.Message):
-    __slots__ = ("org_id", "default_info_view", "default_table_inclusion", "default_info_grouping", "default_small_icon", "default_descending_sort", "table_template_sid", "default_call_types", "default_info_sort_by_value", "default_barge_in_filtering")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_INFO_VIEW_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_TABLE_INCLUSION_FIELD_NUMBER: _ClassVar[int]
@@ -187,10 +189,10 @@ class DashboardPreferences(_message.Message):
     default_call_types: IncludedCallTypes
     default_info_sort_by_value: _org_pb2.AgentInfoSortBy
     default_barge_in_filtering: BargeInFiltering
-    def __init__(self, org_id: _Optional[str] = ..., default_info_view: bool = ..., default_table_inclusion: bool = ..., default_info_grouping: bool = ..., default_small_icon: bool = ..., default_descending_sort: bool = ..., table_template_sid: _Optional[int] = ..., default_call_types: _Optional[_Union[IncludedCallTypes, _Mapping]] = ..., default_info_sort_by_value: _Optional[_Union[_org_pb2.AgentInfoSortBy, str]] = ..., default_barge_in_filtering: _Optional[_Union[BargeInFiltering, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., default_info_view: _Optional[bool] = ..., default_table_inclusion: _Optional[bool] = ..., default_info_grouping: _Optional[bool] = ..., default_small_icon: _Optional[bool] = ..., default_descending_sort: _Optional[bool] = ..., table_template_sid: _Optional[int] = ..., default_call_types: _Optional[_Union[IncludedCallTypes, _Mapping]] = ..., default_info_sort_by_value: _Optional[_Union[_org_pb2.AgentInfoSortBy, str]] = ..., default_barge_in_filtering: _Optional[_Union[BargeInFiltering, _Mapping]] = ...) -> None: ...
 
 class IncludedCallTypes(_message.Message):
-    __slots__ = ("outbound", "inbound", "manual_dial", "preview_dial")
+    __slots__ = ()
     OUTBOUND_FIELD_NUMBER: _ClassVar[int]
     INBOUND_FIELD_NUMBER: _ClassVar[int]
     MANUAL_DIAL_FIELD_NUMBER: _ClassVar[int]
@@ -199,19 +201,19 @@ class IncludedCallTypes(_message.Message):
     inbound: bool
     manual_dial: bool
     preview_dial: bool
-    def __init__(self, outbound: bool = ..., inbound: bool = ..., manual_dial: bool = ..., preview_dial: bool = ...) -> None: ...
+    def __init__(self, outbound: _Optional[bool] = ..., inbound: _Optional[bool] = ..., manual_dial: _Optional[bool] = ..., preview_dial: _Optional[bool] = ...) -> None: ...
 
 class BargeInFiltering(_message.Message):
-    __slots__ = ("hunt_group", "agent_status")
+    __slots__ = ()
     class HuntGroup(_message.Message):
-        __slots__ = ("any", "hunt_group_sid")
+        __slots__ = ()
         ANY_FIELD_NUMBER: _ClassVar[int]
         HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
         any: bool
         hunt_group_sid: int
-        def __init__(self, any: bool = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
+        def __init__(self, any: _Optional[bool] = ..., hunt_group_sid: _Optional[int] = ...) -> None: ...
     class AgentStatus(_message.Message):
-        __slots__ = ("any", "waiting", "on_call", "wrap_up", "paused", "transfer", "preview", "manual", "pbx", "intercom")
+        __slots__ = ()
         ANY_FIELD_NUMBER: _ClassVar[int]
         WAITING_FIELD_NUMBER: _ClassVar[int]
         ON_CALL_FIELD_NUMBER: _ClassVar[int]
@@ -232,7 +234,7 @@ class BargeInFiltering(_message.Message):
         manual: bool
         pbx: bool
         intercom: bool
-        def __init__(self, any: bool = ..., waiting: bool = ..., on_call: bool = ..., wrap_up: bool = ..., paused: bool = ..., transfer: bool = ..., preview: bool = ..., manual: bool = ..., pbx: bool = ..., intercom: bool = ...) -> None: ...
+        def __init__(self, any: _Optional[bool] = ..., waiting: _Optional[bool] = ..., on_call: _Optional[bool] = ..., wrap_up: _Optional[bool] = ..., paused: _Optional[bool] = ..., transfer: _Optional[bool] = ..., preview: _Optional[bool] = ..., manual: _Optional[bool] = ..., pbx: _Optional[bool] = ..., intercom: _Optional[bool] = ...) -> None: ...
     HUNT_GROUP_FIELD_NUMBER: _ClassVar[int]
     AGENT_STATUS_FIELD_NUMBER: _ClassVar[int]
     hunt_group: BargeInFiltering.HuntGroup
@@ -240,7 +242,7 @@ class BargeInFiltering(_message.Message):
     def __init__(self, hunt_group: _Optional[_Union[BargeInFiltering.HuntGroup, _Mapping]] = ..., agent_status: _Optional[_Union[BargeInFiltering.AgentStatus, _Mapping]] = ...) -> None: ...
 
 class DashboardQueuePreferences(_message.Message):
-    __slots__ = ("org_id", "default_info_view", "default_info_grouping", "default_small_icon", "default_descending_sort", "default_agent_skills_filter", "default_info_table_template", "default_info_sort_by_value")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_INFO_VIEW_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_INFO_GROUPING_FIELD_NUMBER: _ClassVar[int]
@@ -257,10 +259,10 @@ class DashboardQueuePreferences(_message.Message):
     default_agent_skills_filter: int
     default_info_table_template: int
     default_info_sort_by_value: _org_pb2.QueueInfoSortBy
-    def __init__(self, org_id: _Optional[str] = ..., default_info_view: bool = ..., default_info_grouping: bool = ..., default_small_icon: bool = ..., default_descending_sort: bool = ..., default_agent_skills_filter: _Optional[int] = ..., default_info_table_template: _Optional[int] = ..., default_info_sort_by_value: _Optional[_Union[_org_pb2.QueueInfoSortBy, str]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., default_info_view: _Optional[bool] = ..., default_info_grouping: _Optional[bool] = ..., default_small_icon: _Optional[bool] = ..., default_descending_sort: _Optional[bool] = ..., default_agent_skills_filter: _Optional[int] = ..., default_info_table_template: _Optional[int] = ..., default_info_sort_by_value: _Optional[_Union[_org_pb2.QueueInfoSortBy, str]] = ...) -> None: ...
 
 class PhonePreferences(_message.Message):
-    __slots__ = ("org_id", "agent_preview_dialing", "default_ring_length_threshold", "display_ring_length_threshold", "show_caller_id", "default_use_caller_id", "override_linkback_recording", "caller_id_cfd_sid", "default_dial_order", "answering_machine_detection", "linkback_recording")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     AGENT_PREVIEW_DIALING_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_RING_LENGTH_THRESHOLD_FIELD_NUMBER: _ClassVar[int]
@@ -283,10 +285,10 @@ class PhonePreferences(_message.Message):
     default_dial_order: DialOrder
     answering_machine_detection: _org_preferences_pb2.AnsweringMachineDetection
     linkback_recording: bool
-    def __init__(self, org_id: _Optional[str] = ..., agent_preview_dialing: bool = ..., default_ring_length_threshold: _Optional[int] = ..., display_ring_length_threshold: bool = ..., show_caller_id: bool = ..., default_use_caller_id: bool = ..., override_linkback_recording: bool = ..., caller_id_cfd_sid: _Optional[int] = ..., default_dial_order: _Optional[_Union[DialOrder, _Mapping]] = ..., answering_machine_detection: _Optional[_Union[_org_preferences_pb2.AnsweringMachineDetection, str]] = ..., linkback_recording: bool = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., agent_preview_dialing: _Optional[bool] = ..., default_ring_length_threshold: _Optional[int] = ..., display_ring_length_threshold: _Optional[bool] = ..., show_caller_id: _Optional[bool] = ..., default_use_caller_id: _Optional[bool] = ..., override_linkback_recording: _Optional[bool] = ..., caller_id_cfd_sid: _Optional[int] = ..., default_dial_order: _Optional[_Union[DialOrder, _Mapping]] = ..., answering_machine_detection: _Optional[_Union[_org_preferences_pb2.AnsweringMachineDetection, str]] = ..., linkback_recording: _Optional[bool] = ...) -> None: ...
 
 class DialOrder(_message.Message):
-    __slots__ = ("standard", "custom")
+    __slots__ = ()
     STANDARD_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_NUMBER: _ClassVar[int]
     standard: _lms_pb2.DialOrderType
@@ -294,13 +296,13 @@ class DialOrder(_message.Message):
     def __init__(self, standard: _Optional[_Union[_lms_pb2.DialOrderType, str]] = ..., custom: _Optional[_Union[CustomDialOrder, _Mapping]] = ...) -> None: ...
 
 class CustomDialOrder(_message.Message):
-    __slots__ = ("dial_order_fields",)
+    __slots__ = ()
     DIAL_ORDER_FIELDS_FIELD_NUMBER: _ClassVar[int]
     dial_order_fields: _containers.RepeatedCompositeFieldContainer[DialOrderField]
     def __init__(self, dial_order_fields: _Optional[_Iterable[_Union[DialOrderField, _Mapping]]] = ...) -> None: ...
 
 class DialOrderField(_message.Message):
-    __slots__ = ("cfd_sid", "field_name")
+    __slots__ = ()
     CFD_SID_FIELD_NUMBER: _ClassVar[int]
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     cfd_sid: int
@@ -308,7 +310,7 @@ class DialOrderField(_message.Message):
     def __init__(self, cfd_sid: _Optional[int] = ..., field_name: _Optional[str] = ...) -> None: ...
 
 class CompliancePreferences(_message.Message):
-    __slots__ = ("org_id", "display_after_hours_calls", "after_hours_calls", "display_natural_compliance", "use_natural_compliance", "default_compliance_rule_set", "display_cell_phone_scrub", "cell_phone_scrub", "display_schedule_rules", "use_schedule_rules", "default_schedule_rule", "do_zip_code_scrub", "zip_code_scrub", "default_email_compliance_list", "default_sms_compliance_list")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_AFTER_HOURS_CALLS_FIELD_NUMBER: _ClassVar[int]
     AFTER_HOURS_CALLS_FIELD_NUMBER: _ClassVar[int]
@@ -339,10 +341,10 @@ class CompliancePreferences(_message.Message):
     zip_code_scrub: ZipCodeField
     default_email_compliance_list: str
     default_sms_compliance_list: str
-    def __init__(self, org_id: _Optional[str] = ..., display_after_hours_calls: bool = ..., after_hours_calls: bool = ..., display_natural_compliance: bool = ..., use_natural_compliance: bool = ..., default_compliance_rule_set: _Optional[str] = ..., display_cell_phone_scrub: bool = ..., cell_phone_scrub: bool = ..., display_schedule_rules: bool = ..., use_schedule_rules: bool = ..., default_schedule_rule: _Optional[_Union[ScheduleRuleField, _Mapping]] = ..., do_zip_code_scrub: bool = ..., zip_code_scrub: _Optional[_Union[ZipCodeField, _Mapping]] = ..., default_email_compliance_list: _Optional[str] = ..., default_sms_compliance_list: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., display_after_hours_calls: _Optional[bool] = ..., after_hours_calls: _Optional[bool] = ..., display_natural_compliance: _Optional[bool] = ..., use_natural_compliance: _Optional[bool] = ..., default_compliance_rule_set: _Optional[str] = ..., display_cell_phone_scrub: _Optional[bool] = ..., cell_phone_scrub: _Optional[bool] = ..., display_schedule_rules: _Optional[bool] = ..., use_schedule_rules: _Optional[bool] = ..., default_schedule_rule: _Optional[_Union[ScheduleRuleField, _Mapping]] = ..., do_zip_code_scrub: _Optional[bool] = ..., zip_code_scrub: _Optional[_Union[ZipCodeField, _Mapping]] = ..., default_email_compliance_list: _Optional[str] = ..., default_sms_compliance_list: _Optional[str] = ...) -> None: ...
 
 class ScheduleRuleField(_message.Message):
-    __slots__ = ("rule_id", "name")
+    __slots__ = ()
     RULE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     rule_id: int
@@ -350,7 +352,7 @@ class ScheduleRuleField(_message.Message):
     def __init__(self, rule_id: _Optional[int] = ..., name: _Optional[str] = ...) -> None: ...
 
 class ZipCodeField(_message.Message):
-    __slots__ = ("cfd_sid", "field_name")
+    __slots__ = ()
     CFD_SID_FIELD_NUMBER: _ClassVar[int]
     FIELD_NAME_FIELD_NUMBER: _ClassVar[int]
     cfd_sid: int
@@ -358,7 +360,7 @@ class ZipCodeField(_message.Message):
     def __init__(self, cfd_sid: _Optional[int] = ..., field_name: _Optional[str] = ...) -> None: ...
 
 class BroadcastPreferences(_message.Message):
-    __slots__ = ("org_id", "display_list_penetration_strategy", "dial_list_penetration_strategy", "display_follow_the_sun", "follow_the_sun", "sequence_terminator_override", "broadcast_template_ordering", "start_time_enabled", "default_start_time", "stop_time_enabled", "default_stop_time")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DISPLAY_LIST_PENETRATION_STRATEGY_FIELD_NUMBER: _ClassVar[int]
     DIAL_LIST_PENETRATION_STRATEGY_FIELD_NUMBER: _ClassVar[int]
@@ -381,10 +383,10 @@ class BroadcastPreferences(_message.Message):
     default_start_time: BroadcastTime
     stop_time_enabled: bool
     default_stop_time: BroadcastTime
-    def __init__(self, org_id: _Optional[str] = ..., display_list_penetration_strategy: bool = ..., dial_list_penetration_strategy: bool = ..., display_follow_the_sun: bool = ..., follow_the_sun: bool = ..., sequence_terminator_override: bool = ..., broadcast_template_ordering: _Optional[_Union[_org_preferences_pb2.BroadcastTemplateOrdering, str]] = ..., start_time_enabled: bool = ..., default_start_time: _Optional[_Union[BroadcastTime, _Mapping]] = ..., stop_time_enabled: bool = ..., default_stop_time: _Optional[_Union[BroadcastTime, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., display_list_penetration_strategy: _Optional[bool] = ..., dial_list_penetration_strategy: _Optional[bool] = ..., display_follow_the_sun: _Optional[bool] = ..., follow_the_sun: _Optional[bool] = ..., sequence_terminator_override: _Optional[bool] = ..., broadcast_template_ordering: _Optional[_Union[_org_preferences_pb2.BroadcastTemplateOrdering, str]] = ..., start_time_enabled: _Optional[bool] = ..., default_start_time: _Optional[_Union[BroadcastTime, _Mapping]] = ..., stop_time_enabled: _Optional[bool] = ..., default_stop_time: _Optional[_Union[BroadcastTime, _Mapping]] = ...) -> None: ...
 
 class BroadcastTime(_message.Message):
-    __slots__ = ("hours", "minutes", "timezone")
+    __slots__ = ()
     HOURS_FIELD_NUMBER: _ClassVar[int]
     MINUTES_FIELD_NUMBER: _ClassVar[int]
     TIMEZONE_FIELD_NUMBER: _ClassVar[int]
@@ -394,9 +396,9 @@ class BroadcastTime(_message.Message):
     def __init__(self, hours: _Optional[int] = ..., minutes: _Optional[int] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ...) -> None: ...
 
 class SchedulePreferences(_message.Message):
-    __slots__ = ("org_id", "display_schedule_by_time_zone", "use_schedule_by_time_zone", "schedule_by_time_zone_scope", "display_schedule_as_paused", "schedule_as_paused", "default_completion_threshold", "display_campaign_linking", "use_campaign_linking", "campaign_links", "default_campaign_link_id", "resend_cancelled_campaigns")
+    __slots__ = ()
     class CampaignLinksEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -426,10 +428,10 @@ class SchedulePreferences(_message.Message):
     campaign_links: _containers.ScalarMap[str, str]
     default_campaign_link_id: str
     resend_cancelled_campaigns: bool
-    def __init__(self, org_id: _Optional[str] = ..., display_schedule_by_time_zone: bool = ..., use_schedule_by_time_zone: bool = ..., schedule_by_time_zone_scope: _Optional[_Union[_org_preferences_pb2.ScheduleByTimeZoneScope, str]] = ..., display_schedule_as_paused: bool = ..., schedule_as_paused: bool = ..., default_completion_threshold: _Optional[int] = ..., display_campaign_linking: bool = ..., use_campaign_linking: bool = ..., campaign_links: _Optional[_Mapping[str, str]] = ..., default_campaign_link_id: _Optional[str] = ..., resend_cancelled_campaigns: bool = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., display_schedule_by_time_zone: _Optional[bool] = ..., use_schedule_by_time_zone: _Optional[bool] = ..., schedule_by_time_zone_scope: _Optional[_Union[_org_preferences_pb2.ScheduleByTimeZoneScope, str]] = ..., display_schedule_as_paused: _Optional[bool] = ..., schedule_as_paused: _Optional[bool] = ..., default_completion_threshold: _Optional[int] = ..., display_campaign_linking: _Optional[bool] = ..., use_campaign_linking: _Optional[bool] = ..., campaign_links: _Optional[_Mapping[str, str]] = ..., default_campaign_link_id: _Optional[str] = ..., resend_cancelled_campaigns: _Optional[bool] = ...) -> None: ...
 
 class EmailSmsPreferences(_message.Message):
-    __slots__ = ("org_id", "use_custom_links", "client_acknowledgement", "email_from_addresses")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     USE_CUSTOM_LINKS_FIELD_NUMBER: _ClassVar[int]
     CLIENT_ACKNOWLEDGEMENT_FIELD_NUMBER: _ClassVar[int]
@@ -438,10 +440,10 @@ class EmailSmsPreferences(_message.Message):
     use_custom_links: bool
     client_acknowledgement: bool
     email_from_addresses: _containers.RepeatedScalarFieldContainer[str]
-    def __init__(self, org_id: _Optional[str] = ..., use_custom_links: bool = ..., client_acknowledgement: bool = ..., email_from_addresses: _Optional[_Iterable[str]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., use_custom_links: _Optional[bool] = ..., client_acknowledgement: _Optional[bool] = ..., email_from_addresses: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class BusinessPreferences(_message.Message):
-    __slots__ = ("org_id", "weeks_of_data", "time_zone", "multi_client_access", "custom_visualizations", "time_filter")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     WEEKS_OF_DATA_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
@@ -454,10 +456,10 @@ class BusinessPreferences(_message.Message):
     multi_client_access: bool
     custom_visualizations: bool
     time_filter: str
-    def __init__(self, org_id: _Optional[str] = ..., weeks_of_data: _Optional[int] = ..., time_zone: _Optional[_Union[_ana_pb2.AnaTimeZone, str]] = ..., multi_client_access: bool = ..., custom_visualizations: bool = ..., time_filter: _Optional[str] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., weeks_of_data: _Optional[int] = ..., time_zone: _Optional[_Union[_ana_pb2.AnaTimeZone, str]] = ..., multi_client_access: _Optional[bool] = ..., custom_visualizations: _Optional[bool] = ..., time_filter: _Optional[str] = ...) -> None: ...
 
 class ScorecardsPreferences(_message.Message):
-    __slots__ = ("org_id", "call_sample_percentage", "max_user_evaluations", "evaluation_interval")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CALL_SAMPLE_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
     MAX_USER_EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
@@ -481,7 +483,7 @@ class Scorecards(_message.Message):
     def __init__(self) -> None: ...
 
 class VoiceAnalyticsPreferences(_message.Message):
-    __slots__ = ("org_id", "enabled", "redact", "notify", "billing_notify", "number_format", "redact_all_digits", "silence_threshold", "talk_over_threshold")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ENABLED_FIELD_NUMBER: _ClassVar[int]
     REDACT_FIELD_NUMBER: _ClassVar[int]
@@ -500,19 +502,19 @@ class VoiceAnalyticsPreferences(_message.Message):
     redact_all_digits: bool
     silence_threshold: int
     talk_over_threshold: int
-    def __init__(self, org_id: _Optional[str] = ..., enabled: bool = ..., redact: _Optional[_Iterable[_Union[VoiceAnalytics.Redact, _Mapping]]] = ..., notify: _Optional[_Union[VoiceAnalytics.Notify, _Mapping]] = ..., billing_notify: _Optional[_Union[VoiceAnalytics.Notify, _Mapping]] = ..., number_format: _Optional[str] = ..., redact_all_digits: bool = ..., silence_threshold: _Optional[int] = ..., talk_over_threshold: _Optional[int] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., enabled: _Optional[bool] = ..., redact: _Optional[_Iterable[_Union[VoiceAnalytics.Redact, _Mapping]]] = ..., notify: _Optional[_Union[VoiceAnalytics.Notify, _Mapping]] = ..., billing_notify: _Optional[_Union[VoiceAnalytics.Notify, _Mapping]] = ..., number_format: _Optional[str] = ..., redact_all_digits: _Optional[bool] = ..., silence_threshold: _Optional[int] = ..., talk_over_threshold: _Optional[int] = ...) -> None: ...
 
 class VoiceAnalytics(_message.Message):
     __slots__ = ()
     class Redact(_message.Message):
-        __slots__ = ("number", "redact_entity")
+        __slots__ = ()
         NUMBER_FIELD_NUMBER: _ClassVar[int]
         REDACT_ENTITY_FIELD_NUMBER: _ClassVar[int]
         number: VoiceAnalytics.Number
         redact_entity: _classifier_pb2.ClassifierEntityType
         def __init__(self, number: _Optional[_Union[VoiceAnalytics.Number, _Mapping]] = ..., redact_entity: _Optional[_Union[_classifier_pb2.ClassifierEntityType, str]] = ...) -> None: ...
     class Number(_message.Message):
-        __slots__ = ("kind", "min_consecutive", "max_consecutive", "slop")
+        __slots__ = ()
         class Kind(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
             __slots__ = ()
             KIND_CARDINAL_UNSPECIFIED: _ClassVar[VoiceAnalytics.Number.Kind]
@@ -531,14 +533,14 @@ class VoiceAnalytics(_message.Message):
         slop: int
         def __init__(self, kind: _Optional[_Union[VoiceAnalytics.Number.Kind, str]] = ..., min_consecutive: _Optional[int] = ..., max_consecutive: _Optional[int] = ..., slop: _Optional[int] = ...) -> None: ...
     class Notify(_message.Message):
-        __slots__ = ("cron",)
+        __slots__ = ()
         CRON_FIELD_NUMBER: _ClassVar[int]
         cron: str
         def __init__(self, cron: _Optional[str] = ...) -> None: ...
     def __init__(self) -> None: ...
 
 class EndOfDayPreferences(_message.Message):
-    __slots__ = ("org_id", "eod_monday", "eod_tuesday", "eod_wednesday", "eod_thursday", "eod_friday", "eod_saturday", "eod_sunday")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     EOD_MONDAY_FIELD_NUMBER: _ClassVar[int]
     EOD_TUESDAY_FIELD_NUMBER: _ClassVar[int]
@@ -558,7 +560,7 @@ class EndOfDayPreferences(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., eod_monday: _Optional[int] = ..., eod_tuesday: _Optional[int] = ..., eod_wednesday: _Optional[int] = ..., eod_thursday: _Optional[int] = ..., eod_friday: _Optional[int] = ..., eod_saturday: _Optional[int] = ..., eod_sunday: _Optional[int] = ...) -> None: ...
 
 class FilterPreferences(_message.Message):
-    __slots__ = ("org_id", "default_auto_report_filter", "send_empty_auto_reports", "display_broadcast_resend_filter", "default_broadcast_resend_filter")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_AUTO_REPORT_FILTER_FIELD_NUMBER: _ClassVar[int]
     SEND_EMPTY_AUTO_REPORTS_FIELD_NUMBER: _ClassVar[int]
@@ -569,10 +571,10 @@ class FilterPreferences(_message.Message):
     send_empty_auto_reports: bool
     display_broadcast_resend_filter: bool
     default_broadcast_resend_filter: ReportFilter
-    def __init__(self, org_id: _Optional[str] = ..., default_auto_report_filter: _Optional[_Union[ReportFilter, _Mapping]] = ..., send_empty_auto_reports: bool = ..., display_broadcast_resend_filter: bool = ..., default_broadcast_resend_filter: _Optional[_Union[ReportFilter, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., default_auto_report_filter: _Optional[_Union[ReportFilter, _Mapping]] = ..., send_empty_auto_reports: _Optional[bool] = ..., display_broadcast_resend_filter: _Optional[bool] = ..., default_broadcast_resend_filter: _Optional[_Union[ReportFilter, _Mapping]] = ...) -> None: ...
 
 class ReportFilter(_message.Message):
-    __slots__ = ("standard", "custom")
+    __slots__ = ()
     STANDARD_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_FIELD_NUMBER: _ClassVar[int]
     standard: _org_preferences_pb2.StandardReportFilter
@@ -580,7 +582,7 @@ class ReportFilter(_message.Message):
     def __init__(self, standard: _Optional[_Union[_org_preferences_pb2.StandardReportFilter, str]] = ..., custom: _Optional[int] = ...) -> None: ...
 
 class RecordingPreferences(_message.Message):
-    __slots__ = ("org_id", "convention_enabled", "file_name_convention", "zip_convention_enabled", "zip_file_name_convention", "export_file_type")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CONVENTION_ENABLED_FIELD_NUMBER: _ClassVar[int]
     FILE_NAME_CONVENTION_FIELD_NUMBER: _ClassVar[int]
@@ -593,10 +595,10 @@ class RecordingPreferences(_message.Message):
     zip_convention_enabled: bool
     zip_file_name_convention: RecordingsZipFileNamingConvention
     export_file_type: _org_pb2.RecordingFileType
-    def __init__(self, org_id: _Optional[str] = ..., convention_enabled: bool = ..., file_name_convention: _Optional[_Union[RecordingsFileNamingConvention, _Mapping]] = ..., zip_convention_enabled: bool = ..., zip_file_name_convention: _Optional[_Union[RecordingsZipFileNamingConvention, _Mapping]] = ..., export_file_type: _Optional[_Union[_org_pb2.RecordingFileType, str]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., convention_enabled: _Optional[bool] = ..., file_name_convention: _Optional[_Union[RecordingsFileNamingConvention, _Mapping]] = ..., zip_convention_enabled: _Optional[bool] = ..., zip_file_name_convention: _Optional[_Union[RecordingsZipFileNamingConvention, _Mapping]] = ..., export_file_type: _Optional[_Union[_org_pb2.RecordingFileType, str]] = ...) -> None: ...
 
 class RecordingsFileNamingConvention(_message.Message):
-    __slots__ = ("xml_client_property_sid", "inbound", "manual", "outbound", "preview")
+    __slots__ = ()
     XML_CLIENT_PROPERTY_SID_FIELD_NUMBER: _ClassVar[int]
     INBOUND_FIELD_NUMBER: _ClassVar[int]
     MANUAL_FIELD_NUMBER: _ClassVar[int]
@@ -610,7 +612,7 @@ class RecordingsFileNamingConvention(_message.Message):
     def __init__(self, xml_client_property_sid: _Optional[int] = ..., inbound: _Optional[_Union[FileNamingConvention, _Mapping]] = ..., manual: _Optional[_Union[FileNamingConvention, _Mapping]] = ..., outbound: _Optional[_Union[FileNamingConvention, _Mapping]] = ..., preview: _Optional[_Union[FileNamingConvention, _Mapping]] = ...) -> None: ...
 
 class RecordingsZipFileNamingConvention(_message.Message):
-    __slots__ = ("xml_client_property_sid", "inbound", "manual", "outbound", "combined")
+    __slots__ = ()
     XML_CLIENT_PROPERTY_SID_FIELD_NUMBER: _ClassVar[int]
     INBOUND_FIELD_NUMBER: _ClassVar[int]
     MANUAL_FIELD_NUMBER: _ClassVar[int]
@@ -624,13 +626,13 @@ class RecordingsZipFileNamingConvention(_message.Message):
     def __init__(self, xml_client_property_sid: _Optional[int] = ..., inbound: _Optional[_Union[FileNamingConvention, _Mapping]] = ..., manual: _Optional[_Union[FileNamingConvention, _Mapping]] = ..., outbound: _Optional[_Union[FileNamingConvention, _Mapping]] = ..., combined: _Optional[_Union[FileNamingConvention, _Mapping]] = ...) -> None: ...
 
 class FileNamingConvention(_message.Message):
-    __slots__ = ("segments",)
+    __slots__ = ()
     SEGMENTS_FIELD_NUMBER: _ClassVar[int]
     segments: _containers.RepeatedCompositeFieldContainer[FileNameSegment]
     def __init__(self, segments: _Optional[_Iterable[_Union[FileNameSegment, _Mapping]]] = ...) -> None: ...
 
 class FileNameSegment(_message.Message):
-    __slots__ = ("segment_type", "format_pattern", "time_zone_id")
+    __slots__ = ()
     SEGMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     FORMAT_PATTERN_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -640,7 +642,7 @@ class FileNameSegment(_message.Message):
     def __init__(self, segment_type: _Optional[str] = ..., format_pattern: _Optional[str] = ..., time_zone_id: _Optional[str] = ...) -> None: ...
 
 class AdminClientPreferences(_message.Message):
-    __slots__ = ("org_id", "use_reserved_carrier", "reserved_carriers", "email_key", "email_id", "email_name", "whitelist_ips", "whitelist_domains", "callbacks_service_id", "agent_screen_recording", "allowed_countries")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     USE_RESERVED_CARRIER_FIELD_NUMBER: _ClassVar[int]
     RESERVED_CARRIERS_FIELD_NUMBER: _ClassVar[int]
@@ -663,10 +665,10 @@ class AdminClientPreferences(_message.Message):
     callbacks_service_id: str
     agent_screen_recording: bool
     allowed_countries: _containers.RepeatedScalarFieldContainer[_country_pb2.Country]
-    def __init__(self, org_id: _Optional[str] = ..., use_reserved_carrier: bool = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., email_key: _Optional[str] = ..., email_id: _Optional[str] = ..., email_name: _Optional[str] = ..., whitelist_ips: _Optional[_Iterable[str]] = ..., whitelist_domains: _Optional[_Iterable[str]] = ..., callbacks_service_id: _Optional[str] = ..., agent_screen_recording: bool = ..., allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., use_reserved_carrier: _Optional[bool] = ..., reserved_carriers: _Optional[_Iterable[str]] = ..., email_key: _Optional[str] = ..., email_id: _Optional[str] = ..., email_name: _Optional[str] = ..., whitelist_ips: _Optional[_Iterable[str]] = ..., whitelist_domains: _Optional[_Iterable[str]] = ..., callbacks_service_id: _Optional[str] = ..., agent_screen_recording: _Optional[bool] = ..., allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ...) -> None: ...
 
 class BusinessHours(_message.Message):
-    __slots__ = ("org_id", "description", "business_hours_id", "business_hours_name", "timezone", "day_intervals", "last_updated")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
@@ -681,10 +683,10 @@ class BusinessHours(_message.Message):
     timezone: _org_pb2.TimeZone
     day_intervals: _containers.RepeatedCompositeFieldContainer[DayInterval]
     last_updated: _timestamp_pb2.Timestamp
-    def __init__(self, org_id: _Optional[str] = ..., description: _Optional[str] = ..., business_hours_id: _Optional[str] = ..., business_hours_name: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., day_intervals: _Optional[_Iterable[_Union[DayInterval, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., description: _Optional[str] = ..., business_hours_id: _Optional[str] = ..., business_hours_name: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., day_intervals: _Optional[_Iterable[_Union[DayInterval, _Mapping]]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class Range(_message.Message):
-    __slots__ = ("start_hour", "start_minute", "end_hour", "end_minute")
+    __slots__ = ()
     START_HOUR_FIELD_NUMBER: _ClassVar[int]
     START_MINUTE_FIELD_NUMBER: _ClassVar[int]
     END_HOUR_FIELD_NUMBER: _ClassVar[int]
@@ -696,7 +698,7 @@ class Range(_message.Message):
     def __init__(self, start_hour: _Optional[int] = ..., start_minute: _Optional[int] = ..., end_hour: _Optional[int] = ..., end_minute: _Optional[int] = ...) -> None: ...
 
 class TimeOfDay(_message.Message):
-    __slots__ = ("hour", "minute")
+    __slots__ = ()
     HOUR_FIELD_NUMBER: _ClassVar[int]
     MINUTE_FIELD_NUMBER: _ClassVar[int]
     hour: int
@@ -704,7 +706,7 @@ class TimeOfDay(_message.Message):
     def __init__(self, hour: _Optional[int] = ..., minute: _Optional[int] = ...) -> None: ...
 
 class DayInterval(_message.Message):
-    __slots__ = ("day", "start", "end")
+    __slots__ = ()
     DAY_FIELD_NUMBER: _ClassVar[int]
     START_FIELD_NUMBER: _ClassVar[int]
     END_FIELD_NUMBER: _ClassVar[int]
@@ -714,7 +716,7 @@ class DayInterval(_message.Message):
     def __init__(self, day: _Optional[_Union[_enums_pb2.Weekday.Enum, str]] = ..., start: _Optional[_Union[TimeOfDay, _Mapping]] = ..., end: _Optional[_Union[TimeOfDay, _Mapping]] = ...) -> None: ...
 
 class MonthDayDate(_message.Message):
-    __slots__ = ("date_name", "month", "day_of_month")
+    __slots__ = ()
     DATE_NAME_FIELD_NUMBER: _ClassVar[int]
     MONTH_FIELD_NUMBER: _ClassVar[int]
     DAY_OF_MONTH_FIELD_NUMBER: _ClassVar[int]
@@ -724,7 +726,7 @@ class MonthDayDate(_message.Message):
     def __init__(self, date_name: _Optional[str] = ..., month: _Optional[_Union[_enums_pb2.Month, str]] = ..., day_of_month: _Optional[int] = ...) -> None: ...
 
 class CountryHoliday(_message.Message):
-    __slots__ = ("holiday_name", "country", "country_name", "types", "states")
+    __slots__ = ()
     HOLIDAY_NAME_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -738,7 +740,7 @@ class CountryHoliday(_message.Message):
     def __init__(self, holiday_name: _Optional[str] = ..., country: _Optional[_Union[_country_pb2.Country, str]] = ..., country_name: _Optional[str] = ..., types: _Optional[_Iterable[str]] = ..., states: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ProgrammedDay(_message.Message):
-    __slots__ = ("day", "holiday")
+    __slots__ = ()
     DAY_FIELD_NUMBER: _ClassVar[int]
     HOLIDAY_FIELD_NUMBER: _ClassVar[int]
     day: MonthDayDate
@@ -746,7 +748,7 @@ class ProgrammedDay(_message.Message):
     def __init__(self, day: _Optional[_Union[MonthDayDate, _Mapping]] = ..., holiday: _Optional[_Union[CountryHoliday, _Mapping]] = ...) -> None: ...
 
 class ProgrammedDates(_message.Message):
-    __slots__ = ("org_id", "programmed_dates_id", "programmed_dates_name", "description", "timezone", "days", "last_updated")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PROGRAMMED_DATES_ID_FIELD_NUMBER: _ClassVar[int]
     PROGRAMMED_DATES_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -761,10 +763,10 @@ class ProgrammedDates(_message.Message):
     timezone: _org_pb2.TimeZone
     days: _containers.RepeatedCompositeFieldContainer[ProgrammedDay]
     last_updated: _timestamp_pb2.Timestamp
-    def __init__(self, org_id: _Optional[str] = ..., programmed_dates_id: _Optional[str] = ..., programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[ProgrammedDay, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., programmed_dates_id: _Optional[str] = ..., programmed_dates_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[ProgrammedDay, _Mapping]]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ObservedHolidays(_message.Message):
-    __slots__ = ("org_id", "observed_holidays_id", "observed_holidays_name", "description", "timezone", "days", "last_updated")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     OBSERVED_HOLIDAYS_ID_FIELD_NUMBER: _ClassVar[int]
     OBSERVED_HOLIDAYS_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -779,10 +781,10 @@ class ObservedHolidays(_message.Message):
     timezone: _org_pb2.TimeZone
     days: _containers.RepeatedCompositeFieldContainer[ObservedHoliday]
     last_updated: _timestamp_pb2.Timestamp
-    def __init__(self, org_id: _Optional[str] = ..., observed_holidays_id: _Optional[str] = ..., observed_holidays_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[ObservedHoliday, _Mapping]]] = ..., last_updated: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, org_id: _Optional[str] = ..., observed_holidays_id: _Optional[str] = ..., observed_holidays_name: _Optional[str] = ..., description: _Optional[str] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., days: _Optional[_Iterable[_Union[ObservedHoliday, _Mapping]]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ObservedHoliday(_message.Message):
-    __slots__ = ("day", "holiday")
+    __slots__ = ()
     DAY_FIELD_NUMBER: _ClassVar[int]
     HOLIDAY_FIELD_NUMBER: _ClassVar[int]
     day: MonthDayDate
@@ -790,7 +792,7 @@ class ObservedHoliday(_message.Message):
     def __init__(self, day: _Optional[_Union[MonthDayDate, _Mapping]] = ..., holiday: _Optional[_Union[CountryHoliday, _Mapping]] = ...) -> None: ...
 
 class CertificateInfo(_message.Message):
-    __slots__ = ("certificate_info_id", "org_id", "name", "description", "hash", "expiration_date", "creation_date", "request_by", "deleted", "revoked")
+    __slots__ = ()
     CERTIFICATE_INFO_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -811,4 +813,4 @@ class CertificateInfo(_message.Message):
     request_by: str
     deleted: bool
     revoked: bool
-    def __init__(self, certificate_info_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., hash: _Optional[str] = ..., expiration_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., creation_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., request_by: _Optional[str] = ..., deleted: bool = ..., revoked: bool = ...) -> None: ...
+    def __init__(self, certificate_info_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., hash: _Optional[str] = ..., expiration_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., creation_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., request_by: _Optional[str] = ..., deleted: _Optional[bool] = ..., revoked: _Optional[bool] = ...) -> None: ...

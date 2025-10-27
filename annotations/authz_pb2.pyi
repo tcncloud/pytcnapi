@@ -11,17 +11,17 @@ AUTHZ_FIELD_NUMBER: _ClassVar[int]
 authz: _descriptor.FieldDescriptor
 
 class Permissions(_message.Message):
-    __slots__ = ("sets", "wip", "no_permissions")
+    __slots__ = ()
     SETS_FIELD_NUMBER: _ClassVar[int]
     WIP_FIELD_NUMBER: _ClassVar[int]
     NO_PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     sets: _containers.RepeatedCompositeFieldContainer[PermissionSet]
     wip: bool
     no_permissions: bool
-    def __init__(self, sets: _Optional[_Iterable[_Union[PermissionSet, _Mapping]]] = ..., wip: bool = ..., no_permissions: bool = ...) -> None: ...
+    def __init__(self, sets: _Optional[_Iterable[_Union[PermissionSet, _Mapping]]] = ..., wip: _Optional[bool] = ..., no_permissions: _Optional[bool] = ...) -> None: ...
 
 class PermissionSet(_message.Message):
-    __slots__ = ("permissions", "taint")
+    __slots__ = ()
     PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
     TAINT_FIELD_NUMBER: _ClassVar[int]
     permissions: _containers.RepeatedScalarFieldContainer[_perms_pb2.Permission]
@@ -29,7 +29,7 @@ class PermissionSet(_message.Message):
     def __init__(self, permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., taint: _Optional[_Union[Taint, _Mapping]] = ...) -> None: ...
 
 class Taint(_message.Message):
-    __slots__ = ("id", "value")
+    __slots__ = ()
     ID_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     id: int

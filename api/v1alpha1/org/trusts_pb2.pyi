@@ -9,7 +9,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateTrustRequest(_message.Message):
-    __slots__ = ("grantee", "name", "description", "permissions", "label_ids")
+    __slots__ = ()
     GRANTEE_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -23,13 +23,13 @@ class CreateTrustRequest(_message.Message):
     def __init__(self, grantee: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., label_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class CreateTrustResponse(_message.Message):
-    __slots__ = ("trust_id",)
+    __slots__ = ()
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     trust_id: str
     def __init__(self, trust_id: _Optional[str] = ...) -> None: ...
 
 class AcceptTrustRequest(_message.Message):
-    __slots__ = ("trust_id",)
+    __slots__ = ()
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     trust_id: str
     def __init__(self, trust_id: _Optional[str] = ...) -> None: ...
@@ -39,7 +39,7 @@ class AcceptTrustResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class RejectTrustRequest(_message.Message):
-    __slots__ = ("trust_id",)
+    __slots__ = ()
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     trust_id: str
     def __init__(self, trust_id: _Optional[str] = ...) -> None: ...
@@ -49,13 +49,13 @@ class RejectTrustResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetTrustRequest(_message.Message):
-    __slots__ = ("trust_id",)
+    __slots__ = ()
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     trust_id: str
     def __init__(self, trust_id: _Optional[str] = ...) -> None: ...
 
 class GetTrustResponse(_message.Message):
-    __slots__ = ("trust", "grantor_name", "grantee_name")
+    __slots__ = ()
     TRUST_FIELD_NUMBER: _ClassVar[int]
     GRANTOR_NAME_FIELD_NUMBER: _ClassVar[int]
     GRANTEE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -69,9 +69,9 @@ class ListIncomingTrustsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListIncomingTrustsResponse(_message.Message):
-    __slots__ = ("trusts",)
+    __slots__ = ()
     class Payload(_message.Message):
-        __slots__ = ("trust", "grantor_name", "grantee_name")
+        __slots__ = ()
         TRUST_FIELD_NUMBER: _ClassVar[int]
         GRANTOR_NAME_FIELD_NUMBER: _ClassVar[int]
         GRANTEE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -88,9 +88,9 @@ class ListGivenTrustsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListGivenTrustsResponse(_message.Message):
-    __slots__ = ("trusts",)
+    __slots__ = ()
     class Payload(_message.Message):
-        __slots__ = ("trust", "grantor_name", "grantee_name")
+        __slots__ = ()
         TRUST_FIELD_NUMBER: _ClassVar[int]
         GRANTOR_NAME_FIELD_NUMBER: _ClassVar[int]
         GRANTEE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -107,9 +107,9 @@ class ListAssignableTrustsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAssignableTrustsResponse(_message.Message):
-    __slots__ = ("trusts",)
+    __slots__ = ()
     class Payload(_message.Message):
-        __slots__ = ("trust", "grantor_name", "grantee_name")
+        __slots__ = ()
         TRUST_FIELD_NUMBER: _ClassVar[int]
         GRANTOR_NAME_FIELD_NUMBER: _ClassVar[int]
         GRANTEE_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -122,7 +122,7 @@ class ListAssignableTrustsResponse(_message.Message):
     def __init__(self, trusts: _Optional[_Iterable[_Union[ListAssignableTrustsResponse.Payload, _Mapping]]] = ...) -> None: ...
 
 class DeleteTrustRequest(_message.Message):
-    __slots__ = ("trust_id",)
+    __slots__ = ()
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     trust_id: str
     def __init__(self, trust_id: _Optional[str] = ...) -> None: ...
@@ -132,7 +132,7 @@ class DeleteTrustResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class AssignTrustRequest(_message.Message):
-    __slots__ = ("trust_id", "user_ids")
+    __slots__ = ()
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     USER_IDS_FIELD_NUMBER: _ClassVar[int]
     trust_id: str
@@ -144,7 +144,7 @@ class AssignTrustResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UnassignTrustRequest(_message.Message):
-    __slots__ = ("trust_id", "user_id")
+    __slots__ = ()
     TRUST_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     trust_id: str

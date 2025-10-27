@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import field_mask_pb2 as _field_mask_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from services.billing.entities.v1alpha1 import invoice_pb2 as _invoice_pb2
@@ -19,7 +21,7 @@ INVOICE_FORMAT_UNSPECIFIED: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class CreateInvoiceRequest(_message.Message):
-    __slots__ = ("invoice_id", "invoice")
+    __slots__ = ()
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     invoice_id: str
@@ -27,13 +29,13 @@ class CreateInvoiceRequest(_message.Message):
     def __init__(self, invoice_id: _Optional[str] = ..., invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ...) -> None: ...
 
 class CreateInvoiceResponse(_message.Message):
-    __slots__ = ("invoice_id",)
+    __slots__ = ()
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     invoice_id: str
     def __init__(self, invoice_id: _Optional[str] = ...) -> None: ...
 
 class DeleteInvoiceRequest(_message.Message):
-    __slots__ = ("invoice_id",)
+    __slots__ = ()
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     invoice_id: str
     def __init__(self, invoice_id: _Optional[str] = ...) -> None: ...
@@ -43,35 +45,35 @@ class DeleteInvoiceResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class ExportInvoiceRequest(_message.Message):
-    __slots__ = ("invoice_id", "format", "invoice_date")
+    __slots__ = ()
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     FORMAT_FIELD_NUMBER: _ClassVar[int]
     INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     invoice_id: str
     format: InvoiceFormat
     invoice_date: _timestamp_pb2.Timestamp
-    def __init__(self, invoice_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, invoice_id: _Optional[str] = ..., format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ExportInvoiceResponse(_message.Message):
-    __slots__ = ("invoice",)
+    __slots__ = ()
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     invoice: _invoice_pb2.Invoice
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ...) -> None: ...
 
 class GetInvoiceRequest(_message.Message):
-    __slots__ = ("invoice_id",)
+    __slots__ = ()
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     invoice_id: str
     def __init__(self, invoice_id: _Optional[str] = ...) -> None: ...
 
 class GetInvoiceResponse(_message.Message):
-    __slots__ = ("invoice",)
+    __slots__ = ()
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     invoice: _invoice_pb2.Invoice
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ...) -> None: ...
 
 class ListInvoicesRequest(_message.Message):
-    __slots__ = ("invoice_id", "filter", "fields", "sort", "page")
+    __slots__ = ()
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
@@ -85,7 +87,7 @@ class ListInvoicesRequest(_message.Message):
     def __init__(self, invoice_id: _Optional[str] = ..., filter: _Optional[str] = ..., fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., sort: _Optional[_Iterable[_Union[_core_pb2.Sort, _Mapping]]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
 
 class ListInvoicesResponse(_message.Message):
-    __slots__ = ("invoices", "token")
+    __slots__ = ()
     INVOICES_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     invoices: _containers.RepeatedCompositeFieldContainer[_invoice_pb2.Invoice]
@@ -93,7 +95,7 @@ class ListInvoicesResponse(_message.Message):
     def __init__(self, invoices: _Optional[_Iterable[_Union[_invoice_pb2.Invoice, _Mapping]]] = ..., token: _Optional[str] = ...) -> None: ...
 
 class UpdateInvoiceRequest(_message.Message):
-    __slots__ = ("invoice_id", "invoice", "update_fields")
+    __slots__ = ()
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     UPDATE_FIELDS_FIELD_NUMBER: _ClassVar[int]

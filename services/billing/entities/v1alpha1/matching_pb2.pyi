@@ -17,7 +17,7 @@ MATCHING_RULE_AREA_CODE: MatchingRule
 MATCHING_RULE_COUNTRY_PREFIX: MatchingRule
 
 class MatchingConfig(_message.Message):
-    __slots__ = ("name", "area_code", "country_prefix")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     AREA_CODE_FIELD_NUMBER: _ClassVar[int]
     COUNTRY_PREFIX_FIELD_NUMBER: _ClassVar[int]
@@ -27,7 +27,7 @@ class MatchingConfig(_message.Message):
     def __init__(self, name: _Optional[str] = ..., area_code: _Optional[_Union[MatchingConfigAreaCode, _Mapping]] = ..., country_prefix: _Optional[_Union[MatchingConfigCountryPrefix, _Mapping]] = ...) -> None: ...
 
 class MatchingConfigAreaCode(_message.Message):
-    __slots__ = ("name", "area_codes")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     AREA_CODES_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -35,7 +35,7 @@ class MatchingConfigAreaCode(_message.Message):
     def __init__(self, name: _Optional[str] = ..., area_codes: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class MatchingConfigCountryPrefix(_message.Message):
-    __slots__ = ("country_code", "prefixes")
+    __slots__ = ()
     COUNTRY_CODE_FIELD_NUMBER: _ClassVar[int]
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
     country_code: int

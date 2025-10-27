@@ -10,19 +10,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetOrganizationPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetOrganizationPreferencesResponse(_message.Message):
-    __slots__ = ("organization_preferences",)
+    __slots__ = ()
     ORGANIZATION_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     organization_preferences: _preferences_pb2.OrganizationPreferences
     def __init__(self, organization_preferences: _Optional[_Union[_preferences_pb2.OrganizationPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateOrganizationPreferencesRequest(_message.Message):
-    __slots__ = ("organization_preferences", "field_mask")
+    __slots__ = ()
     ORGANIZATION_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     organization_preferences: _preferences_pb2.OrganizationPreferences
@@ -34,19 +34,19 @@ class UpdateOrganizationPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetAgentPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetAgentPreferencesResponse(_message.Message):
-    __slots__ = ("agent_preferences",)
+    __slots__ = ()
     AGENT_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     agent_preferences: _preferences_pb2.AgentPreferences
     def __init__(self, agent_preferences: _Optional[_Union[_preferences_pb2.AgentPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateAgentPreferencesRequest(_message.Message):
-    __slots__ = ("agent_preferences", "field_mask")
+    __slots__ = ()
     AGENT_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     agent_preferences: _preferences_pb2.AgentPreferences
@@ -58,19 +58,19 @@ class UpdateAgentPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetContactPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetContactPreferencesResponse(_message.Message):
-    __slots__ = ("contact_preferences",)
+    __slots__ = ()
     CONTACT_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     contact_preferences: _preferences_pb2.ContactPreferences
     def __init__(self, contact_preferences: _Optional[_Union[_preferences_pb2.ContactPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateContactPreferencesRequest(_message.Message):
-    __slots__ = ("contact_preferences", "field_mask")
+    __slots__ = ()
     CONTACT_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     contact_preferences: _preferences_pb2.ContactPreferences
@@ -82,19 +82,19 @@ class UpdateContactPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetAuthenticationPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetAuthenticationPreferencesResponse(_message.Message):
-    __slots__ = ("authentication_preferences",)
+    __slots__ = ()
     AUTHENTICATION_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     authentication_preferences: _preferences_pb2.AuthenticationPreferences
     def __init__(self, authentication_preferences: _Optional[_Union[_preferences_pb2.AuthenticationPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateAuthenticationPreferencesRequest(_message.Message):
-    __slots__ = ("authentication_preferences", "duo_client_secret", "field_mask")
+    __slots__ = ()
     AUTHENTICATION_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     DUO_CLIENT_SECRET_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -108,19 +108,19 @@ class UpdateAuthenticationPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetWebhookPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetWebhookPreferencesResponse(_message.Message):
-    __slots__ = ("webhook_preferences",)
+    __slots__ = ()
     WEBHOOK_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     webhook_preferences: _preferences_pb2.WebhookPreferences
     def __init__(self, webhook_preferences: _Optional[_Union[_preferences_pb2.WebhookPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateWebhookPreferencesRequest(_message.Message):
-    __slots__ = ("webhook_preferences", "field_mask")
+    __slots__ = ()
     WEBHOOK_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     webhook_preferences: _preferences_pb2.WebhookPreferences
@@ -132,19 +132,19 @@ class UpdateWebhookPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetDashboardGeneralPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetDashboardGeneralPreferencesResponse(_message.Message):
-    __slots__ = ("dashboard_preferences",)
+    __slots__ = ()
     DASHBOARD_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     dashboard_preferences: _preferences_pb2.DashboardPreferences
     def __init__(self, dashboard_preferences: _Optional[_Union[_preferences_pb2.DashboardPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateDashboardGeneralPreferencesRequest(_message.Message):
-    __slots__ = ("dashboard_preferences", "field_mask")
+    __slots__ = ()
     DASHBOARD_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     dashboard_preferences: _preferences_pb2.DashboardPreferences
@@ -156,19 +156,19 @@ class UpdateDashboardGeneralPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetDashboardQueuePreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetDashboardQueuePreferencesResponse(_message.Message):
-    __slots__ = ("dashboard_queue_preferences",)
+    __slots__ = ()
     DASHBOARD_QUEUE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     dashboard_queue_preferences: _preferences_pb2.DashboardQueuePreferences
     def __init__(self, dashboard_queue_preferences: _Optional[_Union[_preferences_pb2.DashboardQueuePreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateDashboardQueuePreferencesRequest(_message.Message):
-    __slots__ = ("dashboard_queue_preferences", "field_mask")
+    __slots__ = ()
     DASHBOARD_QUEUE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     dashboard_queue_preferences: _preferences_pb2.DashboardQueuePreferences
@@ -180,19 +180,19 @@ class UpdateDashboardQueuePreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetPhonePreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetPhonePreferencesResponse(_message.Message):
-    __slots__ = ("phone_preferences",)
+    __slots__ = ()
     PHONE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     phone_preferences: _preferences_pb2.PhonePreferences
     def __init__(self, phone_preferences: _Optional[_Union[_preferences_pb2.PhonePreferences, _Mapping]] = ...) -> None: ...
 
 class UpdatePhonePreferencesRequest(_message.Message):
-    __slots__ = ("phone_preferences", "field_mask")
+    __slots__ = ()
     PHONE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     phone_preferences: _preferences_pb2.PhonePreferences
@@ -204,7 +204,7 @@ class UpdatePhonePreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class PhonePreferencesDB(_message.Message):
-    __slots__ = ("org_id", "phone_preferences_json")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PHONE_PREFERENCES_JSON_FIELD_NUMBER: _ClassVar[int]
     org_id: str
@@ -212,19 +212,19 @@ class PhonePreferencesDB(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., phone_preferences_json: _Optional[str] = ...) -> None: ...
 
 class GetCompliancePreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetCompliancePreferencesResponse(_message.Message):
-    __slots__ = ("compliance_preferences",)
+    __slots__ = ()
     COMPLIANCE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     compliance_preferences: _preferences_pb2.CompliancePreferences
     def __init__(self, compliance_preferences: _Optional[_Union[_preferences_pb2.CompliancePreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateCompliancePreferencesRequest(_message.Message):
-    __slots__ = ("compliance_preferences", "field_mask")
+    __slots__ = ()
     COMPLIANCE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     compliance_preferences: _preferences_pb2.CompliancePreferences
@@ -236,19 +236,19 @@ class UpdateCompliancePreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetBroadcastPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetBroadcastPreferencesResponse(_message.Message):
-    __slots__ = ("broadcast_preferences",)
+    __slots__ = ()
     BROADCAST_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     broadcast_preferences: _preferences_pb2.BroadcastPreferences
     def __init__(self, broadcast_preferences: _Optional[_Union[_preferences_pb2.BroadcastPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateBroadcastPreferencesRequest(_message.Message):
-    __slots__ = ("broadcast_preferences", "field_mask")
+    __slots__ = ()
     BROADCAST_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     broadcast_preferences: _preferences_pb2.BroadcastPreferences
@@ -260,19 +260,19 @@ class UpdateBroadcastPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetSchedulePreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetSchedulePreferencesResponse(_message.Message):
-    __slots__ = ("schedule_preferences",)
+    __slots__ = ()
     SCHEDULE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     schedule_preferences: _preferences_pb2.SchedulePreferences
     def __init__(self, schedule_preferences: _Optional[_Union[_preferences_pb2.SchedulePreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateSchedulePreferencesRequest(_message.Message):
-    __slots__ = ("schedule_preferences", "field_mask")
+    __slots__ = ()
     SCHEDULE_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     schedule_preferences: _preferences_pb2.SchedulePreferences
@@ -284,19 +284,19 @@ class UpdateSchedulePreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetEmailSmsPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetEmailSmsPreferencesResponse(_message.Message):
-    __slots__ = ("email_sms_preferences",)
+    __slots__ = ()
     EMAIL_SMS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     email_sms_preferences: _preferences_pb2.EmailSmsPreferences
     def __init__(self, email_sms_preferences: _Optional[_Union[_preferences_pb2.EmailSmsPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateEmailSmsPreferencesRequest(_message.Message):
-    __slots__ = ("email_sms_preferences", "field_mask")
+    __slots__ = ()
     EMAIL_SMS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     email_sms_preferences: _preferences_pb2.EmailSmsPreferences
@@ -308,19 +308,19 @@ class UpdateEmailSmsPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetBusinessPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetBusinessPreferencesResponse(_message.Message):
-    __slots__ = ("business_preferences",)
+    __slots__ = ()
     BUSINESS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     business_preferences: _preferences_pb2.BusinessPreferences
     def __init__(self, business_preferences: _Optional[_Union[_preferences_pb2.BusinessPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateBusinessPreferencesRequest(_message.Message):
-    __slots__ = ("business_preferences", "field_mask")
+    __slots__ = ()
     BUSINESS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     business_preferences: _preferences_pb2.BusinessPreferences
@@ -332,7 +332,7 @@ class UpdateBusinessPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateAdminBusinessPreferencesRequest(_message.Message):
-    __slots__ = ("org_id", "business_preferences", "field_mask")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -346,7 +346,7 @@ class UpdateAdminBusinessPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetScorecardsPreferencesRequest(_message.Message):
-    __slots__ = ("org_id", "field_mask")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     org_id: str
@@ -354,13 +354,13 @@ class GetScorecardsPreferencesRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetScorecardsPreferencesResponse(_message.Message):
-    __slots__ = ("scorecards_preferences",)
+    __slots__ = ()
     SCORECARDS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     scorecards_preferences: _preferences_pb2.ScorecardsPreferences
     def __init__(self, scorecards_preferences: _Optional[_Union[_preferences_pb2.ScorecardsPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateScorecardsPreferencesRequest(_message.Message):
-    __slots__ = ("org_id", "scorecards_preferences", "field_mask")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARDS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -374,13 +374,13 @@ class UpdateScorecardsPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetVoiceAnalyticsPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetVoiceAnalyticsPreferencesResponse(_message.Message):
-    __slots__ = ("voice_analytics_preferences",)
+    __slots__ = ()
     VOICE_ANALYTICS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     voice_analytics_preferences: _preferences_pb2.VoiceAnalyticsPreferences
     def __init__(self, voice_analytics_preferences: _Optional[_Union[_preferences_pb2.VoiceAnalyticsPreferences, _Mapping]] = ...) -> None: ...
@@ -390,13 +390,13 @@ class ListVoiceAnalyticsPreferencesRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListVoiceAnalyticsPreferencesResponse(_message.Message):
-    __slots__ = ("voice_analytics_preferences",)
+    __slots__ = ()
     VOICE_ANALYTICS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     voice_analytics_preferences: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.VoiceAnalyticsPreferences]
     def __init__(self, voice_analytics_preferences: _Optional[_Iterable[_Union[_preferences_pb2.VoiceAnalyticsPreferences, _Mapping]]] = ...) -> None: ...
 
 class UpdateVoiceAnalyticsPreferencesRequest(_message.Message):
-    __slots__ = ("voice_analytics_preferences", "field_mask")
+    __slots__ = ()
     VOICE_ANALYTICS_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     voice_analytics_preferences: _preferences_pb2.VoiceAnalyticsPreferences
@@ -408,19 +408,19 @@ class UpdateVoiceAnalyticsPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetEndOfDayPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetEndOfDayPreferencesResponse(_message.Message):
-    __slots__ = ("end_of_day_preferences",)
+    __slots__ = ()
     END_OF_DAY_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     end_of_day_preferences: _preferences_pb2.EndOfDayPreferences
     def __init__(self, end_of_day_preferences: _Optional[_Union[_preferences_pb2.EndOfDayPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateEndOfDayPreferencesRequest(_message.Message):
-    __slots__ = ("end_of_day_preferences", "field_mask")
+    __slots__ = ()
     END_OF_DAY_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     end_of_day_preferences: _preferences_pb2.EndOfDayPreferences
@@ -432,19 +432,19 @@ class UpdateEndOfDayPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetFilterPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetFilterPreferencesResponse(_message.Message):
-    __slots__ = ("filter_preferences",)
+    __slots__ = ()
     FILTER_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     filter_preferences: _preferences_pb2.FilterPreferences
     def __init__(self, filter_preferences: _Optional[_Union[_preferences_pb2.FilterPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateFilterPreferencesRequest(_message.Message):
-    __slots__ = ("filter_preferences", "field_mask")
+    __slots__ = ()
     FILTER_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     filter_preferences: _preferences_pb2.FilterPreferences
@@ -456,19 +456,19 @@ class UpdateFilterPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetRecordingPreferencesRequest(_message.Message):
-    __slots__ = ("field_mask",)
+    __slots__ = ()
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     field_mask: _field_mask_pb2.FieldMask
     def __init__(self, field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetRecordingPreferencesResponse(_message.Message):
-    __slots__ = ("recording_preferences",)
+    __slots__ = ()
     RECORDING_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     recording_preferences: _preferences_pb2.RecordingPreferences
     def __init__(self, recording_preferences: _Optional[_Union[_preferences_pb2.RecordingPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateRecordingPreferencesRequest(_message.Message):
-    __slots__ = ("recording_preferences", "field_mask")
+    __slots__ = ()
     RECORDING_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     recording_preferences: _preferences_pb2.RecordingPreferences
@@ -480,7 +480,7 @@ class UpdateRecordingPreferencesResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetAdminClientPreferencesRequest(_message.Message):
-    __slots__ = ("org_id", "field_mask")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
     org_id: str
@@ -488,13 +488,13 @@ class GetAdminClientPreferencesRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., field_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class GetAdminClientPreferencesResponse(_message.Message):
-    __slots__ = ("admin_client_preferences",)
+    __slots__ = ()
     ADMIN_CLIENT_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     admin_client_preferences: _preferences_pb2.AdminClientPreferences
     def __init__(self, admin_client_preferences: _Optional[_Union[_preferences_pb2.AdminClientPreferences, _Mapping]] = ...) -> None: ...
 
 class UpdateAdminClientPreferencesRequest(_message.Message):
-    __slots__ = ("org_id", "admin_client_preferences", "field_mask")
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     ADMIN_CLIENT_PREFERENCES_FIELD_NUMBER: _ClassVar[int]
     FIELD_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -516,10 +516,10 @@ class AcceptLinkbackRecordingTermsResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class LinkbackUpdateBroadcastTemplatesRequest(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: bool
-    def __init__(self, value: bool = ...) -> None: ...
+    def __init__(self, value: _Optional[bool] = ...) -> None: ...
 
 class LinkbackUpdateBroadcastTemplatesResponse(_message.Message):
     __slots__ = ()
@@ -542,19 +542,19 @@ class ClearEmailUnsubscribeAcknowledgementResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours",)
+    __slots__ = ()
     BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
     business_hours: _preferences_pb2.BusinessHours
     def __init__(self, business_hours: _Optional[_Union[_preferences_pb2.BusinessHours, _Mapping]] = ...) -> None: ...
 
 class CreateBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class UpdateBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours",)
+    __slots__ = ()
     BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
     business_hours: _preferences_pb2.BusinessHours
     def __init__(self, business_hours: _Optional[_Union[_preferences_pb2.BusinessHours, _Mapping]] = ...) -> None: ...
@@ -568,25 +568,25 @@ class ListBusinessHoursRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_hours",)
+    __slots__ = ()
     BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
     business_hours: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.BusinessHours]
     def __init__(self, business_hours: _Optional[_Iterable[_Union[_preferences_pb2.BusinessHours, _Mapping]]] = ...) -> None: ...
 
 class GetBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class GetBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_hours",)
+    __slots__ = ()
     BUSINESS_HOURS_FIELD_NUMBER: _ClassVar[int]
     business_hours: _preferences_pb2.BusinessHours
     def __init__(self, business_hours: _Optional[_Union[_preferences_pb2.BusinessHours, _Mapping]] = ...) -> None: ...
 
 class SetBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_name", "description", "day_intervals", "timezone")
+    __slots__ = ()
     BUSINESS_HOURS_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     DAY_INTERVALS_FIELD_NUMBER: _ClassVar[int]
@@ -598,13 +598,13 @@ class SetBusinessHoursRequest(_message.Message):
     def __init__(self, business_hours_name: _Optional[str] = ..., description: _Optional[str] = ..., day_intervals: _Optional[_Iterable[_Union[_preferences_pb2.DayInterval, _Mapping]]] = ..., timezone: _Optional[_Union[_org_pb2.TimeZone, str]] = ...) -> None: ...
 
 class SetBusinessHoursResponse(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class AddIntervalToBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id", "day_interval")
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     DAY_INTERVAL_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
@@ -616,7 +616,7 @@ class AddIntervalToBusinessHoursResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class RemoveIntervalFromBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id", "day_interval")
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     DAY_INTERVAL_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
@@ -628,7 +628,7 @@ class RemoveIntervalFromBusinessHoursResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateBusinessHoursInfoRequest(_message.Message):
-    __slots__ = ("business_hours_id", "business_hours_name", "description", "timezone", "field_mask")
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_HOURS_NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -646,7 +646,7 @@ class UpdateBusinessHoursInfoResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class DeleteBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
@@ -656,19 +656,19 @@ class DeleteBusinessHoursResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class EvaluateBusinessHoursRequest(_message.Message):
-    __slots__ = ("business_hours_id",)
+    __slots__ = ()
     BUSINESS_HOURS_ID_FIELD_NUMBER: _ClassVar[int]
     business_hours_id: str
     def __init__(self, business_hours_id: _Optional[str] = ...) -> None: ...
 
 class EvaluateBusinessHoursResponse(_message.Message):
-    __slots__ = ("within_range",)
+    __slots__ = ()
     WITHIN_RANGE_FIELD_NUMBER: _ClassVar[int]
     within_range: bool
-    def __init__(self, within_range: bool = ...) -> None: ...
+    def __init__(self, within_range: _Optional[bool] = ...) -> None: ...
 
 class CreateCertificateInfoRequest(_message.Message):
-    __slots__ = ("name", "description")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -676,13 +676,13 @@ class CreateCertificateInfoRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
 class CreateCertificateInfoResponse(_message.Message):
-    __slots__ = ("encoded_certificate",)
+    __slots__ = ()
     ENCODED_CERTIFICATE_FIELD_NUMBER: _ClassVar[int]
     encoded_certificate: str
     def __init__(self, encoded_certificate: _Optional[str] = ...) -> None: ...
 
 class DeleteCertificateInfoRequest(_message.Message):
-    __slots__ = ("certificate_info_id",)
+    __slots__ = ()
     CERTIFICATE_INFO_ID_FIELD_NUMBER: _ClassVar[int]
     certificate_info_id: str
     def __init__(self, certificate_info_id: _Optional[str] = ...) -> None: ...
@@ -692,7 +692,7 @@ class DeleteCertificateInfoResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class RevokeCertificateInfoRequest(_message.Message):
-    __slots__ = ("certificate_info_id",)
+    __slots__ = ()
     CERTIFICATE_INFO_ID_FIELD_NUMBER: _ClassVar[int]
     certificate_info_id: str
     def __init__(self, certificate_info_id: _Optional[str] = ...) -> None: ...
@@ -706,7 +706,7 @@ class ListCertificateInfoRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListCertificateInfoResponse(_message.Message):
-    __slots__ = ("certificate_info_list",)
+    __slots__ = ()
     CERTIFICATE_INFO_LIST_FIELD_NUMBER: _ClassVar[int]
     certificate_info_list: _containers.RepeatedCompositeFieldContainer[_preferences_pb2.CertificateInfo]
     def __init__(self, certificate_info_list: _Optional[_Iterable[_Union[_preferences_pb2.CertificateInfo, _Mapping]]] = ...) -> None: ...

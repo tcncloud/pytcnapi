@@ -20,7 +20,7 @@ DNCL_EXPIRE_PERIOD_NEVER: DnclExpirePeriod
 DNCL_EXPIRE_PERIOD_MONTH: DnclExpirePeriod
 
 class DnclList(_message.Message):
-    __slots__ = ("list_id", "content_type", "expire_period", "expire_offset", "agent_response_key")
+    __slots__ = ()
     LIST_ID_FIELD_NUMBER: _ClassVar[int]
     CONTENT_TYPE_FIELD_NUMBER: _ClassVar[int]
     EXPIRE_PERIOD_FIELD_NUMBER: _ClassVar[int]

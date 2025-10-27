@@ -1,3 +1,5 @@
+import datetime
+
 from google.api import field_behavior_pb2 as _field_behavior_pb2
 from google.api import resource_pb2 as _resource_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
@@ -10,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Project(_message.Message):
-    __slots__ = ("name", "title", "description", "state", "create_time")
+    __slots__ = ()
     class State(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         STATE_UNSPECIFIED: _ClassVar[Project.State]
@@ -29,4 +31,4 @@ class Project(_message.Message):
     description: str
     state: Project.State
     create_time: _timestamp_pb2.Timestamp
-    def __init__(self, name: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., state: _Optional[_Union[Project.State, str]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., state: _Optional[_Union[Project.State, str]] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...

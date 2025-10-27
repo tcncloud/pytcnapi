@@ -1420,13 +1420,13 @@ ORGANIZATION_ARCHIVED_STATE_FILTER_ARCHIVED: OrganizationArchivedStateFilter
 ORGANIZATION_ARCHIVED_STATE_FILTER_ALL: OrganizationArchivedStateFilter
 
 class TimeZoneWrapper(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: TimeZone
     def __init__(self, value: _Optional[_Union[TimeZone, str]] = ...) -> None: ...
 
 class DigitWrapper(_message.Message):
-    __slots__ = ("value",)
+    __slots__ = ()
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: Digit
     def __init__(self, value: _Optional[_Union[Digit, str]] = ...) -> None: ...

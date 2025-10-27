@@ -7,13 +7,13 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Pipeline(_message.Message):
-    __slots__ = ("nodes",)
+    __slots__ = ()
     NODES_FIELD_NUMBER: _ClassVar[int]
     nodes: _containers.RepeatedCompositeFieldContainer[Node]
     def __init__(self, nodes: _Optional[_Iterable[_Union[Node, _Mapping]]] = ...) -> None: ...
 
 class Node(_message.Message):
-    __slots__ = ("node_id", "type", "title", "input_ids", "output_ids", "from_node", "filter_node", "derive_node", "group_node", "join_node", "select_node", "aggregate_node", "take_node", "json_node", "map_node", "replace_node", "sort_node", "string_manipulation_node")
+    __slots__ = ()
     NODE_ID_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
@@ -53,19 +53,19 @@ class Node(_message.Message):
     def __init__(self, node_id: _Optional[str] = ..., type: _Optional[str] = ..., title: _Optional[str] = ..., input_ids: _Optional[_Iterable[str]] = ..., output_ids: _Optional[_Iterable[str]] = ..., from_node: _Optional[_Union[FromNode, _Mapping]] = ..., filter_node: _Optional[_Union[FilterNode, _Mapping]] = ..., derive_node: _Optional[_Union[DeriveNode, _Mapping]] = ..., group_node: _Optional[_Union[GroupNode, _Mapping]] = ..., join_node: _Optional[_Union[JoinNode, _Mapping]] = ..., select_node: _Optional[_Union[SelectNode, _Mapping]] = ..., aggregate_node: _Optional[_Union[AggregateNode, _Mapping]] = ..., take_node: _Optional[_Union[TakeNode, _Mapping]] = ..., json_node: _Optional[_Union[JsonNode, _Mapping]] = ..., map_node: _Optional[_Union[MapNode, _Mapping]] = ..., replace_node: _Optional[_Union[ReplaceNode, _Mapping]] = ..., sort_node: _Optional[_Union[SortNode, _Mapping]] = ..., string_manipulation_node: _Optional[_Union[StringManipulationNode, _Mapping]] = ...) -> None: ...
 
 class FromNode(_message.Message):
-    __slots__ = ("dataset",)
+    __slots__ = ()
     DATASET_FIELD_NUMBER: _ClassVar[int]
     dataset: str
     def __init__(self, dataset: _Optional[str] = ...) -> None: ...
 
 class FilterNode(_message.Message):
-    __slots__ = ("expression",)
+    __slots__ = ()
     EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     expression: ExpressionNode
     def __init__(self, expression: _Optional[_Union[ExpressionNode, _Mapping]] = ...) -> None: ...
 
 class DeriveNode(_message.Message):
-    __slots__ = ("column_name", "expression")
+    __slots__ = ()
     COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     EXPRESSION_FIELD_NUMBER: _ClassVar[int]
     column_name: str
@@ -73,7 +73,7 @@ class DeriveNode(_message.Message):
     def __init__(self, column_name: _Optional[str] = ..., expression: _Optional[_Union[ExpressionNode, _Mapping]] = ...) -> None: ...
 
 class GroupNode(_message.Message):
-    __slots__ = ("group_by_columns", "aggregation_columns")
+    __slots__ = ()
     GROUP_BY_COLUMNS_FIELD_NUMBER: _ClassVar[int]
     AGGREGATION_COLUMNS_FIELD_NUMBER: _ClassVar[int]
     group_by_columns: _containers.RepeatedScalarFieldContainer[str]
@@ -81,19 +81,19 @@ class GroupNode(_message.Message):
     def __init__(self, group_by_columns: _Optional[_Iterable[str]] = ..., aggregation_columns: _Optional[_Iterable[_Union[AggregationColumn, _Mapping]]] = ...) -> None: ...
 
 class TakeNode(_message.Message):
-    __slots__ = ("limit",)
+    __slots__ = ()
     LIMIT_FIELD_NUMBER: _ClassVar[int]
     limit: int
     def __init__(self, limit: _Optional[int] = ...) -> None: ...
 
 class AggregateNode(_message.Message):
-    __slots__ = ("aggregation_columns",)
+    __slots__ = ()
     AGGREGATION_COLUMNS_FIELD_NUMBER: _ClassVar[int]
     aggregation_columns: _containers.RepeatedCompositeFieldContainer[AggregationColumn]
     def __init__(self, aggregation_columns: _Optional[_Iterable[_Union[AggregationColumn, _Mapping]]] = ...) -> None: ...
 
 class AggregationColumn(_message.Message):
-    __slots__ = ("name", "group_by_columns", "column_to_aggregate", "aggregation_function")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     GROUP_BY_COLUMNS_FIELD_NUMBER: _ClassVar[int]
     COLUMN_TO_AGGREGATE_FIELD_NUMBER: _ClassVar[int]
@@ -105,7 +105,7 @@ class AggregationColumn(_message.Message):
     def __init__(self, name: _Optional[str] = ..., group_by_columns: _Optional[_Iterable[str]] = ..., column_to_aggregate: _Optional[str] = ..., aggregation_function: _Optional[str] = ...) -> None: ...
 
 class Column(_message.Message):
-    __slots__ = ("key", "data_type")
+    __slots__ = ()
     KEY_FIELD_NUMBER: _ClassVar[int]
     DATA_TYPE_FIELD_NUMBER: _ClassVar[int]
     key: str
@@ -113,7 +113,7 @@ class Column(_message.Message):
     def __init__(self, key: _Optional[str] = ..., data_type: _Optional[str] = ...) -> None: ...
 
 class ExpressionNode(_message.Message):
-    __slots__ = ("type", "value", "children")
+    __slots__ = ()
     TYPE_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     CHILDREN_FIELD_NUMBER: _ClassVar[int]
@@ -123,9 +123,9 @@ class ExpressionNode(_message.Message):
     def __init__(self, type: _Optional[str] = ..., value: _Optional[str] = ..., children: _Optional[_Iterable[_Union[ExpressionNode, _Mapping]]] = ...) -> None: ...
 
 class MapNode(_message.Message):
-    __slots__ = ("new_column", "column_to_map", "mappings", "default_value", "is_complex")
+    __slots__ = ()
     class Mapping(_message.Message):
-        __slots__ = ("condition", "result")
+        __slots__ = ()
         CONDITION_FIELD_NUMBER: _ClassVar[int]
         RESULT_FIELD_NUMBER: _ClassVar[int]
         condition: ExpressionNode
@@ -141,10 +141,10 @@ class MapNode(_message.Message):
     mappings: _containers.RepeatedCompositeFieldContainer[MapNode.Mapping]
     default_value: ExpressionNode
     is_complex: bool
-    def __init__(self, new_column: _Optional[_Union[Column, _Mapping]] = ..., column_to_map: _Optional[_Union[Column, _Mapping]] = ..., mappings: _Optional[_Iterable[_Union[MapNode.Mapping, _Mapping]]] = ..., default_value: _Optional[_Union[ExpressionNode, _Mapping]] = ..., is_complex: bool = ...) -> None: ...
+    def __init__(self, new_column: _Optional[_Union[Column, _Mapping]] = ..., column_to_map: _Optional[_Union[Column, _Mapping]] = ..., mappings: _Optional[_Iterable[_Union[MapNode.Mapping, _Mapping]]] = ..., default_value: _Optional[_Union[ExpressionNode, _Mapping]] = ..., is_complex: _Optional[bool] = ...) -> None: ...
 
 class JoinNode(_message.Message):
-    __slots__ = ("side", "join_columns", "first_parent", "second_parent")
+    __slots__ = ()
     SIDE_FIELD_NUMBER: _ClassVar[int]
     JOIN_COLUMNS_FIELD_NUMBER: _ClassVar[int]
     FIRST_PARENT_FIELD_NUMBER: _ClassVar[int]
@@ -156,7 +156,7 @@ class JoinNode(_message.Message):
     def __init__(self, side: _Optional[str] = ..., join_columns: _Optional[_Iterable[_Union[JoinColumn, _Mapping]]] = ..., first_parent: _Optional[_Union[Parent, _Mapping]] = ..., second_parent: _Optional[_Union[Parent, _Mapping]] = ...) -> None: ...
 
 class JoinColumn(_message.Message):
-    __slots__ = ("first_parent_column", "second_parent_column")
+    __slots__ = ()
     FIRST_PARENT_COLUMN_FIELD_NUMBER: _ClassVar[int]
     SECOND_PARENT_COLUMN_FIELD_NUMBER: _ClassVar[int]
     first_parent_column: str
@@ -164,9 +164,9 @@ class JoinColumn(_message.Message):
     def __init__(self, first_parent_column: _Optional[str] = ..., second_parent_column: _Optional[str] = ...) -> None: ...
 
 class Parent(_message.Message):
-    __slots__ = ("parent_id", "title", "renamed_columns")
+    __slots__ = ()
     class RenamedColumnsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -181,9 +181,9 @@ class Parent(_message.Message):
     def __init__(self, parent_id: _Optional[str] = ..., title: _Optional[str] = ..., renamed_columns: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class SelectNode(_message.Message):
-    __slots__ = ("columns", "renamed_columns")
+    __slots__ = ()
     class RenamedColumnsEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -196,7 +196,7 @@ class SelectNode(_message.Message):
     def __init__(self, columns: _Optional[_Iterable[str]] = ..., renamed_columns: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class JsonTarget(_message.Message):
-    __slots__ = ("path_parts", "column_name", "result_type")
+    __slots__ = ()
     PATH_PARTS_FIELD_NUMBER: _ClassVar[int]
     COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     RESULT_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -206,7 +206,7 @@ class JsonTarget(_message.Message):
     def __init__(self, path_parts: _Optional[_Iterable[str]] = ..., column_name: _Optional[str] = ..., result_type: _Optional[str] = ...) -> None: ...
 
 class JsonNode(_message.Message):
-    __slots__ = ("type", "json_column", "targets", "unnest_to_columns_node")
+    __slots__ = ()
     TYPE_FIELD_NUMBER: _ClassVar[int]
     JSON_COLUMN_FIELD_NUMBER: _ClassVar[int]
     TARGETS_FIELD_NUMBER: _ClassVar[int]
@@ -218,7 +218,7 @@ class JsonNode(_message.Message):
     def __init__(self, type: _Optional[str] = ..., json_column: _Optional[str] = ..., targets: _Optional[_Iterable[_Union[JsonTarget, _Mapping]]] = ..., unnest_to_columns_node: _Optional[_Union[UnnestToColumnsNode, _Mapping]] = ...) -> None: ...
 
 class UnnestToColumnsNode(_message.Message):
-    __slots__ = ("unnest_target", "key_target", "value_target", "columns", "primary_keys", "json_columns")
+    __slots__ = ()
     UNNEST_TARGET_FIELD_NUMBER: _ClassVar[int]
     KEY_TARGET_FIELD_NUMBER: _ClassVar[int]
     VALUE_TARGET_FIELD_NUMBER: _ClassVar[int]
@@ -234,16 +234,16 @@ class UnnestToColumnsNode(_message.Message):
     def __init__(self, unnest_target: _Optional[_Union[JsonTarget, _Mapping]] = ..., key_target: _Optional[_Union[JsonTarget, _Mapping]] = ..., value_target: _Optional[_Union[JsonTarget, _Mapping]] = ..., columns: _Optional[_Iterable[str]] = ..., primary_keys: _Optional[_Iterable[str]] = ..., json_columns: _Optional[_Iterable[_Union[Column, _Mapping]]] = ...) -> None: ...
 
 class Parameters(_message.Message):
-    __slots__ = ("parameters",)
+    __slots__ = ()
     class Parameter(_message.Message):
-        __slots__ = ("value", "data_type")
+        __slots__ = ()
         VALUE_FIELD_NUMBER: _ClassVar[int]
         DATA_TYPE_FIELD_NUMBER: _ClassVar[int]
         value: str
         data_type: str
         def __init__(self, value: _Optional[str] = ..., data_type: _Optional[str] = ...) -> None: ...
     class ParametersEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -254,7 +254,7 @@ class Parameters(_message.Message):
     def __init__(self, parameters: _Optional[_Mapping[str, Parameters.Parameter]] = ...) -> None: ...
 
 class ValuesReplacement(_message.Message):
-    __slots__ = ("target_value", "target_data_type", "replacement_value")
+    __slots__ = ()
     TARGET_VALUE_FIELD_NUMBER: _ClassVar[int]
     TARGET_DATA_TYPE_FIELD_NUMBER: _ClassVar[int]
     REPLACEMENT_VALUE_FIELD_NUMBER: _ClassVar[int]
@@ -264,7 +264,7 @@ class ValuesReplacement(_message.Message):
     def __init__(self, target_value: _Optional[str] = ..., target_data_type: _Optional[str] = ..., replacement_value: _Optional[_Union[ExpressionNode, _Mapping]] = ...) -> None: ...
 
 class ColumnReplacement(_message.Message):
-    __slots__ = ("column_names", "values_replacements")
+    __slots__ = ()
     COLUMN_NAMES_FIELD_NUMBER: _ClassVar[int]
     VALUES_REPLACEMENTS_FIELD_NUMBER: _ClassVar[int]
     column_names: _containers.RepeatedScalarFieldContainer[str]
@@ -272,39 +272,39 @@ class ColumnReplacement(_message.Message):
     def __init__(self, column_names: _Optional[_Iterable[str]] = ..., values_replacements: _Optional[_Iterable[_Union[ValuesReplacement, _Mapping]]] = ...) -> None: ...
 
 class ReplaceNode(_message.Message):
-    __slots__ = ("column_replacements", "is_complex")
+    __slots__ = ()
     COLUMN_REPLACEMENTS_FIELD_NUMBER: _ClassVar[int]
     IS_COMPLEX_FIELD_NUMBER: _ClassVar[int]
     column_replacements: _containers.RepeatedCompositeFieldContainer[ColumnReplacement]
     is_complex: bool
-    def __init__(self, column_replacements: _Optional[_Iterable[_Union[ColumnReplacement, _Mapping]]] = ..., is_complex: bool = ...) -> None: ...
+    def __init__(self, column_replacements: _Optional[_Iterable[_Union[ColumnReplacement, _Mapping]]] = ..., is_complex: _Optional[bool] = ...) -> None: ...
 
 class SortColumn(_message.Message):
-    __slots__ = ("column_name", "ascending")
+    __slots__ = ()
     COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     ASCENDING_FIELD_NUMBER: _ClassVar[int]
     column_name: str
     ascending: bool
-    def __init__(self, column_name: _Optional[str] = ..., ascending: bool = ...) -> None: ...
+    def __init__(self, column_name: _Optional[str] = ..., ascending: _Optional[bool] = ...) -> None: ...
 
 class SortNode(_message.Message):
-    __slots__ = ("sort_columns",)
+    __slots__ = ()
     SORT_COLUMNS_FIELD_NUMBER: _ClassVar[int]
     sort_columns: _containers.RepeatedCompositeFieldContainer[SortColumn]
     def __init__(self, sort_columns: _Optional[_Iterable[_Union[SortColumn, _Mapping]]] = ...) -> None: ...
 
 class StringManipulationSplit(_message.Message):
-    __slots__ = ("split_by", "is_index_extraction", "index_extraction")
+    __slots__ = ()
     SPLIT_BY_FIELD_NUMBER: _ClassVar[int]
     IS_INDEX_EXTRACTION_FIELD_NUMBER: _ClassVar[int]
     INDEX_EXTRACTION_FIELD_NUMBER: _ClassVar[int]
     split_by: str
     is_index_extraction: bool
     index_extraction: int
-    def __init__(self, split_by: _Optional[str] = ..., is_index_extraction: bool = ..., index_extraction: _Optional[int] = ...) -> None: ...
+    def __init__(self, split_by: _Optional[str] = ..., is_index_extraction: _Optional[bool] = ..., index_extraction: _Optional[int] = ...) -> None: ...
 
 class StringManipulationReplace(_message.Message):
-    __slots__ = ("target", "value")
+    __slots__ = ()
     TARGET_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     target: str
@@ -312,7 +312,7 @@ class StringManipulationReplace(_message.Message):
     def __init__(self, target: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class StringManipulationNode(_message.Message):
-    __slots__ = ("type", "source_column_name", "target_column_name", "string_manipulation_split", "string_manipulation_replace")
+    __slots__ = ()
     TYPE_FIELD_NUMBER: _ClassVar[int]
     SOURCE_COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     TARGET_COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]

@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import insights_pb2 as _insights_pb2
 from api.v1alpha1.explorer import entities_pb2 as _entities_pb2
 from api.v1alpha1.explorer import pipeline_pb2 as _pipeline_pb2
@@ -100,7 +102,7 @@ QUOTE_CHARACTER_DOUBLE_QUOTE: QuoteCharacter
 QUOTE_CHARACTER_SINGLE_QUOTE: QuoteCharacter
 
 class Insight(_message.Message):
-    __slots__ = ("insight_id", "name", "description", "insight_type", "insight_version", "body", "insight_permission_type", "resource_id", "standard_insight", "datasource_type", "datasource_name", "create_time", "update_time", "pipeline", "insight_body", "export_options", "data_export_options")
+    __slots__ = ()
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -135,10 +137,10 @@ class Insight(_message.Message):
     insight_body: _pipeline_pb2.Pipeline
     export_options: ExportOptions
     data_export_options: _entities_pb2.ExportOptions
-    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: bool = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., pipeline: _Optional[_Union[_insight_content_pb2.Pipeline, _Mapping]] = ..., insight_body: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., export_options: _Optional[_Union[ExportOptions, _Mapping]] = ..., data_export_options: _Optional[_Union[_entities_pb2.ExportOptions, _Mapping]] = ...) -> None: ...
+    def __init__(self, insight_id: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., insight_type: _Optional[_Union[_insights_pb2.InsightType, str]] = ..., insight_version: _Optional[int] = ..., body: _Optional[str] = ..., insight_permission_type: _Optional[_Union[_insights_pb2.InsightPermissionType, str]] = ..., resource_id: _Optional[str] = ..., standard_insight: _Optional[bool] = ..., datasource_type: _Optional[_Union[_entities_pb2.DatasourceType, str]] = ..., datasource_name: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., pipeline: _Optional[_Union[_insight_content_pb2.Pipeline, _Mapping]] = ..., insight_body: _Optional[_Union[_pipeline_pb2.Pipeline, _Mapping]] = ..., export_options: _Optional[_Union[ExportOptions, _Mapping]] = ..., data_export_options: _Optional[_Union[_entities_pb2.ExportOptions, _Mapping]] = ...) -> None: ...
 
 class PublishInsightRequest(_message.Message):
-    __slots__ = ("resource_id", "destination_resource_id")
+    __slots__ = ()
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     DESTINATION_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
@@ -146,55 +148,55 @@ class PublishInsightRequest(_message.Message):
     def __init__(self, resource_id: _Optional[str] = ..., destination_resource_id: _Optional[str] = ...) -> None: ...
 
 class PublishInsightResponse(_message.Message):
-    __slots__ = ("insight",)
+    __slots__ = ()
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
     insight: Insight
     def __init__(self, insight: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class CreateInsightRequest(_message.Message):
-    __slots__ = ("insight",)
+    __slots__ = ()
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
     insight: Insight
     def __init__(self, insight: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class CreateInsightResponse(_message.Message):
-    __slots__ = ("insight",)
+    __slots__ = ()
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
     insight: Insight
     def __init__(self, insight: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class ListInsightsRequest(_message.Message):
-    __slots__ = ("insight_permission_types",)
+    __slots__ = ()
     INSIGHT_PERMISSION_TYPES_FIELD_NUMBER: _ClassVar[int]
     insight_permission_types: _containers.RepeatedScalarFieldContainer[_insights_pb2.InsightPermissionType]
     def __init__(self, insight_permission_types: _Optional[_Iterable[_Union[_insights_pb2.InsightPermissionType, str]]] = ...) -> None: ...
 
 class ListInsightsStreamResponse(_message.Message):
-    __slots__ = ("insights",)
+    __slots__ = ()
     INSIGHTS_FIELD_NUMBER: _ClassVar[int]
     insights: Insight
     def __init__(self, insights: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class ListInsightsResponse(_message.Message):
-    __slots__ = ("insights",)
+    __slots__ = ()
     INSIGHTS_FIELD_NUMBER: _ClassVar[int]
     insights: _containers.RepeatedCompositeFieldContainer[Insight]
     def __init__(self, insights: _Optional[_Iterable[_Union[Insight, _Mapping]]] = ...) -> None: ...
 
 class ListOrgInsightsRequest(_message.Message):
-    __slots__ = ("org_id",)
+    __slots__ = ()
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class ListOrgInsightsResponse(_message.Message):
-    __slots__ = ("insights",)
+    __slots__ = ()
     INSIGHTS_FIELD_NUMBER: _ClassVar[int]
     insights: _containers.RepeatedCompositeFieldContainer[Insight]
     def __init__(self, insights: _Optional[_Iterable[_Union[Insight, _Mapping]]] = ...) -> None: ...
 
 class UpdateInsightRequest(_message.Message):
-    __slots__ = ("insight", "update_mask")
+    __slots__ = ()
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     insight: Insight
@@ -202,13 +204,13 @@ class UpdateInsightRequest(_message.Message):
     def __init__(self, insight: _Optional[_Union[Insight, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateInsightResponse(_message.Message):
-    __slots__ = ("insight",)
+    __slots__ = ()
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
     insight: Insight
     def __init__(self, insight: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class DeleteInsightRequest(_message.Message):
-    __slots__ = ("insight_id", "resource_id")
+    __slots__ = ()
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     insight_id: int
@@ -216,13 +218,13 @@ class DeleteInsightRequest(_message.Message):
     def __init__(self, insight_id: _Optional[int] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class DeleteInsightResponse(_message.Message):
-    __slots__ = ("insight",)
+    __slots__ = ()
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
     insight: Insight
     def __init__(self, insight: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class GetInsightRequest(_message.Message):
-    __slots__ = ("insight_id", "resource_id")
+    __slots__ = ()
     INSIGHT_ID_FIELD_NUMBER: _ClassVar[int]
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     insight_id: int
@@ -230,21 +232,21 @@ class GetInsightRequest(_message.Message):
     def __init__(self, insight_id: _Optional[int] = ..., resource_id: _Optional[str] = ...) -> None: ...
 
 class GetInsightResponse(_message.Message):
-    __slots__ = ("insight",)
+    __slots__ = ()
     INSIGHT_FIELD_NUMBER: _ClassVar[int]
     insight: Insight
     def __init__(self, insight: _Optional[_Union[Insight, _Mapping]] = ...) -> None: ...
 
 class GetVfsSchemaRequest(_message.Message):
-    __slots__ = ("alias_name",)
+    __slots__ = ()
     ALIAS_NAME_FIELD_NUMBER: _ClassVar[int]
     alias_name: str
     def __init__(self, alias_name: _Optional[str] = ...) -> None: ...
 
 class GetVfsSchemaResponse(_message.Message):
-    __slots__ = ("fields", "vfs_description", "alias_name")
+    __slots__ = ()
     class Field(_message.Message):
-        __slots__ = ("column_name", "column_type", "column_description")
+        __slots__ = ()
         COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
         COLUMN_TYPE_FIELD_NUMBER: _ClassVar[int]
         COLUMN_DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -265,7 +267,7 @@ class ListVfsesRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListVfsesResponse(_message.Message):
-    __slots__ = ("aliases",)
+    __slots__ = ()
     ALIASES_FIELD_NUMBER: _ClassVar[int]
     aliases: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, aliases: _Optional[_Iterable[str]] = ...) -> None: ...
@@ -275,23 +277,23 @@ class ListVfsSchemasRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListVfsSchemasResponse(_message.Message):
-    __slots__ = ("vfs_schemas",)
+    __slots__ = ()
     VFS_SCHEMAS_FIELD_NUMBER: _ClassVar[int]
     vfs_schemas: _containers.RepeatedCompositeFieldContainer[GetVfsSchemaResponse]
     def __init__(self, vfs_schemas: _Optional[_Iterable[_Union[GetVfsSchemaResponse, _Mapping]]] = ...) -> None: ...
 
 class ExportOptions(_message.Message):
-    __slots__ = ("delimiter", "quote_character", "no_header")
+    __slots__ = ()
     DELIMITER_FIELD_NUMBER: _ClassVar[int]
     QUOTE_CHARACTER_FIELD_NUMBER: _ClassVar[int]
     NO_HEADER_FIELD_NUMBER: _ClassVar[int]
     delimiter: str
     quote_character: QuoteCharacter
     no_header: bool
-    def __init__(self, delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ...) -> None: ...
+    def __init__(self, delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: _Optional[bool] = ...) -> None: ...
 
 class TableVisualization(_message.Message):
-    __slots__ = ("table_column_details", "delimiter", "quote_character", "no_header", "header_background_color", "header_text_color")
+    __slots__ = ()
     TABLE_COLUMN_DETAILS_FIELD_NUMBER: _ClassVar[int]
     DELIMITER_FIELD_NUMBER: _ClassVar[int]
     QUOTE_CHARACTER_FIELD_NUMBER: _ClassVar[int]
@@ -304,24 +306,24 @@ class TableVisualization(_message.Message):
     no_header: bool
     header_background_color: str
     header_text_color: str
-    def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ..., delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ..., header_background_color: _Optional[str] = ..., header_text_color: _Optional[str] = ...) -> None: ...
+    def __init__(self, table_column_details: _Optional[_Iterable[_Union[TableColumnConfig, _Mapping]]] = ..., delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: _Optional[bool] = ..., header_background_color: _Optional[str] = ..., header_text_color: _Optional[str] = ...) -> None: ...
 
 class CardVisualization(_message.Message):
-    __slots__ = ("text_values",)
+    __slots__ = ()
     TEXT_VALUES_FIELD_NUMBER: _ClassVar[int]
     text_values: _containers.RepeatedCompositeFieldContainer[TextValue]
     def __init__(self, text_values: _Optional[_Iterable[_Union[TextValue, _Mapping]]] = ...) -> None: ...
 
 class TextValue(_message.Message):
-    __slots__ = ("conditions",)
+    __slots__ = ()
     CONDITIONS_FIELD_NUMBER: _ClassVar[int]
     conditions: _containers.RepeatedCompositeFieldContainer[TextValueCondition]
     def __init__(self, conditions: _Optional[_Iterable[_Union[TextValueCondition, _Mapping]]] = ...) -> None: ...
 
 class TextValueCondition(_message.Message):
-    __slots__ = ("expression", "size", "operations", "icon_name", "icon_color", "expression_node", "condition_expression", "result_expression")
+    __slots__ = ()
     class Color(_message.Message):
-        __slots__ = ("red", "green", "blue")
+        __slots__ = ()
         RED_FIELD_NUMBER: _ClassVar[int]
         GREEN_FIELD_NUMBER: _ClassVar[int]
         BLUE_FIELD_NUMBER: _ClassVar[int]
@@ -348,7 +350,7 @@ class TextValueCondition(_message.Message):
     def __init__(self, expression: _Optional[_Union[_insight_content_pb2.ExpressionNode, _Mapping]] = ..., size: _Optional[int] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., icon_name: _Optional[str] = ..., icon_color: _Optional[_Union[TextValueCondition.Color, _Mapping]] = ..., expression_node: _Optional[_Union[_pipeline_pb2.ExpressionNode, _Mapping]] = ..., condition_expression: _Optional[_Union[_pipeline_pb2.ExpressionNode, _Mapping]] = ..., result_expression: _Optional[_Union[_pipeline_pb2.ExpressionNode, _Mapping]] = ...) -> None: ...
 
 class TableColumnConfig(_message.Message):
-    __slots__ = ("column_name", "column_width", "hide_column", "renamed_as", "operations", "column_summary", "description", "sort_direction", "insight_contextual_action")
+    __slots__ = ()
     COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     COLUMN_WIDTH_FIELD_NUMBER: _ClassVar[int]
     HIDE_COLUMN_FIELD_NUMBER: _ClassVar[int]
@@ -367,26 +369,26 @@ class TableColumnConfig(_message.Message):
     description: str
     sort_direction: ColumnSort
     insight_contextual_action: InsightContextualAction
-    def __init__(self, column_name: _Optional[str] = ..., column_width: _Optional[int] = ..., hide_column: bool = ..., renamed_as: _Optional[str] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[OutputConfigurationColumnSummaryType, str]] = ..., description: _Optional[str] = ..., sort_direction: _Optional[_Union[ColumnSort, str]] = ..., insight_contextual_action: _Optional[_Union[InsightContextualAction, _Mapping]] = ...) -> None: ...
+    def __init__(self, column_name: _Optional[str] = ..., column_width: _Optional[int] = ..., hide_column: _Optional[bool] = ..., renamed_as: _Optional[str] = ..., operations: _Optional[_Iterable[_Union[ColumnOperation, _Mapping]]] = ..., column_summary: _Optional[_Union[OutputConfigurationColumnSummaryType, str]] = ..., description: _Optional[str] = ..., sort_direction: _Optional[_Union[ColumnSort, str]] = ..., insight_contextual_action: _Optional[_Union[InsightContextualAction, _Mapping]] = ...) -> None: ...
 
 class FormatSeries(_message.Message):
-    __slots__ = ("format_parts",)
+    __slots__ = ()
     FORMAT_PARTS_FIELD_NUMBER: _ClassVar[int]
     format_parts: _containers.RepeatedScalarFieldContainer[str]
     def __init__(self, format_parts: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class PadOperation(_message.Message):
-    __slots__ = ("pad_character", "pad_left", "pad_size")
+    __slots__ = ()
     PAD_CHARACTER_FIELD_NUMBER: _ClassVar[int]
     PAD_LEFT_FIELD_NUMBER: _ClassVar[int]
     PAD_SIZE_FIELD_NUMBER: _ClassVar[int]
     pad_character: str
     pad_left: bool
     pad_size: int
-    def __init__(self, pad_character: _Optional[str] = ..., pad_left: bool = ..., pad_size: _Optional[int] = ...) -> None: ...
+    def __init__(self, pad_character: _Optional[str] = ..., pad_left: _Optional[bool] = ..., pad_size: _Optional[int] = ...) -> None: ...
 
 class ColumnOperation(_message.Message):
-    __slots__ = ("operation_type", "float_value", "format_series", "pad_operation")
+    __slots__ = ()
     OPERATION_TYPE_FIELD_NUMBER: _ClassVar[int]
     FLOAT_VALUE_FIELD_NUMBER: _ClassVar[int]
     FORMAT_SERIES_FIELD_NUMBER: _ClassVar[int]
@@ -398,7 +400,7 @@ class ColumnOperation(_message.Message):
     def __init__(self, operation_type: _Optional[_Union[OperationType, str]] = ..., float_value: _Optional[float] = ..., format_series: _Optional[_Union[FormatSeries, _Mapping]] = ..., pad_operation: _Optional[_Union[PadOperation, _Mapping]] = ...) -> None: ...
 
 class InsightContextualAction(_message.Message):
-    __slots__ = ("type", "link", "component", "drill_through")
+    __slots__ = ()
     TYPE_FIELD_NUMBER: _ClassVar[int]
     LINK_FIELD_NUMBER: _ClassVar[int]
     COMPONENT_FIELD_NUMBER: _ClassVar[int]
@@ -410,9 +412,9 @@ class InsightContextualAction(_message.Message):
     def __init__(self, type: _Optional[_Union[InsightContextualActionType, str]] = ..., link: _Optional[_Union[LinkAction, _Mapping]] = ..., component: _Optional[_Union[ComponentAction, _Mapping]] = ..., drill_through: _Optional[_Union[DrillThroughAction, _Mapping]] = ...) -> None: ...
 
 class LinkAction(_message.Message):
-    __slots__ = ("link_elements", "component_value")
+    __slots__ = ()
     class ComponentValueEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -425,9 +427,9 @@ class LinkAction(_message.Message):
     def __init__(self, link_elements: _Optional[_Iterable[str]] = ..., component_value: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class ComponentAction(_message.Message):
-    __slots__ = ("component_name", "component_value")
+    __slots__ = ()
     class ComponentValueEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -440,7 +442,7 @@ class ComponentAction(_message.Message):
     def __init__(self, component_name: _Optional[str] = ..., component_value: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class DrillThroughAction(_message.Message):
-    __slots__ = ("insight_resource_id", "drill_through_parameters")
+    __slots__ = ()
     INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     DRILL_THROUGH_PARAMETERS_FIELD_NUMBER: _ClassVar[int]
     insight_resource_id: str
@@ -448,7 +450,7 @@ class DrillThroughAction(_message.Message):
     def __init__(self, insight_resource_id: _Optional[str] = ..., drill_through_parameters: _Optional[_Iterable[_Union[DrillThroughParameter, _Mapping]]] = ...) -> None: ...
 
 class DrillThroughParameter(_message.Message):
-    __slots__ = ("parameter_name", "column_name")
+    __slots__ = ()
     PARAMETER_NAME_FIELD_NUMBER: _ClassVar[int]
     COLUMN_NAME_FIELD_NUMBER: _ClassVar[int]
     parameter_name: str
@@ -456,7 +458,7 @@ class DrillThroughParameter(_message.Message):
     def __init__(self, parameter_name: _Optional[str] = ..., column_name: _Optional[str] = ...) -> None: ...
 
 class OutputConfiguration(_message.Message):
-    __slots__ = ("resource_id", "output_configuration_title", "output_configuration_type", "insight_resource_id", "is_default", "blob", "table_visualization", "card_visualization", "create_time", "update_time")
+    __slots__ = ()
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_CONFIGURATION_TITLE_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_CONFIGURATION_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -477,34 +479,34 @@ class OutputConfiguration(_message.Message):
     card_visualization: CardVisualization
     create_time: _timestamp_pb2.Timestamp
     update_time: _timestamp_pb2.Timestamp
-    def __init__(self, resource_id: _Optional[str] = ..., output_configuration_title: _Optional[str] = ..., output_configuration_type: _Optional[_Union[OutputConfigurationType, str]] = ..., insight_resource_id: _Optional[str] = ..., is_default: bool = ..., blob: _Optional[str] = ..., table_visualization: _Optional[_Union[TableVisualization, _Mapping]] = ..., card_visualization: _Optional[_Union[CardVisualization, _Mapping]] = ..., create_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, resource_id: _Optional[str] = ..., output_configuration_title: _Optional[str] = ..., output_configuration_type: _Optional[_Union[OutputConfigurationType, str]] = ..., insight_resource_id: _Optional[str] = ..., is_default: _Optional[bool] = ..., blob: _Optional[str] = ..., table_visualization: _Optional[_Union[TableVisualization, _Mapping]] = ..., card_visualization: _Optional[_Union[CardVisualization, _Mapping]] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class CreateOutputConfigurationRequest(_message.Message):
-    __slots__ = ("output_configuration",)
+    __slots__ = ()
     OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
     output_configuration: OutputConfiguration
     def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
 
 class CreateOutputConfigurationResponse(_message.Message):
-    __slots__ = ("output_configuration",)
+    __slots__ = ()
     OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
     output_configuration: OutputConfiguration
     def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
 
 class ListOutputConfigurationsRequest(_message.Message):
-    __slots__ = ("insight_resource_id",)
+    __slots__ = ()
     INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     insight_resource_id: str
     def __init__(self, insight_resource_id: _Optional[str] = ...) -> None: ...
 
 class ListOutputConfigurationsResponse(_message.Message):
-    __slots__ = ("output_configurations",)
+    __slots__ = ()
     OUTPUT_CONFIGURATIONS_FIELD_NUMBER: _ClassVar[int]
     output_configurations: _containers.RepeatedCompositeFieldContainer[OutputConfiguration]
     def __init__(self, output_configurations: _Optional[_Iterable[_Union[OutputConfiguration, _Mapping]]] = ...) -> None: ...
 
 class UpdateOutputConfigurationRequest(_message.Message):
-    __slots__ = ("update_mask", "output_configuration")
+    __slots__ = ()
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
     update_mask: _field_mask_pb2.FieldMask
@@ -512,13 +514,13 @@ class UpdateOutputConfigurationRequest(_message.Message):
     def __init__(self, update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
 
 class UpdateOutputConfigurationResponse(_message.Message):
-    __slots__ = ("output_configuration",)
+    __slots__ = ()
     OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
     output_configuration: OutputConfiguration
     def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
 
 class DeleteOutputConfigurationRequest(_message.Message):
-    __slots__ = ("resource_id",)
+    __slots__ = ()
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
     def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
@@ -528,19 +530,19 @@ class DeleteOutputConfigurationResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetOutputConfigurationRequest(_message.Message):
-    __slots__ = ("resource_id",)
+    __slots__ = ()
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
     def __init__(self, resource_id: _Optional[str] = ...) -> None: ...
 
 class GetOutputConfigurationResponse(_message.Message):
-    __slots__ = ("output_configuration",)
+    __slots__ = ()
     OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
     output_configuration: OutputConfiguration
     def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...
 
 class SetDefaultOutputConfigurationRequest(_message.Message):
-    __slots__ = ("resource_id", "insight_resource_id")
+    __slots__ = ()
     RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     resource_id: str
@@ -552,13 +554,13 @@ class SetDefaultOutputConfigurationResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetDefaultOutputConfigurationRequest(_message.Message):
-    __slots__ = ("insight_resource_id",)
+    __slots__ = ()
     INSIGHT_RESOURCE_ID_FIELD_NUMBER: _ClassVar[int]
     insight_resource_id: str
     def __init__(self, insight_resource_id: _Optional[str] = ...) -> None: ...
 
 class GetDefaultOutputConfigurationResponse(_message.Message):
-    __slots__ = ("output_configuration",)
+    __slots__ = ()
     OUTPUT_CONFIGURATION_FIELD_NUMBER: _ClassVar[int]
     output_configuration: OutputConfiguration
     def __init__(self, output_configuration: _Optional[_Union[OutputConfiguration, _Mapping]] = ...) -> None: ...

@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import room303_pb2 as _room303_pb2
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
@@ -9,7 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateMessageRequest(_message.Message):
-    __slots__ = ("room_id", "payload", "nonce")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     PAYLOAD_FIELD_NUMBER: _ClassVar[int]
     NONCE_FIELD_NUMBER: _ClassVar[int]
@@ -19,13 +21,13 @@ class CreateMessageRequest(_message.Message):
     def __init__(self, room_id: _Optional[str] = ..., payload: _Optional[str] = ..., nonce: _Optional[str] = ...) -> None: ...
 
 class CreateMessageResponse(_message.Message):
-    __slots__ = ("message",)
+    __slots__ = ()
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     message: _room303_pb2.Message
     def __init__(self, message: _Optional[_Union[_room303_pb2.Message, _Mapping]] = ...) -> None: ...
 
 class EditMessageRequest(_message.Message):
-    __slots__ = ("message_id", "payload", "room_id", "nonce")
+    __slots__ = ()
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     PAYLOAD_FIELD_NUMBER: _ClassVar[int]
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
@@ -37,27 +39,27 @@ class EditMessageRequest(_message.Message):
     def __init__(self, message_id: _Optional[str] = ..., payload: _Optional[str] = ..., room_id: _Optional[str] = ..., nonce: _Optional[str] = ...) -> None: ...
 
 class EditMessageResponse(_message.Message):
-    __slots__ = ("message",)
+    __slots__ = ()
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     message: _room303_pb2.Message
     def __init__(self, message: _Optional[_Union[_room303_pb2.Message, _Mapping]] = ...) -> None: ...
 
 class GetMessagesRequest(_message.Message):
-    __slots__ = ("room_id", "offset")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     OFFSET_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     offset: _timestamp_pb2.Timestamp
-    def __init__(self, room_id: _Optional[str] = ..., offset: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+    def __init__(self, room_id: _Optional[str] = ..., offset: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class GetMessagesResponse(_message.Message):
-    __slots__ = ("messages",)
+    __slots__ = ()
     MESSAGES_FIELD_NUMBER: _ClassVar[int]
     messages: _containers.RepeatedCompositeFieldContainer[_room303_pb2.Message]
     def __init__(self, messages: _Optional[_Iterable[_Union[_room303_pb2.Message, _Mapping]]] = ...) -> None: ...
 
 class StreamMessageUpdatesRequest(_message.Message):
-    __slots__ = ("room_id", "member_id")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
@@ -65,13 +67,13 @@ class StreamMessageUpdatesRequest(_message.Message):
     def __init__(self, room_id: _Optional[str] = ..., member_id: _Optional[str] = ...) -> None: ...
 
 class StreamMessageUpdatesResponse(_message.Message):
-    __slots__ = ("message",)
+    __slots__ = ()
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     message: _room303_pb2.Message
     def __init__(self, message: _Optional[_Union[_room303_pb2.Message, _Mapping]] = ...) -> None: ...
 
 class MarkMessageReadRequest(_message.Message):
-    __slots__ = ("message_id", "member_id")
+    __slots__ = ()
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     MEMBER_ID_FIELD_NUMBER: _ClassVar[int]
     message_id: str
@@ -83,13 +85,13 @@ class MarkMessageReadResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class MarkAllMessagesReadRequest(_message.Message):
-    __slots__ = ("room_id",)
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     room_id: str
     def __init__(self, room_id: _Optional[str] = ...) -> None: ...
 
 class MarkAllMessagesReadResponse(_message.Message):
-    __slots__ = ("rows_updated",)
+    __slots__ = ()
     ROWS_UPDATED_FIELD_NUMBER: _ClassVar[int]
     rows_updated: _containers.RepeatedCompositeFieldContainer[_room303_pb2.Message]
     def __init__(self, rows_updated: _Optional[_Iterable[_Union[_room303_pb2.Message, _Mapping]]] = ...) -> None: ...
@@ -99,13 +101,13 @@ class GetUnreadStatsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetUnreadStatsResponse(_message.Message):
-    __slots__ = ("stats",)
+    __slots__ = ()
     STATS_FIELD_NUMBER: _ClassVar[int]
     stats: _containers.RepeatedCompositeFieldContainer[_room303_pb2.MessageStat]
     def __init__(self, stats: _Optional[_Iterable[_Union[_room303_pb2.MessageStat, _Mapping]]] = ...) -> None: ...
 
 class DeleteMessageRequest(_message.Message):
-    __slots__ = ("message_id", "room_id", "nonce")
+    __slots__ = ()
     MESSAGE_ID_FIELD_NUMBER: _ClassVar[int]
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     NONCE_FIELD_NUMBER: _ClassVar[int]
@@ -115,13 +117,13 @@ class DeleteMessageRequest(_message.Message):
     def __init__(self, message_id: _Optional[str] = ..., room_id: _Optional[str] = ..., nonce: _Optional[str] = ...) -> None: ...
 
 class DeleteMessageResponse(_message.Message):
-    __slots__ = ("message",)
+    __slots__ = ()
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     message: _room303_pb2.Message
     def __init__(self, message: _Optional[_Union[_room303_pb2.Message, _Mapping]] = ...) -> None: ...
 
 class BulkMarkMessageReadRequest(_message.Message):
-    __slots__ = ("room_id", "message_ids")
+    __slots__ = ()
     ROOM_ID_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_IDS_FIELD_NUMBER: _ClassVar[int]
     room_id: str
@@ -129,7 +131,7 @@ class BulkMarkMessageReadRequest(_message.Message):
     def __init__(self, room_id: _Optional[str] = ..., message_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class BulkMarkMessageReadResponse(_message.Message):
-    __slots__ = ("messages",)
+    __slots__ = ()
     MESSAGES_FIELD_NUMBER: _ClassVar[int]
     messages: _containers.RepeatedCompositeFieldContainer[_room303_pb2.Message]
     def __init__(self, messages: _Optional[_Iterable[_Union[_room303_pb2.Message, _Mapping]]] = ...) -> None: ...

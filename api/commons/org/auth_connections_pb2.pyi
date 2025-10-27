@@ -1,3 +1,5 @@
+import datetime
+
 from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf.internal import enum_type_wrapper as _enum_type_wrapper
@@ -18,12 +20,12 @@ CONNECTION_TYPE_OIDC: ConnectionType
 CONNECTION_TYPE_AZURE: ConnectionType
 
 class AuthConnectionSettings(_message.Message):
-    __slots__ = ("issuer_url", "tenant_url", "client_id", "connection_id", "secret_expiration", "default_group", "custom_groups", "org_id", "name", "type", "resource_url", "use_government_azure")
+    __slots__ = ()
     class SecretExpiration(_message.Message):
-        __slots__ = ("date",)
+        __slots__ = ()
         DATE_FIELD_NUMBER: _ClassVar[int]
         date: _timestamp_pb2.Timestamp
-        def __init__(self, date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
+        def __init__(self, date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
     ISSUER_URL_FIELD_NUMBER: _ClassVar[int]
     TENANT_URL_FIELD_NUMBER: _ClassVar[int]
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -48,10 +50,10 @@ class AuthConnectionSettings(_message.Message):
     type: ConnectionType
     resource_url: str
     use_government_azure: bool
-    def __init__(self, issuer_url: _Optional[str] = ..., tenant_url: _Optional[str] = ..., client_id: _Optional[str] = ..., connection_id: _Optional[str] = ..., secret_expiration: _Optional[_Union[AuthConnectionSettings.SecretExpiration, _Mapping]] = ..., default_group: _Optional[_Union[GroupItem, _Mapping]] = ..., custom_groups: _Optional[_Iterable[_Union[GroupItem, _Mapping]]] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[ConnectionType, str]] = ..., resource_url: _Optional[str] = ..., use_government_azure: bool = ...) -> None: ...
+    def __init__(self, issuer_url: _Optional[str] = ..., tenant_url: _Optional[str] = ..., client_id: _Optional[str] = ..., connection_id: _Optional[str] = ..., secret_expiration: _Optional[_Union[AuthConnectionSettings.SecretExpiration, _Mapping]] = ..., default_group: _Optional[_Union[GroupItem, _Mapping]] = ..., custom_groups: _Optional[_Iterable[_Union[GroupItem, _Mapping]]] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., type: _Optional[_Union[ConnectionType, str]] = ..., resource_url: _Optional[str] = ..., use_government_azure: _Optional[bool] = ...) -> None: ...
 
 class GroupItem(_message.Message):
-    __slots__ = ("group_name", "hunt_group_sid", "agent_profile_group_id", "p3_permission_group_id", "permission_group_ids")
+    __slots__ = ()
     GROUP_NAME_FIELD_NUMBER: _ClassVar[int]
     HUNT_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_PROFILE_GROUP_ID_FIELD_NUMBER: _ClassVar[int]

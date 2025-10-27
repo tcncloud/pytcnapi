@@ -9,19 +9,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateSmartEvaluationRequest(_message.Message):
-    __slots__ = ("smart_evaluation",)
+    __slots__ = ()
     SMART_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     smart_evaluation: _scorecards_pb2.SmartEvaluation
     def __init__(self, smart_evaluation: _Optional[_Union[_scorecards_pb2.SmartEvaluation, _Mapping]] = ...) -> None: ...
 
 class CreateSmartEvaluationResponse(_message.Message):
-    __slots__ = ("smart_evaluation",)
+    __slots__ = ()
     SMART_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     smart_evaluation: _scorecards_pb2.SmartEvaluation
     def __init__(self, smart_evaluation: _Optional[_Union[_scorecards_pb2.SmartEvaluation, _Mapping]] = ...) -> None: ...
 
 class ListSmartEvaluationsRequest(_message.Message):
-    __slots__ = ("order_by", "page_size", "page_token", "return_fields", "filter")
+    __slots__ = ()
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -35,7 +35,7 @@ class ListSmartEvaluationsRequest(_message.Message):
     def __init__(self, order_by: _Optional[str] = ..., page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., return_fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., filter: _Optional[str] = ...) -> None: ...
 
 class ListSmartEvaluationsResponse(_message.Message):
-    __slots__ = ("smart_evaluations", "next_page_token")
+    __slots__ = ()
     SMART_EVALUATIONS_FIELD_NUMBER: _ClassVar[int]
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     smart_evaluations: _containers.RepeatedCompositeFieldContainer[_scorecards_pb2.SmartEvaluation]
@@ -43,7 +43,7 @@ class ListSmartEvaluationsResponse(_message.Message):
     def __init__(self, smart_evaluations: _Optional[_Iterable[_Union[_scorecards_pb2.SmartEvaluation, _Mapping]]] = ..., next_page_token: _Optional[str] = ...) -> None: ...
 
 class UpdateSmartEvaluationRequest(_message.Message):
-    __slots__ = ("smart_evaluation", "update_mask")
+    __slots__ = ()
     SMART_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     smart_evaluation: _scorecards_pb2.SmartEvaluation
@@ -51,13 +51,13 @@ class UpdateSmartEvaluationRequest(_message.Message):
     def __init__(self, smart_evaluation: _Optional[_Union[_scorecards_pb2.SmartEvaluation, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateSmartEvaluationResponse(_message.Message):
-    __slots__ = ("smart_evaluation",)
+    __slots__ = ()
     SMART_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     smart_evaluation: _scorecards_pb2.SmartEvaluation
     def __init__(self, smart_evaluation: _Optional[_Union[_scorecards_pb2.SmartEvaluation, _Mapping]] = ...) -> None: ...
 
 class DeleteSmartEvaluationRequest(_message.Message):
-    __slots__ = ("smart_evaluation_id",)
+    __slots__ = ()
     SMART_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     smart_evaluation_id: int
     def __init__(self, smart_evaluation_id: _Optional[int] = ...) -> None: ...
@@ -67,13 +67,13 @@ class DeleteSmartEvaluationResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetSmartEvaluationRequest(_message.Message):
-    __slots__ = ("smart_evaluation_id",)
+    __slots__ = ()
     SMART_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     smart_evaluation_id: int
     def __init__(self, smart_evaluation_id: _Optional[int] = ...) -> None: ...
 
 class GetSmartEvaluationResponse(_message.Message):
-    __slots__ = ("smart_evaluation",)
+    __slots__ = ()
     SMART_EVALUATION_FIELD_NUMBER: _ClassVar[int]
     smart_evaluation: _scorecards_pb2.SmartEvaluation
     def __init__(self, smart_evaluation: _Optional[_Union[_scorecards_pb2.SmartEvaluation, _Mapping]] = ...) -> None: ...

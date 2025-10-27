@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListFlagFiltersRequest(_message.Message):
-    __slots__ = ("page_size", "page_token", "flag_mask", "filter_mask", "flag_sids")
+    __slots__ = ()
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     FLAG_MASK_FIELD_NUMBER: _ClassVar[int]
@@ -24,7 +24,7 @@ class ListFlagFiltersRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ..., flag_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., filter_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., flag_sids: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ListFlagFiltersResponse(_message.Message):
-    __slots__ = ("next_page_token", "flag_filters")
+    __slots__ = ()
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     FLAG_FILTERS_FIELD_NUMBER: _ClassVar[int]
     next_page_token: str
@@ -32,7 +32,7 @@ class ListFlagFiltersResponse(_message.Message):
     def __init__(self, next_page_token: _Optional[str] = ..., flag_filters: _Optional[_Iterable[_Union[FlagFilter, _Mapping]]] = ...) -> None: ...
 
 class FlagFilter(_message.Message):
-    __slots__ = ("flag_filter_sid", "filter_sid", "flag_sid", "flag", "filter")
+    __slots__ = ()
     FLAG_FILTER_SID_FIELD_NUMBER: _ClassVar[int]
     FILTER_SID_FIELD_NUMBER: _ClassVar[int]
     FLAG_SID_FIELD_NUMBER: _ClassVar[int]

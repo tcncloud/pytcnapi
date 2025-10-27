@@ -8,7 +8,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class OmniSmsConfig(_message.Message):
-    __slots__ = ("prefixes", "config")
+    __slots__ = ()
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     prefixes: _matching_pb2.CountryCodePrefix
@@ -16,7 +16,7 @@ class OmniSmsConfig(_message.Message):
     def __init__(self, prefixes: _Optional[_Union[_matching_pb2.CountryCodePrefix, _Mapping]] = ..., config: _Optional[_Union[_modules_pb2.BasicConfig, _Mapping]] = ...) -> None: ...
 
 class OmniSmsUnitConfig(_message.Message):
-    __slots__ = ("prefixes", "config")
+    __slots__ = ()
     PREFIXES_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     prefixes: _matching_pb2.CountryCodePrefix

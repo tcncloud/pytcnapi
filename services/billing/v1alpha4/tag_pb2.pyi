@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateBillingTagRequest(_message.Message):
-    __slots__ = ("billing_tag_id", "billing_tag")
+    __slots__ = ()
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_TAG_FIELD_NUMBER: _ClassVar[int]
     billing_tag_id: str
@@ -18,13 +18,13 @@ class CreateBillingTagRequest(_message.Message):
     def __init__(self, billing_tag_id: _Optional[str] = ..., billing_tag: _Optional[_Union[_tags_pb2.BillingTag, _Mapping]] = ...) -> None: ...
 
 class CreateBillingTagResponse(_message.Message):
-    __slots__ = ("billing_tag_id",)
+    __slots__ = ()
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     billing_tag_id: str
     def __init__(self, billing_tag_id: _Optional[str] = ...) -> None: ...
 
 class DeleteBillingTagRequest(_message.Message):
-    __slots__ = ("billing_tag_id",)
+    __slots__ = ()
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     billing_tag_id: str
     def __init__(self, billing_tag_id: _Optional[str] = ...) -> None: ...
@@ -34,19 +34,19 @@ class DeleteBillingTagResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class GetBillingTagRequest(_message.Message):
-    __slots__ = ("billing_tag_id",)
+    __slots__ = ()
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     billing_tag_id: str
     def __init__(self, billing_tag_id: _Optional[str] = ...) -> None: ...
 
 class GetBillingTagResponse(_message.Message):
-    __slots__ = ("billing_tag",)
+    __slots__ = ()
     BILLING_TAG_FIELD_NUMBER: _ClassVar[int]
     billing_tag: _tags_pb2.BillingTag
     def __init__(self, billing_tag: _Optional[_Union[_tags_pb2.BillingTag, _Mapping]] = ...) -> None: ...
 
 class ListBillingTagsRequest(_message.Message):
-    __slots__ = ("billing_tag_id", "filter", "fields", "sort", "page")
+    __slots__ = ()
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     FILTER_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
@@ -60,7 +60,7 @@ class ListBillingTagsRequest(_message.Message):
     def __init__(self, billing_tag_id: _Optional[str] = ..., filter: _Optional[str] = ..., fields: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., sort: _Optional[_Iterable[_Union[_core_pb2.Sort, _Mapping]]] = ..., page: _Optional[_Union[_core_pb2.Page, _Mapping]] = ...) -> None: ...
 
 class ListBillingTagsResponse(_message.Message):
-    __slots__ = ("billing_tags", "token")
+    __slots__ = ()
     BILLING_TAGS_FIELD_NUMBER: _ClassVar[int]
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     billing_tags: _containers.RepeatedCompositeFieldContainer[_tags_pb2.BillingTag]
@@ -68,7 +68,7 @@ class ListBillingTagsResponse(_message.Message):
     def __init__(self, billing_tags: _Optional[_Iterable[_Union[_tags_pb2.BillingTag, _Mapping]]] = ..., token: _Optional[str] = ...) -> None: ...
 
 class UpdateBillingTagRequest(_message.Message):
-    __slots__ = ("billing_tag_id", "billing_tag", "update_mask")
+    __slots__ = ()
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_TAG_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]

@@ -77,7 +77,7 @@ QUOTE_CHARACTER_DOUBLE_QUOTE: QuoteCharacter
 QUOTE_CHARACTER_SINGLE_QUOTE: QuoteCharacter
 
 class SchemaField(_message.Message):
-    __slots__ = ("name", "column_type", "is_primary_key", "is_low_cardinality", "column_description", "is_time_filter", "is_default_time_filter", "is_join_column")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     COLUMN_TYPE_FIELD_NUMBER: _ClassVar[int]
     IS_PRIMARY_KEY_FIELD_NUMBER: _ClassVar[int]
@@ -94,10 +94,10 @@ class SchemaField(_message.Message):
     is_time_filter: bool
     is_default_time_filter: bool
     is_join_column: bool
-    def __init__(self, name: _Optional[str] = ..., column_type: _Optional[_Union[SchemaType, str]] = ..., is_primary_key: bool = ..., is_low_cardinality: bool = ..., column_description: _Optional[str] = ..., is_time_filter: bool = ..., is_default_time_filter: bool = ..., is_join_column: bool = ...) -> None: ...
+    def __init__(self, name: _Optional[str] = ..., column_type: _Optional[_Union[SchemaType, str]] = ..., is_primary_key: _Optional[bool] = ..., is_low_cardinality: _Optional[bool] = ..., column_description: _Optional[str] = ..., is_time_filter: _Optional[bool] = ..., is_default_time_filter: _Optional[bool] = ..., is_join_column: _Optional[bool] = ...) -> None: ...
 
 class Schema(_message.Message):
-    __slots__ = ("name", "datasource_type", "fields", "table_description", "category", "sub_category")
+    __slots__ = ()
     NAME_FIELD_NUMBER: _ClassVar[int]
     DATASOURCE_TYPE_FIELD_NUMBER: _ClassVar[int]
     FIELDS_FIELD_NUMBER: _ClassVar[int]
@@ -113,16 +113,16 @@ class Schema(_message.Message):
     def __init__(self, name: _Optional[str] = ..., datasource_type: _Optional[_Union[DatasourceType, str]] = ..., fields: _Optional[_Iterable[_Union[SchemaField, _Mapping]]] = ..., table_description: _Optional[str] = ..., category: _Optional[str] = ..., sub_category: _Optional[str] = ...) -> None: ...
 
 class Parameters(_message.Message):
-    __slots__ = ("parameters",)
+    __slots__ = ()
     class Parameter(_message.Message):
-        __slots__ = ("value", "data_type")
+        __slots__ = ()
         VALUE_FIELD_NUMBER: _ClassVar[int]
         DATA_TYPE_FIELD_NUMBER: _ClassVar[int]
         value: str
         data_type: str
         def __init__(self, value: _Optional[str] = ..., data_type: _Optional[str] = ...) -> None: ...
     class ParametersEntry(_message.Message):
-        __slots__ = ("key", "value")
+        __slots__ = ()
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -133,7 +133,7 @@ class Parameters(_message.Message):
     def __init__(self, parameters: _Optional[_Mapping[str, Parameters.Parameter]] = ...) -> None: ...
 
 class ResultFile(_message.Message):
-    __slots__ = ("url", "size_bytes")
+    __slots__ = ()
     URL_FIELD_NUMBER: _ClassVar[int]
     SIZE_BYTES_FIELD_NUMBER: _ClassVar[int]
     url: str
@@ -141,7 +141,7 @@ class ResultFile(_message.Message):
     def __init__(self, url: _Optional[str] = ..., size_bytes: _Optional[int] = ...) -> None: ...
 
 class ExportOptions(_message.Message):
-    __slots__ = ("delimiter", "quote_character", "no_header", "export_format")
+    __slots__ = ()
     DELIMITER_FIELD_NUMBER: _ClassVar[int]
     QUOTE_CHARACTER_FIELD_NUMBER: _ClassVar[int]
     NO_HEADER_FIELD_NUMBER: _ClassVar[int]
@@ -150,4 +150,4 @@ class ExportOptions(_message.Message):
     quote_character: QuoteCharacter
     no_header: bool
     export_format: ExportFormat
-    def __init__(self, delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: bool = ..., export_format: _Optional[_Union[ExportFormat, str]] = ...) -> None: ...
+    def __init__(self, delimiter: _Optional[str] = ..., quote_character: _Optional[_Union[QuoteCharacter, str]] = ..., no_header: _Optional[bool] = ..., export_format: _Optional[_Union[ExportFormat, str]] = ...) -> None: ...

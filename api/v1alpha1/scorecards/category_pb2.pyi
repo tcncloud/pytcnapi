@@ -1,3 +1,5 @@
+import datetime
+
 from api.commons import acd_pb2 as _acd_pb2
 from api.commons import scorecards_pb2 as _scorecards_pb2
 from google.protobuf import duration_pb2 as _duration_pb2
@@ -13,19 +15,19 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateCategoryRequest(_message.Message):
-    __slots__ = ("category",)
+    __slots__ = ()
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     category: _scorecards_pb2.Category
     def __init__(self, category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class CreateCategoryResponse(_message.Message):
-    __slots__ = ("category",)
+    __slots__ = ()
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     category: _scorecards_pb2.Category
     def __init__(self, category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class ListCategoriesRequest(_message.Message):
-    __slots__ = ("author_ids", "skill_profiles", "call_types", "category_type")
+    __slots__ = ()
     class CategoryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         ANY: _ClassVar[ListCategoriesRequest.CategoryType]
@@ -45,13 +47,13 @@ class ListCategoriesRequest(_message.Message):
     def __init__(self, author_ids: _Optional[_Iterable[str]] = ..., skill_profiles: _Optional[_Iterable[int]] = ..., call_types: _Optional[_Iterable[_Union[_acd_pb2.CallType.Enum, str]]] = ..., category_type: _Optional[_Union[ListCategoriesRequest.CategoryType, str]] = ...) -> None: ...
 
 class ListCategoriesResponse(_message.Message):
-    __slots__ = ("categories",)
+    __slots__ = ()
     CATEGORIES_FIELD_NUMBER: _ClassVar[int]
     categories: _containers.RepeatedCompositeFieldContainer[_scorecards_pb2.Category]
     def __init__(self, categories: _Optional[_Iterable[_Union[_scorecards_pb2.Category, _Mapping]]] = ...) -> None: ...
 
 class UpdateCategoryRequest(_message.Message):
-    __slots__ = ("category", "update_mask")
+    __slots__ = ()
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     category: _scorecards_pb2.Category
@@ -59,25 +61,25 @@ class UpdateCategoryRequest(_message.Message):
     def __init__(self, category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateCategoryResponse(_message.Message):
-    __slots__ = ("category",)
+    __slots__ = ()
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     category: _scorecards_pb2.Category
     def __init__(self, category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class DeleteCategoryRequest(_message.Message):
-    __slots__ = ("category_id",)
+    __slots__ = ()
     CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
     category_id: int
     def __init__(self, category_id: _Optional[int] = ...) -> None: ...
 
 class DeleteCategoryResponse(_message.Message):
-    __slots__ = ("category",)
+    __slots__ = ()
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     category: _scorecards_pb2.Category
     def __init__(self, category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class GetCategoryRequest(_message.Message):
-    __slots__ = ("category_id", "title")
+    __slots__ = ()
     CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     category_id: int
@@ -85,13 +87,13 @@ class GetCategoryRequest(_message.Message):
     def __init__(self, category_id: _Optional[int] = ..., title: _Optional[str] = ...) -> None: ...
 
 class GetCategoryResponse(_message.Message):
-    __slots__ = ("category",)
+    __slots__ = ()
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     category: _scorecards_pb2.Category
     def __init__(self, category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class SampleCallsByCategoryRequest(_message.Message):
-    __slots__ = ("category_id", "start_time", "end_time", "scorer_max_evaluations", "sample_percentage", "agent_user_ids", "scorecard_id")
+    __slots__ = ()
     CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
     END_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -106,16 +108,16 @@ class SampleCallsByCategoryRequest(_message.Message):
     sample_percentage: int
     agent_user_ids: _containers.RepeatedScalarFieldContainer[str]
     scorecard_id: int
-    def __init__(self, category_id: _Optional[int] = ..., start_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., scorer_max_evaluations: _Optional[int] = ..., sample_percentage: _Optional[int] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_id: _Optional[int] = ...) -> None: ...
+    def __init__(self, category_id: _Optional[int] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., scorer_max_evaluations: _Optional[int] = ..., sample_percentage: _Optional[int] = ..., agent_user_ids: _Optional[_Iterable[str]] = ..., scorecard_id: _Optional[int] = ...) -> None: ...
 
 class SampleCallsByCategoryResponse(_message.Message):
-    __slots__ = ("agent_calls",)
+    __slots__ = ()
     AGENT_CALLS_FIELD_NUMBER: _ClassVar[int]
     agent_calls: _containers.RepeatedCompositeFieldContainer[SampleAgentCall]
     def __init__(self, agent_calls: _Optional[_Iterable[_Union[SampleAgentCall, _Mapping]]] = ...) -> None: ...
 
 class SampleAgentCall(_message.Message):
-    __slots__ = ("call_sid", "call_type", "call_start", "call_duration", "speech", "silence", "agent_user_id")
+    __slots__ = ()
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     CALL_START_FIELD_NUMBER: _ClassVar[int]
@@ -130,10 +132,10 @@ class SampleAgentCall(_message.Message):
     speech: _duration_pb2.Duration
     silence: _duration_pb2.Duration
     agent_user_id: str
-    def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., call_start: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., call_duration: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., speech: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., silence: _Optional[_Union[_duration_pb2.Duration, _Mapping]] = ..., agent_user_id: _Optional[str] = ...) -> None: ...
+    def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., call_start: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., call_duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., speech: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., silence: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., agent_user_id: _Optional[str] = ...) -> None: ...
 
 class ListCategoriesByOrgIdRequest(_message.Message):
-    __slots__ = ("org_id", "author_ids", "skill_profiles", "category_type")
+    __slots__ = ()
     class CategoryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         ANY: _ClassVar[ListCategoriesByOrgIdRequest.CategoryType]
