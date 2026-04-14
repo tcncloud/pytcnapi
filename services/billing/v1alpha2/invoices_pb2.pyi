@@ -18,7 +18,7 @@ INVOICE_FORMAT_UNSPECIFIED: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class ExportInvoiceRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("format", "invoice_date")
     FORMAT_FIELD_NUMBER: _ClassVar[int]
     INVOICE_DATE_FIELD_NUMBER: _ClassVar[int]
     format: InvoiceFormat
@@ -26,7 +26,7 @@ class ExportInvoiceRequest(_message.Message):
     def __init__(self, format: _Optional[_Union[InvoiceFormat, str]] = ..., invoice_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ExportInvoiceResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("invoice",)
     INVOICE_FIELD_NUMBER: _ClassVar[int]
     invoice: _invoice_pb2.Invoice
     def __init__(self, invoice: _Optional[_Union[_invoice_pb2.Invoice, _Mapping]] = ...) -> None: ...

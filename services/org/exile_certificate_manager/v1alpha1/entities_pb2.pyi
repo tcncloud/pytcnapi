@@ -29,7 +29,7 @@ EXILE_CONFIGURATION_TYPE_LATITUDE_CLASSIC: ExileConfigurationType
 EXILE_CONFIGURATION_TYPE_LATITUDE_LIQUID: ExileConfigurationType
 
 class ExileCertificate(_message.Message):
-    __slots__ = ()
+    __slots__ = ("exile_certificate_id", "org_id", "name", "description", "hash", "expiration_date", "creation_date", "request_by", "revoked", "exile_configuration_id", "renewal_instance")
     EXILE_CERTIFICATE_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -55,7 +55,7 @@ class ExileCertificate(_message.Message):
     def __init__(self, exile_certificate_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., hash: _Optional[str] = ..., expiration_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., creation_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., request_by: _Optional[str] = ..., revoked: _Optional[bool] = ..., exile_configuration_id: _Optional[str] = ..., renewal_instance: _Optional[int] = ...) -> None: ...
 
 class ExileConfiguration(_message.Message):
-    __slots__ = ()
+    __slots__ = ("exile_configuration_id", "org_id", "name", "description", "type", "parameters")
     EXILE_CONFIGURATION_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]

@@ -19,7 +19,7 @@ BILLING_PLAN_TYPE_DEFAULT: BillingPlanType
 BILLING_PLAN_TYPE_ORG: BillingPlanType
 
 class BillingPlan(_message.Message):
-    __slots__ = ()
+    __slots__ = ("billing_plan_id", "title", "type", "is_draft", "start_time", "create_time", "update_time", "delete_time", "user_id")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]

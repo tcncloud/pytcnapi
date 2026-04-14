@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Invoice(_message.Message):
-    __slots__ = ()
+    __slots__ = ("billing_cycle", "create_time", "rows", "download_url")
     BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     ROWS_FIELD_NUMBER: _ClassVar[int]
@@ -24,7 +24,7 @@ class Invoice(_message.Message):
     def __init__(self, billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., rows: _Optional[_Iterable[_Union[InvoiceRow, _Mapping]]] = ..., download_url: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class InvoiceRow(_message.Message):
-    __slots__ = ()
+    __slots__ = ("client_id", "product_id", "description", "date", "columns", "rated_amount")
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -40,7 +40,7 @@ class InvoiceRow(_message.Message):
     def __init__(self, client_id: _Optional[str] = ..., product_id: _Optional[str] = ..., description: _Optional[str] = ..., date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., columns: _Optional[_Iterable[_Union[InvoiceColumn, _Mapping]]] = ..., rated_amount: _Optional[_Union[_decimal_pb2.Decimal, _Mapping]] = ...) -> None: ...
 
 class InvoiceColumn(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "value")
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     name: str

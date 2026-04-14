@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PermissionGroup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("permission_group_id", "org_id", "name", "description", "permissions", "read_only", "label_ids")
     PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -28,7 +28,7 @@ class PermissionGroup(_message.Message):
     def __init__(self, permission_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2.Permission, str]]] = ..., read_only: _Optional[bool] = ..., label_ids: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class P3PermissionGroup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("p3_permission_group_id", "org_id", "region_id", "name", "description", "permissions")
     P3_PERMISSION_GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     REGION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -44,9 +44,9 @@ class P3PermissionGroup(_message.Message):
     def __init__(self, p3_permission_group_id: _Optional[str] = ..., org_id: _Optional[str] = ..., region_id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., permissions: _Optional[_Iterable[_Union[_perms_pb2_1.Permission, str]]] = ...) -> None: ...
 
 class License(_message.Message):
-    __slots__ = ()
+    __slots__ = ("app", "cards", "name")
     class Card(_message.Message):
-        __slots__ = ()
+        __slots__ = ("type", "permissions", "name")
         TYPE_FIELD_NUMBER: _ClassVar[int]
         PERMISSIONS_FIELD_NUMBER: _ClassVar[int]
         NAME_FIELD_NUMBER: _ClassVar[int]
@@ -55,7 +55,7 @@ class License(_message.Message):
         name: str
         def __init__(self, type: _Optional[_Union[_license_pb2.Card, str]] = ..., permissions: _Optional[_Iterable[_Union[License.Permission, _Mapping]]] = ..., name: _Optional[str] = ...) -> None: ...
     class Permission(_message.Message):
-        __slots__ = ()
+        __slots__ = ("permission", "enabled", "features", "name")
         PERMISSION_FIELD_NUMBER: _ClassVar[int]
         ENABLED_FIELD_NUMBER: _ClassVar[int]
         FEATURES_FIELD_NUMBER: _ClassVar[int]

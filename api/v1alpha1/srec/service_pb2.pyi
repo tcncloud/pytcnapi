@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListScreenRecordingsRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("page_size", "page_token")
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     page_size: int
@@ -20,7 +20,7 @@ class ListScreenRecordingsRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., page_token: _Optional[str] = ...) -> None: ...
 
 class ListScreenRecordingsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("next_page_token", "recordings")
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     RECORDINGS_FIELD_NUMBER: _ClassVar[int]
     next_page_token: str
@@ -28,7 +28,7 @@ class ListScreenRecordingsResponse(_message.Message):
     def __init__(self, next_page_token: _Optional[str] = ..., recordings: _Optional[_Iterable[_Union[ScreenRecording, _Mapping]]] = ...) -> None: ...
 
 class ScreenRecording(_message.Message):
-    __slots__ = ()
+    __slots__ = ("session_id", "agent_first_name", "agent_last_name", "start_time", "audio_time", "audio_bytes")
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     AGENT_FIRST_NAME_FIELD_NUMBER: _ClassVar[int]
     AGENT_LAST_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -44,19 +44,19 @@ class ScreenRecording(_message.Message):
     def __init__(self, session_id: _Optional[int] = ..., agent_first_name: _Optional[str] = ..., agent_last_name: _Optional[str] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., audio_time: _Optional[int] = ..., audio_bytes: _Optional[int] = ...) -> None: ...
 
 class GetScreenRecordingURLRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("session_id",)
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     session_id: int
     def __init__(self, session_id: _Optional[int] = ...) -> None: ...
 
 class GetScreenRecordingURLResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("url",)
     URL_FIELD_NUMBER: _ClassVar[int]
     url: str
     def __init__(self, url: _Optional[str] = ...) -> None: ...
 
 class DeleteScreenRecordingRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("session_id",)
     SESSION_ID_FIELD_NUMBER: _ClassVar[int]
     session_id: int
     def __init__(self, session_id: _Optional[int] = ...) -> None: ...

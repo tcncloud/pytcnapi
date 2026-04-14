@@ -571,7 +571,7 @@ class SkillType(_message.Message):
     def __init__(self) -> None: ...
 
 class DatetimeRange(_message.Message):
-    __slots__ = ()
+    __slots__ = ("start_datetime", "end_datetime")
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     END_DATETIME_FIELD_NUMBER: _ClassVar[int]
     start_datetime: _timestamp_pb2.Timestamp
@@ -579,7 +579,7 @@ class DatetimeRange(_message.Message):
     def __init__(self, start_datetime: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_datetime: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ForecastingParameters(_message.Message):
-    __slots__ = ()
+    __slots__ = ("interval_width_in_minutes", "historical_data_range_in_months", "historical_data_range_start_datetime", "forecast_test_range_in_weeks", "forecast_range_in_weeks", "forecast_datetime_range", "training_data_range_in_months", "training_data_datetime_range", "averages_calculation_range_in_months")
     INTERVAL_WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
     HISTORICAL_DATA_RANGE_IN_MONTHS_FIELD_NUMBER: _ClassVar[int]
     HISTORICAL_DATA_RANGE_START_DATETIME_FIELD_NUMBER: _ClassVar[int]
@@ -601,7 +601,7 @@ class ForecastingParameters(_message.Message):
     def __init__(self, interval_width_in_minutes: _Optional[int] = ..., historical_data_range_in_months: _Optional[int] = ..., historical_data_range_start_datetime: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., forecast_test_range_in_weeks: _Optional[int] = ..., forecast_range_in_weeks: _Optional[int] = ..., forecast_datetime_range: _Optional[_Union[DatetimeRange, _Mapping]] = ..., training_data_range_in_months: _Optional[int] = ..., training_data_datetime_range: _Optional[_Union[DatetimeRange, _Mapping]] = ..., averages_calculation_range_in_months: _Optional[int] = ...) -> None: ...
 
 class ProfileTOD(_message.Message):
-    __slots__ = ()
+    __slots__ = ("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
     SUNDAY_FIELD_NUMBER: _ClassVar[int]
     MONDAY_FIELD_NUMBER: _ClassVar[int]
     TUESDAY_FIELD_NUMBER: _ClassVar[int]
@@ -619,7 +619,7 @@ class ProfileTOD(_message.Message):
     def __init__(self, sunday: _Optional[_Iterable[float]] = ..., monday: _Optional[_Iterable[float]] = ..., tuesday: _Optional[_Iterable[float]] = ..., wednesday: _Optional[_Iterable[float]] = ..., thursday: _Optional[_Iterable[float]] = ..., friday: _Optional[_Iterable[float]] = ..., saturday: _Optional[_Iterable[float]] = ...) -> None: ...
 
 class ProfileWOMS(_message.Message):
-    __slots__ = ()
+    __slots__ = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
     JANUARY_FIELD_NUMBER: _ClassVar[int]
     FEBRUARY_FIELD_NUMBER: _ClassVar[int]
     MARCH_FIELD_NUMBER: _ClassVar[int]
@@ -647,7 +647,7 @@ class ProfileWOMS(_message.Message):
     def __init__(self, january: _Optional[_Iterable[float]] = ..., february: _Optional[_Iterable[float]] = ..., march: _Optional[_Iterable[float]] = ..., april: _Optional[_Iterable[float]] = ..., may: _Optional[_Iterable[float]] = ..., june: _Optional[_Iterable[float]] = ..., july: _Optional[_Iterable[float]] = ..., august: _Optional[_Iterable[float]] = ..., september: _Optional[_Iterable[float]] = ..., october: _Optional[_Iterable[float]] = ..., november: _Optional[_Iterable[float]] = ..., december: _Optional[_Iterable[float]] = ...) -> None: ...
 
 class ProfileDOW(_message.Message):
-    __slots__ = ()
+    __slots__ = ("sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday")
     SUNDAY_FIELD_NUMBER: _ClassVar[int]
     MONDAY_FIELD_NUMBER: _ClassVar[int]
     TUESDAY_FIELD_NUMBER: _ClassVar[int]
@@ -665,7 +665,7 @@ class ProfileDOW(_message.Message):
     def __init__(self, sunday: _Optional[float] = ..., monday: _Optional[float] = ..., tuesday: _Optional[float] = ..., wednesday: _Optional[float] = ..., thursday: _Optional[float] = ..., friday: _Optional[float] = ..., saturday: _Optional[float] = ...) -> None: ...
 
 class ProfileMOY(_message.Message):
-    __slots__ = ()
+    __slots__ = ("january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december")
     JANUARY_FIELD_NUMBER: _ClassVar[int]
     FEBRUARY_FIELD_NUMBER: _ClassVar[int]
     MARCH_FIELD_NUMBER: _ClassVar[int]
@@ -693,7 +693,7 @@ class ProfileMOY(_message.Message):
     def __init__(self, january: _Optional[float] = ..., february: _Optional[float] = ..., march: _Optional[float] = ..., april: _Optional[float] = ..., may: _Optional[float] = ..., june: _Optional[float] = ..., july: _Optional[float] = ..., august: _Optional[float] = ..., september: _Optional[float] = ..., october: _Optional[float] = ..., november: _Optional[float] = ..., december: _Optional[float] = ...) -> None: ...
 
 class DistributionProfile(_message.Message):
-    __slots__ = ()
+    __slots__ = ("profile_tod", "profile_woms", "profile_dow", "profile_moy")
     PROFILE_TOD_FIELD_NUMBER: _ClassVar[int]
     PROFILE_WOMS_FIELD_NUMBER: _ClassVar[int]
     PROFILE_DOW_FIELD_NUMBER: _ClassVar[int]
@@ -705,7 +705,7 @@ class DistributionProfile(_message.Message):
     def __init__(self, profile_tod: _Optional[_Union[ProfileTOD, _Mapping]] = ..., profile_woms: _Optional[_Union[ProfileWOMS, _Mapping]] = ..., profile_dow: _Optional[_Union[ProfileDOW, _Mapping]] = ..., profile_moy: _Optional[_Union[ProfileMOY, _Mapping]] = ...) -> None: ...
 
 class CallProfileGroupCalls(_message.Message):
-    __slots__ = ()
+    __slots__ = ("total_calls", "distribution_profile")
     TOTAL_CALLS_FIELD_NUMBER: _ClassVar[int]
     DISTRIBUTION_PROFILE_FIELD_NUMBER: _ClassVar[int]
     total_calls: int
@@ -713,7 +713,7 @@ class CallProfileGroupCalls(_message.Message):
     def __init__(self, total_calls: _Optional[int] = ..., distribution_profile: _Optional[_Union[DistributionProfile, _Mapping]] = ...) -> None: ...
 
 class CallProfileGroupAvgs(_message.Message):
-    __slots__ = ()
+    __slots__ = ("min_average", "max_average", "distribution_profile")
     MIN_AVERAGE_FIELD_NUMBER: _ClassVar[int]
     MAX_AVERAGE_FIELD_NUMBER: _ClassVar[int]
     DISTRIBUTION_PROFILE_FIELD_NUMBER: _ClassVar[int]
@@ -723,7 +723,7 @@ class CallProfileGroupAvgs(_message.Message):
     def __init__(self, min_average: _Optional[float] = ..., max_average: _Optional[float] = ..., distribution_profile: _Optional[_Union[DistributionProfile, _Mapping]] = ...) -> None: ...
 
 class OptionTypes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("open_times_option", "availability_option")
     OPEN_TIMES_OPTION_FIELD_NUMBER: _ClassVar[int]
     AVAILABILITY_OPTION_FIELD_NUMBER: _ClassVar[int]
     open_times_option: OpenTimesOption
@@ -731,7 +731,7 @@ class OptionTypes(_message.Message):
     def __init__(self, open_times_option: _Optional[_Union[OpenTimesOption, str]] = ..., availability_option: _Optional[_Union[AvailabilityOption, str]] = ...) -> None: ...
 
 class ReasonCode(_message.Message):
-    __slots__ = ()
+    __slots__ = ("reason_code_id", "name", "scheduling_activity_sid", "is_planned", "is_paid", "is_default", "datetime_set_to_inactive")
     REASON_CODE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SCHEDULING_ACTIVITY_SID_FIELD_NUMBER: _ClassVar[int]
@@ -749,7 +749,7 @@ class ReasonCode(_message.Message):
     def __init__(self, reason_code_id: _Optional[int] = ..., name: _Optional[str] = ..., scheduling_activity_sid: _Optional[int] = ..., is_planned: _Optional[bool] = ..., is_paid: _Optional[bool] = ..., is_default: _Optional[bool] = ..., datetime_set_to_inactive: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ScheduleSelector(_message.Message):
-    __slots__ = ()
+    __slots__ = ("schedule_sid", "schedule_type")
     SCHEDULE_SID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULE_TYPE_FIELD_NUMBER: _ClassVar[int]
     schedule_sid: int
@@ -757,7 +757,7 @@ class ScheduleSelector(_message.Message):
     def __init__(self, schedule_sid: _Optional[int] = ..., schedule_type: _Optional[_Union[ScheduleType, str]] = ...) -> None: ...
 
 class SkillProfileCategory(_message.Message):
-    __slots__ = ()
+    __slots__ = ("skill_profile_category_sid", "skill_profile_category_type")
     class CategoryType(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
         __slots__ = ()
         SINGLE_SKILL_PROFILE: _ClassVar[SkillProfileCategory.CategoryType]
@@ -771,7 +771,7 @@ class SkillProfileCategory(_message.Message):
     def __init__(self, skill_profile_category_sid: _Optional[int] = ..., skill_profile_category_type: _Optional[_Union[SkillProfileCategory.CategoryType, str]] = ...) -> None: ...
 
 class SchedulingResultMetricForSkillCollection(_message.Message):
-    __slots__ = ()
+    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result", "skill_collection")
     TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
@@ -789,7 +789,7 @@ class SchedulingResultMetricForSkillCollection(_message.Message):
     def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: _Optional[bool] = ..., skill_collection: _Optional[_Union[SkillProfileCategory, _Mapping]] = ...) -> None: ...
 
 class SchedulingResultMetric(_message.Message):
-    __slots__ = ()
+    __slots__ = ("total_internal_intervals", "total_intervals_with_fte_required", "total_intervals_with_ftes_remaining", "coverage", "root_mean_square", "has_result", "metrics_by_skill_collection")
     TOTAL_INTERNAL_INTERVALS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTE_REQUIRED_FIELD_NUMBER: _ClassVar[int]
     TOTAL_INTERVALS_WITH_FTES_REMAINING_FIELD_NUMBER: _ClassVar[int]
@@ -807,7 +807,7 @@ class SchedulingResultMetric(_message.Message):
     def __init__(self, total_internal_intervals: _Optional[int] = ..., total_intervals_with_fte_required: _Optional[int] = ..., total_intervals_with_ftes_remaining: _Optional[int] = ..., coverage: _Optional[float] = ..., root_mean_square: _Optional[float] = ..., has_result: _Optional[bool] = ..., metrics_by_skill_collection: _Optional[_Iterable[_Union[SchedulingResultMetricForSkillCollection, _Mapping]]] = ...) -> None: ...
 
 class ClientHistoryCacheInfo(_message.Message):
-    __slots__ = ()
+    __slots__ = ("state", "progress_percentage")
     STATE_FIELD_NUMBER: _ClassVar[int]
     PROGRESS_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
     state: HistoryCacheState
@@ -815,13 +815,13 @@ class ClientHistoryCacheInfo(_message.Message):
     def __init__(self, state: _Optional[_Union[HistoryCacheState, str]] = ..., progress_percentage: _Optional[int] = ...) -> None: ...
 
 class ErrorTrace(_message.Message):
-    __slots__ = ()
+    __slots__ = ("grpc_trace_bin",)
     GRPC_TRACE_BIN_FIELD_NUMBER: _ClassVar[int]
     grpc_trace_bin: str
     def __init__(self, grpc_trace_bin: _Optional[str] = ...) -> None: ...
 
 class InitialSetupStatus(_message.Message):
-    __slots__ = ()
+    __slots__ = ("state", "progress_percentage", "message")
     STATE_FIELD_NUMBER: _ClassVar[int]
     PROGRESS_PERCENTAGE_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
@@ -831,7 +831,7 @@ class InitialSetupStatus(_message.Message):
     def __init__(self, state: _Optional[_Union[InitialSetupState, str]] = ..., progress_percentage: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
 
 class AgentStateSegment(_message.Message):
-    __slots__ = ()
+    __slots__ = ("order_in_rts", "states", "width_in_minutes", "width_in_seconds")
     ORDER_IN_RTS_FIELD_NUMBER: _ClassVar[int]
     STATES_FIELD_NUMBER: _ClassVar[int]
     WIDTH_IN_MINUTES_FIELD_NUMBER: _ClassVar[int]
@@ -843,7 +843,7 @@ class AgentStateSegment(_message.Message):
     def __init__(self, order_in_rts: _Optional[int] = ..., states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., width_in_minutes: _Optional[int] = ..., width_in_seconds: _Optional[int] = ...) -> None: ...
 
 class AgentStateSequence(_message.Message):
-    __slots__ = ()
+    __slots__ = ("wfm_agent_sid", "start_datetime", "state_segments")
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     STATE_SEGMENTS_FIELD_NUMBER: _ClassVar[int]
@@ -853,7 +853,7 @@ class AgentStateSequence(_message.Message):
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., state_segments: _Optional[_Iterable[_Union[AgentStateSegment, _Mapping]]] = ...) -> None: ...
 
 class AdherenceAgentState(_message.Message):
-    __slots__ = ()
+    __slots__ = ("wfm_agent_sid", "start_datetime", "adm_states", "pause_code")
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     ADM_STATES_FIELD_NUMBER: _ClassVar[int]
@@ -865,7 +865,7 @@ class AdherenceAgentState(_message.Message):
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., adm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., pause_code: _Optional[str] = ...) -> None: ...
 
 class AdherenceAgentStateViolation(_message.Message):
-    __slots__ = ()
+    __slots__ = ("wfm_agent_sid", "start_datetime", "expected_rtm_states", "expected_pause_code", "actual_rtm_states", "actual_pause_code", "violation_duration_seconds", "expected_pause_codes", "adherence_agent_state_violation_id", "expected_scheduling_activity_sid", "expected_reason_code_id", "actual_scheduling_activity_sid", "actual_reason_code_id", "resolved_activity_sid", "resolved_reason_code_id", "resolution_comment", "resolved_by_user_id")
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     START_DATETIME_FIELD_NUMBER: _ClassVar[int]
     EXPECTED_RTM_STATES_FIELD_NUMBER: _ClassVar[int]
@@ -903,19 +903,19 @@ class AdherenceAgentStateViolation(_message.Message):
     def __init__(self, wfm_agent_sid: _Optional[int] = ..., start_datetime: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., expected_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., expected_pause_code: _Optional[str] = ..., actual_rtm_states: _Optional[_Iterable[_Union[RealTimeManagementState, str]]] = ..., actual_pause_code: _Optional[str] = ..., violation_duration_seconds: _Optional[int] = ..., expected_pause_codes: _Optional[_Iterable[str]] = ..., adherence_agent_state_violation_id: _Optional[int] = ..., expected_scheduling_activity_sid: _Optional[int] = ..., expected_reason_code_id: _Optional[int] = ..., actual_scheduling_activity_sid: _Optional[int] = ..., actual_reason_code_id: _Optional[int] = ..., resolved_activity_sid: _Optional[int] = ..., resolved_reason_code_id: _Optional[int] = ..., resolution_comment: _Optional[str] = ..., resolved_by_user_id: _Optional[str] = ...) -> None: ...
 
 class AdherenceAgentStates(_message.Message):
-    __slots__ = ()
+    __slots__ = ("agent_states",)
     AGENT_STATES_FIELD_NUMBER: _ClassVar[int]
     agent_states: _containers.RepeatedCompositeFieldContainer[AdherenceAgentState]
     def __init__(self, agent_states: _Optional[_Iterable[_Union[AdherenceAgentState, _Mapping]]] = ...) -> None: ...
 
 class AdherenceAgentStateViolations(_message.Message):
-    __slots__ = ()
+    __slots__ = ("violations",)
     VIOLATIONS_FIELD_NUMBER: _ClassVar[int]
     violations: _containers.RepeatedCompositeFieldContainer[AdherenceAgentStateViolation]
     def __init__(self, violations: _Optional[_Iterable[_Union[AdherenceAgentStateViolation, _Mapping]]] = ...) -> None: ...
 
 class AgentLeavePetition(_message.Message):
-    __slots__ = ()
+    __slots__ = ("agent_leave_petition_id", "wfm_agent_sid", "petition_status", "petition_comment", "response_comment", "requested_datetime_ranges", "created_time", "archived_time", "resolved_time", "resolved_by_user_id", "requested_hours_off")
     AGENT_LEAVE_PETITION_ID_FIELD_NUMBER: _ClassVar[int]
     WFM_AGENT_SID_FIELD_NUMBER: _ClassVar[int]
     PETITION_STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -941,7 +941,7 @@ class AgentLeavePetition(_message.Message):
     def __init__(self, agent_leave_petition_id: _Optional[int] = ..., wfm_agent_sid: _Optional[int] = ..., petition_status: _Optional[_Union[AgentLeavePetitionStatus, str]] = ..., petition_comment: _Optional[str] = ..., response_comment: _Optional[str] = ..., requested_datetime_ranges: _Optional[_Iterable[_Union[DatetimeRange, _Mapping]]] = ..., created_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., archived_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., resolved_by_user_id: _Optional[str] = ..., requested_hours_off: _Optional[float] = ...) -> None: ...
 
 class ConfigEntity(_message.Message):
-    __slots__ = ()
+    __slots__ = ("entity_sid", "entity_type")
     ENTITY_SID_FIELD_NUMBER: _ClassVar[int]
     ENTITY_TYPE_FIELD_NUMBER: _ClassVar[int]
     entity_sid: int
@@ -949,7 +949,7 @@ class ConfigEntity(_message.Message):
     def __init__(self, entity_sid: _Optional[int] = ..., entity_type: _Optional[_Union[ConfigEntityType, str]] = ...) -> None: ...
 
 class AdherenceRuleNotificationConfig(_message.Message):
-    __slots__ = ()
+    __slots__ = ("adherence_rule_notification_config_id", "name", "entries")
     ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     ENTRIES_FIELD_NUMBER: _ClassVar[int]
@@ -959,7 +959,7 @@ class AdherenceRuleNotificationConfig(_message.Message):
     def __init__(self, adherence_rule_notification_config_id: _Optional[int] = ..., name: _Optional[str] = ..., entries: _Optional[_Iterable[_Union[AdherenceRuleNotificationConfigEntry, _Mapping]]] = ...) -> None: ...
 
 class AdherenceRuleNotificationConfigEntry(_message.Message):
-    __slots__ = ()
+    __slots__ = ("adherence_rule_notification_config_entry_id", "adherence_rule_notification_config_id", "recipient_user_id", "notification_medium", "seconds_to_wait_for_no_response")
     ADHERENCE_RULE_NOTIFICATION_CONFIG_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
     ADHERENCE_RULE_NOTIFICATION_CONFIG_ID_FIELD_NUMBER: _ClassVar[int]
     RECIPIENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -973,13 +973,13 @@ class AdherenceRuleNotificationConfigEntry(_message.Message):
     def __init__(self, adherence_rule_notification_config_entry_id: _Optional[int] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., recipient_user_id: _Optional[str] = ..., notification_medium: _Optional[_Union[AdherenceRuleNotificationMedium, str]] = ..., seconds_to_wait_for_no_response: _Optional[int] = ...) -> None: ...
 
 class AdherenceDepartmentalRuleAction(_message.Message):
-    __slots__ = ()
+    __slots__ = ("action_type",)
     ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
     action_type: AdherenceDepartmentalRuleActionType
     def __init__(self, action_type: _Optional[_Union[AdherenceDepartmentalRuleActionType, str]] = ...) -> None: ...
 
 class AdherenceDepartmentalRule(_message.Message):
-    __slots__ = ()
+    __slots__ = ("adherence_departmental_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id", "rule_range", "custom_range", "rule_clauses")
     ADHERENCE_DEPARTMENTAL_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SELECTED_ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -999,7 +999,7 @@ class AdherenceDepartmentalRule(_message.Message):
     def __init__(self, adherence_departmental_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., rule_range: _Optional[_Union[AdherenceRuleRange, str]] = ..., custom_range: _Optional[_Union[DatetimeRange, _Mapping]] = ..., rule_clauses: _Optional[_Iterable[_Union[AdherenceDepartmentalRuleClause, _Mapping]]] = ...) -> None: ...
 
 class AdherenceDepartmentalRuleClause(_message.Message):
-    __slots__ = ()
+    __slots__ = ("adherence_departmental_rule_clause_id", "adherence_departmental_rule_id", "action", "condition", "amount", "unit", "per_amount", "per_unit")
     ADHERENCE_DEPARTMENTAL_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
     ADHERENCE_DEPARTMENTAL_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     ACTION_FIELD_NUMBER: _ClassVar[int]
@@ -1019,7 +1019,7 @@ class AdherenceDepartmentalRuleClause(_message.Message):
     def __init__(self, adherence_departmental_rule_clause_id: _Optional[int] = ..., adherence_departmental_rule_id: _Optional[int] = ..., action: _Optional[_Union[AdherenceDepartmentalRuleAction, _Mapping]] = ..., condition: _Optional[_Union[AdherenceRuleCondition, str]] = ..., amount: _Optional[int] = ..., unit: _Optional[_Union[AdherenceRuleUnit, str]] = ..., per_amount: _Optional[_Union[_wrappers_pb2.Int32Value, _Mapping]] = ..., per_unit: _Optional[_Union[AdherenceRuleUnit, str]] = ...) -> None: ...
 
 class AdherenceAgentRule(_message.Message):
-    __slots__ = ()
+    __slots__ = ("adherence_agent_rule_id", "name", "selected_entity", "rule_requirement_type", "adherence_rule_notification_config_id", "rule_clauses")
     ADHERENCE_AGENT_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SELECTED_ENTITY_FIELD_NUMBER: _ClassVar[int]
@@ -1035,13 +1035,13 @@ class AdherenceAgentRule(_message.Message):
     def __init__(self, adherence_agent_rule_id: _Optional[int] = ..., name: _Optional[str] = ..., selected_entity: _Optional[_Union[ConfigEntity, _Mapping]] = ..., rule_requirement_type: _Optional[_Union[AdherenceRuleRequirementType, str]] = ..., adherence_rule_notification_config_id: _Optional[int] = ..., rule_clauses: _Optional[_Iterable[_Union[AdherenceAgentRuleClause, _Mapping]]] = ...) -> None: ...
 
 class AdherenceAgentRuleAction(_message.Message):
-    __slots__ = ()
+    __slots__ = ("action_type",)
     ACTION_TYPE_FIELD_NUMBER: _ClassVar[int]
     action_type: AdherenceAgentRuleActionType
     def __init__(self, action_type: _Optional[_Union[AdherenceAgentRuleActionType, str]] = ...) -> None: ...
 
 class AdherenceAgentRuleClause(_message.Message):
-    __slots__ = ()
+    __slots__ = ("adherence_agent_rule_clause_id", "adherence_agent_rule_id", "action", "condition", "amount", "unit")
     ADHERENCE_AGENT_RULE_CLAUSE_ID_FIELD_NUMBER: _ClassVar[int]
     ADHERENCE_AGENT_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     ACTION_FIELD_NUMBER: _ClassVar[int]

@@ -14,7 +14,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ScorecardsCreateQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("author_id", "question_text", "description", "question")
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_TEXT_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -26,7 +26,7 @@ class ScorecardsCreateQuestionEvent(_message.Message):
     def __init__(self, author_id: _Optional[str] = ..., question_text: _Optional[str] = ..., description: _Optional[str] = ..., question: _Optional[_Union[_scorecards_pb2.Question, _Mapping]] = ...) -> None: ...
 
 class ScorecardsUpdateQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "question_text", "description", "update_mask", "question")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_TEXT_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -40,7 +40,7 @@ class ScorecardsUpdateQuestionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., question_text: _Optional[str] = ..., description: _Optional[str] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., question: _Optional[_Union[_scorecards_pb2.Question, _Mapping]] = ...) -> None: ...
 
 class ScorecardsDeleteQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "question_text", "description", "category_ids", "question")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_TEXT_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -54,7 +54,7 @@ class ScorecardsDeleteQuestionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., question_text: _Optional[str] = ..., description: _Optional[str] = ..., category_ids: _Optional[_Iterable[int]] = ..., question: _Optional[_Union[_scorecards_pb2.Question, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateScorecardEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "scorecard")
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -72,7 +72,7 @@ class ScorecardsCreateScorecardEvent(_message.Message):
     def __init__(self, author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[_scorecards_pb2.ScoreType, str]] = ..., evaluation_type: _Optional[_Union[_scorecards_pb2.EvaluationType, str]] = ..., scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class ScorecardsUpdateScorecardEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "title", "description", "pass_score", "score_type", "evaluation_type", "allow_feedback", "state", "update_mask", "scorecard")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -96,7 +96,7 @@ class ScorecardsUpdateScorecardEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[_scorecards_pb2.ScoreType, str]] = ..., evaluation_type: _Optional[_Union[_scorecards_pb2.EvaluationType, str]] = ..., allow_feedback: _Optional[bool] = ..., state: _Optional[_Union[_scorecards_pb2.ScorecardState, str]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class ScorecardsDeleteScorecardEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "title", "description", "pass_score", "score_type", "evaluation_type", "state", "scorecard")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -116,7 +116,7 @@ class ScorecardsDeleteScorecardEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[_scorecards_pb2.ScoreType, str]] = ..., evaluation_type: _Optional[_Union[_scorecards_pb2.EvaluationType, str]] = ..., state: _Optional[_Union[_scorecards_pb2.ScorecardState, str]] = ..., scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCloneScorecardEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("author_id", "title", "description", "pass_score", "score_type", "evaluation_type", "scorecard")
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -134,7 +134,7 @@ class ScorecardsCloneScorecardEvent(_message.Message):
     def __init__(self, author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., pass_score: _Optional[float] = ..., score_type: _Optional[_Union[_scorecards_pb2.ScoreType, str]] = ..., evaluation_type: _Optional[_Union[_scorecards_pb2.EvaluationType, str]] = ..., scorecard: _Optional[_Union[_scorecards_pb2.Scorecard, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateEvaluationEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "agent_user_id", "call_sid", "evaluation")
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     SCORER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -150,7 +150,7 @@ class ScorecardsCreateEvaluationEvent(_message.Message):
     def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., scorer_id: _Optional[str] = ..., agent_user_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class ScorecardsUpdateEvaluationEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("evaluation_id", "scorecard_id", "scorer_id", "agent_user_id", "call_sid", "evaluation")
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     SCORER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -166,7 +166,7 @@ class ScorecardsUpdateEvaluationEvent(_message.Message):
     def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., scorer_id: _Optional[str] = ..., agent_user_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class ScorecardsDeleteEvaluationEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("evaluation_id", "scorecard_id", "user_id", "agent_user_id", "call_sid", "evaluation")
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -182,7 +182,7 @@ class ScorecardsDeleteEvaluationEvent(_message.Message):
     def __init__(self, evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., user_id: _Optional[str] = ..., agent_user_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., evaluation: _Optional[_Union[_scorecards_pb2.Evaluation, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateSectionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "title", "description", "weight", "section")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -196,7 +196,7 @@ class ScorecardsCreateSectionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., section: _Optional[_Union[_scorecards_pb2.Section, _Mapping]] = ...) -> None: ...
 
 class ScorecardsUpdateSectionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "title", "description", "weight", "sort_order", "update_mask", "section")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -214,7 +214,7 @@ class ScorecardsUpdateSectionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., sort_order: _Optional[int] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., section: _Optional[_Union[_scorecards_pb2.Section, _Mapping]] = ...) -> None: ...
 
 class ScorecardsDeleteSectionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "title", "description", "weight", "section")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -228,7 +228,7 @@ class ScorecardsDeleteSectionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., weight: _Optional[int] = ..., section: _Optional[_Union[_scorecards_pb2.Section, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateCategoryEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("author_id", "title", "description", "created_at", "category")
     AUTHOR_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -242,7 +242,7 @@ class ScorecardsCreateCategoryEvent(_message.Message):
     def __init__(self, author_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., created_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class ScorecardsUpdateCategoryEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "title", "description", "update_mask", "category")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -256,7 +256,7 @@ class ScorecardsUpdateCategoryEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class ScorecardsDeleteCategoryEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "title", "description", "deleted_at", "category")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -270,7 +270,7 @@ class ScorecardsDeleteCategoryEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., deleted_at: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., category: _Optional[_Union[_scorecards_pb2.Category, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateEvaluationQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("evaluation_question_id", "evaluation_id", "scorecard_question_id", "user_id", "evaluation_question")
     EVALUATION_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -284,7 +284,7 @@ class ScorecardsCreateEvaluationQuestionEvent(_message.Message):
     def __init__(self, evaluation_question_id: _Optional[int] = ..., evaluation_id: _Optional[int] = ..., scorecard_question_id: _Optional[int] = ..., user_id: _Optional[str] = ..., evaluation_question: _Optional[_Union[_scorecards_pb2.EvaluationQuestion, _Mapping]] = ...) -> None: ...
 
 class ScorecardsUpdateEvaluationQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("evaluation_question_id", "evaluation_id", "scorecard_question_id", "user_id", "skipped", "points", "update_mask", "evaluation_question")
     EVALUATION_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -304,7 +304,7 @@ class ScorecardsUpdateEvaluationQuestionEvent(_message.Message):
     def __init__(self, evaluation_question_id: _Optional[int] = ..., evaluation_id: _Optional[int] = ..., scorecard_question_id: _Optional[int] = ..., user_id: _Optional[str] = ..., skipped: _Optional[bool] = ..., points: _Optional[int] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., evaluation_question: _Optional[_Union[_scorecards_pb2.EvaluationQuestion, _Mapping]] = ...) -> None: ...
 
 class ScorecardsDeleteEvaluationQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("evaluation_question_id", "evaluation_id", "scorecard_question_id", "user_id", "evaluation_questions")
     EVALUATION_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
     EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_QUESTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -318,7 +318,7 @@ class ScorecardsDeleteEvaluationQuestionEvent(_message.Message):
     def __init__(self, evaluation_question_id: _Optional[int] = ..., evaluation_id: _Optional[int] = ..., scorecard_question_id: _Optional[int] = ..., user_id: _Optional[str] = ..., evaluation_questions: _Optional[_Union[_scorecards_pb2.EvaluationQuestion, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateScorecardQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "question", "description", "allow_skip", "max_points", "allow_multi_select", "scorecard_question")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -336,7 +336,7 @@ class ScorecardsCreateScorecardQuestionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., allow_skip: _Optional[bool] = ..., max_points: _Optional[int] = ..., allow_multi_select: _Optional[bool] = ..., scorecard_question: _Optional[_Union[_scorecards_pb2.ScorecardQuestion, _Mapping]] = ...) -> None: ...
 
 class ScorecardsUpdateScorecardQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "question", "description", "allow_skip", "max_points", "allow_multi_select", "sort_order", "update_mask", "scorecard_question")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -358,7 +358,7 @@ class ScorecardsUpdateScorecardQuestionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., allow_skip: _Optional[bool] = ..., max_points: _Optional[int] = ..., allow_multi_select: _Optional[bool] = ..., sort_order: _Optional[int] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., scorecard_question: _Optional[_Union[_scorecards_pb2.ScorecardQuestion, _Mapping]] = ...) -> None: ...
 
 class ScorecardsDeleteScorecardQuestionEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "question", "description", "allow_skip", "max_points", "allow_multi_select", "scorecard_question")
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     QUESTION_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -376,7 +376,7 @@ class ScorecardsDeleteScorecardQuestionEvent(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., question: _Optional[str] = ..., description: _Optional[str] = ..., allow_skip: _Optional[bool] = ..., max_points: _Optional[int] = ..., allow_multi_select: _Optional[bool] = ..., scorecard_question: _Optional[_Union[_scorecards_pb2.ScorecardQuestion, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateAutoEvaluationEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("auto_evaluation_id", "scorecard_id", "agent_user_id", "call_sid", "call_type", "transcript_sid", "risk_level", "auto_evaluation")
     AUTO_EVALUATION_ID_FIELD_NUMBER: _ClassVar[int]
     SCORECARD_ID_FIELD_NUMBER: _ClassVar[int]
     AGENT_USER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -396,16 +396,16 @@ class ScorecardsCreateAutoEvaluationEvent(_message.Message):
     def __init__(self, auto_evaluation_id: _Optional[int] = ..., scorecard_id: _Optional[int] = ..., agent_user_id: _Optional[str] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., transcript_sid: _Optional[int] = ..., risk_level: _Optional[_Union[_scorecards_pb2.RiskLevel, str]] = ..., auto_evaluation: _Optional[_Union[_scorecards_pb2.AutoEvaluation, _Mapping]] = ...) -> None: ...
 
 class ScorecardsCreateSmartEvaluationEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("smart_evaluation_id", "transcript_sid", "call", "sms")
     class Call(_message.Message):
-        __slots__ = ()
+        __slots__ = ("call_sid", "call_type")
         CALL_SID_FIELD_NUMBER: _ClassVar[int]
         CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
         call_sid: int
         call_type: _acd_pb2.CallType.Enum
         def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
     class Sms(_message.Message):
-        __slots__ = ()
+        __slots__ = ("conversation_sid",)
         CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
         conversation_sid: int
         def __init__(self, conversation_sid: _Optional[int] = ...) -> None: ...

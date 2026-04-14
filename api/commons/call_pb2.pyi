@@ -23,7 +23,7 @@ CALL_RUNNING: CallStatus
 CALL_COMPLETED: CallStatus
 
 class SimpleCallData(_message.Message):
-    __slots__ = ()
+    __slots__ = ("task_sid", "call_sid", "task_group_sid", "client_sid", "country_sid", "agent_sid", "start_time", "caller_id", "phone_number", "country_code", "delivery_duration", "link_call_duration", "result", "sip_code", "do_record", "recording_file_name", "is_dial_validation_ok", "is_time_zone_scrub_ok", "is_cell_phone_scrub_ok", "is_custom_calling_rules_scrub_ok", "is_dncl_scrub_ok", "use_global_time_zone_scrub", "do_cell_phone_scrub", "do_dncl_scrub", "call_data_type", "caller_id_country_code", "caller_id_country_sid", "zip_code", "is_preview_by_record", "rule_set_name", "is_natural_compliance_ok", "simple_meta_data", "simple_result_meta_data")
     TASK_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     TASK_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
@@ -93,7 +93,7 @@ class SimpleCallData(_message.Message):
     def __init__(self, task_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., task_group_sid: _Optional[int] = ..., client_sid: _Optional[int] = ..., country_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., start_time: _Optional[int] = ..., caller_id: _Optional[str] = ..., phone_number: _Optional[str] = ..., country_code: _Optional[str] = ..., delivery_duration: _Optional[int] = ..., link_call_duration: _Optional[int] = ..., result: _Optional[_Union[_results_pb2.CallResult, str]] = ..., sip_code: _Optional[int] = ..., do_record: _Optional[bool] = ..., recording_file_name: _Optional[str] = ..., is_dial_validation_ok: _Optional[bool] = ..., is_time_zone_scrub_ok: _Optional[bool] = ..., is_cell_phone_scrub_ok: _Optional[bool] = ..., is_custom_calling_rules_scrub_ok: _Optional[bool] = ..., is_dncl_scrub_ok: _Optional[bool] = ..., use_global_time_zone_scrub: _Optional[bool] = ..., do_cell_phone_scrub: _Optional[bool] = ..., do_dncl_scrub: _Optional[bool] = ..., call_data_type: _Optional[str] = ..., caller_id_country_code: _Optional[str] = ..., caller_id_country_sid: _Optional[int] = ..., zip_code: _Optional[str] = ..., is_preview_by_record: _Optional[bool] = ..., rule_set_name: _Optional[str] = ..., is_natural_compliance_ok: _Optional[bool] = ..., simple_meta_data: _Optional[_Iterable[_Union[SimpleKeyValue, _Mapping]]] = ..., simple_result_meta_data: _Optional[_Iterable[_Union[SimpleKeyValue, _Mapping]]] = ...) -> None: ...
 
 class SimpleKeyValue(_message.Message):
-    __slots__ = ()
+    __slots__ = ("key", "value")
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     key: str
@@ -101,7 +101,7 @@ class SimpleKeyValue(_message.Message):
     def __init__(self, key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class SimpleRecordData(_message.Message):
-    __slots__ = ()
+    __slots__ = ("task_sid", "task_group_sid", "agent_sid", "start_time", "stop_time")
     TASK_SID_FIELD_NUMBER: _ClassVar[int]
     TASK_GROUP_SID_FIELD_NUMBER: _ClassVar[int]
     AGENT_SID_FIELD_NUMBER: _ClassVar[int]

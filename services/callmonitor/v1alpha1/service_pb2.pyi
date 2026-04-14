@@ -13,9 +13,9 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetHoldQueueStatsRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id", "start_time", "end_time", "filter")
     class Filter(_message.Message):
-        __slots__ = ()
+        __slots__ = ("status", "campaign_id")
         STATUS_FIELD_NUMBER: _ClassVar[int]
         CAMPAIGN_ID_FIELD_NUMBER: _ClassVar[int]
         status: _callmonitor_pb2.HoldQueueMonitorStatus
@@ -32,7 +32,7 @@ class GetHoldQueueStatsRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., filter: _Optional[_Union[GetHoldQueueStatsRequest.Filter, _Mapping]] = ...) -> None: ...
 
 class GetHoldQueueStatsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("stats", "total_num_calls", "total_num_successful", "total_num_failed", "avg_monitor_duration_ms", "total_num_monitoring")
     STATS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_NUM_CALLS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_NUM_SUCCESSFUL_FIELD_NUMBER: _ClassVar[int]

@@ -13,7 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GhostNotification(_message.Message):
-    __slots__ = ()
+    __slots__ = ("reference_id", "any", "status", "omni_conversation", "backoffice_message", "directed_call_ringing", "directed_call_hangup", "agent_queued_calls_notification", "auth_token_expiration_notification", "omni_message_received", "omni_conversation_assigned")
     REFERENCE_ID_FIELD_NUMBER: _ClassVar[int]
     ANY_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -39,7 +39,7 @@ class GhostNotification(_message.Message):
     def __init__(self, reference_id: _Optional[str] = ..., any: _Optional[_Union[_any_pb2.Any, _Mapping]] = ..., status: _Optional[_Union[Status, _Mapping]] = ..., omni_conversation: _Optional[_Union[_omnichannel_pb2.OmniConversation, _Mapping]] = ..., backoffice_message: _Optional[_Union[_acd_pb2.AgentBackofficeMessageAlert, _Mapping]] = ..., directed_call_ringing: _Optional[_Union[_acd_pb2.AgentDirectedCallRingingAlert, _Mapping]] = ..., directed_call_hangup: _Optional[_Union[_acd_pb2.AgentDirectedCallHangupAlert, _Mapping]] = ..., agent_queued_calls_notification: _Optional[_Union[AgentQueuedCallsNotification, _Mapping]] = ..., auth_token_expiration_notification: _Optional[_Union[AuthTokenExpiration, _Mapping]] = ..., omni_message_received: _Optional[_Union[OmniMessageReceieved, _Mapping]] = ..., omni_conversation_assigned: _Optional[_Union[OmniConversationAssigned, _Mapping]] = ...) -> None: ...
 
 class Status(_message.Message):
-    __slots__ = ()
+    __slots__ = ("code", "message")
     CODE_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     code: int
@@ -47,9 +47,9 @@ class Status(_message.Message):
     def __init__(self, code: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
 
 class AgentQueuedCallsNotification(_message.Message):
-    __slots__ = ()
+    __slots__ = ("agent_queue_calls", "on_hold_calls", "hqm_calls")
     class QueuedCallData(_message.Message):
-        __slots__ = ()
+        __slots__ = ("call_sid", "phone_number", "caller_id", "call_type", "start_date", "hold_date", "skills", "agent_specific", "queued_notification_type")
         CALL_SID_FIELD_NUMBER: _ClassVar[int]
         PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
         CALLER_ID_FIELD_NUMBER: _ClassVar[int]
@@ -78,7 +78,7 @@ class AgentQueuedCallsNotification(_message.Message):
     def __init__(self, agent_queue_calls: _Optional[_Iterable[_Union[AgentQueuedCallsNotification.QueuedCallData, _Mapping]]] = ..., on_hold_calls: _Optional[_Iterable[_Union[AgentQueuedCallsNotification.QueuedCallData, _Mapping]]] = ..., hqm_calls: _Optional[_Iterable[_Union[AgentQueuedCallsNotification.QueuedCallData, _Mapping]]] = ...) -> None: ...
 
 class AuthTokenExpiration(_message.Message):
-    __slots__ = ()
+    __slots__ = ("token", "expiration")
     TOKEN_FIELD_NUMBER: _ClassVar[int]
     EXPIRATION_FIELD_NUMBER: _ClassVar[int]
     token: str
@@ -86,13 +86,13 @@ class AuthTokenExpiration(_message.Message):
     def __init__(self, token: _Optional[str] = ..., expiration: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class OmniConversationAssigned(_message.Message):
-    __slots__ = ()
+    __slots__ = ("conversation_sid",)
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int
     def __init__(self, conversation_sid: _Optional[int] = ...) -> None: ...
 
 class OmniMessageReceieved(_message.Message):
-    __slots__ = ()
+    __slots__ = ("conversation_sid", "message")
     CONVERSATION_SID_FIELD_NUMBER: _ClassVar[int]
     MESSAGE_FIELD_NUMBER: _ClassVar[int]
     conversation_sid: int

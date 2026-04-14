@@ -10,7 +10,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class FilterSnapshot(_message.Message):
-    __slots__ = ()
+    __slots__ = ("filter_snapshot_sid", "filter_sid", "name", "search_request", "create_time", "version")
     FILTER_SNAPSHOT_SID_FIELD_NUMBER: _ClassVar[int]
     FILTER_SID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]

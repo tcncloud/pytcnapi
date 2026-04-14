@@ -19,13 +19,13 @@ class CreateServiceIdReq(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateServiceIdRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("service_id",)
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
     service_id: str
     def __init__(self, service_id: _Optional[str] = ...) -> None: ...
 
 class ScheduledCallback(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_id", "service_id", "status", "start_time", "end_time", "phone_number", "caller_id", "notes", "create_date", "last_update", "last_updated_by", "callback_skills")
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -53,7 +53,7 @@ class ScheduledCallback(_message.Message):
     def __init__(self, scheduled_callback_id: _Optional[str] = ..., service_id: _Optional[str] = ..., status: _Optional[_Union[_cbs_pb2.ScheduledCallbackStatus, str]] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., phone_number: _Optional[str] = ..., caller_id: _Optional[str] = ..., notes: _Optional[str] = ..., create_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_update: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated_by: _Optional[str] = ..., callback_skills: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ScheduledCallbackDetail(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_detail_id", "scheduled_callback_id", "key", "value")
     SCHEDULED_CALLBACK_DETAIL_ID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_NUMBER: _ClassVar[int]
@@ -65,7 +65,7 @@ class ScheduledCallbackDetail(_message.Message):
     def __init__(self, scheduled_callback_detail_id: _Optional[str] = ..., scheduled_callback_id: _Optional[str] = ..., key: _Optional[str] = ..., value: _Optional[str] = ...) -> None: ...
 
 class UpdateScheduledCallbackToReadyReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_id", "is_auto_return", "service_id")
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     IS_AUTO_RETURN_FIELD_NUMBER: _ClassVar[int]
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -79,7 +79,7 @@ class UpdateScheduledCallbackToReadyRes(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateScheduledCallbackToCanceledReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_id", "service_id")
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
     scheduled_callback_id: str
@@ -91,7 +91,7 @@ class UpdateScheduledCallbackToCanceledRes(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateScheduledCallbackToClosedReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_id", "manual_dial_call_sid", "service_id")
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     MANUAL_DIAL_CALL_SID_FIELD_NUMBER: _ClassVar[int]
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
@@ -105,7 +105,7 @@ class UpdateScheduledCallbackToClosedRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CreateCallbackWithDetailsReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("callback", "callback_details", "name", "former_call_type", "former_call_sid", "country_sid", "manager_login")
     CALLBACK_FIELD_NUMBER: _ClassVar[int]
     CALLBACK_DETAILS_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -123,13 +123,13 @@ class CreateCallbackWithDetailsReq(_message.Message):
     def __init__(self, callback: _Optional[_Union[ScheduledCallback, _Mapping]] = ..., callback_details: _Optional[_Iterable[_Union[ScheduledCallbackDetail, _Mapping]]] = ..., name: _Optional[str] = ..., former_call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., former_call_sid: _Optional[int] = ..., country_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ..., manager_login: _Optional[bool] = ...) -> None: ...
 
 class CreateCallbackWithDetailsRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_id",)
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     scheduled_callback_id: str
     def __init__(self, scheduled_callback_id: _Optional[str] = ...) -> None: ...
 
 class UpdateScheduledCallbackReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_id", "new_status", "start_time", "end_time", "phone_number", "caller_id", "skills", "last_updated_by", "notes", "callback_details", "name")
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     NEW_STATUS_FIELD_NUMBER: _ClassVar[int]
     START_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -159,7 +159,7 @@ class UpdateScheduledCallbackRes(_message.Message):
     def __init__(self) -> None: ...
 
 class ScheduledCallbackWithDetails(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback_id", "service_id", "status", "start_time", "end_time", "phone_number", "caller_id", "skills", "notes", "create_date", "last_update", "created_by", "last_updated_by", "name", "former_call_sid", "former_call_type", "callback_details", "country_sid")
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
@@ -199,7 +199,7 @@ class ScheduledCallbackWithDetails(_message.Message):
     def __init__(self, scheduled_callback_id: _Optional[str] = ..., service_id: _Optional[str] = ..., status: _Optional[_Union[_cbs_pb2.ScheduledCallbackStatus, str]] = ..., start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., phone_number: _Optional[str] = ..., caller_id: _Optional[str] = ..., skills: _Optional[_Iterable[str]] = ..., notes: _Optional[str] = ..., create_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_update: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., created_by: _Optional[str] = ..., last_updated_by: _Optional[str] = ..., name: _Optional[str] = ..., former_call_sid: _Optional[int] = ..., former_call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., callback_details: _Optional[_Iterable[_Union[ScheduledCallbackDetail, _Mapping]]] = ..., country_sid: _Optional[_Union[_wrappers_pb2.Int64Value, _Mapping]] = ...) -> None: ...
 
 class GetScheduledCallbackWithDetailsReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("service_id", "scheduled_callback_id")
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
     SCHEDULED_CALLBACK_ID_FIELD_NUMBER: _ClassVar[int]
     service_id: str
@@ -207,19 +207,19 @@ class GetScheduledCallbackWithDetailsReq(_message.Message):
     def __init__(self, service_id: _Optional[str] = ..., scheduled_callback_id: _Optional[str] = ...) -> None: ...
 
 class GetScheduledCallbackWithDetailsRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("callback",)
     CALLBACK_FIELD_NUMBER: _ClassVar[int]
     callback: ScheduledCallbackWithDetails
     def __init__(self, callback: _Optional[_Union[ScheduledCallbackWithDetails, _Mapping]] = ...) -> None: ...
 
 class ListScheduledCallbacksWithDetailsRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("callbacks",)
     CALLBACKS_FIELD_NUMBER: _ClassVar[int]
     callbacks: _containers.RepeatedCompositeFieldContainer[ScheduledCallbackWithDetails]
     def __init__(self, callbacks: _Optional[_Iterable[_Union[ScheduledCallbackWithDetails, _Mapping]]] = ...) -> None: ...
 
 class GetNextScheduledCallbackWithDetailsReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("service_id", "agent_skills")
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
     AGENT_SKILLS_FIELD_NUMBER: _ClassVar[int]
     service_id: str
@@ -227,13 +227,13 @@ class GetNextScheduledCallbackWithDetailsReq(_message.Message):
     def __init__(self, service_id: _Optional[str] = ..., agent_skills: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class GetNextScheduledCallbackWithDetailsRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("scheduled_callback",)
     SCHEDULED_CALLBACK_FIELD_NUMBER: _ClassVar[int]
     scheduled_callback: ScheduledCallbackWithDetails
     def __init__(self, scheduled_callback: _Optional[_Union[ScheduledCallbackWithDetails, _Mapping]] = ...) -> None: ...
 
 class ListScheduledCallbacksWithDetailsReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("phone_number", "caller_id", "from_start_time", "to_start_time", "skills")
     PHONE_NUMBER_FIELD_NUMBER: _ClassVar[int]
     CALLER_ID_FIELD_NUMBER: _ClassVar[int]
     FROM_START_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -247,7 +247,7 @@ class ListScheduledCallbacksWithDetailsReq(_message.Message):
     def __init__(self, phone_number: _Optional[str] = ..., caller_id: _Optional[str] = ..., from_start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., to_start_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., skills: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ListScheduledCallbacksWithDetailsBySkillsReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("service_id", "skills")
     SERVICE_ID_FIELD_NUMBER: _ClassVar[int]
     SKILLS_FIELD_NUMBER: _ClassVar[int]
     service_id: str

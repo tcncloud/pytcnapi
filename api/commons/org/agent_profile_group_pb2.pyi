@@ -11,7 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class AgentProfileGroup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("id", "org_id", "name", "priority_groups", "last_updated", "default_group")
     ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
@@ -27,7 +27,7 @@ class AgentProfileGroup(_message.Message):
     def __init__(self, id: _Optional[str] = ..., org_id: _Optional[str] = ..., name: _Optional[str] = ..., priority_groups: _Optional[_Iterable[_Union[PriorityGroup, _Mapping]]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., default_group: _Optional[bool] = ...) -> None: ...
 
 class PriorityGroup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("threshold", "channel_type")
     THRESHOLD_FIELD_NUMBER: _ClassVar[int]
     CHANNEL_TYPE_FIELD_NUMBER: _ClassVar[int]
     threshold: int

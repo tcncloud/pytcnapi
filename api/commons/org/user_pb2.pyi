@@ -12,16 +12,16 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class User(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user_id", "org_id", "username", "p3_permission_group_id", "login_sid", "agent_sid", "region_id", "partner_agent_id", "client_sid", "region_sid_map", "api_key", "email", "login_disabled", "caller_ids", "linkback_numbers", "auth_user_id", "enable_mfa", "first_name", "last_name", "created", "last_updated", "password_reset_required", "connection_id", "time_zone_override", "permission_group_ids", "trust_ids", "default_region", "default_application", "user_caller_id", "agent_profile_group_id", "skills", "agent", "account_owner", "email_verified", "whitelisted_ips")
     class RegionSidMapEntry(_message.Message):
-        __slots__ = ()
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: User.RegionSids
         def __init__(self, key: _Optional[str] = ..., value: _Optional[_Union[User.RegionSids, _Mapping]] = ...) -> None: ...
     class RegionSids(_message.Message):
-        __slots__ = ()
+        __slots__ = ("login_sid", "agent_sid", "client_sid")
         LOGIN_SID_FIELD_NUMBER: _ClassVar[int]
         AGENT_SID_FIELD_NUMBER: _ClassVar[int]
         CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -102,14 +102,14 @@ class User(_message.Message):
     def __init__(self, user_id: _Optional[str] = ..., org_id: _Optional[str] = ..., username: _Optional[str] = ..., p3_permission_group_id: _Optional[str] = ..., login_sid: _Optional[int] = ..., agent_sid: _Optional[int] = ..., region_id: _Optional[str] = ..., partner_agent_id: _Optional[str] = ..., client_sid: _Optional[int] = ..., region_sid_map: _Optional[_Mapping[str, User.RegionSids]] = ..., api_key: _Optional[str] = ..., email: _Optional[str] = ..., login_disabled: _Optional[bool] = ..., caller_ids: _Optional[_Iterable[str]] = ..., linkback_numbers: _Optional[_Iterable[str]] = ..., auth_user_id: _Optional[str] = ..., enable_mfa: _Optional[bool] = ..., first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., created: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_updated: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., password_reset_required: _Optional[bool] = ..., connection_id: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., time_zone_override: _Optional[_Union[_org_pb2.TimeZoneWrapper, _Mapping]] = ..., permission_group_ids: _Optional[_Iterable[str]] = ..., trust_ids: _Optional[_Iterable[str]] = ..., default_region: _Optional[str] = ..., default_application: _Optional[_Union[_org_pb2.OperatorApplications, str]] = ..., user_caller_id: _Optional[str] = ..., agent_profile_group_id: _Optional[str] = ..., skills: _Optional[_Iterable[_Union[Skill, _Mapping]]] = ..., agent: _Optional[bool] = ..., account_owner: _Optional[bool] = ..., email_verified: _Optional[bool] = ..., whitelisted_ips: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class MfaInfo(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id", "user_id", "mfa_enabled", "none", "otp", "duo", "totp")
     class NoneSelected(_message.Message):
-        __slots__ = ()
+        __slots__ = ("timeout",)
         TIMEOUT_FIELD_NUMBER: _ClassVar[int]
         timeout: _timestamp_pb2.Timestamp
         def __init__(self, timeout: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
     class OtpType(_message.Message):
-        __slots__ = ()
+        __slots__ = ("email",)
         class EmailDeliveryMethod(_message.Message):
             __slots__ = ()
             def __init__(self) -> None: ...
@@ -117,7 +117,7 @@ class MfaInfo(_message.Message):
         email: MfaInfo.OtpType.EmailDeliveryMethod
         def __init__(self, email: _Optional[_Union[MfaInfo.OtpType.EmailDeliveryMethod, _Mapping]] = ...) -> None: ...
     class Duo(_message.Message):
-        __slots__ = ()
+        __slots__ = ("duo_username",)
         DUO_USERNAME_FIELD_NUMBER: _ClassVar[int]
         duo_username: str
         def __init__(self, duo_username: _Optional[str] = ...) -> None: ...
@@ -141,7 +141,7 @@ class MfaInfo(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., user_id: _Optional[str] = ..., mfa_enabled: _Optional[bool] = ..., none: _Optional[_Union[MfaInfo.NoneSelected, _Mapping]] = ..., otp: _Optional[_Union[MfaInfo.OtpType, _Mapping]] = ..., duo: _Optional[_Union[MfaInfo.Duo, _Mapping]] = ..., totp: _Optional[_Union[MfaInfo.Totp, _Mapping]] = ...) -> None: ...
 
 class Skill(_message.Message):
-    __slots__ = ()
+    __slots__ = ("level", "name", "description", "skill_sid")
     LEVEL_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -153,7 +153,7 @@ class Skill(_message.Message):
     def __init__(self, level: _Optional[int] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., skill_sid: _Optional[int] = ...) -> None: ...
 
 class PasswordResetLink(_message.Message):
-    __slots__ = ()
+    __slots__ = ("link_id", "user_id", "org_id", "expiration")
     LINK_ID_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]

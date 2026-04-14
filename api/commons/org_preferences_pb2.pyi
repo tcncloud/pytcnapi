@@ -135,13 +135,13 @@ OPERATOR_LANGUAGE_DIRECTION_LEFT_TO_RIGHT: OperatorLanguageDirection
 OPERATOR_LANGUAGE_DIRECTION_RIGHT_TO_LEFT: OperatorLanguageDirection
 
 class OperatorDisplayLanguage(_message.Message):
-    __slots__ = ()
+    __slots__ = ("value",)
     VALUE_FIELD_NUMBER: _ClassVar[int]
     value: str
     def __init__(self, value: _Optional[str] = ...) -> None: ...
 
 class LocalePreferences(_message.Message):
-    __slots__ = ()
+    __slots__ = ("language_tag", "use_script_direction_right_to_left", "default_currency", "operator_display_language", "operator_language_direction")
     LANGUAGE_TAG_FIELD_NUMBER: _ClassVar[int]
     USE_SCRIPT_DIRECTION_RIGHT_TO_LEFT_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_CURRENCY_FIELD_NUMBER: _ClassVar[int]

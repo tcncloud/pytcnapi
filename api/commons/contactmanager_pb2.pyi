@@ -36,7 +36,7 @@ CONTACT_ENTRY_STATUS_DONE: ContactEntryStatus
 CONTACT_ENTRY_STATUS_EXPIRED: ContactEntryStatus
 
 class ContactManagerEntry(_message.Message):
-    __slots__ = ()
+    __slots__ = ("contact_manager_entry_id", "contact_manager_entry_list_id", "key", "value", "type", "date_created")
     CONTACT_MANAGER_ENTRY_ID_FIELD_NUMBER: _ClassVar[int]
     CONTACT_MANAGER_ENTRY_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     KEY_FIELD_NUMBER: _ClassVar[int]
@@ -52,7 +52,7 @@ class ContactManagerEntry(_message.Message):
     def __init__(self, contact_manager_entry_id: _Optional[int] = ..., contact_manager_entry_list_id: _Optional[int] = ..., key: _Optional[str] = ..., value: _Optional[str] = ..., type: _Optional[str] = ..., date_created: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ContactManagerList(_message.Message):
-    __slots__ = ()
+    __slots__ = ("contact_manager_list_id", "org_id", "project_id", "file_name", "description", "list_details", "ttl", "date_created")
     CONTACT_MANAGER_LIST_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     PROJECT_ID_FIELD_NUMBER: _ClassVar[int]
@@ -72,7 +72,7 @@ class ContactManagerList(_message.Message):
     def __init__(self, contact_manager_list_id: _Optional[int] = ..., org_id: _Optional[str] = ..., project_id: _Optional[int] = ..., file_name: _Optional[str] = ..., description: _Optional[str] = ..., list_details: _Optional[_Iterable[str]] = ..., ttl: _Optional[int] = ..., date_created: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ContactManagerEntryVal(_message.Message):
-    __slots__ = ()
+    __slots__ = ("type", "value")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     type: str

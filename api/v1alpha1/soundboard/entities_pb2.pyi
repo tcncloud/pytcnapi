@@ -11,7 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class SoundboardDetails(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard_id", "file_name", "file_type", "title", "description", "date_created", "last_modified", "file_size", "recording_length")
     SOUNDBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     FILE_NAME_FIELD_NUMBER: _ClassVar[int]
     FILE_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -33,31 +33,31 @@ class SoundboardDetails(_message.Message):
     def __init__(self, soundboard_id: _Optional[int] = ..., file_name: _Optional[str] = ..., file_type: _Optional[_Union[_org_pb2.RecordingFileType, str]] = ..., title: _Optional[str] = ..., description: _Optional[str] = ..., date_created: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., last_modified: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., file_size: _Optional[int] = ..., recording_length: _Optional[int] = ...) -> None: ...
 
 class GetSoundboardFileReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard_id",)
     SOUNDBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     soundboard_id: int
     def __init__(self, soundboard_id: _Optional[int] = ...) -> None: ...
 
 class GetSoundboardFileRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard_file",)
     SOUNDBOARD_FILE_FIELD_NUMBER: _ClassVar[int]
     soundboard_file: bytes
     def __init__(self, soundboard_file: _Optional[bytes] = ...) -> None: ...
 
 class GetSoundboardReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard_id",)
     SOUNDBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     soundboard_id: int
     def __init__(self, soundboard_id: _Optional[int] = ...) -> None: ...
 
 class GetSoundboardRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard",)
     SOUNDBOARD_FIELD_NUMBER: _ClassVar[int]
     soundboard: SoundboardDetails
     def __init__(self, soundboard: _Optional[_Union[SoundboardDetails, _Mapping]] = ...) -> None: ...
 
 class CreateSoundboardReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard", "fts_id")
     SOUNDBOARD_FIELD_NUMBER: _ClassVar[int]
     FTS_ID_FIELD_NUMBER: _ClassVar[int]
     soundboard: SoundboardDetails
@@ -65,7 +65,7 @@ class CreateSoundboardReq(_message.Message):
     def __init__(self, soundboard: _Optional[_Union[SoundboardDetails, _Mapping]] = ..., fts_id: _Optional[str] = ...) -> None: ...
 
 class CreateSoundboardRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard_id", "fts_id")
     SOUNDBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     FTS_ID_FIELD_NUMBER: _ClassVar[int]
     soundboard_id: int
@@ -77,25 +77,25 @@ class ListSoundboardsReq(_message.Message):
     def __init__(self) -> None: ...
 
 class ListSoundboardsRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboards",)
     SOUNDBOARDS_FIELD_NUMBER: _ClassVar[int]
     soundboards: _containers.RepeatedCompositeFieldContainer[SoundboardDetails]
     def __init__(self, soundboards: _Optional[_Iterable[_Union[SoundboardDetails, _Mapping]]] = ...) -> None: ...
 
 class UpdateSoundboardReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard",)
     SOUNDBOARD_FIELD_NUMBER: _ClassVar[int]
     soundboard: SoundboardDetails
     def __init__(self, soundboard: _Optional[_Union[SoundboardDetails, _Mapping]] = ...) -> None: ...
 
 class UpdateSoundboardRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard_id",)
     SOUNDBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     soundboard_id: int
     def __init__(self, soundboard_id: _Optional[int] = ...) -> None: ...
 
 class DeleteSoundboardReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("soundboard_id",)
     SOUNDBOARD_ID_FIELD_NUMBER: _ClassVar[int]
     soundboard_id: int
     def __init__(self, soundboard_id: _Optional[int] = ...) -> None: ...

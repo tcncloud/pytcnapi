@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Invoice(_message.Message):
-    __slots__ = ()
+    __slots__ = ("invoice_id", "billing_cycle", "create_time", "update_time", "delete_time", "items", "url", "client_id")
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
@@ -32,7 +32,7 @@ class Invoice(_message.Message):
     def __init__(self, invoice_id: _Optional[str] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., url: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., client_id: _Optional[str] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ()
+    __slots__ = ("invoice_item_id", "product", "price", "create_time", "update_time", "description", "date", "columns", "client_id")
     INVOICE_ITEM_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     PRICE_FIELD_NUMBER: _ClassVar[int]
@@ -54,7 +54,7 @@ class InvoiceItem(_message.Message):
     def __init__(self, invoice_item_id: _Optional[str] = ..., product: _Optional[_Union[_product_pb2.Product, str]] = ..., price: _Optional[float] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., description: _Optional[str] = ..., date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., columns: _Optional[_Iterable[_Union[InvoiceItemColumn, _Mapping]]] = ..., client_id: _Optional[str] = ...) -> None: ...
 
 class InvoiceItemColumn(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "value", "column_value")
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     COLUMN_VALUE_FIELD_NUMBER: _ClassVar[int]

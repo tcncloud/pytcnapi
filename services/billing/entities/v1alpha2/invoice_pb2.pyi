@@ -36,7 +36,7 @@ PRODUCT_OMNI_SMS_RECEIVED: Product
 PRODUCT_COMPLIANCE: Product
 
 class Invoice(_message.Message):
-    __slots__ = ()
+    __slots__ = ("billing_cycle", "create_time", "items", "download_url")
     BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     ITEMS_FIELD_NUMBER: _ClassVar[int]
@@ -48,7 +48,7 @@ class Invoice(_message.Message):
     def __init__(self, billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., download_url: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ()
+    __slots__ = ("client_id", "product", "description", "date", "price", "columns", "rated_amount", "product_id")
     CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -68,7 +68,7 @@ class InvoiceItem(_message.Message):
     def __init__(self, client_id: _Optional[str] = ..., product: _Optional[_Union[Product, str]] = ..., description: _Optional[str] = ..., date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., price: _Optional[float] = ..., columns: _Optional[_Iterable[_Union[InvoiceItemColumn, _Mapping]]] = ..., rated_amount: _Optional[_Union[_decimal_pb2.Decimal, _Mapping]] = ..., product_id: _Optional[str] = ...) -> None: ...
 
 class InvoiceItemColumn(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "value")
     NAME_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
     name: str

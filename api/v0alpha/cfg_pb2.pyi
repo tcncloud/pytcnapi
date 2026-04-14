@@ -8,20 +8,20 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetConfigReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("region_id",)
     REGION_ID_FIELD_NUMBER: _ClassVar[int]
     region_id: str
     def __init__(self, region_id: _Optional[str] = ...) -> None: ...
 
 class WebAgent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("open_sips", "engine_priority", "log_level", "use_stun", "use_fast_stun", "use_fast_ice", "ice_timeout", "set_final_codec", "use_rport", "server", "base_url", "stun_server_address")
     class OpenSips(_message.Message):
-        __slots__ = ()
+        __slots__ = ("address",)
         ADDRESS_FIELD_NUMBER: _ClassVar[int]
         address: str
         def __init__(self, address: _Optional[str] = ...) -> None: ...
     class EnginePriority(_message.Message):
-        __slots__ = ()
+        __slots__ = ("java", "webrtc", "ns", "flash", "app", "p2p", "access_num", "native")
         JAVA_FIELD_NUMBER: _ClassVar[int]
         WEBRTC_FIELD_NUMBER: _ClassVar[int]
         NS_FIELD_NUMBER: _ClassVar[int]
@@ -40,7 +40,7 @@ class WebAgent(_message.Message):
         native: int
         def __init__(self, java: _Optional[int] = ..., webrtc: _Optional[int] = ..., ns: _Optional[int] = ..., flash: _Optional[int] = ..., app: _Optional[int] = ..., p2p: _Optional[int] = ..., access_num: _Optional[int] = ..., native: _Optional[int] = ...) -> None: ...
     class Server(_message.Message):
-        __slots__ = ()
+        __slots__ = ("sip", "webrtc")
         SIP_FIELD_NUMBER: _ClassVar[int]
         WEBRTC_FIELD_NUMBER: _ClassVar[int]
         sip: str

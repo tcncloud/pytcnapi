@@ -52,7 +52,7 @@ PHONE_BOOK_PHONE_NUMBER_TYPE_OUTBOUND: PhoneBookPhoneNumberType
 PHONE_BOOK_PHONE_NUMBER_TYPE_TRANSFER: PhoneBookPhoneNumberType
 
 class ClientInfoDataRow(_message.Message):
-    __slots__ = ()
+    __slots__ = ("field_label", "field_value", "is_phone", "dialed_number", "contact_field_description_sid")
     FIELD_LABEL_FIELD_NUMBER: _ClassVar[int]
     FIELD_VALUE_FIELD_NUMBER: _ClassVar[int]
     IS_PHONE_FIELD_NUMBER: _ClassVar[int]
@@ -66,7 +66,7 @@ class ClientInfoDataRow(_message.Message):
     def __init__(self, field_label: _Optional[str] = ..., field_value: _Optional[str] = ..., is_phone: _Optional[bool] = ..., dialed_number: _Optional[bool] = ..., contact_field_description_sid: _Optional[int] = ...) -> None: ...
 
 class RGBColor(_message.Message):
-    __slots__ = ()
+    __slots__ = ("red", "green", "blue")
     RED_FIELD_NUMBER: _ClassVar[int]
     GREEN_FIELD_NUMBER: _ClassVar[int]
     BLUE_FIELD_NUMBER: _ClassVar[int]
@@ -76,7 +76,7 @@ class RGBColor(_message.Message):
     def __init__(self, red: _Optional[int] = ..., green: _Optional[int] = ..., blue: _Optional[int] = ...) -> None: ...
 
 class DialedNumberFieldSettings(_message.Message):
-    __slots__ = ()
+    __slots__ = ("should_display", "color", "bg_color", "allow_agent_copy")
     SHOULD_DISPLAY_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
     BG_COLOR_FIELD_NUMBER: _ClassVar[int]
@@ -88,7 +88,7 @@ class DialedNumberFieldSettings(_message.Message):
     def __init__(self, should_display: _Optional[bool] = ..., color: _Optional[_Union[RGBColor, _Mapping]] = ..., bg_color: _Optional[_Union[RGBColor, _Mapping]] = ..., allow_agent_copy: _Optional[bool] = ...) -> None: ...
 
 class ClientInfoDisplayTemplateRow(_message.Message):
-    __slots__ = ()
+    __slots__ = ("field_label", "color", "bg_color", "contact_field_description_sid", "allow_agent_copy")
     FIELD_LABEL_FIELD_NUMBER: _ClassVar[int]
     COLOR_FIELD_NUMBER: _ClassVar[int]
     BG_COLOR_FIELD_NUMBER: _ClassVar[int]

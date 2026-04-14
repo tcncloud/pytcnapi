@@ -33,7 +33,7 @@ CATEGORY_WORKFORCE_ENGAGEMENT_WORKFORCE_OPTIMIZATION_AI_BUNDLE: Category
 CATEGORY_WORKFORCE_ENGAGEMENT_WORKFORCE_MANAGEMENT_SCHEDULER: Category
 
 class BillingTag(_message.Message):
-    __slots__ = ()
+    __slots__ = ("billing_tag_id", "name", "create_time", "update_time", "delete_time", "category", "billing_category")
     BILLING_TAG_ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]

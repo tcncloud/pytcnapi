@@ -13,7 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class GetAgentResponseDataReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("call_sid", "call_type")
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     call_sid: int
@@ -21,9 +21,9 @@ class GetAgentResponseDataReq(_message.Message):
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
 
 class GetAgentResponseDataRes(_message.Message):
-    __slots__ = ()
+    __slots__ = ("call_sid", "call_type", "responses")
     class ResponsesEntry(_message.Message):
-        __slots__ = ()
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -38,7 +38,7 @@ class GetAgentResponseDataRes(_message.Message):
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., responses: _Optional[_Mapping[str, str]] = ...) -> None: ...
 
 class GetCallReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("call_sid", "call_type")
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     call_sid: int
@@ -46,7 +46,7 @@ class GetCallReq(_message.Message):
     def __init__(self, call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ...) -> None: ...
 
 class UpdateVoicemailBoxReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("call_sid", "call_type", "pbx_extension")
     CALL_SID_FIELD_NUMBER: _ClassVar[int]
     CALL_TYPE_FIELD_NUMBER: _ClassVar[int]
     PBX_EXTENSION_FIELD_NUMBER: _ClassVar[int]
@@ -60,16 +60,16 @@ class UpdateVoicemailBoxRes(_message.Message):
     def __init__(self) -> None: ...
 
 class CallObject(_message.Message):
-    __slots__ = ()
+    __slots__ = ("oid", "call_sid", "call_type", "updated", "skills", "recording_file", "updated_date", "src_number", "dst_number", "caller_id_name", "agent_worker", "events", "call_data", "agent_response_data", "recorded", "connected", "suspended", "disconnect_reason", "voicemailed", "voicemail_box", "originated", "folder", "rtp_info")
     class SkillsEntry(_message.Message):
-        __slots__ = ()
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
         value: bool
         def __init__(self, key: _Optional[str] = ..., value: _Optional[bool] = ...) -> None: ...
     class AgentResponseDataEntry(_message.Message):
-        __slots__ = ()
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str
@@ -124,9 +124,9 @@ class CallObject(_message.Message):
     def __init__(self, oid: _Optional[str] = ..., call_sid: _Optional[int] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., updated: _Optional[int] = ..., skills: _Optional[_Mapping[str, bool]] = ..., recording_file: _Optional[str] = ..., updated_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., src_number: _Optional[str] = ..., dst_number: _Optional[str] = ..., caller_id_name: _Optional[str] = ..., agent_worker: _Optional[str] = ..., events: _Optional[_Iterable[str]] = ..., call_data: _Optional[str] = ..., agent_response_data: _Optional[_Mapping[str, str]] = ..., recorded: _Optional[bool] = ..., connected: _Optional[bool] = ..., suspended: _Optional[bool] = ..., disconnect_reason: _Optional[str] = ..., voicemailed: _Optional[bool] = ..., voicemail_box: _Optional[str] = ..., originated: _Optional[str] = ..., folder: _Optional[str] = ..., rtp_info: _Optional[str] = ...) -> None: ...
 
 class UpdateAgentResponseDataReq(_message.Message):
-    __slots__ = ()
+    __slots__ = ("call_sid", "call_type", "responses")
     class ResponsesEntry(_message.Message):
-        __slots__ = ()
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str

@@ -23,7 +23,7 @@ HOLD_QUEUE_MONITOR_STATUS_FAILED: HoldQueueMonitorStatus
 HOLD_QUEUE_MONITOR_STATUS_ENDED: HoldQueueMonitorStatus
 
 class HoldQueueCallStats(_message.Message):
-    __slots__ = ()
+    __slots__ = ("call_id", "org_id", "campaign_id", "phone_number", "status", "monitor_duration_millis", "monitor_start_time", "monitor_end_time")
     CALL_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     CAMPAIGN_ID_FIELD_NUMBER: _ClassVar[int]

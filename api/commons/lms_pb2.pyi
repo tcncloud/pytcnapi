@@ -359,7 +359,7 @@ TIME_DAYS: TimeUnit
 TIME_HOURS: TimeUnit
 
 class RecordField(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "type")
     NAME_FIELD_NUMBER: _ClassVar[int]
     TYPE_FIELD_NUMBER: _ClassVar[int]
     name: str
@@ -367,7 +367,7 @@ class RecordField(_message.Message):
     def __init__(self, name: _Optional[str] = ..., type: _Optional[_Union[RecordType, str]] = ...) -> None: ...
 
 class FilePattern(_message.Message):
-    __slots__ = ()
+    __slots__ = ("type", "directory", "filename", "prefixes", "date_format", "suffix", "file_extension", "date_prefix", "day_to_use")
     TYPE_FIELD_NUMBER: _ClassVar[int]
     DIRECTORY_FIELD_NUMBER: _ClassVar[int]
     FILENAME_FIELD_NUMBER: _ClassVar[int]
@@ -389,7 +389,7 @@ class FilePattern(_message.Message):
     def __init__(self, type: _Optional[_Union[FilePatternType, str]] = ..., directory: _Optional[str] = ..., filename: _Optional[str] = ..., prefixes: _Optional[_Iterable[str]] = ..., date_format: _Optional[str] = ..., suffix: _Optional[str] = ..., file_extension: _Optional[str] = ..., date_prefix: _Optional[bool] = ..., day_to_use: _Optional[_Union[RelativeDay, str]] = ...) -> None: ...
 
 class ConstructedFilename(_message.Message):
-    __slots__ = ()
+    __slots__ = ("override_filename", "prefix", "date_format", "suffix", "file_extension", "date_position", "day_to_use")
     OVERRIDE_FILENAME_FIELD_NUMBER: _ClassVar[int]
     PREFIX_FIELD_NUMBER: _ClassVar[int]
     DATE_FORMAT_FIELD_NUMBER: _ClassVar[int]
@@ -407,7 +407,7 @@ class ConstructedFilename(_message.Message):
     def __init__(self, override_filename: _Optional[_Union[_wrappers_pb2.StringValue, _Mapping]] = ..., prefix: _Optional[str] = ..., date_format: _Optional[str] = ..., suffix: _Optional[str] = ..., file_extension: _Optional[str] = ..., date_position: _Optional[_Union[DatePosition, str]] = ..., day_to_use: _Optional[_Union[RelativeDay, str]] = ...) -> None: ...
 
 class PaginationTerminator(_message.Message):
-    __slots__ = ()
+    __slots__ = ("key", "negate", "exists_check", "num_greater_than", "num_less_than", "num_equals", "count_less_than", "str_equals", "str_contains", "bool_equals")
     KEY_FIELD_NUMBER: _ClassVar[int]
     NEGATE_FIELD_NUMBER: _ClassVar[int]
     EXISTS_CHECK_FIELD_NUMBER: _ClassVar[int]
@@ -431,7 +431,7 @@ class PaginationTerminator(_message.Message):
     def __init__(self, key: _Optional[str] = ..., negate: _Optional[bool] = ..., exists_check: _Optional[bool] = ..., num_greater_than: _Optional[float] = ..., num_less_than: _Optional[float] = ..., num_equals: _Optional[float] = ..., count_less_than: _Optional[int] = ..., str_equals: _Optional[str] = ..., str_contains: _Optional[str] = ..., bool_equals: _Optional[bool] = ...) -> None: ...
 
 class Expiration(_message.Message):
-    __slots__ = ()
+    __slots__ = ("units", "quantity")
     UNITS_FIELD_NUMBER: _ClassVar[int]
     QUANTITY_FIELD_NUMBER: _ClassVar[int]
     units: TimeUnit

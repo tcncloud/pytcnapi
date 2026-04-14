@@ -13,7 +13,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateOrganizationRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "crm_id", "time_zone", "is_manual_only_account", "backoffice_theme", "allowed_countries", "p3_parent_account")
     NAME_FIELD_NUMBER: _ClassVar[int]
     CRM_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
@@ -31,7 +31,7 @@ class CreateOrganizationRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., crm_id: _Optional[str] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., is_manual_only_account: _Optional[bool] = ..., backoffice_theme: _Optional[_Union[_org_pb2.ClientSkin, str]] = ..., allowed_countries: _Optional[_Iterable[_Union[_country_pb2.Country, str]]] = ..., p3_parent_account: _Optional[str] = ...) -> None: ...
 
 class CreateOrganizationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id",)
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
@@ -41,25 +41,25 @@ class GetOrganizationRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetOrganizationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization",)
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     organization: _organization_pb2.Organization
     def __init__(self, organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ...) -> None: ...
 
 class GetOrganizationByIdRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id",)
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
 
 class GetOrganizationByIdResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization",)
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     organization: _organization_pb2.Organization
     def __init__(self, organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ...) -> None: ...
 
 class ListOrganizationsRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("region_id", "archived")
     GLOBAL_FIELD_NUMBER: _ClassVar[int]
     REGION_ID_FIELD_NUMBER: _ClassVar[int]
     ARCHIVED_FIELD_NUMBER: _ClassVar[int]
@@ -68,13 +68,13 @@ class ListOrganizationsRequest(_message.Message):
     def __init__(self, region_id: _Optional[str] = ..., archived: _Optional[bool] = ..., **kwargs) -> None: ...
 
 class ListOrganizationsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization_details",)
     ORGANIZATION_DETAILS_FIELD_NUMBER: _ClassVar[int]
     organization_details: _containers.RepeatedCompositeFieldContainer[OrganizationDetails]
     def __init__(self, organization_details: _Optional[_Iterable[_Union[OrganizationDetails, _Mapping]]] = ...) -> None: ...
 
 class OrganizationDetails(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization", "last_scheduled_date")
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     LAST_SCHEDULED_DATE_FIELD_NUMBER: _ClassVar[int]
     organization: _organization_pb2.Organization
@@ -82,7 +82,7 @@ class OrganizationDetails(_message.Message):
     def __init__(self, organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ..., last_scheduled_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ConvertOrgToManualRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id",)
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
@@ -96,13 +96,13 @@ class ListOwnedOrgsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListOwnedOrgsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization_details",)
     ORGANIZATION_DETAILS_FIELD_NUMBER: _ClassVar[int]
     organization_details: _containers.RepeatedCompositeFieldContainer[OrganizationDetails]
     def __init__(self, organization_details: _Optional[_Iterable[_Union[OrganizationDetails, _Mapping]]] = ...) -> None: ...
 
 class UpdateOrganizationRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id", "time_zone", "billing_id", "name", "p3_owner_id", "archived", "field_mask")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     TIME_ZONE_FIELD_NUMBER: _ClassVar[int]
     BILLING_ID_FIELD_NUMBER: _ClassVar[int]
@@ -120,13 +120,13 @@ class UpdateOrganizationRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., time_zone: _Optional[_Union[_org_pb2.TimeZone, str]] = ..., billing_id: _Optional[str] = ..., name: _Optional[str] = ..., p3_owner_id: _Optional[str] = ..., archived: _Optional[bool] = ..., field_mask: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class UpdateOrganizationResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization",)
     ORGANIZATION_FIELD_NUMBER: _ClassVar[int]
     organization: _organization_pb2.Organization
     def __init__(self, organization: _Optional[_Union[_organization_pb2.Organization, _Mapping]] = ...) -> None: ...
 
 class ArchiveOrganizationRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id",)
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
@@ -136,7 +136,7 @@ class ArchiveOrganizationResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UnArchiveOrganizationRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id",)
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     org_id: str
     def __init__(self, org_id: _Optional[str] = ...) -> None: ...
@@ -150,9 +150,9 @@ class ListAllOrganizationsGloballyRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAllOrganizationsGloballyResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization_details",)
     class OrganizationDetails(_message.Message):
-        __slots__ = ()
+        __slots__ = ("org_id", "name", "client_sid", "billing_id", "region_id", "add_date", "last_scheduled_date", "archived")
         ORG_ID_FIELD_NUMBER: _ClassVar[int]
         NAME_FIELD_NUMBER: _ClassVar[int]
         CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -175,15 +175,15 @@ class ListAllOrganizationsGloballyResponse(_message.Message):
     def __init__(self, organization_details: _Optional[_Iterable[_Union[ListAllOrganizationsGloballyResponse.OrganizationDetails, _Mapping]]] = ...) -> None: ...
 
 class ListOrganizationsByRegionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("region_id",)
     REGION_ID_FIELD_NUMBER: _ClassVar[int]
     region_id: str
     def __init__(self, region_id: _Optional[str] = ...) -> None: ...
 
 class ListOrganizationsByRegionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization_details",)
     class OrganizationDetails(_message.Message):
-        __slots__ = ()
+        __slots__ = ("org_id", "name", "client_sid", "billing_id", "region_id", "add_date", "last_scheduled_date")
         ORG_ID_FIELD_NUMBER: _ClassVar[int]
         NAME_FIELD_NUMBER: _ClassVar[int]
         CLIENT_SID_FIELD_NUMBER: _ClassVar[int]
@@ -208,9 +208,9 @@ class ListArchivedOrganizationsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListArchivedOrganizationsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("organization_details",)
     class OrganizationDetails(_message.Message):
-        __slots__ = ()
+        __slots__ = ("org_id", "name", "billing_id", "add_date", "last_scheduled_date", "client_sid", "region_id")
         ORG_ID_FIELD_NUMBER: _ClassVar[int]
         NAME_FIELD_NUMBER: _ClassVar[int]
         BILLING_ID_FIELD_NUMBER: _ClassVar[int]

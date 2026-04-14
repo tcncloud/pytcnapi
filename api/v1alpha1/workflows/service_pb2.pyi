@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class PersistedWorkflowDefinition(_message.Message):
-    __slots__ = ()
+    __slots__ = ("flow_definition_id", "org_id", "application", "name", "labels", "description", "definition", "create_time", "update_time", "delete_time", "extra")
     FLOW_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     APPLICATION_FIELD_NUMBER: _ClassVar[int]
@@ -38,31 +38,31 @@ class PersistedWorkflowDefinition(_message.Message):
     def __init__(self, flow_definition_id: _Optional[str] = ..., org_id: _Optional[str] = ..., application: _Optional[str] = ..., name: _Optional[str] = ..., labels: _Optional[_Iterable[str]] = ..., description: _Optional[str] = ..., definition: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., extra: _Optional[str] = ...) -> None: ...
 
 class CreateWorkflowDefinitionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class CreateWorkflowDefinitionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class GetWorkflowDefinitionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition_id",)
     WORKFLOW_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     workflow_definition_id: str
     def __init__(self, workflow_definition_id: _Optional[str] = ...) -> None: ...
 
 class GetWorkflowDefinitionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class ListWorkflowDefinitionsRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("org_id", "application", "labels")
     ORG_ID_FIELD_NUMBER: _ClassVar[int]
     APPLICATION_FIELD_NUMBER: _ClassVar[int]
     LABELS_FIELD_NUMBER: _ClassVar[int]
@@ -72,43 +72,43 @@ class ListWorkflowDefinitionsRequest(_message.Message):
     def __init__(self, org_id: _Optional[str] = ..., application: _Optional[str] = ..., labels: _Optional[_Iterable[str]] = ...) -> None: ...
 
 class ListWorkflowDefinitionsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class UpdateWorkflowDefinitionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class UpdateWorkflowDefinitionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class DeleteWorkflowDefinitionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition_id",)
     WORKFLOW_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     workflow_definition_id: str
     def __init__(self, workflow_definition_id: _Optional[str] = ...) -> None: ...
 
 class DeleteWorkflowDefinitionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class ValidateWorkflowDefinitionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("workflow_definition",)
     WORKFLOW_DEFINITION_FIELD_NUMBER: _ClassVar[int]
     workflow_definition: PersistedWorkflowDefinition
     def __init__(self, workflow_definition: _Optional[_Union[PersistedWorkflowDefinition, _Mapping]] = ...) -> None: ...
 
 class ValidateWorkflowDefinitionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("valid", "error")
     VALID_FIELD_NUMBER: _ClassVar[int]
     ERROR_FIELD_NUMBER: _ClassVar[int]
     valid: bool

@@ -7,7 +7,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class IdpClient(_message.Message):
-    __slots__ = ()
+    __slots__ = ("idp_client_id", "secret", "redirect_uris", "trusted_peers", "name", "billing_id")
     IDP_CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
     SECRET_FIELD_NUMBER: _ClassVar[int]
     REDIRECT_URIS_FIELD_NUMBER: _ClassVar[int]

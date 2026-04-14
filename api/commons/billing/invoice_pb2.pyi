@@ -47,7 +47,7 @@ INVOICE_FORMAT_PROTO: InvoiceFormat
 INVOICE_FORMAT_CSV: InvoiceFormat
 
 class Invoice(_message.Message):
-    __slots__ = ()
+    __slots__ = ("items", "invoice_id", "billing_cycle", "create_time", "update_time")
     ITEMS_FIELD_NUMBER: _ClassVar[int]
     INVOICE_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_CYCLE_FIELD_NUMBER: _ClassVar[int]
@@ -61,7 +61,7 @@ class Invoice(_message.Message):
     def __init__(self, items: _Optional[_Iterable[_Union[InvoiceItem, _Mapping]]] = ..., invoice_id: _Optional[int] = ..., billing_cycle: _Optional[str] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class InvoiceItem(_message.Message):
-    __slots__ = ()
+    __slots__ = ("invoice_item_sid", "product", "amount", "date_created", "date_modified", "invoice_id")
     INVOICE_ITEM_SID_FIELD_NUMBER: _ClassVar[int]
     PRODUCT_FIELD_NUMBER: _ClassVar[int]
     AMOUNT_FIELD_NUMBER: _ClassVar[int]

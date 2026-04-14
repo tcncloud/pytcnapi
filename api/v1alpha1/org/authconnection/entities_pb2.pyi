@@ -11,7 +11,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class CreateAuthConnectionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("settings", "client_secret")
     SETTINGS_FIELD_NUMBER: _ClassVar[int]
     CLIENT_SECRET_FIELD_NUMBER: _ClassVar[int]
     settings: _auth_connections_pb2.AuthConnectionSettings
@@ -19,7 +19,7 @@ class CreateAuthConnectionRequest(_message.Message):
     def __init__(self, settings: _Optional[_Union[_auth_connections_pb2.AuthConnectionSettings, _Mapping]] = ..., client_secret: _Optional[str] = ...) -> None: ...
 
 class CreateAuthConnectionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("connection_id",)
     CONNECTION_ID_FIELD_NUMBER: _ClassVar[int]
     connection_id: str
     def __init__(self, connection_id: _Optional[str] = ...) -> None: ...
@@ -29,25 +29,25 @@ class GetAuthConnectionSettingsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class GetAuthConnectionSettingsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("settings",)
     SETTINGS_FIELD_NUMBER: _ClassVar[int]
     settings: _auth_connections_pb2.AuthConnectionSettings
     def __init__(self, settings: _Optional[_Union[_auth_connections_pb2.AuthConnectionSettings, _Mapping]] = ...) -> None: ...
 
 class GetAuthConnectionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("connection_id",)
     CONNECTION_ID_FIELD_NUMBER: _ClassVar[int]
     connection_id: str
     def __init__(self, connection_id: _Optional[str] = ...) -> None: ...
 
 class GetAuthConnectionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("settings",)
     SETTINGS_FIELD_NUMBER: _ClassVar[int]
     settings: _auth_connections_pb2.AuthConnectionSettings
     def __init__(self, settings: _Optional[_Union[_auth_connections_pb2.AuthConnectionSettings, _Mapping]] = ...) -> None: ...
 
 class DeleteAuthConnectionRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("connection_id",)
     CONNECTION_ID_FIELD_NUMBER: _ClassVar[int]
     connection_id: str
     def __init__(self, connection_id: _Optional[str] = ...) -> None: ...
@@ -57,9 +57,9 @@ class DeleteAuthConnectionResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateAuthConnectionSecretRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("connection_id", "client_secret", "secret_expiration")
     class SecretExpiration(_message.Message):
-        __slots__ = ()
+        __slots__ = ("date",)
         DATE_FIELD_NUMBER: _ClassVar[int]
         date: _timestamp_pb2.Timestamp
         def __init__(self, date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
@@ -76,7 +76,7 @@ class UpdateAuthConnectionSecretResponse(_message.Message):
     def __init__(self) -> None: ...
 
 class UpdateAuthConnectionGroupsRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("default_group", "custom_groups", "connection_id")
     DEFAULT_GROUP_FIELD_NUMBER: _ClassVar[int]
     CUSTOM_GROUPS_FIELD_NUMBER: _ClassVar[int]
     CONNECTION_ID_FIELD_NUMBER: _ClassVar[int]
@@ -94,9 +94,9 @@ class ListAuthConnectionIdsRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class ListAuthConnectionIdsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("connections",)
     class Connection(_message.Message):
-        __slots__ = ()
+        __slots__ = ("auth_connection_id", "name")
         AUTH_CONNECTION_ID_FIELD_NUMBER: _ClassVar[int]
         NAME_FIELD_NUMBER: _ClassVar[int]
         auth_connection_id: str

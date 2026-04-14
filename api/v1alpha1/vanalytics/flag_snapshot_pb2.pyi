@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ListFlagSnapshotsRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("page_size", "order_by", "page_token", "flag_snapshot_sids", "mask", "transcript_sid")
     PAGE_SIZE_FIELD_NUMBER: _ClassVar[int]
     ORDER_BY_FIELD_NUMBER: _ClassVar[int]
     PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
@@ -28,7 +28,7 @@ class ListFlagSnapshotsRequest(_message.Message):
     def __init__(self, page_size: _Optional[int] = ..., order_by: _Optional[str] = ..., page_token: _Optional[str] = ..., flag_snapshot_sids: _Optional[_Iterable[int]] = ..., mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ..., transcript_sid: _Optional[int] = ...) -> None: ...
 
 class ListFlagSnapshotsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("next_page_token", "flag_snapshots")
     NEXT_PAGE_TOKEN_FIELD_NUMBER: _ClassVar[int]
     FLAG_SNAPSHOTS_FIELD_NUMBER: _ClassVar[int]
     next_page_token: str
@@ -36,11 +36,11 @@ class ListFlagSnapshotsResponse(_message.Message):
     def __init__(self, next_page_token: _Optional[str] = ..., flag_snapshots: _Optional[_Iterable[_Union[FlagSnapshot, _Mapping]]] = ...) -> None: ...
 
 class FlagSnapshot(_message.Message):
-    __slots__ = ()
+    __slots__ = ("flag_snapshot_sid", "flag_sid", "name", "review_group_id", "notify_group_id", "priority", "version", "create_time", "must_review", "must_notify", "bool_expr", "dncl_list")
     class BoolExpr(_message.Message):
-        __slots__ = ()
+        __slots__ = ("filter",)
         class Filter(_message.Message):
-            __slots__ = ()
+            __slots__ = ("filter_sid",)
             FILTER_SID_FIELD_NUMBER: _ClassVar[int]
             filter_sid: int
             def __init__(self, filter_sid: _Optional[int] = ...) -> None: ...

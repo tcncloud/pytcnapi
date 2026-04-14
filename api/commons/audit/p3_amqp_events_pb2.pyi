@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class P3AMQPCallResultEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("result", "campaign_sid", "time_of_call", "call_type", "client_sid", "duration", "group_description", "end_time_of_call", "phone_number", "task_sid", "call_sid", "caller_id", "dtmf_responses")
     RESULT_FIELD_NUMBER: _ClassVar[int]
     CAMPAIGN_SID_FIELD_NUMBER: _ClassVar[int]
     TIME_OF_CALL_FIELD_NUMBER: _ClassVar[int]
@@ -42,9 +42,9 @@ class P3AMQPCallResultEvent(_message.Message):
     def __init__(self, result: _Optional[int] = ..., campaign_sid: _Optional[int] = ..., time_of_call: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., call_type: _Optional[_Union[_acd_pb2.CallType.Enum, str]] = ..., client_sid: _Optional[int] = ..., duration: _Optional[_Union[datetime.timedelta, _duration_pb2.Duration, _Mapping]] = ..., group_description: _Optional[str] = ..., end_time_of_call: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., phone_number: _Optional[str] = ..., task_sid: _Optional[int] = ..., call_sid: _Optional[int] = ..., caller_id: _Optional[str] = ..., dtmf_responses: _Optional[str] = ...) -> None: ...
 
 class P3AMQPAgentResponseEvent(_message.Message):
-    __slots__ = ()
+    __slots__ = ("client_sid", "agent_sid", "hunt_group_sid", "call_type", "campaign_sid", "call_sid", "aggregation_methods", "agent_name", "hunt_group_name", "responses_map")
     class ResponsesMapEntry(_message.Message):
-        __slots__ = ()
+        __slots__ = ("key", "value")
         KEY_FIELD_NUMBER: _ClassVar[int]
         VALUE_FIELD_NUMBER: _ClassVar[int]
         key: str

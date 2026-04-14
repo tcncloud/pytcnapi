@@ -21,7 +21,7 @@ BILLING_PLAN_STATUS_CREATING: BillingPlanStatus
 BILLING_PLAN_STATUS_CREATED: BillingPlanStatus
 
 class BillingPlanSnapshot(_message.Message):
-    __slots__ = ()
+    __slots__ = ("start_date", "end_date", "rates")
     START_DATE_FIELD_NUMBER: _ClassVar[int]
     END_DATE_FIELD_NUMBER: _ClassVar[int]
     RATES_FIELD_NUMBER: _ClassVar[int]
@@ -31,7 +31,7 @@ class BillingPlanSnapshot(_message.Message):
     def __init__(self, start_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., end_date: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., rates: _Optional[_Iterable[_Union[_rates_pb2.RateDefinition, _Mapping]]] = ...) -> None: ...
 
 class BillingPlan(_message.Message):
-    __slots__ = ()
+    __slots__ = ("billing_plan_id", "create_time", "update_time", "start_time", "end_time", "delete_time", "rate_definition_ids", "status", "actual_start_time")
     BILLING_PLAN_ID_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
     UPDATE_TIME_FIELD_NUMBER: _ClassVar[int]

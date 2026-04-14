@@ -22,7 +22,7 @@ RING_STRATEGY_ROUND_ROBIN: RingStrategy
 RING_STRATEGY_RANDOM: RingStrategy
 
 class PBXUser(_message.Message):
-    __slots__ = ()
+    __slots__ = ("pbx_user_id", "org_user_id", "sip_accounts")
     PBX_USER_ID_FIELD_NUMBER: _ClassVar[int]
     ORG_USER_ID_FIELD_NUMBER: _ClassVar[int]
     SIP_ACCOUNTS_FIELD_NUMBER: _ClassVar[int]
@@ -32,7 +32,7 @@ class PBXUser(_message.Message):
     def __init__(self, pbx_user_id: _Optional[str] = ..., org_user_id: _Optional[str] = ..., sip_accounts: _Optional[_Iterable[_Union[SIPAccount, _Mapping]]] = ...) -> None: ...
 
 class SIPAccount(_message.Message):
-    __slots__ = ()
+    __slots__ = ("sip_id", "is_active", "extension", "ring_groups")
     SIP_ID_FIELD_NUMBER: _ClassVar[int]
     IS_ACTIVE_FIELD_NUMBER: _ClassVar[int]
     EXTENSION_FIELD_NUMBER: _ClassVar[int]
@@ -44,7 +44,7 @@ class SIPAccount(_message.Message):
     def __init__(self, sip_id: _Optional[str] = ..., is_active: _Optional[bool] = ..., extension: _Optional[int] = ..., ring_groups: _Optional[_Iterable[_Union[RingGroup, _Mapping]]] = ...) -> None: ...
 
 class RingGroup(_message.Message):
-    __slots__ = ()
+    __slots__ = ("id", "name", "description", "extension", "ring_strategy", "pbx_users")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
@@ -60,7 +60,7 @@ class RingGroup(_message.Message):
     def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., description: _Optional[str] = ..., extension: _Optional[int] = ..., ring_strategy: _Optional[_Union[RingStrategy, str]] = ..., pbx_users: _Optional[_Iterable[_Union[PBXUser, _Mapping]]] = ...) -> None: ...
 
 class QueryPbxUsersRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("pbx_user_id", "response_mask")
     PBX_USER_ID_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_MASK_FIELD_NUMBER: _ClassVar[int]
     pbx_user_id: str
@@ -68,13 +68,13 @@ class QueryPbxUsersRequest(_message.Message):
     def __init__(self, pbx_user_id: _Optional[str] = ..., response_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class QueryPbxUsersResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("users",)
     USERS_FIELD_NUMBER: _ClassVar[int]
     users: _containers.RepeatedCompositeFieldContainer[PBXUser]
     def __init__(self, users: _Optional[_Iterable[_Union[PBXUser, _Mapping]]] = ...) -> None: ...
 
 class QueryRingGroupsRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("group_id", "response_mask")
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     RESPONSE_MASK_FIELD_NUMBER: _ClassVar[int]
     group_id: str
@@ -82,13 +82,13 @@ class QueryRingGroupsRequest(_message.Message):
     def __init__(self, group_id: _Optional[str] = ..., response_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class QueryRingGroupsResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("groups",)
     GROUPS_FIELD_NUMBER: _ClassVar[int]
     groups: _containers.RepeatedCompositeFieldContainer[RingGroup]
     def __init__(self, groups: _Optional[_Iterable[_Union[RingGroup, _Mapping]]] = ...) -> None: ...
 
 class UpdatePbxUserRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user", "update_mask")
     USER_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     user: PBXUser
@@ -96,13 +96,13 @@ class UpdatePbxUserRequest(_message.Message):
     def __init__(self, user: _Optional[_Union[PBXUser, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdatePbxUserResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("user",)
     USER_FIELD_NUMBER: _ClassVar[int]
     user: PBXUser
     def __init__(self, user: _Optional[_Union[PBXUser, _Mapping]] = ...) -> None: ...
 
 class UpdateRingGroupRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("group", "update_mask")
     GROUP_FIELD_NUMBER: _ClassVar[int]
     UPDATE_MASK_FIELD_NUMBER: _ClassVar[int]
     group: RingGroup
@@ -110,7 +110,7 @@ class UpdateRingGroupRequest(_message.Message):
     def __init__(self, group: _Optional[_Union[RingGroup, _Mapping]] = ..., update_mask: _Optional[_Union[_field_mask_pb2.FieldMask, _Mapping]] = ...) -> None: ...
 
 class UpdateRingGroupResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("group",)
     GROUP_FIELD_NUMBER: _ClassVar[int]
     group: RingGroup
     def __init__(self, group: _Optional[_Union[RingGroup, _Mapping]] = ...) -> None: ...
@@ -120,13 +120,13 @@ class AssignRandomExtensionRequest(_message.Message):
     def __init__(self) -> None: ...
 
 class AssignRandomExtensionResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("extension",)
     EXTENSION_FIELD_NUMBER: _ClassVar[int]
     extension: int
     def __init__(self, extension: _Optional[int] = ...) -> None: ...
 
 class CreateRingGroupRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("name", "description", "ring_strategy", "pbx_user_ids", "extension")
     NAME_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     RING_STRATEGY_FIELD_NUMBER: _ClassVar[int]
@@ -140,13 +140,13 @@ class CreateRingGroupRequest(_message.Message):
     def __init__(self, name: _Optional[str] = ..., description: _Optional[str] = ..., ring_strategy: _Optional[_Union[RingStrategy, str]] = ..., pbx_user_ids: _Optional[_Iterable[str]] = ..., extension: _Optional[int] = ...) -> None: ...
 
 class CreateRingGroupResponse(_message.Message):
-    __slots__ = ()
+    __slots__ = ("group",)
     GROUP_FIELD_NUMBER: _ClassVar[int]
     group: RingGroup
     def __init__(self, group: _Optional[_Union[RingGroup, _Mapping]] = ...) -> None: ...
 
 class DeleteRingGroupRequest(_message.Message):
-    __slots__ = ()
+    __slots__ = ("group_id",)
     GROUP_ID_FIELD_NUMBER: _ClassVar[int]
     group_id: str
     def __init__(self, group_id: _Optional[str] = ...) -> None: ...

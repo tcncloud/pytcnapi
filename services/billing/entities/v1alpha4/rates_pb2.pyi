@@ -12,7 +12,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class RateDefinition(_message.Message):
-    __slots__ = ()
+    __slots__ = ("rate_definition_id", "sku_id", "billing_tag", "config", "is_draft", "is_overwrite", "create_time", "update_time", "delete_time", "billing_tag_id")
     RATE_DEFINITION_ID_FIELD_NUMBER: _ClassVar[int]
     SKU_ID_FIELD_NUMBER: _ClassVar[int]
     BILLING_TAG_FIELD_NUMBER: _ClassVar[int]
@@ -36,7 +36,7 @@ class RateDefinition(_message.Message):
     def __init__(self, rate_definition_id: _Optional[str] = ..., sku_id: _Optional[str] = ..., billing_tag: _Optional[_Union[_tags_pb2.BillingTag, _Mapping]] = ..., config: _Optional[_Union[_products_pb2.ProductConfig, _Mapping]] = ..., is_draft: _Optional[bool] = ..., is_overwrite: _Optional[bool] = ..., create_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., update_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., delete_time: _Optional[_Union[datetime.datetime, _timestamp_pb2.Timestamp, _Mapping]] = ..., billing_tag_id: _Optional[str] = ...) -> None: ...
 
 class MatchingRule(_message.Message):
-    __slots__ = ()
+    __slots__ = ("matching_rule_id", "config", "create_time", "delete_time", "update_time", "rule_config", "country_code_prefix")
     MATCHING_RULE_ID_FIELD_NUMBER: _ClassVar[int]
     CONFIG_FIELD_NUMBER: _ClassVar[int]
     CREATE_TIME_FIELD_NUMBER: _ClassVar[int]
